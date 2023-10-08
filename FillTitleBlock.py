@@ -52,7 +52,7 @@ import Spreadsheet
 NumCounter = -1
 
 # Get the pages and go throug them one by one.
-pages = FreeCAD.ActiveDocument.findObjects("TechDraw::DrawPage")
+pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
 for page in pages:
     # Get the editable texts
     texts = page.Template.EditableTexts

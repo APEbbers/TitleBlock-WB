@@ -58,7 +58,7 @@ import Spreadsheet
 # Fill the spreadsheet with all the date from the titleblock
 def FillSheet():
     # get the fist page
-    page = FreeCAD.ActiveDocument.Page
+    page = App.ActiveDocument.Page
     # get the editable texts
     texts = page.Template.EditableTexts
     # get the spreadsheet "TitleBlock"
@@ -93,21 +93,21 @@ def FillSheet():
     #   3. Set the increase value to "Yes" or "No".
 
     # Add the total number of sheets. You can use this for your title block
-    pages = FreeCAD.ActiveDocument.findObjects("TechDraw::DrawPage")
+    pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
     sheet.set("A" + str(StartRow), "Number of sheets")
     sheet.set("B" + str(StartRow), str(len(pages)))
     sheet.set("C" + str(StartRow), "No")
 
     # get units scheme
-    SchemeNumber = FreeCAD.Units.getSchema()
+    SchemeNumber = App.Units.getSchema()
 
     # Add the length units of your FreeCAD application
     sheet.set("A" + str(StartRow + 1), "Length_Units")
     sheet.set(
         "B" + str(StartRow + 1),
         str(
-            FreeCAD.Units.schemaTranslate(
-                App.Units.Quantity(50, FreeCAD.Units.Length), SchemeNumber
+            App.Units.schemaTranslate(
+                App.Units.Quantity(50, App.Units.Length), SchemeNumber
             )
         ).split()[1],
     )
@@ -118,8 +118,8 @@ def FillSheet():
     sheet.set(
         "B" + str(StartRow + 2),
         str(
-            FreeCAD.Units.schemaTranslate(
-                App.Units.Quantity(50, FreeCAD.Units.Angle), SchemeNumber
+            App.Units.schemaTranslate(
+                App.Units.Quantity(50, App.Units.Angle), SchemeNumber
             )
         ).split()[1],
     )
@@ -130,8 +130,8 @@ def FillSheet():
     sheet.set(
         "B" + str(StartRow + 3),
         str(
-            FreeCAD.Units.schemaTranslate(
-                App.Units.Quantity(50, FreeCAD.Units.Mass), SchemeNumber
+            App.Units.schemaTranslate(
+                App.Units.Quantity(50, App.Units.Mass), SchemeNumber
             )
         ).split()[1],
     )

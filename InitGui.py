@@ -22,77 +22,75 @@
 # ***************************************************************************/
 
 # FreeCAD init script of the Work Features module
-import TitleBlockWBGui
+import os
+import FreeCAD as App
+import FreeCADGui as Gui
+from inspect import getsourcefile
 
-# import os
-# import FreeCAD as App
-# import FreeCADGui as Gui
-# from inspect import getsourcefile
+# from _version import __version__
 
-# # from _version import __version__
+__title__ = "TitleBlock Workbench"
+__author__ = "A.P. Ebbers"
+__url__ = "https://github.com/APEbbers/TechDrawTitleBlockUtility.git"
 
-# __title__ = "TitleBlock Workbench"
-# __author__ = "A.P. Ebbers"
-# __url__ = "https://github.com/APEbbers/TechDrawTitleBlockUtility.git"
+""" ###############
+M_DEBUG = False
+###############
+global TB_Release
+TB_Release = __version__ """
 
-# """ ###############
-# M_DEBUG = False
-# ###############
-# global TB_Release
-# TB_Release = __version__ """
+# get the path of the current python script
+PATH_TB = file_path = os.path.dirname(getsourcefile(lambda: 0))
 
-# # get the path of the current python script
-# PATH_TB = file_path = os.path.dirname(getsourcefile(lambda: 0))
+global PATH_TB_ICONS
+global PATH_TB_RESOURCES
 
-# global PATH_TB_ICONS
-# global PATH_TB_RESOURCES
+PATH_TB_ICONS = os.path.join(PATH_TB, "Resources", "Icons")
+PATH_TB_RESOURCES = os.path.join(PATH_TB, "Resources")
 
-# PATH_TB_ICONS = os.path.join(PATH_TB, "Resources", "Icons")
-# PATH_TB_RESOURCES = os.path.join(PATH_TB, "Resources")
-
-# """ if M_DEBUG:
-#     print("DEBUG : PATH_TB           is " + str(PATH_TB))
-#     print("DEBUG : PATH_TB_ICONS     is " + str(PATH_TB_ICONS))
-#     print("DEBUG : PATH_TB_RESOURCES is " + str(PATH_TB_RESOURCES)) """
+""" if M_DEBUG:
+    print("DEBUG : PATH_TB           is " + str(PATH_TB))
+    print("DEBUG : PATH_TB_ICONS     is " + str(PATH_TB_ICONS))
+    print("DEBUG : PATH_TB_RESOURCES is " + str(PATH_TB_RESOURCES)) """
 
 
-# class TitleBlockWB(Workbench):
-#     MenuText = "TitleBlock Workbench"
-#     ToolTip = "An extension for the TechDraw workbench to fill a TitleBlock"
-#     Icon = os.path.join(PATH_TB_ICONS, "TitleBlockWB.svg")
+class TitleBlockWB(Workbench):
+    MenuText = "TitleBlock Workbench"
+    ToolTip = "An extension for the TechDraw workbench to fill a TitleBlock"
+    Icon = os.path.join(PATH_TB_ICONS, "TitleBlockWB.svg")
 
-#     def Initialize(self):
-#         """This function is executed when the workbench is first activated.
-#         It is executed once in a FreeCAD session followed by the Activated function.
-#         """
-#         import Commands  # import here all the needed files that create your FreeCAD commands
+    def Initialize(self):
+        """This function is executed when the workbench is first activated.
+        It is executed once in a FreeCAD session followed by the Activated function.
+        """
+        import Commands  # import here all the needed files that create your FreeCAD commands
 
-#         self.list = [
-#             "ListTitleBlock",
-#             "FillTitleBlock",
-#         ]  # a list of command names created in the line above
-#         self.appendToolbar(
-#             "TitleBlock", self.list
-#         )  # creates a new toolbar with your commands
-#         self.appendMenu("TitleBlock", self.list)  # creates a new menu
+        self.list = [
+            "ListTitleBlock",
+            "FillTitleBlock",
+        ]  # a list of command names created in the line above
+        self.appendToolbar(
+            "TitleBlock", self.list
+        )  # creates a new toolbar with your commands
+        self.appendMenu("TitleBlock", self.list)  # creates a new menu
 
-#     def Activated(self):
-#         """This function is executed whenever the workbench is activated"""
-#         return
+    def Activated(self):
+        """This function is executed whenever the workbench is activated"""
+        return
 
-#     def Deactivated(self):
-#         """This function is executed whenever the workbench is deactivated"""
-#         return
+    def Deactivated(self):
+        """This function is executed whenever the workbench is deactivated"""
+        return
 
-#     # def ContextMenu(self, recipient):
-#     #     """This function is executed whenever the user right-clicks on screen"""
-#     #     # "recipient" will be either "view" or "tree"
-#     #     self.appendContextMenu("My commands", self.list) # add commands to the context menu
+    # def ContextMenu(self, recipient):
+    #     """This function is executed whenever the user right-clicks on screen"""
+    #     # "recipient" will be either "view" or "tree"
+    #     self.appendContextMenu("My commands", self.list) # add commands to the context menu
 
-#     def GetClassName(self):
-#         # This function is mandatory if this is a full Python workbench
-#         # This is not a template, the returned string should be exactly "Gui::PythonWorkbench"
-#         return "Gui::PythonWorkbench"
+    def GetClassName(self):
+        # This function is mandatory if this is a full Python workbench
+        # This is not a template, the returned string should be exactly "Gui::PythonWorkbench"
+        return "Gui::PythonWorkbench"
 
 
-# Gui.addWorkbench(TitleBlockWB())
+Gui.addWorkbench(TitleBlockWB())

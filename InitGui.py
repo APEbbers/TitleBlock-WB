@@ -25,7 +25,6 @@
 import os
 import FreeCAD as App
 import FreeCADGui as Gui
-import TechDrawGui
 from inspect import getsourcefile
 
 # from _version import __version__

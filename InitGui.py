@@ -26,18 +26,11 @@ import os
 import FreeCAD as App
 import FreeCADGui as Gui
 from inspect import getsourcefile
-
-# from _version import __version__
+import myResources
 
 __title__ = "TitleBlock Workbench"
 __author__ = "A.P. Ebbers"
 __url__ = "https://github.com/APEbbers/TechDrawTitleBlockUtility.git"
-
-""" ###############
-M_DEBUG = False
-###############
-global TB_Release
-TB_Release = __version__ """
 
 # get the path of the current python script
 PATH_TB = file_path = os.path.dirname(getsourcefile(lambda: 0))
@@ -47,11 +40,6 @@ global PATH_TB_RESOURCES
 
 PATH_TB_ICONS = os.path.join(PATH_TB, "Resources", "Icons")
 PATH_TB_RESOURCES = os.path.join(PATH_TB, "Resources")
-
-""" if M_DEBUG:
-    print("DEBUG : PATH_TB           is " + str(PATH_TB))
-    print("DEBUG : PATH_TB_ICONS     is " + str(PATH_TB_ICONS))
-    print("DEBUG : PATH_TB_RESOURCES is " + str(PATH_TB_RESOURCES)) """
 
 
 class TitleBlockWB(Workbench):

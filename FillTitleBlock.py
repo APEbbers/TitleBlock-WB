@@ -45,8 +45,6 @@ __date__ = "2023/10/07"
 #  - Etc.
 
 import FreeCAD as App
-from PySide import QtGui
-import Spreadsheet
 
 # Preset the value for the multiplier. This is used if an value has to be increased for every page.
 NumCounter = -1

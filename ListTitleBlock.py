@@ -51,8 +51,6 @@ __date__ = "2023/10/07"
 #  - Etc.
 
 import FreeCAD as App
-from PySide import QtGui
-import Spreadsheet
 
 
 # Fill the spreadsheet with all the date from the titleblock

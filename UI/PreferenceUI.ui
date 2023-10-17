@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>261</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="Gui::PrefCheckBox" name="IncludeAngleUnit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>121</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Include angles</string>
+    </property>
+    <property name="prefEntry" stdset="0">
+     <cstring>IncludeAngle</cstring>
+    </property>
+    <property name="prefPath" stdset="0">
+     <cstring>Mod\TechDrawTitleBlockUtility\UI</cstring>
+    </property>
+   </widget>
+   <widget class="Gui::PrefCheckBox" name="IncludeLengthUnit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>121</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Include lengths</string>
+    </property>
+    <property name="prefEntry" stdset="0">
+     <cstring>IncludeLength</cstring>
+    </property>
+    <property name="prefPath" stdset="0">
+     <cstring>Mod\TechDrawTitleBlockUtility\UI</cstring>
+    </property>
+   </widget>
+   <widget class="Gui::UrlLabel" name="urlLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>261</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>The following items can be included even when the titleblock does not have them:</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::RichText</enum>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="Gui::PrefCheckBox" name="IncludeMassUnit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>80</y>
+      <width>121</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Include mass</string>
+    </property>
+    <property name="prefEntry" stdset="0">
+     <cstring>IncludeMass</cstring>
+    </property>
+    <property name="prefPath" stdset="0">
+     <cstring>Mod\TechDrawTitleBlockUtility\UI</cstring>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="frame_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>120</y>
+     <width>261</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="Gui::PrefCheckBox" name="UseExternalSource">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>231</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Use external source</string>
+    </property>
+    <property name="prefEntry" stdset="0">
+     <cstring>UseExternalSource</cstring>
+    </property>
+    <property name="prefPath" stdset="0">
+     <cstring>Mod\\TechDrawTitleBlockUtility\\UI</cstring>
+    </property>
+   </widget>
+   <widget class="Gui::PrefFileChooser" name="ExternalFileChooser">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>241</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="filter">
+     <string extracomment="*.xlsx"/>
+    </property>
+    <property name="prefEntry" stdset="0">
+     <cstring>ExternalFile</cstring>
+    </property>
+    <property name="prefPath" stdset="0">
+     <cstring>Mod\TechDrawTitleBlockUtility\UI</cstring>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="frame_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>190</y>
+     <width>261</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="Gui::PrefCheckBox" name="UseFileName">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>241</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Use filename as drawingnumber</string>
+    </property>
+    <property name="prefEntry" stdset="0">
+     <cstring>UseFileName</cstring>
+    </property>
+    <property name="prefPath" stdset="0">
+     <cstring>Mod\TechDrawTitleBlockUtility\UI</cstring>
+    </property>
+   </widget>
+   <widget class="Gui::UrlLabel" name="urlLabel_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Field for drawing number</string>
+    </property>
+   </widget>
+   <widget class="Gui::AccelLineEdit" name="DrawingNumber">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>241</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhNone</set>
+    </property>
+    <property name="inputMask">
+     <string extracomment="Enter field name"/>
+    </property>
+    <property name="placeholderText">
+     <string>Enter field name</string>
+    </property>
+    <property name="clearButtonEnabled">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Gui::UrlLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Widgets.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Gui::FileChooser</class>
+   <extends>QWidget</extends>
+   <header>Gui/FileDialog.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Gui::AccelLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>Gui/Widgets.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Gui::PrefFileChooser</class>
+   <extends>Gui::FileChooser</extends>
+   <header>Gui/PrefWidgets.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Gui::PrefCheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>Gui/PrefWidgets.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

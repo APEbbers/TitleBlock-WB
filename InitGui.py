@@ -23,7 +23,6 @@
 
 # FreeCAD init script of the Work Features module
 import os
-import FreeCAD as App
 import FreeCADGui as Gui
 from inspect import getsourcefile
 import myResources
@@ -37,9 +36,17 @@ PATH_TB = file_path = os.path.dirname(getsourcefile(lambda: 0))
 
 global PATH_TB_ICONS
 global PATH_TB_RESOURCES
+global PATH_TB_UI
 
 PATH_TB_ICONS = os.path.join(PATH_TB, "Resources", "Icons")
 PATH_TB_RESOURCES = os.path.join(PATH_TB, "Resources")
+PATH_TB_UI = os.path.join(PATH_TB, "UI")
+
+Gui.addIconPath(PATH_TB_ICONS)
+Gui.addPreferencePage(
+    os.path.join(PATH_TB_UI, "PreferenceUI.ui"),
+    "TechDrawTitleBlockUtility",
+)
 
 
 class TitleBlockWB(Workbench):

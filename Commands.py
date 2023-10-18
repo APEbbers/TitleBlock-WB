@@ -22,25 +22,7 @@
 # ***************************************************************************/
 
 # FreeCAD init script of the Work Features module
-import os
-from inspect import getsourcefile
 import FreeCADGui as Gui
-
-# from _version import __version__
-
-__title__ = "TitleBlock Workbench"
-__author__ = "A.P. Ebbers"
-__url__ = "https://github.com/APEbbers/TechDrawTitleBlockUtility.git"
-
-
-# get the path of the current python script
-PATH_TB = file_path = os.path.dirname(getsourcefile(lambda: 0))
-
-global PATH_TB_ICONS
-global PATH_TB_RESOURCES
-
-PATH_TB_ICONS = os.path.join(PATH_TB, "Resources", "Icons")
-PATH_TB_RESOURCES = os.path.join(PATH_TB, "Resources")
 
 
 # Export data from the titleblock to the spreadsheet

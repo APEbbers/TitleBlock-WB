@@ -21,7 +21,6 @@
 # *                                                                         *
 # ***************************************************************************/
 
-# FreeCAD init script of the Work Features module
 import os
 import FreeCADGui as Gui
 from inspect import getsourcefile
@@ -49,10 +48,15 @@ Gui.addPreferencePage(
 )
 
 
-class TitleBlockWB(Workbench):
+class TitleBlockWB(Gui.Workbench):
     MenuText = "TitleBlock Workbench"
     ToolTip = "An extension for the TechDraw workbench to fill a TitleBlock"
     Icon = os.path.join(PATH_TB_ICONS, "TitleBlockWB.svg")
+
+    def GetClassName(self):
+        # This function is mandatory if this is a full Python workbench
+        # This is not a template, the returned string should be exactly "Gui::PythonWorkbench"
+        return "Gui::PythonWorkbench"
 
     def Initialize(self):
         """This function is executed when the workbench is first activated.
@@ -81,11 +85,6 @@ class TitleBlockWB(Workbench):
     #     """This function is executed whenever the user right-clicks on screen"""
     #     # "recipient" will be either "view" or "tree"
     #     self.appendContextMenu("My commands", self.list) # add commands to the context menu
-
-    def GetClassName(self):
-        # This function is mandatory if this is a full Python workbench
-        # This is not a template, the returned string should be exactly "Gui::PythonWorkbench"
-        return "Gui::PythonWorkbench"
 
 
 Gui.addWorkbench(TitleBlockWB())

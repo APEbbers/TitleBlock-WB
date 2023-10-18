@@ -29,13 +29,6 @@
 ***************************************************************************
 """
 
-__title__ = "List TitleBlock"
-__author__ = "A.P. Ebbers"
-__url__ = ""
-__Wiki__ = ""
-__version__ = "0.1"
-__date__ = "2023/10/07"
-
 # This macro creates an Spreadsheet named "TitleBlock", reads editable texts from the first page
 # and fills the spreadsheet.
 # The data in spreadsheet can be changed by the user as long the data in column A remains unchanged.

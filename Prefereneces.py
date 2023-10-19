@@ -22,10 +22,36 @@
 # ***************************************************************************/
 
 import os
-from inspect import getsourcefile
-from version import __version__
+import sys
+import FreeCAD
+import FreeCADGui
+from FreeCAD import Base
+import Part
+from PySide import QtGui
+from PySide import QtCore
+import copy
+import platform
+import numpy
+from pivy import coin
 
-# get the path of the current python script
-PATH_TB = file_path = os.path.dirname(getsourcefile(lambda: 0))
+translate = FreeCAD.Qt.translate
 
-PATH_TB_ICONS = os.path.join(PATH_TB, "Resources", "Icons")
+preferences = FreeCAD.ParamGet(
+    "User parameter:BaseApp/Preferences/TechDrawTitleBlockUtility"
+)
+
+# Included units
+INCLUDE_LENGTH = preferences.GetBool("IncludeLength")
+INCLUDE_ANGLE = preferences.GetBool("IncludeAngle")
+INCLUDE_MASS = preferences.GetBool("IncludeMass")
+
+# Include total number of pages
+INCLUDE_NO_SHEETS = preferences.GetBool("IncludeNoOfSheets")
+
+# External source
+USE_EXTERNAL_SOURCE = preferences.GetBool("UseExternalSource")
+EXTERNAL_SOURCE_PATH = preferences.GetString("ExternalSource")
+
+# Use filename as drawingnumber
+USE_FILENAME_DRAW_NO = preferences.GetBool("UseFileName")
+DRAW_NO_FiELD = preferences.GetString("DrwNrFieldName")

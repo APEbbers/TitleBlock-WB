@@ -1,33 +1,26 @@
-"""
-***************************************************************************
-*   Copyright (c) 2022 2023 <A.P. Ebbers>                                     *
-*                                                                         *
-*   This file is a supplement to the FreeCAD CAx development system.      *
-*                                                                         *
-*   This program is free software; you can redistribute it and/or modify  *
-*   it under the terms of the GNU Lesser General Public License (LGPL)    *
-*   as published by the Free Software Foundation; either version 2 of     *
-*   the License, or (at your option) any later version.                   *
-*   for detail see the LICENCE text file.                                 *
-**                                                                       **
-*   Use at your own risk. The author assumes no liability for data loss.  *
-*              It is advised to backup your data frequently.              *
-*             If you do not trust the software do not use it.             *
-**                                                                       **
-*   This software is distributed in the hope that it will be useful,      *
-*   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
-*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
-*   GNU Library General Public License for more details.                  *
-*                                                                         *
-*   You should have received a copy of the GNU Library General Public     *
-*   License along with this macro; if not, write to the Free Software     *
-*   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  *
-*   USA                                                                   *
-***************************************************************************
-*           WARNING! All changes in this file will be lost and            *  
-*                  may cause malfunction of the program                   *
-***************************************************************************
-"""
+# ***************************************************************************
+# *   Copyright (c) 2015 Paul Ebbers paul.ebbers@gmail.com                  *
+# *                                                                         *
+# *   This file is part of the FreeCAD CAx development system.              *
+# *                                                                         *
+# *   This program is free software; you can redistribute it and/or modify  *
+# *   it under the terms of the GNU Lesser General Public License (LGPL)    *
+# *   as published by the Free Software Foundation; either version 2 of     *
+# *   the License, or (at your option) any later version.                   *
+# *   for detail see the LICENCE text file.                                 *
+# *                                                                         *
+# *   FreeCAD is distributed in the hope that it will be useful,            *
+# *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+# *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+# *   GNU Lesser General Public License for more details.                   *
+# *                                                                         *
+# *   You should have received a copy of the GNU Library General Public     *
+# *   License along with FreeCAD; if not, write to the Free Software        *
+# *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  *
+# *   USA                                                                   *
+# *                                                                         *
+# ***************************************************************************/
+
 
 # This macro creates an Spreadsheet named "TitleBlock", reads editable texts from the first page
 # and fills the spreadsheet.
@@ -77,69 +70,88 @@ def FillSheet():
             sheet.set("C" + str(StartRow), "No")
 
     # ----------------------------------------------------------------------------------------------------------------------------------------------
-    # The following values will always be added. You can use these for you specific templats.
+    # The following values can be added. You can use these for you specific templates.
     # Use the "bind function" of the spreadsheet workbench to create the correct entry for your template.:
     #   1. add the correct Property name
     #   2. bind the cell to the value of your specific template property.
     #   3. Set the increase value to "Yes" or "No".
+    # Or use them directly if your templates has the exact fields
 
-    # Add the total number of sheets. You can use this for your title block
-    pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
-    sheet.set("A" + str(StartRow), "Number of sheets")
-    sheet.set("B" + str(StartRow), str(len(pages)))
-    sheet.set("C" + str(StartRow), "No")
+    # Get the settings
+    from Prefereneces import INCLUDE_LENGTH
+    from Prefereneces import INCLUDE_ANGLE
+    from Prefereneces import INCLUDE_MASS
+    from Prefereneces import INCLUDE_NO_SHEETS
+
+    print(str(INCLUDE_LENGTH))
+    print(str(INCLUDE_ANGLE))
+    print(str(INCLUDE_MASS))
 
     # get units scheme
     SchemeNumber = App.Units.getSchema()
 
     # Add the length units of your FreeCAD application
-    sheet.set("A" + str(StartRow + 1), "Length_Units")
-    sheet.set(
-        "B" + str(StartRow + 1),
-        str(
-            App.Units.schemaTranslate(
-                App.Units.Quantity(50, App.Units.Length), SchemeNumber
-            )
-        ).split()[1],
-    )
-    sheet.set("C" + str(StartRow + 1), "No")
+    if INCLUDE_LENGTH is True:
+        sheet.set("A" + str(StartRow + 1), "Length_Units")
+        sheet.set(
+            "B" + str(StartRow + 1),
+            str(
+                App.Units.schemaTranslate(
+                    App.Units.Quantity(50, App.Units.Length), SchemeNumber
+                )
+            ).split()[1],
+        )
+        sheet.set("C" + str(StartRow + 1), "No")
 
     # Add the angular units of your FreeCAD application
-    sheet.set("A" + str(StartRow + 2), "Angle_Units")
-    sheet.set(
-        "B" + str(StartRow + 2),
-        str(
-            App.Units.schemaTranslate(
-                App.Units.Quantity(50, App.Units.Angle), SchemeNumber
-            )
-        ).split()[1],
-    )
-    sheet.set("C" + str(StartRow + 2), "No")
+    if INCLUDE_ANGLE is True:
+        sheet.set("A" + str(StartRow + 2), "Angle_Units")
+        sheet.set(
+            "B" + str(StartRow + 2),
+            str(
+                App.Units.schemaTranslate(
+                    App.Units.Quantity(50, App.Units.Angle), SchemeNumber
+                )
+            ).split()[1],
+        )
+        sheet.set("C" + str(StartRow + 2), "No")
 
     # Add the mass units of your FreeCAD application
-    sheet.set("A" + str(StartRow + 3), "Mass_Units")
-    sheet.set(
-        "B" + str(StartRow + 3),
-        str(
-            App.Units.schemaTranslate(
-                App.Units.Quantity(50, App.Units.Mass), SchemeNumber
-            )
-        ).split()[1],
-    )
-    sheet.set("C" + str(StartRow + 3), "No")
+    if INCLUDE_MASS is True:
+        sheet.set("A" + str(StartRow + 3), "Mass_Units")
+        sheet.set(
+            "B" + str(StartRow + 3),
+            str(
+                App.Units.schemaTranslate(
+                    App.Units.Quantity(50, App.Units.Mass), SchemeNumber
+                )
+            ).split()[1],
+        )
+        sheet.set("C" + str(StartRow + 3), "No")
+
+    # Add the total number of sheets. You can use this for your title block
+    if INCLUDE_NO_SHEETS is True:
+        pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+        sheet.set("A" + str(StartRow), "Number of sheets")
+        sheet.set("B" + str(StartRow), str(len(pages)))
+        sheet.set("C" + str(StartRow), "No")
     # ----------------------------------------------------------------------------------------------------------------------------------------------
+    return
 
 
-# Create spreadsheet
-try:
-    # check if there is already an spreadsheet called "TitleBlock"
-    sheet = App.ActiveDocument.getObject("TitleBlock")
-    # Proceed with the macro.
-    FillSheet()
-except Exception:
-    # if there is not yet an spreadsheet called "TitleBlock", create one
-    sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
-    # set the label to "TitleBlock"
-    sheet.Label = "TitleBlock"
-    # Proceed with the macro.
-    FillSheet()
+def Start():
+    # Find or Create spreadsheet
+    try:
+        # check if there is already an spreadsheet called "TitleBlock"
+        sheet = App.ActiveDocument.getObject("TitleBlock")
+        print("TitleBlock already present")
+        # Proceed with the macro.
+        FillSheet()
+    except Exception:
+        # if there is not yet an spreadsheet called "TitleBlock", create one
+        sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
+        print("TitleBlock created")
+        # set the label to "TitleBlock"
+        sheet.Label = "TitleBlock"
+        # Proceed with the macro.
+        FillSheet()

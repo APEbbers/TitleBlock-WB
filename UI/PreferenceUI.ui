@@ -2,83 +2,235 @@
 <ui version="4.0">
  <class>Form</class>
  <widget class="QWidget" name="Form">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>980</width>
+    <height>513</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Form</string>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
   </property>
-  <widget class="QFrame" name="frame">
+  <property name="windowTitle">
+   <string notr="true">Settings</string>
+  </property>
+  <property name="inputMethodHints">
+   <set>Qt::ImhNone</set>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>261</width>
+     <x>5</x>
+     <y>225</y>
+     <width>421</width>
      <height>101</height>
     </rect>
    </property>
-   <property name="frameShape">
-    <enum>QFrame::Box</enum>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
+   <property name="title">
+    <string>Drawing number</string>
    </property>
-   <widget class="Gui::PrefCheckBox" name="IncludeAngleUnit">
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+   <widget class="Gui::PrefCheckBox" name="UseFileName">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>60</y>
-      <width>121</width>
+      <y>20</y>
+      <width>241</width>
       <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Include angles</string>
-    </property>
-    <property name="prefEntry" stdset="0">
-     <cstring>IncludeAngle</cstring>
-    </property>
-    <property name="prefPath" stdset="0">
-     <cstring>Mod\TechDrawTitleBlockUtility\UI</cstring>
-    </property>
-   </widget>
-   <widget class="Gui::PrefCheckBox" name="IncludeLengthUnit">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>121</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Include lengths</string>
-    </property>
-    <property name="prefEntry" stdset="0">
-     <cstring>IncludeLength</cstring>
-    </property>
-    <property name="prefPath" stdset="0">
-     <cstring>Mod\TechDrawTitleBlockUtility\UI</cstring>
-    </property>
-   </widget>
-   <widget class="Gui::UrlLabel" name="urlLabel">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>261</width>
-      <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <weight>75</weight>
-      <bold>true</bold>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Use filename as drawing number</string>
+    </property>
+    <property name="prefEntry" stdset="0">
+     <cstring>UseFileName</cstring>
+    </property>
+    <property name="prefPath" stdset="0">
+     <cstring>TechDrawTitleBlockUtility</cstring>
+    </property>
+   </widget>
+   <widget class="Gui::UrlLabel" name="urlLabel_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Field for drawing number:</string>
+    </property>
+   </widget>
+   <widget class="Gui::PrefLineEdit" name="DrawingNumber">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>241</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="inputMask">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Enter fied name...</string>
+    </property>
+    <property name="prefEntry" stdset="0">
+     <cstring>DrwNrFieldName</cstring>
+    </property>
+    <property name="prefPath" stdset="0">
+     <cstring>TechDrawTitleBlockUtility</cstring>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>140</y>
+     <width>421</width>
+     <height>76</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="title">
+    <string>External source</string>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <widget class="Gui::PrefFileChooser" name="ExternalFileChooser">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>401</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="fileName">
+     <string/>
+    </property>
+    <property name="filter">
+     <string>*.xlsx</string>
+    </property>
+    <property name="prefEntry" stdset="0">
+     <cstring>ExternalFile</cstring>
+    </property>
+    <property name="prefPath" stdset="0">
+     <cstring>TechDrawTitleBlockUtility</cstring>
+    </property>
+   </widget>
+   <widget class="Gui::PrefCheckBox" name="UseExternalSource">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>231</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Use external source</string>
+    </property>
+    <property name="prefEntry" stdset="0">
+     <cstring>UseExternalSource</cstring>
+    </property>
+    <property name="prefPath" stdset="0">
+     <cstring>TechDrawTitleBlockUtility</cstring>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_3">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>0</y>
+     <width>421</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="title">
+    <string>Included items</string>
+   </property>
+   <widget class="Gui::UrlLabel" name="urlLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>15</y>
+      <width>401</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -90,15 +242,74 @@
     <property name="wordWrap">
      <bool>true</bool>
     </property>
+    <property name="buddy">
+     <cstring>urlLabel</cstring>
+    </property>
+   </widget>
+   <widget class="Gui::PrefCheckBox" name="IncludeLengthUnit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>45</y>
+      <width>121</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Include lengths</string>
+    </property>
+    <property name="prefEntry" stdset="0">
+     <cstring>IncludeLength</cstring>
+    </property>
+    <property name="prefPath" stdset="0">
+     <cstring>TechDrawTitleBlockUtility</cstring>
+    </property>
+   </widget>
+   <widget class="Gui::PrefCheckBox" name="IncludeAngleUnit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>65</y>
+      <width>121</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Include angles</string>
+    </property>
+    <property name="prefEntry" stdset="0">
+     <cstring>IncludeAngle</cstring>
+    </property>
+    <property name="prefPath" stdset="0">
+     <cstring>TechDrawTitleBlockUtility</cstring>
+    </property>
    </widget>
    <widget class="Gui::PrefCheckBox" name="IncludeMassUnit">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>80</y>
+      <y>85</y>
       <width>121</width>
       <height>17</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="text">
      <string>Include mass</string>
@@ -107,135 +318,55 @@
      <cstring>IncludeMass</cstring>
     </property>
     <property name="prefPath" stdset="0">
-     <cstring>Mod\TechDrawTitleBlockUtility\UI</cstring>
+     <cstring>TechDrawTitleBlockUtility</cstring>
     </property>
    </widget>
-  </widget>
-  <widget class="QFrame" name="frame_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>120</y>
-     <width>261</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::Box</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="Gui::PrefCheckBox" name="UseExternalSource">
+   <widget class="Gui::PrefCheckBox" name="IncludeNoOfSheets">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
-      <width>231</width>
+      <y>105</y>
+      <width>156</width>
       <height>17</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="text">
-     <string>Use external source</string>
+     <string>Include number of pages</string>
     </property>
     <property name="prefEntry" stdset="0">
-     <cstring>UseExternalSource</cstring>
+     <cstring>IncludeNoOfSheets</cstring>
     </property>
     <property name="prefPath" stdset="0">
-     <cstring>Mod\\TechDrawTitleBlockUtility\\UI</cstring>
-    </property>
-   </widget>
-   <widget class="Gui::PrefFileChooser" name="ExternalFileChooser">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>241</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="filter">
-     <string extracomment="*.xlsx"/>
-    </property>
-    <property name="prefEntry" stdset="0">
-     <cstring>ExternalFile</cstring>
-    </property>
-    <property name="prefPath" stdset="0">
-     <cstring>Mod\TechDrawTitleBlockUtility\UI</cstring>
+     <cstring>TechDrawTitleBlockUtility</cstring>
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frame_3">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>190</y>
-     <width>261</width>
-     <height>91</height>
+     <x>5</x>
+     <y>325</y>
+     <width>401</width>
+     <height>16</height>
     </rect>
    </property>
-   <property name="frameShape">
-    <enum>QFrame::Box</enum>
+   <property name="font">
+    <font>
+     <italic>true</italic>
+    </font>
    </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
+   <property name="text">
+    <string>FreeCAD needs to be restarted before changes become active.</string>
    </property>
-   <widget class="Gui::PrefCheckBox" name="UseFileName">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>241</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Use filename as drawingnumber</string>
-    </property>
-    <property name="prefEntry" stdset="0">
-     <cstring>UseFileName</cstring>
-    </property>
-    <property name="prefPath" stdset="0">
-     <cstring>Mod\TechDrawTitleBlockUtility\UI</cstring>
-    </property>
-   </widget>
-   <widget class="Gui::UrlLabel" name="urlLabel_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>131</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Field for drawing number</string>
-    </property>
-   </widget>
-   <widget class="Gui::AccelLineEdit" name="DrawingNumber">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>60</y>
-      <width>241</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="inputMethodHints">
-     <set>Qt::ImhNone</set>
-    </property>
-    <property name="inputMask">
-     <string extracomment="Enter field name"/>
-    </property>
-    <property name="placeholderText">
-     <string>Enter field name</string>
-    </property>
-    <property name="clearButtonEnabled">
-     <bool>true</bool>
-    </property>
-   </widget>
   </widget>
  </widget>
+ <layoutdefault spacing="6" margin="5"/>
  <customwidgets>
   <customwidget>
    <class>Gui::UrlLabel</class>
@@ -248,11 +379,6 @@
    <header>Gui/FileDialog.h</header>
   </customwidget>
   <customwidget>
-   <class>Gui::AccelLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>Gui/Widgets.h</header>
-  </customwidget>
-  <customwidget>
    <class>Gui::PrefFileChooser</class>
    <extends>Gui::FileChooser</extends>
    <header>Gui/PrefWidgets.h</header>
@@ -262,7 +388,70 @@
    <extends>QCheckBox</extends>
    <header>Gui/PrefWidgets.h</header>
   </customwidget>
+  <customwidget>
+   <class>Gui::PrefLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>Gui/PrefWidgets.h</header>
+  </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>IncludeLengthUnit</tabstop>
+  <tabstop>IncludeAngleUnit</tabstop>
+  <tabstop>IncludeMassUnit</tabstop>
+  <tabstop>UseExternalSource</tabstop>
+  <tabstop>UseFileName</tabstop>
+  <tabstop>DrawingNumber</tabstop>
+ </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>ExternalFileChooser</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>130</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>215</x>
+     <y>191</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseFileName</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>urlLabel_2</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>135</x>
+     <y>253</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>80</x>
+     <y>282</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>5</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>5</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>true</bool>
+  </property>
+ </designerdata>
 </ui>

@@ -37,7 +37,7 @@ class ListTitleBlock_Class:
     def Activated(self):
         import ListTitleBlock
 
-        ListTitleBlock
+        ListTitleBlock.Start()
         return
 
     def IsActive(self):
@@ -58,7 +58,7 @@ class FillTitleBlock_Class:
     def Activated(self):
         import FillTitleBlock
 
-        FillTitleBlock
+        FillTitleBlock.FillTitleBlock()
         return
 
     def IsActive(self):

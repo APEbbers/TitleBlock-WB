@@ -25,6 +25,7 @@ import os
 import FreeCADGui as Gui
 from inspect import getsourcefile
 import myResources
+import Preferences as Pref
 
 __title__ = "TitleBlock Workbench"
 __author__ = "A.P. Ebbers"

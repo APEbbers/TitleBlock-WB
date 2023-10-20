@@ -26,7 +26,7 @@
    <property name="geometry">
     <rect>
      <x>5</x>
-     <y>250</y>
+     <y>290</y>
      <width>421</width>
      <height>101</height>
     </rect>
@@ -131,7 +131,7 @@
      <x>5</x>
      <y>140</y>
      <width>421</width>
-     <height>106</height>
+     <height>146</height>
     </rect>
    </property>
    <property name="font">
@@ -237,6 +237,63 @@
     </property>
     <property name="prefPath" stdset="0">
      <cstring>TechDrawTitleBlockUtility</cstring>
+    </property>
+   </widget>
+   <widget class="Gui::PrefLineEdit" name="StartCell">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>117</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="inputMask">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Enter the start cell</string>
+    </property>
+    <property name="prefEntry" stdset="0">
+     <cstring>StartCell</cstring>
+    </property>
+    <property name="prefPath" stdset="0">
+     <cstring>TechDrawTitleBlockUtility</cstring>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>135</x>
+      <y>105</y>
+      <width>276</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>50</weight>
+      <italic>true</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Cell adress must be like &quot;B1&quot;. If empty, A1 will be used.</string>
     </property>
    </widget>
   </widget>
@@ -391,7 +448,7 @@
    <property name="geometry">
     <rect>
      <x>5</x>
-     <y>350</y>
+     <y>390</y>
      <width>401</width>
      <height>16</height>
     </rect>
@@ -505,6 +562,38 @@
     <hint type="destinationlabel">
      <x>135</x>
      <y>219</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_2</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>130</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>211</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>StartCell</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>130</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>73</x>
+     <y>249</y>
     </hint>
    </hints>
   </connection>

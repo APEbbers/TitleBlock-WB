@@ -37,7 +37,7 @@
 #  - Etc.
 
 import FreeCAD as App
-import ctypes  # An included library with Python install.
+import Standard_Functions
 
 # Get the settings
 from Prefereneces import INCLUDE_LENGTH
@@ -47,18 +47,10 @@ from Prefereneces import INCLUDE_NO_SHEETS
 from Prefereneces import USE_EXTERNAL_SOURCE
 from Prefereneces import EXTERNAL_SOURCE_PATH
 from Prefereneces import EXTERNAL_SOURCE_SHEET_NAME
+from Prefereneces import EXTERNAL_SOURCE_STARTCELL
 
-
-#  Message Styles:
-#  0 : OK
-#  1 : OK | Cancel
-#  2 : Abort | Retry | Ignore
-#  3 : Yes | No | Cancel
-#  4 : Yes | No
-#  5 : Retry | Cancel
-#  6 : Cancel | Try Again | Continuemport ctypes  # An included library with Python install.
-def Mbox(title, text, style):
-    return ctypes.windll.user32.MessageBoxW(0, text, title, style)
+if len(EXTERNAL_SOURCE_STARTCELL) == 0:
+    EXTERNAL_SOURCE_STARTCELL = "A1"
 
 
 def AddExtraData(sheet, StartRow):
@@ -176,39 +168,76 @@ def ImportDataExcel():
         # get the spreadsheet "TitleBlock"
         sheet = App.ActiveDocument.getObject("TitleBlock")
 
-        # import the headers from the excelsheet into the spreadsheet
-        sheet.set("A1", str(ws["A1"].value))
-        sheet.set("B1", str(ws["B1"].value))
-        sheet.set("C1", str(ws["C1"].value))
-        sheet.set("D1", str(ws["D1"].value))
+        # Get the startcolumn and the other three columns from there
+        StartColumn = EXTERNAL_SOURCE_STARTCELL[:1]
+        print("Start column is: " + str(StartColumn))
+        print(
+            "Column number is: "
+            + str(Standard_Functions.GetNumberFromLetter(StartColumn))
+        )
+        Column2 = Standard_Functions.GetLetterFromNumber(
+            int(Standard_Functions.GetNumberFromLetter(StartColumn) + 1), True
+        )
+        Column3 = Standard_Functions.GetLetterFromNumber(
+            int(Standard_Functions.GetNumberFromLetter(StartColumn) + 2), True
+        )
+        Column4 = Standard_Functions.GetLetterFromNumber(
+            int(Standard_Functions.GetNumberFromLetter(StartColumn) + 3), True
+        )
 
-        # set the start value for the start row.
-        # (x=0, the spreadsheet whill be populated from the first row. the headers will be overwritten)
-        StartRow = 1
+        # Get the start row
+        StartRow = EXTERNAL_SOURCE_STARTCELL[1:2]
+        print("the start row is: " + str(StartRow))
+
+        # import the headers from the excelsheet into the spreadsheet
+        sheet.set("A1", str(ws[str(StartColumn) + str(StartRow)].value))
+        sheet.set("B1", str(ws[str(Column2) + str(StartRow)].value))
+        sheet.set("C1", str(ws[str(Column3) + str(StartRow)].value))
+        sheet.set("D1", str(ws[str(Column4) + str(StartRow)].value))
+
+        # Go through the excel until the cell in the first column is empty.
         for i in range(1000):
+            # Define the start row. This is the Header row +1 + i as counter
+            RowNumber = int(StartRow) + i + 1
+
             # check if you reached the end of the data.
-            if ws["A" + str(StartRow)].value is None:
+            if ws[str(StartColumn) + str(RowNumber)].value is None:
                 break
 
-            # Increase StartRow by one, to fill the next row
-            StartRow = StartRow + 1
-            # Fill the property name
-            sheet.set("A" + str(StartRow), str(ws["A" + str(StartRow)].value))
-            # Fill the property value
-            if ws["B" + str(StartRow)].value is not None:
-                sheet.set("B" + str(StartRow), str(ws["B" + str(StartRow)].value))
-            # Fill the value for auto increasement(yes or no)
-            if ws["C" + str(StartRow)].value is not None:
-                sheet.set("C" + str(StartRow), str(ws["C" + str(StartRow)].value))
-            # Fill the remarks
-            if ws["D" + str(StartRow)].value is not None:
-                sheet.set("D" + str(StartRow), str(ws["D" + str(StartRow)].value))
+            # Get the number of row difference between the start row in the excelsheet
+            # and the first row in the spreadsheet.
+            # This to start at second row in the spreadsheet. (under the headers)
+            Delta = int(StartRow) - 1
 
-        # Run the def to add extra data
-        AddExtraData(sheet, StartRow)
+            # Fill the property name
+            sheet.set(
+                str("A" + str(RowNumber - Delta)),
+                str(ws[str(StartColumn) + str(RowNumber)].value),
+            )
+            # Fill the property value
+            if ws[Column2 + str(RowNumber)].value is not None:
+                sheet.set(
+                    str("B" + str(RowNumber - Delta)),
+                    str(ws[Column2 + str(RowNumber)].value),
+                )
+            # Fill the value for auto increasement(yes or no)
+            if ws[Column3 + str(RowNumber)].value is not None:
+                sheet.set(
+                    str("C" + str(RowNumber - Delta)),
+                    str(ws[Column3 + str(RowNumber)].value),
+                )
+            # Fill the remarks
+            if ws[Column4 + str(RowNumber)].value is not None:
+                sheet.set(
+                    str("D" + str(RowNumber - Delta)),
+                    str(ws[Column4 + str(RowNumber)].value),
+                )
+
+        # Run the def to add extra data. This is the final value of "RowNumber" minus the "StartRow".
+        AddExtraData(sheet, RowNumber - int(StartRow))
 
     else:
-        Mbox("", "External source is not enabled!", 0)
+        Standard_Functions.Mbox("External source is not enabled!", "", 0)
 
 
 def Start(command):
@@ -218,7 +247,7 @@ def Start(command):
         sheet = App.ActiveDocument.getObject("TitleBlock")
         print("TitleBlock already present")
         # Proceed with the macro.
-        if command == "ListTitleBlock":
+        if command == "FillSpreadsheet":
             FillSheet()
         if command == "ImportExcel":
             ImportDataExcel()
@@ -229,7 +258,7 @@ def Start(command):
         # set the label to "TitleBlock"
         sheet.Label = "TitleBlock"
         # Proceed with the macro.
-        if command == "ListTitleBlock":
+        if command == "FillSpreadsheet":
             FillSheet()
         if command == "ImportExcel":
             ImportDataExcel()

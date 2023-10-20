@@ -26,18 +26,18 @@ import FreeCADGui as Gui
 
 
 # Export data from the titleblock to the spreadsheet
-class ListTitleBlock_Class:
+class FillSpreadsheet_Class:
     def GetResources(self):
         return {
-            "Pixmap": "ListTitleBlock.svg",  # the name of a svg file available in the resources
+            "Pixmap": "FillSpreadsheet.svg",  # the name of a svg file available in the resources
             "MenuText": "Export data",
             "ToolTip": "Export data from titleblock to an spreadsheet",
         }
 
     def Activated(self):
-        import ListTitleBlock
+        import FillSpreadsheet
 
-        ListTitleBlock.Start("ListTitleBlock")
+        FillSpreadsheet.Start("FillSpreadsheet")
         return
 
     def IsActive(self):
@@ -76,9 +76,29 @@ class ImportExcel_Class:
         }
 
     def Activated(self):
-        import ListTitleBlock
+        import FillSpreadsheet
 
-        ListTitleBlock.Start("ImportExcel")
+        FillSpreadsheet.Start("ImportExcel")
+        return
+
+    def IsActive(self):
+        """Here you can define if the command must be active or not (greyed) if certain conditions
+        are met or not. This function is optional."""
+        return True
+
+
+class ExportSpreadsheet_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "ExportExcel.svg",  # the name of a svg file available in the resources
+            "MenuText": "Exports data to an excel file",
+            "ToolTip": "Exports data from the spreadsheet to an excel file",
+        }
+
+    def Activated(self):
+        import ExportSpreadsheet
+
+        ExportSpreadsheet.ExportSpreadSheet()
         return
 
     def IsActive(self):
@@ -88,6 +108,7 @@ class ImportExcel_Class:
 
 
 # Add the commands to the Gui
-Gui.addCommand("ListTitleBlock", ListTitleBlock_Class())
+Gui.addCommand("FillSpreadsheet", FillSpreadsheet_Class())
 Gui.addCommand("FillTitleBlock", FillTitleBlock_Class())
 Gui.addCommand("ImportExcel", ImportExcel_Class())
+Gui.addCommand("ExportSpreadSheet", ExportSpreadsheet_class())

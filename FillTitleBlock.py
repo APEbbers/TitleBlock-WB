@@ -33,6 +33,7 @@
 #  - Etc.
 
 import FreeCAD as App
+import Standard_Functions
 
 
 def FillTitleBlock():
@@ -90,7 +91,7 @@ def FillTitleBlock():
                     try:
                         sheet.get("A" + str(RowNum + 1))
                     except Exception:
-                        print("end of range")
+                        # print("end of range")
                         break
 
                 # Write all the updated text to the page.
@@ -98,10 +99,10 @@ def FillTitleBlock():
 
             except Exception as e:
                 # raise an exeception if there is no spreadsheet.
-                # raise Exception("No spreadsheet named 'TitleBlock'!!!")
+                Standard_Functions.Mbox("No spreadsheet named 'TitleBlock'!!!", "", 0)
                 raise (e)
 
     except Exception as e:
-        # raise an exeception if there is no spreadsheet.
-        # raise Exception("No page present!!!")
+        # raise an exeception if there is no page.
+        Standard_Functions.Mbox("No page present!!!", "", 0)
         raise (e)

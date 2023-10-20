@@ -76,7 +76,7 @@ class TitleBlockWB(Gui.Workbench):
             ]
         if USE_EXTERNAL_SOURCE is False:
             ToolbarList = self.list = [
-                "ListTitleBlock",
+                "FillSpreadsheet",
                 "FillTitleBlock",
             ]  # a list of command names created in the line above
         self.appendToolbar(
@@ -84,9 +84,10 @@ class TitleBlockWB(Gui.Workbench):
         )  # creates a new toolbar with your commands
 
         MenuList = self.list = [
-            "ListTitleBlock",
+            "FillSpreadsheet",
             "FillTitleBlock",
             "ImportExcel",
+            "ExportSpreadSheet",
         ]  # a list of command names created in the line above
         self.appendMenu("TitleBlock", MenuList)  # creates a new menu
 

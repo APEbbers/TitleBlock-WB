@@ -50,7 +50,8 @@ INCLUDE_NO_SHEETS = preferences.GetBool("IncludeNoOfSheets")
 
 # External source
 USE_EXTERNAL_SOURCE = preferences.GetBool("UseExternalSource")
-EXTERNAL_SOURCE_PATH = preferences.GetString("ExternalSource")
+EXTERNAL_SOURCE_PATH = preferences.GetString("ExternalFile")
+EXTERNAL_SOURCE_SHEET_NAME = preferences.GetString("SheetName")
 
 # Use filename as drawingnumber
 USE_FILENAME_DRAW_NO = preferences.GetBool("UseFileName")

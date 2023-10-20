@@ -37,6 +37,95 @@
 #  - Etc.
 
 import FreeCAD as App
+import ctypes  # An included library with Python install.
+
+# Get the settings
+from Prefereneces import INCLUDE_LENGTH
+from Prefereneces import INCLUDE_ANGLE
+from Prefereneces import INCLUDE_MASS
+from Prefereneces import INCLUDE_NO_SHEETS
+from Prefereneces import USE_EXTERNAL_SOURCE
+from Prefereneces import EXTERNAL_SOURCE_PATH
+from Prefereneces import EXTERNAL_SOURCE_SHEET_NAME
+
+
+#  Message Styles:
+#  0 : OK
+#  1 : OK | Cancel
+#  2 : Abort | Retry | Ignore
+#  3 : Yes | No | Cancel
+#  4 : Yes | No
+#  5 : Retry | Cancel
+#  6 : Cancel | Try Again | Continuemport ctypes  # An included library with Python install.
+def Mbox(title, text, style):
+    return ctypes.windll.user32.MessageBoxW(0, text, title, style)
+
+
+def AddExtraData(sheet, StartRow):
+    # The following values can be added. You can use these for you specific templates.
+    # Use the "bind function" of the spreadsheet workbench to create the correct entry for your template.:
+    #   1. add the correct Property name
+    #   2. bind the cell to the value of your specific template property.
+    #   3. Set the increase value to "Yes" or "No".
+    # Or use them directly if your templates has the exact fields
+
+    print(str(INCLUDE_LENGTH))
+    print(str(INCLUDE_ANGLE))
+    print(str(INCLUDE_MASS))
+
+    # get units scheme
+    SchemeNumber = App.Units.getSchema()
+
+    # Add the length units of your FreeCAD application
+    if INCLUDE_LENGTH is True:
+        sheet.set("A" + str(StartRow + 1), "Length_Units")
+        sheet.set(
+            "B" + str(StartRow + 1),
+            str(
+                App.Units.schemaTranslate(
+                    App.Units.Quantity(50, App.Units.Length), SchemeNumber
+                )
+            ).split()[1],
+        )
+        sheet.set("C" + str(StartRow + 1), "No")
+        StartRow = StartRow + 1
+
+    # Add the angular units of your FreeCAD application
+    if INCLUDE_ANGLE is True:
+        sheet.set("A" + str(StartRow + 1), "Angle_Units")
+        sheet.set(
+            "B" + str(StartRow + 1),
+            str(
+                App.Units.schemaTranslate(
+                    App.Units.Quantity(50, App.Units.Angle), SchemeNumber
+                )
+            ).split()[1],
+        )
+        sheet.set("C" + str(StartRow + 1), "No")
+        StartRow = StartRow + 1
+
+    # Add the mass units of your FreeCAD application
+    if INCLUDE_MASS is True:
+        sheet.set("A" + str(StartRow + 1), "Mass_Units")
+        sheet.set(
+            "B" + str(StartRow + 1),
+            str(
+                App.Units.schemaTranslate(
+                    App.Units.Quantity(50, App.Units.Mass), SchemeNumber
+                )
+            ).split()[1],
+        )
+        sheet.set("C" + str(StartRow + 1), "No")
+        StartRow = StartRow + 1
+
+    # Add the total number of sheets. You can use this for your title block
+    if INCLUDE_NO_SHEETS is True:
+        pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+        sheet.set("A" + str(StartRow + 1), "Number of sheets")
+        sheet.set("B" + str(StartRow + 1), str(len(pages)))
+        sheet.set("C" + str(StartRow + 1), "No")
+
+    return
 
 
 # Fill the spreadsheet with all the date from the titleblock
@@ -69,84 +158,70 @@ def FillSheet():
         except Exception:
             sheet.set("C" + str(StartRow), "No")
 
-    # ----------------------------------------------------------------------------------------------------------------------------------------------
-    # The following values can be added. You can use these for you specific templates.
-    # Use the "bind function" of the spreadsheet workbench to create the correct entry for your template.:
-    #   1. add the correct Property name
-    #   2. bind the cell to the value of your specific template property.
-    #   3. Set the increase value to "Yes" or "No".
-    # Or use them directly if your templates has the exact fields
-
-    # Get the settings
-    from Prefereneces import INCLUDE_LENGTH
-    from Prefereneces import INCLUDE_ANGLE
-    from Prefereneces import INCLUDE_MASS
-    from Prefereneces import INCLUDE_NO_SHEETS
-
-    print(str(INCLUDE_LENGTH))
-    print(str(INCLUDE_ANGLE))
-    print(str(INCLUDE_MASS))
-
-    # get units scheme
-    SchemeNumber = App.Units.getSchema()
-
-    # Add the length units of your FreeCAD application
-    if INCLUDE_LENGTH is True:
-        sheet.set("A" + str(StartRow + 1), "Length_Units")
-        sheet.set(
-            "B" + str(StartRow + 1),
-            str(
-                App.Units.schemaTranslate(
-                    App.Units.Quantity(50, App.Units.Length), SchemeNumber
-                )
-            ).split()[1],
-        )
-        sheet.set("C" + str(StartRow + 1), "No")
-
-    # Add the angular units of your FreeCAD application
-    if INCLUDE_ANGLE is True:
-        sheet.set("A" + str(StartRow + 2), "Angle_Units")
-        sheet.set(
-            "B" + str(StartRow + 2),
-            str(
-                App.Units.schemaTranslate(
-                    App.Units.Quantity(50, App.Units.Angle), SchemeNumber
-                )
-            ).split()[1],
-        )
-        sheet.set("C" + str(StartRow + 2), "No")
-
-    # Add the mass units of your FreeCAD application
-    if INCLUDE_MASS is True:
-        sheet.set("A" + str(StartRow + 3), "Mass_Units")
-        sheet.set(
-            "B" + str(StartRow + 3),
-            str(
-                App.Units.schemaTranslate(
-                    App.Units.Quantity(50, App.Units.Mass), SchemeNumber
-                )
-            ).split()[1],
-        )
-        sheet.set("C" + str(StartRow + 3), "No")
-
-    # Add the total number of sheets. You can use this for your title block
-    if INCLUDE_NO_SHEETS is True:
-        pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
-        sheet.set("A" + str(StartRow), "Number of sheets")
-        sheet.set("B" + str(StartRow), str(len(pages)))
-        sheet.set("C" + str(StartRow), "No")
-    # ----------------------------------------------------------------------------------------------------------------------------------------------
-    return
+    # Run the def to add extra data
+    AddExtraData(sheet, StartRow)
 
 
-def Start():
+# Import data from a (central) excel workbook
+def ImportDataExcel():
+    from openpyxl import load_workbook
+
+    print(str(EXTERNAL_SOURCE_PATH))
+
+    # Check if it is allowed to use an external source and if so, continue
+    if USE_EXTERNAL_SOURCE is True:
+        wb = load_workbook(str(EXTERNAL_SOURCE_PATH))
+        ws = wb[str(EXTERNAL_SOURCE_SHEET_NAME)]
+
+        # get the spreadsheet "TitleBlock"
+        sheet = App.ActiveDocument.getObject("TitleBlock")
+
+        # import the headers from the excelsheet into the spreadsheet
+        sheet.set("A1", str(ws["A1"].value))
+        sheet.set("B1", str(ws["B1"].value))
+        sheet.set("C1", str(ws["C1"].value))
+        sheet.set("D1", str(ws["D1"].value))
+
+        # set the start value for the start row.
+        # (x=0, the spreadsheet whill be populated from the first row. the headers will be overwritten)
+        StartRow = 1
+        for i in range(1000):
+            # check if you reached the end of the data.
+            if ws["A" + str(StartRow)].value is None:
+                break
+
+            # Increase StartRow by one, to fill the next row
+            StartRow = StartRow + 1
+            # Fill the property name
+            sheet.set("A" + str(StartRow), str(ws["A" + str(StartRow)].value))
+            # Fill the property value
+            if ws["B" + str(StartRow)].value is not None:
+                sheet.set("B" + str(StartRow), str(ws["B" + str(StartRow)].value))
+            # Fill the value for auto increasement(yes or no)
+            if ws["C" + str(StartRow)].value is not None:
+                sheet.set("C" + str(StartRow), str(ws["C" + str(StartRow)].value))
+            # Fill the remarks
+            if ws["D" + str(StartRow)].value is not None:
+                sheet.set("D" + str(StartRow), str(ws["D" + str(StartRow)].value))
+
+        # Run the def to add extra data
+        AddExtraData(sheet, StartRow)
+
+    else:
+        Mbox("", "External source is not enabled!", 0)
+
+
+def Start(command):
     # Find or Create spreadsheet
     try:
         # check if there is already an spreadsheet called "TitleBlock"
         sheet = App.ActiveDocument.getObject("TitleBlock")
         print("TitleBlock already present")
         # Proceed with the macro.
-        FillSheet()
+        if command == "ListTitleBlock":
+            FillSheet()
+        if command == "ImportExcel":
+            ImportDataExcel()
     except Exception:
         # if there is not yet an spreadsheet called "TitleBlock", create one
         sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
@@ -154,4 +229,7 @@ def Start():
         # set the label to "TitleBlock"
         sheet.Label = "TitleBlock"
         # Proceed with the macro.
-        FillSheet()
+        if command == "ListTitleBlock":
+            FillSheet()
+        if command == "ImportExcel":
+            ImportDataExcel()

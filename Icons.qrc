@@ -3,6 +3,8 @@
         <file>Resources/Icons/TitleBlockWB.svg</file>
         <file>Resources/Icons/ListTitleBlock.svg</file>
         <file>Resources/Icons/FillTitleBlock.svg</file>
-        <file>Resources/Icons/preferences-titleblockeb.svg</file>
+        <file>Resources/Icons/preferences-TechDrawTitleBlockUtility.svg</file>
+        <file>Resources/Icons/ImportExcel.svg</file>
+        <file>Resources/Icons/ExportExcel.svg</file>
     </qresource>
 </RCC>

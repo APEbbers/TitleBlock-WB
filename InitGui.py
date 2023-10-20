@@ -21,6 +21,9 @@
 # *                                                                         *
 # ***************************************************************************/
 
+# Attributions:
+# 1. Excel icon downloaded from: "https://www.flaticon.com/free-icons/xlsx-file"
+
 import os
 import FreeCADGui as Gui
 from inspect import getsourcefile
@@ -64,15 +67,28 @@ class TitleBlockWB(Gui.Workbench):
         It is executed once in a FreeCAD session followed by the Activated function.
         """
         import Commands  # import here all the needed files that create your FreeCAD commands
+        from Prefereneces import USE_EXTERNAL_SOURCE
 
-        self.list = [
+        if USE_EXTERNAL_SOURCE is True:
+            ToolbarList = self.list = [
+                "ImportExcel",
+                "FillTitleBlock",
+            ]
+        if USE_EXTERNAL_SOURCE is False:
+            ToolbarList = self.list = [
+                "ListTitleBlock",
+                "FillTitleBlock",
+            ]  # a list of command names created in the line above
+        self.appendToolbar(
+            "TitleBlock", ToolbarList
+        )  # creates a new toolbar with your commands
+
+        MenuList = self.list = [
             "ListTitleBlock",
             "FillTitleBlock",
+            "ImportExcel",
         ]  # a list of command names created in the line above
-        self.appendToolbar(
-            "TitleBlock", self.list
-        )  # creates a new toolbar with your commands
-        self.appendMenu("TitleBlock", self.list)  # creates a new menu
+        self.appendMenu("TitleBlock", MenuList)  # creates a new menu
 
     def Activated(self):
         """This function is executed whenever the workbench is activated"""

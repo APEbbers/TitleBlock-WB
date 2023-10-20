@@ -26,7 +26,7 @@
    <property name="geometry">
     <rect>
      <x>5</x>
-     <y>225</y>
+     <y>250</y>
      <width>421</width>
      <height>101</height>
     </rect>
@@ -69,6 +69,9 @@
     </property>
    </widget>
    <widget class="Gui::UrlLabel" name="urlLabel_2">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -88,6 +91,9 @@
     </property>
    </widget>
    <widget class="Gui::PrefLineEdit" name="DrawingNumber">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -109,7 +115,7 @@
      <string/>
     </property>
     <property name="placeholderText">
-     <string>Enter fied name...</string>
+     <string>Enter the name of  the field.</string>
     </property>
     <property name="prefEntry" stdset="0">
      <cstring>DrwNrFieldName</cstring>
@@ -125,7 +131,7 @@
      <x>5</x>
      <y>140</y>
      <width>421</width>
-     <height>76</height>
+     <height>106</height>
     </rect>
    </property>
    <property name="font">
@@ -194,6 +200,40 @@
     </property>
     <property name="prefEntry" stdset="0">
      <cstring>UseExternalSource</cstring>
+    </property>
+    <property name="prefPath" stdset="0">
+     <cstring>TechDrawTitleBlockUtility</cstring>
+    </property>
+   </widget>
+   <widget class="Gui::PrefLineEdit" name="SheetName">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>241</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="inputMask">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Enter the name of sheet.</string>
+    </property>
+    <property name="prefEntry" stdset="0">
+     <cstring>SheetName</cstring>
     </property>
     <property name="prefPath" stdset="0">
      <cstring>TechDrawTitleBlockUtility</cstring>
@@ -351,7 +391,7 @@
    <property name="geometry">
     <rect>
      <x>5</x>
-     <y>325</y>
+     <y>350</y>
      <width>401</width>
      <height>16</height>
     </rect>
@@ -433,6 +473,38 @@
     <hint type="destinationlabel">
      <x>80</x>
      <y>282</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseFileName</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>DrawingNumber</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>135</x>
+     <y>253</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>135</x>
+     <y>304</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>SheetName</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>130</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>135</x>
+     <y>219</y>
     </hint>
    </hints>
   </connection>

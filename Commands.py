@@ -37,7 +37,7 @@ class ListTitleBlock_Class:
     def Activated(self):
         import ListTitleBlock
 
-        ListTitleBlock.Start()
+        ListTitleBlock.Start("ListTitleBlock")
         return
 
     def IsActive(self):
@@ -67,6 +67,27 @@ class FillTitleBlock_Class:
         return True
 
 
+class ImportExcel_Class:
+    def GetResources(self):
+        return {
+            "Pixmap": "ImportExcel.svg",  # the name of a svg file available in the resources
+            "MenuText": "Import data from excel",
+            "ToolTip": "Imports data from excel to the spreadsheet",
+        }
+
+    def Activated(self):
+        import ListTitleBlock
+
+        ListTitleBlock.Start("ImportExcel")
+        return
+
+    def IsActive(self):
+        """Here you can define if the command must be active or not (greyed) if certain conditions
+        are met or not. This function is optional."""
+        return True
+
+
 # Add the commands to the Gui
 Gui.addCommand("ListTitleBlock", ListTitleBlock_Class())
 Gui.addCommand("FillTitleBlock", FillTitleBlock_Class())
+Gui.addCommand("ImportExcel", ImportExcel_Class())

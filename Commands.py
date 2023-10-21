@@ -23,6 +23,7 @@
 
 # FreeCAD init script of the Work Features module
 import FreeCADGui as Gui
+from Preferences import AUTOFILL_TITLEBLOCK
 
 
 # Export data from the titleblock to the spreadsheet
@@ -30,8 +31,8 @@ class FillSpreadsheet_Class:
     def GetResources(self):
         return {
             "Pixmap": "FillSpreadsheet.svg",  # the name of a svg file available in the resources
-            "MenuText": "Export data",
-            "ToolTip": "Export data from titleblock to an spreadsheet",
+            "MenuText": "Import data from titleblock",
+            "ToolTip": "Import data from titleblock to the titleblock spreadsheet",
         }
 
     def Activated(self):
@@ -51,7 +52,7 @@ class FillTitleBlock_Class:
     def GetResources(self):
         return {
             "Pixmap": "FillTitleBlock.svg",  # the name of a svg file available in the resources
-            "MenuText": "Import data",
+            "MenuText": "Populate Titleblock",
             "ToolTip": "Imports data from the spreadsheet to titleblock of all pages",
         }
 
@@ -72,13 +73,16 @@ class ImportExcel_Class:
         return {
             "Pixmap": "ImportExcel.svg",  # the name of a svg file available in the resources
             "MenuText": "Import data from excel",
-            "ToolTip": "Imports data from excel to the spreadsheet",
+            "ToolTip": "Imports data from excel to the titleblock spreadsheet",
         }
 
     def Activated(self):
         import FillSpreadsheet
+        import FillTitleBlock
 
         FillSpreadsheet.Start("ImportExcel")
+        if AUTOFILL_TITLEBLOCK is True:
+            FillTitleBlock.FillTitleBlock()
         return
 
     def IsActive(self):
@@ -91,8 +95,8 @@ class ExportSpreadsheet_class:
     def GetResources(self):
         return {
             "Pixmap": "ExportExcel.svg",  # the name of a svg file available in the resources
-            "MenuText": "Exports data to an excel file",
-            "ToolTip": "Exports data from the spreadsheet to an excel file",
+            "MenuText": "Exports data to excel",
+            "ToolTip": "Exports data from the titleblock spreadsheet to an excel file",
         }
 
     def Activated(self):

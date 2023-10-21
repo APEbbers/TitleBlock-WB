@@ -24,15 +24,7 @@
 import os
 import sys
 import FreeCAD
-import FreeCADGui
-from FreeCAD import Base
-import Part
-from PySide import QtGui
-from PySide import QtCore
-import copy
-import platform
-import numpy
-from pivy import coin
+
 
 translate = FreeCAD.Qt.translate
 
@@ -53,7 +45,17 @@ USE_EXTERNAL_SOURCE = preferences.GetBool("UseExternalSource")
 EXTERNAL_SOURCE_PATH = preferences.GetString("ExternalFile")
 EXTERNAL_SOURCE_SHEET_NAME = preferences.GetString("SheetName")
 EXTERNAL_SOURCE_STARTCELL = preferences.GetString("StartCell")
+AUTOFILL_TITLEBLOCK = preferences.GetBool("AutoFillTitleBlock")
 
 # Use filename as drawingnumber
 USE_FILENAME_DRAW_NO = preferences.GetBool("UseFileName")
 DRAW_NO_FiELD = preferences.GetString("DrwNrFieldName")
+
+# The values that are mapped
+MAP_LENGTH = preferences.GetString("MapLength")
+MAP_ANGLE = preferences.GetString("MapAngle")
+MAP_MASS = preferences.GetString("MapMass")
+MAP_NOSHEETS = preferences.GetString("MapNoSheets")
+
+# Enable debug mode. This will enable additional report messages
+ENABLE_DEBUG = preferences.GetBool("EnableDebug")

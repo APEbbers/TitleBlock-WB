@@ -40,30 +40,54 @@ import FreeCAD as App
 import Standard_Functions
 
 # Get the settings
-from Prefereneces import INCLUDE_LENGTH
-from Prefereneces import INCLUDE_ANGLE
-from Prefereneces import INCLUDE_MASS
-from Prefereneces import INCLUDE_NO_SHEETS
-from Prefereneces import USE_EXTERNAL_SOURCE
-from Prefereneces import EXTERNAL_SOURCE_PATH
-from Prefereneces import EXTERNAL_SOURCE_SHEET_NAME
-from Prefereneces import EXTERNAL_SOURCE_STARTCELL
+from Preferences import INCLUDE_LENGTH
+from Preferences import INCLUDE_ANGLE
+from Preferences import INCLUDE_MASS
+from Preferences import INCLUDE_NO_SHEETS
+from Preferences import USE_EXTERNAL_SOURCE
+from Preferences import EXTERNAL_SOURCE_PATH
+from Preferences import EXTERNAL_SOURCE_SHEET_NAME
+from Preferences import EXTERNAL_SOURCE_STARTCELL
+from Preferences import MAP_LENGTH
+from Preferences import MAP_ANGLE
+from Preferences import MAP_MASS
+from Preferences import MAP_NOSHEETS
+from Preferences import ENABLE_DEBUG
 
+# If no start cell is defined. the start cell will be "A1"
 if len(EXTERNAL_SOURCE_STARTCELL) == 0:
     EXTERNAL_SOURCE_STARTCELL = "A1"
 
+# When you copy/paste from a cell in the spreadsheet workbench, the char ' is automaticly added
+# at the begining of the text.
+# To avoid annociance, if this char is detected, it is removed from the setting.
+if str(MAP_LENGTH).startswith("'"):
+    MAP_LENGTH = str(MAP_LENGTH)[1:]
+if str(MAP_ANGLE).startswith("'"):
+    MAP_ANGLE = str(MAP_ANGLE)[1:]
+if str(MAP_MASS).startswith("'"):
+    MAP_MASS = str(MAP_MASS)[1:]
+if str(MAP_NOSHEETS).startswith("'"):
+    MAP_NOSHEETS = str(MAP_NOSHEETS)[1:]
+
 
 def AddExtraData(sheet, StartRow):
-    # The following values can be added. You can use these for you specific templates.
+    # The following system values can be added. You can use these for you specific templates.
     # Use the "bind function" of the spreadsheet workbench to create the correct entry for your template.:
     #   1. add the correct Property name
     #   2. bind the cell to the value of your specific template property.
-    #   3. Set the increase value to "Yes" or "No".
-    # Or use them directly if your templates has the exact fields
+    #   3. Mark the cell in column C if this value needs to be increased per page
 
-    print(str(INCLUDE_LENGTH))
-    print(str(INCLUDE_ANGLE))
-    print(str(INCLUDE_MASS))
+    # If the debug mode is active, show which property is includex.difference(y)
+    if ENABLE_DEBUG is True:
+        if INCLUDE_LENGTH is True:
+            print("Length unit is included: " + str(INCLUDE_LENGTH))
+        if INCLUDE_ANGLE is True:
+            print("Angle unit is included: " + str(INCLUDE_ANGLE))
+        if INCLUDE_MASS is True:
+            print("Mass unit is included: " + str(INCLUDE_MASS))
+        if INCLUDE_NO_SHEETS is True:
+            print("Number of pages is included: " + str(INCLUDE_NO_SHEETS))
 
     # get units scheme
     SchemeNumber = App.Units.getSchema()
@@ -123,10 +147,99 @@ def AddExtraData(sheet, StartRow):
 
     # Add the total number of sheets. You can use this for your title block
     if INCLUDE_NO_SHEETS is True:
+        # Get all the pages
         pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+        # Create the Property and add the value
         sheet.set("A" + str(StartRow + 1), "Number of sheets")
         sheet.set("B" + str(StartRow + 1), str(len(pages)))
     return
+
+
+# Map data from the system and/or document to the spreadsheet
+def MapData(sheet):
+    # The following system values can be mapped. The values will be automaticly filled in defined properties
+
+    # if the debug mode is on, show what is mapped to which property
+    if ENABLE_DEBUG is True:
+        if str(MAP_LENGTH).strip():
+            print("Length unit is mapped to: " + str(MAP_LENGTH))
+        if str(MAP_ANGLE).strip():
+            print("Angle unit is mapped to: " + str(MAP_ANGLE))
+        if str(MAP_MASS).strip():
+            print("Mass unit is mapped to: " + str(MAP_MASS))
+        if str(MAP_NOSHEETS).strip():
+            print("the number of pages is mapped to: " + str(MAP_NOSHEETS))
+
+    # get units scheme
+    SchemeNumber = App.Units.getSchema()
+
+    # Go through the column A in the spreadsheet and find the properties.
+    for RowNum in range(1000):
+        # Start with x+1 first, to make sure that x is at least 1.
+        RowNum = RowNum + 2
+
+        # Map length units of your FreeCAD application
+        if str(MAP_LENGTH).strip():
+            # If the cell in column A is equal to MAP_LENGTH, add the value in column B
+            if str(sheet.get("A" + str(RowNum))) == MAP_LENGTH:
+                sheet.set(
+                    "B" + str(RowNum),
+                    str(
+                        App.Units.schemaTranslate(
+                            App.Units.Quantity(50, App.Units.Length), SchemeNumber
+                        )
+                    )
+                    .split()[1]
+                    .replace("'", "")
+                    .replace(",", ""),
+                )
+
+        # Map angle units of your FreeCAD application
+        if str(MAP_ANGLE).strip():
+            # If the cell in column A is equal to MAP_ANGLE, add the value in column B
+            if str(sheet.get("A" + str(RowNum))) == MAP_ANGLE:
+                sheet.set(
+                    "B" + str(RowNum),
+                    str(
+                        App.Units.schemaTranslate(
+                            App.Units.Quantity(50, App.Units.Angle), SchemeNumber
+                        )
+                    )
+                    .split()[1]
+                    .replace("'", "")
+                    .replace(",", ""),
+                )
+
+        # Map mass units of your FreeCAD application
+        if str(MAP_MASS).strip():
+            # If the cell in column A is equal to MAP_MASS, add the value in column B
+            if str(sheet.get("A" + str(RowNum))) == MAP_MASS:
+                sheet.set(
+                    "B" + str(RowNum),
+                    str(
+                        App.Units.schemaTranslate(
+                            App.Units.Quantity(50, App.Units.Mass), SchemeNumber
+                        )
+                    )
+                    .split()[1]
+                    .replace("'", "")
+                    .replace(",", ""),
+                )
+
+        # Map the number of pages
+        if str(MAP_NOSHEETS).strip():
+            # Get all the pages
+            pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+            # If the cell in column A is equal to MAP_NOSHEETS, add the value in column B
+            if str(sheet.get("A" + str(RowNum))) == MAP_NOSHEETS:
+                sheet.set("B" + str(RowNum), str(len(pages)))
+
+        # Check if the next row exits. If not this is the end of all the available values.
+        try:
+            sheet.get("A" + str(RowNum + 1))
+        except Exception:
+            # print("end of range")
+            return
 
 
 # Fill the spreadsheet with all the date from the titleblock
@@ -138,10 +251,17 @@ def FillSheet():
     # get the spreadsheet "TitleBlock"
     sheet = App.ActiveDocument.getObject("TitleBlock")
 
+    # Debug mode is active, show all editable text in the page
+    if ENABLE_DEBUG is True:
+        print("the following editable text are present in your page:")
+        for EditableText in texts.items():
+            print(EditableText)
+
     # set the headers in the spreadsheet
     sheet.set("A1", "Property Name")
     sheet.set("B1", "Property Value")
     sheet.set("C1", "Increase value")
+    sheet.set("D1", "Remarks")
 
     # set the start value for the start row.
     # (x=0, the spreadsheet whill be populated from the first row. the headers will be overwritten)
@@ -159,7 +279,13 @@ def FillSheet():
         except Exception:
             sheet.set("C" + str(StartRow), "")
 
-    # Run the def to add extra data
+    # Finally recompute the spreadsheet
+    sheet.recompute()
+
+    # Run the def to map system data
+    MapData(sheet)
+
+    # Run the def to add extra system data
     AddExtraData(sheet, StartRow)
 
     # Finally recompute the spreadsheet
@@ -170,23 +296,36 @@ def FillSheet():
 def ImportDataExcel():
     from openpyxl import load_workbook
 
-    print(str(EXTERNAL_SOURCE_PATH))
+    # if debug mode is enabled, show the external file including path.
+    if ENABLE_DEBUG is True:
+        print(str(EXTERNAL_SOURCE_PATH))
 
     # Check if it is allowed to use an external source and if so, continue
     if USE_EXTERNAL_SOURCE is True:
-        wb = load_workbook(str(EXTERNAL_SOURCE_PATH))
-        ws = wb[str(EXTERNAL_SOURCE_SHEET_NAME)]
+        # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
+        try:
+            wb = load_workbook(str(EXTERNAL_SOURCE_PATH), data_only=True)
+            ws = wb[str(EXTERNAL_SOURCE_SHEET_NAME)]
+        except Exception as e:
+            if ENABLE_DEBUG is True:
+                raise (e)
+            Standard_Functions.Mbox(
+                "an problem occured with openening the excel file!\nDo you have it open in an another application?"
+            )
+            return
 
         # get the spreadsheet "TitleBlock"
         sheet = App.ActiveDocument.getObject("TitleBlock")
 
         # Get the startcolumn and the other three columns from there
         StartColumn = EXTERNAL_SOURCE_STARTCELL[:1]
-        print("Start column is: " + str(StartColumn))
-        print(
-            "Column number is: "
-            + str(Standard_Functions.GetNumberFromLetter(StartColumn))
-        )
+        # If debug mode is on, show the start colum and its number
+        if ENABLE_DEBUG is True:
+            print("Start column is: " + str(StartColumn))
+            print(
+                "Column number is: "
+                + str(Standard_Functions.GetNumberFromLetter(StartColumn))
+            )
         Column2 = Standard_Functions.GetLetterFromNumber(
             int(Standard_Functions.GetNumberFromLetter(StartColumn) + 2), True
         )
@@ -199,7 +338,9 @@ def ImportDataExcel():
 
         # Get the start row
         StartRow = EXTERNAL_SOURCE_STARTCELL[1:2]
-        print("the start row is: " + str(StartRow))
+        # if debug mode is on, show your start row
+        if ENABLE_DEBUG is True:
+            print("the start row is: " + str(StartRow))
 
         # import the headers from the excelsheet into the spreadsheet
         sheet.set("A1", str(ws[str(StartColumn) + str(StartRow)].value))
@@ -245,7 +386,13 @@ def ImportDataExcel():
                     str(ws[Column4 + str(RowNumber)].value),
                 )
 
-        # Run the def to add extra data. This is the final value of "RowNumber" minus the "StartRow".
+        # Finally recompute the spreadsheet
+        sheet.recompute()
+
+        # Run the def to add extra system data.
+        MapData(sheet)
+
+        # Run the def to add extra system data. This is the final value of "RowNumber" minus the "StartRow".
         AddExtraData(sheet, RowNumber - int(StartRow))
 
         # Finally recompute the spreadsheet
@@ -260,7 +407,11 @@ def Start(command):
     try:
         # check if there is already an spreadsheet called "TitleBlock"
         sheet = App.ActiveDocument.getObject("TitleBlock")
-        print("TitleBlock already present")
+
+        # if the debug mode is on, report presense of titleblock spreadsheet
+        if ENABLE_DEBUG is True:
+            print("TitleBlock already present")
+
         # Proceed with the macro.
         if command == "FillSpreadsheet":
             FillSheet()
@@ -269,9 +420,14 @@ def Start(command):
     except Exception:
         # if there is not yet an spreadsheet called "TitleBlock", create one
         sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
-        print("TitleBlock created")
+
+        # if the debug mode is on, report creation of titleblock spreadsheet
+        if ENABLE_DEBUG is True:
+            print("TitleBlock created")
+
         # set the label to "TitleBlock"
         sheet.Label = "TitleBlock"
+
         # Proceed with the macro.
         if command == "FillSpreadsheet":
             FillSheet()

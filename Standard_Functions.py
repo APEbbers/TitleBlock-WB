@@ -1,18 +1,39 @@
 import ctypes  # An included library with Python install.
 import tkinter as tk
 from tkinter.filedialog import asksaveasfile
+from PySide import QtCore
+from PySide import QtGui
 
 
 #  Message Styles:
 #  0 : OK
-#  1 : OK | Cancel
-#  2 : Abort | Retry | Ignore
-#  3 : Yes | No | Cancel
-#  4 : Yes | No
-#  5 : Retry | Cancel
-#  6 : Cancel | Try Again | Continuemport ctypes  # An included library with Python install.
-def Mbox(text, title, style):
-    return ctypes.windll.user32.MessageBoxW(0, text, title, style)
+#  1 : Yes | No
+#  2 : Inputbox
+def Mbox(text, title="", style=0):
+    if style == 0:
+        reply = str(QtGui.QMessageBox.information(None, title, text))
+        return reply
+    if style == 1:
+        reply = QtGui.QMessageBox.question(
+            None,
+            title,
+            text,
+            QtGui.QMessageBox.Yes | QtGui.QMessageBox.No,
+            QtGui.QMessageBox.No,
+        )
+        if reply == QtGui.QMessageBox.Yes:
+            return "yes"
+        if reply == QtGui.QMessageBox.No:
+            return "no"
+    if style == 2:
+        reply = QtGui.QInputDialog.getText(None, title, text)
+        if reply[1]:
+            # user clicked OK
+            replyText = reply[0]
+        else:
+            # user clicked Cancel
+            replyText = reply[0]  # which will be "" if they clicked Cancel
+        return str(replyText)
 
 
 # files must be like:

@@ -34,11 +34,13 @@
 
 import FreeCAD as App
 import Standard_Functions
+from Preferences import ENABLE_DEBUG
 
 
 def FillTitleBlock():
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1
+    Multiplier = 1
 
     # Get the pages and go throug them one by one.
     try:
@@ -67,24 +69,82 @@ def FillTitleBlock():
                     except Exception:
                         texts[str(sheet.get("A" + str(RowNum)))] = ""
                     else:
-                        # if (str(sheet.get("C" + str(RowNum))).lower()).startswith("y"):
                         try:
+                            # check if there is a value. If so, this property value must be increased with every page
                             str(sheet.get("C" + str(RowNum))).strip()
                             try:
-                                (
-                                    isinstance(
-                                        int(str(sheet.get("B" + str(RowNum)))), int
+                                # check if there is a value
+                                str(sheet.get("D" + str(RowNum))).strip()
+                                # convert it to a number and use it as multiplier
+                                Multiplier = int(sheet.get("D" + str(RowNum)))
+
+                                # if in debug mode. Show the value of the multiplier
+                                if ENABLE_DEBUG is True:
+                                    print(
+                                        "The values will be multiplied with: "
+                                        + str(Multiplier)
                                     )
-                                )
-                                texts[str(sheet.get("A" + str(RowNum)))] = str(
-                                    int(str(sheet.get("B" + str(RowNum)))) + NumCounter
-                                )
+                            except Exception as e:
+                                # there is no int, so the multiplier is set to 1.
+                                print("No Int found!")
+                                if ENABLE_DEBUG is True:
+                                    print(e)
+                                Multiplier = 1
+                            try:
+                                # check if the value in colom B is an number
+                                int(str(sheet.get("B" + str(RowNum))))
+
+                                # If NumCounter is 0, you are on page 1. This will always have the number in colomn B.
+                                if NumCounter < 1:
+                                    # If Debug mode is enabled, show NumCounter
+                                    if ENABLE_DEBUG is True:
+                                        print("NumCounter is: " + str(NumCounter))
+                                    texts[str(sheet.get("A" + str(RowNum)))] = str(
+                                        sheet.get("B" + str(RowNum))
+                                    )
+
+                                # If NumCounter is equal or greater then 1, you are one page 1, 2, etc.
+                                # These page numbers are: (the value in column B * Multiplier)+NumCounter.
+                                # Column B is the page number for the first page.
+                                #
+                                # Example: 1st pagenumber is 2 and the multiplier is 10. Page 1 has number 2.
+                                # this results in:
+                                # Page 1 has number 2. (as mentioned)
+                                # Page 2 has number 12 [2+(10*1)] where 2 is the number of first page,
+                                # 10 is the value of the multiplier and 1 is the number of the NumCounter.
+                                # Page 3 has 2+(10*2)=22.
+                                #
+                                # When the 1st page has number 1, page 2 has number 11, page 3 has number 21,
+                                # page 4 has 41, etc.
+                                if NumCounter >= 1:
+                                    # If Debug mode is enabled, show NumCounter
+                                    if ENABLE_DEBUG is True:
+                                        print(
+                                            "NumCounter is: "
+                                            + str((NumCounter * Multiplier))
+                                        )
+
+                                    if Multiplier > 1:
+                                        # The actual calculation: the value in column B * NumCounter*Multiplier.
+                                        texts[str(sheet.get("A" + str(RowNum)))] = str(
+                                            (int(sheet.get("B" + str(RowNum))))
+                                            + (Multiplier * NumCounter)
+                                        )
+                                    if Multiplier == 1:
+                                        # The actual calculation: the value in column B * NumCounter*Multiplier.
+                                        texts[str(sheet.get("A" + str(RowNum)))] = str(
+                                            (int(sheet.get("B" + str(RowNum))))
+                                            + NumCounter
+                                        )
+
                             except Exception:
+                                # if it is not an number, the value of column B will be added without calculation
                                 texts[str(sheet.get("A" + str(RowNum)))] = str(
                                     sheet.get("B" + str(RowNum))
                                 )
                                 raise ("this is not a number!")
                         except Exception:
+                            # if it is empty, the value of column B will be added without calculation
                             texts[str(sheet.get("A" + str(RowNum)))] = str(
                                 sheet.get("B" + str(RowNum))
                             )

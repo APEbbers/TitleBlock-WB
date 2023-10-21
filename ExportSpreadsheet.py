@@ -64,6 +64,10 @@ def ExportSpreadSheet():
                 ws["D" + str(RowNum)] = str(sheet.get("D" + str(RowNum)))
             except Exception:
                 ws["D" + str(RowNum)] = ""
+            try:
+                ws["E" + str(RowNum)] = str(sheet.get("E" + str(RowNum)))
+            except Exception:
+                ws["E" + str(RowNum)] = ""
 
             # Check if the next row exits. If not this is the end of all the available values.
             try:

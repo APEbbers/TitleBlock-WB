@@ -261,7 +261,8 @@ def FillSheet():
     sheet.set("A1", "Property Name")
     sheet.set("B1", "Property Value")
     sheet.set("C1", "Increase value")
-    sheet.set("D1", "Remarks")
+    sheet.set("D1", "Multiplier")
+    sheet.set("E1", "Remarks")
 
     # set the start value for the start row.
     # (x=0, the spreadsheet whill be populated from the first row. the headers will be overwritten)
@@ -335,6 +336,9 @@ def ImportDataExcel():
         Column4 = Standard_Functions.GetLetterFromNumber(
             int(Standard_Functions.GetNumberFromLetter(StartColumn) + 4), True
         )
+        Column5 = Standard_Functions.GetLetterFromNumber(
+            int(Standard_Functions.GetNumberFromLetter(StartColumn) + 5), True
+        )
 
         # Get the start row
         StartRow = EXTERNAL_SOURCE_STARTCELL[1:2]
@@ -347,6 +351,7 @@ def ImportDataExcel():
         sheet.set("B1", str(ws[str(Column2) + str(StartRow)].value))
         sheet.set("C1", str(ws[str(Column3) + str(StartRow)].value))
         sheet.set("D1", str(ws[str(Column4) + str(StartRow)].value))
+        sheet.set("E1", str(ws[str(Column4) + str(StartRow)].value))
 
         # Go through the excel until the cell in the first column is empty.
         for i in range(1000):
@@ -379,10 +384,16 @@ def ImportDataExcel():
                     str("C" + str(RowNumber - Delta)),
                     str(ws[Column3 + str(RowNumber)].value),
                 )
-            # Fill the remarks
+            # Fill the multipliers
             if ws[Column4 + str(RowNumber)].value is not None:
                 sheet.set(
                     str("D" + str(RowNumber - Delta)),
+                    str(ws[Column4 + str(RowNumber)].value),
+                )
+            # Fill the remarks
+            if ws[Column5 + str(RowNumber)].value is not None:
+                sheet.set(
+                    str("E" + str(RowNumber - Delta)),
                     str(ws[Column4 + str(RowNumber)].value),
                 )
 

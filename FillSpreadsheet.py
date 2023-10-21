@@ -77,9 +77,11 @@ def AddExtraData(sheet, StartRow):
                 App.Units.schemaTranslate(
                     App.Units.Quantity(50, App.Units.Length), SchemeNumber
                 )
-            ).split()[1],
+            )
+            .split()[1]
+            .replace("'", "")
+            .replace(",", ""),
         )
-        sheet.set("C" + str(StartRow + 1), "No")
         StartRow = StartRow + 1
 
     # Add the angular units of your FreeCAD application
@@ -91,9 +93,11 @@ def AddExtraData(sheet, StartRow):
                 App.Units.schemaTranslate(
                     App.Units.Quantity(50, App.Units.Angle), SchemeNumber
                 )
-            ).split()[1],
+            )
+            .split()[1]
+            .replace("'", "")
+            .replace(",", ""),
         )
-        sheet.set("C" + str(StartRow + 1), "No")
         StartRow = StartRow + 1
 
     # Add the mass units of your FreeCAD application
@@ -105,9 +109,16 @@ def AddExtraData(sheet, StartRow):
                 App.Units.schemaTranslate(
                     App.Units.Quantity(50, App.Units.Mass), SchemeNumber
                 )
-            ).split()[1],
+            )
+            .split()[1]
+            .replace("'", "")
+            .replace(",", ""),
         )
-        sheet.set("C" + str(StartRow + 1), "No")
+        print(
+            App.Units.schemaTranslate(
+                App.Units.Quantity(50, App.Units.Mass), SchemeNumber
+            )
+        )
         StartRow = StartRow + 1
 
     # Add the total number of sheets. You can use this for your title block
@@ -115,8 +126,6 @@ def AddExtraData(sheet, StartRow):
         pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
         sheet.set("A" + str(StartRow + 1), "Number of sheets")
         sheet.set("B" + str(StartRow + 1), str(len(pages)))
-        sheet.set("C" + str(StartRow + 1), "No")
-
     return
 
 
@@ -132,7 +141,7 @@ def FillSheet():
     # set the headers in the spreadsheet
     sheet.set("A1", "Property Name")
     sheet.set("B1", "Property Value")
-    sheet.set("C1", "Increase, Yes or No?")
+    sheet.set("C1", "Increase value")
 
     # set the start value for the start row.
     # (x=0, the spreadsheet whill be populated from the first row. the headers will be overwritten)
@@ -144,14 +153,17 @@ def FillSheet():
         sheet.set("A" + str(StartRow), "{0}".format(key, value))
         # Fill the property value
         sheet.set("B" + str(StartRow), "{1}".format(key, value))
-        # If there is no value yet, the increase function will be set to "No" of by default.
+        # If there is no value yet, the increase function will be set empty by default.
         try:
             str(sheet.get("C" + str(StartRow)))
         except Exception:
-            sheet.set("C" + str(StartRow), "No")
+            sheet.set("C" + str(StartRow), "")
 
     # Run the def to add extra data
     AddExtraData(sheet, StartRow)
+
+    # Finally recompute the spreadsheet
+    sheet.recompute()
 
 
 # Import data from a (central) excel workbook
@@ -176,13 +188,13 @@ def ImportDataExcel():
             + str(Standard_Functions.GetNumberFromLetter(StartColumn))
         )
         Column2 = Standard_Functions.GetLetterFromNumber(
-            int(Standard_Functions.GetNumberFromLetter(StartColumn) + 1), True
-        )
-        Column3 = Standard_Functions.GetLetterFromNumber(
             int(Standard_Functions.GetNumberFromLetter(StartColumn) + 2), True
         )
-        Column4 = Standard_Functions.GetLetterFromNumber(
+        Column3 = Standard_Functions.GetLetterFromNumber(
             int(Standard_Functions.GetNumberFromLetter(StartColumn) + 3), True
+        )
+        Column4 = Standard_Functions.GetLetterFromNumber(
+            int(Standard_Functions.GetNumberFromLetter(StartColumn) + 4), True
         )
 
         # Get the start row
@@ -235,6 +247,9 @@ def ImportDataExcel():
 
         # Run the def to add extra data. This is the final value of "RowNumber" minus the "StartRow".
         AddExtraData(sheet, RowNumber - int(StartRow))
+
+        # Finally recompute the spreadsheet
+        sheet.recompute()
 
     else:
         Standard_Functions.Mbox("External source is not enabled!", "", 0)

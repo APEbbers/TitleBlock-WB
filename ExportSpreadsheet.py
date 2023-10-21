@@ -31,16 +31,17 @@ def ExportSpreadSheet():
     try:
         # get the spreadsheet "TitleBlock"
         sheet = App.ActiveDocument.getObject("TitleBlock")
+        sheet.recompute()
 
         # Create a workbook and activate the first sheet
         wb = Workbook()
         ws = wb.active
 
         # Set the headers
-        ws["A1"] = sheet.get("A1")
-        ws["B1"] = sheet.get("B1")
-        ws["C1"] = sheet.get("C1")
-        ws["D1"] = sheet.get("D1")
+        ws["A1"].value = str(sheet.get("A1"))
+        ws["B1"].value = str(sheet.get("B1"))
+        ws["C1"].value = str(sheet.get("C1"))
+        ws["D1"].value = str(sheet.get("D1"))
 
         # Go through the spreadsheet.
         for RowNum in range(1000):

@@ -67,7 +67,9 @@ def FillTitleBlock():
                     except Exception:
                         texts[str(sheet.get("A" + str(RowNum)))] = ""
                     else:
-                        if (str(sheet.get("C" + str(RowNum))).lower()).startswith("y"):
+                        # if (str(sheet.get("C" + str(RowNum))).lower()).startswith("y"):
+                        try:
+                            str(sheet.get("C" + str(RowNum))).strip()
                             try:
                                 (
                                     isinstance(
@@ -82,7 +84,7 @@ def FillTitleBlock():
                                     sheet.get("B" + str(RowNum))
                                 )
                                 raise ("this is not a number!")
-                        else:
+                        except Exception:
                             texts[str(sheet.get("A" + str(RowNum)))] = str(
                                 sheet.get("B" + str(RowNum))
                             )

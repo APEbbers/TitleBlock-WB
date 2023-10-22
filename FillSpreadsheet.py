@@ -41,21 +41,21 @@ import FreeCAD as App
 import Standard_Functions
 
 # Get the settings
-from Preferences import INCLUDE_LENGTH
-from Preferences import INCLUDE_ANGLE
-from Preferences import INCLUDE_MASS
-from Preferences import INCLUDE_NO_SHEETS
-from Preferences import USE_EXTERNAL_SOURCE
-from Preferences import EXTERNAL_SOURCE_PATH
-from Preferences import EXTERNAL_SOURCE_SHEET_NAME
-from Preferences import EXTERNAL_SOURCE_STARTCELL
-from Preferences import MAP_LENGTH
-from Preferences import MAP_ANGLE
-from Preferences import MAP_MASS
-from Preferences import MAP_NOSHEETS
-from Preferences import ENABLE_DEBUG
-from Preferences import USE_FILENAME_DRAW_NO
-from Preferences import DRAW_NO_FiELD
+from Settings import INCLUDE_LENGTH
+from Settings import INCLUDE_ANGLE
+from Settings import INCLUDE_MASS
+from Settings import INCLUDE_NO_SHEETS
+from Settings import USE_EXTERNAL_SOURCE
+from Settings import EXTERNAL_SOURCE_PATH
+from Settings import EXTERNAL_SOURCE_SHEET_NAME
+from Settings import EXTERNAL_SOURCE_STARTCELL
+from Settings import MAP_LENGTH
+from Settings import MAP_ANGLE
+from Settings import MAP_MASS
+from Settings import MAP_NOSHEETS
+from Settings import ENABLE_DEBUG
+from Settings import USE_FILENAME_DRAW_NO
+from Settings import DRAW_NO_FiELD
 
 # If no start cell is defined. the start cell will be "A1"
 if len(EXTERNAL_SOURCE_STARTCELL) == 0:

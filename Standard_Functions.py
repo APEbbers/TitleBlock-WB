@@ -5,12 +5,12 @@ from PySide import QtCore
 from PySide import QtGui
 
 
-def Mbox(text, title="", style=0):
+def Mbox(text, title="", style=0, default=""):
     """
     Message Styles:
-    0 : OK
-    1 : Yes | No
-    2 : Inputbox
+    0 : OK          (text, title, style)
+    1 : Yes | No    (text, title, style)
+    2 : Inputbox    (text, title, style, default)
     """
     if style == 0:
         reply = str(QtGui.QMessageBox.information(None, title, text))
@@ -28,7 +28,8 @@ def Mbox(text, title="", style=0):
         if reply == QtGui.QMessageBox.No:
             return "no"
     if style == 2:
-        reply = QtGui.QInputDialog.getText(None, title, text)
+        reply = QtGui.QInputDialog.getText(None, title, text, text=default)
+
         if reply[1]:
             # user clicked OK
             replyText = reply[0]
@@ -38,7 +39,7 @@ def Mbox(text, title="", style=0):
         return str(replyText)
 
 
-def SaveDialog(files):
+def SaveAsDialog(files):
     """
     files must be like:
     files = [
@@ -47,13 +48,15 @@ def SaveDialog(files):
         ('Text Document', '*.txt')
     ]
     """
+
     # Create the window
     root = tk.Tk()
     # Hide the window
     root.withdraw()
 
     file = asksaveasfile(filetypes=files, defaultextension=files)
-    return file.name
+    if file is not None:
+        return file.name
 
 
 def GetLetterFromNumber(number: int, UCase: bool = True):

@@ -34,7 +34,7 @@
 
 import FreeCAD as App
 import Standard_Functions
-from Preferences import ENABLE_DEBUG
+from Settings import ENABLE_DEBUG
 
 
 def FillTitleBlock():

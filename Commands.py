@@ -23,7 +23,7 @@
 
 # FreeCAD init script of the Work Features module
 import FreeCADGui as Gui
-from Preferences import AUTOFILL_TITLEBLOCK
+from Settings import AUTOFILL_TITLEBLOCK
 
 
 # Export data from the titleblock to the spreadsheet
@@ -111,8 +111,29 @@ class ExportSpreadsheet_class:
         return True
 
 
+class ExportSettings_class:
+    def GetResources(self):
+        return {
+            # "Pixmap": "ExportExcel.svg",  # the name of a svg file available in the resources
+            "MenuText": "Exports settings to excel",
+            "ToolTip": "Exportsall settings to an excel file",
+        }
+
+    def Activated(self):
+        import Settings
+
+        Settings.ExportSettingsXL()
+        return
+
+    def IsActive(self):
+        """Here you can define if the command must be active or not (greyed) if certain conditions
+        are met or not. This function is optional."""
+        return True
+
+
 # Add the commands to the Gui
 Gui.addCommand("FillSpreadsheet", FillSpreadsheet_Class())
 Gui.addCommand("FillTitleBlock", FillTitleBlock_Class())
 Gui.addCommand("ImportExcel", ImportExcel_Class())
 Gui.addCommand("ExportSpreadSheet", ExportSpreadsheet_class())
+Gui.addCommand("ExportSettings", ExportSettings_class())

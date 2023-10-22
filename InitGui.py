@@ -28,7 +28,7 @@ import os
 import FreeCADGui as Gui
 from inspect import getsourcefile
 import myResources
-import Preferences as Pref
+import Settings as Pref
 
 __title__ = "TitleBlock Workbench"
 __author__ = "A.P. Ebbers"
@@ -67,7 +67,7 @@ class TitleBlockWB(Gui.Workbench):
         It is executed once in a FreeCAD session followed by the Activated function.
         """
         import Commands  # import here all the needed files that create your FreeCAD commands
-        from Preferences import USE_EXTERNAL_SOURCE
+        from Settings import USE_EXTERNAL_SOURCE
 
         if USE_EXTERNAL_SOURCE is True:
             ToolbarList = self.list = [
@@ -88,6 +88,7 @@ class TitleBlockWB(Gui.Workbench):
             "FillTitleBlock",
             "ImportExcel",
             "ExportSpreadSheet",
+            "ExportSettings",
         ]  # a list of command names created in the line above
         self.appendMenu("TitleBlock", MenuList)  # creates a new menu
 

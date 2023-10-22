@@ -89,11 +89,12 @@ def ExportSpreadSheet():
             ws.column_dimensions[column].width = set_col_width
 
         # Save the excel file in a folder of your choosing
-        files = [
+        Filter = [
             ("Excel", "*.xlsx"),
         ]
-        FileName = Standard_Functions.SaveDialog(files)
-        wb.save(str(FileName))
+        FileName = Standard_Functions.SaveAsDialog(Filter)
+        if FileName is not None:
+            wb.save(str(FileName))
 
     except Exception as e:
         # raise Exception("No spreadsheet named 'TitleBlock'!!!")

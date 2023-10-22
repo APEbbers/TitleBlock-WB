@@ -25,13 +25,14 @@ import os
 import sys
 import FreeCAD
 
-
+# region defenitions
 translate = FreeCAD.Qt.translate
-
 preferences = FreeCAD.ParamGet(
     "User parameter:BaseApp/Preferences/TechDrawTitleBlockUtility"
 )
+# endregion
 
+# region -- All settings from the UI
 # Included units
 INCLUDE_LENGTH = preferences.GetBool("IncludeLength")
 INCLUDE_ANGLE = preferences.GetBool("IncludeAngle")
@@ -46,6 +47,7 @@ EXTERNAL_SOURCE_PATH = preferences.GetString("ExternalFile")
 EXTERNAL_SOURCE_SHEET_NAME = preferences.GetString("SheetName")
 EXTERNAL_SOURCE_STARTCELL = preferences.GetString("StartCell")
 AUTOFILL_TITLEBLOCK = preferences.GetBool("AutoFillTitleBlock")
+IMPORT_SETTINGS_XL = preferences.GetBool("ImportSettingsXL")
 
 # Use filename as drawingnumber
 USE_FILENAME_DRAW_NO = preferences.GetBool("UseFileName")
@@ -59,3 +61,9 @@ MAP_NOSHEETS = preferences.GetString("MapNoSheets")
 
 # Enable debug mode. This will enable additional report messages
 ENABLE_DEBUG = preferences.GetBool("EnableDebug")
+
+# endregion
+
+
+def ImportSettingsXL():
+    from openpyxl import load_workbook

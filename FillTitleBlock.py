@@ -87,6 +87,7 @@ def FillTitleBlock():
                             except Exception as e:
                                 # there is no int, so the multiplier is set to 1.
                                 print("No Int found!")
+                                # if degbug mode is enabeled, print the exception
                                 if ENABLE_DEBUG is True:
                                     print(e)
                                 Multiplier = 1
@@ -94,18 +95,18 @@ def FillTitleBlock():
                                 # check if the value in colom B is an number
                                 int(str(sheet.get("B" + str(RowNum))))
 
-                                # If NumCounter is 0, you are on page 1. This will always have the number in colomn B.
-                                if NumCounter < 1:
-                                    # If Debug mode is enabled, show NumCounter
-                                    if ENABLE_DEBUG is True:
-                                        print("NumCounter is: " + str(NumCounter))
-                                    texts[str(sheet.get("A" + str(RowNum)))] = str(
-                                        sheet.get("B" + str(RowNum))
+                                # If Debug mode is enabled, show NumCounter and Multplier
+                                if ENABLE_DEBUG is True:
+                                    print(
+                                        "NumCounter is: "
+                                        + str((NumCounter))
+                                        + ", Multiplier is: "
+                                        + str(Multiplier)
                                     )
 
-                                # If NumCounter is equal or greater then 1, you are one page 1, 2, etc.
-                                # These page numbers are: (the value in column B * Multiplier)+NumCounter.
-                                # Column B is the page number for the first page.
+                                # The page numbers will be calculated with the formula:
+                                # -> the value in column B + (Multiplier*NumCounter).
+                                # With Column B is the page number for the first page.
                                 #
                                 # Example: 1st pagenumber is 2 and the multiplier is 10. Page 1 has number 2.
                                 # this results in:
@@ -116,38 +117,28 @@ def FillTitleBlock():
                                 #
                                 # When the 1st page has number 1, page 2 has number 11, page 3 has number 21,
                                 # page 4 has 41, etc.
-                                if NumCounter >= 1:
-                                    # If Debug mode is enabled, show NumCounter
-                                    if ENABLE_DEBUG is True:
-                                        print(
-                                            "NumCounter is: "
-                                            + str((NumCounter * Multiplier))
-                                        )
+                                texts[str(sheet.get("A" + str(RowNum)))] = str(
+                                    (int(sheet.get("B" + str(RowNum))))
+                                    + (Multiplier * NumCounter)
+                                )
 
-                                    if Multiplier > 1:
-                                        # The actual calculation: the value in column B * NumCounter*Multiplier.
-                                        texts[str(sheet.get("A" + str(RowNum)))] = str(
-                                            (int(sheet.get("B" + str(RowNum))))
-                                            + (Multiplier * NumCounter)
-                                        )
-                                    if Multiplier == 1:
-                                        # The actual calculation: the value in column B * NumCounter*Multiplier.
-                                        texts[str(sheet.get("A" + str(RowNum)))] = str(
-                                            (int(sheet.get("B" + str(RowNum))))
-                                            + NumCounter
-                                        )
-
-                            except Exception:
+                            except Exception as e:
                                 # if it is not an number, the value of column B will be added without calculation
                                 texts[str(sheet.get("A" + str(RowNum)))] = str(
                                     sheet.get("B" + str(RowNum))
                                 )
-                                raise ("this is not a number!")
-                        except Exception:
+                                print("this is not a number!")
+                                # if degbug mode is enabeled, print the exception
+                                if ENABLE_DEBUG is True:
+                                    print(e)
+                        except Exception as e:
                             # if it is empty, the value of column B will be added without calculation
                             texts[str(sheet.get("A" + str(RowNum)))] = str(
                                 sheet.get("B" + str(RowNum))
                             )
+                            # if degbug mode is enabeled, print the exception
+                            if ENABLE_DEBUG is True:
+                                print(e)
 
                     # Check if the next row exits. If not this is the end of all the available values.
                     try:
@@ -162,9 +153,13 @@ def FillTitleBlock():
             except Exception as e:
                 # raise an exeception if there is no spreadsheet.
                 Standard_Functions.Mbox("No spreadsheet named 'TitleBlock'!!!", "", 0)
-                raise (e)
+                # if degbug mode is enabeled, print the exception
+                if ENABLE_DEBUG is True:
+                    print(e)
 
     except Exception as e:
         # raise an exeception if there is no page.
         Standard_Functions.Mbox("No page present!!!", "", 0)
-        raise (e)
+        # if degbug mode is enabeled, print the exception
+        if ENABLE_DEBUG is True:
+            print(e)

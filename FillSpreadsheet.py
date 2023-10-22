@@ -36,6 +36,7 @@
 #  - Import data from excel or libre office
 #  - Etc.
 
+import os
 import FreeCAD as App
 import Standard_Functions
 
@@ -53,6 +54,8 @@ from Preferences import MAP_ANGLE
 from Preferences import MAP_MASS
 from Preferences import MAP_NOSHEETS
 from Preferences import ENABLE_DEBUG
+from Preferences import USE_FILENAME_DRAW_NO
+from Preferences import DRAW_NO_FiELD
 
 # If no start cell is defined. the start cell will be "A1"
 if len(EXTERNAL_SOURCE_STARTCELL) == 0:
@@ -69,6 +72,8 @@ if str(MAP_MASS).startswith("'"):
     MAP_MASS = str(MAP_MASS)[1:]
 if str(MAP_NOSHEETS).startswith("'"):
     MAP_NOSHEETS = str(MAP_NOSHEETS)[1:]
+if str(DRAW_NO_FiELD).startswith("'"):
+    DRAW_NO_FiELD = str(DRAW_NO_FiELD)[1:]
 
 
 def AddExtraData(sheet, StartRow):
@@ -159,6 +164,9 @@ def AddExtraData(sheet, StartRow):
 def MapData(sheet):
     # The following system values can be mapped. The values will be automaticly filled in defined properties
 
+    # Get the filename
+    filename = os.path.basename(App.ActiveDocument.FileName).split(".")[0]
+
     # if the debug mode is on, show what is mapped to which property
     if ENABLE_DEBUG is True:
         if str(MAP_LENGTH).strip():
@@ -169,6 +177,14 @@ def MapData(sheet):
             print("Mass unit is mapped to: " + str(MAP_MASS))
         if str(MAP_NOSHEETS).strip():
             print("the number of pages is mapped to: " + str(MAP_NOSHEETS))
+        if USE_FILENAME_DRAW_NO is True:
+            if str(DRAW_NO_FiELD).strip():
+                print(
+                    "The filename ("
+                    + str(filename)
+                    + ") is mapped to: "
+                    + str(DRAW_NO_FiELD)
+                )
 
     # get units scheme
     SchemeNumber = App.Units.getSchema()
@@ -233,6 +249,14 @@ def MapData(sheet):
             # If the cell in column A is equal to MAP_NOSHEETS, add the value in column B
             if str(sheet.get("A" + str(RowNum))) == MAP_NOSHEETS:
                 sheet.set("B" + str(RowNum), str(len(pages)))
+
+        # Map the filename
+        if USE_FILENAME_DRAW_NO is True:
+            if str(DRAW_NO_FiELD).strip():
+                # If the cell in column A is equal to DRAW_NO_FiELD, add the value in column B
+                if str(sheet.get("A" + str(RowNum))) == DRAW_NO_FiELD:
+                    print("I got here! " + filename)
+                    sheet.set("B" + str(RowNum), filename)
 
         # Check if the next row exits. If not this is the end of all the available values.
         try:

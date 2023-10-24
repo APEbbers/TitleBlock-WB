@@ -29,7 +29,7 @@
    <property name="geometry">
     <rect>
      <x>5</x>
-     <y>270</y>
+     <y>295</y>
      <width>421</width>
      <height>101</height>
     </rect>
@@ -134,7 +134,7 @@
      <x>5</x>
      <y>10</y>
      <width>421</width>
-     <height>256</height>
+     <height>281</height>
     </rect>
    </property>
    <property name="font">
@@ -306,7 +306,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>135</y>
+      <y>150</y>
       <width>221</width>
       <height>17</height>
      </rect>
@@ -337,7 +337,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>160</y>
+      <y>190</y>
       <width>381</width>
       <height>17</height>
      </rect>
@@ -358,49 +358,6 @@
      <cstring>TechDrawTitleBlockUtility</cstring>
     </property>
    </widget>
-   <widget class="Gui::PrefComboBox" name="SheetName_Settings">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>185</y>
-      <width>241</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="toolTip">
-     <string>Select worksheet with the settings...</string>
-    </property>
-    <property name="accessibleName">
-     <string/>
-    </property>
-    <property name="editable">
-     <bool>false</bool>
-    </property>
-    <property name="maxVisibleItems">
-     <number>50</number>
-    </property>
-    <property name="placeholderText">
-     <string extracomment="Select worksheet with the settings...">Select worksheet with the settings...</string>
-    </property>
-    <property name="duplicatesEnabled">
-     <bool>true</bool>
-    </property>
-    <property name="prefEntry" stdset="0">
-     <cstring>SheetName_Settings</cstring>
-    </property>
-    <property name="prefPath" stdset="0">
-     <cstring>TechDrawTitleBlockUtility</cstring>
-    </property>
-   </widget>
    <widget class="Gui::PrefLineEdit" name="StartCell_Settings">
     <property name="enabled">
      <bool>false</bool>
@@ -408,7 +365,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>215</y>
+      <y>245</y>
       <width>117</width>
       <height>26</height>
      </rect>
@@ -418,6 +375,12 @@
       <weight>50</weight>
       <bold>false</bold>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Enter the cell to import the settings from.</string>
+    </property>
+    <property name="whatsThis">
+     <string>Enter the cell to import the settings from.</string>
     </property>
     <property name="inputMask">
      <string/>
@@ -442,7 +405,7 @@
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>220</y>
+      <y>250</y>
       <width>276</width>
       <height>16</height>
      </rect>
@@ -458,12 +421,96 @@
      <string>Cell adress must be like &quot;B1&quot;. If empty, A1 will be used.</string>
     </property>
    </widget>
+   <widget class="Gui::PrefLineEdit" name="SheetName_Settings">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>215</y>
+      <width>241</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>Enter the name of sheet to import the settings from.</string>
+    </property>
+    <property name="statusTip">
+     <string>Enter the name of sheet to import the settings from.</string>
+    </property>
+    <property name="whatsThis">
+     <string>Enter the name of sheet...</string>
+    </property>
+    <property name="inputMask">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Enter the name of sheet...</string>
+    </property>
+    <property name="prefEntry" stdset="0">
+     <cstring>SheetName_Settings</cstring>
+    </property>
+    <property name="prefPath" stdset="0">
+     <cstring>TechDrawTitleBlockUtility</cstring>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>401</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::NoContextMenu</enum>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>170</y>
+      <width>401</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
   </widget>
   <widget class="QGroupBox" name="groupBox_Included_Items">
    <property name="geometry">
     <rect>
      <x>5</x>
-     <y>555</y>
+     <y>580</y>
      <width>421</width>
      <height>181</height>
     </rect>
@@ -607,7 +654,7 @@
    <property name="geometry">
     <rect>
      <x>15</x>
-     <y>740</y>
+     <y>765</y>
      <width>401</width>
      <height>16</height>
     </rect>
@@ -625,7 +672,7 @@
    <property name="geometry">
     <rect>
      <x>5</x>
-     <y>375</y>
+     <y>400</y>
      <width>421</width>
      <height>176</height>
     </rect>
@@ -809,7 +856,7 @@
    <property name="geometry">
     <rect>
      <x>15</x>
-     <y>765</y>
+     <y>790</y>
      <width>91</width>
      <height>17</height>
     </rect>
@@ -846,23 +893,30 @@
    <header>Gui/PrefWidgets.h</header>
   </customwidget>
   <customwidget>
-   <class>Gui::PrefComboBox</class>
-   <extends>QComboBox</extends>
-   <header>Gui/PrefWidgets.h</header>
-  </customwidget>
-  <customwidget>
    <class>Gui::PrefLineEdit</class>
    <extends>QLineEdit</extends>
    <header>Gui/PrefWidgets.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>
+  <tabstop>UseExternalSource</tabstop>
+  <tabstop>SheetName</tabstop>
+  <tabstop>StartCell</tabstop>
+  <tabstop>AutoFillTitleBlock</tabstop>
+  <tabstop>ImportSettingsXL</tabstop>
+  <tabstop>SheetName_Settings</tabstop>
+  <tabstop>StartCell_Settings</tabstop>
+  <tabstop>UseFileName</tabstop>
+  <tabstop>DrawingNumber</tabstop>
+  <tabstop>MapLength</tabstop>
+  <tabstop>MapAngle</tabstop>
+  <tabstop>MapMass</tabstop>
+  <tabstop>MapNoSheets</tabstop>
   <tabstop>IncludeLengthUnit</tabstop>
   <tabstop>IncludeAngleUnit</tabstop>
   <tabstop>IncludeMassUnit</tabstop>
-  <tabstop>UseExternalSource</tabstop>
-  <tabstop>UseFileName</tabstop>
-  <tabstop>DrawingNumber</tabstop>
+  <tabstop>IncludeNoOfSheets</tabstop>
+  <tabstop>EnableDebug</tabstop>
  </tabstops>
  <resources/>
  <connections>
@@ -1045,22 +1099,6 @@
   <connection>
    <sender>ImportSettingsXL</sender>
    <signal>toggled(bool)</signal>
-   <receiver>SheetName_Settings</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>205</x>
-     <y>178</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>135</x>
-     <y>204</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ImportSettingsXL</sender>
-   <signal>toggled(bool)</signal>
    <receiver>StartCell_Settings</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
@@ -1087,6 +1125,22 @@
     <hint type="destinationlabel">
      <x>282</x>
      <y>237</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ImportSettingsXL</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>SheetName_Settings</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>205</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>135</x>
+     <y>204</y>
     </hint>
    </hints>
   </connection>

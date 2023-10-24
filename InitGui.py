@@ -46,7 +46,7 @@ PATH_TB_RESOURCES = os.path.join(PATH_TB, "Resources")
 PATH_TB_UI = os.path.join(PATH_TB, "UI")
 
 Gui.addIconPath(PATH_TB_ICONS)
-Gui.addPreferencePage(
+pref = Gui.addPreferencePage(
     os.path.join(PATH_TB_UI, "PreferenceUI.ui"),
     "TechDrawTitleBlockUtility",
 )

@@ -36,6 +36,7 @@ def ExportSpreadSheet():
         # Create a workbook and activate the first sheet
         wb = Workbook()
         ws = wb.active
+        ws.title = "TitleBlockData"
 
         # Set the headers
         ws["A1"].value = str(sheet.get("A1"))

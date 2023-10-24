@@ -5,12 +5,13 @@ from PySide import QtCore
 from PySide import QtGui
 
 
-def Mbox(text, title="", style=0, default=""):
+def Mbox(text, title="", style=0, default="", stringList="[,]"):
     """
     Message Styles:
-    0 : OK          (text, title, style)
-    1 : Yes | No    (text, title, style)
-    2 : Inputbox    (text, title, style, default)
+    0 : OK                          (text, title, style)
+    1 : Yes | No                    (text, title, style)
+    2 : Inputbox                    (text, title, style, default)
+    3 : Inputbox with dropdown      (text, title, style, default, stringlist)
     """
     if style == 0:
         reply = str(QtGui.QMessageBox.information(None, title, text))
@@ -29,6 +30,16 @@ def Mbox(text, title="", style=0, default=""):
             return "no"
     if style == 2:
         reply = QtGui.QInputDialog.getText(None, title, text, text=default)
+
+        if reply[1]:
+            # user clicked OK
+            replyText = reply[0]
+        else:
+            # user clicked Cancel
+            replyText = reply[0]  # which will be "" if they clicked Cancel
+        return str(replyText)
+    if style == 3:
+        reply = QtGui.QInputDialog.getItem(None, title, text, stringList, 1, True)
 
         if reply[1]:
             # user clicked OK

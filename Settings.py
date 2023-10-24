@@ -24,7 +24,9 @@
 import os
 import sys
 import FreeCAD
+import FreeCADGui as Gui
 import Standard_Functions
+import FreeCADGui as Gui
 
 # region defenitions
 translate = FreeCAD.Qt.translate
@@ -75,11 +77,23 @@ def ExportSettingsXL():
     # region -- Get the workbook,create a new sheet and set the startcell (top left cell of table).
     wb = load_workbook(str(EXTERNAL_SOURCE_PATH))
     # Set the sheetname with a inputbox
+    Worksheets_List = [i for i in wb.sheetnames if i != "TitleBlockData"]
     Input_SheetName = str(
         Standard_Functions.Mbox(
-            "Please enter the name of the worksheet", style=2, default="Settings"
+            text="Please enter the name of the worksheet",
+            title="",
+            style=3,
+            default="Settings",
+            stringList=Worksheets_List,
         )
     )
+    # if the user canceled, exit this function.
+    if not Input_SheetName.strip():
+        return
+
+    # Set SHEETNAME_SETTINGS_XL to the chosen sheetname
+    preferences.SetString("SheetName_Settings", Input_SheetName)
+
     # Delete the current sheet if it exists
     for sheetname in wb.sheetnames:
         if sheetname == Input_SheetName:
@@ -100,6 +114,10 @@ def ExportSettingsXL():
     )
     if not StartCell.strip():
         StartCell = "A1"
+
+    # Set SHEETNAME_STARTCELL_XL to the chosen sheetname
+    preferences.SetString("StartCell_Settings", StartCell)
+
     # endregion
 
     # region -- Create the headers
@@ -299,8 +317,9 @@ def ExportSettingsXL():
     ) + str(RowNumber + TopRow - 1)
 
     # Define the table
+    NumberOfSheets = str(len(wb.sheetnames))
     tab = Table(
-        displayName="SettingsTable",
+        displayName="SettingsTable_" + NumberOfSheets,
         ref=f"{StartCell}:{EndCell}",
     )
 
@@ -345,14 +364,10 @@ def ImportSettingsXL():
 
     # Get the sheetname
     ws = ""
-    counter = 0
     for sheetname in wb.sheetnames:
         if sheetname == SHEETNAME_SETTINGS_XL:
             ws = wb[str(SHEETNAME_SETTINGS_XL)]
             counter = 1
             break
-
-    if counter == 0:
-        ws = wb.create_sheet(title="TitleBlock_Settings")
 
     StartCell = SHEETNAME_STARTCELL_XL

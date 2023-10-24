@@ -28,6 +28,8 @@ from openpyxl import Workbook
 
 
 def ExportSpreadSheet():
+    from Settings import preferences
+
     try:
         # get the spreadsheet "TitleBlock"
         sheet = App.ActiveDocument.getObject("TitleBlock")
@@ -37,6 +39,7 @@ def ExportSpreadSheet():
         wb = Workbook()
         ws = wb.active
         ws.title = "TitleBlockData"
+        preferences.SetString("SheetName", "TitleBlockData")
 
         # Set the headers
         ws["A1"].value = str(sheet.get("A1"))

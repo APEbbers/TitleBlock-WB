@@ -67,7 +67,12 @@ class TitleBlockWB(Gui.Workbench):
         It is executed once in a FreeCAD session followed by the Activated function.
         """
         import Commands  # import here all the needed files that create your FreeCAD commands
+        import Settings
         from Settings import USE_EXTERNAL_SOURCE
+        from Settings import IMPORT_SETTINGS_XL
+
+        if IMPORT_SETTINGS_XL is True:
+            Settings.ImportSettingsXL()
 
         if USE_EXTERNAL_SOURCE is True:
             ToolbarList = self.list = [

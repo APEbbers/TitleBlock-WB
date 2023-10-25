@@ -92,55 +92,68 @@ SettingsList = [
 # endregion
 
 
-def ExportSettingsXL():
+def ExportSettingsXL(Silent=False):
     from openpyxl import load_workbook
+    from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font
     from openpyxl.worksheet.datavalidation import DataValidation
     from openpyxl.worksheet.table import Table, TableStyleInfo
 
     # region -- Get the workbook, create a new sheet and set the startcell (top left cell of table).
-    wb = load_workbook(str(EXTERNAL_SOURCE_PATH))
-    # Set the sheetname with a inputbox
-    Worksheets_List = [i for i in wb.sheetnames if i != "TitleBlockData"]
-    Input_SheetName = str(
-        Standard_Functions.Mbox(
-            text="Please enter the name of the worksheet",
-            title="",
-            style=3,
-            default="Settings",
-            stringList=Worksheets_List,
+    # If the user wants to export the settins, start an input dialog.
+    if Silent is False:
+        wb = load_workbook(str(EXTERNAL_SOURCE_PATH))
+        # Set the sheetname with a inputbox
+        Worksheets_List = [i for i in wb.sheetnames if i != "TitleBlockData"]
+        Input_SheetName = str(
+            Standard_Functions.Mbox(
+                text="Please enter the name of the worksheet",
+                title="",
+                style=3,
+                default="Settings",
+                stringList=Worksheets_List,
+            )
         )
-    )
-    # if the user canceled, exit this function.
-    if not Input_SheetName.strip():
-        return
+        # if the user canceled, exit this function.
+        if not Input_SheetName.strip():
+            return
 
-    # Set SHEETNAME_SETTINGS_XL to the chosen sheetname
-    preferences.SetString("SheetName_Settings", Input_SheetName)
+        # Set SHEETNAME_SETTINGS_XL to the chosen sheetname
+        preferences.SetString("SheetName_Settings", Input_SheetName)
 
-    # Delete the current sheet if it exists
-    for sheetname in wb.sheetnames:
-        if sheetname == Input_SheetName:
-            del wb[str(Input_SheetName)]
+        # Delete the current sheet if it exists
+        for sheetname in wb.sheetnames:
+            if sheetname == Input_SheetName:
+                del wb[str(Input_SheetName)]
 
-            break
+                break
 
-    # create a new sheet
-    ws = wb.create_sheet(title=Input_SheetName)
+        # create a new sheet
+        ws = wb.create_sheet(title=Input_SheetName)
 
-    # Set the startcell with an inputbox
-    StartCell = str(
-        Standard_Functions.Mbox(
-            "Please enter the name of the cell.\nEnter a single cell like 'A1', 'B2', etc. Other notations will be ignored!",
-            style=2,
-            default="A1",
+        # Set the startcell with an inputbox
+        StartCell = str(
+            Standard_Functions.Mbox(
+                "Please enter the name of the cell.\nEnter a single cell like 'A1', 'B2', etc. Other notations will be ignored!",
+                style=2,
+                default="A1",
+            )
         )
-    )
-    if not StartCell.strip():
-        StartCell = "A1"
+        if not StartCell.strip():
+            StartCell = "A1"
 
-    # Set SHEETNAME_STARTCELL_XL to the chosen sheetname
-    preferences.SetString("StartCell_Settings", StartCell)
+        # Set SHEETNAME_STARTCELL_XL to the chosen sheetname
+        preferences.SetString("StartCell_Settings", StartCell)
 
+    # If a new excel file is created and the sittings must be imported from that excel (IMPORT_SETTINGS_XL = True),
+    # Load the workbook with the sheet from the preference menu.
+    if Silent is True:
+        wb = load_workbook(str(EXTERNAL_SOURCE_PATH))
+        ws = wb.create_sheet(SHEETNAME_SETTINGS_XL)
+        StartCell = SHEETNAME_STARTCELL_XL
+        if ENABLE_DEBUG is True:
+            print(
+                f"Sheetname and startcell for the settings is: {SHEETNAME_SETTINGS_XL}, {SHEETNAME_STARTCELL_XL}"
+            )
     # endregion
 
     # region -- Create the headers
@@ -162,7 +175,7 @@ def ExportSettingsXL():
     # Write the value
     SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
     # Create a dropdown for the boolan
-    dv = DataValidation(type="list", formula1='"True,False"', allow_blank=False)
+    dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
     ws.add_data_validation(dv)
     dv.add(ws[SettingValue])
     ws[SettingValue] = str(USE_EXTERNAL_SOURCE).upper()
@@ -194,7 +207,7 @@ def ExportSettingsXL():
     # Write the value
     SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
     # Create a dropdown for the boolan
-    dv = DataValidation(type="list", formula1='"True,False"', allow_blank=False)
+    dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
     ws.add_data_validation(dv)
     dv.add(ws[SettingValue])
     ws[SettingValue] = str(AUTOFILL_TITLEBLOCK).upper()
@@ -205,7 +218,7 @@ def ExportSettingsXL():
     # Write the value
     SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
     # Create a dropdown for the boolan
-    dv = DataValidation(type="list", formula1='"True,False"', allow_blank=False)
+    dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
     ws.add_data_validation(dv)
     dv.add(ws[SettingValue])
     ws[SettingValue] = str(IMPORT_SETTINGS_XL).upper()
@@ -234,7 +247,7 @@ def ExportSettingsXL():
     # Write the value
     SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
     # Create a dropdown for the boolan
-    dv = DataValidation(type="list", formula1='"True,False"', allow_blank=False)
+    dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
     ws.add_data_validation(dv)
     dv.add(ws[SettingValue])
     ws[SettingValue] = str(USE_FILENAME_DRAW_NO).upper()
@@ -287,7 +300,7 @@ def ExportSettingsXL():
     # Write the value
     SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
     # Create a dropdown for the boolan
-    dv = DataValidation(type="list", formula1='"True,False"', allow_blank=False)
+    dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
     ws.add_data_validation(dv)
     dv.add(ws[SettingValue])
     ws[SettingValue] = str(INCLUDE_LENGTH).upper()
@@ -298,7 +311,7 @@ def ExportSettingsXL():
     # Write the value
     SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
     # Create a dropdown for the boolan
-    dv = DataValidation(type="list", formula1='"True,False"', allow_blank=False)
+    dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
     ws.add_data_validation(dv)
     dv.add(ws[SettingValue])
     ws[SettingValue] = str(INCLUDE_ANGLE).upper()
@@ -309,7 +322,7 @@ def ExportSettingsXL():
     # Write the value
     SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
     # Create a dropdown for the boolan
-    dv = DataValidation(type="list", formula1='"True,False"', allow_blank=False)
+    dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
     ws.add_data_validation(dv)
     dv.add(ws[SettingValue])
     ws[SettingValue] = str(INCLUDE_MASS).upper()
@@ -320,7 +333,7 @@ def ExportSettingsXL():
     # Write the value
     SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
     # Create a dropdown for the boolan
-    dv = DataValidation(type="list", formula1='"True,False"', allow_blank=False)
+    dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
     ws.add_data_validation(dv)
     dv.add(ws[SettingValue])
     ws[SettingValue] = str(INCLUDE_NO_SHEETS).upper()
@@ -360,6 +373,13 @@ def ExportSettingsXL():
 
     # add the table to the worksheet
     ws.add_table(tab)
+
+    # Align the columns
+    for row in ws[1 : ws.max_row]:
+        Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
+        Column_2 = row[Standard_Functions.GetNumberFromLetter(EndCell[:1]) - 1]
+        Column_1.alignment = Alignment(horizontal="left", vertical="center", indent=1)
+        Column_2.alignment = Alignment(horizontal="left", vertical="center", indent=1)
     # endregion
 
     # Make the columns to autofit the date
@@ -374,7 +394,6 @@ def ExportSettingsXL():
         set_col_width = SetLen + 5
         # Setting the column width
         ws.column_dimensions[column].width = set_col_width
-
     # Save the workbook
     wb.save(EXTERNAL_SOURCE_PATH)
 
@@ -383,143 +402,153 @@ def ImportSettingsXL():
     from openpyxl import load_workbook
 
     # Get the workbook
-    wb = load_workbook(str(EXTERNAL_SOURCE_PATH))
+    wb = load_workbook(str(EXTERNAL_SOURCE_PATH), read_only=True)
 
-    # Get the sheetname
-    ws = ""
-    for sheetname in wb.sheetnames:
-        if sheetname == SHEETNAME_SETTINGS_XL:
-            ws = wb[str(SHEETNAME_SETTINGS_XL)]
-            break
+    try:
+        # Get the sheetname
+        counter = 0
+        for sheetname in wb.sheetnames:
+            if sheetname == SHEETNAME_SETTINGS_XL:
+                ws = wb[str(SHEETNAME_SETTINGS_XL)]
+                counter = 1
+        if counter == 0:
+            print("The sheet doesn't exists!")
+            return
 
-    # Get the startcell
-    StartCell = SHEETNAME_STARTCELL_XL
+        # Get the startcell
+        StartCell = SHEETNAME_STARTCELL_XL
 
-    # Get the columns
-    FirstColumn = int(Standard_Functions.GetNumberFromLetter(StartCell[:1]))
-    SecondColumn = FirstColumn + 1
+        # Get the columns
+        FirstColumn = int(Standard_Functions.GetNumberFromLetter(StartCell[:1]))
+        SecondColumn = FirstColumn + 1
 
-    # go through the excel until all settings are imported.
-    counter = 0
-    for i in range(1, 1000):
-        Cell_Name = ws.cell(i, FirstColumn)
-        Cell_Value = ws.cell(i, SecondColumn)
+        # go through the excel until all settings are imported.
+        counter = 0
 
-        # region -- Import the external source settings
-        #
-        # Import USE_EXTERNAL_SOURCE
-        if Cell_Name.value == "UseExternalSource":
-            preferences.SetBool("UseExternalSource", bool(Cell_Value.value))
-            counter = counter + 1
+        for i in range(1, 1000):
+            Cell_Name = ws.cell(i, FirstColumn)
+            Cell_Value = ws.cell(i, SecondColumn)
 
-        # Import EXTERNAL_SOURCE_PATH
-        if Cell_Name.value == "ExternalFile":
-            preferences.SetString("ExternalFile", str(Cell_Value.value))
-            counter = counter + 1
+            # region -- Import the external source settings
+            #
+            # Import USE_EXTERNAL_SOURCE
+            if Cell_Name.value == "UseExternalSource":
+                preferences.SetBool("UseExternalSource", bool(Cell_Value.value))
+                counter = counter + 1
 
-        # Import EXTERNAL_SOURCE_SHEET_NAME
-        if Cell_Name.value == "SheetName":
-            preferences.SetString("SheetName", str(Cell_Value.value))
-            counter = counter + 1
+            # Import EXTERNAL_SOURCE_PATH
+            if Cell_Name.value == "ExternalFile":
+                preferences.SetString("ExternalFile", str(Cell_Value.value))
+                counter = counter + 1
 
-        # Import EXTERNAL_SOURCE_STARTCELL
-        if Cell_Name.value == "StartCell":
-            preferences.SetString("StartCell", str(Cell_Value.value))
-            counter = counter + 1
+            # Import EXTERNAL_SOURCE_SHEET_NAME
+            if Cell_Name.value == "SheetName":
+                preferences.SetString("SheetName", str(Cell_Value.value))
+                counter = counter + 1
 
-        # Import AUTOFILL_TITLEBLOCK
-        if Cell_Name.value == "AutoFillTitleBlock":
-            preferences.SetBool("AutoFillTitleBlock", bool(Cell_Value.value))
-            counter = counter + 1
+            # Import EXTERNAL_SOURCE_STARTCELL
+            if Cell_Name.value == "StartCell":
+                preferences.SetString("StartCell", str(Cell_Value.value))
+                counter = counter + 1
 
-        # Import IMPORT_SETTINGS_XL
-        if Cell_Name.value == "ImportSettingsXL":
-            preferences.SetBool("ImportSettingsXL", bool(Cell_Value.value))
-            counter = counter + 1
+            # Import AUTOFILL_TITLEBLOCK
+            if Cell_Name.value == "AutoFillTitleBlock":
+                preferences.SetBool("AutoFillTitleBlock", bool(Cell_Value.value))
+                counter = counter + 1
 
-        # Import SHEETNAME_SETTINGS_XL
-        if Cell_Name.value == "SheetName_Settings":
-            preferences.SetString("SheetName_Settings", str(Cell_Value.value))
-            counter = counter + 1
+            # Import IMPORT_SETTINGS_XL
+            if Cell_Name.value == "ImportSettingsXL":
+                preferences.SetBool("ImportSettingsXL", bool(Cell_Value.value))
+                counter = counter + 1
 
-        # Import SHEETNAME_STARTCELL_XL
-        if Cell_Name.value == "StartCell_Settings":
-            preferences.SetString("StartCell_Settings", str(Cell_Value.value))
-            counter = counter + 1
+            # Import SHEETNAME_SETTINGS_XL
+            if Cell_Name.value == "SheetName_Settings":
+                preferences.SetString("SheetName_Settings", str(Cell_Value.value))
+                counter = counter + 1
 
-        # endregion
+            # Import SHEETNAME_STARTCELL_XL
+            if Cell_Name.value == "StartCell_Settings":
+                preferences.SetString("StartCell_Settings", str(Cell_Value.value))
+                counter = counter + 1
 
-        # region -- Import the filename settings
-        #
-        # Import USE_FILENAME_DRAW_NO
-        if Cell_Name.value == "UseFileName":
-            preferences.SetBool("UseFileName", bool(Cell_Value.value))
-            counter = counter + 1
+            # endregion
 
-        # Import DRAW_NO_FiELD
-        if Cell_Name.value == "DrwNrFieldName":
-            preferences.SetString("DrwNrFieldName", str(Cell_Value.value))
-            counter = counter + 1
+            # region -- Import the filename settings
+            #
+            # Import USE_FILENAME_DRAW_NO
+            if Cell_Name.value == "UseFileName":
+                preferences.SetBool("UseFileName", bool(Cell_Value.value))
+                counter = counter + 1
 
-        # endregion
+            # Import DRAW_NO_FiELD
+            if Cell_Name.value == "DrwNrFieldName":
+                preferences.SetString("DrwNrFieldName", str(Cell_Value.value))
+                counter = counter + 1
 
-        # region -- Import the mapping settings
-        #
-        # Import MAP_LENGTH
-        if Cell_Name.value == "MapLength":
-            preferences.SetString("MapLength", str(Cell_Value.value))
-            counter = counter + 1
+            # endregion
 
-        # Import MAP_ANGLE
-        if Cell_Name.value == "MapAngle":
-            preferences.SetString("MapAngle", str(Cell_Value.value))
-            counter = counter + 1
+            # region -- Import the mapping settings
+            #
+            # Import MAP_LENGTH
+            if Cell_Name.value == "MapLength":
+                preferences.SetString("MapLength", str(Cell_Value.value))
+                counter = counter + 1
 
-        # Import MAP_MASS
-        if Cell_Name.value == "MAP_MASS":
-            preferences.SetString("MapMass", str(Cell_Value.value))
-            counter = counter + 1
+            # Import MAP_ANGLE
+            if Cell_Name.value == "MapAngle":
+                preferences.SetString("MapAngle", str(Cell_Value.value))
+                counter = counter + 1
 
-        # Import MAP_NOSHEETS
-        if Cell_Name.value == "MapNoSheets":
-            preferences.SetString("MapNoSheets", str(Cell_Value.value))
-            counter = counter + 1
+            # Import MAP_MASS
+            if Cell_Name.value == "MAP_MASS":
+                preferences.SetString("MapMass", str(Cell_Value.value))
+                counter = counter + 1
 
-        # endregion
+            # Import MAP_NOSHEETS
+            if Cell_Name.value == "MapNoSheets":
+                preferences.SetString("MapNoSheets", str(Cell_Value.value))
+                counter = counter + 1
 
-        # region -- Import the mapping settings
-        #
-        # Import INCLUDE_LENGTH
-        if Cell_Name.value == "IncludeLength":
-            preferences.SetBool("IncludeLength", bool(Cell_Value.value))
-            counter = counter + 1
+            # endregion
 
-        # Import INCLUDE_ANGLE
-        if Cell_Name.value == "IncludeAngle":
-            preferences.SetBool("IncludeAngle", bool(Cell_Value.value))
-            counter = counter + 1
+            # region -- Import the mapping settings
+            #
+            # Import INCLUDE_LENGTH
+            if Cell_Name.value == "IncludeLength":
+                preferences.SetBool("IncludeLength", bool(Cell_Value.value))
+                counter = counter + 1
 
-        # Import INCLUDE_MASS
-        if Cell_Name.value == "IncludeMass":
-            preferences.SetBool("IncludeMass", bool(Cell_Value.value))
-            counter = counter + 1
+            # Import INCLUDE_ANGLE
+            if Cell_Name.value == "IncludeAngle":
+                preferences.SetBool("IncludeAngle", bool(Cell_Value.value))
+                counter = counter + 1
 
-        # Import INCLUDE_NO_SHEETS
-        if Cell_Name.value == "IncludeNoOfSheets":
-            preferences.SetBool("IncludeNoOfSheets", bool(Cell_Value.value))
-            counter = counter + 1
+            # Import INCLUDE_MASS
+            if Cell_Name.value == "IncludeMass":
+                preferences.SetBool("IncludeMass", bool(Cell_Value.value))
+                counter = counter + 1
 
-        # endregion
+            # Import INCLUDE_NO_SHEETS
+            if Cell_Name.value == "IncludeNoOfSheets":
+                preferences.SetBool("IncludeNoOfSheets", bool(Cell_Value.value))
+                counter = counter + 1
 
-        # Note: ENABLE_DEBUG is excluded from import.
-        # This is a setting only needed for debuggin and thus a per user setting.
+            # endregion
 
-        if counter == len(SettingsList) + 1:
-            break
+            # Note: ENABLE_DEBUG is excluded from import.
+            # This is a setting only needed for debuggin and thus a per user setting.
 
-    if counter > 0:
-        print(
-            f"Titleblock workbench settings imported from {EXTERNAL_SOURCE_PATH} and sheet: {sheetname} at {StartCell}"
-        )
-    if counter == 0:
-        print("Settings are not imported")
+            if counter == len(SettingsList) + 1:
+                break
+
+        if counter > 0:
+            print(
+                f"Titleblock workbench settings imported from {EXTERNAL_SOURCE_PATH} and sheet: {sheetname} at {StartCell}"
+            )
+        if counter == 0:
+            print("Settings are not imported")
+
+    except Exception as e:
+        if ENABLE_DEBUG is True:
+            raise (e)
+        return

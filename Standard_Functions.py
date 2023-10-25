@@ -71,7 +71,7 @@ def SaveAsDialog(files):
 
 
 def GetLetterFromNumber(number: int, UCase: bool = True):
-    Alfabet = {"abcdfghijklmnopqrstuvwxyz"}
+    Alfabet = {"abcdefghijklmnopqrstuvwxyz"}
     Letter = str(Alfabet)[number]
 
     # If UCase is true, convert to upper case
@@ -82,7 +82,7 @@ def GetLetterFromNumber(number: int, UCase: bool = True):
 
 
 def GetNumberFromLetter(Letter):
-    Alfabet = {"abcdfghijklmnopqrstuvwxyz"}
+    Alfabet = {"abcdefghijklmnopqrstuvwxyz"}
     Number = int(str(Alfabet).index(Letter.lower())) - 1
 
     return Number

@@ -25,10 +25,16 @@
 import FreeCAD as App
 import Standard_Functions
 from openpyxl import Workbook
+from openpyxl.styles import Alignment
+from openpyxl.worksheet.table import Table, TableStyleInfo
 
 
 def ExportSpreadSheet():
+    import Settings
     from Settings import preferences
+    from Settings import IMPORT_SETTINGS_XL
+    from Settings import EXTERNAL_SOURCE_STARTCELL
+    from Settings import ENABLE_DEBUG
 
     try:
         # get the spreadsheet "TitleBlock"
@@ -41,43 +47,142 @@ def ExportSpreadSheet():
         ws.title = "TitleBlockData"
         preferences.SetString("SheetName", "TitleBlockData")
 
+        # Get the startcell and the next cells
+        StartCell = str(EXTERNAL_SOURCE_STARTCELL)
+        TopRow = int(StartCell[1:])
+        PropCell = str(
+            Standard_Functions.GetLetterFromNumber(
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 2
+            )
+        ) + str(TopRow)
+        IncreaseCell = str(
+            Standard_Functions.GetLetterFromNumber(
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 3
+            )
+        ) + str(TopRow)
+        MultiplierCell = str(
+            Standard_Functions.GetLetterFromNumber(
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
+            )
+        ) + str(TopRow)
+        RemarkCell = str(
+            Standard_Functions.GetLetterFromNumber(
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 5
+            )
+        ) + str(TopRow)
+
+        if ENABLE_DEBUG is True:
+            print(f"the startcell is: {StartCell}")
+
         # Set the headers
-        ws["A1"].value = str(sheet.get("A1"))
-        ws["B1"].value = str(sheet.get("B1"))
-        ws["C1"].value = str(sheet.get("C1"))
-        ws["D1"].value = str(sheet.get("D1"))
+        ws[StartCell].value = str(sheet.get("A1"))
+        ws[PropCell].value = str(sheet.get("B1"))
+        ws[IncreaseCell].value = str(sheet.get("C1"))
+        ws[MultiplierCell].value = str(sheet.get("D1"))
+        ws[RemarkCell].value = str(sheet.get("E1"))
 
         # Go through the spreadsheet.
-        for RowNum in range(1000):
+        for RowNumber in range(1000):
             # Start with x+1 first, to make sure that x is at least 1.
-            RowNum = RowNum + 2
+            RowNumber = RowNumber + 1 + TopRow
 
             try:
-                ws["A" + str(RowNum)] = str(sheet.get("A" + str(RowNum)))
+                ws[StartCell[:1] + str(RowNumber)].value = str(
+                    sheet.get("A" + str(RowNumber - TopRow + 1))
+                )
             except Exception:
-                ws["A" + str(RowNum)] = ""
+                ws[StartCell[:1] + str(RowNumber)].value = ""
+
             try:
-                ws["B" + str(RowNum)] = str(sheet.get("B" + str(RowNum)))
+                ws[PropCell[:1] + str(RowNumber)].value = str(
+                    sheet.get("B" + str(RowNumber - TopRow + 1))
+                )
             except Exception:
-                ws["B" + str(RowNum)] = ""
+                ws[PropCell[:1] + str(RowNumber)].value = ""
+
             try:
-                ws["C" + str(RowNum)] = str(sheet.get("C" + str(RowNum)))
+                ws[IncreaseCell[:1] + str(RowNumber)].value = str(
+                    sheet.get("C" + str(RowNumber - TopRow + 1))
+                )
             except Exception:
-                ws["C" + str(RowNum)] = ""
+                ws[IncreaseCell[:1] + str(RowNumber)].value = ""
+
             try:
-                ws["D" + str(RowNum)] = str(sheet.get("D" + str(RowNum)))
+                ws[MultiplierCell[:1] + str(RowNumber)].value = str(
+                    sheet.get("D" + str(RowNumber - TopRow + 1))
+                )
             except Exception:
-                ws["D" + str(RowNum)] = ""
+                ws[MultiplierCell[:1] + str(RowNumber)].value = ""
+
             try:
-                ws["E" + str(RowNum)] = str(sheet.get("E" + str(RowNum)))
+                ws[RemarkCell[:1] + str(RowNumber)].value = str(
+                    sheet.get("E" + str(RowNumber - TopRow + 1))
+                )
             except Exception:
-                ws["E" + str(RowNum)] = ""
+                ws[RemarkCell[:1] + str(RowNumber)].value = ""
 
             # Check if the next row exits. If not this is the end of all the available values.
             try:
-                sheet.get("A" + str(RowNum + 1))
+                sheet.get("A" + str(RowNumber - TopRow + 1))
             except Exception:
                 break
+
+        # region Format the settings with the values as a Table
+        #
+        # Define the the last cell
+        EndCell = str(
+            Standard_Functions.GetLetterFromNumber(
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 5
+            )
+        ) + str(RowNumber - 1)
+
+        # Define the table
+        NumberOfSheets = str(len(wb.sheetnames))
+        tab = Table(
+            displayName="TitleBlockTable_" + NumberOfSheets,
+            ref=f"{StartCell}:{EndCell}",
+        )
+
+        # Add a default style with striped rows and banded columns
+        style = TableStyleInfo(
+            name="TableStyleMedium9",
+            showFirstColumn=False,
+            showLastColumn=False,
+            showRowStripes=True,
+            showColumnStripes=True,
+        )
+
+        # add the style to the table
+        tab.tableStyleInfo = style
+
+        # add the table to the worksheet
+        ws.add_table(tab)
+
+        # Align the columns
+        for row in ws[1 : ws.max_row]:
+            Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
+            Column_2 = row[Standard_Functions.GetNumberFromLetter(PropCell[:1]) - 1]
+            Column_3 = row[Standard_Functions.GetNumberFromLetter(IncreaseCell[:1]) - 1]
+            Column_4 = row[
+                Standard_Functions.GetNumberFromLetter(MultiplierCell[:1]) - 1
+            ]
+            Column_5 = row[Standard_Functions.GetNumberFromLetter(RemarkCell[:1]) - 1]
+            Column_1.alignment = Alignment(
+                horizontal="left", vertical="center", indent=1
+            )
+            Column_2.alignment = Alignment(
+                horizontal="left", vertical="center", indent=1
+            )
+            Column_3.alignment = Alignment(
+                horizontal="left", vertical="center", indent=1
+            )
+            Column_4.alignment = Alignment(
+                horizontal="left", vertical="center", indent=1
+            )
+            Column_5.alignment = Alignment(
+                horizontal="left", vertical="center", indent=1
+            )
+        # endregion
 
         # Make the columns to autofit the date
         for col in ws.columns:
@@ -99,6 +204,10 @@ def ExportSpreadSheet():
         FileName = Standard_Functions.SaveAsDialog(Filter)
         if FileName is not None:
             wb.save(str(FileName))
+
+        # If import settings from excel is enabled, export settings to the new excel file.
+        if IMPORT_SETTINGS_XL is True:
+            Settings.ExportSettingsXL(Silent=True)
 
     except Exception as e:
         # raise Exception("No spreadsheet named 'TitleBlock'!!!")

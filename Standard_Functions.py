@@ -72,7 +72,7 @@ def SaveAsDialog(files):
 
 def GetLetterFromNumber(number: int, UCase: bool = True):
     Alfabet = {"abcdefghijklmnopqrstuvwxyz"}
-    Letter = str(Alfabet)[number]
+    Letter = str(Alfabet)[number + 1]
 
     # If UCase is true, convert to upper case
     if UCase is True:
@@ -86,3 +86,19 @@ def GetNumberFromLetter(Letter):
     Number = int(str(Alfabet).index(Letter.lower())) - 1
 
     return Number
+
+
+def GetA1fromR1C1(input: str) -> str:
+    if input[:1] == "'":
+        input = input[1:]
+    try:
+        input = input.upper()
+        ColumnPosition = input.find("C")
+        RowNumber = int(input[1:(ColumnPosition)])
+        ColumnNumber = int(input[(ColumnPosition + 1) :])
+
+        ColumnLetter = GetLetterFromNumber(ColumnNumber)
+
+        return str(ColumnLetter + str(RowNumber))
+    except Exception:
+        return ""

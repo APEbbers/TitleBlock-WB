@@ -343,7 +343,10 @@ def ImportDataExcel():
         sheet = App.ActiveDocument.getObject("TitleBlock")
 
         # Get the startcolumn and the other three columns from there
-        StartColumn = EXTERNAL_SOURCE_STARTCELL[:1]
+        StartCell = EXTERNAL_SOURCE_STARTCELL
+        if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
+            StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
+        StartColumn = StartCell[:1]
         # If debug mode is on, show the start colum and its number
         if ENABLE_DEBUG is True:
             print("Start column is: " + str(StartColumn))

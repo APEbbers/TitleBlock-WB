@@ -39,6 +39,9 @@ def ExportSpreadSheet():
     try:
         # get the spreadsheet "TitleBlock"
         sheet = App.ActiveDocument.getObject("TitleBlock")
+        if sheet is None:
+            Standard_Functions.Mbox("No spreadsheet named 'TitleBlock'!!!", "", 0)
+            return
         sheet.recompute()
 
         # Create a workbook and activate the first sheet
@@ -212,7 +215,19 @@ def ExportSpreadSheet():
         if IMPORT_SETTINGS_XL is True:
             Settings.ExportSettingsXL(Silent=True)
 
+        # print a message if you succeded.
+        Standard_Functions.Mbox(
+            f"The titleblock data is exported to the workbook {FileName} in the worksheet {ws.title}",
+            "TitleBlock Workbench",
+            0,
+        )
     except Exception as e:
-        # raise Exception("No spreadsheet named 'TitleBlock'!!!")
-        Standard_Functions.Mbox("No spreadsheet named 'TitleBlock'!!!", "", 0)
-        raise (e)
+        Text = "TitleBlock Workbench: an error occurred!!"
+        if ENABLE_DEBUG is True:
+            Text = (
+                "TitleBlock Workbench: an error occurred!!\n"
+                + "See the report view for details"
+            )
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+        if ENABLE_DEBUG is True:
+            raise (e)

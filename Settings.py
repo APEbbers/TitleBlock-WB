@@ -21,12 +21,8 @@
 # *                                                                         *
 # ***************************************************************************/
 
-import os
-import sys
 import FreeCAD
-import FreeCADGui as Gui
 import Standard_Functions
-import FreeCADGui as Gui
 
 # region defenitions
 translate = FreeCAD.Qt.translate
@@ -68,6 +64,9 @@ def SetBoolSetting(settingName: str, value: bool):
 
 # region -- All settings from the UI
 
+# TechDraw settings
+ADD_TOOLBAR_TECHDRAW = GetBoolSetting("AddToolBarTechDraw")
+
 # External source
 USE_EXTERNAL_SOURCE = GetBoolSetting("UseExternalSource")
 EXTERNAL_SOURCE_PATH = GetStringSetting("ExternalFile")
@@ -77,7 +76,6 @@ AUTOFILL_TITLEBLOCK = GetBoolSetting("AutoFillTitleBlock")
 IMPORT_SETTINGS_XL = GetBoolSetting("ImportSettingsXL")
 SHEETNAME_SETTINGS_XL = GetStringSetting("SheetName_Settings")
 SHEETNAME_STARTCELL_XL = GetStringSetting("StartCell_Settings")
-
 
 # Use filename as drawingnumber
 USE_FILENAME_DRAW_NO = GetBoolSetting("UseFileName")
@@ -97,7 +95,6 @@ INCLUDE_NO_SHEETS = GetBoolSetting("IncludeNoOfSheets")
 
 # Enable debug mode. This will enable additional report messages
 ENABLE_DEBUG = GetBoolSetting("EnableDebug")
-
 
 # All the settings in a List
 SettingsList = [
@@ -126,338 +123,361 @@ SettingsList = [
 
 
 def ExportSettingsXL(Silent=False):
+    import openpyxl.utils.exceptions
     from openpyxl import load_workbook
     from openpyxl.styles import Alignment
     from openpyxl.worksheet.datavalidation import DataValidation
     from openpyxl.worksheet.table import Table, TableStyleInfo
 
-    EXTERNAL_SOURCE_PATH = GetStringSetting("ExternalFile")
-
-    # region -- Get the workbook, create a new sheet and set the startcell (top left cell of table).
-    # If the user wants to export the settins, start an input dialog.
-    if Silent is False:
-        # load the excel file with the custm function
-        try:
+    try:
+        # region -- Get the workbook, create a new sheet and set the startcell (top left cell of table).
+        # If the user wants to export the settins, start an input dialog.
+        if Silent is False:
+            # load the excel file with the custm function
             if (
                 Standard_Functions.CheckIfWorkbookExists(EXTERNAL_SOURCE_PATH, True)
                 is True
             ):
-                wb = load_workbook(str(EXTERNAL_SOURCE_PATH))
+                wb = load_workbook(EXTERNAL_SOURCE_PATH)
             else:
                 print(f"Something went wrong with loading {EXTERNAL_SOURCE_PATH}")
                 return
-        except Exception:
-            print(f"Something went wrong with loading {EXTERNAL_SOURCE_PATH}")
-            return
-        # Set the sheetname with a inputbox
-        Worksheets_List = [i for i in wb.sheetnames if i != "TitleBlockData"]
-        Input_SheetName = str(
-            Standard_Functions.Mbox(
-                text="Please enter the name of the worksheet",
-                title="",
-                style=3,
-                default="Settings",
-                stringList=Worksheets_List,
+
+            # Set the sheetname with a inputbox
+            Worksheets_List = [i for i in wb.sheetnames if i != "TitleBlockData"]
+            Input_SheetName = str(
+                Standard_Functions.Mbox(
+                    text="Please enter the name of the worksheet",
+                    title="",
+                    style=3,
+                    default="Settings",
+                    stringList=Worksheets_List,
+                )
             )
-        )
-        # if the user canceled, exit this function.
-        if not Input_SheetName.strip():
-            return
-
-        # Set SHEETNAME_SETTINGS_XL to the chosen sheetname
-        preferences.SetString("SheetName_Settings", Input_SheetName)
-
-        # Delete the current sheet if it exists
-        for sheetname in wb.sheetnames:
-            if sheetname == Input_SheetName:
-                del wb[str(Input_SheetName)]
-
-                break
-
-        # create a new sheet
-        ws = wb.create_sheet(title=Input_SheetName)
-
-        # Set the startcell with an inputbox
-        StartCell = str(
-            Standard_Functions.Mbox(
-                "Please enter the name of the cell.\nEnter a single cell like 'A1', 'B2', etc. Other notations will be ignored!",
-                style=2,
-                default="A1",
-            )
-        )
-        if not StartCell.strip():
-            StartCell = "A1"
-
-        # Set SHEETNAME_STARTCELL_XL to the chosen sheetname
-        preferences.SetString("StartCell_Settings", StartCell)
-
-    # If a new excel file is created and the sittings must be imported from that excel (IMPORT_SETTINGS_XL = True),
-    # Load the workbook with the sheet from the preference menu.
-    if Silent is True:
-        try:
-            if (
-                Standard_Functions.CheckIfWorkbookExists(EXTERNAL_SOURCE_PATH, False)
-                is True
-            ):
-                wb = load_workbook(str(EXTERNAL_SOURCE_PATH))
-            else:
-                print(f"Workbook didn't exist!. ({EXTERNAL_SOURCE_PATH})")
+            # if the user canceled, exit this function.
+            if not Input_SheetName.strip():
                 return
-        except Exception:
-            return
-        ws = wb.create_sheet(SHEETNAME_SETTINGS_XL)
-        StartCell = SHEETNAME_STARTCELL_XL
-        if ENABLE_DEBUG is True:
-            print(
-                f"Sheetname and startcell for the settings is: {SHEETNAME_SETTINGS_XL}, {SHEETNAME_STARTCELL_XL}"
+
+            # Set SHEETNAME_SETTINGS_XL to the chosen sheetname
+            preferences.SetString("SheetName_Settings", Input_SheetName)
+
+            # Delete the current sheet if it exists
+            for sheetname in wb.sheetnames:
+                if sheetname == Input_SheetName:
+                    del wb[str(Input_SheetName)]
+                    break
+
+            # create a new sheet
+            ws = wb.create_sheet(title=Input_SheetName)
+
+            # Set the startcell with an inputbox
+            StartCell = str(
+                Standard_Functions.Mbox(
+                    "Please enter the name of the cell.\n"
+                    + "Enter a single cell like 'A1', 'B2', etc. Other notations will be ignored!",
+                    style=2,
+                    default="A1",
+                )
             )
-    # endregion
+            if not StartCell.strip():
+                StartCell = "A1"
 
-    # region -- Create the headers
-    ws[StartCell].value = "Name"
-    TopRow = int(StartCell[1:])
-    ValueCell = str(
-        Standard_Functions.GetLetterFromNumber(
-            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
+            # Set SHEETNAME_STARTCELL_XL to the chosen sheetname
+            preferences.SetString("StartCell_Settings", StartCell)
+
+        # If a new excel file is created and the sittings must be imported from that excel (IMPORT_SETTINGS_XL = True),
+        # Load the workbook with the sheet from the preference menu.
+        if Silent is True:
+            try:
+                if (
+                    Standard_Functions.CheckIfWorkbookExists(
+                        EXTERNAL_SOURCE_PATH, False
+                    )
+                    is True
+                ):
+                    wb = load_workbook(str(EXTERNAL_SOURCE_PATH))
+                else:
+                    print(
+                        f"TitleBlock Workbench: Workbook didn't exist!. ({EXTERNAL_SOURCE_PATH})"
+                    )
+                    return
+            except Exception:
+                return
+            ws = wb.create_sheet(SHEETNAME_SETTINGS_XL)
+            StartCell = SHEETNAME_STARTCELL_XL
+            if ENABLE_DEBUG is True:
+                print(
+                    "TitleBlock Workbench: Sheetname and startcell for the settings is: "
+                    + f"{SHEETNAME_SETTINGS_XL}, {SHEETNAME_STARTCELL_XL}"
+                )
+        # endregion
+
+        # region -- Create the headers
+        ws[StartCell].value = "Name"
+        TopRow = int(StartCell[1:])
+        ValueCell = str(
+            Standard_Functions.GetLetterFromNumber(
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
+            )
+        ) + str(TopRow)
+        ws[ValueCell].value = "Value"
+        # endregion
+
+        # region -- Export the external source settings
+        #
+        # USE_EXTERNAL_SOURCE
+        RowNumber = 1
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "UseExternalSource"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        # Create a dropdown for the boolan
+        dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
+        ws.add_data_validation(dv)
+        dv.add(ws[SettingValue])
+        ws[SettingValue].value = str(USE_EXTERNAL_SOURCE).upper()
+        RowNumber = RowNumber + 1
+
+        # EXTERNAL_SOURCE_PATH
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "ExternalFile"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = EXTERNAL_SOURCE_PATH
+        RowNumber = RowNumber + 1
+
+        # EXTERNAL_SOURCE_SHEET_NAME
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "SheetName"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = EXTERNAL_SOURCE_SHEET_NAME
+        RowNumber = RowNumber + 1
+
+        # EXTERNAL_SOURCE_STARTCELL
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "StartCell"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = EXTERNAL_SOURCE_STARTCELL
+        RowNumber = RowNumber + 1
+
+        # AUTOFILL_TITLEBLOCK
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "AutoFillTitleBlock"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        # Create a dropdown for the boolan
+        dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
+        ws.add_data_validation(dv)
+        dv.add(ws[SettingValue])
+        ws[SettingValue].value = str(AUTOFILL_TITLEBLOCK).upper()
+        RowNumber = RowNumber + 1
+
+        # IMPORT_SETTINGS_XL
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "ImportSettingsXL"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        # Create a dropdown for the boolan
+        dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
+        ws.add_data_validation(dv)
+        dv.add(ws[SettingValue])
+        ws[SettingValue].value = str(IMPORT_SETTINGS_XL).upper()
+        RowNumber = RowNumber + 1
+
+        # SHEETNAME_SETTINGS_XL
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))] = "SheetName_Settings"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = SHEETNAME_SETTINGS_XL
+        RowNumber = RowNumber + 1
+
+        # SHEETNAME_STARTCELL_XL
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "StartCell_Settings"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = SHEETNAME_STARTCELL_XL
+        RowNumber = RowNumber + 1
+
+        # endregion
+
+        # region -- Export the filename settings
+        #
+        # USE_FILENAME_DRAW_NO
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "UseFileName"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        # Create a dropdown for the boolan
+        dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
+        ws.add_data_validation(dv)
+        dv.add(ws[SettingValue])
+        ws[SettingValue].value = str(USE_FILENAME_DRAW_NO).upper()
+        RowNumber = RowNumber + 1
+
+        # DRAW_NO_FiELD
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "DrwNrFieldName"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = DRAW_NO_FiELD
+        RowNumber = RowNumber + 1
+
+        # endregion
+
+        # region -- Export the Mapping settings
+        #
+        # MAP_LENGTH
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "MapLength"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = MAP_LENGTH
+        RowNumber = RowNumber + 1
+
+        # MAP_ANGLE
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "MapAngle"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = MAP_ANGLE
+        RowNumber = RowNumber + 1
+
+        # MAP_MASS
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "MapMass"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = MAP_MASS
+        RowNumber = RowNumber + 1
+
+        # MAP_NOSHEETS
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "MapNoSheets"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = MAP_NOSHEETS
+        RowNumber = RowNumber + 1
+        # endregion
+
+        # region -- Export the included value settings
+        #
+        # INCLUDE_LENGTH
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "IncludeLength"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        # Create a dropdown for the boolan
+        dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
+        ws.add_data_validation(dv)
+        dv.add(ws[SettingValue])
+        ws[SettingValue].value = str(INCLUDE_LENGTH).upper()
+        RowNumber = RowNumber + 1
+
+        # INCLUDE_ANGLE
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "IncludeAngle"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        # Create a dropdown for the boolan
+        dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
+        ws.add_data_validation(dv)
+        dv.add(ws[SettingValue])
+        ws[SettingValue].value = str(INCLUDE_ANGLE).upper()
+        RowNumber = RowNumber + 1
+
+        # INCLUDE_MASS
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "IncludeMass"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        # Create a dropdown for the boolan
+        dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
+        ws.add_data_validation(dv)
+        dv.add(ws[SettingValue])
+        ws[SettingValue].value = str(INCLUDE_MASS).upper()
+        RowNumber = RowNumber + 1
+
+        # INCLUDE_NO_SHEETS
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "IncludeNoOfSheets"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        # Create a dropdown for the boolan
+        dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
+        ws.add_data_validation(dv)
+        dv.add(ws[SettingValue])
+        ws[SettingValue].value = str(INCLUDE_NO_SHEETS).upper()
+        RowNumber = RowNumber + 1
+        # endregion
+
+        # Note: ENABLE_DEBUG is excluded from export.
+        # This is a setting only needed for debuggin and thus a per user setting.
+
+        # region Format the settings with the values as a Table
+        #
+        # Define the the last cell
+        EndCell = str(
+            Standard_Functions.GetLetterFromNumber(
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
+            )
+        ) + str(RowNumber + TopRow - 1)
+
+        # Define the table
+        NumberOfSheets = str(len(wb.sheetnames))
+        tab = Table(
+            displayName="SettingsTable_" + NumberOfSheets,
+            ref=f"{StartCell}:{EndCell}",
         )
-    ) + str(TopRow)
-    ws[ValueCell].value = "Value"
-    # endregion
 
-    # region -- Export the external source settings
-    #
-    # USE_EXTERNAL_SOURCE
-    RowNumber = 1
-    ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "UseExternalSource"
-    # Write the value
-    SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-    # Create a dropdown for the boolan
-    dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
-    ws.add_data_validation(dv)
-    dv.add(ws[SettingValue])
-    ws[SettingValue].value = str(USE_EXTERNAL_SOURCE).upper()
-    RowNumber = RowNumber + 1
-
-    # EXTERNAL_SOURCE_PATH
-    ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "ExternalFile"
-    # Write the value
-    SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-    ws[SettingValue].value = EXTERNAL_SOURCE_PATH
-    RowNumber = RowNumber + 1
-
-    # EXTERNAL_SOURCE_SHEET_NAME
-    ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "SheetName"
-    # Write the value
-    SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-    ws[SettingValue].value = EXTERNAL_SOURCE_SHEET_NAME
-    RowNumber = RowNumber + 1
-
-    # EXTERNAL_SOURCE_STARTCELL
-    ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "StartCell"
-    # Write the value
-    SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-    ws[SettingValue].value = EXTERNAL_SOURCE_STARTCELL
-    RowNumber = RowNumber + 1
-
-    # AUTOFILL_TITLEBLOCK
-    ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "AutoFillTitleBlock"
-    # Write the value
-    SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-    # Create a dropdown for the boolan
-    dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
-    ws.add_data_validation(dv)
-    dv.add(ws[SettingValue])
-    ws[SettingValue].value = str(AUTOFILL_TITLEBLOCK).upper()
-    RowNumber = RowNumber + 1
-
-    # IMPORT_SETTINGS_XL
-    ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "ImportSettingsXL"
-    # Write the value
-    SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-    # Create a dropdown for the boolan
-    dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
-    ws.add_data_validation(dv)
-    dv.add(ws[SettingValue])
-    ws[SettingValue].value = str(IMPORT_SETTINGS_XL).upper()
-    RowNumber = RowNumber + 1
-
-    # SHEETNAME_SETTINGS_XL
-    ws[str(StartCell[:1] + str(TopRow + RowNumber))] = "SheetName_Settings"
-    # Write the value
-    SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-    ws[SettingValue].value = SHEETNAME_SETTINGS_XL
-    RowNumber = RowNumber + 1
-
-    # SHEETNAME_STARTCELL_XL
-    ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "StartCell_Settings"
-    # Write the value
-    SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-    ws[SettingValue].value = SHEETNAME_STARTCELL_XL
-    RowNumber = RowNumber + 1
-
-    # endregion
-
-    # region -- Export the filename settings
-    #
-    # USE_FILENAME_DRAW_NO
-    ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "UseFileName"
-    # Write the value
-    SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-    # Create a dropdown for the boolan
-    dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
-    ws.add_data_validation(dv)
-    dv.add(ws[SettingValue])
-    ws[SettingValue].value = str(USE_FILENAME_DRAW_NO).upper()
-    RowNumber = RowNumber + 1
-
-    # DRAW_NO_FiELD
-    ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "DrwNrFieldName"
-    # Write the value
-    SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-    ws[SettingValue].value = DRAW_NO_FiELD
-    RowNumber = RowNumber + 1
-
-    # endregion
-
-    # region -- Export the Mapping settings
-    #
-    # MAP_LENGTH
-    ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "MapLength"
-    # Write the value
-    SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-    ws[SettingValue].value = MAP_LENGTH
-    RowNumber = RowNumber + 1
-
-    # MAP_ANGLE
-    ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "MapAngle"
-    # Write the value
-    SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-    ws[SettingValue].value = MAP_ANGLE
-    RowNumber = RowNumber + 1
-
-    # MAP_MASS
-    ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "MapMass"
-    # Write the value
-    SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-    ws[SettingValue].value = MAP_MASS
-    RowNumber = RowNumber + 1
-
-    # MAP_NOSHEETS
-    ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "MapNoSheets"
-    # Write the value
-    SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-    ws[SettingValue].value = MAP_NOSHEETS
-    RowNumber = RowNumber + 1
-    # endregion
-
-    # region -- Export the included value settings
-    #
-    # INCLUDE_LENGTH
-    ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "IncludeLength"
-    # Write the value
-    SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-    # Create a dropdown for the boolan
-    dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
-    ws.add_data_validation(dv)
-    dv.add(ws[SettingValue])
-    ws[SettingValue].value = str(INCLUDE_LENGTH).upper()
-    RowNumber = RowNumber + 1
-
-    # INCLUDE_ANGLE
-    ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "IncludeAngle"
-    # Write the value
-    SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-    # Create a dropdown for the boolan
-    dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
-    ws.add_data_validation(dv)
-    dv.add(ws[SettingValue])
-    ws[SettingValue].value = str(INCLUDE_ANGLE).upper()
-    RowNumber = RowNumber + 1
-
-    # INCLUDE_MASS
-    ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "IncludeMass"
-    # Write the value
-    SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-    # Create a dropdown for the boolan
-    dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
-    ws.add_data_validation(dv)
-    dv.add(ws[SettingValue])
-    ws[SettingValue].value = str(INCLUDE_MASS).upper()
-    RowNumber = RowNumber + 1
-
-    # INCLUDE_NO_SHEETS
-    ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "IncludeNoOfSheets"
-    # Write the value
-    SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-    # Create a dropdown for the boolan
-    dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
-    ws.add_data_validation(dv)
-    dv.add(ws[SettingValue])
-    ws[SettingValue].value = str(INCLUDE_NO_SHEETS).upper()
-    RowNumber = RowNumber + 1
-    # endregion
-
-    # Note: ENABLE_DEBUG is excluded from export.
-    # This is a setting only needed for debuggin and thus a per user setting.
-
-    # region Format the settings with the values as a Table
-    #
-    # Define the the last cell
-    EndCell = str(
-        Standard_Functions.GetLetterFromNumber(
-            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
+        # Add a default style with striped rows and banded columns
+        style = TableStyleInfo(
+            name="TableStyleMedium11",
+            showFirstColumn=False,
+            showLastColumn=False,
+            showRowStripes=True,
+            showColumnStripes=True,
         )
-    ) + str(RowNumber + TopRow - 1)
 
-    # Define the table
-    NumberOfSheets = str(len(wb.sheetnames))
-    tab = Table(
-        displayName="SettingsTable_" + NumberOfSheets,
-        ref=f"{StartCell}:{EndCell}",
-    )
+        # add the style to the table
+        tab.tableStyleInfo = style
 
-    # Add a default style with striped rows and banded columns
-    style = TableStyleInfo(
-        name="TableStyleMedium11",
-        showFirstColumn=False,
-        showLastColumn=False,
-        showRowStripes=True,
-        showColumnStripes=True,
-    )
+        # add the table to the worksheet
+        ws.add_table(tab)
 
-    # add the style to the table
-    tab.tableStyleInfo = style
+        # Align the columns
+        if ENABLE_DEBUG is True:
+            print(f"TitleBlock Workbench: Table range is: {StartCell}:{EndCell}")
+        for row in ws[1 : ws.max_row]:
+            Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
+            Column_2 = row[Standard_Functions.GetNumberFromLetter(EndCell[:1]) - 1]
+            Column_1.alignment = Alignment(
+                horizontal="left", vertical="center", indent=1
+            )
+            Column_2.alignment = Alignment(
+                horizontal="left", vertical="center", indent=1
+            )
+        # endregion
 
-    # add the table to the worksheet
-    ws.add_table(tab)
+        # Make the columns to autofit the date
+        for col in ws.columns:
+            SetLen = 0
+            column = col[0].column_letter  # Get the column name
 
-    # Align the columns
-    print(f"startcell is: {StartCell}, end cell is: {EndCell}")
-    for row in ws[1 : ws.max_row]:
-        Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
-        Column_2 = row[Standard_Functions.GetNumberFromLetter(EndCell[:1]) - 1]
-        Column_1.alignment = Alignment(horizontal="left", vertical="center", indent=1)
-        Column_2.alignment = Alignment(horizontal="left", vertical="center", indent=1)
-    # endregion
+            for cell in col:
+                if len(str(cell.value)) > SetLen:
+                    SetLen = len(str(cell.value))
 
-    # Make the columns to autofit the date
-    for col in ws.columns:
-        SetLen = 0
-        column = col[0].column_letter  # Get the column name
+            set_col_width = SetLen + 5
+            # Setting the column width
+            ws.column_dimensions[column].width = set_col_width
 
-        for cell in col:
-            if len(str(cell.value)) > SetLen:
-                SetLen = len(str(cell.value))
+        # Save the workbook
+        wb.save(EXTERNAL_SOURCE_PATH)
 
-        set_col_width = SetLen + 5
-        # Setting the column width
-        ws.column_dimensions[column].width = set_col_width
-
-    # Save the workbook
-    wb.save(EXTERNAL_SOURCE_PATH)
-
-    # Close the workbook
-    wb.close()
+        # Close the workbook
+        wb.close()
+    except openpyxl.utils.exceptions.ReadOnlyWorkbookException as e:
+        Standard_Functions.Mbox(
+            "The excel file is read only!", "TitleBlock Workbench", 0
+        )
+        if ENABLE_DEBUG is True:
+            raise (e)
+    except Exception as e:
+        Text = "TitleBlock Workbench: an error occurred!!"
+        if ENABLE_DEBUG is True:
+            Text = (
+                "TitleBlock Workbench: an error occurred!!\n"
+                + "See the report view for details"
+            )
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+        if ENABLE_DEBUG is True:
+            raise (e)
 
 
 def ImportSettingsXL():
@@ -484,15 +504,23 @@ def ImportSettingsXL():
                 ws = wb[str(SHEETNAME_SETTINGS_XL)]
                 counter = 1
         if counter == 0:
-            print("The sheet doesn't exists!")
+            print(
+                "TitleBlock Workbench: The sheet didn't exists when trying to import the settings!\n"
+                + f"The sheetname should be {SHEETNAME_SETTINGS_XL}"
+            )
             return
 
         # Get the startcell
         StartCell = SHEETNAME_STARTCELL_XL
-        print(StartCell)
+        OriginalStartCell = StartCell
+        if ENABLE_DEBUG is True:
+            print(StartCell)
         if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
             StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
-            print(f"converted startcell is: {StartCell}")
+            if ENABLE_DEBUG is True:
+                print(
+                    f"TitleBlock Workbench: the startcell converted from {OriginalStartCell} to {StartCell}"
+                )
 
         # Get the columns
         FirstColumn = int(Standard_Functions.GetNumberFromLetter(StartCell[:1]))
@@ -619,12 +647,20 @@ def ImportSettingsXL():
 
         if counter > 0:
             print(
-                f"Titleblock workbench settings imported from {EXTERNAL_SOURCE_PATH} and sheet: {sheetname} at {StartCell}"
+                "Titleblock workbench: Settings imported from "
+                + f"{EXTERNAL_SOURCE_PATH} from worksheet: {sheetname} at {StartCell}"
             )
         if counter == 0:
-            print("Settings are not imported")
+            print("TitleBlock Workbench: Settings are not imported")
 
     except Exception as e:
+        Text = "TitleBlock Workbench: an error occurred!!"
+        if ENABLE_DEBUG is True:
+            Text = (
+                "TitleBlock Workbench: an error occurred!!\n"
+                + "See the report view for details"
+            )
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         if ENABLE_DEBUG is True:
             raise (e)
         return

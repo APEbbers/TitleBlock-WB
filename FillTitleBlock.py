@@ -45,6 +45,7 @@ def FillTitleBlock():
     # Get the pages and go throug them one by one.
     try:
         pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+
         for page in pages:
             # Get the editable texts
             texts = page.Template.EditableTexts
@@ -152,14 +153,26 @@ def FillTitleBlock():
 
             except Exception as e:
                 # raise an exeception if there is no spreadsheet.
-                Standard_Functions.Mbox("No spreadsheet named 'TitleBlock'!!!", "", 0)
+                Standard_Functions.Mbox(
+                    "No spreadsheet named 'TitleBlock'!!!", "TitleBlock Workbench", 0
+                )
                 # if degbug mode is enabeled, print the exception
                 if ENABLE_DEBUG is True:
                     print(e)
 
-    except Exception as e:
+    except RuntimeError as e:
         # raise an exeception if there is no page.
         Standard_Functions.Mbox("No page present!!!", "", 0)
         # if degbug mode is enabeled, print the exception
         if ENABLE_DEBUG is True:
             print(e)
+    except Exception as e:
+        Text = "TitleBlock Workbench: an error occurred!!"
+        if ENABLE_DEBUG is True:
+            Text = (
+                "TitleBlock Workbench: an error occurred!!\n"
+                + "See the report view for details"
+            )
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+        if ENABLE_DEBUG is True:
+            raise (e)

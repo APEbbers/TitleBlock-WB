@@ -20,15 +20,9 @@
 # *   USA                                                                   *
 # *                                                                         *
 # ***************************************************************************/
-
-# Attributions:
-# 1. Excel icon downloaded from: "https://www.flaticon.com/free-icons/xlsx-file"
-
 import os
 import FreeCADGui as Gui
 from inspect import getsourcefile
-import myResources
-import Settings as Pref
 
 __title__ = "TitleBlock Workbench"
 __author__ = "A.P. Ebbers"
@@ -70,6 +64,8 @@ class TitleBlockWB(Gui.Workbench):
         import Settings
         from Settings import USE_EXTERNAL_SOURCE
         from Settings import IMPORT_SETTINGS_XL
+        from Settings import ADD_TOOLBAR_TECHDRAW
+        import CreateUI
 
         if IMPORT_SETTINGS_XL is True:
             Settings.ImportSettingsXL()
@@ -88,14 +84,25 @@ class TitleBlockWB(Gui.Workbench):
             "TitleBlock", ToolbarList
         )  # creates a new toolbar with your commands
 
-        MenuList = self.list = [
-            "FillSpreadsheet",
+        StandardList = self.list = [
             "FillTitleBlock",
-            "ImportExcel",
+            "FillSpreadsheet",
+        ]
+        ExcelList = self.list = [
             "ExportSpreadSheet",
+            "ImportExcel",
             "ExportSettings",
-        ]  # a list of command names created in the line above
-        self.appendMenu("TitleBlock", MenuList)  # creates a new menu
+        ]
+        self.appendMenu(
+            "TitleBlock",
+            StandardList,
+        )  # creates a new menu
+        self.appendMenu(["TitleBlock", "Excel functions"], ExcelList)
+
+        if ADD_TOOLBAR_TECHDRAW is True:
+            CreateUI.CreateTechDrawToolbar()
+        if ADD_TOOLBAR_TECHDRAW is False:
+            CreateUI.RemoveTechDrawToolbar()
 
     def Activated(self):
         """This function is executed whenever the workbench is activated"""

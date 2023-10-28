@@ -1,10 +1,3 @@
-import ctypes  # An included library with Python install.
-import tkinter as tk
-from tkinter.filedialog import asksaveasfile
-from PySide import QtCore
-from PySide import QtGui
-
-
 def Mbox(text, title="", style=0, default="", stringList="[,]"):
     """
     Message Styles:
@@ -13,6 +6,9 @@ def Mbox(text, title="", style=0, default="", stringList="[,]"):
     2 : Inputbox                    (text, title, style, default)
     3 : Inputbox with dropdown      (text, title, style, default, stringlist)
     """
+    from PySide import QtCore
+    from PySide import QtGui
+
     if style == 0:
         reply = str(QtGui.QMessageBox.information(None, title, text))
         return reply
@@ -50,7 +46,7 @@ def Mbox(text, title="", style=0, default="", stringList="[,]"):
         return str(replyText)
 
 
-def SaveAsDialog(files):
+def SaveDialog(files, OverWrite: bool = True):
     """
     files must be like:
     files = [
@@ -58,16 +54,29 @@ def SaveAsDialog(files):
         ('Python Files', '*.py'),
         ('Text Document', '*.txt')
     ]
+
+    OverWrite:
+    If True, file will be overwritten
+    If False, only the path+filename will be returned
     """
+    import os
+    import tkinter as tk
+    from tkinter.filedialog import asksaveasfile
+    from tkinter.filedialog import askopenfilename
 
     # Create the window
     root = tk.Tk()
     # Hide the window
     root.withdraw()
 
-    file = asksaveasfile(filetypes=files, defaultextension=files)
-    if file is not None:
-        return file.name
+    if OverWrite is True:
+        file = asksaveasfile(filetypes=files, defaultextension=files)
+        if file is not None:
+            return file.name
+    if OverWrite is False:
+        file = askopenfilename(filetypes=files, defaultextension=files)
+        if file is not None:
+            return file
 
 
 def GetLetterFromNumber(number: int, UCase: bool = True):
@@ -102,3 +111,30 @@ def GetA1fromR1C1(input: str) -> str:
         return str(ColumnLetter + str(RowNumber))
     except Exception:
         return ""
+
+
+def CheckIfWorkbookExists(FullFileName: str, CreateIfNone: bool = True):
+    import os
+    from openpyxl import Workbook
+
+    result = False
+    try:
+        result = os.path.exists(FullFileName)
+    except Exception:
+        if CreateIfNone is True:
+            Filter = [
+                ("Excel", "*.xlsx"),
+                (
+                    "Excel Macro-enabled Workbook",
+                    "*.xlsm",
+                ),
+            ]
+            FullFileName = SaveDialog(Filter)
+            if FullFileName.strip():
+                wb = Workbook(str(FullFileName))
+                wb.save(FullFileName)
+                wb.close()
+                result = True
+        if CreateIfNone is False:
+            result = False
+    return result

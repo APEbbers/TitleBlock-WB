@@ -52,22 +52,22 @@ def ExportSpreadSheet():
         TopRow = int(StartCell[1:])
         PropCell = str(
             Standard_Functions.GetLetterFromNumber(
-                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 2
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
             )
         ) + str(TopRow)
         IncreaseCell = str(
             Standard_Functions.GetLetterFromNumber(
-                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 3
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 2
             )
         ) + str(TopRow)
         MultiplierCell = str(
             Standard_Functions.GetLetterFromNumber(
-                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 3
             )
         ) + str(TopRow)
         RemarkCell = str(
             Standard_Functions.GetLetterFromNumber(
-                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 5
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
             )
         ) + str(TopRow)
 
@@ -132,7 +132,7 @@ def ExportSpreadSheet():
         # Define the the last cell
         EndCell = str(
             Standard_Functions.GetLetterFromNumber(
-                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 5
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
             )
         ) + str(RowNumber - 1)
 
@@ -201,9 +201,12 @@ def ExportSpreadSheet():
         Filter = [
             ("Excel", "*.xlsx"),
         ]
-        FileName = Standard_Functions.SaveAsDialog(Filter)
+        FileName = Standard_Functions.SaveDialog(Filter)
         if FileName is not None:
+            # Save the workbook
             wb.save(str(FileName))
+            # Close the workbook
+            wb.close()
 
         # If import settings from excel is enabled, export settings to the new excel file.
         if IMPORT_SETTINGS_XL is True:

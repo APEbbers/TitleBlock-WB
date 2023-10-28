@@ -45,11 +45,11 @@ def CreateTechDrawToolbar() -> object:
 
     # add the commands
     if USE_EXTERNAL_SOURCE is True:
-        TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
         TechDrawToolbar.SetString("ImportExcel", "FreeCAD")
-    if USE_EXTERNAL_SOURCE is False:
         TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
+    if USE_EXTERNAL_SOURCE is False:
         TechDrawToolbar.SetString("FillSpreadsheet", "FreeCAD")
+        TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
 
     # endregion
 

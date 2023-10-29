@@ -435,7 +435,7 @@ def ImportDataExcel():
             sheet.set("B1", str(ws[str(Column2) + str(StartRow)].value))
             sheet.set("C1", str(ws[str(Column3) + str(StartRow)].value))
             sheet.set("D1", str(ws[str(Column4) + str(StartRow)].value))
-            sheet.set("E1", str(ws[str(Column4) + str(StartRow)].value))
+            sheet.set("E1", str(ws[str(Column5) + str(StartRow)].value))
 
             # Go through the excel until the cell in the first column is empty.
             for i in range(1000):

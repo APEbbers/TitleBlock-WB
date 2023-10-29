@@ -178,13 +178,12 @@ def MapData(sheet):
         if str(MAP_NOSHEETS).strip():
             print("the number of pages is mapped to: " + str(MAP_NOSHEETS))
         if USE_FILENAME_DRAW_NO is True:
-            if str(DRAW_NO_FiELD).strip():
-                print(
-                    "The filename ("
-                    + str(filename)
-                    + ") is mapped to: "
-                    + str(DRAW_NO_FiELD)
-                )
+            print(
+                "The filename ("
+                + str(filename)
+                + ") is mapped to: "
+                + str(DRAW_NO_FiELD)
+            )
 
     # get units scheme
     SchemeNumber = App.Units.getSchema()
@@ -255,7 +254,6 @@ def MapData(sheet):
             if str(DRAW_NO_FiELD).strip():
                 # If the cell in column A is equal to DRAW_NO_FiELD, add the value in column B
                 if str(sheet.get("A" + str(RowNum))) == DRAW_NO_FiELD:
-                    print("I got here! " + filename)
                     sheet.set("B" + str(RowNum), filename)
 
         # Check if the next row exits. If not this is the end of all the available values.
@@ -264,6 +262,40 @@ def MapData(sheet):
         except Exception:
             # print("end of range")
             return
+
+
+def FormatTable(sheet, Endrow):
+    RangeAlign1 = "A1:A" + str(Endrow)
+    RangeAlign2 = "B1:E" + str(Endrow)
+    RangeStyle1 = "A1:E1"
+    RangeStyle2 = "A2:A" + str(Endrow)
+
+    # Style the top row
+    sheet.setStyle(RangeStyle1, "bold")  # \bold|italic|underline'
+    sheet.setStyle(RangeStyle2, "bold")  # \bold|italic|underline'
+    sheet.setBackground(RangeStyle1, Standard_Functions.ColorConvertor([255, 128, 0]))
+    # sheet.setBackground(RangeStyle2, Standard_Functions.ColorConvertor([0, 153, 0]))
+    sheet.setForeground(
+        RangeStyle1, Standard_Functions.ColorConvertor([0, 0, 0])
+    )  # RGBA
+
+    # Style the rest of the table
+
+    for i in range(2, int(Endrow + 1), 2):
+        RangeStyle3 = f"A{i}:E{i}"
+        RangeStyle4 = f"A{i+1}:E{i+1}"
+        sheet.setBackground(
+            RangeStyle3, Standard_Functions.ColorConvertor([128, 128, 128])
+        )
+        sheet.setBackground(
+            RangeStyle4, Standard_Functions.ColorConvertor([64, 64, 64])
+        )
+        sheet.setForeground(RangeStyle3, Standard_Functions.ColorConvertor([0, 0, 0]))
+        sheet.setForeground(RangeStyle4, Standard_Functions.ColorConvertor([0, 0, 0]))
+
+    # align the columns
+    sheet.setAlignment(RangeAlign1, "left|vcenter")
+    sheet.setAlignment(RangeAlign2, "center|vcenter")
 
 
 # Fill the spreadsheet with all the date from the titleblock
@@ -286,7 +318,7 @@ def FillSheet():
         sheet.set("A1", "Property Name")
         sheet.set("B1", "Property Value")
         sheet.set("C1", "Increase value")
-        sheet.set("D1", "Multiplier")
+        sheet.set("D1", "Factor")
         sheet.set("E1", "Remarks")
 
         # set the start value for the start row.
@@ -314,8 +346,21 @@ def FillSheet():
         # Run the def to add extra system data
         AddExtraData(sheet, StartRow)
 
+        # Format the spreadsheet
+        extraRows = 0
+        if INCLUDE_LENGTH is True:
+            extraRows = extraRows + 1
+        if INCLUDE_ANGLE is True:
+            extraRows = extraRows + 1
+        if INCLUDE_MASS is True:
+            extraRows = extraRows + 1
+        if INCLUDE_NO_SHEETS is True:
+            extraRows = extraRows + 1
+        FormatTable(sheet=sheet, Endrow=StartRow + extraRows)
+
         # Finally recompute the spreadsheet
         sheet.recompute()
+
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!"
         if ENABLE_DEBUG is True:
@@ -367,16 +412,16 @@ def ImportDataExcel():
                     + str(Standard_Functions.GetNumberFromLetter(StartColumn))
                 )
             Column2 = Standard_Functions.GetLetterFromNumber(
-                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 2), True
+                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 1), True
             )
             Column3 = Standard_Functions.GetLetterFromNumber(
-                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 3), True
+                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 2), True
             )
             Column4 = Standard_Functions.GetLetterFromNumber(
-                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 4), True
+                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 3), True
             )
             Column5 = Standard_Functions.GetLetterFromNumber(
-                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 5), True
+                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 4), True
             )
 
             # Get the start row
@@ -444,6 +489,18 @@ def ImportDataExcel():
 
             # Run the def to add extra system data. This is the final value of "RowNumber" minus the "StartRow".
             AddExtraData(sheet, RowNumber - int(StartRow))
+
+            # Format the spreadsheet
+            extraRows = 0
+            if INCLUDE_LENGTH is True:
+                extraRows = extraRows + 1
+            if INCLUDE_ANGLE is True:
+                extraRows = extraRows + 1
+            if INCLUDE_MASS is True:
+                extraRows = extraRows + 1
+            if INCLUDE_NO_SHEETS is True:
+                extraRows = extraRows + 1
+            FormatTable(sheet=sheet, Endrow=RowNumber + extraRows - 1)
 
             # Finally recompute the spreadsheet
             sheet.recompute()

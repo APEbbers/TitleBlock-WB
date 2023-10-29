@@ -49,14 +49,24 @@ def GetBoolSetting(settingName: str) -> bool:
 
 def SetStringSetting(settingName: str, value: str):
     if value.lower() == "none":
-        value = ""
+        if ENABLE_DEBUG is True:
+            print(
+                f"string setting not applied!!\n Settings was: {settingName} and value was {value}"
+            )
+            value = ""
     preferences.SetString(settingName, value)
 
 
-def SetBoolSetting(settingName: str, value: bool):
-    if str(value).lower() == "none":
-        value = False
-    preferences.SetBool(settingName, value)
+def SetBoolSetting(settingName: str, value):
+    if value.lower() == "true":
+        Bool = True
+    if str(value).lower() == "none" or value.lower() != "true":
+        if ENABLE_DEBUG is True:
+            print(
+                f"bool setting not applied!!\n Settings was: {settingName} and value was {value}"
+            )
+        Bool = False
+    preferences.SetBool(settingName, Bool)
 
 
 # endregion
@@ -537,7 +547,7 @@ def ImportSettingsXL():
             #
             # Import USE_EXTERNAL_SOURCE
             if Cell_Name.value == "UseExternalSource":
-                SetBoolSetting("UseExternalSource", bool(Cell_Value.value))
+                SetBoolSetting("UseExternalSource", Cell_Value.value)
                 counter = counter + 1
 
             # Import EXTERNAL_SOURCE_PATH
@@ -557,12 +567,12 @@ def ImportSettingsXL():
 
             # Import AUTOFILL_TITLEBLOCK
             if Cell_Name.value == "AutoFillTitleBlock":
-                SetBoolSetting("AutoFillTitleBlock", bool(Cell_Value.value))
+                SetBoolSetting("AutoFillTitleBlock", Cell_Value.value)
                 counter = counter + 1
 
             # Import IMPORT_SETTINGS_XL
             if Cell_Name.value == "ImportSettingsXL":
-                SetBoolSetting("ImportSettingsXL", bool(Cell_Value.value))
+                SetBoolSetting("ImportSettingsXL", Cell_Value.value)
                 counter = counter + 1
 
             # Import SHEETNAME_SETTINGS_XL
@@ -581,7 +591,7 @@ def ImportSettingsXL():
             #
             # Import USE_FILENAME_DRAW_NO
             if Cell_Name.value == "UseFileName":
-                SetBoolSetting("UseFileName", bool(Cell_Value.value))
+                SetBoolSetting("UseFileName", Cell_Value.value)
                 counter = counter + 1
 
             # Import DRAW_NO_FiELD
@@ -619,22 +629,22 @@ def ImportSettingsXL():
             #
             # Import INCLUDE_LENGTH
             if Cell_Name.value == "IncludeLength":
-                SetBoolSetting("IncludeLength", bool(Cell_Value.value))
+                SetBoolSetting("IncludeLength", Cell_Value.value)
                 counter = counter + 1
 
             # Import INCLUDE_ANGLE
             if Cell_Name.value == "IncludeAngle":
-                SetBoolSetting("IncludeAngle", bool(Cell_Value.value))
+                SetBoolSetting("IncludeAngle", Cell_Value.value)
                 counter = counter + 1
 
             # Import INCLUDE_MASS
             if Cell_Name.value == "IncludeMass":
-                SetBoolSetting("IncludeMass", bool(Cell_Value.value))
+                SetBoolSetting("IncludeMass", Cell_Value.value)
                 counter = counter + 1
 
             # Import INCLUDE_NO_SHEETS
             if Cell_Name.value == "IncludeNoOfSheets":
-                SetBoolSetting("IncludeNoOfSheets", bool(Cell_Value.value))
+                SetBoolSetting("IncludeNoOfSheets", Cell_Value.value)
                 counter = counter + 1
 
             # endregion

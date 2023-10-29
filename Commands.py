@@ -131,9 +131,30 @@ class ExportSettings_class:
         return True
 
 
+class ImportSettings_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "ImportSettings.svg",  # the name of a svg file available in the resources
+            "MenuText": "Import settings",
+            "ToolTip": "Imports all settings from the external excel file",
+        }
+
+    def Activated(self):
+        import Settings
+
+        Settings.ImportSettingsXL()
+        return
+
+    def IsActive(self):
+        """Here you can define if the command must be active or not (greyed) if certain conditions
+        are met or not. This function is optional."""
+        return True
+
+
 # Add the commands to the Gui
 Gui.addCommand("FillSpreadsheet", FillSpreadsheet_Class())
 Gui.addCommand("FillTitleBlock", FillTitleBlock_Class())
 Gui.addCommand("ImportExcel", ImportExcel_Class())
 Gui.addCommand("ExportSpreadSheet", ExportSpreadsheet_class())
 Gui.addCommand("ExportSettings", ExportSettings_class())
+Gui.addCommand("ImportSettings", ImportSettings_class())

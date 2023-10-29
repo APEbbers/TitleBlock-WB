@@ -6,6 +6,7 @@
         <file>Resources/Icons/preferences-TechDrawTitleBlockUtility.svg</file>
         <file>Resources/Icons/ImportExcel.svg</file>
         <file>Resources/Icons/ExportExcel.svg</file>
-        <file>Resources/Icons/\ExportSettings.svg</file>
+        <file>Resources/Icons/ExportSettings.svg</file>
+        <file>Resources/Icons/ImportSettings.svg</file>
     </qresource>
 </RCC>

@@ -91,13 +91,17 @@ class TitleBlockWB(Gui.Workbench):
         ExcelList = self.list = [
             "ExportSpreadSheet",
             "ImportExcel",
+        ]
+        SettingsList = self.list = [
             "ExportSettings",
+            "ImportSettings",
         ]
         self.appendMenu(
             "TitleBlock",
             StandardList,
         )  # creates a new menu
         self.appendMenu(["TitleBlock", "Excel functions"], ExcelList)
+        self.appendMenu(["TitleBlock", "Settings"], SettingsList)
 
         if ADD_TOOLBAR_TECHDRAW is True:
             CreateUI.CreateTechDrawToolbar()

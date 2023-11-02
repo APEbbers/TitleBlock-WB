@@ -48,7 +48,7 @@ def GetDefaultTemplate(selectedItem: int) -> str:
     elif selectedItem == 5:
         return "A4_Portrait.svg"
     else:
-        return None
+        return "A4_Landscape.svg"
 
 
 def ImportTemplates():

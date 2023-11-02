@@ -63,7 +63,7 @@ class FillTitleBlock_Class:
     def GetResources(self):
         return {
             "Pixmap": "FillTitleBlock.svg",  # the name of a svg file available in the resources
-            "MenuText": "Populate Titleblock",
+            "MenuText": "Populate titleblock",
             "ToolTip": "Imports data from the spreadsheet to titleblock of all pages",
         }
 
@@ -94,7 +94,7 @@ class ImportExcel_Class:
         return {
             "Pixmap": "ImportExcel.svg",  # the name of a svg file available in the resources
             "MenuText": "Import data from excel",
-            "ToolTip": "Imports data from excel to the titleblock spreadsheet",
+            "ToolTip": "Import data from excel to the titleblock spreadsheet",
         }
 
     def Activated(self):
@@ -126,8 +126,8 @@ class ExportSpreadsheet_class:
     def GetResources(self):
         return {
             "Pixmap": "ExportExcel.svg",  # the name of a svg file available in the resources
-            "MenuText": "Exports data to excel",
-            "ToolTip": "Exports data from the titleblock spreadsheet to an excel file",
+            "MenuText": "Export data to excel",
+            "ToolTip": "Export data from the titleblock spreadsheet to an excel file",
         }
 
     def Activated(self):

@@ -15,20 +15,5 @@ There are three main ways to use this workbench:
 3. Use a central Excel workbook on a shared location when working with multiple people on a project.
    Like with way 2, you can set standard date but also synchronise workbook settings among all users.
 
-## General
-![image](https://github.com/APEbbers/TechDrawTitleBlockUtility/assets/10145631/a31503d1-f5cd-4704-a19f-557b34901071)
-
-1. Tabpage with settings for the TitleBlock WorkBench
-2. Tabpage with settings for the use of an external file (Excel workbook)
-3. Tabpage for settings for the TechDraw Workbench
-4. Checkbox to enable debug mode
-
-### Settings for the TitleBlock WorkBench
-![image](https://github.com/APEbbers/TechDrawTitleBlockUtility/assets/10145631/cc3f1564-930b-42d8-901e-9b999506e613)
-
-1. You can use the filename of your document as drawing title.
-   When checked, the name of your document will be mapped with a given property.
-   Enter the name of the property field in the input box.
-
-2. Not all drawing titleblocks have mentioned the units of your documents or the total number of pages in your document.
+Please see the wiki page for instructions.
 

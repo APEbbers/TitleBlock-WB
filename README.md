@@ -19,6 +19,6 @@ There are three main ways to use this workbench:
 3. Use a central Excel workbook on a shared location when working with multiple people on a project.
    Like with way 2, you can set standard date but also synchronise workbook settings among all users.
 
-Please see the wiki page for more details and instructions on how to use this workbench.
+Please see the [wiki page](https://github.com/APEbbers/TechDrawTitleBlockUtility/wiki) for more details and instructions on how to use this workbench.
 
 

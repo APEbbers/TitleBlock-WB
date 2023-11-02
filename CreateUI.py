@@ -70,7 +70,7 @@ def CreateTechDrawToolbar() -> object:
     TechDrawToolbar.SetString("Name", ToolBarName)
 
     # Set the toolbar active
-    TechDrawToolbar.SetBool("Ative", True)
+    TechDrawToolbar.SetBool("Active", True)
 
     # add the commands
     if USE_EXTERNAL_SOURCE is True:

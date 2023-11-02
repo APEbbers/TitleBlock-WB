@@ -22,6 +22,7 @@
 # ***************************************************************************/
 import os
 import FreeCADGui as Gui
+import FreeCAD as App
 from inspect import getsourcefile
 
 __title__ = "TitleBlock Workbench"
@@ -35,21 +36,21 @@ global PATH_TB_ICONS
 global PATH_TB_RESOURCES
 global PATH_TB_UI
 
-PATH_TB_ICONS = os.path.join(PATH_TB, "Resources", "Icons")
-PATH_TB_RESOURCES = os.path.join(PATH_TB, "Resources")
-PATH_TB_UI = os.path.join(PATH_TB, "UI")
-
-Gui.addIconPath(PATH_TB_ICONS)
-pref = Gui.addPreferencePage(
-    os.path.join(PATH_TB_UI, "PreferenceUI.ui"),
-    "TechDrawTitleBlockUtility",
-)
+PATH_TB_ICONS = os.path.join(PATH_TB, "Resources", "Icons").replace("\\", "/")
+PATH_TB_RESOURCES = os.path.join(PATH_TB, "Resources").replace("\\", "/")
+PATH_TB_UI = os.path.join(PATH_TB, "UI").replace("\\", "/")
 
 
 class TitleBlockWB(Gui.Workbench):
     MenuText = "TitleBlock Workbench"
     ToolTip = "An extension for the TechDraw workbench to fill a TitleBlock"
-    Icon = os.path.join(PATH_TB_ICONS, "TitleBlockWB.svg")
+    Icon = os.path.join(PATH_TB_ICONS, "TitleBlockWB.svg").replace("\\", "/")
+
+    Gui.addIconPath(PATH_TB_ICONS)
+    Gui.addPreferencePage(
+        os.path.join(PATH_TB_UI, "PreferenceUI.ui"),
+        "TitleBlock Workbench",
+    )
 
     def GetClassName(self):
         # This function is mandatory if this is a full Python workbench
@@ -66,6 +67,7 @@ class TitleBlockWB(Gui.Workbench):
         from Settings import IMPORT_SETTINGS_XL
         from Settings import ADD_TOOLBAR_TECHDRAW
         import CreateUI
+        import TechDrawFunctions
 
         if IMPORT_SETTINGS_XL is True:
             Settings.ImportSettingsXL()
@@ -108,8 +110,16 @@ class TitleBlockWB(Gui.Workbench):
         if ADD_TOOLBAR_TECHDRAW is False:
             CreateUI.RemoveTechDrawToolbar()
 
+        TechDrawFunctions.ImportTemplates()
+        TechDrawFunctions.SetDefaultTemplate()
+
     def Activated(self):
         """This function is executed whenever the workbench is activated"""
+
+        import TechDrawFunctions
+
+        TechDrawFunctions.ImportTemplates()
+        TechDrawFunctions.SetDefaultTemplate()
         return
 
     def Deactivated(self):

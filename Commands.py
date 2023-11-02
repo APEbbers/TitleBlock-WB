@@ -22,6 +22,7 @@
 # ***************************************************************************/
 
 # FreeCAD init script of the Work Features module
+import FreeCAD as App
 import FreeCADGui as Gui
 from Settings import AUTOFILL_TITLEBLOCK
 
@@ -44,7 +45,17 @@ class FillSpreadsheet_Class:
     def IsActive(self):
         """Here you can define if the command must be active or not (greyed) if certain conditions
         are met or not. This function is optional."""
-        return True
+        # Set the default state
+        result = False
+        # Get for the active document.
+        ActiveDoc = App.activeDocument()
+        if ActiveDoc is not None:
+            # Check if the document has any pages. If so the result is True and the command is activated.
+            pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+            if pages is not None:
+                result = True
+
+        return result
 
 
 # Import data from the spreadsheet to all pages
@@ -65,7 +76,17 @@ class FillTitleBlock_Class:
     def IsActive(self):
         """Here you can define if the command must be active or not (greyed) if certain conditions
         are met or not. This function is optional."""
-        return True
+        # Set the default state
+        result = False
+        # Get for the active document.
+        ActiveDoc = App.activeDocument()
+        if ActiveDoc is not None:
+            # Check if the document has any pages. If so the result is True and the command is activated.
+            pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+            if pages is not None:
+                result = True
+
+        return result
 
 
 class ImportExcel_Class:
@@ -88,7 +109,17 @@ class ImportExcel_Class:
     def IsActive(self):
         """Here you can define if the command must be active or not (greyed) if certain conditions
         are met or not. This function is optional."""
-        return True
+        # Set the default state
+        result = False
+        # Get for the active document.
+        ActiveDoc = App.activeDocument()
+        if ActiveDoc is not None:
+            # Check if the document has any pages. If so the result is True and the command is activated.
+            pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+            if pages is not None:
+                result = True
+
+        return result
 
 
 class ExportSpreadsheet_class:
@@ -108,7 +139,17 @@ class ExportSpreadsheet_class:
     def IsActive(self):
         """Here you can define if the command must be active or not (greyed) if certain conditions
         are met or not. This function is optional."""
-        return True
+        # Set the default state
+        result = False
+        # Get for the active document.
+        ActiveDoc = App.activeDocument()
+        if ActiveDoc is not None:
+            # Check if the document has any pages. If so the result is True and the command is activated.
+            pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+            if pages is not None:
+                result = True
+
+        return result
 
 
 class ExportSettings_class:
@@ -148,6 +189,7 @@ class ImportSettings_class:
     def IsActive(self):
         """Here you can define if the command must be active or not (greyed) if certain conditions
         are met or not. This function is optional."""
+
         return True
 
 

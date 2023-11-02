@@ -27,7 +27,7 @@ import Standard_Functions
 # region defenitions
 translate = FreeCAD.Qt.translate
 preferences = FreeCAD.ParamGet(
-    "User parameter:BaseApp/Preferences/TechDrawTitleBlockUtility"
+    "User parameter:BaseApp/Preferences/Mod/TitleBlock Workbench"
 )
 # endregion
 
@@ -37,6 +37,13 @@ def GetStringSetting(settingName: str) -> str:
     result = preferences.GetString(settingName)
     if result.lower() == "none":
         result = ""
+    return result
+
+
+def GetIntSetting(settingName: str) -> int:
+    result = preferences.GetInt(settingName)
+    if result == "":
+        result = None
     return result
 
 
@@ -76,6 +83,8 @@ def SetBoolSetting(settingName: str, value):
 
 # TechDraw settings
 ADD_TOOLBAR_TECHDRAW = GetBoolSetting("AddToolBarTechDraw")
+IMPORT_EXAMPLE_TEMPLATES = GetBoolSetting("Import_templates")
+DEFAULT_TEMPLATE = GetIntSetting("Default_Template")
 
 # External source
 USE_EXTERNAL_SOURCE = GetBoolSetting("UseExternalSource")
@@ -614,7 +623,7 @@ def ImportSettingsXL():
                 counter = counter + 1
 
             # Import MAP_MASS
-            if Cell_Name.value == "MAP_MASS":
+            if Cell_Name.value == "MapMass":
                 SetStringSetting("MapMass", str(Cell_Value.value))
                 counter = counter + 1
 

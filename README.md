@@ -24,6 +24,11 @@ There are three main ways to use this workbench:
 4. Checkbox to enable debug mode
 
 ### Settings for the TitleBlock WorkBench
+![image](https://github.com/APEbbers/TechDrawTitleBlockUtility/assets/10145631/cc3f1564-930b-42d8-901e-9b999506e613)
 
+1. You can use the filename of your document as drawing title.
+   When checked, the name of your document will be mapped with a given property.
+   Enter the name of the property field in the input box.
 
+2. Not all drawing titleblocks have mentioned the units of your documents or the total number of pages in your document.
 

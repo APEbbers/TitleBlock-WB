@@ -17,7 +17,7 @@ There are three main ways to use this workbench:
 1. Use a spreadsheet with data to fill titleblocks in a document with multiple TechDraw pages
 2. Use a single Excel workbook when working with multiple documents. You can set standard data like Project name, approver name, etc.
 3. Use a single Excel workbook on a shared location when working with multiple people on a project.
-   Like with way 2, you can set standard date but also synchronise workbook settings among all users.
+   Like with way 2, you can set standard data but also synchronise workbench settings among all users.
 
 Please see the [wiki page](https://github.com/APEbbers/TechDrawTitleBlockUtility/wiki) for more details and instructions on how to use this workbench.
 

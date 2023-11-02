@@ -1,7 +1,11 @@
-# TechDrawTitleBlockUtility
-This workbench is developed to import data for the titleblock in your TechDraw drawing.
+<img src="https://github.com/APEbbers/TechDrawTitleBlockUtility/assets/10145631/86aa5a93-9261-48f7-b398-0d8a837f3284)" width="150">
 
-## The main functions are:
+# TitleBlock Workbench
+
+This workbench is developed to provide a convient way to fill in titleblocks for multiple TechDraw pages in one or more CAD files.
+This workbench makes use of the interal workbench SpreadSheet and Microsoft Excel workbooks
+
+The main functions of the workbench are:
 - Load the data (editable fields with or without values) from your drawing into a spreadsheet
 - Export the data to an excel workbook
 - Import data from an excel workbook to a spreadsheet
@@ -15,5 +19,6 @@ There are three main ways to use this workbench:
 3. Use a central Excel workbook on a shared location when working with multiple people on a project.
    Like with way 2, you can set standard date but also synchronise workbook settings among all users.
 
-Please see the wiki page for instructions.
+Please see the wiki page for more details and instructions on how to use this workbench.
+
 

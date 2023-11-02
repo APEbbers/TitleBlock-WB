@@ -2,7 +2,7 @@
 
 # TitleBlock Workbench
 
-This workbench is developed to provide a convient way to fill in titleblocks for multiple TechDraw pages in one or more CAD files.
+Ta FreeCAD workbench to provide a convient way to fill in titleblocks for multiple TechDraw pages in one or more CAD files.
 This workbench makes use of the interal workbench SpreadSheet and Microsoft Excel workbooks
 
 The main functions of the workbench are:

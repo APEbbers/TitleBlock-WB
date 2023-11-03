@@ -25,9 +25,6 @@
 import os
 from inspect import getsourcefile
 import FreeCAD as App
-import Standard_Functions
-import Settings
-import TechDraw
 
 # get the path of the current python script
 PATH_TB = os.path.dirname(getsourcefile(lambda: 0))

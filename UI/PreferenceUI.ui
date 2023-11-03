@@ -1530,6 +1530,86 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>ImportSettingsXL</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_14</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>365</x>
+     <y>312</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>323</x>
+     <y>334</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ImportSettingsXL</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>SheetName_Settings</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>377</x>
+     <y>315</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>129</x>
+     <y>367</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ImportSettingsXL</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_13</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>263</x>
+     <y>309</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>169</x>
+     <y>395</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ImportSettingsXL</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>StartCell_Settings</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>169</x>
+     <y>317</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>163</x>
+     <y>428</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ImportSettingsXL</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_9</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>341</x>
+     <y>312</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>346</x>
+     <y>422</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <designerdata>
   <property name="gridDeltaX">

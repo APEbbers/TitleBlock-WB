@@ -429,6 +429,11 @@ class Ui_Form(object):
         self.Import_templates.toggled.connect(self.Default_Template.setEnabled)
         self.Import_templates.toggled.connect(self.label_12.setEnabled)
         self.UseExternalSource.toggled.connect(self.ImportSettingsXL.setChecked)
+        self.ImportSettingsXL.toggled.connect(self.label_14.setEnabled)
+        self.ImportSettingsXL.toggled.connect(self.SheetName_Settings.setEnabled)
+        self.ImportSettingsXL.toggled.connect(self.label_13.setEnabled)
+        self.ImportSettingsXL.toggled.connect(self.StartCell_Settings.setEnabled)
+        self.ImportSettingsXL.toggled.connect(self.label_9.setEnabled)
 
         self.tabWidget.setCurrentIndex(1)
 

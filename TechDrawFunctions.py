@@ -67,12 +67,15 @@ def ImportTemplates():
 def SetDefaultTemplate():
     from Settings import DEFAULT_TEMPLATE
     from Settings import IMPORT_EXAMPLE_TEMPLATES
+    from Settings import ENABLE_DEBUG
 
     ChosenTemplate = os.path.join(
         TEMPLATE_DIR, GetDefaultTemplate(DEFAULT_TEMPLATE).replace("\\", "/")
     )
 
-    print(ChosenTemplate)
+    # Print the standard template when debug mode is active
+    if ENABLE_DEBUG is True:
+        print(ChosenTemplate)
 
     if IMPORT_EXAMPLE_TEMPLATES is True:
         # Define the parameter path

@@ -361,7 +361,8 @@ def FillSheet():
 
         # Finally recompute the spreadsheet
         sheet.recompute()
-
+    except TypeError:
+        pass
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:
@@ -370,7 +371,7 @@ def FillSheet():
                 + "See the report view for details"
             )
             raise e
-        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+        # Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         return
 
 
@@ -508,6 +509,8 @@ def ImportDataExcel():
 
         else:
             Standard_Functions.Mbox("External source is not enabled!", "", 0)
+    except TypeError:
+        pass
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:

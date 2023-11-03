@@ -39,6 +39,7 @@
 import os
 import FreeCAD as App
 import Standard_Functions
+import Spreadsheet
 
 # Get the settings
 from Settings import INCLUDE_LENGTH
@@ -306,10 +307,7 @@ def FillSheet():
         # get the editable texts
         texts = page.Template.EditableTexts
         # get the spreadsheet "TitleBlock"
-        # try:
-        #     sheet = App.ActiveDocument.getObject("TitleBlock")
-        # except Exception:
-        #     sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
+        # sheet = App.ActiveDocument.getObject("TitleBlock")
         sheet = GetTitleBlock()
 
         # Debug mode is active, show all editable text in the page
@@ -318,7 +316,7 @@ def FillSheet():
             for EditableText in texts.items():
                 print(EditableText)
 
-        # sheet.re.recompute()
+        Spreadsheet.Sheet.recompute(sheet, True)
 
         # set the headers in the spreadsheet
         sheet.set("A1", "Property Name")
@@ -343,8 +341,8 @@ def FillSheet():
             except Exception:
                 sheet.set("C" + str(StartRow), "")
 
-        # # Finally recompute the spreadsheet
-        # sheet.recompute()
+        # Finally recompute the spreadsheet
+        sheet.recompute()
 
         # Run the def to map system data
         MapData(sheet)
@@ -364,8 +362,8 @@ def FillSheet():
             extraRows = extraRows + 1
         FormatTable(sheet=sheet, Endrow=StartRow + extraRows)
 
-        # # Finally recompute the spreadsheet
-        # sheet.recompute()
+        # Finally recompute the spreadsheet
+        sheet.recompute()
 
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"

@@ -525,11 +525,6 @@ def Start(command):
         # check if there is already an spreadsheet called "TitleBlock"
         sheet = App.ActiveDocument.getObject("TitleBlock")
 
-        # Proceed with the macro.
-        if command == "FillSpreadsheet":
-            FillSheet()
-        if command == "ImportExcel":
-            ImportDataExcel()
         # if the debug mode is on, report presense of titleblock spreadsheet
         if ENABLE_DEBUG is True:
             print("TitleBlock already present")
@@ -537,20 +532,18 @@ def Start(command):
         # if there is not yet an spreadsheet called "TitleBlock", create one
         sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
 
-        # Recompute the spreadsheet
-        sheet.recompute()
-        App.ActiveDocument.save()
-
         # set the label to "TitleBlock"
         sheet.Label = "TitleBlock"
+
+        # Recompute the spreadsheet
+        sheet.recompute()
+
+        # if the debug mode is on, report creation of titleblock spreadsheet
+        if ENABLE_DEBUG is True:
+            print("TitleBlock created")
 
         # Proceed with the macro.
         if command == "FillSpreadsheet":
             FillSheet()
         if command == "ImportExcel":
             ImportDataExcel()
-
-        # if the debug mode is on, report creation of titleblock spreadsheet
-        if ENABLE_DEBUG is True:
-            print("TitleBlock created")
-            raise e

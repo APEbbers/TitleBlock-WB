@@ -15,9 +15,9 @@
 
   <pythonmin>3.0.0</pythonmin>
 
-  <url branch="main" type="repository">https://github.com/APEbbers/TechDrawTitleBlockUtility</url>
+  <url branch="main" type="repository">https://github.com/APEbbers/TitleBlock-WB</url>
 
-  <url type="readme">https://github.com/APEbbers/TechDrawTitleBlockUtility/README.md</url>
+  <url type="readme">https://github.com/APEbbers/TitleBlock-WB/README.md</url>
 
   <icon>Resources/icons/TitleBlockWB.svg</icon>
 

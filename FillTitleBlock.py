@@ -86,10 +86,10 @@ def FillTitleBlock():
                                         + str(Multiplier)
                                     )
                             except Exception as e:
-                                # there is no int, so the multiplier is set to 1.
-                                print("No Int found!")
                                 # if degbug mode is enabeled, print the exception
                                 if ENABLE_DEBUG is True:
+                                    # there is no int, so the multiplier is set to 1.
+                                    print("No Int found!")
                                     print(e)
                                 Multiplier = 1
                             try:

@@ -167,7 +167,6 @@ def FillTitleBlock():
         if ENABLE_DEBUG is True:
             print(e)
     except Exception as e:
-        Text = "TitleBlock Workbench: an error occurred!!"
         if ENABLE_DEBUG is True:
             Text = (
                 "TitleBlock Workbench: an error occurred!!\n"

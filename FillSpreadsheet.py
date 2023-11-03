@@ -362,14 +362,13 @@ def FillSheet():
         sheet.recompute()
 
     except Exception as e:
-        Text = "TitleBlock Workbench: an error occurred!!"
         if ENABLE_DEBUG is True:
             Text = (
                 "TitleBlock Workbench: an error occurred!!\n"
                 + "See the report view for details"
             )
             Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-            raise (e)
+            print(e)
 
 
 # Import data from a (central) excel workbook

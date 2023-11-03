@@ -315,9 +315,6 @@ def FillSheet():
             for EditableText in texts.items():
                 print(EditableText)
 
-        # Recompute the spreadsheet
-        sheet.recompute()
-
         # set the headers in the spreadsheet
         sheet.set("A1", "Property Name")
         sheet.set("B1", "Property Value")
@@ -374,6 +371,7 @@ def FillSheet():
             )
             raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+        return
 
 
 # Import data from a (central) excel workbook

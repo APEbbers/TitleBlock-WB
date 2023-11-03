@@ -174,4 +174,4 @@ def FillTitleBlock():
                 + "See the report view for details"
             )
             Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-            raise (e)
+            print(e)

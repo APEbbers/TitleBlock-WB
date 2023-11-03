@@ -306,10 +306,11 @@ def FillSheet():
         # get the editable texts
         texts = page.Template.EditableTexts
         # get the spreadsheet "TitleBlock"
-        try:
-            sheet = App.ActiveDocument.getObject("TitleBlock")
-        except Exception:
-            sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
+        # try:
+        #     sheet = App.ActiveDocument.getObject("TitleBlock")
+        # except Exception:
+        #     sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
+        sheet = GetTitleBlock()
 
         # Debug mode is active, show all editable text in the page
         if ENABLE_DEBUG is True:
@@ -401,10 +402,11 @@ def ImportDataExcel():
                 return
 
             # get the spreadsheet "TitleBlock"
-            try:
-                sheet = App.ActiveDocument.getObject("TitleBlock")
-            except Exception:
-                sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
+            # try:
+            #     sheet = App.ActiveDocument.getObject("TitleBlock")
+            # except Exception:
+            #     sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
+            sheet = GetTitleBlock()
 
             # Get the startcolumn and the other three columns from there
             StartCell = EXTERNAL_SOURCE_STARTCELL
@@ -560,3 +562,14 @@ def Start(command):
         if ENABLE_DEBUG is True:
             print("TitleBlock created")
             raise e
+
+
+def GetTitleBlock():
+    try:
+        sheet = App.ActiveDocument.getObject("TitleBlock")
+    except Exception:
+        sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
+        App.ActiveDocument.recompute(force=True)
+        App.ActiveDocument.save()
+
+    return sheet

@@ -536,6 +536,10 @@ def Start(command):
         # if there is not yet an spreadsheet called "TitleBlock", create one
         sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
 
+        # Recompute the spreadsheet
+        sheet.recompute()
+        App.ActiveDocument.save()
+
         # set the label to "TitleBlock"
         sheet.Label = "TitleBlock"
 

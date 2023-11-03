@@ -542,8 +542,8 @@ def Start(command):
         if ENABLE_DEBUG is True:
             print("TitleBlock created")
 
-        # Proceed with the macro.
-        if command == "FillSpreadsheet":
-            FillSheet()
-        if command == "ImportExcel":
-            ImportDataExcel()
+    # Proceed with the macro.
+    if command == "FillSpreadsheet":
+        FillSheet()
+    if command == "ImportExcel":
+        ImportDataExcel()

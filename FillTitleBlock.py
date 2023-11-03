@@ -173,5 +173,5 @@ def FillTitleBlock():
                 "TitleBlock Workbench: an error occurred!!\n"
                 + "See the report view for details"
             )
-            raise (e)
+            raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)

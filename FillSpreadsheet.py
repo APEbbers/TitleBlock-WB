@@ -368,7 +368,7 @@ def FillSheet():
                 "TitleBlock Workbench: an error occurred!!\n"
                 + "See the report view for details"
             )
-            raise (e)
+            raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
 
 
@@ -513,7 +513,7 @@ def ImportDataExcel():
                 "TitleBlock Workbench: an error occurred!!\n"
                 + "See the report view for details"
             )
-            raise (e)
+            raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
 
 
@@ -523,22 +523,18 @@ def Start(command):
         # check if there is already an spreadsheet called "TitleBlock"
         sheet = App.ActiveDocument.getObject("TitleBlock")
 
-        # if the debug mode is on, report presense of titleblock spreadsheet
-        if ENABLE_DEBUG is True:
-            print("TitleBlock already present")
-
         # Proceed with the macro.
         if command == "FillSpreadsheet":
             FillSheet()
         if command == "ImportExcel":
             ImportDataExcel()
+        # if the debug mode is on, report presense of titleblock spreadsheet
+        if ENABLE_DEBUG is True:
+            print("TitleBlock already present")
+            raise e
     except Exception as e:
         # if there is not yet an spreadsheet called "TitleBlock", create one
         sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
-
-        # if the debug mode is on, report creation of titleblock spreadsheet
-        if ENABLE_DEBUG is True:
-            print("TitleBlock created")
 
         # set the label to "TitleBlock"
         sheet.Label = "TitleBlock"
@@ -548,3 +544,8 @@ def Start(command):
             FillSheet()
         if command == "ImportExcel":
             ImportDataExcel()
+
+        # if the debug mode is on, report creation of titleblock spreadsheet
+        if ENABLE_DEBUG is True:
+            print("TitleBlock created")
+            raise e

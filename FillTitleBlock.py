@@ -158,7 +158,7 @@ def FillTitleBlock():
                 )
                 # if degbug mode is enabeled, print the exception
                 if ENABLE_DEBUG is True:
-                    print(e)
+                    raise (e)
 
     except RuntimeError as e:
         # raise an exeception if there is no page.

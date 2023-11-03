@@ -30,6 +30,8 @@
       <depend optional="False" type="automatic">Spreadsheet</depend>
       <depend optional="False" type="automatic">TechDraw</depend>
       <depend optional="False" type="python">openpyxl</depend>
+      <depend optional="False" type="python">inspect</depend>
+      <depend optional="False" type="python">tkinter</depend>
       <classname>TitleBlockWB</classname>
       <subdirectory>./.</subdirectory>
     </workbench>

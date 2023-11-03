@@ -185,6 +185,7 @@ def MapData(sheet):
                 + ") is mapped to: "
                 + str(DRAW_NO_FiELD)
             )
+        return
 
     # get units scheme
     SchemeNumber = App.Units.getSchema()
@@ -298,6 +299,8 @@ def FormatTable(sheet, Endrow):
     sheet.setAlignment(RangeAlign1, "left|vcenter")
     sheet.setAlignment(RangeAlign2, "center|vcenter")
 
+    return
+
 
 # Fill the spreadsheet with all the date from the titleblock
 def FillSheet():
@@ -371,8 +374,8 @@ def FillSheet():
                 + "See the report view for details"
             )
             raise e
-        # Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-        return
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+    return
 
 
 # Import data from a (central) excel workbook
@@ -509,8 +512,6 @@ def ImportDataExcel():
 
         else:
             Standard_Functions.Mbox("External source is not enabled!", "", 0)
-    except TypeError:
-        pass
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:
@@ -520,6 +521,7 @@ def ImportDataExcel():
             )
             raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+    return
 
 
 def Start(command):
@@ -554,3 +556,4 @@ def Start(command):
         if ENABLE_DEBUG is True:
             print("TitleBlock created")
             raise e
+    return

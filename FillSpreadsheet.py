@@ -318,7 +318,7 @@ def FillSheet():
             for EditableText in texts.items():
                 print(EditableText)
 
-        sheet.recompute()
+        # sheet.re.recompute()
 
         # set the headers in the spreadsheet
         sheet.set("A1", "Property Name")
@@ -343,8 +343,8 @@ def FillSheet():
             except Exception:
                 sheet.set("C" + str(StartRow), "")
 
-        # Finally recompute the spreadsheet
-        sheet.recompute()
+        # # Finally recompute the spreadsheet
+        # sheet.recompute()
 
         # Run the def to map system data
         MapData(sheet)
@@ -364,8 +364,8 @@ def FillSheet():
             extraRows = extraRows + 1
         FormatTable(sheet=sheet, Endrow=StartRow + extraRows)
 
-        # Finally recompute the spreadsheet
-        sheet.recompute()
+        # # Finally recompute the spreadsheet
+        # sheet.recompute()
 
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"

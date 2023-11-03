@@ -299,20 +299,22 @@ def FormatTable(sheet, Endrow):
 
 
 # Fill the spreadsheet with all the date from the titleblock
-def FillSheet():
+def FillSheet(sheet):
     try:
         # get the fist page
         page = App.ActiveDocument.Page
         # get the editable texts
         texts = page.Template.EditableTexts
         # get the spreadsheet "TitleBlock"
-        sheet = App.ActiveDocument.getObject("TitleBlock")
+        # sheet = App.ActiveDocument.getObject("TitleBlock")
 
         # Debug mode is active, show all editable text in the page
         if ENABLE_DEBUG is True:
             print("the following editable text are present in your page:")
             for EditableText in texts.items():
                 print(EditableText)
+
+        sheet.recompute()
 
         # set the headers in the spreadsheet
         sheet.set("A1", "Property Name")
@@ -373,7 +375,7 @@ def FillSheet():
 
 
 # Import data from a (central) excel workbook
-def ImportDataExcel():
+def ImportDataExcel(sheet):
     from openpyxl import load_workbook
 
     # if debug mode is enabled, show the external file including path.
@@ -396,7 +398,7 @@ def ImportDataExcel():
                 return
 
             # get the spreadsheet "TitleBlock"
-            sheet = App.ActiveDocument.getObject("TitleBlock")
+            # sheet = App.ActiveDocument.getObject("TitleBlock")
 
             # Get the startcolumn and the other three columns from there
             StartCell = EXTERNAL_SOURCE_STARTCELL
@@ -525,13 +527,12 @@ def Start(command):
 
         # Proceed with the macro.
         if command == "FillSpreadsheet":
-            FillSheet()
+            FillSheet(sheet)
         if command == "ImportExcel":
-            ImportDataExcel()
+            ImportDataExcel(sheet)
         # if the debug mode is on, report presense of titleblock spreadsheet
         if ENABLE_DEBUG is True:
             print("TitleBlock already present")
-            raise e
     except Exception as e:
         # if there is not yet an spreadsheet called "TitleBlock", create one
         sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
@@ -545,9 +546,9 @@ def Start(command):
 
         # Proceed with the macro.
         if command == "FillSpreadsheet":
-            FillSheet()
+            FillSheet(sheet)
         if command == "ImportExcel":
-            ImportDataExcel()
+            ImportDataExcel(sheet)
 
         # if the debug mode is on, report creation of titleblock spreadsheet
         if ENABLE_DEBUG is True:

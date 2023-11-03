@@ -47,7 +47,7 @@ class Ui_Form(object):
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.EnableDebug = Gui_PrefCheckBox(self.layoutWidget)
         self.EnableDebug.setObjectName(u"EnableDebug")
-        self.EnableDebug.setChecked(True)
+        self.EnableDebug.setChecked(False)
         self.EnableDebug.setProperty("prefEntry", u"EnableDebug")
         self.EnableDebug.setProperty("prefPath", u"Mod/TitleBlock Workbench")
 

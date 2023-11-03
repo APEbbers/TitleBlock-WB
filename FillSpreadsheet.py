@@ -299,14 +299,14 @@ def FormatTable(sheet, Endrow):
 
 
 # Fill the spreadsheet with all the date from the titleblock
-def FillSheet(sheet):
+def FillSheet():
     try:
         # get the fist page
         page = App.ActiveDocument.Page
         # get the editable texts
         texts = page.Template.EditableTexts
         # get the spreadsheet "TitleBlock"
-        # sheet = App.ActiveDocument.getObject("TitleBlock")
+        sheet = App.ActiveDocument.getObject("TitleBlock")
 
         # Debug mode is active, show all editable text in the page
         if ENABLE_DEBUG is True:
@@ -375,7 +375,7 @@ def FillSheet(sheet):
 
 
 # Import data from a (central) excel workbook
-def ImportDataExcel(sheet):
+def ImportDataExcel():
     from openpyxl import load_workbook
 
     # if debug mode is enabled, show the external file including path.
@@ -398,7 +398,10 @@ def ImportDataExcel(sheet):
                 return
 
             # get the spreadsheet "TitleBlock"
-            # sheet = App.ActiveDocument.getObject("TitleBlock")
+            try:
+                sheet = App.ActiveDocument.getObject("TitleBlock")
+            except Exception:
+                sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
 
             # Get the startcolumn and the other three columns from there
             StartCell = EXTERNAL_SOURCE_STARTCELL
@@ -527,9 +530,9 @@ def Start(command):
 
         # Proceed with the macro.
         if command == "FillSpreadsheet":
-            FillSheet(sheet)
+            FillSheet()
         if command == "ImportExcel":
-            ImportDataExcel(sheet)
+            ImportDataExcel()
         # if the debug mode is on, report presense of titleblock spreadsheet
         if ENABLE_DEBUG is True:
             print("TitleBlock already present")
@@ -546,9 +549,9 @@ def Start(command):
 
         # Proceed with the macro.
         if command == "FillSpreadsheet":
-            FillSheet(sheet)
+            FillSheet()
         if command == "ImportExcel":
-            ImportDataExcel(sheet)
+            ImportDataExcel()
 
         # if the debug mode is on, report creation of titleblock spreadsheet
         if ENABLE_DEBUG is True:

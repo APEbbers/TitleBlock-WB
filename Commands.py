@@ -39,7 +39,8 @@ class FillSpreadsheet_Class:
     def Activated(self):
         import FillSpreadsheet
 
-        FillSpreadsheet.Start("FillSpreadsheet")
+        # FillSpreadsheet.Start("FillSpreadsheet")
+        FillSpreadsheet.FillSheet()
         return
 
     def IsActive(self):
@@ -101,7 +102,8 @@ class ImportExcel_Class:
         import FillSpreadsheet
         import FillTitleBlock
 
-        FillSpreadsheet.Start("ImportExcel")
+        # FillSpreadsheet.Start("ImportExcel")
+        FillSpreadsheet.ImportDataExcel()
         if AUTOFILL_TITLEBLOCK is True:
             FillTitleBlock.FillTitleBlock()
         return

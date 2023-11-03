@@ -362,14 +362,14 @@ def FillSheet():
         sheet.recompute()
 
     except Exception as e:
+        Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:
             Text = (
                 "TitleBlock Workbench: an error occurred!!\n"
                 + "See the report view for details"
             )
-            Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-            print(e)
-        return
+            raise (e)
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
 
 
 # Import data from a (central) excel workbook
@@ -507,13 +507,14 @@ def ImportDataExcel():
         else:
             Standard_Functions.Mbox("External source is not enabled!", "", 0)
     except Exception as e:
+        Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:
             Text = (
                 "TitleBlock Workbench: an error occurred!!\n"
                 + "See the report view for details"
             )
-            Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-            print(e)
+            raise (e)
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
 
 
 def Start(command):
@@ -538,7 +539,6 @@ def Start(command):
         # if the debug mode is on, report creation of titleblock spreadsheet
         if ENABLE_DEBUG is True:
             print("TitleBlock created")
-            raise (e)
 
         # set the label to "TitleBlock"
         sheet.Label = "TitleBlock"

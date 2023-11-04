@@ -311,8 +311,6 @@ def FillSheet():
         texts = page.Template.EditableTexts
         # get the spreadsheet "TitleBlock"
         sheet = App.ActiveDocument.getObject("TitleBlock")
-        if sheet is None:
-            return
 
         # Debug mode is active, show all editable text in the page
         if ENABLE_DEBUG is True:

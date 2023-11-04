@@ -39,7 +39,7 @@ global PATH_TB_UI
 
 PATH_TB_ICONS = os.path.join(PATH_TB, "Resources", "Icons").replace("\\", "/")
 PATH_TB_RESOURCES = os.path.join(PATH_TB, "Resources").replace("\\", "/")
-PATH_TB_UI = os.path.join(PATH_TB, "UI").replace("\\", "/")
+PATH_TB_UI = os.path.join(PATH_TB, PATH_TB_RESOURCES, "UI").replace("\\", "/")
 
 
 class TitleBlockWB(Gui.Workbench):
@@ -94,6 +94,7 @@ class TitleBlockWB(Gui.Workbench):
         ExcelList = self.list = [
             "ExportSpreadSheet",
             "ImportExcel",
+            "OpenExcel",
         ]
         SettingsList = self.list = [
             "ExportSettings",

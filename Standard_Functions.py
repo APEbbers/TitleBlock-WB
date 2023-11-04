@@ -180,3 +180,22 @@ def ColorConvertor(ColorRGB: [], Alpha: float = 1) -> ():
     result = mcolors.to_rgba(color, Alpha)
 
     return result
+
+
+def OpenFile(FileName: str):
+    """
+    Filename = full path with filename as string
+    """
+    import subprocess
+    import os
+    import platform
+
+    if os.path.exists(FileName):
+        if platform.system() == "Darwin":  # macOS
+            subprocess.call(("open", FileName))
+        elif platform.system() == "Windows":  # Windows
+            os.startfile(FileName)
+        else:  # linux variants
+            subprocess.call(("xdg-open", FileName))
+    else:
+        print(f"Error: {FileName} does not exist.")

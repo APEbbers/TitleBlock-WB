@@ -193,6 +193,28 @@ class ImportSettings_class:
         return True
 
 
+class OpenExcel_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "OpenExcel.svg",  # the name of a svg file available in the resources
+            "MenuText": "Open the Excel workbook",
+            "ToolTip": "Open the Excel workbook in it's default application",
+        }
+
+    def Activated(self):
+        import Standard_Functions
+        from Settings import EXTERNAL_SOURCE_PATH
+
+        Standard_Functions.OpenFile(EXTERNAL_SOURCE_PATH)
+        return
+
+    def IsActive(self):
+        """Here you can define if the command must be active or not (greyed) if certain conditions
+        are met or not. This function is optional."""
+
+        return True
+
+
 # Add the commands to the Gui
 Gui.addCommand("FillSpreadsheet", FillSpreadsheet_Class())
 Gui.addCommand("FillTitleBlock", FillTitleBlock_Class())
@@ -200,3 +222,4 @@ Gui.addCommand("ImportExcel", ImportExcel_Class())
 Gui.addCommand("ExportSpreadSheet", ExportSpreadsheet_class())
 Gui.addCommand("ExportSettings", ExportSettings_class())
 Gui.addCommand("ImportSettings", ImportSettings_class())
+Gui.addCommand("OpenExcel", OpenExcel_class())

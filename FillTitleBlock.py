@@ -45,8 +45,6 @@ def FillTitleBlock():
     NumCounter = -1
     Multiplier = 1
 
-    print(f"Map sheets is: {MAP_NOSHEETS}")
-
     # Get the pages and go throug them one by one.
     try:
         pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
@@ -76,6 +74,9 @@ def FillTitleBlock():
                         # check if this is a field for the total number of sheets
                         PropertyName = str(sheet.get("A" + str(RowNum)))
 
+                        print(
+                            f"Map sheets is: {MAP_NOSHEETS} and propertyName is {PropertyName}"
+                        )
                         if str(PropertyName).startswith("'"):
                             PropertyName = str(PropertyName)[1:]
                         if MAP_NOSHEETS == PropertyName:

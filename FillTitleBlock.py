@@ -35,14 +35,17 @@
 import FreeCAD as App
 import Standard_Functions
 import FillSpreadsheet
-from Settings import ENABLE_DEBUG
-from Settings import MAP_NOSHEETS
 
 
 def FillTitleBlock():
+    from Settings import ENABLE_DEBUG
+    from Settings import MAP_NOSHEETS
+
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1
     Multiplier = 1
+
+    print(f"Map sheets is: {MAP_NOSHEETS}")
 
     # Get the pages and go throug them one by one.
     try:
@@ -72,7 +75,7 @@ def FillTitleBlock():
 
                         # check if this is a field for the total number of sheets
                         PropertyName = str(sheet.get("A" + str(RowNum)))
-                        print(f"Map sheets is: {MAP_NOSHEETS}")
+
                         if str(PropertyName).startswith("'"):
                             PropertyName = str(PropertyName)[1:]
                         if MAP_NOSHEETS == PropertyName:

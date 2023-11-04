@@ -72,7 +72,7 @@ def FillTitleBlock():
                         str(sheet.get("B" + str(RowNum)))
 
                         # check if this is a field for the total number of sheets
-                        PropertyName = str(sheet.get("A" + str(RowNum)))
+                        PropertyName = sheet.get("A" + str(RowNum))
 
                         print(
                             f"Map sheets is: {MAP_NOSHEETS} and propertyName is {PropertyName}"

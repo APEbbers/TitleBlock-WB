@@ -67,15 +67,18 @@ def FillTitleBlock():
 
                     # fill in the editable text based on the text name in column A and the value in column B.
                     try:
-                        # check if there is a value. If there is an value, fill in. If not, clear the editable text.
+                        # check if there is a value. If there is an value, fill in.
                         str(sheet.get("B" + str(RowNum)))
 
                         # check if this is a field for the total number of sheets
                         PropertyName = str(sheet.get("A" + str(RowNum)))
+                        if str(PropertyName).startswith("'"):
+                            PropertyName = str(PropertyName)[1:]
                         if MAP_NOSHEETS == PropertyName:
+                            print(f"Map sheets is: {MAP_NOSHEETS}")
                             FillSpreadsheet.MapData(sheet=sheet, MapSpecific=4)
                     except Exception:
-                        texts[str(sheet.get("A" + str(RowNum)))] = ""
+                        pass
                     else:
                         try:
                             # check if there is a value. If so, this property value must be increased with every page

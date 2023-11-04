@@ -22,7 +22,6 @@
 # ***************************************************************************/
 import os
 import FreeCADGui as Gui
-import FreeCAD as App
 from inspect import getsourcefile
 
 __title__ = "TitleBlock Workbench"

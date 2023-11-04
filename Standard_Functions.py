@@ -102,9 +102,9 @@ def SaveDialog(files, OverWrite: bool = True):
 
 
 def GetLetterFromNumber(number: int, UCase: bool = True):
-    Alfabet = {"abcdefghijklmnopqrstuvwxyz"}
-    if number < 26:
-        Letter = str(Alfabet)[number + 1]
+    from openpyxl.utils import get_column_letter
+
+    Letter = get_column_letter(number)
 
     # If UCase is true, convert to upper case
     if UCase is True:
@@ -114,8 +114,9 @@ def GetLetterFromNumber(number: int, UCase: bool = True):
 
 
 def GetNumberFromLetter(Letter):
-    Alfabet = {"abcdefghijklmnopqrstuvwxyz"}
-    Number = int(str(Alfabet).index(Letter.lower())) - 1
+    from openpyxl.utils import column_index_from_string
+
+    Number = column_index_from_string(Letter)
 
     return Number
 

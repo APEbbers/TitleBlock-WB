@@ -40,6 +40,13 @@ import FillSpreadsheet
 def FillTitleBlock():
     from Settings import ENABLE_DEBUG
     from Settings import MAP_NOSHEETS
+    from Settings import USE_EXTERNAL_SOURCE
+
+    # Fill the spreadsheet again for the latest update
+    if USE_EXTERNAL_SOURCE is False:
+        FillSpreadsheet.FillSheet()
+    if USE_EXTERNAL_SOURCE is True:
+        FillSpreadsheet.ImportDataExcel()
 
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1
@@ -71,20 +78,20 @@ def FillTitleBlock():
                         # check if there is a value. If there is an value, fill in.
                         str(sheet.get("B" + str(RowNum)))
 
-                        # check if this is a field for the total number of sheets
-                        PropertyName = str(sheet.get("A" + str(RowNum)))
-                        # if ENABLE_DEBUG is True:
-                        print(
-                            f"Map sheets is: {MAP_NOSHEETS} and propertyName is {PropertyName}"
-                        )
-                        if str(PropertyName).startswith("'"):
-                            PropertyName = str(PropertyName)[1:]
-                        if MAP_NOSHEETS == PropertyName:
-                            FillSpreadsheet.MapData(sheet=sheet, MapSpecific=4)
-                            sheet.recompute()
-                            texts[str(sheet.get("A" + str(RowNum)))] = str(
-                                (int(sheet.get("B" + str(RowNum))))
-                            )
+                        # # check if this is a field for the total number of sheets
+                        # PropertyName = str(sheet.get("A" + str(RowNum)))
+                        # # if ENABLE_DEBUG is True:
+                        # print(
+                        #     f"Map sheets is: {MAP_NOSHEETS} and propertyName is {PropertyName}"
+                        # )
+                        # if str(PropertyName).startswith("'"):
+                        #     PropertyName = str(PropertyName)[1:]
+                        # if MAP_NOSHEETS == PropertyName:
+                        #     FillSpreadsheet.MapData(sheet=sheet, MapSpecific=4)
+                        #     sheet.recompute()
+                        #     texts[str(sheet.get("A" + str(RowNum)))] = str(
+                        #         (int(sheet.get("B" + str(RowNum))))
+                        #     )
                     except Exception:
                         pass
                     else:

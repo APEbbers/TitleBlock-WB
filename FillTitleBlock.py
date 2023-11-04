@@ -72,10 +72,10 @@ def FillTitleBlock():
 
                         # check if this is a field for the total number of sheets
                         PropertyName = str(sheet.get("A" + str(RowNum)))
+                        print(f"Map sheets is: {MAP_NOSHEETS}")
                         if str(PropertyName).startswith("'"):
                             PropertyName = str(PropertyName)[1:]
                         if MAP_NOSHEETS == PropertyName:
-                            print(f"Map sheets is: {MAP_NOSHEETS}")
                             FillSpreadsheet.MapData(sheet=sheet, MapSpecific=4)
                     except Exception:
                         pass

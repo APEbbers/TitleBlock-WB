@@ -71,10 +71,9 @@ def FillTitleBlock():
                         str(sheet.get("B" + str(RowNum)))
 
                         # check if this is a field for the total number of sheets
-                        if MAP_NOSHEETS != "":
-                            PropertyName = str(sheet.get("A" + str(RowNum)))
-                            if MAP_NOSHEETS == PropertyName:
-                                FillSpreadsheet.MapData(sheet=sheet, MapSpecific=4)
+                        PropertyName = str(sheet.get("A" + str(RowNum)))
+                        if MAP_NOSHEETS == PropertyName:
+                            FillSpreadsheet.MapData(sheet=sheet, MapSpecific=4)
                     except Exception:
                         texts[str(sheet.get("A" + str(RowNum)))] = ""
                     else:

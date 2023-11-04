@@ -52,8 +52,8 @@ class TitleBlockWB(Gui.Workbench):
         Gui.addPreferencePage(
             os.path.join(PATH_TB_UI, "PreferenceUI.ui"),
             "TitleBlock Workbench",
-            IsLoaded=True,
         )
+        IsLoaded = True
 
     def GetClassName(self):
         # This function is mandatory if this is a full Python workbench

@@ -66,23 +66,24 @@ def FillTitleBlock():
                     # Start with x+1 first, to make sure that x is at least 1.
                     RowNum = RowNum + 2
 
-                    PropertyName = str(sheet.get("A" + str(RowNum)))
-
-                    # check if this is a field for the total number of sheets
-                    PropertyName = str(sheet.get("A" + str(RowNum)))
-                    # if ENABLE_DEBUG is True:
-                    print(
-                        f"Map sheets is: {MAP_NOSHEETS} and propertyName is {PropertyName}"
-                    )
-                    if str(PropertyName).startswith("'"):
-                        PropertyName = str(PropertyName)[1:]
-                    if MAP_NOSHEETS == PropertyName:
-                        FillSpreadsheet.MapData(sheet=sheet, MapSpecific=4)
-
                     # fill in the editable text based on the text name in column A and the value in column B.
                     try:
                         # check if there is a value. If there is an value, fill in.
                         str(sheet.get("B" + str(RowNum)))
+
+                        # check if this is a field for the total number of sheets
+                        PropertyName = str(sheet.get("A" + str(RowNum)))
+                        # if ENABLE_DEBUG is True:
+                        print(
+                            f"Map sheets is: {MAP_NOSHEETS} and propertyName is {PropertyName}"
+                        )
+                        if str(PropertyName).startswith("'"):
+                            PropertyName = str(PropertyName)[1:]
+                        if MAP_NOSHEETS == PropertyName:
+                            FillSpreadsheet.MapData(sheet=sheet, MapSpecific=4)
+                            texts[str(sheet.get("A" + str(RowNum)))] = str(
+                                (int(sheet.get("B" + str(RowNum))))
+                            )
                     except Exception:
                         pass
                     else:
@@ -90,7 +91,7 @@ def FillTitleBlock():
                             # check if there is a value. If so, this property value must be increased with every page
                             str(sheet.get("C" + str(RowNum))).strip()
                             try:
-                                # check if there is a value
+                                # check if there is a value in column D
                                 str(sheet.get("D" + str(RowNum))).strip()
                                 # convert it to a number and use it as multiplier
                                 Multiplier = int(sheet.get("D" + str(RowNum)))
@@ -153,7 +154,7 @@ def FillTitleBlock():
                             texts[str(sheet.get("A" + str(RowNum)))] = str(
                                 sheet.get("B" + str(RowNum))
                             )
-                            # if degbug mode is enabeled, print the exception
+                            # if debug mode is enabeled, print the exception
                             if ENABLE_DEBUG is True:
                                 print(e)
 

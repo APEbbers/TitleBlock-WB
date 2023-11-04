@@ -81,6 +81,7 @@ def FillTitleBlock():
                             PropertyName = str(PropertyName)[1:]
                         if MAP_NOSHEETS == PropertyName:
                             FillSpreadsheet.MapData(sheet=sheet, MapSpecific=4)
+                            sheet.recompute()
                             texts[str(sheet.get("A" + str(RowNum)))] = str(
                                 (int(sheet.get("B" + str(RowNum))))
                             )

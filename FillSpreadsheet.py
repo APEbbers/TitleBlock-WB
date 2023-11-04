@@ -525,41 +525,9 @@ def ImportDataExcel():
 
 
 def Start(command):
-    # Find or Create spreadsheet
-    # try:
-    #     # check if there is already an spreadsheet called "TitleBlock"
-    #     sheet = App.ActiveDocument.getObject("TitleBlock")
-    #     if sheet is None:
-    #         sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
-
-    #     # Proceed with the macro.
-    #     if command == "FillSpreadsheet":
-    #         FillSheet()
-    #     if command == "ImportExcel":
-    #         ImportDataExcel()
-
-    #     # if the debug mode is on, report presense of titleblock spreadsheet
-    #     if ENABLE_DEBUG is True:
-    #         print("TitleBlock already present")
-    # except Exception as e:
-    #     # if there is not yet an spreadsheet called "TitleBlock", create one
-    #     sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
-
-    #     # set the label to "TitleBlock"
-    #     sheet.Label = "TitleBlock"
-
-    #     # Proceed with the macro.
-    #     if command == "FillSpreadsheet":
-    #         FillSheet()
-    #     if command == "ImportExcel":
-    #         ImportDataExcel()
-
-    #     # if the debug mode is on, report creation of titleblock spreadsheet
-    #     if ENABLE_DEBUG is True:
-    #         print("TitleBlock created")
-    #         raise e
     try:
         sheet = App.ActiveDocument.getObject("TitleBlock")
+        # check if the result is not empty
         if sheet is not None:
             # Proceed with the macro.
             if command == "FillSpreadsheet":
@@ -570,6 +538,7 @@ def Start(command):
             # if the debug mode is on, report presense of titleblock spreadsheet
             if ENABLE_DEBUG is True:
                 print("TitleBlock already present")
+        # if the result is empty, create a new titleblock spreadsheet
         if sheet is None:
             sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
 

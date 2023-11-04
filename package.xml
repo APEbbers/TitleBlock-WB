@@ -5,7 +5,7 @@
 
   <description>An extension for the TechDraw workbench to fill a TitleBlock with the aid of the Spreadsheet workbench.</description>
 
-  <version>0.0.2</version>
+  <version>0.0.4</version>
 
   <date>2023-10-08</date>
 
@@ -22,10 +22,6 @@
   <icon>Resources/icons/TitleBlockWB.svg</icon>
 
   <content>
-    <workbench>
-      <classname>TitleBlockWB</classname>
-      <subdirectory>./</subdirectory>
-    </workbench>
     <workbench>
       <depend optional="False" type="automatic">Spreadsheet</depend>
       <depend optional="False" type="automatic">TechDraw</depend>

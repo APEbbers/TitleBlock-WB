@@ -22,13 +22,11 @@
 # ***************************************************************************/
 import os
 import FreeCADGui as Gui
-import FreeCAD as App
 from inspect import getsourcefile
 
 __title__ = "TitleBlock Workbench"
 __author__ = "A.P. Ebbers"
 __url__ = "https://github.com/APEbbers/TechDrawTitleBlockUtility.git"
-__version__ = "0.0.3"
 
 # get the path of the current python script
 PATH_TB = file_path = os.path.dirname(getsourcefile(lambda: 0))

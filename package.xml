@@ -23,10 +23,6 @@
 
   <content>
     <workbench>
-      <classname>TitleBlockWB</classname>
-      <subdirectory>./</subdirectory>
-    </workbench>
-    <workbench>
       <depend optional="False" type="automatic">Spreadsheet</depend>
       <depend optional="False" type="automatic">TechDraw</depend>
       <depend optional="False" type="python">openpyxl</depend>

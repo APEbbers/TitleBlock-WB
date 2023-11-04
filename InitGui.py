@@ -47,13 +47,10 @@ class TitleBlockWB(Gui.Workbench):
     Icon = os.path.join(PATH_TB_ICONS, "TitleBlockWB.svg").replace("\\", "/")
 
     Gui.addIconPath(PATH_TB_ICONS)
-    IsLoaded = False
-    if IsLoaded is False:
-        Gui.addPreferencePage(
-            os.path.join(PATH_TB_UI, "PreferenceUI.ui"),
-            "TitleBlock Workbench",
-        )
-        IsLoaded = True
+    Gui.addPreferencePage(
+        os.path.join(PATH_TB_UI, "PreferenceUI.ui"),
+        "TitleBlock Workbench",
+    )
 
     def GetClassName(self):
         # This function is mandatory if this is a full Python workbench

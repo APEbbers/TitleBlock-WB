@@ -34,10 +34,19 @@
 
 import FreeCAD as App
 import Standard_Functions
-from Settings import ENABLE_DEBUG
+import FillSpreadsheet
 
 
 def FillTitleBlock():
+    from Settings import ENABLE_DEBUG
+    from Settings import USE_EXTERNAL_SOURCE
+
+    # Fill the spreadsheet again for the latest update
+    if USE_EXTERNAL_SOURCE is False:
+        FillSpreadsheet.FillSheet()
+    if USE_EXTERNAL_SOURCE is True:
+        FillSpreadsheet.ImportDataExcel()
+
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1
     Multiplier = 1
@@ -65,16 +74,17 @@ def FillTitleBlock():
 
                     # fill in the editable text based on the text name in column A and the value in column B.
                     try:
-                        # check if there is a value. If there is an value, fill in. If not, clear the editable text.
+                        # check if there is a value. If there is an value, fill in.
                         str(sheet.get("B" + str(RowNum)))
+
                     except Exception:
-                        texts[str(sheet.get("A" + str(RowNum)))] = ""
+                        pass
                     else:
                         try:
                             # check if there is a value. If so, this property value must be increased with every page
                             str(sheet.get("C" + str(RowNum))).strip()
                             try:
-                                # check if there is a value
+                                # check if there is a value in column D
                                 str(sheet.get("D" + str(RowNum))).strip()
                                 # convert it to a number and use it as multiplier
                                 Multiplier = int(sheet.get("D" + str(RowNum)))
@@ -137,7 +147,7 @@ def FillTitleBlock():
                             texts[str(sheet.get("A" + str(RowNum)))] = str(
                                 sheet.get("B" + str(RowNum))
                             )
-                            # if degbug mode is enabeled, print the exception
+                            # if debug mode is enabeled, print the exception
                             if ENABLE_DEBUG is True:
                                 print(e)
 

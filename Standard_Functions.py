@@ -24,11 +24,11 @@
 
 def Mbox(text, title="", style=0, default="", stringList="[,]"):
     """
-    Message Styles:
-    0 : OK                          (text, title, style)
-    1 : Yes | No                    (text, title, style)
-    2 : Inputbox                    (text, title, style, default)
-    3 : Inputbox with dropdown      (text, title, style, default, stringlist)
+    Message Styles:\n
+    0 : OK                          (text, title, style)\n
+    1 : Yes | No                    (text, title, style)\n
+    2 : Inputbox                    (text, title, style, default)\n
+    3 : Inputbox with dropdown      (text, title, style, default, stringlist)\n
     """
     from PySide import QtGui
 
@@ -71,16 +71,16 @@ def Mbox(text, title="", style=0, default="", stringList="[,]"):
 
 def SaveDialog(files, OverWrite: bool = True):
     """
-    files must be like:
-    files = [
-        ('All Files', '*.*'),
-        ('Python Files', '*.py'),
-        ('Text Document', '*.txt')
-    ]
-
-    OverWrite:
-    If True, file will be overwritten
-    If False, only the path+filename will be returned
+    files must be like:\n
+    files = [\n
+        ('All Files', '*.*'),\n
+        ('Python Files', '*.py'),\n
+        ('Text Document', '*.txt')\n
+    ]\n
+    \n
+    OverWrite:\n
+    If True, file will be overwritten\n
+    If False, only the path+filename will be returned\n
     """
     import tkinter as tk
     from tkinter.filedialog import asksaveasfile
@@ -103,7 +103,8 @@ def SaveDialog(files, OverWrite: bool = True):
 
 def GetLetterFromNumber(number: int, UCase: bool = True):
     Alfabet = {"abcdefghijklmnopqrstuvwxyz"}
-    Letter = str(Alfabet)[number + 1]
+    if number < 26:
+        Letter = str(Alfabet)[number + 1]
 
     # If UCase is true, convert to upper case
     if UCase is True:

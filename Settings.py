@@ -35,6 +35,7 @@ preferences = FreeCAD.ParamGet(
 # region -- functions to make sure that a None type result is ""
 def GetStringSetting(settingName: str) -> str:
     result = preferences.GetString(settingName)
+
     if result.lower() == "none":
         result = ""
     return result

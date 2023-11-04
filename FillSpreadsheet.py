@@ -162,9 +162,15 @@ def AddExtraData(sheet, StartRow):
 
 
 # Map data from the system and/or document to the spreadsheet
-def MapData(sheet):
-    # The following system values can be mapped. The values will be automaticly filled in defined properties
-
+def MapData(sheet, MapSpecific: int = 0):
+    """
+    0:  Map all\n
+    1:  Map length unit only\n
+    2:  Map angle unit only\n
+    3:  Map mass unit only\n
+    4:  Map No of sheets only\n
+    5:  Map filename only\n
+    """
     # Get the filename
     filename = os.path.basename(App.ActiveDocument.FileName).split(".")[0]
 
@@ -196,67 +202,77 @@ def MapData(sheet):
         RowNum = RowNum + 2
 
         # Map length units of your FreeCAD application
-        if str(MAP_LENGTH).strip():
-            # If the cell in column A is equal to MAP_LENGTH, add the value in column B
-            if str(sheet.get("A" + str(RowNum))) == MAP_LENGTH:
-                sheet.set(
-                    "B" + str(RowNum),
-                    str(
-                        App.Units.schemaTranslate(
-                            App.Units.Quantity(50, App.Units.Length), SchemeNumber
+        # Map only as requested
+        if MapSpecific == 0 or MapSpecific == 1:
+            if str(MAP_LENGTH).strip():
+                # If the cell in column A is equal to MAP_LENGTH, add the value in column B
+                if str(sheet.get("A" + str(RowNum))) == MAP_LENGTH:
+                    sheet.set(
+                        "B" + str(RowNum),
+                        str(
+                            App.Units.schemaTranslate(
+                                App.Units.Quantity(50, App.Units.Length), SchemeNumber
+                            )
                         )
+                        .split()[1]
+                        .replace("'", "")
+                        .replace(",", ""),
                     )
-                    .split()[1]
-                    .replace("'", "")
-                    .replace(",", ""),
-                )
 
         # Map angle units of your FreeCAD application
-        if str(MAP_ANGLE).strip():
-            # If the cell in column A is equal to MAP_ANGLE, add the value in column B
-            if str(sheet.get("A" + str(RowNum))) == MAP_ANGLE:
-                sheet.set(
-                    "B" + str(RowNum),
-                    str(
-                        App.Units.schemaTranslate(
-                            App.Units.Quantity(50, App.Units.Angle), SchemeNumber
+        # Map only as requested
+        if MapSpecific == 0 or MapSpecific == 2:
+            if str(MAP_ANGLE).strip():
+                # If the cell in column A is equal to MAP_ANGLE, add the value in column B
+                if str(sheet.get("A" + str(RowNum))) == MAP_ANGLE:
+                    sheet.set(
+                        "B" + str(RowNum),
+                        str(
+                            App.Units.schemaTranslate(
+                                App.Units.Quantity(50, App.Units.Angle), SchemeNumber
+                            )
                         )
+                        .split()[1]
+                        .replace("'", "")
+                        .replace(",", ""),
                     )
-                    .split()[1]
-                    .replace("'", "")
-                    .replace(",", ""),
-                )
 
         # Map mass units of your FreeCAD application
-        if str(MAP_MASS).strip():
-            # If the cell in column A is equal to MAP_MASS, add the value in column B
-            if str(sheet.get("A" + str(RowNum))) == MAP_MASS:
-                sheet.set(
-                    "B" + str(RowNum),
-                    str(
-                        App.Units.schemaTranslate(
-                            App.Units.Quantity(50, App.Units.Mass), SchemeNumber
+        # Map only as requested
+        if MapSpecific == 0 or MapSpecific == 3:
+            if str(MAP_MASS).strip():
+                # If the cell in column A is equal to MAP_MASS, add the value in column B
+                if str(sheet.get("A" + str(RowNum))) == MAP_MASS:
+                    sheet.set(
+                        "B" + str(RowNum),
+                        str(
+                            App.Units.schemaTranslate(
+                                App.Units.Quantity(50, App.Units.Mass), SchemeNumber
+                            )
                         )
+                        .split()[1]
+                        .replace("'", "")
+                        .replace(",", ""),
                     )
-                    .split()[1]
-                    .replace("'", "")
-                    .replace(",", ""),
-                )
 
         # Map the number of pages
-        if str(MAP_NOSHEETS).strip():
-            # Get all the pages
-            pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
-            # If the cell in column A is equal to MAP_NOSHEETS, add the value in column B
-            if str(sheet.get("A" + str(RowNum))) == MAP_NOSHEETS:
-                sheet.set("B" + str(RowNum), str(len(pages)))
+        # Map only as requested
+        if MapSpecific == 0 or MapSpecific == 4:
+            if str(MAP_NOSHEETS).strip():
+                # Get all the pages
+                pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+                # If the cell in column A is equal to MAP_NOSHEETS, add the value in column B
+                if str(sheet.get("A" + str(RowNum))) == MAP_NOSHEETS:
+                    sheet.set("B" + str(RowNum), str(len(pages)))
 
         # Map the filename
-        if USE_FILENAME_DRAW_NO is True:
-            if str(DRAW_NO_FiELD).strip():
-                # If the cell in column A is equal to DRAW_NO_FiELD, add the value in column B
-                if str(sheet.get("A" + str(RowNum))) == DRAW_NO_FiELD:
-                    sheet.set("B" + str(RowNum), filename)
+        # Map only as requested
+        if MapSpecific == 0 or MapSpecific == 5:
+            if USE_FILENAME_DRAW_NO is True:
+                if str(DRAW_NO_FiELD).strip():
+                    # If the cell in column A is equal to DRAW_NO_FiELD, add the value in column B
+                    if str(sheet.get("A" + str(RowNum))) == DRAW_NO_FiELD:
+                        sheet.set("B" + str(RowNum), filename)
 
         # Check if the next row exits. If not this is the end of all the available values.
         try:

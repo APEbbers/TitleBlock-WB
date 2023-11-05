@@ -23,7 +23,9 @@
 
 
 import FreeCAD as App
-import Standard_Functions
+from Standard_Functions_TitleBlock import (
+    StandardFunctions_FreeCAD as Standard_Functions,
+)
 from openpyxl import Workbook
 from openpyxl.styles import Alignment
 from openpyxl.worksheet.table import Table, TableStyleInfo
@@ -69,7 +71,7 @@ def ExportSpreadSheet():
             )
         ) + str(TopRow)
         RemarkCell = str(
-            Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.StandardFunctions_FreeCAD.GetLetterFromNumber(
                 Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
             )
         ) + str(TopRow)

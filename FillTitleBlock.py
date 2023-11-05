@@ -33,7 +33,9 @@
 #  - Etc.
 
 import FreeCAD as App
-import Standard_Functions
+from Standard_Functions_TitleBlock import (
+    StandardFunctions_FreeCAD as Standard_Functions,
+)
 import FillSpreadsheet
 
 

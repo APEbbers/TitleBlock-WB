@@ -71,7 +71,7 @@ def ExportSpreadSheet():
             )
         ) + str(TopRow)
         RemarkCell = str(
-            Standard_Functions.StandardFunctions_FreeCAD.GetLetterFromNumber(
+            Standard_Functions.GetLetterFromNumber(
                 Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
             )
         ) + str(TopRow)

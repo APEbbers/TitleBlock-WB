@@ -202,7 +202,9 @@ class OpenExcel_class:
         }
 
     def Activated(self):
-        import Standard_Functions
+        from Standard_Functions_TitleBlock import (
+            StandardFunctions_FreeCAD as Standard_Functions,
+        )
         from Settings import EXTERNAL_SOURCE_PATH
 
         Standard_Functions.OpenFile(EXTERNAL_SOURCE_PATH)

@@ -21,8 +21,12 @@
 # *                                                                         *
 # ***************************************************************************/
 import os
+import FreeCAD as App
 import FreeCADGui as Gui
 from inspect import getsourcefile
+from Standard_Functions_TitleBlock import (
+    StandardFunctions_FreeCAD as Standard_Functions,
+)
 
 __title__ = "TitleBlock Workbench"
 __author__ = "A.P. Ebbers"
@@ -39,6 +43,7 @@ PATH_TB_ICONS = os.path.join(PATH_TB, "Resources", "Icons").replace("\\", "/")
 PATH_TB_RESOURCES = os.path.join(PATH_TB, "Resources").replace("\\", "/")
 PATH_TB_UI = os.path.join(PATH_TB, PATH_TB_RESOURCES, "UI").replace("\\", "/")
 
+Standard_Functions.FileWatcher(" %APPDATA%\FreeCAD\user.cfg")
 
 class TitleBlockWB(Gui.Workbench):
     MenuText = "TitleBlock Workbench"

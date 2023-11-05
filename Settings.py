@@ -22,7 +22,7 @@
 # ***************************************************************************/
 
 import FreeCAD
-import Standard_Functions
+from Standard_Functions import StandardFunctions_FreeCAD as Standard_Functions
 
 # region defenitions
 translate = FreeCAD.Qt.translate

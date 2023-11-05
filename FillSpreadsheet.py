@@ -38,8 +38,7 @@
 
 import os
 import FreeCAD as App
-import Standard_Functions
-import Spreadsheet
+from Standard_Functions import StandardFunctions_FreeCAD as Standard_Functions
 
 # Get the settings
 from Settings import INCLUDE_LENGTH

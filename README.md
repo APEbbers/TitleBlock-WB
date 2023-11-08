@@ -21,4 +21,7 @@ There are three main ways to use this workbench:
 
 Please see the [wiki page](https://github.com/APEbbers/TechDrawTitleBlockUtility/wiki) for more details and instructions on how to use this workbench.
 
+## License:
+LGPL2.+
+
 

@@ -10,6 +10,7 @@ The main functions of the workbench are:
 - Export the data to an excel workbook
 - Import data from an excel workbook to a spreadsheet
 - Fill the titleblock on all pages in your document from data in the spreadsheet
+- increase values per page. For example page numbers
 - Export the workbench settings to a excel workbook
 - Import the workbook settings from a excel workbook at startup
 
@@ -23,5 +24,8 @@ Please see the [wiki page](https://github.com/APEbbers/TechDrawTitleBlockUtility
 
 ## License:
 LGPL2.+
+
+## Screenshots  
+<img src="https://github.com/APEbbers/TitleBlock-WB/assets/10145631/79a65d44-5c1f-4480-b09c-1610a2c2dfb4" width="800">
 
 

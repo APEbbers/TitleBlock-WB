@@ -42,12 +42,10 @@ import FillSpreadsheet
 def FillTitleBlock():
     from Settings import ENABLE_DEBUG
     from Settings import USE_EXTERNAL_SOURCE
+    from Settings import EXTERNAL_SOURCE_SHEET_NAME
+    from Settings import EXTERNAL_SOURCE_STARTCELL
 
-    # Fill the spreadsheet again for the latest update
-    if USE_EXTERNAL_SOURCE is False:
-        FillSpreadsheet.FillSheet()
-    if USE_EXTERNAL_SOURCE is True:
-        FillSpreadsheet.ImportDataExcel()
+    FillSpreadsheet.MapData(4)
 
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1
@@ -98,7 +96,7 @@ def FillTitleBlock():
                                         + str(Multiplier)
                                     )
                             except Exception as e:
-                                # if degbug mode is enabeled, print the exception
+                                # if debug mode is enabeled, print the exception
                                 if ENABLE_DEBUG is True:
                                     # there is no int, so the multiplier is set to 1.
                                     print("No Int found!")

@@ -42,6 +42,9 @@ from Standard_Functions_TitleBlock import (
     StandardFunctions_FreeCAD as Standard_Functions,
 )
 
+# Get the preferences
+from Settings import preferences
+
 # Get the settings
 from Settings import INCLUDE_LENGTH
 from Settings import INCLUDE_ANGLE
@@ -409,7 +412,24 @@ def ImportDataExcel():
             # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
             try:
                 wb = load_workbook(str(EXTERNAL_SOURCE_PATH), data_only=True)
-                ws = wb[str(EXTERNAL_SOURCE_SHEET_NAME)]
+                if EXTERNAL_SOURCE_SHEET_NAME == "":
+                    # Set the sheetname with a inputbox
+                    Worksheets_List = [i for i in wb.sheetnames if i != "Settings"]
+                    Input_SheetName = str(
+                        Standard_Functions.Mbox(
+                            text="Please enter the name of the worksheet",
+                            title="",
+                            style=3,
+                            default="TitleBlockData",
+                            stringList=Worksheets_List,
+                        )
+                    )
+                    # if the user canceled, exit this function.
+                    if not Input_SheetName.strip():
+                        return
+                    ws = wb[str(Input_SheetName)]
+                if EXTERNAL_SOURCE_SHEET_NAME != "":
+                    ws = wb[str(EXTERNAL_SOURCE_SHEET_NAME)]
             except Exception as e:
                 if ENABLE_DEBUG is True:
                     raise (e)
@@ -423,6 +443,26 @@ def ImportDataExcel():
 
             # Get the startcolumn and the other three columns from there
             StartCell = EXTERNAL_SOURCE_STARTCELL
+            if EXTERNAL_SOURCE_SHEET_NAME == "":
+                # Set EXTERNAL_SOURCE_SHEET_NAME to the chosen sheetname
+                preferences.SetString("SheetName", Input_SheetName)
+                ws = wb[Input_SheetName]
+
+                # Set the startcell with an inputbox
+                StartCell = str(
+                    Standard_Functions.Mbox(
+                        "Please enter the name of the cell.\n"
+                        + "Enter a single cell like 'A1', 'B2', etc. Other notations will be ignored!",
+                        style=2,
+                        default="A1",
+                    )
+                )
+                if not StartCell.strip():
+                    StartCell = "A1"
+
+                # Set SHEETNAME_STARTCELL to the chosen sheetname
+                preferences.SetString("StartCell", StartCell)
+
             if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
                 StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
             StartColumn = StartCell[:1]
@@ -555,6 +595,8 @@ def Start(command):
             # if the debug mode is on, report presense of titleblock spreadsheet
             if ENABLE_DEBUG is True:
                 print("TitleBlock already present")
+
+            return
         # if the result is empty, create a new titleblock spreadsheet
         if sheet is None:
             sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
@@ -567,6 +609,8 @@ def Start(command):
             # if the debug mode is on, report creation of titleblock spreadsheet
             if ENABLE_DEBUG is True:
                 print("TitleBlock created")
+
+            return
     except Exception as e:
         if ENABLE_DEBUG is True:
             raise e

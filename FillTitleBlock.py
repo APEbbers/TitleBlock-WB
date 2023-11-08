@@ -48,12 +48,10 @@ def FillTitleBlock():
     # Fill the spreadsheet again for the latest update
     if USE_EXTERNAL_SOURCE is False:
         FillSpreadsheet.FillSheet()
-    if (
-        USE_EXTERNAL_SOURCE is True
-        and EXTERNAL_SOURCE_SHEET_NAME != ""
-        and EXTERNAL_SOURCE_STARTCELL != ""
-    ):
-        FillSpreadsheet.ImportDataExcel()
+    if USE_EXTERNAL_SOURCE is True:
+        if EXTERNAL_SOURCE_SHEET_NAME.strip() is True:
+            if EXTERNAL_SOURCE_STARTCELL.strip() is True:
+                FillSpreadsheet.ImportDataExcel()
 
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1

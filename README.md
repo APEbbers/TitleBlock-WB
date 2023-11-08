@@ -2,15 +2,15 @@
 
 # TitleBlock Workbench
 
-Ta FreeCAD workbench to provide a convient way to fill in titleblocks for multiple TechDraw pages in one or more CAD files.
-This workbench makes use of the interal workbench SpreadSheet and Microsoft Excel workbooks
+a FreeCAD workbench to provide a convient way to fill titleblocks for multiple TechDraw pages in one or more CAD files.
+This workbench makes use of the interal workbench SpreadSheet and Microsoft Excel workbooks.
 
 The main functions of the workbench are:
-- Load the data (editable fields with or without values) from your drawing into a spreadsheet
-- Export the data to an excel workbook
-- Import data from an excel workbook to a spreadsheet
+- Load the data (editable fields with or without values) from your drawing into a spreadsheet to be edited there.
+- Export the data to an excel workbook.
+- Import data from an excel workbook to an spreadsheet
 - Fill the titleblock on all pages in your document from data in the spreadsheet
-- increase values per page. For example page numbers
+- increase values per page. For example page numbers.
 - Export the workbench settings to a excel workbook
 - Import the workbook settings from a excel workbook at startup
 

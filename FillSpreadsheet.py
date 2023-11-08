@@ -399,7 +399,7 @@ def FillSheet():
 
 
 # Import data from a (central) excel workbook
-def ImportDataExcel(silent: False):
+def ImportDataExcel():
     from openpyxl import load_workbook
 
     # if debug mode is enabled, show the external file including path.

@@ -42,11 +42,17 @@ import FillSpreadsheet
 def FillTitleBlock():
     from Settings import ENABLE_DEBUG
     from Settings import USE_EXTERNAL_SOURCE
+    from Settings import EXTERNAL_SOURCE_SHEET_NAME
+    from Settings import EXTERNAL_SOURCE_STARTCELL
 
     # Fill the spreadsheet again for the latest update
     if USE_EXTERNAL_SOURCE is False:
         FillSpreadsheet.FillSheet()
-    if USE_EXTERNAL_SOURCE is True:
+    if (
+        USE_EXTERNAL_SOURCE is True
+        and EXTERNAL_SOURCE_SHEET_NAME != ""
+        and EXTERNAL_SOURCE_STARTCELL != ""
+    ):
         FillSpreadsheet.ImportDataExcel()
 
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.

@@ -49,9 +49,7 @@ def FillTitleBlock():
     if USE_EXTERNAL_SOURCE is False:
         FillSpreadsheet.FillSheet()
     if USE_EXTERNAL_SOURCE is True:
-        if EXTERNAL_SOURCE_SHEET_NAME.strip() is True:
-            if EXTERNAL_SOURCE_STARTCELL.strip() is True:
-                FillSpreadsheet.ImportDataExcel()
+        FillSpreadsheet.ImportDataExcel()
 
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1
@@ -102,7 +100,7 @@ def FillTitleBlock():
                                         + str(Multiplier)
                                     )
                             except Exception as e:
-                                # if degbug mode is enabeled, print the exception
+                                # if debug mode is enabeled, print the exception
                                 if ENABLE_DEBUG is True:
                                     # there is no int, so the multiplier is set to 1.
                                     print("No Int found!")

@@ -595,6 +595,8 @@ def Start(command):
             # if the debug mode is on, report presense of titleblock spreadsheet
             if ENABLE_DEBUG is True:
                 print("TitleBlock already present")
+
+            return
         # if the result is empty, create a new titleblock spreadsheet
         if sheet is None:
             sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
@@ -607,6 +609,8 @@ def Start(command):
             # if the debug mode is on, report creation of titleblock spreadsheet
             if ENABLE_DEBUG is True:
                 print("TitleBlock created")
+
+            return
     except Exception as e:
         if ENABLE_DEBUG is True:
             raise e

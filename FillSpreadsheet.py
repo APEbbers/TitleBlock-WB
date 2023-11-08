@@ -412,7 +412,6 @@ def ImportDataExcel():
             # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
             try:
                 wb = load_workbook(str(EXTERNAL_SOURCE_PATH), data_only=True)
-                ws = wb[str(EXTERNAL_SOURCE_SHEET_NAME)]
                 if EXTERNAL_SOURCE_SHEET_NAME == "":
                     # Set the sheetname with a inputbox
                     Worksheets_List = [i for i in wb.sheetnames if i != "Settings"]
@@ -428,6 +427,9 @@ def ImportDataExcel():
                     # if the user canceled, exit this function.
                     if not Input_SheetName.strip():
                         return
+                    ws = wb[str(Input_SheetName)]
+                if EXTERNAL_SOURCE_SHEET_NAME != "":
+                    ws = wb[str(EXTERNAL_SOURCE_SHEET_NAME)]
             except Exception as e:
                 if ENABLE_DEBUG is True:
                     raise (e)

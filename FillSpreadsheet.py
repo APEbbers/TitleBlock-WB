@@ -107,11 +107,7 @@ def AddExtraData(sheet, StartRow):
         sheet.set("A" + str(StartRow + 1), "Length_Units")
         sheet.set(
             "B" + str(StartRow + 1),
-            str(
-                App.Units.schemaTranslate(
-                    App.Units.Quantity(50, App.Units.Length), SchemeNumber
-                )
-            )
+            str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Length), SchemeNumber))
             .split()[1]
             .replace("'", "")
             .replace(",", ""),
@@ -123,11 +119,7 @@ def AddExtraData(sheet, StartRow):
         sheet.set("A" + str(StartRow + 1), "Angle_Units")
         sheet.set(
             "B" + str(StartRow + 1),
-            str(
-                App.Units.schemaTranslate(
-                    App.Units.Quantity(50, App.Units.Angle), SchemeNumber
-                )
-            )
+            str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Angle), SchemeNumber))
             .split()[1]
             .replace("'", "")
             .replace(",", ""),
@@ -139,20 +131,12 @@ def AddExtraData(sheet, StartRow):
         sheet.set("A" + str(StartRow + 1), "Mass_Units")
         sheet.set(
             "B" + str(StartRow + 1),
-            str(
-                App.Units.schemaTranslate(
-                    App.Units.Quantity(50, App.Units.Mass), SchemeNumber
-                )
-            )
+            str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Mass), SchemeNumber))
             .split()[1]
             .replace("'", "")
             .replace(",", ""),
         )
-        print(
-            App.Units.schemaTranslate(
-                App.Units.Quantity(50, App.Units.Mass), SchemeNumber
-            )
-        )
+        print(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Mass), SchemeNumber))
         StartRow = StartRow + 1
 
     # Add the total number of sheets. You can use this for your title block
@@ -189,12 +173,7 @@ def MapData(sheet, MapSpecific: int = 0):
         if str(MAP_NOSHEETS).strip():
             print("the number of pages is mapped to: " + str(MAP_NOSHEETS))
         if USE_FILENAME_DRAW_NO is True:
-            print(
-                "The filename ("
-                + str(filename)
-                + ") is mapped to: "
-                + str(DRAW_NO_FiELD)
-            )
+            print("The filename (" + str(filename) + ") is mapped to: " + str(DRAW_NO_FiELD))
         return
 
     # get units scheme
@@ -210,14 +189,10 @@ def MapData(sheet, MapSpecific: int = 0):
         if MapSpecific == 0 or MapSpecific == 1:
             if str(MAP_LENGTH).strip():
                 # If the cell in column A is equal to MAP_LENGTH, add the value in column B
-                if str(sheet.get("A" + str(RowNum))) == MAP_LENGTH:
+                if str(sheet.getContents("A" + str(RowNum))) == MAP_LENGTH:
                     sheet.set(
                         "B" + str(RowNum),
-                        str(
-                            App.Units.schemaTranslate(
-                                App.Units.Quantity(50, App.Units.Length), SchemeNumber
-                            )
-                        )
+                        str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Length), SchemeNumber))
                         .split()[1]
                         .replace("'", "")
                         .replace(",", ""),
@@ -228,14 +203,10 @@ def MapData(sheet, MapSpecific: int = 0):
         if MapSpecific == 0 or MapSpecific == 2:
             if str(MAP_ANGLE).strip():
                 # If the cell in column A is equal to MAP_ANGLE, add the value in column B
-                if str(sheet.get("A" + str(RowNum))) == MAP_ANGLE:
+                if str(sheet.getContents("A" + str(RowNum))) == MAP_ANGLE:
                     sheet.set(
                         "B" + str(RowNum),
-                        str(
-                            App.Units.schemaTranslate(
-                                App.Units.Quantity(50, App.Units.Angle), SchemeNumber
-                            )
-                        )
+                        str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Angle), SchemeNumber))
                         .split()[1]
                         .replace("'", "")
                         .replace(",", ""),
@@ -246,14 +217,10 @@ def MapData(sheet, MapSpecific: int = 0):
         if MapSpecific == 0 or MapSpecific == 3:
             if str(MAP_MASS).strip():
                 # If the cell in column A is equal to MAP_MASS, add the value in column B
-                if str(sheet.get("A" + str(RowNum))) == MAP_MASS:
+                if str(sheet.getContents("A" + str(RowNum))) == MAP_MASS:
                     sheet.set(
                         "B" + str(RowNum),
-                        str(
-                            App.Units.schemaTranslate(
-                                App.Units.Quantity(50, App.Units.Mass), SchemeNumber
-                            )
-                        )
+                        str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Mass), SchemeNumber))
                         .split()[1]
                         .replace("'", "")
                         .replace(",", ""),
@@ -266,7 +233,7 @@ def MapData(sheet, MapSpecific: int = 0):
                 # Get all the pages
                 pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
                 # If the cell in column A is equal to MAP_NOSHEETS, add the value in column B
-                if str(sheet.get("A" + str(RowNum))) == MAP_NOSHEETS:
+                if str(sheet.getContents("A" + str(RowNum))) == MAP_NOSHEETS:
                     sheet.set("B" + str(RowNum), str(len(pages)))
 
         # Map the filename
@@ -275,12 +242,12 @@ def MapData(sheet, MapSpecific: int = 0):
             if USE_FILENAME_DRAW_NO is True:
                 if str(DRAW_NO_FiELD).strip():
                     # If the cell in column A is equal to DRAW_NO_FiELD, add the value in column B
-                    if str(sheet.get("A" + str(RowNum))) == DRAW_NO_FiELD:
+                    if str(sheet.getContents("A" + str(RowNum))) == DRAW_NO_FiELD:
                         sheet.set("B" + str(RowNum), filename)
 
         # Check if the next row exits. If not this is the end of all the available values.
         try:
-            sheet.get("A" + str(RowNum + 1))
+            sheet.getContents("A" + str(RowNum + 1))
         except Exception:
             # print("end of range")
             return
@@ -297,21 +264,15 @@ def FormatTable(sheet, Endrow):
     sheet.setStyle(RangeStyle2, "bold")  # \bold|italic|underline'
     sheet.setBackground(RangeStyle1, Standard_Functions.ColorConvertor([255, 128, 0]))
     # sheet.setBackground(RangeStyle2, Standard_Functions.ColorConvertor([0, 153, 0]))
-    sheet.setForeground(
-        RangeStyle1, Standard_Functions.ColorConvertor([0, 0, 0])
-    )  # RGBA
+    sheet.setForeground(RangeStyle1, Standard_Functions.ColorConvertor([0, 0, 0]))  # RGBA
 
     # Style the rest of the table
 
     for i in range(2, int(Endrow + 1), 2):
         RangeStyle3 = f"A{i}:E{i}"
         RangeStyle4 = f"A{i+1}:E{i+1}"
-        sheet.setBackground(
-            RangeStyle3, Standard_Functions.ColorConvertor([128, 128, 128])
-        )
-        sheet.setBackground(
-            RangeStyle4, Standard_Functions.ColorConvertor([64, 64, 64])
-        )
+        sheet.setBackground(RangeStyle3, Standard_Functions.ColorConvertor([128, 128, 128]))
+        sheet.setBackground(RangeStyle4, Standard_Functions.ColorConvertor([64, 64, 64]))
         sheet.setForeground(RangeStyle3, Standard_Functions.ColorConvertor([0, 0, 0]))
         sheet.setForeground(RangeStyle4, Standard_Functions.ColorConvertor([0, 0, 0]))
 
@@ -330,7 +291,7 @@ def FillSheet():
         # get the editable texts
         texts = page.Template.EditableTexts
         # get the spreadsheet "TitleBlock"
-        sheet = App.ActiveDocument.getObject("TitleBlock")
+        sheet = sheet = App.ActiveDocument.getObject("TitleBlock")
 
         # Debug mode is active, show all editable text in the page
         if ENABLE_DEBUG is True:
@@ -357,7 +318,7 @@ def FillSheet():
             sheet.set("B" + str(StartRow), "{1}".format(key, value))
             # If there is no value yet, the increase function will be set empty by default.
             try:
-                str(sheet.get("C" + str(StartRow)))
+                str(sheet.getContents("C" + str(StartRow)))
             except Exception:
                 sheet.set("C" + str(StartRow), "")
 
@@ -365,7 +326,7 @@ def FillSheet():
         sheet.recompute()
 
         # Run the def to map system data
-        MapData(sheet)
+        MapData(sheet=sheet)
 
         # Run the def to add extra system data
         AddExtraData(sheet, StartRow)
@@ -389,10 +350,7 @@ def FillSheet():
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:
-            Text = (
-                "TitleBlock Workbench: an error occurred!!\n"
-                + "See the report view for details"
-            )
+            Text = "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
             raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
     return
@@ -439,7 +397,7 @@ def ImportDataExcel():
                 return
 
             # get the spreadsheet "TitleBlock"
-            sheet = App.ActiveDocument.getObject("TitleBlock")
+            sheet = sheet = App.ActiveDocument.getObject("TitleBlock")
 
             # Get the startcolumn and the other three columns from there
             StartCell = EXTERNAL_SOURCE_STARTCELL
@@ -469,10 +427,7 @@ def ImportDataExcel():
             # If debug mode is on, show the start colum and its number
             if ENABLE_DEBUG is True:
                 print("Start column is: " + str(StartColumn))
-                print(
-                    "Column number is: "
-                    + str(Standard_Functions.GetNumberFromLetter(StartColumn))
-                )
+                print("Column number is: " + str(Standard_Functions.GetNumberFromLetter(StartColumn)))
             Column2 = Standard_Functions.GetLetterFromNumber(
                 int(Standard_Functions.GetNumberFromLetter(StartColumn) + 1), True
             )
@@ -572,10 +527,7 @@ def ImportDataExcel():
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:
-            Text = (
-                "TitleBlock Workbench: an error occurred!!\n"
-                + "See the report view for details"
-            )
+            Text = "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
             raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
     return
@@ -583,7 +535,7 @@ def ImportDataExcel():
 
 def Start(command):
     try:
-        sheet = App.ActiveDocument.getObject("TitleBlock")
+        sheet = sheet = App.ActiveDocument.getObject("TitleBlock")
         # check if the result is not empty
         if sheet is not None:
             # Proceed with the macro.

@@ -44,8 +44,7 @@ def FillTitleBlock():
     from Settings import USE_EXTERNAL_SOURCE
     from Settings import EXTERNAL_SOURCE_SHEET_NAME
     from Settings import EXTERNAL_SOURCE_STARTCELL
-
-    FillSpreadsheet.MapData(4)
+    from Settings import MAP_NOSHEETS
 
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1
@@ -55,65 +54,78 @@ def FillTitleBlock():
     try:
         pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
 
+        # Get the spreadsheet.
+        sheet = App.ActiveDocument.getObject("TitleBlock")
+
         for page in pages:
             # Get the editable texts
             texts = page.Template.EditableTexts
             # Fill the titleblock with the data from the spreadsheet named "Title block".
             # If the spreadsheet doesn't exist raise an error in the report view.
             try:
-                # Get the spreadsheet.
-                sheet = App.ActiveDocument.getObject("TitleBlock")
-
                 # Increase the NumCounter
                 NumCounter = NumCounter + 1
-
+                RowNum = 1
                 # Go through the spreadsheet.
-                for RowNum in range(1000):
+                for i in range(len(texts)):
+                    # for RowNum in range(1000):
                     # Start with x+1 first, to make sure that x is at least 1.
-                    RowNum = RowNum + 2
+                    RowNum = RowNum + 1
 
                     # fill in the editable text based on the text name in column A and the value in column B.
-                    try:
-                        # check if there is a value. If there is an value, fill in.
-                        str(sheet.get("B" + str(RowNum)))
+                    # check if there is a value. If there is an value, continue.
+                    if str(sheet.getContents("B" + str(RowNum))).strip():
+                        # Get the name of the editable field. if it starts with ', remove it.
+                        textField = str(sheet.getContents("A" + str(RowNum)))
+                        if textField[:1] == "'":
+                            textField = textField[1:]
 
-                    except Exception:
-                        pass
-                    else:
-                        try:
-                            # check if there is a value. If so, this property value must be increased with every page
-                            str(sheet.get("C" + str(RowNum))).strip()
-                            try:
-                                # check if there is a value in column D
-                                str(sheet.get("D" + str(RowNum))).strip()
-                                # convert it to a number and use it as multiplier
-                                Multiplier = int(sheet.get("D" + str(RowNum)))
+                        # define the string for the text value
+                        textValue = ""
+
+                        # if the value in B is not a number, just fill in
+                        if str(sheet.getContents("B" + str(RowNum))).isnumeric() is False:
+                            # write the editable text
+                            textValue = str(sheet.getContents("B" + str(RowNum)))
+                            if textValue[:1] == "'":
+                                textValue = textValue[1:]
+
+                            if textField[:1] == "'":
+                                textField = textField[1:]
+
+                            texts[textField] = textValue
+
+                        # If the value in B is a number continue:
+                        if str(sheet.getContents("B" + str(RowNum))).isnumeric() is True:
+                            # Check if the total number of sheets must be filled in.
+                            if MAP_NOSHEETS != "":
+                                # define TextCompare as Value of MAP_NOSHEETs for comparison. if it starts with ', remove it.
+                                TextCompare = MAP_NOSHEETS
+                                if TextCompare[:1] == "'":
+                                    TextCompare = TextCompare[1:]
+
+                                #  set the value to the total number of pages.
+                                if textField == TextCompare:
+                                    textValue = str(len(pages))
+
+                                # Write the editable text and set NoSheetsMapped to be true.
+                                texts[textField] = textValue
+
+                            # check if there is a value in C. if so, the number in B must be increased with a factor
+                            if str(sheet.getContents("C" + str(RowNum))).strip():
+                                # check if there is a value in column D, if not the muliplier will be 1.
+                                Multiplier = 1
+                                if str(sheet.getContents("D" + str(RowNum))).strip():
+                                    # Check if the value in D is a number.
+                                    if str(sheet.getContents("D" + str(RowNum))).isnumeric():
+                                        # convert it to a number and use it as multiplier
+                                        Multiplier = int(sheet.getContents("D" + str(RowNum)))
 
                                 # if in debug mode. Show the value of the multiplier
                                 if ENABLE_DEBUG is True:
-                                    print(
-                                        "The values will be multiplied with: "
-                                        + str(Multiplier)
-                                    )
-                            except Exception as e:
-                                # if debug mode is enabeled, print the exception
-                                if ENABLE_DEBUG is True:
-                                    # there is no int, so the multiplier is set to 1.
-                                    print("No Int found!")
-                                    print(e)
-                                Multiplier = 1
-                            try:
-                                # check if the value in colom B is an number
-                                int(str(sheet.get("B" + str(RowNum))))
+                                    print("The values will be multiplied with: " + str(Multiplier))
 
-                                # If Debug mode is enabled, show NumCounter and Multplier
-                                if ENABLE_DEBUG is True:
-                                    print(
-                                        "NumCounter is: "
-                                        + str((NumCounter))
-                                        + ", Multiplier is: "
-                                        + str(Multiplier)
-                                    )
+                                # check if the value in colom B is an number
 
                                 # The page numbers will be calculated with the formula:
                                 # -> the value in column B + (Multiplier*NumCounter).
@@ -128,32 +140,26 @@ def FillTitleBlock():
                                 #
                                 # When the 1st page has number 1, page 2 has number 11, page 3 has number 21,
                                 # page 4 has 41, etc.
-                                texts[str(sheet.get("A" + str(RowNum)))] = str(
-                                    (int(sheet.get("B" + str(RowNum))))
-                                    + (Multiplier * NumCounter)
-                                )
+                                textValue = str((int(sheet.getContents("B" + str(RowNum)))) + (Multiplier * NumCounter))
+                                if textValue[:1] == "'":
+                                    textValue = textValue[1:]
 
-                            except Exception as e:
-                                # if it is not an number, the value of column B will be added without calculation
-                                texts[str(sheet.get("A" + str(RowNum)))] = str(
-                                    sheet.get("B" + str(RowNum))
-                                )
-                                print("this is not a number!")
-                                # if degbug mode is enabeled, print the exception
+                                texts[textField] = textValue
+
+                                # If Debug mode is enabled, show NumCounter and Multplier
                                 if ENABLE_DEBUG is True:
-                                    print(e)
-                        except Exception as e:
-                            # if it is empty, the value of column B will be added without calculation
-                            texts[str(sheet.get("A" + str(RowNum)))] = str(
-                                sheet.get("B" + str(RowNum))
-                            )
-                            # if debug mode is enabeled, print the exception
-                            if ENABLE_DEBUG is True:
-                                print(e)
+                                    print(
+                                        "NumCounter is: "
+                                        + str((NumCounter))
+                                        + ", Multiplier is: "
+                                        + str(Multiplier)
+                                        + "Text is:"
+                                        + str(textValue)
+                                    )
 
                     # Check if the next row exits. If not this is the end of all the available values.
                     try:
-                        sheet.get("A" + str(RowNum + 1))
+                        sheet.getContents("A" + str(RowNum + 1))
                     except Exception:
                         # print("end of range")
                         break
@@ -161,27 +167,19 @@ def FillTitleBlock():
                 # Write all the updated text to the page.
                 page.Template.EditableTexts = texts
 
+                # Recompute the page
+                page.recompute()
+
             except Exception as e:
                 # raise an exeception if there is no spreadsheet.
-                Standard_Functions.Mbox(
-                    "No spreadsheet named 'TitleBlock'!!!", "TitleBlock Workbench", 0
-                )
+                Standard_Functions.Mbox("An error occured when writing the values!!", "TitleBlock Workbench", 0)
                 # if degbug mode is enabeled, print the exception
                 if ENABLE_DEBUG is True:
                     raise e
 
-    except RuntimeError as e:
-        # raise an exeception if there is no page.
-        Standard_Functions.Mbox("No page present!!!", "", 0)
-        # if degbug mode is enabeled, print the exception
-        if ENABLE_DEBUG is True:
-            print(e)
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:
-            Text = (
-                "TitleBlock Workbench: an error occurred!!\n"
-                + "See the report view for details"
-            )
+            Text = "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
             raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)

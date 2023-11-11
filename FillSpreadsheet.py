@@ -90,8 +90,6 @@ def AddExtraData(sheet, StartRow):
     #   2. bind the cell to the value of your specific template property.
     #   3. Mark the cell in column C if this value needs to be increased per page
 
-    sheet = Spreadsheet.Sheet(sheet)
-
     # If the debug mode is active, show which property is includex.difference(y)
     if ENABLE_DEBUG is True:
         if INCLUDE_LENGTH is True:
@@ -154,7 +152,7 @@ def AddExtraData(sheet, StartRow):
 
 
 # Map data from the system and/or document to the spreadsheet
-def MapData(sheet: Spreadsheet.Sheet, MapSpecific: int = 0):
+def MapData(sheet, MapSpecific: int = 0):
     """
     0:  Map all\n
     1:  Map length unit only\n

@@ -73,86 +73,62 @@ def FillTitleBlock():
                     RowNum = RowNum + 2
 
                     # fill in the editable text based on the text name in column A and the value in column B.
-                    try:
-                        # check if there is a value. If there is an value, fill in.
-                        str(sheet.getContents("B" + str(RowNum)))
+                    # check if there is a value. If there is an value, continue.
+                    if str(sheet.get("B" + str(RowNum))).strip():
+                        # if the value in B is not a number, just fill in
+                        if str(sheet.get("B" + str(RowNum))).isnumeric() is False:
+                            # write the editable text
+                            texts[str(sheet.get("A" + str(RowNum)))] = tr(sheet.get("B" + str(RowNum)))
 
-                    except Exception:
-                        pass
-                    else:
-                        try:
-                            # check if there is a value. If so, this property value must be increased with every page
-                            str(sheet.getContents("C" + str(RowNum))).strip()
-                            try:
-                                # check if there is a value in column D
-                                if str(sheet.getContents("D" + str(RowNum))).strip():
-                                    if str(sheet.getContents("D" + str(RowNum))).isnumeric():
-                                        # convert it to a number and use it as multiplier
-                                        Multiplier = int(sheet.getContents("D" + str(RowNum)))
-
-                                        # if in debug mode. Show the value of the multiplier
-                                        if ENABLE_DEBUG is True:
-                                            print("The values will be multiplied with: " + str(Multiplier))
-                            except Exception as e:
-                                # if debug mode is enabeled, print the exception
-                                if ENABLE_DEBUG is True:
-                                    # there is no int, so the multiplier is set to 1.
-                                    print("No Int found!")
-                                    raise e
+                        # If the value in B is a number continue:
+                        if str(sheet.get("B" + str(RowNum))).isnumeric():
+                            # check if there is a value in C. if so, the number in B must be increased with a factor
+                            if str(sheet.get("C" + str(RowNum))).strip():
+                                # check if there is a value in column D, if not the muliplier will be 1.
                                 Multiplier = 1
-                            try:
-                                # check if the value in colom B is an number
-                                if str(sheet.getContents("B" + str(RowNum))).isnumeric():
-                                    # The page numbers will be calculated with the formula:
-                                    # -> the value in column B + (Multiplier*NumCounter).
-                                    # With Column B is the page number for the first page.
-                                    #
-                                    # Example: 1st pagenumber is 2 and the multiplier is 10. Page 1 has number 2.
-                                    # this results in:
-                                    # Page 1 has number 2. (as mentioned)
-                                    # Page 2 has number 12 [2+(10*1)] where 2 is the number of first page,
-                                    # 10 is the value of the multiplier and 1 is the number of the NumCounter.
-                                    # Page 3 has 2+(10*2)=22.
-                                    #
-                                    # When the 1st page has number 1, page 2 has number 11, page 3 has number 21,
-                                    # page 4 has 41, etc.
-                                    texts[str(sheet.getContents("A" + str(RowNum)))] = str(
-                                        (int(sheet.getContents("B" + str(RowNum)))) + (Multiplier * NumCounter)
-                                    )
+                                if str(sheet.get("D" + str(RowNum))).strip():
+                                    # Check if the value in D is a number.
+                                    if str(sheet.get("D" + str(RowNum))).isnumeric():
+                                        # convert it to a number and use it as multiplier
+                                        Multiplier = int(sheet.get("D" + str(RowNum)))
 
-                                    # If Debug mode is enabled, show NumCounter and Multplier
-                                    if ENABLE_DEBUG is True:
-                                        print(
-                                            "NumCounter is: "
-                                            + str((NumCounter))
-                                            + ", Multiplier is: "
-                                            + str(Multiplier)
-                                            + "Text is:"
-                                            + texts[str(sheet.getContents("A" + str(RowNum)))]
-                                        )
-
-                                    # Write all the updated text to the page.
-                                    page.Template.EditableTexts = texts
-
-                            except Exception as e:
-                                # if it is not an number, the value of column B will be added without calculation
-                                texts[str(sheet.getContents("A" + str(RowNum)))] = str(
-                                    sheet.getContents("B" + str(RowNum))
-                                )
-                                print("this is not a number!")
-                                # if degbug mode is enabeled, print the exception
+                                # if in debug mode. Show the value of the multiplier
                                 if ENABLE_DEBUG is True:
-                                    raise e
-                        except Exception as e:
-                            # if it is empty, the value of column B will be added without calculation
-                            texts[str(sheet.getContents("A" + str(RowNum)))] = str(sheet.getContents("B" + str(RowNum)))
-                            # if debug mode is enabeled, print the exception
-                            if ENABLE_DEBUG is True:
-                                raise e
+                                    print("The values will be multiplied with: " + str(Multiplier))
+
+                                # check if the value in colom B is an number
+
+                                # The page numbers will be calculated with the formula:
+                                # -> the value in column B + (Multiplier*NumCounter).
+                                # With Column B is the page number for the first page.
+                                #
+                                # Example: 1st pagenumber is 2 and the multiplier is 10. Page 1 has number 2.
+                                # this results in:
+                                # Page 1 has number 2. (as mentioned)
+                                # Page 2 has number 12 [2+(10*1)] where 2 is the number of first page,
+                                # 10 is the value of the multiplier and 1 is the number of the NumCounter.
+                                # Page 3 has 2+(10*2)=22.
+                                #
+                                # When the 1st page has number 1, page 2 has number 11, page 3 has number 21,
+                                # page 4 has 41, etc.
+                                texts[str(sheet.get("A" + str(RowNum)))] = str(
+                                    (int(sheet.get("B" + str(RowNum)))) + (Multiplier * NumCounter)
+                                )
+
+                                # If Debug mode is enabled, show NumCounter and Multplier
+                                if ENABLE_DEBUG is True:
+                                    print(
+                                        "NumCounter is: "
+                                        + str((NumCounter))
+                                        + ", Multiplier is: "
+                                        + str(Multiplier)
+                                        + "Text is:"
+                                        + texts[str(sheet.get("A" + str(RowNum)))]
+                                    )
 
                     # Check if the next row exits. If not this is the end of all the available values.
                     try:
-                        sheet.getContents("A" + str(RowNum + 1))
+                        sheet.get("A" + str(RowNum + 1))
                     except Exception:
                         # print("end of range")
                         break

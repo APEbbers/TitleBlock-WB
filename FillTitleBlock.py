@@ -96,11 +96,11 @@ def FillTitleBlock():
                                 if ENABLE_DEBUG is True:
                                     # there is no int, so the multiplier is set to 1.
                                     print("No Int found!")
-                                    print(e)
+                                    raise (e)
                                 Multiplier = 1
                             try:
                                 # check if the value in colom B is an number
-                                int(str(sheet.getContents("B" + str(RowNum))))
+                                int(sheet.getContents("B" + str(RowNum)))
 
                                 # If Debug mode is enabled, show NumCounter and Multplier
                                 if ENABLE_DEBUG is True:
@@ -131,7 +131,7 @@ def FillTitleBlock():
                                 print("this is not a number!")
                                 # if degbug mode is enabeled, print the exception
                                 if ENABLE_DEBUG is True:
-                                    print(e)
+                                    raise (e)
                         except Exception as e:
                             # if it is empty, the value of column B will be added without calculation
                             texts[str(sheet.getContents("A" + str(RowNum)))] = str(sheet.getContents("B" + str(RowNum)))
@@ -161,7 +161,7 @@ def FillTitleBlock():
         Standard_Functions.Mbox("No page present!!!", "", 0)
         # if degbug mode is enabeled, print the exception
         if ENABLE_DEBUG is True:
-            print(e)
+            raise (e)
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:

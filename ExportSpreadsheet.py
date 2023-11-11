@@ -56,35 +56,27 @@ def ExportSpreadSheet():
         StartCell = str(EXTERNAL_SOURCE_STARTCELL)
         TopRow = int(StartCell[1:])
         PropCell = str(
-            Standard_Functions.GetLetterFromNumber(
-                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
-            )
+            Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1)
         ) + str(TopRow)
         IncreaseCell = str(
-            Standard_Functions.GetLetterFromNumber(
-                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 2
-            )
+            Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 2)
         ) + str(TopRow)
         MultiplierCell = str(
-            Standard_Functions.GetLetterFromNumber(
-                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 3
-            )
+            Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 3)
         ) + str(TopRow)
         RemarkCell = str(
-            Standard_Functions.GetLetterFromNumber(
-                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
-            )
+            Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4)
         ) + str(TopRow)
 
         if ENABLE_DEBUG is True:
             print(f"the startcell is: {StartCell}")
 
         # Set the headers
-        ws[StartCell].value = str(sheet.get("A1"))
-        ws[PropCell].value = str(sheet.get("B1"))
-        ws[IncreaseCell].value = str(sheet.get("C1"))
-        ws[MultiplierCell].value = str(sheet.get("D1"))
-        ws[RemarkCell].value = str(sheet.get("E1"))
+        ws[StartCell].value = str(sheet.getContent("A1"))
+        ws[PropCell].value = str(sheet.getContent("B1"))
+        ws[IncreaseCell].value = str(sheet.getContent("C1"))
+        ws[MultiplierCell].value = str(sheet.getContent("D1"))
+        ws[RemarkCell].value = str(sheet.getContent("E1"))
 
         # Go through the spreadsheet.
         for RowNumber in range(1000):
@@ -92,43 +84,33 @@ def ExportSpreadSheet():
             RowNumber = RowNumber + 1 + TopRow
 
             try:
-                ws[StartCell[:1] + str(RowNumber)].value = str(
-                    sheet.get("A" + str(RowNumber - TopRow + 1))
-                )
+                ws[StartCell[:1] + str(RowNumber)].value = str(sheet.getContent("A" + str(RowNumber - TopRow + 1)))
             except Exception:
                 ws[StartCell[:1] + str(RowNumber)].value = ""
 
             try:
-                ws[PropCell[:1] + str(RowNumber)].value = str(
-                    sheet.get("B" + str(RowNumber - TopRow + 1))
-                )
+                ws[PropCell[:1] + str(RowNumber)].value = str(sheet.getContent("B" + str(RowNumber - TopRow + 1)))
             except Exception:
                 ws[PropCell[:1] + str(RowNumber)].value = ""
 
             try:
-                ws[IncreaseCell[:1] + str(RowNumber)].value = str(
-                    sheet.get("C" + str(RowNumber - TopRow + 1))
-                )
+                ws[IncreaseCell[:1] + str(RowNumber)].value = str(sheet.getContent("C" + str(RowNumber - TopRow + 1)))
             except Exception:
                 ws[IncreaseCell[:1] + str(RowNumber)].value = ""
 
             try:
-                ws[MultiplierCell[:1] + str(RowNumber)].value = str(
-                    sheet.get("D" + str(RowNumber - TopRow + 1))
-                )
+                ws[MultiplierCell[:1] + str(RowNumber)].value = str(sheet.getContent("D" + str(RowNumber - TopRow + 1)))
             except Exception:
                 ws[MultiplierCell[:1] + str(RowNumber)].value = ""
 
             try:
-                ws[RemarkCell[:1] + str(RowNumber)].value = str(
-                    sheet.get("E" + str(RowNumber - TopRow + 1))
-                )
+                ws[RemarkCell[:1] + str(RowNumber)].value = str(sheet.getContent("E" + str(RowNumber - TopRow + 1)))
             except Exception:
                 ws[RemarkCell[:1] + str(RowNumber)].value = ""
 
             # Check if the next row exits. If not this is the end of all the available values.
             try:
-                sheet.get("A" + str(RowNumber - TopRow + 1))
+                sheet.getContent("A" + str(RowNumber - TopRow + 1))
             except Exception:
                 break
 
@@ -136,9 +118,7 @@ def ExportSpreadSheet():
         #
         # Define the the last cell
         EndCell = str(
-            Standard_Functions.GetLetterFromNumber(
-                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
-            )
+            Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4)
         ) + str(RowNumber - 1)
 
         # Define the table
@@ -168,25 +148,13 @@ def ExportSpreadSheet():
             Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
             Column_2 = row[Standard_Functions.GetNumberFromLetter(PropCell[:1]) - 1]
             Column_3 = row[Standard_Functions.GetNumberFromLetter(IncreaseCell[:1]) - 1]
-            Column_4 = row[
-                Standard_Functions.GetNumberFromLetter(MultiplierCell[:1]) - 1
-            ]
+            Column_4 = row[Standard_Functions.GetNumberFromLetter(MultiplierCell[:1]) - 1]
             Column_5 = row[Standard_Functions.GetNumberFromLetter(RemarkCell[:1]) - 1]
-            Column_1.alignment = Alignment(
-                horizontal="left", vertical="center", indent=1
-            )
-            Column_2.alignment = Alignment(
-                horizontal="left", vertical="center", indent=1
-            )
-            Column_3.alignment = Alignment(
-                horizontal="left", vertical="center", indent=1
-            )
-            Column_4.alignment = Alignment(
-                horizontal="left", vertical="center", indent=1
-            )
-            Column_5.alignment = Alignment(
-                horizontal="left", vertical="center", indent=1
-            )
+            Column_1.alignment = Alignment(horizontal="left", vertical="center", indent=1)
+            Column_2.alignment = Alignment(horizontal="left", vertical="center", indent=1)
+            Column_3.alignment = Alignment(horizontal="left", vertical="center", indent=1)
+            Column_4.alignment = Alignment(horizontal="left", vertical="center", indent=1)
+            Column_5.alignment = Alignment(horizontal="left", vertical="center", indent=1)
         # endregion
 
         # Make the columns to autofit the date
@@ -226,10 +194,7 @@ def ExportSpreadSheet():
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!"
         if ENABLE_DEBUG is True:
-            Text = (
-                "TitleBlock Workbench: an error occurred!!\n"
-                + "See the report view for details"
-            )
+            Text = "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         if ENABLE_DEBUG is True:
             raise (e)

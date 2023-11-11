@@ -75,26 +75,23 @@ def FillTitleBlock():
                     # fill in the editable text based on the text name in column A and the value in column B.
                     try:
                         # check if there is a value. If there is an value, fill in.
-                        str(sheet.get("B" + str(RowNum)))
+                        str(sheet.getContent("B" + str(RowNum)))
 
                     except Exception:
                         pass
                     else:
                         try:
                             # check if there is a value. If so, this property value must be increased with every page
-                            str(sheet.get("C" + str(RowNum))).strip()
+                            str(sheet.getContent("C" + str(RowNum))).strip()
                             try:
                                 # check if there is a value in column D
-                                str(sheet.get("D" + str(RowNum))).strip()
+                                str(sheet.getContent("D" + str(RowNum))).strip()
                                 # convert it to a number and use it as multiplier
-                                Multiplier = int(sheet.get("D" + str(RowNum)))
+                                Multiplier = int(sheet.getContent("D" + str(RowNum)))
 
                                 # if in debug mode. Show the value of the multiplier
                                 if ENABLE_DEBUG is True:
-                                    print(
-                                        "The values will be multiplied with: "
-                                        + str(Multiplier)
-                                    )
+                                    print("The values will be multiplied with: " + str(Multiplier))
                             except Exception as e:
                                 # if debug mode is enabeled, print the exception
                                 if ENABLE_DEBUG is True:
@@ -104,16 +101,11 @@ def FillTitleBlock():
                                 Multiplier = 1
                             try:
                                 # check if the value in colom B is an number
-                                int(str(sheet.get("B" + str(RowNum))))
+                                int(str(sheet.getContent("B" + str(RowNum))))
 
                                 # If Debug mode is enabled, show NumCounter and Multplier
                                 if ENABLE_DEBUG is True:
-                                    print(
-                                        "NumCounter is: "
-                                        + str((NumCounter))
-                                        + ", Multiplier is: "
-                                        + str(Multiplier)
-                                    )
+                                    print("NumCounter is: " + str((NumCounter)) + ", Multiplier is: " + str(Multiplier))
 
                                 # The page numbers will be calculated with the formula:
                                 # -> the value in column B + (Multiplier*NumCounter).
@@ -128,15 +120,14 @@ def FillTitleBlock():
                                 #
                                 # When the 1st page has number 1, page 2 has number 11, page 3 has number 21,
                                 # page 4 has 41, etc.
-                                texts[str(sheet.get("A" + str(RowNum)))] = str(
-                                    (int(sheet.get("B" + str(RowNum))))
-                                    + (Multiplier * NumCounter)
+                                texts[str(sheet.getContent("A" + str(RowNum)))] = str(
+                                    (int(sheet.getContent("B" + str(RowNum)))) + (Multiplier * NumCounter)
                                 )
 
                             except Exception as e:
                                 # if it is not an number, the value of column B will be added without calculation
-                                texts[str(sheet.get("A" + str(RowNum)))] = str(
-                                    sheet.get("B" + str(RowNum))
+                                texts[str(sheet.getContent("A" + str(RowNum)))] = str(
+                                    sheet.getContent("B" + str(RowNum))
                                 )
                                 print("this is not a number!")
                                 # if degbug mode is enabeled, print the exception
@@ -144,16 +135,14 @@ def FillTitleBlock():
                                     print(e)
                         except Exception as e:
                             # if it is empty, the value of column B will be added without calculation
-                            texts[str(sheet.get("A" + str(RowNum)))] = str(
-                                sheet.get("B" + str(RowNum))
-                            )
+                            texts[str(sheet.getContent("A" + str(RowNum)))] = str(sheet.getContent("B" + str(RowNum)))
                             # if debug mode is enabeled, print the exception
                             if ENABLE_DEBUG is True:
                                 print(e)
 
                     # Check if the next row exits. If not this is the end of all the available values.
                     try:
-                        sheet.get("A" + str(RowNum + 1))
+                        sheet.getContent("A" + str(RowNum + 1))
                     except Exception:
                         # print("end of range")
                         break
@@ -163,9 +152,7 @@ def FillTitleBlock():
 
             except Exception as e:
                 # raise an exeception if there is no spreadsheet.
-                Standard_Functions.Mbox(
-                    "No spreadsheet named 'TitleBlock'!!!", "TitleBlock Workbench", 0
-                )
+                Standard_Functions.Mbox("No spreadsheet named 'TitleBlock'!!!", "TitleBlock Workbench", 0)
                 # if degbug mode is enabeled, print the exception
                 if ENABLE_DEBUG is True:
                     raise e
@@ -179,9 +166,6 @@ def FillTitleBlock():
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:
-            Text = (
-                "TitleBlock Workbench: an error occurred!!\n"
-                + "See the report view for details"
-            )
+            Text = "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
             raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)

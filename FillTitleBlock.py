@@ -56,6 +56,7 @@ def FillTitleBlock():
         # Get the spreadsheet.
         sheet = App.ActiveDocument.getObject("TitleBlock")
         FillSpreadsheet.MapData(sheet=sheet, MapSpecific=4)
+        sheet.recompute()
 
         for page in pages:
             # Get the editable texts
@@ -155,6 +156,8 @@ def FillTitleBlock():
 
                 # Write all the updated text to the page.
                 page.Template.EditableTexts = texts
+
+                page.recompute()
 
             except Exception as e:
                 # raise an exeception if there is no spreadsheet.

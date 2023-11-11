@@ -196,7 +196,7 @@ def MapData(sheet, MapSpecific: int = 0):
         if MapSpecific == 0 or MapSpecific == 1:
             if str(MAP_LENGTH).strip():
                 # If the cell in column A is equal to MAP_LENGTH, add the value in column B
-                if str(sheet.getContent("A" + str(RowNum))) == MAP_LENGTH:
+                if str(sheet.getContents("A" + str(RowNum))) == MAP_LENGTH:
                     sheet.set(
                         "B" + str(RowNum),
                         str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Length), SchemeNumber))
@@ -210,7 +210,7 @@ def MapData(sheet, MapSpecific: int = 0):
         if MapSpecific == 0 or MapSpecific == 2:
             if str(MAP_ANGLE).strip():
                 # If the cell in column A is equal to MAP_ANGLE, add the value in column B
-                if str(sheet.getContent("A" + str(RowNum))) == MAP_ANGLE:
+                if str(sheet.getContents("A" + str(RowNum))) == MAP_ANGLE:
                     sheet.set(
                         "B" + str(RowNum),
                         str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Angle), SchemeNumber))
@@ -224,7 +224,7 @@ def MapData(sheet, MapSpecific: int = 0):
         if MapSpecific == 0 or MapSpecific == 3:
             if str(MAP_MASS).strip():
                 # If the cell in column A is equal to MAP_MASS, add the value in column B
-                if str(sheet.getContent("A" + str(RowNum))) == MAP_MASS:
+                if str(sheet.getContents("A" + str(RowNum))) == MAP_MASS:
                     sheet.set(
                         "B" + str(RowNum),
                         str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Mass), SchemeNumber))
@@ -240,7 +240,7 @@ def MapData(sheet, MapSpecific: int = 0):
                 # Get all the pages
                 pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
                 # If the cell in column A is equal to MAP_NOSHEETS, add the value in column B
-                if str(sheet.getContent("A" + str(RowNum))) == MAP_NOSHEETS:
+                if str(sheet.getContents("A" + str(RowNum))) == MAP_NOSHEETS:
                     sheet.set("B" + str(RowNum), str(len(pages)))
 
         # Map the filename
@@ -249,12 +249,12 @@ def MapData(sheet, MapSpecific: int = 0):
             if USE_FILENAME_DRAW_NO is True:
                 if str(DRAW_NO_FiELD).strip():
                     # If the cell in column A is equal to DRAW_NO_FiELD, add the value in column B
-                    if str(sheet.getContent("A" + str(RowNum))) == DRAW_NO_FiELD:
+                    if str(sheet.getContents("A" + str(RowNum))) == DRAW_NO_FiELD:
                         sheet.set("B" + str(RowNum), filename)
 
         # Check if the next row exits. If not this is the end of all the available values.
         try:
-            sheet.getContent("A" + str(RowNum + 1))
+            sheet.getContents("A" + str(RowNum + 1))
         except Exception:
             # print("end of range")
             return
@@ -325,7 +325,7 @@ def FillSheet():
             sheet.set("B" + str(StartRow), "{1}".format(key, value))
             # If there is no value yet, the increase function will be set empty by default.
             try:
-                str(sheet.getContent("C" + str(StartRow)))
+                str(sheet.getContents("C" + str(StartRow)))
             except Exception:
                 sheet.set("C" + str(StartRow), "")
 

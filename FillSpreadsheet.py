@@ -162,12 +162,13 @@ def MapData(sheet, MapSpecific: int = 0):
     # Get the filename
     filename = os.path.basename(App.ActiveDocument.FileName).split(".")[0]
 
-    if sheet is None:
-        # Get the spreadsheet.
-        try:
-            sheet = App.ActiveDocument.getObject("TitleBlock")
-        except Exception:
-            return
+    # if sheet is None:
+    #     # Get the spreadsheet.
+    #     try:
+    #         sheet = App.ActiveDocument.getObject("TitleBlock")
+    #     except Exception:
+    #         return
+    sheet = App.ActiveDocument.getObject("TitleBlock")
 
     # if the debug mode is on, show what is mapped to which property
     if ENABLE_DEBUG is True:

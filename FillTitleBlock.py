@@ -84,19 +84,20 @@ def FillTitleBlock():
                             str(sheet.getContents("C" + str(RowNum))).strip()
                             try:
                                 # check if there is a value in column D
-                                str(sheet.getContents("D" + str(RowNum))).strip()
-                                # convert it to a number and use it as multiplier
-                                Multiplier = int(sheet.getContents("D" + str(RowNum)))
+                                if str(sheet.getContents("D" + str(RowNum))).strip():
+                                    if str(sheet.getContents("D" + str(RowNum))).isnumeric():
+                                        # convert it to a number and use it as multiplier
+                                        Multiplier = int(sheet.getContents("D" + str(RowNum)))
 
-                                # if in debug mode. Show the value of the multiplier
-                                if ENABLE_DEBUG is True:
-                                    print("The values will be multiplied with: " + str(Multiplier))
+                                        # if in debug mode. Show the value of the multiplier
+                                        if ENABLE_DEBUG is True:
+                                            print("The values will be multiplied with: " + str(Multiplier))
                             except Exception as e:
                                 # if debug mode is enabeled, print the exception
                                 if ENABLE_DEBUG is True:
                                     # there is no int, so the multiplier is set to 1.
                                     print("No Int found!")
-                                    raise (e)
+                                    raise e
                                 Multiplier = 1
                             try:
                                 # check if the value in colom B is an number
@@ -131,13 +132,13 @@ def FillTitleBlock():
                                 print("this is not a number!")
                                 # if degbug mode is enabeled, print the exception
                                 if ENABLE_DEBUG is True:
-                                    raise (e)
+                                    raise e
                         except Exception as e:
                             # if it is empty, the value of column B will be added without calculation
                             texts[str(sheet.getContents("A" + str(RowNum)))] = str(sheet.getContents("B" + str(RowNum)))
                             # if debug mode is enabeled, print the exception
                             if ENABLE_DEBUG is True:
-                                print(e)
+                                raise e
 
                     # Check if the next row exits. If not this is the end of all the available values.
                     try:
@@ -161,7 +162,7 @@ def FillTitleBlock():
         Standard_Functions.Mbox("No page present!!!", "", 0)
         # if degbug mode is enabeled, print the exception
         if ENABLE_DEBUG is True:
-            raise (e)
+            raise e
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:

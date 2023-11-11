@@ -101,28 +101,34 @@ def FillTitleBlock():
                                 Multiplier = 1
                             try:
                                 # check if the value in colom B is an number
-                                int(sheet.getContents("B" + str(RowNum)))
+                                if str(sheet.getContents("B" + str(RowNum))).isnumeric():
+                                    int(sheet.getContents("B" + str(RowNum)))
 
-                                # If Debug mode is enabled, show NumCounter and Multplier
-                                if ENABLE_DEBUG is True:
-                                    print("NumCounter is: " + str((NumCounter)) + ", Multiplier is: " + str(Multiplier))
+                                    # If Debug mode is enabled, show NumCounter and Multplier
+                                    if ENABLE_DEBUG is True:
+                                        print(
+                                            "NumCounter is: "
+                                            + str((NumCounter))
+                                            + ", Multiplier is: "
+                                            + str(Multiplier)
+                                        )
 
-                                # The page numbers will be calculated with the formula:
-                                # -> the value in column B + (Multiplier*NumCounter).
-                                # With Column B is the page number for the first page.
-                                #
-                                # Example: 1st pagenumber is 2 and the multiplier is 10. Page 1 has number 2.
-                                # this results in:
-                                # Page 1 has number 2. (as mentioned)
-                                # Page 2 has number 12 [2+(10*1)] where 2 is the number of first page,
-                                # 10 is the value of the multiplier and 1 is the number of the NumCounter.
-                                # Page 3 has 2+(10*2)=22.
-                                #
-                                # When the 1st page has number 1, page 2 has number 11, page 3 has number 21,
-                                # page 4 has 41, etc.
-                                texts[str(sheet.getContents("A" + str(RowNum)))] = str(
-                                    (int(sheet.getContents("B" + str(RowNum)))) + (Multiplier * NumCounter)
-                                )
+                                    # The page numbers will be calculated with the formula:
+                                    # -> the value in column B + (Multiplier*NumCounter).
+                                    # With Column B is the page number for the first page.
+                                    #
+                                    # Example: 1st pagenumber is 2 and the multiplier is 10. Page 1 has number 2.
+                                    # this results in:
+                                    # Page 1 has number 2. (as mentioned)
+                                    # Page 2 has number 12 [2+(10*1)] where 2 is the number of first page,
+                                    # 10 is the value of the multiplier and 1 is the number of the NumCounter.
+                                    # Page 3 has 2+(10*2)=22.
+                                    #
+                                    # When the 1st page has number 1, page 2 has number 11, page 3 has number 21,
+                                    # page 4 has 41, etc.
+                                    texts[str(sheet.getContents("A" + str(RowNum)))] = str(
+                                        (int(sheet.getContents("B" + str(RowNum)))) + (Multiplier * NumCounter)
+                                    )
 
                             except Exception as e:
                                 # if it is not an number, the value of column B will be added without calculation

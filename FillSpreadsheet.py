@@ -328,7 +328,7 @@ def FillSheet():
         sheet.recompute()
 
         # Run the def to map system data
-        MapData(sheet)
+        MapData(sheet=sheet)
 
         # Run the def to add extra system data
         AddExtraData(sheet, StartRow)

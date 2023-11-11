@@ -46,8 +46,6 @@ def FillTitleBlock():
     from Settings import EXTERNAL_SOURCE_SHEET_NAME
     from Settings import EXTERNAL_SOURCE_STARTCELL
 
-    FillSpreadsheet.MapData(4)
-
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1
     Multiplier = 1
@@ -56,15 +54,16 @@ def FillTitleBlock():
     try:
         pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
 
+        # Get the spreadsheet.
+        sheet = Spreadsheet.Sheet(App.ActiveDocument.getObject("TitleBlock"))
+        FillSpreadsheet.MapData(sheet=sheet, MapSpecific=4)
+
         for page in pages:
             # Get the editable texts
             texts = page.Template.EditableTexts
             # Fill the titleblock with the data from the spreadsheet named "Title block".
             # If the spreadsheet doesn't exist raise an error in the report view.
             try:
-                # Get the spreadsheet.
-                sheet = Spreadsheet.Sheet(App.ActiveDocument.getObject("TitleBlock"))
-
                 # Increase the NumCounter
                 NumCounter = NumCounter + 1
 

@@ -78,7 +78,7 @@ def FillTitleBlock():
                         # if the value in B is not a number, just fill in
                         if str(sheet.get("B" + str(RowNum))).isnumeric() is False:
                             # write the editable text
-                            texts[str(sheet.get("A" + str(RowNum)))] = tr(sheet.get("B" + str(RowNum)))
+                            texts[str(sheet.get("A" + str(RowNum)))] = str(sheet.get("B" + str(RowNum)))
 
                         # If the value in B is a number continue:
                         if str(sheet.get("B" + str(RowNum))).isnumeric():

@@ -127,7 +127,7 @@ class StandardFunctions_FreeCAD:
             RowNumber = int(input[1:(ColumnPosition)])
             ColumnNumber = int(input[(ColumnPosition + 1) :])
 
-            ColumnLetter = GetLetterFromNumber(ColumnNumber)
+            ColumnLetter = StandardFunctions_FreeCAD.GetLetterFromNumber(ColumnNumber)
 
             return str(ColumnLetter + str(RowNumber))
         except Exception:
@@ -149,7 +149,7 @@ class StandardFunctions_FreeCAD:
                         "*.xlsm",
                     ),
                 ]
-                FullFileName = SaveDialog(Filter)
+                FullFileName = StandardFunctions_FreeCAD.SaveDialog(Filter)
                 if FullFileName.strip():
                     wb = Workbook(str(FullFileName))
                     wb.save(FullFileName)
@@ -194,3 +194,20 @@ class StandardFunctions_FreeCAD:
                 subprocess.call(("xdg-open", FileName))
         else:
             print(f"Error: {FileName} does not exist.")
+
+    def SetColumnWidth_SpreadSheet(sheet, cellValue: str, factor=10) -> bool:
+        result = False
+        if cellValue == "" or sheet is None:
+            result = False
+            return result
+
+        # Calculate the text length needed.
+        length = int(len(cellValue) * factor)
+
+        # Set the column width
+        sheet.setColumnWidth("A", length)
+
+        # Recompute the sheet
+        sheet.recompute()
+
+        return True

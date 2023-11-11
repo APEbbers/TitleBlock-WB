@@ -74,23 +74,23 @@ def FillTitleBlock():
 
                     # fill in the editable text based on the text name in column A and the value in column B.
                     # check if there is a value. If there is an value, continue.
-                    if str(sheet.get("B" + str(RowNum))).strip():
+                    if str(sheet.getContents("B" + str(RowNum))).strip():
                         # if the value in B is not a number, just fill in
-                        if str(sheet.get("B" + str(RowNum))).isnumeric() is False:
+                        if str(sheet.getContents("B" + str(RowNum))).isnumeric() is False:
                             # write the editable text
-                            texts[str(sheet.get("A" + str(RowNum)))] = str(sheet.get("B" + str(RowNum)))
+                            texts[str(sheet.getContents("A" + str(RowNum)))] = str(sheet.getContents("B" + str(RowNum)))
 
                         # If the value in B is a number continue:
-                        if str(sheet.get("B" + str(RowNum))).isnumeric():
+                        if str(sheet.getContents("B" + str(RowNum))).isnumeric():
                             # check if there is a value in C. if so, the number in B must be increased with a factor
-                            if str(sheet.get("C" + str(RowNum))).strip():
+                            if str(sheet.getContents("C" + str(RowNum))).strip():
                                 # check if there is a value in column D, if not the muliplier will be 1.
                                 Multiplier = 1
-                                if str(sheet.get("D" + str(RowNum))).strip():
+                                if str(sheet.getContents("D" + str(RowNum))).strip():
                                     # Check if the value in D is a number.
-                                    if str(sheet.get("D" + str(RowNum))).isnumeric():
+                                    if str(sheet.getContents("D" + str(RowNum))).isnumeric():
                                         # convert it to a number and use it as multiplier
-                                        Multiplier = int(sheet.get("D" + str(RowNum)))
+                                        Multiplier = int(sheet.getContents("D" + str(RowNum)))
 
                                 # if in debug mode. Show the value of the multiplier
                                 if ENABLE_DEBUG is True:
@@ -111,8 +111,8 @@ def FillTitleBlock():
                                 #
                                 # When the 1st page has number 1, page 2 has number 11, page 3 has number 21,
                                 # page 4 has 41, etc.
-                                texts[str(sheet.get("A" + str(RowNum)))] = str(
-                                    (int(sheet.get("B" + str(RowNum)))) + (Multiplier * NumCounter)
+                                texts[str(sheet.getContents("A" + str(RowNum)))] = str(
+                                    (int(sheet.getContents("B" + str(RowNum)))) + (Multiplier * NumCounter)
                                 )
 
                                 # If Debug mode is enabled, show NumCounter and Multplier
@@ -123,12 +123,12 @@ def FillTitleBlock():
                                         + ", Multiplier is: "
                                         + str(Multiplier)
                                         + "Text is:"
-                                        + texts[str(sheet.get("A" + str(RowNum)))]
+                                        + texts[str(sheet.getContents("A" + str(RowNum)))]
                                     )
 
                     # Check if the next row exits. If not this is the end of all the available values.
                     try:
-                        sheet.get("A" + str(RowNum + 1))
+                        sheet.getContents("A" + str(RowNum + 1))
                     except Exception:
                         # print("end of range")
                         break

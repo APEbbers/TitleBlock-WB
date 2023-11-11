@@ -103,17 +103,6 @@ def FillTitleBlock():
                             try:
                                 # check if the value in colom B is an number
                                 if str(sheet.getContents("B" + str(RowNum))).isnumeric():
-                                    int(sheet.getContents("B" + str(RowNum)))
-
-                                    # If Debug mode is enabled, show NumCounter and Multplier
-                                    if ENABLE_DEBUG is True:
-                                        print(
-                                            "NumCounter is: "
-                                            + str((NumCounter))
-                                            + ", Multiplier is: "
-                                            + str(Multiplier)
-                                        )
-
                                     # The page numbers will be calculated with the formula:
                                     # -> the value in column B + (Multiplier*NumCounter).
                                     # With Column B is the page number for the first page.
@@ -130,6 +119,20 @@ def FillTitleBlock():
                                     texts[str(sheet.getContents("A" + str(RowNum)))] = str(
                                         (int(sheet.getContents("B" + str(RowNum)))) + (Multiplier * NumCounter)
                                     )
+
+                                    # If Debug mode is enabled, show NumCounter and Multplier
+                                    if ENABLE_DEBUG is True:
+                                        print(
+                                            "NumCounter is: "
+                                            + str((NumCounter))
+                                            + ", Multiplier is: "
+                                            + str(Multiplier)
+                                            + "Text is:"
+                                            + texts[str(sheet.getContents("A" + str(RowNum)))]
+                                        )
+
+                                    # Write all the updated text to the page.
+                                    page.Template.EditableTexts = texts
 
                             except Exception as e:
                                 # if it is not an number, the value of column B will be added without calculation

@@ -83,12 +83,14 @@ if str(DRAW_NO_FiELD).startswith("'"):
     DRAW_NO_FiELD = str(DRAW_NO_FiELD)[1:]
 
 
-def AddExtraData(sheet: Spreadsheet.Sheet, StartRow):
+def AddExtraData(sheet, StartRow):
     # The following system values can be added. You can use these for you specific templates.
     # Use the "bind function" of the spreadsheet workbench to create the correct entry for your template.:
     #   1. add the correct Property name
     #   2. bind the cell to the value of your specific template property.
     #   3. Mark the cell in column C if this value needs to be increased per page
+
+    sheet = Spreadsheet.Sheet(sheet)
 
     # If the debug mode is active, show which property is includex.difference(y)
     if ENABLE_DEBUG is True:

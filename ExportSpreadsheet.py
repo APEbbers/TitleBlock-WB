@@ -37,10 +37,11 @@ def ExportSpreadSheet():
     from Settings import IMPORT_SETTINGS_XL
     from Settings import EXTERNAL_SOURCE_STARTCELL
     from Settings import ENABLE_DEBUG
+    import Spreadsheet
 
     try:
         # get the spreadsheet "TitleBlock"
-        sheet = App.ActiveDocument.getObject("TitleBlock")
+        sheet = Spreadsheet.Sheet(App.ActiveDocument.getObject("TitleBlock"))
         if sheet is None:
             Standard_Functions.Mbox("No spreadsheet named 'TitleBlock'!!!", "", 0)
             return
@@ -72,11 +73,11 @@ def ExportSpreadSheet():
             print(f"the startcell is: {StartCell}")
 
         # Set the headers
-        ws[StartCell].value = str(sheet.getContent("A1"))
-        ws[PropCell].value = str(sheet.getContent("B1"))
-        ws[IncreaseCell].value = str(sheet.getContent("C1"))
-        ws[MultiplierCell].value = str(sheet.getContent("D1"))
-        ws[RemarkCell].value = str(sheet.getContent("E1"))
+        ws[StartCell].value = str(sheet.getContents("A1"))
+        ws[PropCell].value = str(sheet.getContents("B1"))
+        ws[IncreaseCell].value = str(sheet.getContents("C1"))
+        ws[MultiplierCell].value = str(sheet.getContents("D1"))
+        ws[RemarkCell].value = str(sheet.getContents("E1"))
 
         # Go through the spreadsheet.
         for RowNumber in range(1000):
@@ -84,33 +85,35 @@ def ExportSpreadSheet():
             RowNumber = RowNumber + 1 + TopRow
 
             try:
-                ws[StartCell[:1] + str(RowNumber)].value = str(sheet.getContent("A" + str(RowNumber - TopRow + 1)))
+                ws[StartCell[:1] + str(RowNumber)].value = str(sheet.getContents("A" + str(RowNumber - TopRow + 1)))
             except Exception:
                 ws[StartCell[:1] + str(RowNumber)].value = ""
 
             try:
-                ws[PropCell[:1] + str(RowNumber)].value = str(sheet.getContent("B" + str(RowNumber - TopRow + 1)))
+                ws[PropCell[:1] + str(RowNumber)].value = str(sheet.getContents("B" + str(RowNumber - TopRow + 1)))
             except Exception:
                 ws[PropCell[:1] + str(RowNumber)].value = ""
 
             try:
-                ws[IncreaseCell[:1] + str(RowNumber)].value = str(sheet.getContent("C" + str(RowNumber - TopRow + 1)))
+                ws[IncreaseCell[:1] + str(RowNumber)].value = str(sheet.getContents("C" + str(RowNumber - TopRow + 1)))
             except Exception:
                 ws[IncreaseCell[:1] + str(RowNumber)].value = ""
 
             try:
-                ws[MultiplierCell[:1] + str(RowNumber)].value = str(sheet.getContent("D" + str(RowNumber - TopRow + 1)))
+                ws[MultiplierCell[:1] + str(RowNumber)].value = str(
+                    sheet.getContents("D" + str(RowNumber - TopRow + 1))
+                )
             except Exception:
                 ws[MultiplierCell[:1] + str(RowNumber)].value = ""
 
             try:
-                ws[RemarkCell[:1] + str(RowNumber)].value = str(sheet.getContent("E" + str(RowNumber - TopRow + 1)))
+                ws[RemarkCell[:1] + str(RowNumber)].value = str(sheet.getContents("E" + str(RowNumber - TopRow + 1)))
             except Exception:
                 ws[RemarkCell[:1] + str(RowNumber)].value = ""
 
             # Check if the next row exits. If not this is the end of all the available values.
             try:
-                sheet.getContent("A" + str(RowNumber - TopRow + 1))
+                sheet.getContents("A" + str(RowNumber - TopRow + 1))
             except Exception:
                 break
 

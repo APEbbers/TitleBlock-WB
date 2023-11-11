@@ -37,6 +37,7 @@ from Standard_Functions_TitleBlock import (
     StandardFunctions_FreeCAD as Standard_Functions,
 )
 import FillSpreadsheet
+import Spreadsheet
 
 
 def FillTitleBlock():
@@ -62,7 +63,7 @@ def FillTitleBlock():
             # If the spreadsheet doesn't exist raise an error in the report view.
             try:
                 # Get the spreadsheet.
-                sheet = App.ActiveDocument.getObject("TitleBlock")
+                sheet = Spreadsheet.Sheet(App.ActiveDocument.getObject("TitleBlock"))
 
                 # Increase the NumCounter
                 NumCounter = NumCounter + 1

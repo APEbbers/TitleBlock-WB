@@ -41,6 +41,8 @@ import FreeCAD as App
 from Standard_Functions_TitleBlock import (
     StandardFunctions_FreeCAD as Standard_Functions,
 )
+import Spreadsheet
+import TechDraw
 
 # Get the preferences
 from Settings import preferences
@@ -81,7 +83,7 @@ if str(DRAW_NO_FiELD).startswith("'"):
     DRAW_NO_FiELD = str(DRAW_NO_FiELD)[1:]
 
 
-def AddExtraData(sheet, StartRow):
+def AddExtraData(sheet: Spreadsheet.Sheet, StartRow):
     # The following system values can be added. You can use these for you specific templates.
     # Use the "bind function" of the spreadsheet workbench to create the correct entry for your template.:
     #   1. add the correct Property name
@@ -150,7 +152,7 @@ def AddExtraData(sheet, StartRow):
 
 
 # Map data from the system and/or document to the spreadsheet
-def MapData(sheet, MapSpecific: int = 0):
+def MapData(sheet: Spreadsheet.Sheet, MapSpecific: int = 0):
     """
     0:  Map all\n
     1:  Map length unit only\n
@@ -161,14 +163,6 @@ def MapData(sheet, MapSpecific: int = 0):
     """
     # Get the filename
     filename = os.path.basename(App.ActiveDocument.FileName).split(".")[0]
-
-    # if sheet is None:
-    #     # Get the spreadsheet.
-    #     try:
-    #         sheet = App.ActiveDocument.getObject("TitleBlock")
-    #     except Exception:
-    #         return
-    sheet = App.ActiveDocument.getObject("TitleBlock")
 
     # if the debug mode is on, show what is mapped to which property
     if ENABLE_DEBUG is True:
@@ -299,7 +293,7 @@ def FillSheet():
         # get the editable texts
         texts = page.Template.EditableTexts
         # get the spreadsheet "TitleBlock"
-        sheet = App.ActiveDocument.getObject("TitleBlock")
+        sheet = Spreadsheet.Sheet(App.ActiveDocument.getObject("TitleBlock"))
 
         # Debug mode is active, show all editable text in the page
         if ENABLE_DEBUG is True:
@@ -405,7 +399,7 @@ def ImportDataExcel():
                 return
 
             # get the spreadsheet "TitleBlock"
-            sheet = App.ActiveDocument.getObject("TitleBlock")
+            sheet = Spreadsheet.Sheet(App.ActiveDocument.getObject("TitleBlock"))
 
             # Get the startcolumn and the other three columns from there
             StartCell = EXTERNAL_SOURCE_STARTCELL
@@ -543,7 +537,7 @@ def ImportDataExcel():
 
 def Start(command):
     try:
-        sheet = App.ActiveDocument.getObject("TitleBlock")
+        sheet = Spreadsheet.Sheet(App.ActiveDocument.getObject("TitleBlock"))
         # check if the result is not empty
         if sheet is not None:
             # Proceed with the macro.

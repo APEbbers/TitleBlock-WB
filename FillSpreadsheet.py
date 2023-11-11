@@ -41,8 +41,6 @@ import FreeCAD as App
 from Standard_Functions_TitleBlock import (
     StandardFunctions_FreeCAD as Standard_Functions,
 )
-import Spreadsheet
-import TechDraw
 
 # Get the preferences
 from Settings import preferences
@@ -293,7 +291,7 @@ def FillSheet():
         # get the editable texts
         texts = page.Template.EditableTexts
         # get the spreadsheet "TitleBlock"
-        sheet = Spreadsheet.Sheet(App.ActiveDocument.getObject("TitleBlock"))
+        sheet = sheet = App.ActiveDocument.getObject("TitleBlock")
 
         # Debug mode is active, show all editable text in the page
         if ENABLE_DEBUG is True:
@@ -399,7 +397,7 @@ def ImportDataExcel():
                 return
 
             # get the spreadsheet "TitleBlock"
-            sheet = Spreadsheet.Sheet(App.ActiveDocument.getObject("TitleBlock"))
+            sheet = sheet = App.ActiveDocument.getObject("TitleBlock")
 
             # Get the startcolumn and the other three columns from there
             StartCell = EXTERNAL_SOURCE_STARTCELL
@@ -537,7 +535,7 @@ def ImportDataExcel():
 
 def Start(command):
     try:
-        sheet = Spreadsheet.Sheet(App.ActiveDocument.getObject("TitleBlock"))
+        sheet = sheet = App.ActiveDocument.getObject("TitleBlock")
         # check if the result is not empty
         if sheet is not None:
             # Proceed with the macro.

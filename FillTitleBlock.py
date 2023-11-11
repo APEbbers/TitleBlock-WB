@@ -37,7 +37,6 @@ from Standard_Functions_TitleBlock import (
     StandardFunctions_FreeCAD as Standard_Functions,
 )
 import FillSpreadsheet
-import Spreadsheet
 
 
 def FillTitleBlock():
@@ -55,7 +54,7 @@ def FillTitleBlock():
         pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
 
         # Get the spreadsheet.
-        sheet = Spreadsheet.Sheet(App.ActiveDocument.getObject("TitleBlock"))
+        sheet = App.ActiveDocument.getObject("TitleBlock")
         FillSpreadsheet.MapData(sheet=sheet, MapSpecific=4)
 
         for page in pages:

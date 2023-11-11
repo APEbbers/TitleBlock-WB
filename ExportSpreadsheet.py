@@ -37,11 +37,10 @@ def ExportSpreadSheet():
     from Settings import IMPORT_SETTINGS_XL
     from Settings import EXTERNAL_SOURCE_STARTCELL
     from Settings import ENABLE_DEBUG
-    import Spreadsheet
 
     try:
         # get the spreadsheet "TitleBlock"
-        sheet = Spreadsheet.Sheet(App.ActiveDocument.getObject("TitleBlock"))
+        sheet = sheet = App.ActiveDocument.getObject("TitleBlock")
         if sheet is None:
             Standard_Functions.Mbox("No spreadsheet named 'TitleBlock'!!!", "", 0)
             return

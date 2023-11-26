@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="200mm"
-   height="200mm"
-   viewBox="0 0 200 200"
+   width="64"
+   height="64"
+   viewBox="0 0 16.933333 16.933333"
    version="1.1"
    id="svg1"
    xml:space="preserve"
@@ -23,12 +23,12 @@
      inkscape:pageopacity="0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
-     inkscape:document-units="mm"
-     inkscape:zoom="0.52248525"
-     inkscape:cx="-124.40543"
-     inkscape:cy="161.72705"
-     inkscape:window-width="1920"
-     inkscape:window-height="1009"
+     inkscape:document-units="px"
+     inkscape:zoom="4.179882"
+     inkscape:cx="38.158972"
+     inkscape:cy="33.85263"
+     inkscape:window-width="3440"
+     inkscape:window-height="1369"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -36,8 +36,8 @@
      showguides="false"><inkscape:page
        x="0"
        y="0"
-       width="200"
-       height="200"
+       width="16.933332"
+       height="16.933332"
        id="page1"
        margin="0"
        bleed="0" /></sodipodi:namedview><defs
@@ -73,7 +73,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-5.1530252,-39.515954)"><g
+     transform="matrix(0.08466666,0,0,0.08314089,-0.43629,-3.2853863)"><g
        id="layer1-3"
        transform="matrix(3.3333333,0,0,3.3333333,-1.513642,19.51596)"><rect
          y="8"

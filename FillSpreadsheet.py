@@ -410,7 +410,7 @@ def FillSheet():
         if ENABLE_DEBUG is True:
             Standard_Functions.Print("the following editable text are present in your page:", "Log")
             for EditableText in texts.items():
-                Standard_Functions.Print(EditableText, "Log")
+                Standard_Functions.Print(str(EditableText), "Log")
 
         # set the headers in the spreadsheet
         sheet.set("A1", "Property Name")

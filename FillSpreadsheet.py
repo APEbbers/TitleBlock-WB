@@ -286,23 +286,23 @@ def MapDocInfo(sheet):
     # if the debug mode is on, show what is mapped to which property
     if ENABLE_DEBUG is True:
         if str(DOCINFO_NAME).strip():
-            Standard_Functions.Print("Length unit is mapped to: " " + str(DOCINFO_NAME), " "Log")
+            Standard_Functions.Print("Document name is mapped to:  " + str(DOCINFO_NAME), "Log")
         if str(DOCINFO_CREATEDBY).strip():
-            Standard_Functions.Print("Length unit is mapped to: " " + str(DOCINFO_CREATEDBY), " "Log")
+            Standard_Functions.Print("Created by value is mapped to:  " + str(DOCINFO_CREATEDBY), "Log")
         if str(DOCINFO_CREATEDDATE).strip():
-            Standard_Functions.Print("Length unit is mapped to: " " + str(DOCINFO_CREATEDDATE), " "Log")
+            Standard_Functions.Print("Created date is mapped to:  " + str(DOCINFO_CREATEDDATE), "Log")
         if str(DOCINFO_LASTMODIFIEDBY).strip():
-            Standard_Functions.Print("Length unit is mapped to: " " + str(DOCINFO_LASTMODIFIEDBY), " "Log")
+            Standard_Functions.Print("Last modified by value is mapped to:  " + str(DOCINFO_LASTMODIFIEDBY), "Log")
         if str(DOCINFO_LASTMODIFIEDDATE).strip():
-            Standard_Functions.Print("Length unit is mapped to: " " + str(DOCINFO_LASTMODIFIEDDATE), " "Log")
+            Standard_Functions.Print("Last modified date is mapped to:  " + str(DOCINFO_LASTMODIFIEDDATE), "Log")
         if str(DOCINFO_COMPANY).strip():
-            Standard_Functions.Print("Length unit is mapped to: " " + str(DOCINFO_COMPANY), " "Log")
+            Standard_Functions.Print("Company name is mapped to:  " + str(DOCINFO_COMPANY), "Log")
         if str(DOCINFO_LICENSE).strip():
-            Standard_Functions.Print("Length unit is mapped to: " " + str(DOCINFO_LICENSE), " "Log")
+            Standard_Functions.Print("License name is mapped to:  " + str(DOCINFO_LICENSE), "Log")
         if str(DOCINFO_LICENSEURL).strip():
-            Standard_Functions.Print("License link is mapped to: " " + str(DOCINFO_LICENSEURL), " "Log")
+            Standard_Functions.Print("License link is mapped to:  " + str(DOCINFO_LICENSEURL), "Log")
         if str(DOCINFO_COMMENT).strip():
-            Standard_Functions.Print("Comment is mapped to: " " + str(DOCINFO_COMMENT), " "Log")
+            Standard_Functions.Print("Comment is mapped to:  " + str(DOCINFO_COMMENT), "Log")
 
     # Go through the column A in the spreadsheet and find the properties.
     for RowNum in range(1000):
@@ -352,7 +352,7 @@ def MapDocInfo(sheet):
             if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LICENSE:
                 sheet.set("B" + str(RowNum), doc.License)
 
-        # DOCINFO_LICENSE
+        # DOCINFO_LICENSEURL
         if str(DOCINFO_LICENSEURL).strip():
             # If the cell in column A is equal to # DOCINFO_LICENSEURL, add the value in column B
             if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LICENSEURL:

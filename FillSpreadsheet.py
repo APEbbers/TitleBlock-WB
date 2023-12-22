@@ -304,66 +304,66 @@ def MapDocInfo(sheet):
         if str(DOCINFO_COMMENT).strip():
             Standard_Functions.Print("Comment is mapped to: " " + str(DOCINFO_COMMENT), " "Log")
 
-        # Go through the column A in the spreadsheet and find the properties.
-        for RowNum in range(1000):
-            # Start with x+1 first, to make sure that x is at least 1.
-            RowNum = RowNum + 2
+    # Go through the column A in the spreadsheet and find the properties.
+    for RowNum in range(1000):
+        # Start with x+1 first, to make sure that x is at least 1.
+        RowNum = RowNum + 2
 
-            # DOCINFO_NAME
-            if str(DOCINFO_NAME).strip():
-                # If the cell in column A is equal to # DOCINFO_NAME, add the value in column B
-                if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_NAME:
-                    sheet.set("B" + str(RowNum), doc.Name)
+        # DOCINFO_NAME
+        if str(DOCINFO_NAME).strip():
+            # If the cell in column A is equal to # DOCINFO_NAME, add the value in column B
+            if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_NAME:
+                sheet.set("B" + str(RowNum), doc.Name)
 
-            # DOCINFO_CREATEDBY
-            if str(DOCINFO_CREATEDBY).strip():
-                # If the cell in column A is equal to # DOCINFO_CREATEDBY, add the value in column B
-                if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_CREATEDBY:
-                    sheet.set("B" + str(RowNum), doc.CreatedBy)
+        # DOCINFO_CREATEDBY
+        if str(DOCINFO_CREATEDBY).strip():
+            # If the cell in column A is equal to # DOCINFO_CREATEDBY, add the value in column B
+            if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_CREATEDBY:
+                sheet.set("B" + str(RowNum), doc.CreatedBy)
 
-            # DOCINFO_CREATEDDATE
-            if str(DOCINFO_CREATEDDATE).strip():
-                # If the cell in column A is equal to # DOCINFO_CREATEDDATE, add the value in column B
-                if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_CREATEDDATE:
-                    CreationDate = doc.CreationDate.split("T")[0]
-                    sheet.set("B" + str(RowNum), CreationDate)
+        # DOCINFO_CREATEDDATE
+        if str(DOCINFO_CREATEDDATE).strip():
+            # If the cell in column A is equal to # DOCINFO_CREATEDDATE, add the value in column B
+            if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_CREATEDDATE:
+                CreationDate = doc.CreationDate.split("T")[0]
+                sheet.set("B" + str(RowNum), CreationDate)
 
-            # DOCINFO_LASTMODIFIEDBY
-            if str(DOCINFO_LASTMODIFIEDBY).strip():
-                # If the cell in column A is equal to # DOCINFO_LASTMODIFIEDBY, add the value in column B
-                if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LASTMODIFIEDBY:
-                    sheet.set("B" + str(RowNum), doc.LastModifiedBy)
+        # DOCINFO_LASTMODIFIEDBY
+        if str(DOCINFO_LASTMODIFIEDBY).strip():
+            # If the cell in column A is equal to # DOCINFO_LASTMODIFIEDBY, add the value in column B
+            if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LASTMODIFIEDBY:
+                sheet.set("B" + str(RowNum), doc.LastModifiedBy)
 
-            # DOCINFO_LASTMODIFIEDDATE
-            if str(DOCINFO_LASTMODIFIEDDATE).strip():
-                # If the cell in column A is equal to # DOCINFO_LASTMODIFIEDDATE, add the value in column B
-                if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LASTMODIFIEDDATE:
-                    sheet.set("B" + str(RowNum), doc.LastModifiedDate)
+        # DOCINFO_LASTMODIFIEDDATE
+        if str(DOCINFO_LASTMODIFIEDDATE).strip():
+            # If the cell in column A is equal to # DOCINFO_LASTMODIFIEDDATE, add the value in column B
+            if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LASTMODIFIEDDATE:
+                sheet.set("B" + str(RowNum), doc.LastModifiedDate)
 
-            # DOCINFO_COMPANY
-            if str(DOCINFO_COMPANY).strip():
-                # If the cell in column A is equal to # DOCINFO_COMPANY, add the value in column B
-                if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_COMPANY:
-                    sheet.set("B" + str(RowNum), doc.Company)
+        # DOCINFO_COMPANY
+        if str(DOCINFO_COMPANY).strip():
+            # If the cell in column A is equal to # DOCINFO_COMPANY, add the value in column B
+            if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_COMPANY:
+                sheet.set("B" + str(RowNum), doc.Company)
 
-            # DOCINFO_LICENSE
-            if str(DOCINFO_LICENSE).strip():
-                # If the cell in column A is equal to # DOCINFO_LICENSE, add the value in column B
-                if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LICENSE:
-                    sheet.set("B" + str(RowNum), doc.License)
+        # DOCINFO_LICENSE
+        if str(DOCINFO_LICENSE).strip():
+            # If the cell in column A is equal to # DOCINFO_LICENSE, add the value in column B
+            if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LICENSE:
+                sheet.set("B" + str(RowNum), doc.License)
 
-            # DOCINFO_LICENSE
-            if str(DOCINFO_LICENSEURL).strip():
-                # If the cell in column A is equal to # DOCINFO_LICENSEURL, add the value in column B
-                if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LICENSEURL:
-                    sheet.set("B" + str(RowNum), doc.LicenseURL)
+        # DOCINFO_LICENSE
+        if str(DOCINFO_LICENSEURL).strip():
+            # If the cell in column A is equal to # DOCINFO_LICENSEURL, add the value in column B
+            if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LICENSEURL:
+                sheet.set("B" + str(RowNum), doc.LicenseURL)
 
-            # DOCINFO_COMMENT
-            if str(DOCINFO_COMMENT).strip():
-                # If the cell in column A is equal to # DOCINFO_COMMENT, add the value in column B
-                if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_COMMENT:
-                    sheet.set("B" + str(RowNum), doc.Comment)
-        return
+        # DOCINFO_COMMENT
+        if str(DOCINFO_COMMENT).strip():
+            # If the cell in column A is equal to # DOCINFO_COMMENT, add the value in column B
+            if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_COMMENT:
+                sheet.set("B" + str(RowNum), doc.Comment)
+    return
 
 
 def FormatTable(sheet, Endrow):

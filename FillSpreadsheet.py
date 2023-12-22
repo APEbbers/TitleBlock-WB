@@ -461,8 +461,8 @@ def FillSheet():
 
         # Finally recompute the spreadsheet
         sheet.recompute()
-    except TypeError:
-        pass
+    # except TypeError:
+    #     pass
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:

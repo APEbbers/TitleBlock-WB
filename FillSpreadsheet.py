@@ -38,9 +38,7 @@
 
 import os
 import FreeCAD as App
-from Standard_Functions_TitleBlock import (
-    StandardFunctions_FreeCAD as Standard_Functions,
-)
+import Standard_Functions_TitleBlock as Standard_Functions
 
 # Get the preferences
 from Settings import preferences
@@ -58,9 +56,19 @@ from Settings import MAP_LENGTH
 from Settings import MAP_ANGLE
 from Settings import MAP_MASS
 from Settings import MAP_NOSHEETS
+from Settings import DOCINFO_NAME
+from Settings import DOCINFO_CREATEDBY
+from Settings import DOCINFO_CREATEDDATE
+from Settings import DOCINFO_LASTMODIFIEDBY
+from Settings import DOCINFO_LASTMODIFIEDDATE
+from Settings import DOCINFO_COMPANY
+from Settings import DOCINFO_LICENSE
+from Settings import DOCINFO_LICENSEURL
+from Settings import DOCINFO_COMMENT
 from Settings import ENABLE_DEBUG
 from Settings import USE_FILENAME_DRAW_NO
 from Settings import DRAW_NO_FiELD
+
 
 # If no start cell is defined. the start cell will be "A1"
 if len(EXTERNAL_SOURCE_STARTCELL) == 0:
@@ -77,6 +85,25 @@ if str(MAP_MASS).startswith("'"):
     MAP_MASS = str(MAP_MASS)[1:]
 if str(MAP_NOSHEETS).startswith("'"):
     MAP_NOSHEETS = str(MAP_NOSHEETS)[1:]
+if str(DOCINFO_NAME).startswith("'"):
+    DOCINFO_NAME = str(DOCINFO_NAME)[1:]
+if str(DOCINFO_CREATEDBY).startswith("'"):
+    DOCINFO_CREATEDBY = str(DOCINFO_CREATEDBY)[1:]
+if str(DOCINFO_CREATEDDATE).startswith("'"):
+    DOCINFO_CREATEDDATE = str(DOCINFO_CREATEDDATE)[1:]
+if str(DOCINFO_LASTMODIFIEDBY).startswith("'"):
+    DOCINFO_LASTMODIFIEDBY = str(DOCINFO_LASTMODIFIEDBY)[1:]
+if str(DOCINFO_LASTMODIFIEDDATE).startswith("'"):
+    DOCINFO_LASTMODIFIEDDATE = str(DOCINFO_LASTMODIFIEDDATE)[1:]
+if str(DOCINFO_COMPANY).startswith("'"):
+    DOCINFO_COMPANY = str(DOCINFO_COMPANY)[1:]
+if str(DOCINFO_LICENSE).startswith("'"):
+    DOCINFO_LICENSE = str(DOCINFO_LICENSE)[1:]
+if str(DOCINFO_LICENSEURL).startswith("'"):
+    DOCINFO_LICENSEURL = str(DOCINFO_LICENSEURL)[1:]
+if str(DOCINFO_COMMENT).startswith("'"):
+    DOCINFO_COMMENT = str(DOCINFO_COMMENT)[1:]
+
 if str(DRAW_NO_FiELD).startswith("'"):
     DRAW_NO_FiELD = str(DRAW_NO_FiELD)[1:]
 
@@ -91,13 +118,13 @@ def AddExtraData(sheet, StartRow):
     # If the debug mode is active, show which property is includex.difference(y)
     if ENABLE_DEBUG is True:
         if INCLUDE_LENGTH is True:
-            print("Length unit is included: " + str(INCLUDE_LENGTH))
+            Standard_Functions.Print("Length unit is included: " + str(INCLUDE_LENGTH), "Log")
         if INCLUDE_ANGLE is True:
-            print("Angle unit is included: " + str(INCLUDE_ANGLE))
+            Standard_Functions.Print("Angle unit is included: " + str(INCLUDE_ANGLE), "Log")
         if INCLUDE_MASS is True:
-            print("Mass unit is included: " + str(INCLUDE_MASS))
+            Standard_Functions.Printt("Mass unit is included: " + str(INCLUDE_MASS), "Log")
         if INCLUDE_NO_SHEETS is True:
-            print("Number of pages is included: " + str(INCLUDE_NO_SHEETS))
+            Standard_Functions.Print("Number of pages is included: " + str(INCLUDE_NO_SHEETS), "Log")
 
     # get units scheme
     SchemeNumber = App.Units.getSchema()
@@ -136,7 +163,6 @@ def AddExtraData(sheet, StartRow):
             .replace("'", "")
             .replace(",", ""),
         )
-        print(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Mass), SchemeNumber))
         StartRow = StartRow + 1
 
     # Add the total number of sheets. You can use this for your title block
@@ -165,15 +191,15 @@ def MapData(sheet, MapSpecific: int = 0):
     # if the debug mode is on, show what is mapped to which property
     if ENABLE_DEBUG is True:
         if str(MAP_LENGTH).strip():
-            print("Length unit is mapped to: " + str(MAP_LENGTH))
+            Standard_Functions.Print("Length unit is mapped to: " + str(MAP_LENGTH), "Log")
         if str(MAP_ANGLE).strip():
-            print("Angle unit is mapped to: " + str(MAP_ANGLE))
+            Standard_Functions.Print("Angle unit is mapped to: " + str(MAP_ANGLE), "Log")
         if str(MAP_MASS).strip():
-            print("Mass unit is mapped to: " + str(MAP_MASS))
+            Standard_Functions.Print("Mass unit is mapped to: " + str(MAP_MASS), "Log")
         if str(MAP_NOSHEETS).strip():
-            print("the number of pages is mapped to: " + str(MAP_NOSHEETS))
+            Standard_Functions.Print("the number of pages is mapped to: " + str(MAP_NOSHEETS), "Log")
         if USE_FILENAME_DRAW_NO is True:
-            print("The filename (" + str(filename) + ") is mapped to: " + str(DRAW_NO_FiELD))
+            Standard_Functions.Print("The filename (" + str(filename) + ") is mapped to: " + str(DRAW_NO_FiELD))
         return
 
     # get units scheme
@@ -253,6 +279,81 @@ def MapData(sheet, MapSpecific: int = 0):
             return
 
 
+# Map document information
+def MapDocInfo(sheet):
+    doc = App.ActiveDocument
+
+    # if the debug mode is on, show what is mapped to which property
+    if ENABLE_DEBUG is True:
+        if str(DOCINFO_NAME).strip():
+            Standard_Functions.Print("Length unit is mapped to: " " + str(DOCINFO_NAME), " "Log")
+        if str(DOCINFO_CREATEDBY).strip():
+            Standard_Functions.Print("Length unit is mapped to: " " + str(DOCINFO_CREATEDBY), " "Log")
+        if str(DOCINFO_CREATEDDATE).strip():
+            Standard_Functions.Print("Length unit is mapped to: " " + str(DOCINFO_CREATEDDATE), " "Log")
+        if str(DOCINFO_LASTMODIFIEDBY).strip():
+            Standard_Functions.Print("Length unit is mapped to: " " + str(DOCINFO_LASTMODIFIEDBY), " "Log")
+        if str(DOCINFO_LASTMODIFIEDDATE).strip():
+            Standard_Functions.Print("Length unit is mapped to: " " + str(DOCINFO_LASTMODIFIEDDATE), " "Log")
+        if str(DOCINFO_COMPANY).strip():
+            Standard_Functions.Print("Length unit is mapped to: " " + str(DOCINFO_COMPANY), " "Log")
+        if str(DOCINFO_LICENSE).strip():
+            Standard_Functions.Print("Length unit is mapped to: " " + str(DOCINFO_LICENSE), " "Log")
+        if str(DOCINFO_LICENSEURL).strip():
+            Standard_Functions.Print("License link is mapped to: " " + str(DOCINFO_LICENSEURL), " "Log")
+        if str(DOCINFO_COMMENT).strip():
+            Standard_Functions.Print("Comment is mapped to: " " + str(DOCINFO_COMMENT), " "Log")
+
+        # Go through the column A in the spreadsheet and find the properties.
+        for RowNum in range(1000):
+            # Start with x+1 first, to make sure that x is at least 1.
+            RowNum = RowNum + 2
+
+            # DOCINFO_NAME
+            if str(DOCINFO_NAME).strip():
+                # If the cell in column A is equal to # DOCINFO_NAME, add the value in column B
+                if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_NAME:
+                    sheet.set("B" + str(RowNum), doc.Name)
+
+            # DOCINFO_CREATEDBY
+            if str(DOCINFO_CREATEDBY).strip():
+                # If the cell in column A is equal to # DOCINFO_CREATEDBY, add the value in column B
+                if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_CREATEDBY:
+                    sheet.set("B" + str(RowNum), doc.CreatedBy)
+
+            # DOCINFO_CREATEDDATE
+            if str(DOCINFO_CREATEDDATE).strip():
+                # If the cell in column A is equal to # DOCINFO_CREATEDDATE, add the value in column B
+                if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_CREATEDDATE:
+                    CreationDate = doc.CreationDate.split("T")[0]
+                    sheet.set("B" + str(RowNum), CreationDate)
+
+            # DOCINFO_LASTMODIFIEDBY
+            if str(DOCINFO_LASTMODIFIEDBY).strip():
+                # If the cell in column A is equal to # DOCINFO_LASTMODIFIEDBY, add the value in column B
+                if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LASTMODIFIEDBY:
+                    sheet.set("B" + str(RowNum), doc.LastModifiedBy)
+
+            # DOCINFO_LASTMODIFIEDDATE
+            if str(DOCINFO_LASTMODIFIEDDATE).strip():
+                # If the cell in column A is equal to # DOCINFO_LASTMODIFIEDDATE, add the value in column B
+                if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LASTMODIFIEDDATE:
+                    sheet.set("B" + str(RowNum), doc.LastModifiedDate)
+
+            # DOCINFO_COMPANY
+            if str(DOCINFO_COMPANY).strip():
+                # If the cell in column A is equal to # DOCINFO_COMPANY, add the value in column B
+                if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_COMPANY:
+                    sheet.set("B" + str(RowNum), doc.Company)
+
+            # DOCINFO_LICENSE
+            if str(DOCINFO_LICENSE).strip():
+                # If the cell in column A is equal to # DOCINFO_LICENSE, add the value in column B
+                if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LICENSE:
+                    sheet.set("B" + str(RowNum), doc.License)
+        return
+
+
 def FormatTable(sheet, Endrow):
     RangeAlign1 = "A1:A" + str(Endrow)
     RangeAlign2 = "B1:E" + str(Endrow)
@@ -295,9 +396,9 @@ def FillSheet():
 
         # Debug mode is active, show all editable text in the page
         if ENABLE_DEBUG is True:
-            print("the following editable text are present in your page:")
+            Standard_Functions.Print("the following editable text are present in your page:", "Log")
             for EditableText in texts.items():
-                print(EditableText)
+                Standard_Functions.Print(EditableText, "Log")
 
         # set the headers in the spreadsheet
         sheet.set("A1", "Property Name")
@@ -327,6 +428,9 @@ def FillSheet():
 
         # Run the def to map system data
         MapData(sheet=sheet)
+
+        # Run the def to map document information
+        MapDocInfo(sheet=sheet)
 
         # Run the def to add extra system data
         AddExtraData(sheet, StartRow)
@@ -426,8 +530,10 @@ def ImportDataExcel():
             StartColumn = StartCell[:1]
             # If debug mode is on, show the start colum and its number
             if ENABLE_DEBUG is True:
-                print("Start column is: " + str(StartColumn))
-                print("Column number is: " + str(Standard_Functions.GetNumberFromLetter(StartColumn)))
+                Standard_Functions.Print("Start column is: " + str(StartColumn), "Log")
+                Standard_Functions.Print(
+                    "Column number is: " + str(Standard_Functions.GetNumberFromLetter(StartColumn)), "Log"
+                )
             Column2 = Standard_Functions.GetLetterFromNumber(
                 int(Standard_Functions.GetNumberFromLetter(StartColumn) + 1), True
             )
@@ -445,7 +551,7 @@ def ImportDataExcel():
             StartRow = EXTERNAL_SOURCE_STARTCELL[1:2]
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
-                print("the start row is: " + str(StartRow))
+                Standard_Functions.Print("the start row is: " + str(StartRow), "Log")
 
             # import the headers from the excelsheet into the spreadsheet
             sheet.set("A1", str(ws[str(StartColumn) + str(StartRow)].value))
@@ -502,7 +608,10 @@ def ImportDataExcel():
             sheet.recompute()
 
             # Run the def to add extra system data.
-            MapData(sheet)
+            MapData(sheet=sheet)
+
+            # Run the def to add document information
+            MapDocInfo(sheet=sheet)
 
             # Run the def to add extra system data. This is the final value of "RowNumber" minus the "StartRow".
             AddExtraData(sheet, RowNumber - int(StartRow))
@@ -546,7 +655,7 @@ def Start(command):
 
             # if the debug mode is on, report presense of titleblock spreadsheet
             if ENABLE_DEBUG is True:
-                print("TitleBlock already present")
+                Standard_Functions.Print("TitleBlock already present", "Log")
 
             return
         # if the result is empty, create a new titleblock spreadsheet
@@ -560,7 +669,7 @@ def Start(command):
                 ImportDataExcel()
             # if the debug mode is on, report creation of titleblock spreadsheet
             if ENABLE_DEBUG is True:
-                print("TitleBlock created")
+                Standard_Functions.Print("TitleBlock created", "Log")
 
             return
     except Exception as e:

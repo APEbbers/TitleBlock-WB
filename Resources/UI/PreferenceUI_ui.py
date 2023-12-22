@@ -11,10 +11,11 @@
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
+    QCursor, QFont, QFontDatabase, QGradient,
+    QIcon, QImage, QKeySequence, QLinearGradient,
+    QPainter, QPalette, QPixmap, QRadialGradient,
+    QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QGroupBox,
     QHBoxLayout, QLabel, QSizePolicy, QTabWidget,
     QVBoxLayout, QWidget)
@@ -28,9 +29,11 @@ class Ui_Form(object):
         Form.setContextMenuPolicy(Qt.NoContextMenu)
         Form.setWindowTitle(u"Preferences")
         Form.setInputMethodHints(Qt.ImhNone)
+        self.actionGetSheet_ExternalSource = QAction(Form)
+        self.actionGetSheet_ExternalSource.setObjectName(u"actionGetSheet_ExternalSource")
         self.widget = QWidget(Form)
         self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(5, 515, 421, 56))
+        self.widget.setGeometry(QRect(5, 850, 421, 56))
         self.label = QLabel(self.widget)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(10, 5, 401, 16))
@@ -60,7 +63,7 @@ class Ui_Form(object):
 
         self.tabWidget = QTabWidget(Form)
         self.tabWidget.setObjectName(u"tabWidget")
-        self.tabWidget.setGeometry(QRect(0, 5, 436, 516))
+        self.tabWidget.setGeometry(QRect(0, 5, 436, 841))
         self.tabWidget.setAutoFillBackground(False)
         self.TitleBlock = QWidget()
         self.TitleBlock.setObjectName(u"TitleBlock")
@@ -173,7 +176,7 @@ class Ui_Form(object):
 
         self.groupBox_Included_Items = QGroupBox(self.TitleBlock)
         self.groupBox_Included_Items.setObjectName(u"groupBox_Included_Items")
-        self.groupBox_Included_Items.setGeometry(QRect(5, 305, 421, 181))
+        self.groupBox_Included_Items.setGeometry(QRect(5, 620, 421, 181))
         self.groupBox_Included_Items.setMinimumSize(QSize(0, 181))
         self.groupBox_Included_Items.setFont(font1)
         self.label_4 = QLabel(self.groupBox_Included_Items)
@@ -229,6 +232,157 @@ class Ui_Form(object):
 
         self.verticalLayout.addWidget(self.IncludeNoOfSheets)
 
+        self.groupBox_Map_Items_2 = QGroupBox(self.TitleBlock)
+        self.groupBox_Map_Items_2.setObjectName(u"groupBox_Map_Items_2")
+        self.groupBox_Map_Items_2.setGeometry(QRect(5, 305, 421, 311))
+        self.groupBox_Map_Items_2.setMinimumSize(QSize(0, 176))
+        self.groupBox_Map_Items_2.setFont(font1)
+        self.label_17 = QLabel(self.groupBox_Map_Items_2)
+        self.label_17.setObjectName(u"label_17")
+        self.label_17.setGeometry(QRect(10, 20, 321, 36))
+        self.label_17.setFont(font2)
+        self.label_17.setTextFormat(Qt.AutoText)
+        self.label_17.setWordWrap(True)
+        self.widget1 = QWidget(self.groupBox_Map_Items_2)
+        self.widget1.setObjectName(u"widget1")
+        self.widget1.setGeometry(QRect(11, 66, 246, 230))
+        self.gridLayout_2 = QGridLayout(self.widget1)
+        self.gridLayout_2.setSpacing(6)
+        self.gridLayout_2.setContentsMargins(5, 5, 5, 5)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.label_20 = QLabel(self.widget1)
+        self.label_20.setObjectName(u"label_20")
+        self.label_20.setFont(font2)
+
+        self.gridLayout_2.addWidget(self.label_20, 0, 0, 1, 1)
+
+        self.DocInfo_Name = Gui_PrefLineEdit(self.widget1)
+        self.DocInfo_Name.setObjectName(u"DocInfo_Name")
+        self.DocInfo_Name.setFont(font2)
+        self.DocInfo_Name.setProperty("prefEntry", u"DocInfo_Name")
+        self.DocInfo_Name.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+
+        self.gridLayout_2.addWidget(self.DocInfo_Name, 0, 1, 1, 2)
+
+        self.label_21 = QLabel(self.widget1)
+        self.label_21.setObjectName(u"label_21")
+        self.label_21.setFont(font2)
+
+        self.gridLayout_2.addWidget(self.label_21, 1, 0, 1, 1)
+
+        self.DocInfo_CreatedBy = Gui_PrefLineEdit(self.widget1)
+        self.DocInfo_CreatedBy.setObjectName(u"DocInfo_CreatedBy")
+        self.DocInfo_CreatedBy.setFont(font2)
+        self.DocInfo_CreatedBy.setProperty("prefEntry", u"DocInfo_CreatedBy")
+        self.DocInfo_CreatedBy.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+
+        self.gridLayout_2.addWidget(self.DocInfo_CreatedBy, 1, 1, 1, 2)
+
+        self.label_19 = QLabel(self.widget1)
+        self.label_19.setObjectName(u"label_19")
+        self.label_19.setFont(font2)
+
+        self.gridLayout_2.addWidget(self.label_19, 2, 0, 1, 1)
+
+        self.DocInfo_CreatedDate = Gui_PrefLineEdit(self.widget1)
+        self.DocInfo_CreatedDate.setObjectName(u"DocInfo_CreatedDate")
+        self.DocInfo_CreatedDate.setFont(font2)
+        self.DocInfo_CreatedDate.setProperty("prefEntry", u"DocInfo_CreatedDate")
+        self.DocInfo_CreatedDate.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+
+        self.gridLayout_2.addWidget(self.DocInfo_CreatedDate, 2, 1, 1, 2)
+
+        self.label_18 = QLabel(self.widget1)
+        self.label_18.setObjectName(u"label_18")
+        self.label_18.setFont(font2)
+
+        self.gridLayout_2.addWidget(self.label_18, 3, 0, 1, 1)
+
+        self.DocInfo_LastModifiedBy = Gui_PrefLineEdit(self.widget1)
+        self.DocInfo_LastModifiedBy.setObjectName(u"DocInfo_LastModifiedBy")
+        self.DocInfo_LastModifiedBy.setFont(font2)
+        self.DocInfo_LastModifiedBy.setInputMethodHints(Qt.ImhNone)
+        self.DocInfo_LastModifiedBy.setProperty("prefEntry", u"DocInfo_LastModifiedBy")
+        self.DocInfo_LastModifiedBy.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+
+        self.gridLayout_2.addWidget(self.DocInfo_LastModifiedBy, 3, 1, 1, 2)
+
+        self.label_22 = QLabel(self.widget1)
+        self.label_22.setObjectName(u"label_22")
+        self.label_22.setFont(font2)
+
+        self.gridLayout_2.addWidget(self.label_22, 4, 0, 1, 1)
+
+        self.DocInfo_LastModifiedDate = Gui_PrefLineEdit(self.widget1)
+        self.DocInfo_LastModifiedDate.setObjectName(u"DocInfo_LastModifiedDate")
+        self.DocInfo_LastModifiedDate.setFont(font2)
+        self.DocInfo_LastModifiedDate.setInputMethodHints(Qt.ImhNone)
+        self.DocInfo_LastModifiedDate.setProperty("prefEntry", u"DocInfo_LastModifiedDate")
+        self.DocInfo_LastModifiedDate.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+
+        self.gridLayout_2.addWidget(self.DocInfo_LastModifiedDate, 4, 1, 1, 2)
+
+        self.label_23 = QLabel(self.widget1)
+        self.label_23.setObjectName(u"label_23")
+        self.label_23.setFont(font2)
+
+        self.gridLayout_2.addWidget(self.label_23, 5, 0, 1, 1)
+
+        self.DocInfo_Company = Gui_PrefLineEdit(self.widget1)
+        self.DocInfo_Company.setObjectName(u"DocInfo_Company")
+        self.DocInfo_Company.setFont(font2)
+        self.DocInfo_Company.setInputMethodHints(Qt.ImhNone)
+        self.DocInfo_Company.setProperty("prefEntry", u"DocInfo_Company")
+        self.DocInfo_Company.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+
+        self.gridLayout_2.addWidget(self.DocInfo_Company, 5, 1, 1, 2)
+
+        self.label_24 = QLabel(self.widget1)
+        self.label_24.setObjectName(u"label_24")
+        self.label_24.setFont(font2)
+
+        self.gridLayout_2.addWidget(self.label_24, 6, 0, 1, 1)
+
+        self.DocInfo_License = Gui_PrefLineEdit(self.widget1)
+        self.DocInfo_License.setObjectName(u"DocInfo_License")
+        self.DocInfo_License.setFont(font2)
+        self.DocInfo_License.setInputMethodHints(Qt.ImhNone)
+        self.DocInfo_License.setProperty("prefEntry", u"DocInfo_License")
+        self.DocInfo_License.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+
+        self.gridLayout_2.addWidget(self.DocInfo_License, 6, 1, 1, 2)
+
+        self.label_25 = QLabel(self.widget1)
+        self.label_25.setObjectName(u"label_25")
+        self.label_25.setFont(font2)
+
+        self.gridLayout_2.addWidget(self.label_25, 7, 0, 1, 1)
+
+        self.DocInfo_LicenseURL = Gui_PrefLineEdit(self.widget1)
+        self.DocInfo_LicenseURL.setObjectName(u"DocInfo_LicenseURL")
+        self.DocInfo_LicenseURL.setFont(font2)
+        self.DocInfo_LicenseURL.setInputMethodHints(Qt.ImhNone)
+        self.DocInfo_LicenseURL.setProperty("prefEntry", u"DocInfo_LicenseURL")
+        self.DocInfo_LicenseURL.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+
+        self.gridLayout_2.addWidget(self.DocInfo_LicenseURL, 7, 1, 1, 2)
+
+        self.label_26 = QLabel(self.widget1)
+        self.label_26.setObjectName(u"label_26")
+        self.label_26.setFont(font2)
+
+        self.gridLayout_2.addWidget(self.label_26, 8, 0, 1, 1)
+
+        self.DocInfo_Comment = Gui_PrefLineEdit(self.widget1)
+        self.DocInfo_Comment.setObjectName(u"DocInfo_Comment")
+        self.DocInfo_Comment.setFont(font2)
+        self.DocInfo_Comment.setInputMethodHints(Qt.ImhNone)
+        self.DocInfo_Comment.setProperty("prefEntry", u"DocInfo_Comment")
+        self.DocInfo_Comment.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+
+        self.gridLayout_2.addWidget(self.DocInfo_Comment, 8, 1, 1, 2)
+
         self.tabWidget.addTab(self.TitleBlock, "")
         self.External_Source = QWidget()
         self.External_Source.setObjectName(u"External_Source")
@@ -256,7 +410,7 @@ class Ui_Form(object):
         self.SheetName = Gui_PrefLineEdit(self.groupBox_2)
         self.SheetName.setObjectName(u"SheetName")
         self.SheetName.setEnabled(False)
-        self.SheetName.setGeometry(QRect(10, 90, 361, 25))
+        self.SheetName.setGeometry(QRect(10, 95, 361, 25))
         self.SheetName.setFont(font2)
         self.SheetName.setProperty("prefEntry", u"SheetName")
         self.SheetName.setProperty("prefPath", u"Mod/TitleBlock Workbench")
@@ -434,6 +588,7 @@ class Ui_Form(object):
         self.ImportSettingsXL.toggled.connect(self.label_13.setEnabled)
         self.ImportSettingsXL.toggled.connect(self.StartCell_Settings.setEnabled)
         self.ImportSettingsXL.toggled.connect(self.label_9.setEnabled)
+        self.ExternalFileChooser.fileNameChanged.connect(self.actionGetSheet_ExternalSource.trigger)
 
         self.tabWidget.setCurrentIndex(1)
 
@@ -442,6 +597,7 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
+        self.actionGetSheet_ExternalSource.setText(QCoreApplication.translate("Form", u"GetSheet_ExternalSource", None))
         self.label.setText(QCoreApplication.translate("Form", u"FreeCAD needs to be restarted before changes become active.", None))
         self.EnableDebug.setText(QCoreApplication.translate("Form", u"Debug mode", None))
         self.label_11.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" font-style:italic;\">(If enabled, extra information will be shown in the report view.)</span></p></body></html>", None))
@@ -468,6 +624,32 @@ class Ui_Form(object):
         self.IncludeAngleUnit.setText(QCoreApplication.translate("Form", u"Include angles", None))
         self.IncludeMassUnit.setText(QCoreApplication.translate("Form", u"Include mass", None))
         self.IncludeNoOfSheets.setText(QCoreApplication.translate("Form", u"Include number of pages", None))
+        self.groupBox_Map_Items_2.setTitle("")
+        self.label_17.setText(QCoreApplication.translate("Form", u"<html><head/><body><p>The following document information values can be mapped to the titleblock: <span style=\" font-style:italic;\">(If not applicalbe, leave empty.)</span></p></body></html>", None))
+        self.label_20.setText(QCoreApplication.translate("Form", u"Name:", None))
+        self.DocInfo_Name.setPlaceholderText(QCoreApplication.translate("Form", u"Enter property name here...", None))
+        self.label_21.setText(QCoreApplication.translate("Form", u"Created by:", None))
+        self.DocInfo_CreatedBy.setPlaceholderText(QCoreApplication.translate("Form", u"Enter property name here...", None))
+        self.label_19.setText(QCoreApplication.translate("Form", u"Creation date:", None))
+        self.DocInfo_CreatedDate.setPlaceholderText(QCoreApplication.translate("Form", u"Enter property name here...", None))
+        self.label_18.setText(QCoreApplication.translate("Form", u"Last modified by:", None))
+        self.DocInfo_LastModifiedBy.setText("")
+        self.DocInfo_LastModifiedBy.setPlaceholderText(QCoreApplication.translate("Form", u"Enter property name here...", None))
+        self.label_22.setText(QCoreApplication.translate("Form", u"Last modification by:", None))
+        self.DocInfo_LastModifiedDate.setText("")
+        self.DocInfo_LastModifiedDate.setPlaceholderText(QCoreApplication.translate("Form", u"Enter property name here...", None))
+        self.label_23.setText(QCoreApplication.translate("Form", u"Company:", None))
+        self.DocInfo_Company.setText("")
+        self.DocInfo_Company.setPlaceholderText(QCoreApplication.translate("Form", u"Enter property name here...", None))
+        self.label_24.setText(QCoreApplication.translate("Form", u"License information:", None))
+        self.DocInfo_License.setText("")
+        self.DocInfo_License.setPlaceholderText(QCoreApplication.translate("Form", u"Enter property name here...", None))
+        self.label_25.setText(QCoreApplication.translate("Form", u"License URL:", None))
+        self.DocInfo_LicenseURL.setText("")
+        self.DocInfo_LicenseURL.setPlaceholderText(QCoreApplication.translate("Form", u"Enter property name here...", None))
+        self.label_26.setText(QCoreApplication.translate("Form", u"Comment:", None))
+        self.DocInfo_Comment.setText("")
+        self.DocInfo_Comment.setPlaceholderText(QCoreApplication.translate("Form", u"Enter property name here...", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.TitleBlock), QCoreApplication.translate("Form", u"TitleBlock", None))
         self.groupBox_2.setTitle("")
         self.UseExternalSource.setText(QCoreApplication.translate("Form", u"Use external source", None))

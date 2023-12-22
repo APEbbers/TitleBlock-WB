@@ -22,15 +22,11 @@
 # ***************************************************************************/
 
 import FreeCAD
-from Standard_Functions_TitleBlock import (
-    StandardFunctions_FreeCAD as Standard_Functions,
-)
+import Standard_Functions_TitleBlock as Standard_Functions
 
 # region defenitions
 translate = FreeCAD.Qt.translate
-preferences = FreeCAD.ParamGet(
-    "User parameter:BaseApp/Preferences/Mod/TitleBlock Workbench"
-)
+preferences = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/TitleBlock Workbench")
 # endregion
 
 
@@ -60,9 +56,7 @@ def GetBoolSetting(settingName: str) -> bool:
 def SetStringSetting(settingName: str, value: str):
     if value.lower() == "none":
         if ENABLE_DEBUG is True:
-            print(
-                f"string setting not applied!!\n Settings was: {settingName} and value was {value}"
-            )
+            print(f"string setting not applied!!\n Settings was: {settingName} and value was {value}")
             value = ""
     preferences.SetString(settingName, value)
 
@@ -72,9 +66,7 @@ def SetBoolSetting(settingName: str, value):
         Bool = True
     if str(value).lower() == "none" or value.lower() != "true":
         if ENABLE_DEBUG is True:
-            print(
-                f"bool setting not applied!!\n Settings was: {settingName} and value was {value}"
-            )
+            print(f"bool setting not applied!!\n Settings was: {settingName} and value was {value}")
         Bool = False
     preferences.SetBool(settingName, Bool)
 
@@ -109,6 +101,17 @@ MAP_ANGLE = GetStringSetting("MapAngle")
 MAP_MASS = GetStringSetting("MapMass")
 MAP_NOSHEETS = GetStringSetting("MapNoSheets")
 
+# Document information that are mapped
+DOCINFO_NAME = GetStringSetting("DocInfo_Name")
+DOCINFO_CREATEDBY = GetStringSetting("DocInfo_CreatedBy")
+DOCINFO_CREATEDDATE = GetStringSetting("DocInfo_CreatedDate")
+DOCINFO_LASTMODIFIEDBY = GetStringSetting("DocInfo_LastModifiedBy")
+DOCINFO_LASTMODIFIEDDATE = GetStringSetting("DocInfo_LastModifiedDate")
+DOCINFO_COMPANY = GetStringSetting("DocInfo_Company")
+DOCINFO_LICENSE = GetStringSetting("DocInfo_License")
+DOCINFO_LICENSEURL = GetStringSetting("DocInfo_LicenseURL")
+DOCINFO_COMMENT = GetStringSetting("DocInfo_Comment")
+
 # Included values
 INCLUDE_LENGTH = GetBoolSetting("IncludeLength")
 INCLUDE_ANGLE = GetBoolSetting("IncludeAngle")
@@ -134,6 +137,15 @@ SettingsList = [
     MAP_ANGLE,
     MAP_MASS,
     MAP_NOSHEETS,
+    DOCINFO_NAME,
+    DOCINFO_CREATEDBY,
+    DOCINFO_CREATEDDATE,
+    DOCINFO_LASTMODIFIEDBY,
+    DOCINFO_LASTMODIFIEDDATE,
+    DOCINFO_LICENSEURL,
+    DOCINFO_COMMENT,
+    DOCINFO_COMPANY,
+    DOCINFO_LICENSE,
     INCLUDE_LENGTH,
     INCLUDE_ANGLE,
     INCLUDE_MASS,
@@ -156,13 +168,12 @@ def ExportSettingsXL(Silent=False):
         # If the user wants to export the settins, start an input dialog.
         if Silent is False:
             # load the excel file with the custm function
-            if (
-                Standard_Functions.CheckIfWorkbookExists(EXTERNAL_SOURCE_PATH, True)
-                is True
-            ):
+            if Standard_Functions.CheckIfWorkbookExists(EXTERNAL_SOURCE_PATH, True) is True:
                 wb = load_workbook(EXTERNAL_SOURCE_PATH)
             else:
-                print(f"Something went wrong with loading {EXTERNAL_SOURCE_PATH}")
+                Standard_Functions.Print(
+                    f"TitleBlock Workbench: Something went wrong with loading {EXTERNAL_SOURCE_PATH}", "Error"
+                )
                 return
 
             # Set the sheetname with a inputbox
@@ -211,26 +222,20 @@ def ExportSettingsXL(Silent=False):
         # Load the workbook with the sheet from the preference menu.
         if Silent is True:
             try:
-                if (
-                    Standard_Functions.CheckIfWorkbookExists(
-                        EXTERNAL_SOURCE_PATH, False
-                    )
-                    is True
-                ):
+                if Standard_Functions.CheckIfWorkbookExists(EXTERNAL_SOURCE_PATH, False) is True:
                     wb = load_workbook(str(EXTERNAL_SOURCE_PATH))
                 else:
-                    print(
-                        f"TitleBlock Workbench: Workbook didn't exist!. ({EXTERNAL_SOURCE_PATH})"
-                    )
+                    print(f"TitleBlock Workbench: Workbook didn't exist!. ({EXTERNAL_SOURCE_PATH})")
                     return
             except Exception:
                 return
             ws = wb.create_sheet(SHEETNAME_SETTINGS_XL)
             StartCell = SHEETNAME_STARTCELL_XL
             if ENABLE_DEBUG is True:
-                print(
+                Standard_Functions.Print(
                     "TitleBlock Workbench: Sheetname and startcell for the settings is: "
-                    + f"{SHEETNAME_SETTINGS_XL}, {SHEETNAME_STARTCELL_XL}"
+                    + f"{SHEETNAME_SETTINGS_XL}, {SHEETNAME_STARTCELL_XL}",
+                    "Log",
                 )
         # endregion
 
@@ -238,9 +243,7 @@ def ExportSettingsXL(Silent=False):
         ws[StartCell].value = "Name"
         TopRow = int(StartCell[1:])
         ValueCell = str(
-            Standard_Functions.GetLetterFromNumber(
-                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
-            )
+            Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1)
         ) + str(TopRow)
         ws[ValueCell].value = "Value"
         # endregion
@@ -371,6 +374,72 @@ def ExportSettingsXL(Silent=False):
         RowNumber = RowNumber + 1
         # endregion
 
+        # region -- Map the document information settings
+        #
+        # DOCINFO_NAME
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "DocInfo_Name"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = DOCINFO_NAME
+        RowNumber = RowNumber + 1
+
+        # DOCINFO_CREATEDBY
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "DocInfo_CreatedBy"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = DOCINFO_CREATEDBY
+        RowNumber = RowNumber + 1
+
+        # DOCINFO_CREATEDDATE
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "DocInfo_CreatedDate"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = DOCINFO_CREATEDDATE
+        RowNumber = RowNumber + 1
+
+        # DOCINFO_LASTMODIFIEDBY
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "DocInfo_LastModifiedBy"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = DOCINFO_LASTMODIFIEDBY
+        RowNumber = RowNumber + 1
+
+        # DOCINFO_NAME
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "DocInfo_LastModifiedDate"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = DOCINFO_LASTMODIFIEDDATE
+        RowNumber = RowNumber + 1
+
+        # DOCINFO_COMPANY
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "DocInfo_Company"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = DOCINFO_COMPANY
+        RowNumber = RowNumber + 1
+
+        # DOCINFO_LICENSE
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "DocInfo_License"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = DOCINFO_LICENSE
+        RowNumber = RowNumber + 1
+
+        # DOCINFO_LICENSEURL
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "DocInfo_LicenseURL"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = DOCINFO_LICENSEURL
+        RowNumber = RowNumber + 1
+
+        # DOCINFO_COMMENT
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "DocInfo_Comment"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = DOCINFO_COMMENT
+        RowNumber = RowNumber + 1
+        # endregion
+
         # region -- Export the included value settings
         #
         # INCLUDE_LENGTH
@@ -425,9 +494,7 @@ def ExportSettingsXL(Silent=False):
         #
         # Define the the last cell
         EndCell = str(
-            Standard_Functions.GetLetterFromNumber(
-                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
-            )
+            Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1)
         ) + str(RowNumber + TopRow - 1)
 
         # Define the table
@@ -458,12 +525,8 @@ def ExportSettingsXL(Silent=False):
         for row in ws[1 : ws.max_row]:
             Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
             Column_2 = row[Standard_Functions.GetNumberFromLetter(EndCell[:1]) - 1]
-            Column_1.alignment = Alignment(
-                horizontal="left", vertical="center", indent=1
-            )
-            Column_2.alignment = Alignment(
-                horizontal="left", vertical="center", indent=1
-            )
+            Column_1.alignment = Alignment(horizontal="left", vertical="center", indent=1)
+            Column_2.alignment = Alignment(horizontal="left", vertical="center", indent=1)
         # endregion
 
         # Make the columns to autofit the date
@@ -485,18 +548,13 @@ def ExportSettingsXL(Silent=False):
         # Close the workbook
         wb.close()
     except openpyxl.utils.exceptions.ReadOnlyWorkbookException as e:
-        Standard_Functions.Mbox(
-            "The excel file is read only!", "TitleBlock Workbench", 0
-        )
+        Standard_Functions.Mbox("The excel file is read only!", "TitleBlock Workbench", 0)
         if ENABLE_DEBUG is True:
             raise (e)
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!"
         if ENABLE_DEBUG is True:
-            Text = (
-                "TitleBlock Workbench: an error occurred!!\n"
-                + "See the report view for details"
-            )
+            Text = "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         if ENABLE_DEBUG is True:
             raise (e)
@@ -526,9 +584,10 @@ def ImportSettingsXL():
                 ws = wb[str(SHEETNAME_SETTINGS_XL)]
                 counter = 1
         if counter == 0:
-            print(
-                "TitleBlock Workbench: The sheet didn't exists when trying to import the settings!\n"
-                + f"The sheetname should be {SHEETNAME_SETTINGS_XL}"
+            Standard_Functions.Print(
+                Input="TitleBlock Workbench: The sheet didn't exists when trying to import the settings!\n"
+                + f"The sheetname should be {SHEETNAME_SETTINGS_XL}",
+                Type="Warning",
             )
             return
 
@@ -540,8 +599,8 @@ def ImportSettingsXL():
         if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
             StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
             if ENABLE_DEBUG is True:
-                print(
-                    f"TitleBlock Workbench: the startcell converted from {OriginalStartCell} to {StartCell}"
+                Standard_Functions.Print(
+                    f"TitleBlock Workbench: the startcell converted from {OriginalStartCell} to {StartCell}", "Log"
                 )
 
         # Get the columns
@@ -637,7 +696,56 @@ def ImportSettingsXL():
 
             # endregion
 
-            # region -- Import the mapping settings
+            # region -- Import the document information settings
+            #
+            # Import DOCINFO_NAME
+            if Cell_Name.value == "DocInfo_Name":
+                SetStringSetting("DocInfo_Name", str(Cell_Value.value))
+                counter = counter + 1
+
+            # DOCINFO_CREATEDBY
+            if Cell_Name.value == "DocInfo_CreatedBy":
+                SetStringSetting("DocInfo_CreatedBy", str(Cell_Value.value))
+                counter = counter + 1
+
+            # DOCINFO_CREATEDDATE
+            if Cell_Name.value == "DocInfo_CreatedDate":
+                SetStringSetting("DocInfo_CreatedDate", str(Cell_Value.value))
+                counter = counter + 1
+
+            # DOCINFO_LASTMODIFIEDBY
+            if Cell_Name.value == "DocInfo_LastModifiedBy":
+                SetStringSetting("DocInfo_LastModifiedBy", str(Cell_Value.value))
+                counter = counter + 1
+
+            # DOCINFO_LASTMODIFIEDDATE
+            if Cell_Name.value == "DocInfo_LastModifiedDate":
+                SetStringSetting("DocInfo_LastModifiedDate", str(Cell_Value.value))
+                counter = counter + 1
+
+            # DOCINFO_COMPANY
+            if Cell_Name.value == "DocInfo_Company":
+                SetStringSetting("DocInfo_Company", str(Cell_Value.value))
+                counter = counter + 1
+
+            # DOCINFO_LICENSE
+            if Cell_Name.value == "DocInfo_License":
+                SetStringSetting("DocInfo_License", str(Cell_Value.value))
+                counter = counter + 1
+
+            # DOCINFO_LICENSEURL
+            if Cell_Name.value == "DocInfo_LicenseURL":
+                SetStringSetting("DocInfo_LicenseURL", str(Cell_Value.value))
+                counter = counter + 1
+
+            # DOCINFO_COMMENT
+            if Cell_Name.value == "DocInfo_Comment":
+                SetStringSetting("DocInfo_Comment", str(Cell_Value.value))
+                counter = counter + 1
+
+            # endregion
+
+            # region -- Import the Include settings
             #
             # Import INCLUDE_LENGTH
             if Cell_Name.value == "IncludeLength":
@@ -668,20 +776,18 @@ def ImportSettingsXL():
                 break
 
         if counter > 0:
-            print(
+            Standard_Functions.Print(
                 "Titleblock workbench: Settings imported from "
-                + f"{EXTERNAL_SOURCE_PATH} from worksheet: {sheetname} at {StartCell}"
+                + f"{EXTERNAL_SOURCE_PATH} from worksheet: {sheetname} at {StartCell}",
+                "Log",
             )
         if counter == 0:
-            print("TitleBlock Workbench: Settings are not imported")
+            Standard_Functions.Print("TitleBlock Workbench: Settings are not imported", "Log")
 
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!"
         if ENABLE_DEBUG is True:
-            Text = (
-                "TitleBlock Workbench: an error occurred!!\n"
-                + "See the report view for details"
-            )
+            Text = "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         if ENABLE_DEBUG is True:
             raise (e)

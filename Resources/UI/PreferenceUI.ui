@@ -26,7 +26,7 @@
    <property name="geometry">
     <rect>
      <x>5</x>
-     <y>515</y>
+     <y>850</y>
      <width>421</width>
      <height>56</height>
     </rect>
@@ -91,7 +91,7 @@
      <x>0</x>
      <y>5</y>
      <width>436</width>
-     <height>516</height>
+     <height>841</height>
     </rect>
    </property>
    <property name="autoFillBackground">
@@ -422,7 +422,7 @@
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>305</y>
+       <y>620</y>
        <width>421</width>
        <height>181</height>
       </rect>
@@ -568,6 +568,392 @@
       </layout>
      </widget>
     </widget>
+    <widget class="QGroupBox" name="groupBox_Map_Items_2">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>305</y>
+       <width>421</width>
+       <height>311</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>176</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>321</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The following document information values can be mapped to the titleblock: &lt;span style=&quot; font-style:italic;&quot;&gt;(If not applicalbe, leave empty.)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::AutoText</enum>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QWidget" name="">
+      <property name="geometry">
+       <rect>
+        <x>11</x>
+        <y>66</y>
+        <width>246</width>
+        <height>230</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_20">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Name:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1" colspan="2">
+        <widget class="Gui::PrefLineEdit" name="DocInfo_Name">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="placeholderText">
+          <string>Enter property name here...</string>
+         </property>
+         <property name="prefEntry" stdset="0">
+          <cstring>DocInfo_Name</cstring>
+         </property>
+         <property name="prefPath" stdset="0">
+          <cstring>Mod/TitleBlock Workbench</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_21">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Created by:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1" colspan="2">
+        <widget class="Gui::PrefLineEdit" name="DocInfo_CreatedBy">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="placeholderText">
+          <string>Enter property name here...</string>
+         </property>
+         <property name="prefEntry" stdset="0">
+          <cstring>DocInfo_CreatedBy</cstring>
+         </property>
+         <property name="prefPath" stdset="0">
+          <cstring>Mod/TitleBlock Workbench</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_19">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Creation date:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="2">
+        <widget class="Gui::PrefLineEdit" name="DocInfo_CreatedDate">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="placeholderText">
+          <string>Enter property name here...</string>
+         </property>
+         <property name="prefEntry" stdset="0">
+          <cstring>DocInfo_CreatedDate</cstring>
+         </property>
+         <property name="prefPath" stdset="0">
+          <cstring>Mod/TitleBlock Workbench</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_18">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Last modified by:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1" colspan="2">
+        <widget class="Gui::PrefLineEdit" name="DocInfo_LastModifiedBy">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhNone</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>Enter property name here...</string>
+         </property>
+         <property name="prefEntry" stdset="0">
+          <cstring>DocInfo_LastModifiedBy</cstring>
+         </property>
+         <property name="prefPath" stdset="0">
+          <cstring>Mod/TitleBlock Workbench</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_22">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Last modification by:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1" colspan="2">
+        <widget class="Gui::PrefLineEdit" name="DocInfo_LastModifiedDate">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhNone</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>Enter property name here...</string>
+         </property>
+         <property name="prefEntry" stdset="0">
+          <cstring>DocInfo_LastModifiedDate</cstring>
+         </property>
+         <property name="prefPath" stdset="0">
+          <cstring>Mod/TitleBlock Workbench</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_23">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Company:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1" colspan="2">
+        <widget class="Gui::PrefLineEdit" name="DocInfo_Company">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhNone</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>Enter property name here...</string>
+         </property>
+         <property name="prefEntry" stdset="0">
+          <cstring>DocInfo_Company</cstring>
+         </property>
+         <property name="prefPath" stdset="0">
+          <cstring>Mod/TitleBlock Workbench</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_24">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>License information:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1" colspan="2">
+        <widget class="Gui::PrefLineEdit" name="DocInfo_License">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhNone</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>Enter property name here...</string>
+         </property>
+         <property name="prefEntry" stdset="0">
+          <cstring>DocInfo_License</cstring>
+         </property>
+         <property name="prefPath" stdset="0">
+          <cstring>Mod/TitleBlock Workbench</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_25">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>License URL:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1" colspan="2">
+        <widget class="Gui::PrefLineEdit" name="DocInfo_LicenseURL">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhNone</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>Enter property name here...</string>
+         </property>
+         <property name="prefEntry" stdset="0">
+          <cstring>DocInfo_LicenseURL</cstring>
+         </property>
+         <property name="prefPath" stdset="0">
+          <cstring>Mod/TitleBlock Workbench</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_26">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Comment:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1" colspan="2">
+        <widget class="Gui::PrefLineEdit" name="DocInfo_Comment">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhNone</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>Enter property name here...</string>
+         </property>
+         <property name="prefEntry" stdset="0">
+          <cstring>DocInfo_Comment</cstring>
+         </property>
+         <property name="prefPath" stdset="0">
+          <cstring>Mod/TitleBlock Workbench</cstring>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
    </widget>
    <widget class="QWidget" name="External_Source">
     <attribute name="title">
@@ -651,7 +1037,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>90</y>
+        <y>95</y>
         <width>361</width>
         <height>25</height>
        </rect>
@@ -1204,6 +1590,11 @@
     </widget>
    </widget>
   </widget>
+  <action name="actionGetSheet_ExternalSource">
+   <property name="text">
+    <string>GetSheet_ExternalSource</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="5"/>
  <customwidgets>
@@ -1607,6 +1998,22 @@
     <hint type="destinationlabel">
      <x>346</x>
      <y>422</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ExternalFileChooser</sender>
+   <signal>fileNameChanged(QString)</signal>
+   <receiver>actionGetSheet_ExternalSource</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>217</x>
+     <y>94</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
     </hint>
    </hints>
   </connection>

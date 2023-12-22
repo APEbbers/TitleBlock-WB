@@ -544,6 +544,9 @@ class Ui_Form(object):
         self.Default_Template.setProperty("prefEntry", u"Default_Template")
         self.Default_Template.setProperty("prefPath", u"Mod/TitleBlock Workbench")
         self.tabWidget.addTab(self.TechDraw_Workbench, "")
+        self.widget_2 = QWidget(Form)
+        self.widget_2.setObjectName(u"widget_2")
+        self.widget_2.setGeometry(QRect(4, 4, 436, 911))
         QWidget.setTabOrder(self.Import_templates, self.EnableDebug)
         QWidget.setTabOrder(self.EnableDebug, self.AddToolBarTechDraw)
         QWidget.setTabOrder(self.AddToolBarTechDraw, self.StartCell)
@@ -590,7 +593,7 @@ class Ui_Form(object):
         self.ImportSettingsXL.toggled.connect(self.label_9.setEnabled)
         self.ExternalFileChooser.fileNameChanged.connect(self.actionGetSheet_ExternalSource.trigger)
 
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(Form)

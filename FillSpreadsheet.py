@@ -351,6 +351,18 @@ def MapDocInfo(sheet):
                 # If the cell in column A is equal to # DOCINFO_LICENSE, add the value in column B
                 if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LICENSE:
                     sheet.set("B" + str(RowNum), doc.License)
+
+            # DOCINFO_LICENSE
+            if str(DOCINFO_LICENSEURL).strip():
+                # If the cell in column A is equal to # DOCINFO_LICENSEURL, add the value in column B
+                if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LICENSEURL:
+                    sheet.set("B" + str(RowNum), doc.LicenseURL)
+
+            # DOCINFO_COMMENT
+            if str(DOCINFO_COMMENT).strip():
+                # If the cell in column A is equal to # DOCINFO_COMMENT, add the value in column B
+                if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_COMMENT:
+                    sheet.set("B" + str(RowNum), doc.Comment)
         return
 
 

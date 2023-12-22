@@ -236,4 +236,4 @@ def Print(Input: str, Type: str = ""):
     elif Type == "Log":
         App.Console.PrintLog(Input + "\n")
     else:
-        App.PrintMessage(Input + "\n")
+        App.Console.PrintMessage(Input + "\n")

@@ -11,11 +11,10 @@
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
-    QCursor, QFont, QFontDatabase, QGradient,
-    QIcon, QImage, QKeySequence, QLinearGradient,
-    QPainter, QPalette, QPixmap, QRadialGradient,
-    QTransform)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QGroupBox,
     QHBoxLayout, QLabel, QSizePolicy, QTabWidget,
     QVBoxLayout, QWidget)
@@ -25,12 +24,10 @@ class Ui_Form(object):
         if not Form.objectName():
             Form.setObjectName(u"Form")
         Form.setWindowModality(Qt.ApplicationModal)
-        Form.resize(985, 1075)
+        Form.resize(498, 972)
         Form.setContextMenuPolicy(Qt.NoContextMenu)
         Form.setWindowTitle(u"Preferences")
         Form.setInputMethodHints(Qt.ImhNone)
-        self.actionGetSheet_ExternalSource = QAction(Form)
-        self.actionGetSheet_ExternalSource.setObjectName(u"actionGetSheet_ExternalSource")
         self.widget = QWidget(Form)
         self.widget.setObjectName(u"widget")
         self.widget.setGeometry(QRect(5, 850, 421, 56))
@@ -544,9 +541,6 @@ class Ui_Form(object):
         self.Default_Template.setProperty("prefEntry", u"Default_Template")
         self.Default_Template.setProperty("prefPath", u"Mod/TitleBlock Workbench")
         self.tabWidget.addTab(self.TechDraw_Workbench, "")
-        self.widget_2 = QWidget(Form)
-        self.widget_2.setObjectName(u"widget_2")
-        self.widget_2.setGeometry(QRect(4, 4, 436, 911))
         QWidget.setTabOrder(self.Import_templates, self.EnableDebug)
         QWidget.setTabOrder(self.EnableDebug, self.AddToolBarTechDraw)
         QWidget.setTabOrder(self.AddToolBarTechDraw, self.StartCell)
@@ -591,7 +585,6 @@ class Ui_Form(object):
         self.ImportSettingsXL.toggled.connect(self.label_13.setEnabled)
         self.ImportSettingsXL.toggled.connect(self.StartCell_Settings.setEnabled)
         self.ImportSettingsXL.toggled.connect(self.label_9.setEnabled)
-        self.ExternalFileChooser.fileNameChanged.connect(self.actionGetSheet_ExternalSource.trigger)
 
         self.tabWidget.setCurrentIndex(0)
 
@@ -600,7 +593,6 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        self.actionGetSheet_ExternalSource.setText(QCoreApplication.translate("Form", u"GetSheet_ExternalSource", None))
         self.label.setText(QCoreApplication.translate("Form", u"FreeCAD needs to be restarted before changes become active.", None))
         self.EnableDebug.setText(QCoreApplication.translate("Form", u"Debug mode", None))
         self.label_11.setText(QCoreApplication.translate("Form", u"<html><head/><body><p><span style=\" font-style:italic;\">(If enabled, extra information will be shown in the report view.)</span></p></body></html>", None))

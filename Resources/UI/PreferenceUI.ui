@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>985</width>
-    <height>1075</height>
+    <width>498</width>
+    <height>972</height>
    </rect>
   </property>
   <property name="contextMenuPolicy">
@@ -1590,21 +1590,6 @@
     </widget>
    </widget>
   </widget>
-  <widget class="QWidget" name="widget_2" native="true">
-   <property name="geometry">
-    <rect>
-     <x>4</x>
-     <y>4</y>
-     <width>436</width>
-     <height>911</height>
-    </rect>
-   </property>
-  </widget>
-  <action name="actionGetSheet_ExternalSource">
-   <property name="text">
-    <string>GetSheet_ExternalSource</string>
-   </property>
-  </action>
  </widget>
  <layoutdefault spacing="6" margin="5"/>
  <customwidgets>
@@ -2008,22 +1993,6 @@
     <hint type="destinationlabel">
      <x>346</x>
      <y>422</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ExternalFileChooser</sender>
-   <signal>fileNameChanged(QString)</signal>
-   <receiver>actionGetSheet_ExternalSource</receiver>
-   <slot>trigger()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>217</x>
-     <y>94</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>-1</x>
-     <y>-1</y>
     </hint>
    </hints>
   </connection>

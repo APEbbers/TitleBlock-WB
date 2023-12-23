@@ -177,14 +177,6 @@ def AddExtraData(sheet, StartRow):
 
 # Map data from the system and/or document to the spreadsheet
 def MapData(sheet):
-    """
-    0:  Map all\n
-    1:  Map length unit only\n
-    2:  Map angle unit only\n
-    3:  Map mass unit only\n
-    4:  Map No of sheets only\n
-    5:  Map filename only\n
-    """
     # Get the filename
     filename = os.path.basename(App.ActiveDocument.FileName).split(".")[0]
 
@@ -204,6 +196,8 @@ def MapData(sheet):
 
     # get units scheme
     SchemeNumber = App.Units.getSchema()
+
+    print(f"{PropertyName}, {MAP_NOSHEETS}")
 
     # Go through the column A in the spreadsheet and find the properties.
     for RowNum in range(1000):

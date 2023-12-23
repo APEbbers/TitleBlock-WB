@@ -404,7 +404,7 @@ def FillSheet():
         # get the editable texts
         texts = page.Template.EditableTexts
         # get the spreadsheet "TitleBlock"
-        sheet = sheet = App.ActiveDocument.getObject("TitleBlock")
+        sheet = App.ActiveDocument.getObject("TitleBlock")
 
         # Debug mode is active, show all editable text in the page
         if ENABLE_DEBUG is True:
@@ -461,6 +461,7 @@ def FillSheet():
 
         # Finally recompute the spreadsheet
         sheet.recompute()
+        App.ActiveDocument.recompute()
     # except TypeError:
     #     pass
     except Exception as e:
@@ -513,7 +514,7 @@ def ImportDataExcel():
                 return
 
             # get the spreadsheet "TitleBlock"
-            sheet = sheet = App.ActiveDocument.getObject("TitleBlock")
+            sheet = App.ActiveDocument.getObject("TitleBlock")
 
             # Get the startcolumn and the other three columns from there
             StartCell = EXTERNAL_SOURCE_STARTCELL
@@ -642,6 +643,7 @@ def ImportDataExcel():
 
             # Finally recompute the spreadsheet
             sheet.recompute()
+            App.ActiveDocument.recompute()
 
         else:
             Standard_Functions.Mbox("External source is not enabled!", "", 0)

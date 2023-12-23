@@ -254,7 +254,7 @@ def MapData(sheet):
             # If the cell in column A is equal to MAP_NOSHEETS, add the value in column B
             # print(f"{PropertyName}, {MAP_NOSHEETS}")
             if PropertyName == MAP_NOSHEETS:
-                sheet.set("B" + str(RowNum), len(pages))
+                sheet.set("B" + str(RowNum), str(len(pages)))
 
         # Map the filename
         # Map only as requested

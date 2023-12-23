@@ -248,7 +248,7 @@ def MapData(sheet):
 
         # Map the number of pages
         # Map only as requested
-        print(f"{PropertyName}, {MAP_NOSHEETS}")
+        print(str(MAP_NOSHEETS).strip())
         if str(MAP_NOSHEETS).strip():
             # Get all the pages
             pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")

@@ -26,13 +26,25 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
-     <width>441</width>
-     <height>906</height>
+     <y>5</y>
+     <width>476</width>
+     <height>856</height>
     </rect>
    </property>
    <property name="frameShape">
     <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="lineWidth">
+    <number>1</number>
+   </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOn</enum>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustToContents</enum>
    </property>
    <property name="widgetResizable">
     <bool>true</bool>
@@ -42,15 +54,15 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>441</width>
-      <height>906</height>
+      <width>459</width>
+      <height>856</height>
      </rect>
     </property>
     <widget class="QTabWidget" name="tabWidget">
      <property name="geometry">
       <rect>
-       <x>5</x>
-       <y>5</y>
+       <x>10</x>
+       <y>10</y>
        <width>436</width>
        <height>841</height>
       </rect>
@@ -529,7 +541,7 @@
         </layout>
        </widget>
       </widget>
-      <widget class="QGroupBox" name="groupBox_Map_Items_2">
+      <widget class="QGroupBox" name="groupBox_Map_DocInfo">
        <property name="geometry">
         <rect>
          <x>5</x>
@@ -578,7 +590,7 @@
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>11</x>
@@ -926,7 +938,7 @@
          <x>5</x>
          <y>10</y>
          <width>421</width>
-         <height>226</height>
+         <height>246</height>
         </rect>
        </property>
        <property name="sizePolicy">
@@ -970,7 +982,7 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>75</y>
+          <y>85</y>
           <width>371</width>
           <height>16</height>
          </rect>
@@ -998,7 +1010,7 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>95</y>
+          <y>105</y>
           <width>361</width>
           <height>25</height>
          </rect>
@@ -1069,7 +1081,7 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>115</y>
+          <y>135</y>
           <width>341</width>
           <height>51</height>
          </rect>
@@ -1097,7 +1109,7 @@
         <property name="geometry">
          <rect>
           <x>170</x>
-          <y>155</y>
+          <y>175</y>
           <width>216</width>
           <height>31</height>
          </rect>
@@ -1123,7 +1135,7 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>160</y>
+          <y>180</y>
           <width>153</width>
           <height>25</height>
          </rect>
@@ -1157,7 +1169,7 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>195</y>
+          <y>215</y>
           <width>158</width>
           <height>17</height>
          </rect>
@@ -1186,9 +1198,9 @@
        <property name="geometry">
         <rect>
          <x>5</x>
-         <y>245</y>
+         <y>275</y>
          <width>421</width>
-         <height>241</height>
+         <height>186</height>
         </rect>
        </property>
        <property name="title">
@@ -1551,69 +1563,6 @@
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="widget" native="true">
-     <property name="geometry">
-      <rect>
-       <x>15</x>
-       <y>850</y>
-       <width>421</width>
-       <height>56</height>
-      </rect>
-     </property>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>5</y>
-        <width>401</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <italic>true</italic>
-       </font>
-      </property>
-      <property name="text">
-       <string>FreeCAD needs to be restarted before changes become active.</string>
-      </property>
-     </widget>
-     <widget class="QWidget" name="layoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>30</y>
-        <width>397</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="Gui::PrefCheckBox" name="EnableDebug">
-         <property name="text">
-          <string>Debug mode</string>
-         </property>
-         <property name="checked">
-          <bool>false</bool>
-         </property>
-         <property name="prefEntry" stdset="0">
-          <cstring>EnableDebug</cstring>
-         </property>
-         <property name="prefPath" stdset="0">
-          <cstring>Mod/TitleBlock Workbench</cstring>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_11">
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;(If enabled, extra information will be shown in the report view.)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </widget>
    </widget>
   </widget>
  </widget>
@@ -1646,94 +1595,39 @@
   </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>Import_templates</tabstop>
-  <tabstop>EnableDebug</tabstop>
-  <tabstop>AddToolBarTechDraw</tabstop>
-  <tabstop>StartCell</tabstop>
-  <tabstop>AutoFillTitleBlock</tabstop>
-  <tabstop>ImportSettingsXL</tabstop>
-  <tabstop>SheetName_Settings</tabstop>
-  <tabstop>StartCell_Settings</tabstop>
+  <tabstop>tabWidget</tabstop>
   <tabstop>UseFileName</tabstop>
   <tabstop>DrawingNumber</tabstop>
   <tabstop>MapLength</tabstop>
   <tabstop>MapAngle</tabstop>
   <tabstop>MapMass</tabstop>
   <tabstop>MapNoSheets</tabstop>
+  <tabstop>DocInfo_Name</tabstop>
+  <tabstop>DocInfo_CreatedBy</tabstop>
+  <tabstop>DocInfo_CreatedDate</tabstop>
+  <tabstop>DocInfo_LastModifiedBy</tabstop>
+  <tabstop>DocInfo_LastModifiedDate</tabstop>
+  <tabstop>DocInfo_Company</tabstop>
+  <tabstop>DocInfo_License</tabstop>
+  <tabstop>DocInfo_LicenseURL</tabstop>
+  <tabstop>DocInfo_Comment</tabstop>
   <tabstop>IncludeLengthUnit</tabstop>
   <tabstop>IncludeAngleUnit</tabstop>
-  <tabstop>IncludeNoOfSheets</tabstop>
   <tabstop>IncludeMassUnit</tabstop>
+  <tabstop>IncludeNoOfSheets</tabstop>
   <tabstop>UseExternalSource</tabstop>
-  <tabstop>tabWidget</tabstop>
   <tabstop>SheetName</tabstop>
+  <tabstop>StartCell</tabstop>
+  <tabstop>AutoFillTitleBlock</tabstop>
+  <tabstop>ImportSettingsXL</tabstop>
+  <tabstop>SheetName_Settings</tabstop>
+  <tabstop>StartCell_Settings</tabstop>
+  <tabstop>AddToolBarTechDraw</tabstop>
+  <tabstop>Import_templates</tabstop>
+  <tabstop>Default_Template</tabstop>
  </tabstops>
  <resources/>
  <connections>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>SheetName</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>124</x>
-     <y>68</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>129</x>
-     <y>146</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Import_templates</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_12</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>111</x>
-     <y>97</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>113</x>
-     <y>113</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>ExternalFileChooser</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>124</x>
-     <y>68</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>209</x>
-     <y>96</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ImportSettingsXL</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>groupBox_DrawingNumber</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>199</x>
-     <y>302</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>214</x>
-     <y>49</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>UseFileName</sender>
    <signal>toggled(bool)</signal>
@@ -1751,18 +1645,18 @@
    </hints>
   </connection>
   <connection>
-   <sender>UseExternalSource</sender>
+   <sender>Import_templates</sender>
    <signal>toggled(bool)</signal>
-   <receiver>widget_ImportSettings</receiver>
+   <receiver>Default_Template</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>132</x>
-     <y>62</y>
+     <x>142</x>
+     <y>97</y>
     </hint>
     <hint type="destinationlabel">
-     <x>212</x>
-     <y>327</y>
+     <x>100</x>
+     <y>136</y>
     </hint>
    </hints>
   </connection>
@@ -1785,6 +1679,102 @@
   <connection>
    <sender>ImportSettingsXL</sender>
    <signal>toggled(bool)</signal>
+   <receiver>label_13</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>263</x>
+     <y>309</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>169</x>
+     <y>395</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>widget_ImportSettings</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>62</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>212</x>
+     <y>327</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>StartCell</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>68</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>67</x>
+     <y>216</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ImportSettingsXL</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>groupBox_Included_Items</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>199</x>
+     <y>302</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>215</x>
+     <y>647</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ImportSettingsXL</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_9</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>341</x>
+     <y>312</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>346</x>
+     <y>422</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>ExternalFileChooser</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>68</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>209</x>
+     <y>96</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ImportSettingsXL</sender>
+   <signal>toggled(bool)</signal>
    <receiver>label_14</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
@@ -1801,7 +1791,7 @@
   <connection>
    <sender>UseExternalSource</sender>
    <signal>toggled(bool)</signal>
-   <receiver>AutoFillTitleBlock</receiver>
+   <receiver>label_15</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1809,56 +1799,8 @@
      <y>62</y>
     </hint>
     <hint type="destinationlabel">
-     <x>119</x>
-     <y>237</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>ImportSettingsXL</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>70</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>207</x>
-     <y>310</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ImportSettingsXL</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>StartCell_Settings</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>169</x>
-     <y>317</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>163</x>
-     <y>428</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ImportSettingsXL</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_13</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>263</x>
-     <y>309</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>169</x>
-     <y>395</y>
+     <x>187</x>
+     <y>162</y>
     </hint>
    </hints>
   </connection>
@@ -1881,6 +1823,54 @@
   <connection>
    <sender>UseExternalSource</sender>
    <signal>toggled(bool)</signal>
+   <receiver>SheetName</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>68</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>129</x>
+     <y>146</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ImportSettingsXL</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>StartCell_Settings</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>169</x>
+     <y>317</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>163</x>
+     <y>428</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>ImportSettingsXL</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>70</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>207</x>
+     <y>310</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
    <receiver>label_16</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
@@ -1891,6 +1881,70 @@
     <hint type="destinationlabel">
      <x>202</x>
      <y>112</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Import_templates</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_12</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>111</x>
+     <y>97</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>113</x>
+     <y>113</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>AutoFillTitleBlock</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>62</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>119</x>
+     <y>237</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseFileName</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_10</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>134</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>269</x>
+     <y>99</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ImportSettingsXL</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>groupBox_DrawingNumber</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>199</x>
+     <y>302</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>214</x>
+     <y>49</y>
     </hint>
    </hints>
   </connection>
@@ -1929,96 +1983,16 @@
   <connection>
    <sender>UseExternalSource</sender>
    <signal>toggled(bool)</signal>
-   <receiver>label_15</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>62</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>187</x>
-     <y>162</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ImportSettingsXL</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>groupBox_Included_Items</receiver>
+   <receiver>groupBox_Map_DocInfo</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>199</x>
-     <y>302</y>
+     <x>132</x>
+     <y>70</y>
     </hint>
     <hint type="destinationlabel">
-     <x>214</x>
-     <y>349</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ImportSettingsXL</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_9</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>341</x>
-     <y>312</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>346</x>
-     <y>422</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Import_templates</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>Default_Template</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>142</x>
-     <y>97</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>100</x>
-     <y>136</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseFileName</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_10</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>134</x>
-     <y>69</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>269</x>
-     <y>99</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>StartCell</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>124</x>
-     <y>68</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>67</x>
-     <y>216</y>
+     <x>217</x>
+     <y>487</y>
     </hint>
    </hints>
   </connection>

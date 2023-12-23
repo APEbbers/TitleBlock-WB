@@ -210,6 +210,7 @@ def MapData(sheet, MapSpecific: int = 0):
         # Start with x+1 first, to make sure that x is at least 1.
         RowNum = RowNum + 2
 
+        # Get the property name. If it starts with ' remove it.
         PropertyName = str(sheet.getContents("A" + str(RowNum)))
         if PropertyName.startswith("'"):
             PropertyName = PropertyName[1:]
@@ -264,7 +265,7 @@ def MapData(sheet, MapSpecific: int = 0):
                 pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
                 # If the cell in column A is equal to MAP_NOSHEETS, add the value in column B
                 if PropertyName == MAP_NOSHEETS:
-                    sheet.set("B" + str(RowNum), str(len(pages)))
+                    sheet.set("B" + str(RowNum), len(pages))
 
         # Map the filename
         # Map only as requested
@@ -313,10 +314,8 @@ def MapDocInfo(sheet):
         # Start with x+1 first, to make sure that x is at least 1.
         RowNum = RowNum + 2
 
+        # Get the property name. If it starts with ' remove it.
         PropertyName = str(sheet.getContents("A" + str(RowNum)))
-        if PropertyName.startswith("'"):
-            PropertyName = PropertyName[1:]
-
         if PropertyName.startswith("'"):
             PropertyName = PropertyName[1:]
 
@@ -329,10 +328,7 @@ def MapDocInfo(sheet):
         # DOCINFO_CREATEDBY
         if str(DOCINFO_CREATEDBY).strip():
             # If the cell in column A is equal to # DOCINFO_CREATEDBY, add the value in column B
-
-            print(f"{DOCINFO_CREATEDBY}, {PropertyName}")
             if PropertyName == DOCINFO_CREATEDBY:
-                print(doc.CreatedBy)
                 sheet.set("B" + str(RowNum), doc.CreatedBy)
 
         # DOCINFO_CREATEDDATE

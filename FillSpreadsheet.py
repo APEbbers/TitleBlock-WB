@@ -205,6 +205,10 @@ def MapData(sheet, MapSpecific: int = 0):
     # get units scheme
     SchemeNumber = App.Units.getSchema()
 
+    PropertyName = PropertyName
+    if PropertyName.startswith("'"):
+        PropertyName = PropertyName[1:]
+
     # Go through the column A in the spreadsheet and find the properties.
     for RowNum in range(1000):
         # Start with x+1 first, to make sure that x is at least 1.
@@ -215,7 +219,7 @@ def MapData(sheet, MapSpecific: int = 0):
         if MapSpecific == 0 or MapSpecific == 1:
             if str(MAP_LENGTH).strip():
                 # If the cell in column A is equal to MAP_LENGTH, add the value in column B
-                if str(sheet.getContents("A" + str(RowNum))) == MAP_LENGTH:
+                if PropertyName == MAP_LENGTH:
                     sheet.set(
                         "B" + str(RowNum),
                         str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Length), SchemeNumber))
@@ -229,7 +233,7 @@ def MapData(sheet, MapSpecific: int = 0):
         if MapSpecific == 0 or MapSpecific == 2:
             if str(MAP_ANGLE).strip():
                 # If the cell in column A is equal to MAP_ANGLE, add the value in column B
-                if str(sheet.getContents("A" + str(RowNum))) == MAP_ANGLE:
+                if PropertyName == MAP_ANGLE:
                     sheet.set(
                         "B" + str(RowNum),
                         str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Angle), SchemeNumber))
@@ -243,7 +247,7 @@ def MapData(sheet, MapSpecific: int = 0):
         if MapSpecific == 0 or MapSpecific == 3:
             if str(MAP_MASS).strip():
                 # If the cell in column A is equal to MAP_MASS, add the value in column B
-                if str(sheet.getContents("A" + str(RowNum))) == MAP_MASS:
+                if PropertyName == MAP_MASS:
                     sheet.set(
                         "B" + str(RowNum),
                         str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Mass), SchemeNumber))
@@ -259,7 +263,7 @@ def MapData(sheet, MapSpecific: int = 0):
                 # Get all the pages
                 pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
                 # If the cell in column A is equal to MAP_NOSHEETS, add the value in column B
-                if str(sheet.getContents("A" + str(RowNum))) == MAP_NOSHEETS:
+                if PropertyName == MAP_NOSHEETS:
                     sheet.set("B" + str(RowNum), str(len(pages)))
 
         # Map the filename
@@ -268,7 +272,7 @@ def MapData(sheet, MapSpecific: int = 0):
             if USE_FILENAME_DRAW_NO is True:
                 if str(DRAW_NO_FiELD).strip():
                     # If the cell in column A is equal to DRAW_NO_FiELD, add the value in column B
-                    if str(sheet.getContents("A" + str(RowNum))) == DRAW_NO_FiELD:
+                    if PropertyName == DRAW_NO_FiELD:
                         sheet.set("B" + str(RowNum), filename)
 
         # Check if the next row exits. If not this is the end of all the available values.
@@ -309,61 +313,66 @@ def MapDocInfo(sheet):
         # Start with x+1 first, to make sure that x is at least 1.
         RowNum = RowNum + 2
 
+        PropertyName = PropertyName
+        if PropertyName.startswith("'"):
+            PropertyName = PropertyName[1:]
+
         # DOCINFO_NAME
         if str(DOCINFO_NAME).strip():
             # If the cell in column A is equal to # DOCINFO_NAME, add the value in column B
-            if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_NAME:
+            if PropertyName == DOCINFO_NAME:
                 sheet.set("B" + str(RowNum), doc.Name)
 
         # DOCINFO_CREATEDBY
         if str(DOCINFO_CREATEDBY).strip():
             # If the cell in column A is equal to # DOCINFO_CREATEDBY, add the value in column B
-            print(f"{DOCINFO_CREATEDBY}, {str(sheet.getContents('A' + str(RowNum)))}")
-            if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_CREATEDBY:
+
+            print(f"{DOCINFO_CREATEDBY}, {PropertyName}")
+            if PropertyName == DOCINFO_CREATEDBY:
                 print(doc.CreatedBy)
                 sheet.set("B" + str(RowNum), doc.CreatedBy)
 
         # DOCINFO_CREATEDDATE
         if str(DOCINFO_CREATEDDATE).strip():
             # If the cell in column A is equal to # DOCINFO_CREATEDDATE, add the value in column B
-            if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_CREATEDDATE:
+            if PropertyName == DOCINFO_CREATEDDATE:
                 CreationDate = doc.CreationDate.split("T")[0]
                 sheet.set("B" + str(RowNum), CreationDate)
 
         # DOCINFO_LASTMODIFIEDBY
         if str(DOCINFO_LASTMODIFIEDBY).strip():
             # If the cell in column A is equal to # DOCINFO_LASTMODIFIEDBY, add the value in column B
-            if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LASTMODIFIEDBY:
+            if PropertyName == DOCINFO_LASTMODIFIEDBY:
                 sheet.set("B" + str(RowNum), doc.LastModifiedBy)
 
         # DOCINFO_LASTMODIFIEDDATE
         if str(DOCINFO_LASTMODIFIEDDATE).strip():
             # If the cell in column A is equal to # DOCINFO_LASTMODIFIEDDATE, add the value in column B
-            if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LASTMODIFIEDDATE:
+            if PropertyName == DOCINFO_LASTMODIFIEDDATE:
                 sheet.set("B" + str(RowNum), doc.LastModifiedDate)
 
         # DOCINFO_COMPANY
         if str(DOCINFO_COMPANY).strip():
             # If the cell in column A is equal to # DOCINFO_COMPANY, add the value in column B
-            if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_COMPANY:
+            if PropertyName == DOCINFO_COMPANY:
                 sheet.set("B" + str(RowNum), doc.Company)
 
         # DOCINFO_LICENSE
         if str(DOCINFO_LICENSE).strip():
             # If the cell in column A is equal to # DOCINFO_LICENSE, add the value in column B
-            if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LICENSE:
+            if PropertyName == DOCINFO_LICENSE:
                 sheet.set("B" + str(RowNum), doc.License)
 
         # DOCINFO_LICENSEURL
         if str(DOCINFO_LICENSEURL).strip():
             # If the cell in column A is equal to # DOCINFO_LICENSEURL, add the value in column B
-            if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_LICENSEURL:
+            if PropertyName == DOCINFO_LICENSEURL:
                 sheet.set("B" + str(RowNum), doc.LicenseURL)
 
         # DOCINFO_COMMENT
         if str(DOCINFO_COMMENT).strip():
             # If the cell in column A is equal to # DOCINFO_COMMENT, add the value in column B
-            if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_COMMENT:
+            if PropertyName == DOCINFO_COMMENT:
                 sheet.set("B" + str(RowNum), doc.Comment)
     return
 

@@ -24,9 +24,6 @@ import os
 import FreeCAD as App
 import FreeCADGui as Gui
 from inspect import getsourcefile
-from Standard_Functions_TitleBlock import (
-    StandardFunctions_FreeCAD as Standard_Functions,
-)
 
 __title__ = "TitleBlock Workbench"
 __author__ = "A.P. Ebbers"
@@ -85,9 +82,7 @@ class TitleBlockWB(Gui.Workbench):
                 "FillSpreadsheet",
                 "FillTitleBlock",
             ]  # a list of command names created in the line above
-        self.appendToolbar(
-            "TitleBlock", ToolbarList
-        )  # creates a new toolbar with your commands
+        self.appendToolbar("TitleBlock", ToolbarList)  # creates a new toolbar with your commands
 
         StandardList = self.list = [
             "FillTitleBlock",

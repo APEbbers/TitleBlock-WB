@@ -23,9 +23,7 @@
 
 
 import FreeCAD as App
-from Standard_Functions_TitleBlock import (
-    StandardFunctions_FreeCAD as Standard_Functions,
-)
+import Standard_Functions_TitleBlock as Standard_Functions
 from openpyxl import Workbook
 from openpyxl.styles import Alignment
 from openpyxl.worksheet.table import Table, TableStyleInfo

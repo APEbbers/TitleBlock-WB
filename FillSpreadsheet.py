@@ -264,6 +264,7 @@ def MapData(sheet, MapSpecific: int = 0):
                 # Get all the pages
                 pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
                 # If the cell in column A is equal to MAP_NOSHEETS, add the value in column B
+                print(f"{PropertyName}, {MAP_NOSHEETS}")
                 if PropertyName == MAP_NOSHEETS:
                     sheet.set("B" + str(RowNum), len(pages))
 

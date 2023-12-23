@@ -176,7 +176,7 @@ def AddExtraData(sheet, StartRow):
 
 
 # Map data from the system and/or document to the spreadsheet
-def MapData(sheet, MapSpecific: int = 0):
+def MapData(sheet):
     """
     0:  Map all\n
     1:  Map length unit only\n
@@ -217,65 +217,60 @@ def MapData(sheet, MapSpecific: int = 0):
 
         # Map length units of your FreeCAD application
         # Map only as requested
-        if MapSpecific == 0 or MapSpecific == 1:
-            if str(MAP_LENGTH).strip():
-                # If the cell in column A is equal to MAP_LENGTH, add the value in column B
-                if PropertyName == MAP_LENGTH:
-                    sheet.set(
-                        "B" + str(RowNum),
-                        str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Length), SchemeNumber))
-                        .split()[1]
-                        .replace("'", "")
-                        .replace(",", ""),
-                    )
+        if str(MAP_LENGTH).strip():
+            # If the cell in column A is equal to MAP_LENGTH, add the value in column B
+            if PropertyName == MAP_LENGTH:
+                sheet.set(
+                    "B" + str(RowNum),
+                    str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Length), SchemeNumber))
+                    .split()[1]
+                    .replace("'", "")
+                    .replace(",", ""),
+                )
 
         # Map angle units of your FreeCAD application
         # Map only as requested
-        if MapSpecific == 0 or MapSpecific == 2:
-            if str(MAP_ANGLE).strip():
-                # If the cell in column A is equal to MAP_ANGLE, add the value in column B
-                if PropertyName == MAP_ANGLE:
-                    sheet.set(
-                        "B" + str(RowNum),
-                        str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Angle), SchemeNumber))
-                        .split()[1]
-                        .replace("'", "")
-                        .replace(",", ""),
-                    )
+        if str(MAP_ANGLE).strip():
+            # If the cell in column A is equal to MAP_ANGLE, add the value in column B
+            if PropertyName == MAP_ANGLE:
+                sheet.set(
+                    "B" + str(RowNum),
+                    str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Angle), SchemeNumber))
+                    .split()[1]
+                    .replace("'", "")
+                    .replace(",", ""),
+                )
 
         # Map mass units of your FreeCAD application
         # Map only as requested
-        if MapSpecific == 0 or MapSpecific == 3:
-            if str(MAP_MASS).strip():
-                # If the cell in column A is equal to MAP_MASS, add the value in column B
-                if PropertyName == MAP_MASS:
-                    sheet.set(
-                        "B" + str(RowNum),
-                        str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Mass), SchemeNumber))
-                        .split()[1]
-                        .replace("'", "")
-                        .replace(",", ""),
-                    )
+        if str(MAP_MASS).strip():
+            # If the cell in column A is equal to MAP_MASS, add the value in column B
+            if PropertyName == MAP_MASS:
+                sheet.set(
+                    "B" + str(RowNum),
+                    str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Mass), SchemeNumber))
+                    .split()[1]
+                    .replace("'", "")
+                    .replace(",", ""),
+                )
 
         # Map the number of pages
         # Map only as requested
-        if MapSpecific == 0 or MapSpecific == 4:
-            if MAP_NOSHEETS is not None:
-                # Get all the pages
-                pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
-                # If the cell in column A is equal to MAP_NOSHEETS, add the value in column B
-                print(f"{PropertyName}, {MAP_NOSHEETS}")
-                if PropertyName == MAP_NOSHEETS:
-                    sheet.set("B" + str(RowNum), len(pages))
+        if str(MAP_NOSHEETS).strip():
+            # Get all the pages
+            pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+            # If the cell in column A is equal to MAP_NOSHEETS, add the value in column B
+            print(f"{PropertyName}, {MAP_NOSHEETS}")
+            if PropertyName == MAP_NOSHEETS:
+                sheet.set("B" + str(RowNum), len(pages))
 
         # Map the filename
         # Map only as requested
-        if MapSpecific == 0 or MapSpecific == 5:
-            if USE_FILENAME_DRAW_NO is True:
-                if str(DRAW_NO_FiELD).strip():
-                    # If the cell in column A is equal to DRAW_NO_FiELD, add the value in column B
-                    if PropertyName == DRAW_NO_FiELD:
-                        sheet.set("B" + str(RowNum), filename)
+        if USE_FILENAME_DRAW_NO is True:
+            if str(DRAW_NO_FiELD).strip():
+                # If the cell in column A is equal to DRAW_NO_FiELD, add the value in column B
+                if PropertyName == DRAW_NO_FiELD:
+                    sheet.set("B" + str(RowNum), filename)
 
         # Check if the next row exits. If not this is the end of all the available values.
         try:

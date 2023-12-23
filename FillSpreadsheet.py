@@ -192,7 +192,6 @@ def MapData(sheet):
             Standard_Functions.Print("the number of pages is mapped to: " + str(MAP_NOSHEETS), "Log")
         if USE_FILENAME_DRAW_NO is True:
             Standard_Functions.Print("The filename (" + str(filename) + ") is mapped to: " + str(DRAW_NO_FiELD))
-        return
 
     # get units scheme
     SchemeNumber = App.Units.getSchema()

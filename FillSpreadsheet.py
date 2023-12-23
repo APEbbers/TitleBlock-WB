@@ -197,8 +197,6 @@ def MapData(sheet):
     # get units scheme
     SchemeNumber = App.Units.getSchema()
 
-    print(f"{PropertyName}, {MAP_NOSHEETS}")
-
     # Go through the column A in the spreadsheet and find the properties.
     for RowNum in range(1000):
         # Start with x+1 first, to make sure that x is at least 1.

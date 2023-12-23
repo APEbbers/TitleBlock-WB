@@ -205,14 +205,14 @@ def MapData(sheet, MapSpecific: int = 0):
     # get units scheme
     SchemeNumber = App.Units.getSchema()
 
-    PropertyName = PropertyName
-    if PropertyName.startswith("'"):
-        PropertyName = PropertyName[1:]
-
     # Go through the column A in the spreadsheet and find the properties.
     for RowNum in range(1000):
         # Start with x+1 first, to make sure that x is at least 1.
         RowNum = RowNum + 2
+
+        PropertyName = str(sheet.getContents("A" + str(RowNum)))
+        if PropertyName.startswith("'"):
+            PropertyName = PropertyName[1:]
 
         # Map length units of your FreeCAD application
         # Map only as requested
@@ -313,7 +313,10 @@ def MapDocInfo(sheet):
         # Start with x+1 first, to make sure that x is at least 1.
         RowNum = RowNum + 2
 
-        PropertyName = PropertyName
+        PropertyName = str(sheet.getContents("A" + str(RowNum)))
+        if PropertyName.startswith("'"):
+            PropertyName = PropertyName[1:]
+
         if PropertyName.startswith("'"):
             PropertyName = PropertyName[1:]
 

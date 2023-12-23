@@ -318,7 +318,9 @@ def MapDocInfo(sheet):
         # DOCINFO_CREATEDBY
         if str(DOCINFO_CREATEDBY).strip():
             # If the cell in column A is equal to # DOCINFO_CREATEDBY, add the value in column B
+            print(f"{DOCINFO_CREATEDBY}, {str(sheet.getContents('A' + str(RowNum)))}")
             if str(sheet.getContents("A" + str(RowNum))) == DOCINFO_CREATEDBY:
+                print(doc.CreatedBy)
                 sheet.set("B" + str(RowNum), doc.CreatedBy)
 
         # DOCINFO_CREATEDDATE

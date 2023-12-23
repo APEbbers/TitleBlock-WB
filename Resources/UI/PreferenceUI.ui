@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1226</width>
-    <height>1233</height>
+    <width>1966</width>
+    <height>1330</height>
    </rect>
   </property>
   <property name="contextMenuPolicy">
@@ -26,7 +26,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>850</y>
+     <y>525</y>
      <width>421</width>
      <height>56</height>
     </rect>
@@ -90,8 +90,8 @@
     <rect>
      <x>5</x>
      <y>5</y>
-     <width>1221</width>
-     <height>841</height>
+     <width>456</width>
+     <height>516</height>
     </rect>
    </property>
    <property name="autoFillBackground">
@@ -104,851 +104,855 @@
     <attribute name="title">
      <string>TitleBlock</string>
     </attribute>
-    <widget class="QGroupBox" name="groupBox_DrawingNumber">
-     <property name="enabled">
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>451</width>
+       <height>491</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="widgetResizable">
       <bool>true</bool>
      </property>
-     <property name="geometry">
-      <rect>
-       <x>5</x>
-       <y>10</y>
-       <width>421</width>
-       <height>101</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>101</height>
-      </size>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="title">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
-     <widget class="Gui::PrefCheckBox" name="UseFileName">
+     <widget class="QWidget" name="scrollAreaWidgetContents">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>25</y>
-        <width>241</width>
-        <height>17</height>
+        <x>0</x>
+        <y>0</y>
+        <width>434</width>
+        <height>805</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Use filename as drawing number</string>
-      </property>
-      <property name="prefEntry" stdset="0">
-       <cstring>UseFileName</cstring>
-      </property>
-      <property name="prefPath" stdset="0">
-       <cstring>Mod/TitleBlock Workbench</cstring>
-      </property>
-     </widget>
-     <widget class="Gui::PrefLineEdit" name="DrawingNumber">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>70</y>
-        <width>241</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="inputMask">
-       <string/>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="placeholderText">
-       <string>Enter the property name...</string>
-      </property>
-      <property name="prefEntry" stdset="0">
-       <cstring>DrwNrFieldName</cstring>
-      </property>
-      <property name="prefPath" stdset="0">
-       <cstring>Mod/TitleBlock Workbench</cstring>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_10">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>50</y>
-        <width>256</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>The property name for drawing number:</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_Map_Items">
-     <property name="geometry">
-      <rect>
-       <x>5</x>
-       <y>120</y>
-       <width>421</width>
-       <height>176</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>176</height>
-      </size>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="title">
-      <string/>
-     </property>
-     <widget class="QLabel" name="label_3">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>321</width>
-        <height>36</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The following system properties can be mapped to the titleblock: &lt;span style=&quot; font-style:italic;&quot;&gt;(If not applicalbe, leave empty.)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="textFormat">
-       <enum>Qt::AutoText</enum>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QWidget" name="layoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>65</y>
-        <width>281</width>
-        <height>100</height>
-       </rect>
-      </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <property name="horizontalSpacing">
-        <number>10</number>
-       </property>
-       <item row="0" column="1">
-        <widget class="Gui::PrefLineEdit" name="MapLength">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QGroupBox" name="groupBox_DrawingNumber">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>101</height>
+          </size>
+         </property>
          <property name="font">
           <font>
-           <weight>50</weight>
-           <bold>false</bold>
+           <weight>75</weight>
+           <bold>true</bold>
           </font>
          </property>
-         <property name="placeholderText">
-          <string>Enter property name here...</string>
-         </property>
-         <property name="prefEntry" stdset="0">
-          <cstring>MapLength</cstring>
-         </property>
-         <property name="prefPath" stdset="0">
-          <cstring>Mod/TitleBlock Workbench</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="label_8">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Number of pages:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="Gui::PrefLineEdit" name="MapAngle">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="placeholderText">
-          <string>Enter property name here...</string>
-         </property>
-         <property name="prefEntry" stdset="0">
-          <cstring>MapAngle</cstring>
-         </property>
-         <property name="prefPath" stdset="0">
-          <cstring>Mod/TitleBlock Workbench</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="Gui::PrefLineEdit" name="MapMass">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="placeholderText">
-          <string>Enter property name here...</string>
-         </property>
-         <property name="prefEntry" stdset="0">
-          <cstring>MapMass</cstring>
-         </property>
-         <property name="prefPath" stdset="0">
-          <cstring>Mod/TitleBlock Workbench</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="Gui::PrefLineEdit" name="MapNoSheets">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="inputMethodHints">
-          <set>Qt::ImhNone</set>
-         </property>
-         <property name="text">
+         <property name="title">
           <string/>
          </property>
-         <property name="placeholderText">
-          <string>Enter property name here...</string>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
          </property>
-         <property name="prefEntry" stdset="0">
-          <cstring>MapNoSheets</cstring>
+         <property name="flat">
+          <bool>false</bool>
          </property>
-         <property name="prefPath" stdset="0">
-          <cstring>Mod/TitleBlock Workbench</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_7">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Mass unit:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_5">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Length unit:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_6">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Angle unit:</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_Included_Items">
-     <property name="geometry">
-      <rect>
-       <x>5</x>
-       <y>620</y>
-       <width>421</width>
-       <height>181</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>181</height>
-      </size>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="title">
-      <string/>
-     </property>
-     <widget class="QLabel" name="label_4">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>396</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The following properties can be included from the system:&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;(When the titleblock does have one or more properties already, you will end up with duplicates! It is advised to map the properties instead)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="textFormat">
-       <enum>Qt::RichText</enum>
-      </property>
-      <property name="scaledContents">
-       <bool>false</bool>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QWidget" name="layoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>80</y>
-        <width>144</width>
-        <height>88</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="Gui::PrefCheckBox" name="IncludeLengthUnit">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Include lengths</string>
-         </property>
-         <property name="prefEntry" stdset="0">
-          <cstring>IncludeLength</cstring>
-         </property>
-         <property name="prefPath" stdset="0">
-          <cstring>Mod/TitleBlock Workbench</cstring>
-         </property>
+         <widget class="Gui::PrefCheckBox" name="UseFileName">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>25</y>
+            <width>241</width>
+            <height>17</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Use filename as drawing number</string>
+          </property>
+          <property name="prefEntry" stdset="0">
+           <cstring>UseFileName</cstring>
+          </property>
+          <property name="prefPath" stdset="0">
+           <cstring>Mod/TitleBlock Workbench</cstring>
+          </property>
+         </widget>
+         <widget class="Gui::PrefLineEdit" name="DrawingNumber">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>70</y>
+            <width>241</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="inputMask">
+           <string/>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>Enter the property name...</string>
+          </property>
+          <property name="prefEntry" stdset="0">
+           <cstring>DrwNrFieldName</cstring>
+          </property>
+          <property name="prefPath" stdset="0">
+           <cstring>Mod/TitleBlock Workbench</cstring>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_10">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>50</y>
+            <width>256</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>The property name for drawing number:</string>
+          </property>
+         </widget>
         </widget>
        </item>
        <item>
-        <widget class="Gui::PrefCheckBox" name="IncludeAngleUnit">
+        <widget class="QGroupBox" name="groupBox_Map_Items">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>176</height>
+          </size>
+         </property>
          <property name="font">
           <font>
-           <weight>50</weight>
-           <bold>false</bold>
+           <weight>75</weight>
+           <bold>true</bold>
           </font>
          </property>
-         <property name="text">
-          <string>Include angles</string>
+         <property name="title">
+          <string/>
          </property>
-         <property name="prefEntry" stdset="0">
-          <cstring>IncludeAngle</cstring>
-         </property>
-         <property name="prefPath" stdset="0">
-          <cstring>Mod/TitleBlock Workbench</cstring>
-         </property>
+         <widget class="QLabel" name="label_3">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>321</width>
+            <height>36</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The following system properties can be mapped to the titleblock: &lt;span style=&quot; font-style:italic;&quot;&gt;(If not applicalbe, leave empty.)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="textFormat">
+           <enum>Qt::AutoText</enum>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>65</y>
+            <width>281</width>
+            <height>100</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout">
+           <property name="horizontalSpacing">
+            <number>10</number>
+           </property>
+           <item row="0" column="1">
+            <widget class="Gui::PrefLineEdit" name="MapLength">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Enter property name here...</string>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>MapLength</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_8">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Number of pages:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="Gui::PrefLineEdit" name="MapAngle">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Enter property name here...</string>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>MapAngle</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="Gui::PrefLineEdit" name="MapMass">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Enter property name here...</string>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>MapMass</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="Gui::PrefLineEdit" name="MapNoSheets">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="inputMethodHints">
+              <set>Qt::ImhNone</set>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="placeholderText">
+              <string>Enter property name here...</string>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>MapNoSheets</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_7">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Mass unit:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_5">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Length unit:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_6">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Angle unit:</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </item>
        <item>
-        <widget class="Gui::PrefCheckBox" name="IncludeMassUnit">
+        <widget class="QGroupBox" name="groupBox_Map_DocInfo">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>311</height>
+          </size>
+         </property>
          <property name="font">
           <font>
-           <weight>50</weight>
-           <bold>false</bold>
+           <weight>75</weight>
+           <bold>true</bold>
           </font>
          </property>
-         <property name="text">
-          <string>Include mass</string>
+         <property name="title">
+          <string/>
          </property>
-         <property name="prefEntry" stdset="0">
-          <cstring>IncludeMass</cstring>
-         </property>
-         <property name="prefPath" stdset="0">
-          <cstring>Mod/TitleBlock Workbench</cstring>
-         </property>
+         <widget class="QLabel" name="label_17">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>321</width>
+            <height>36</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The following document information values can be mapped to the titleblock: &lt;span style=&quot; font-style:italic;&quot;&gt;(If not applicalbe, leave empty.)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="textFormat">
+           <enum>Qt::AutoText</enum>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>11</x>
+            <y>66</y>
+            <width>246</width>
+            <height>230</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_20">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Name:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1" colspan="2">
+            <widget class="Gui::PrefLineEdit" name="DocInfo_Name">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Enter property name here...</string>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>DocInfo_Name</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_21">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Created by:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1" colspan="2">
+            <widget class="Gui::PrefLineEdit" name="DocInfo_CreatedBy">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Enter property name here...</string>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>DocInfo_CreatedBy</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_19">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Creation date:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1" colspan="2">
+            <widget class="Gui::PrefLineEdit" name="DocInfo_CreatedDate">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Enter property name here...</string>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>DocInfo_CreatedDate</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_18">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Last modified by:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1" colspan="2">
+            <widget class="Gui::PrefLineEdit" name="DocInfo_LastModifiedBy">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="inputMethodHints">
+              <set>Qt::ImhNone</set>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="placeholderText">
+              <string>Enter property name here...</string>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>DocInfo_LastModifiedBy</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_22">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Last modification by:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1" colspan="2">
+            <widget class="Gui::PrefLineEdit" name="DocInfo_LastModifiedDate">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="inputMethodHints">
+              <set>Qt::ImhNone</set>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="placeholderText">
+              <string>Enter property name here...</string>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>DocInfo_LastModifiedDate</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_23">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Company:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1" colspan="2">
+            <widget class="Gui::PrefLineEdit" name="DocInfo_Company">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="inputMethodHints">
+              <set>Qt::ImhNone</set>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="placeholderText">
+              <string>Enter property name here...</string>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>DocInfo_Company</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_24">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>License information:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1" colspan="2">
+            <widget class="Gui::PrefLineEdit" name="DocInfo_License">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="inputMethodHints">
+              <set>Qt::ImhNone</set>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="placeholderText">
+              <string>Enter property name here...</string>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>DocInfo_License</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_25">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>License URL:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1" colspan="2">
+            <widget class="Gui::PrefLineEdit" name="DocInfo_LicenseURL">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="inputMethodHints">
+              <set>Qt::ImhNone</set>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="placeholderText">
+              <string>Enter property name here...</string>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>DocInfo_LicenseURL</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QLabel" name="label_26">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Comment:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1" colspan="2">
+            <widget class="Gui::PrefLineEdit" name="DocInfo_Comment">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="inputMethodHints">
+              <set>Qt::ImhNone</set>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="placeholderText">
+              <string>Enter property name here...</string>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>DocInfo_Comment</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </item>
        <item>
-        <widget class="Gui::PrefCheckBox" name="IncludeNoOfSheets">
+        <widget class="QGroupBox" name="groupBox_Included_Items">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>181</height>
+          </size>
+         </property>
          <property name="font">
           <font>
-           <weight>50</weight>
-           <bold>false</bold>
+           <weight>75</weight>
+           <bold>true</bold>
           </font>
          </property>
-         <property name="text">
-          <string>Include number of pages</string>
-         </property>
-         <property name="prefEntry" stdset="0">
-          <cstring>IncludeNoOfSheets</cstring>
-         </property>
-         <property name="prefPath" stdset="0">
-          <cstring>Mod/TitleBlock Workbench</cstring>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_Map_DocInfo">
-     <property name="geometry">
-      <rect>
-       <x>5</x>
-       <y>305</y>
-       <width>421</width>
-       <height>311</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>176</height>
-      </size>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="title">
-      <string/>
-     </property>
-     <widget class="QLabel" name="label_17">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>321</width>
-        <height>36</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The following document information values can be mapped to the titleblock: &lt;span style=&quot; font-style:italic;&quot;&gt;(If not applicalbe, leave empty.)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="textFormat">
-       <enum>Qt::AutoText</enum>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QWidget" name="layoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>11</x>
-        <y>66</y>
-        <width>246</width>
-        <height>230</height>
-       </rect>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_20">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Name:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1" colspan="2">
-        <widget class="Gui::PrefLineEdit" name="DocInfo_Name">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="placeholderText">
-          <string>Enter property name here...</string>
-         </property>
-         <property name="prefEntry" stdset="0">
-          <cstring>DocInfo_Name</cstring>
-         </property>
-         <property name="prefPath" stdset="0">
-          <cstring>Mod/TitleBlock Workbench</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_21">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Created by:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1" colspan="2">
-        <widget class="Gui::PrefLineEdit" name="DocInfo_CreatedBy">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="placeholderText">
-          <string>Enter property name here...</string>
-         </property>
-         <property name="prefEntry" stdset="0">
-          <cstring>DocInfo_CreatedBy</cstring>
-         </property>
-         <property name="prefPath" stdset="0">
-          <cstring>Mod/TitleBlock Workbench</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_19">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Creation date:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1" colspan="2">
-        <widget class="Gui::PrefLineEdit" name="DocInfo_CreatedDate">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="placeholderText">
-          <string>Enter property name here...</string>
-         </property>
-         <property name="prefEntry" stdset="0">
-          <cstring>DocInfo_CreatedDate</cstring>
-         </property>
-         <property name="prefPath" stdset="0">
-          <cstring>Mod/TitleBlock Workbench</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="label_18">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Last modified by:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1" colspan="2">
-        <widget class="Gui::PrefLineEdit" name="DocInfo_LastModifiedBy">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="inputMethodHints">
-          <set>Qt::ImhNone</set>
-         </property>
-         <property name="text">
+         <property name="title">
           <string/>
          </property>
-         <property name="placeholderText">
-          <string>Enter property name here...</string>
-         </property>
-         <property name="prefEntry" stdset="0">
-          <cstring>DocInfo_LastModifiedBy</cstring>
-         </property>
-         <property name="prefPath" stdset="0">
-          <cstring>Mod/TitleBlock Workbench</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="label_22">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Last modification by:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1" colspan="2">
-        <widget class="Gui::PrefLineEdit" name="DocInfo_LastModifiedDate">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="inputMethodHints">
-          <set>Qt::ImhNone</set>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="placeholderText">
-          <string>Enter property name here...</string>
-         </property>
-         <property name="prefEntry" stdset="0">
-          <cstring>DocInfo_LastModifiedDate</cstring>
-         </property>
-         <property name="prefPath" stdset="0">
-          <cstring>Mod/TitleBlock Workbench</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="label_23">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Company:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1" colspan="2">
-        <widget class="Gui::PrefLineEdit" name="DocInfo_Company">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="inputMethodHints">
-          <set>Qt::ImhNone</set>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="placeholderText">
-          <string>Enter property name here...</string>
-         </property>
-         <property name="prefEntry" stdset="0">
-          <cstring>DocInfo_Company</cstring>
-         </property>
-         <property name="prefPath" stdset="0">
-          <cstring>Mod/TitleBlock Workbench</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0">
-        <widget class="QLabel" name="label_24">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>License information:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="1" colspan="2">
-        <widget class="Gui::PrefLineEdit" name="DocInfo_License">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="inputMethodHints">
-          <set>Qt::ImhNone</set>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="placeholderText">
-          <string>Enter property name here...</string>
-         </property>
-         <property name="prefEntry" stdset="0">
-          <cstring>DocInfo_License</cstring>
-         </property>
-         <property name="prefPath" stdset="0">
-          <cstring>Mod/TitleBlock Workbench</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="0">
-        <widget class="QLabel" name="label_25">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>License URL:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="1" colspan="2">
-        <widget class="Gui::PrefLineEdit" name="DocInfo_LicenseURL">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="inputMethodHints">
-          <set>Qt::ImhNone</set>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="placeholderText">
-          <string>Enter property name here...</string>
-         </property>
-         <property name="prefEntry" stdset="0">
-          <cstring>DocInfo_LicenseURL</cstring>
-         </property>
-         <property name="prefPath" stdset="0">
-          <cstring>Mod/TitleBlock Workbench</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="0">
-        <widget class="QLabel" name="label_26">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Comment:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="1" colspan="2">
-        <widget class="Gui::PrefLineEdit" name="DocInfo_Comment">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="inputMethodHints">
-          <set>Qt::ImhNone</set>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="placeholderText">
-          <string>Enter property name here...</string>
-         </property>
-         <property name="prefEntry" stdset="0">
-          <cstring>DocInfo_Comment</cstring>
-         </property>
-         <property name="prefPath" stdset="0">
-          <cstring>Mod/TitleBlock Workbench</cstring>
-         </property>
+         <widget class="QLabel" name="label_4">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>396</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The following properties can be included from the system:&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;(When the titleblock does have one or more properties already, you will end up with duplicates! It is advised to map the properties instead)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="textFormat">
+           <enum>Qt::RichText</enum>
+          </property>
+          <property name="scaledContents">
+           <bool>false</bool>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>80</y>
+            <width>144</width>
+            <height>88</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="Gui::PrefCheckBox" name="IncludeLengthUnit">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Include lengths</string>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>IncludeLength</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="Gui::PrefCheckBox" name="IncludeAngleUnit">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Include angles</string>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>IncludeAngle</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="Gui::PrefCheckBox" name="IncludeMassUnit">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Include mass</string>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>IncludeMass</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="Gui::PrefCheckBox" name="IncludeNoOfSheets">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Include number of pages</string>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>IncludeNoOfSheets</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -1322,9 +1326,9 @@
        </property>
        <property name="geometry">
         <rect>
-         <x>5</x>
+         <x>7</x>
          <y>140</y>
-         <width>153</width>
+         <width>151</width>
          <height>25</height>
         </rect>
        </property>
@@ -1389,7 +1393,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>110</y>
+         <y>105</y>
          <width>206</width>
          <height>31</height>
         </rect>
@@ -1511,7 +1515,7 @@
        <rect>
         <x>11</x>
         <y>72</y>
-        <width>98</width>
+        <width>211</width>
         <height>16</height>
        </rect>
       </property>
@@ -1546,7 +1550,7 @@
        <rect>
         <x>11</x>
         <y>91</y>
-        <width>96</width>
+        <width>211</width>
         <height>20</height>
        </rect>
       </property>
@@ -1654,194 +1658,18 @@
  <resources/>
  <connections>
   <connection>
-   <sender>UseFileName</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>DrawingNumber</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>134</x>
-     <y>69</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>134</x>
-     <y>119</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Import_templates</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>Default_Template</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>142</x>
-     <y>97</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>100</x>
-     <y>136</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_2</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>124</x>
-     <y>68</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>213</x>
-     <y>212</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>ImportSettingsXL</sender>
    <signal>toggled(bool)</signal>
-   <receiver>label_13</receiver>
+   <receiver>SheetName_Settings</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>263</x>
-     <y>309</y>
+     <x>377</x>
+     <y>315</y>
     </hint>
     <hint type="destinationlabel">
-     <x>169</x>
-     <y>395</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>widget_ImportSettings</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>62</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>212</x>
-     <y>327</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>StartCell</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>124</x>
-     <y>68</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>67</x>
-     <y>216</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ImportSettingsXL</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>groupBox_Included_Items</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>199</x>
-     <y>302</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>215</x>
-     <y>647</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ImportSettingsXL</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_9</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>341</x>
-     <y>312</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>346</x>
-     <y>422</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>ExternalFileChooser</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>124</x>
-     <y>68</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>209</x>
-     <y>96</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ImportSettingsXL</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_14</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>365</x>
-     <y>312</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>323</x>
-     <y>334</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_15</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>62</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>187</x>
-     <y>162</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>ImportSettingsXL</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>62</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>199</x>
-     <y>302</y>
+     <x>129</x>
+     <y>367</y>
     </hint>
    </hints>
   </connection>
@@ -1864,102 +1692,6 @@
   <connection>
    <sender>ImportSettingsXL</sender>
    <signal>toggled(bool)</signal>
-   <receiver>StartCell_Settings</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>169</x>
-     <y>317</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>163</x>
-     <y>428</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>ImportSettingsXL</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>70</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>207</x>
-     <y>310</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_16</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>62</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>202</x>
-     <y>112</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Import_templates</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_12</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>111</x>
-     <y>97</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>113</x>
-     <y>113</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>AutoFillTitleBlock</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>62</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>119</x>
-     <y>237</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseFileName</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_10</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>134</x>
-     <y>69</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>269</x>
-     <y>99</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ImportSettingsXL</sender>
-   <signal>toggled(bool)</signal>
    <receiver>groupBox_DrawingNumber</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
@@ -1976,16 +1708,32 @@
   <connection>
    <sender>ImportSettingsXL</sender>
    <signal>toggled(bool)</signal>
-   <receiver>SheetName_Settings</receiver>
+   <receiver>groupBox_Included_Items</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>199</x>
+     <y>302</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>215</x>
+     <y>647</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Import_templates</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>Default_Template</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>377</x>
-     <y>315</y>
+     <x>142</x>
+     <y>97</y>
     </hint>
     <hint type="destinationlabel">
-     <x>129</x>
-     <y>367</y>
+     <x>100</x>
+     <y>136</y>
     </hint>
    </hints>
   </connection>
@@ -2008,6 +1756,118 @@
   <connection>
    <sender>UseExternalSource</sender>
    <signal>toggled(bool)</signal>
+   <receiver>label_2</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>68</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>213</x>
+     <y>212</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>widget_ImportSettings</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>62</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>212</x>
+     <y>327</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>ExternalFileChooser</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>68</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>209</x>
+     <y>96</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ImportSettingsXL</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_13</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>263</x>
+     <y>309</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>169</x>
+     <y>395</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ImportSettingsXL</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>StartCell_Settings</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>169</x>
+     <y>317</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>163</x>
+     <y>428</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ImportSettingsXL</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_9</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>341</x>
+     <y>312</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>346</x>
+     <y>422</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Import_templates</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_12</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>111</x>
+     <y>97</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>113</x>
+     <y>113</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
    <receiver>groupBox_Map_DocInfo</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
@@ -2018,6 +1878,150 @@
     <hint type="destinationlabel">
      <x>217</x>
      <y>487</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>AutoFillTitleBlock</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>62</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>119</x>
+     <y>237</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseFileName</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>DrawingNumber</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>134</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>134</x>
+     <y>119</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>StartCell</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>68</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>67</x>
+     <y>216</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_15</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>62</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>187</x>
+     <y>162</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_16</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>62</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>112</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>ImportSettingsXL</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>70</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>207</x>
+     <y>310</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>ImportSettingsXL</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>62</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>302</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseFileName</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_10</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>134</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>269</x>
+     <y>99</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ImportSettingsXL</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_14</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>365</x>
+     <y>312</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>323</x>
+     <y>334</y>
     </hint>
    </hints>
   </connection>

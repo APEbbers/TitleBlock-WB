@@ -260,7 +260,7 @@ def MapData(sheet, MapSpecific: int = 0):
         # Map the number of pages
         # Map only as requested
         if MapSpecific == 0 or MapSpecific == 4:
-            if str(MAP_NOSHEETS).strip():
+            if MAP_NOSHEETS is not None:
                 # Get all the pages
                 pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
                 # If the cell in column A is equal to MAP_NOSHEETS, add the value in column B

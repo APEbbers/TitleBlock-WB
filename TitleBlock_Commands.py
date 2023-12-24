@@ -39,8 +39,8 @@ class FillSpreadsheet_Class:
     def GetResources(self):
         return {
             "Pixmap": "FillSpreadsheet.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("Import data from titleblock"),
-            "ToolTip": QT_TRANSLATE_NOOP("Import data from titleblock to the titleblock spreadsheet"),
+            "MenuText": QT_TRANSLATE_NOOP("CommandName", "Import data from titleblock"),
+            "ToolTip": QT_TRANSLATE_NOOP("CommandName", "Import data from titleblock to the titleblock spreadsheet"),
         }
 
     def Activated(self):
@@ -70,8 +70,8 @@ class FillTitleBlock_Class:
     def GetResources(self):
         return {
             "Pixmap": "FillTitleBlock.svg",  # the name of a svg file available in the resources
-            "MenuText": "Populate titleblock",
-            "ToolTip": "Imports data from the spreadsheet to titleblock of all pages",
+            "MenuText": QT_TRANSLATE_NOOP("CommandName", "Populate titleblock"),
+            "ToolTip": QT_TRANSLATE_NOOP("CommandName", "Imports data from the spreadsheet to titleblock of all pages"),
         }
 
     def Activated(self):
@@ -100,8 +100,8 @@ class ImportExcel_Class:
     def GetResources(self):
         return {
             "Pixmap": "ImportExcel.svg",  # the name of a svg file available in the resources
-            "MenuText": "Import data from excel",
-            "ToolTip": "Import data from excel to the titleblock spreadsheet",
+            "MenuText": QT_TRANSLATE_NOOP("CommandName", "Import data from excel"),
+            "ToolTip": QT_TRANSLATE_NOOP("CommandName", "Import data from excel to the titleblock spreadsheet"),
         }
 
     def Activated(self):
@@ -133,8 +133,8 @@ class ExportSpreadsheet_class:
     def GetResources(self):
         return {
             "Pixmap": "ExportExcel.svg",  # the name of a svg file available in the resources
-            "MenuText": "Export data to excel",
-            "ToolTip": "Export data from the titleblock spreadsheet to an excel file",
+            "MenuText": QT_TRANSLATE_NOOP("CommandName", "Export data to excel"),
+            "ToolTip": QT_TRANSLATE_NOOP("CommandName", "Export data from the titleblock spreadsheet to an excel file"),
         }
 
     def Activated(self):
@@ -163,8 +163,10 @@ class ExportSettings_class:
     def GetResources(self):
         return {
             "Pixmap": "ExportSettings.svg",  # the name of a svg file available in the resources
-            "MenuText": "Export settings",
-            "ToolTip": "Exports all settings to the external excel file in its own sheet",
+            "MenuText": QT_TRANSLATE_NOOP("CommandName", "Export settings"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "CommandName", "Exports all settings to the external excel file in its own sheet"
+            ),
         }
 
     def Activated(self):
@@ -183,8 +185,8 @@ class ImportSettings_class:
     def GetResources(self):
         return {
             "Pixmap": "ImportSettings.svg",  # the name of a svg file available in the resources
-            "MenuText": "Import settings",
-            "ToolTip": "Imports all settings from the external excel file",
+            "MenuText": QT_TRANSLATE_NOOP("CommandName", "Import settings"),
+            "ToolTip": QT_TRANSLATE_NOOP("CommandName", "Imports all settings from the external excel file"),
         }
 
     def Activated(self):
@@ -204,8 +206,8 @@ class OpenExcel_class:
     def GetResources(self):
         return {
             "Pixmap": "OpenExcel.svg",  # the name of a svg file available in the resources
-            "MenuText": "Open the Excel workbook",
-            "ToolTip": "Open the Excel workbook in it's default application",
+            "MenuText": QT_TRANSLATE_NOOP("CommandName", "Open the Excel workbook"),
+            "ToolTip": QT_TRANSLATE_NOOP("CommandName", "Open the Excel workbook in it's default application"),
         }
 
     def Activated(self):

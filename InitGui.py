@@ -58,7 +58,7 @@ class TitleBlockWB(Gui.Workbench):
 
     Gui.addIconPath(PATH_TB_ICONS)
     Gui.addPreferencePage(
-        os.path.join(PATH_TB_UI, "PreferenceUI.ui"),
+        os.path.join(PATH_TB_UI, "PreferenceUI.ui").replace("\\", "/"),
         "TitleBlock Workbench",
     )
 

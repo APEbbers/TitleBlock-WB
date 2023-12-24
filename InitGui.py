@@ -43,6 +43,7 @@ PATH_TB = file_path = os.path.dirname(getsourcefile(lambda: 0))
 global PATH_TB_ICONS
 global PATH_TB_RESOURCES
 global PATH_TB_UI
+global PATH_TRANSLATION
 
 PATH_TB_ICONS = os.path.join(PATH_TB, "Resources", "Icons").replace("\\", "/")
 PATH_TB_RESOURCES = os.path.join(PATH_TB, "Resources").replace("\\", "/")

@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python3.8
 
 # ***************************************************************************
 # *   Copyright (c) 2023 Paul Ebbers paul.ebbers@gmail.com                  *

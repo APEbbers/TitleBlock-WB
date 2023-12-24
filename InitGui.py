@@ -24,37 +24,34 @@ import os
 import FreeCAD as App
 import FreeCADGui as Gui
 from inspect import getsourcefile
+import Settings
 
 # Define the translation
 translate = App.Qt.translate
-
-
-def QT_TRANSLATE_NOOP(context, text):
-    return text
-
 
 __title__ = "TitleBlock Workbench"
 __author__ = "A.P. Ebbers"
 __url__ = "https://github.com/APEbbers/TechDrawTitleBlockUtility.git"
 
 # get the path of the current python script
-PATH_TB = file_path = os.path.dirname(getsourcefile(lambda: 0))
+# PATH_TB = file_path = os.path.dirname(getsourcefile(lambda: 0))
+PATH_TB = os.path.dirname(os.path.abspath(Settings.__file__))
 
 global PATH_TB_ICONS
 global PATH_TB_RESOURCES
 global PATH_TB_UI
 global PATH_TRANSLATION
 
-PATH_TB_ICONS = os.path.join(PATH_TB, "Resources", "Icons").replace("\\", "/")
-PATH_TB_RESOURCES = os.path.join(PATH_TB, "Resources").replace("\\", "/")
-PATH_TB_UI = os.path.join(PATH_TB, "Resources", "UI").replace("\\", "/")
-PATH_TRANSLATION = os.path.join(PATH_TB, "Translations").replace("\\", "/")
+PATH_TB_ICONS = os.path.join(PATH_TB, "Resources", "Icons")
+PATH_TB_RESOURCES = os.path.join(PATH_TB, "Resources")
+PATH_TB_UI = os.path.join(PATH_TB, "Resources", "UI")
+PATH_TRANSLATION = os.path.join(PATH_TB, "Translations")
 
 
 class TitleBlockWB(Gui.Workbench):
     MenuText = "TitleBlock Workbench"
     ToolTip = "An extension for the TechDraw workbench to fill a TitleBlock"
-    Icon = os.path.join(PATH_TB_ICONS, "TitleBlockWB.svg").replace("\\", "/")
+    Icon = os.path.join(PATH_TB_ICONS, "TitleBlockWB.svg")
 
     Gui.addIconPath(PATH_TB_ICONS)
     Gui.addPreferencePage(
@@ -78,6 +75,9 @@ class TitleBlockWB(Gui.Workbench):
         from Settings import ADD_TOOLBAR_TECHDRAW
         import CreateUI
         import TechDrawFunctions
+
+        def QT_TRANSLATE_NOOP(context, text):
+            return text
 
         Gui.addLanguagePath(PATH_TRANSLATION)
 

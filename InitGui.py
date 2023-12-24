@@ -25,6 +25,14 @@ import FreeCAD as App
 import FreeCADGui as Gui
 from inspect import getsourcefile
 
+# Define the translation
+translate = App.Qt.translate
+
+
+def QT_TRANSLATE_NOOP(context, text):
+    return text
+
+
 __title__ = "TitleBlock Workbench"
 __author__ = "A.P. Ebbers"
 __url__ = "https://github.com/APEbbers/TechDrawTitleBlockUtility.git"
@@ -35,10 +43,12 @@ PATH_TB = file_path = os.path.dirname(getsourcefile(lambda: 0))
 global PATH_TB_ICONS
 global PATH_TB_RESOURCES
 global PATH_TB_UI
+global PATH_TRANSLATION
 
 PATH_TB_ICONS = os.path.join(PATH_TB, "Resources", "Icons").replace("\\", "/")
 PATH_TB_RESOURCES = os.path.join(PATH_TB, "Resources").replace("\\", "/")
-PATH_TB_UI = os.path.join(PATH_TB, PATH_TB_RESOURCES, "UI").replace("\\", "/")
+PATH_TB_UI = os.path.join(PATH_TB, "Resources", "UI").replace("\\", "/")
+PATH_TRANSLATION = os.path.join(PATH_TB, "Translations").replace("\\", "/")
 
 
 class TitleBlockWB(Gui.Workbench):
@@ -69,6 +79,8 @@ class TitleBlockWB(Gui.Workbench):
         import CreateUI
         import TechDrawFunctions
 
+        Gui.addLanguagePath(PATH_TRANSLATION)
+
         if IMPORT_SETTINGS_XL is True:
             Settings.ImportSettingsXL()
 
@@ -82,7 +94,9 @@ class TitleBlockWB(Gui.Workbench):
                 "FillSpreadsheet",
                 "FillTitleBlock",
             ]  # a list of command names created in the line above
-        self.appendToolbar("TitleBlock", ToolbarList)  # creates a new toolbar with your commands
+        self.appendToolbar(
+            QT_TRANSLATE_NOOP("Workbench", "TitleBlock"), ToolbarList
+        )  # creates a new toolbar with your commands
 
         StandardList = self.list = [
             "FillTitleBlock",
@@ -98,11 +112,11 @@ class TitleBlockWB(Gui.Workbench):
             "ImportSettings",
         ]
         self.appendMenu(
-            "TitleBlock",
+            QT_TRANSLATE_NOOP("Workbench", "TitleBlock"),
             StandardList,
         )  # creates a new menu
-        self.appendMenu(["TitleBlock", "Excel functions"], ExcelList)
-        self.appendMenu(["TitleBlock", "Settings"], SettingsList)
+        self.appendMenu(QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "Excel functions"]), ExcelList)
+        self.appendMenu(QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "Settings"]), SettingsList)
 
         if ADD_TOOLBAR_TECHDRAW is True:
             CreateUI.CreateTechDrawToolbar()

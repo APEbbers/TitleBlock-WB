@@ -40,6 +40,9 @@ import os
 import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
 
+# Define the translation
+translate = App.Qt.translate
+
 # Get the preferences
 from Settings import preferences
 
@@ -117,15 +120,16 @@ def AddExtraData(sheet, StartRow):
 
     # If the debug mode is active, show which property is includex.difference(y)
     if ENABLE_DEBUG is True:
+        Text = ""
         if INCLUDE_LENGTH is True:
-            Standard_Functions.Print("Length unit is included: " + str(INCLUDE_LENGTH), "Log")
+            Text = translate("context", "Length unit is included: " + str(INCLUDE_LENGTH))
         if INCLUDE_ANGLE is True:
-            Standard_Functions.Print("Angle unit is included: " + str(INCLUDE_ANGLE), "Log")
+            Text = translate("context", "Angle unit is included: " + str(INCLUDE_ANGLE))
         if INCLUDE_MASS is True:
-            Standard_Functions.Printt("Mass unit is included: " + str(INCLUDE_MASS), "Log")
+            Text = translate("context", "Mass unit is included: " + str(INCLUDE_MASS))
         if INCLUDE_NO_SHEETS is True:
-            Standard_Functions.Print("Number of pages is included: " + str(INCLUDE_NO_SHEETS), "Log")
-
+            Text = translate("context", "Number of pages is included: " + str(INCLUDE_NO_SHEETS))
+        Standard_Functions.Print(Text, "Log")
     # get units scheme
     SchemeNumber = App.Units.getSchema()
 
@@ -182,16 +186,18 @@ def MapData(sheet):
 
     # if the debug mode is on, show what is mapped to which property
     if ENABLE_DEBUG is True:
+        Text = ""
         if str(MAP_LENGTH).strip():
-            Standard_Functions.Print("Length unit is mapped to: " + str(MAP_LENGTH), "Log")
+            Text = translate("context", "Length unit is mapped to: " + str(MAP_LENGTH))
         if str(MAP_ANGLE).strip():
-            Standard_Functions.Print("Angle unit is mapped to: " + str(MAP_ANGLE), "Log")
+            Text = translate("context", "Angle unit is mapped to: " + str(MAP_ANGLE))
         if str(MAP_MASS).strip():
-            Standard_Functions.Print("Mass unit is mapped to: " + str(MAP_MASS), "Log")
+            Text = translate("context", "Mass unit is mapped to: " + str(MAP_MASS))
         if str(MAP_NOSHEETS).strip():
-            Standard_Functions.Print("the number of pages is mapped to: " + str(MAP_NOSHEETS), "Log")
+            Text = translate("context", "the number of pages is mapped to: " + str(MAP_NOSHEETS))
         if USE_FILENAME_DRAW_NO is True:
-            Standard_Functions.Print("The filename (" + str(filename) + ") is mapped to: " + str(DRAW_NO_FiELD))
+            Text = translate("context", "The filename (" + str(filename) + ") is mapped to: " + str(DRAW_NO_FiELD))
+        Standard_Functions.Print(Text, "Log")
 
     # get units scheme
     SchemeNumber = App.Units.getSchema()
@@ -251,7 +257,6 @@ def MapData(sheet):
             # Get all the pages
             pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
             # If the cell in column A is equal to MAP_NOSHEETS, add the value in column B
-            # print(f"{PropertyName}, {MAP_NOSHEETS}")
             if PropertyName == MAP_NOSHEETS:
                 sheet.set("B" + str(RowNum), str(len(pages)))
 
@@ -267,7 +272,6 @@ def MapData(sheet):
         try:
             sheet.getContents("A" + str(RowNum + 1))
         except Exception:
-            # print("end of range")
             return
 
 
@@ -277,24 +281,26 @@ def MapDocInfo(sheet):
 
     # if the debug mode is on, show what is mapped to which property
     if ENABLE_DEBUG is True:
+        Text = ""
         if str(DOCINFO_NAME).strip():
-            Standard_Functions.Print("Document name is mapped to:  " + str(DOCINFO_NAME), "Log")
+            Text = translate("context", "Document name is mapped to:  " + str(DOCINFO_NAME))
         if str(DOCINFO_CREATEDBY).strip():
-            Standard_Functions.Print("Created by value is mapped to:  " + str(DOCINFO_CREATEDBY), "Log")
+            Text = translate("context", "Created by value is mapped to:  " + str(DOCINFO_CREATEDBY))
         if str(DOCINFO_CREATEDDATE).strip():
-            Standard_Functions.Print("Created date is mapped to:  " + str(DOCINFO_CREATEDDATE), "Log")
+            Text = translate("context", "Created date is mapped to:  " + str(DOCINFO_CREATEDDATE))
         if str(DOCINFO_LASTMODIFIEDBY).strip():
-            Standard_Functions.Print("Last modified by value is mapped to:  " + str(DOCINFO_LASTMODIFIEDBY), "Log")
+            Text = translate("context", "Last modified by value is mapped to:  " + str(DOCINFO_LASTMODIFIEDBY))
         if str(DOCINFO_LASTMODIFIEDDATE).strip():
-            Standard_Functions.Print("Last modified date is mapped to:  " + str(DOCINFO_LASTMODIFIEDDATE), "Log")
+            Text = translate("context", "Last modified date is mapped to:  " + str(DOCINFO_LASTMODIFIEDDATE))
         if str(DOCINFO_COMPANY).strip():
-            Standard_Functions.Print("Company name is mapped to:  " + str(DOCINFO_COMPANY), "Log")
+            Text = translate("context", "Company name is mapped to:  " + str(DOCINFO_COMPANY))
         if str(DOCINFO_LICENSE).strip():
-            Standard_Functions.Print("License name is mapped to:  " + str(DOCINFO_LICENSE), "Log")
+            Text = translate("context", "License name is mapped to:  " + str(DOCINFO_LICENSE))
         if str(DOCINFO_LICENSEURL).strip():
-            Standard_Functions.Print("License link is mapped to:  " + str(DOCINFO_LICENSEURL), "Log")
+            Text = translate("context", "License link is mapped to:  " + str(DOCINFO_LICENSEURL))
         if str(DOCINFO_COMMENT).strip():
-            Standard_Functions.Print("Comment is mapped to:  " + str(DOCINFO_COMMENT), "Log")
+            Text = translate("context", "Comment is mapped to:  " + str(DOCINFO_COMMENT))
+        Standard_Functions.Print(Text, "Log")
 
     # Go through the column A in the spreadsheet and find the properties.
     for RowNum in range(1000):
@@ -405,9 +411,11 @@ def FillSheet():
 
         # Debug mode is active, show all editable text in the page
         if ENABLE_DEBUG is True:
-            Standard_Functions.Print("the following editable text are present in your page:", "Log")
+            Text = translate("context", "the following editable text are present in your page:")
+            Standard_Functions.Print(Text, "Log")
             for EditableText in texts.items():
-                Standard_Functions.Print(str(EditableText), "Log")
+                Text = translate("context", str(EditableText))
+                Standard_Functions.Print(Text, "Log")
 
         # set the headers in the spreadsheet
         sheet.set("A1", "Property Name")
@@ -464,7 +472,9 @@ def FillSheet():
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:
-            Text = "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
+            Text = translate(
+                "context", "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
+            )
             raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
     return
@@ -476,7 +486,8 @@ def ImportDataExcel():
 
     # if debug mode is enabled, show the external file including path.
     if ENABLE_DEBUG is True:
-        print(str(EXTERNAL_SOURCE_PATH))
+        Text = translate("context", str(EXTERNAL_SOURCE_PATH))
+        Standard_Functions.Print(Text, "Log")
 
     try:
         # Check if it is allowed to use an external source and if so, continue
@@ -487,9 +498,10 @@ def ImportDataExcel():
                 if EXTERNAL_SOURCE_SHEET_NAME == "":
                     # Set the sheetname with a inputbox
                     Worksheets_List = [i for i in wb.sheetnames if i != "Settings"]
+                    Text = translate("context", "Please enter the name of the worksheet")
                     Input_SheetName = str(
                         Standard_Functions.Mbox(
-                            text="Please enter the name of the worksheet",
+                            text=Text,
                             title="",
                             style=3,
                             default="TitleBlockData",
@@ -505,9 +517,11 @@ def ImportDataExcel():
             except Exception as e:
                 if ENABLE_DEBUG is True:
                     raise (e)
-                Standard_Functions.Mbox(
-                    "an problem occured while openening the excel file!\nDo you have it open in an another application?"
+                Text = translate(
+                    "context",
+                    "an problem occured while openening the excel file!\nDo you have it open in an another application",
                 )
+                Standard_Functions.Mbox(Text)
                 return
 
             # get the spreadsheet "TitleBlock"
@@ -521,10 +535,14 @@ def ImportDataExcel():
                 ws = wb[Input_SheetName]
 
                 # Set the startcell with an inputbox
+                Text = translate(
+                    "context",
+                    "Please enter the name of the cell.\n"
+                    + "Enter a single cell like 'A1', 'B2', etc. Other notations will be ignored!",
+                )
                 StartCell = str(
                     Standard_Functions.Mbox(
-                        "Please enter the name of the cell.\n"
-                        + "Enter a single cell like 'A1', 'B2', etc. Other notations will be ignored!",
+                        Text,
                         style=2,
                         default="A1",
                     )
@@ -540,9 +558,12 @@ def ImportDataExcel():
             StartColumn = StartCell[:1]
             # If debug mode is on, show the start colum and its number
             if ENABLE_DEBUG is True:
-                Standard_Functions.Print("Start column is: " + str(StartColumn), "Log")
+                Standard_Functions.Print(translate("context", "Start column is: " + str(StartColumn), "Log"))
                 Standard_Functions.Print(
-                    "Column number is: " + str(Standard_Functions.GetNumberFromLetter(StartColumn)), "Log"
+                    translate(
+                        "context", "Column number is: " + str(Standard_Functions.GetNumberFromLetter(StartColumn))
+                    ),
+                    "Log",
                 )
             Column2 = Standard_Functions.GetLetterFromNumber(
                 int(Standard_Functions.GetNumberFromLetter(StartColumn) + 1), True
@@ -561,7 +582,8 @@ def ImportDataExcel():
             StartRow = EXTERNAL_SOURCE_STARTCELL[1:2]
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
-                Standard_Functions.Print("the start row is: " + str(StartRow), "Log")
+                Text = translate("context", "the start row is: " + str(StartRow))
+                Standard_Functions.Print(Text, "Log")
 
             # import the headers from the excelsheet into the spreadsheet
             sheet.set("A1", str(ws[str(StartColumn) + str(StartRow)].value))
@@ -643,11 +665,14 @@ def ImportDataExcel():
             App.ActiveDocument.recompute()
 
         else:
-            Standard_Functions.Mbox("External source is not enabled!", "", 0)
+            Text = translate("context", "External source is not enabled!")
+            Standard_Functions.Mbox(Text, "", 0)
     except Exception as e:
-        Text = "TitleBlock Workbench: an error occurred!!\n"
+        Text = translate("context", "TitleBlock Workbench: an error occurred!!\n")
         if ENABLE_DEBUG is True:
-            Text = "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
+            Text = translate(
+                "context", "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
+            )
             raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
     return
@@ -666,7 +691,8 @@ def Start(command):
 
             # if the debug mode is on, report presense of titleblock spreadsheet
             if ENABLE_DEBUG is True:
-                Standard_Functions.Print("TitleBlock already present", "Log")
+                Text = translate("context", "TitleBlock already present")
+                Standard_Functions.Print(Text, "Log")
 
             return
         # if the result is empty, create a new titleblock spreadsheet
@@ -680,7 +706,8 @@ def Start(command):
                 ImportDataExcel()
             # if the debug mode is on, report creation of titleblock spreadsheet
             if ENABLE_DEBUG is True:
-                Standard_Functions.Print("TitleBlock created", "Log")
+                Text = translate("context", "TitleBlock created")
+                Standard_Functions.Print(Text, "Log")
 
             return
     except Exception as e:

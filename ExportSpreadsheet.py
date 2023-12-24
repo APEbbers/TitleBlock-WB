@@ -28,6 +28,9 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment
 from openpyxl.worksheet.table import Table, TableStyleInfo
 
+# Define the translation
+translate = App.Qt.translate
+
 
 def ExportSpreadSheet():
     import Settings
@@ -40,7 +43,8 @@ def ExportSpreadSheet():
         # get the spreadsheet "TitleBlock"
         sheet = sheet = App.ActiveDocument.getObject("TitleBlock")
         if sheet is None:
-            Standard_Functions.Mbox("No spreadsheet named 'TitleBlock'!!!", "", 0)
+            message = translate("context", "No spreadsheet named 'TitleBlock'!!!")
+            Standard_Functions.Mbox(message, "", 0)
             return
         sheet.recompute()
 
@@ -67,7 +71,8 @@ def ExportSpreadSheet():
         ) + str(TopRow)
 
         if ENABLE_DEBUG is True:
-            print(f"the startcell is: {StartCell}")
+            message = translate("context", f"the startcell is: {StartCell}")
+            print(message)
 
         # Set the headers
         ws[StartCell].value = str(sheet.getContents("A1"))
@@ -186,15 +191,20 @@ def ExportSpreadSheet():
             Settings.ExportSettingsXL(Silent=True)
 
         # print a message if you succeded.
+        message = translate(
+            "context", f"The titleblock data is exported to the workbook {FileName} in the worksheet {ws.title}"
+        )
         Standard_Functions.Mbox(
-            f"The titleblock data is exported to the workbook {FileName} in the worksheet {ws.title}",
+            message,
             "TitleBlock Workbench",
             0,
         )
     except Exception as e:
-        Text = "TitleBlock Workbench: an error occurred!!"
+        Text = translate("context", "TitleBlock Workbench: an error occurred!!")
         if ENABLE_DEBUG is True:
-            Text = "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
+            Text = translate(
+                "context", "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
+            )
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         if ENABLE_DEBUG is True:
             raise (e)

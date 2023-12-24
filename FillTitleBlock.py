@@ -34,14 +34,13 @@
 
 import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
-import FillSpreadsheet
+
+# Define the translation
+translate = App.Qt.translate
 
 
 def FillTitleBlock():
     from Settings import ENABLE_DEBUG
-    from Settings import USE_EXTERNAL_SOURCE
-    from Settings import EXTERNAL_SOURCE_SHEET_NAME
-    from Settings import EXTERNAL_SOURCE_STARTCELL
     from Settings import MAP_NOSHEETS
 
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
@@ -121,7 +120,10 @@ def FillTitleBlock():
 
                                 # if in debug mode. Show the value of the multiplier
                                 if ENABLE_DEBUG is True:
-                                    print("The values will be multiplied with: " + str(Multiplier))
+                                    Text = translate(
+                                        "context", "The values will be multiplied with: " + str(Multiplier)
+                                    )
+                                    Standard_Functions.Print(Text, "Log")
 
                                 # check if the value in colom B is an number
 
@@ -146,20 +148,21 @@ def FillTitleBlock():
 
                                 # If Debug mode is enabled, show NumCounter and Multplier
                                 if ENABLE_DEBUG is True:
-                                    print(
+                                    Text = translate(
+                                        "context",
                                         "NumCounter is: "
                                         + str((NumCounter))
                                         + ", Multiplier is: "
                                         + str(Multiplier)
                                         + "Text is:"
-                                        + str(textValue)
+                                        + str(textValue),
                                     )
+                                    Standard_Functions.Print(Text, "Log")
 
                     # Check if the next row exits. If not this is the end of all the available values.
                     try:
                         sheet.getContents("A" + str(RowNum + 1))
                     except Exception:
-                        # print("end of range")
                         break
 
                 # Write all the updated text to the page.
@@ -170,7 +173,8 @@ def FillTitleBlock():
 
             except Exception as e:
                 # raise an exeception if there is no spreadsheet.
-                Standard_Functions.Mbox("An error occured when writing the values!!", "TitleBlock Workbench", 0)
+                Text = translate("context", "An error occured when writing the values!!")
+                Standard_Functions.Mbox(Text, "TitleBlock Workbench", 0)
                 # if degbug mode is enabeled, print the exception
                 if ENABLE_DEBUG is True:
                     raise e
@@ -178,6 +182,8 @@ def FillTitleBlock():
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:
-            Text = "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
+            Text = translate(
+                "context", "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
+            )
             raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)

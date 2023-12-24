@@ -21,12 +21,14 @@
 # *                                                                         *
 # ***************************************************************************/
 
-import FreeCAD
+import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
 
 # region defenitions
-translate = FreeCAD.Qt.translate
-preferences = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/TitleBlock Workbench")
+# Define the translation
+translate = App.Qt.translate
+
+preferences = App.ParamGet("User parameter:BaseApp/Preferences/Mod/TitleBlock Workbench")
 # endregion
 
 
@@ -54,9 +56,10 @@ def GetBoolSetting(settingName: str) -> bool:
 
 
 def SetStringSetting(settingName: str, value: str):
+    Text = translate("context", f"string setting not applied!!\n Settings was: {settingName} and value was {value}")
     if value.lower() == "none":
         if ENABLE_DEBUG is True:
-            print(f"string setting not applied!!\n Settings was: {settingName} and value was {value}")
+            Standard_Functions.Print(Text, "Log")
             value = ""
     preferences.SetString(settingName, value)
 
@@ -65,8 +68,9 @@ def SetBoolSetting(settingName: str, value):
     if value.lower() == "true":
         Bool = True
     if str(value).lower() == "none" or value.lower() != "true":
+        Text = translate("context", f"bool setting not applied!!\n Settings was: {settingName} and value was {value}")
         if ENABLE_DEBUG is True:
-            print(f"bool setting not applied!!\n Settings was: {settingName} and value was {value}")
+            Standard_Functions.Print(Text, "Log")
         Bool = False
     preferences.SetBool(settingName, Bool)
 
@@ -171,16 +175,18 @@ def ExportSettingsXL(Silent=False):
             if Standard_Functions.CheckIfWorkbookExists(EXTERNAL_SOURCE_PATH, True) is True:
                 wb = load_workbook(EXTERNAL_SOURCE_PATH)
             else:
-                Standard_Functions.Print(
-                    f"TitleBlock Workbench: Something went wrong with loading {EXTERNAL_SOURCE_PATH}", "Error"
+                Text = translate(
+                    "context", f"TitleBlock Workbench: Something went wrong with loading {EXTERNAL_SOURCE_PATH}"
                 )
+                Standard_Functions.Print(Text, "Error")
                 return
 
             # Set the sheetname with a inputbox
             Worksheets_List = [i for i in wb.sheetnames if i != "TitleBlockData"]
+            Text = translate("context", "Please enter the name of the worksheet")
             Input_SheetName = str(
                 Standard_Functions.Mbox(
-                    text="Please enter the name of the worksheet",
+                    text=Text,
                     title="",
                     style=3,
                     default="Settings",
@@ -204,14 +210,12 @@ def ExportSettingsXL(Silent=False):
             ws = wb.create_sheet(title=Input_SheetName)
 
             # Set the startcell with an inputbox
-            StartCell = str(
-                Standard_Functions.Mbox(
-                    "Please enter the name of the cell.\n"
-                    + "Enter a single cell like 'A1', 'B2', etc. Other notations will be ignored!",
-                    style=2,
-                    default="A1",
-                )
+            Text = translate(
+                "context",
+                "Please enter the name of the cell.\n"
+                + "Enter a single cell like 'A1', 'B2', etc. Other notations will be ignored!",
             )
+            StartCell = str(Standard_Functions.Mbox(Text, style=2, default="A1"))
             if not StartCell.strip():
                 StartCell = "A1"
 
@@ -225,18 +229,22 @@ def ExportSettingsXL(Silent=False):
                 if Standard_Functions.CheckIfWorkbookExists(EXTERNAL_SOURCE_PATH, False) is True:
                     wb = load_workbook(str(EXTERNAL_SOURCE_PATH))
                 else:
-                    print(f"TitleBlock Workbench: Workbook didn't exist!. ({EXTERNAL_SOURCE_PATH})")
+                    Text = translate(
+                        "context", f"TitleBlock Workbench: Workbook didn't exist!. ({EXTERNAL_SOURCE_PATH})"
+                    )
+                    Standard_Functions.Print(Text, "Error")
                     return
             except Exception:
                 return
             ws = wb.create_sheet(SHEETNAME_SETTINGS_XL)
             StartCell = SHEETNAME_STARTCELL_XL
             if ENABLE_DEBUG is True:
-                Standard_Functions.Print(
+                Text = translate(
+                    "context",
                     "TitleBlock Workbench: Sheetname and startcell for the settings is: "
                     + f"{SHEETNAME_SETTINGS_XL}, {SHEETNAME_STARTCELL_XL}",
-                    "Log",
                 )
+                Standard_Functions.Print(Text, "Log")
         # endregion
 
         # region -- Create the headers
@@ -521,7 +529,8 @@ def ExportSettingsXL(Silent=False):
 
         # Align the columns
         if ENABLE_DEBUG is True:
-            print(f"TitleBlock Workbench: Table range is: {StartCell}:{EndCell}")
+            Text = translate("context", f"TitleBlock Workbench: Table range is: {StartCell}:{EndCell}")
+            Standard_Functions.Print(Text, "Log")
         for row in ws[1 : ws.max_row]:
             Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
             Column_2 = row[Standard_Functions.GetNumberFromLetter(EndCell[:1]) - 1]
@@ -548,13 +557,16 @@ def ExportSettingsXL(Silent=False):
         # Close the workbook
         wb.close()
     except openpyxl.utils.exceptions.ReadOnlyWorkbookException as e:
-        Standard_Functions.Mbox("The excel file is read only!", "TitleBlock Workbench", 0)
+        Text = translate("context", "The excel file is read only!")
+        Standard_Functions.Mbox(Text, "TitleBlock Workbench", 0)
         if ENABLE_DEBUG is True:
             raise (e)
     except Exception as e:
-        Text = "TitleBlock Workbench: an error occurred!!"
+        Text = translate("context", "TitleBlock Workbench: an error occurred!!")
         if ENABLE_DEBUG is True:
-            Text = "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
+            Text = translate(
+                "context", "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
+            )
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         if ENABLE_DEBUG is True:
             raise (e)
@@ -568,12 +580,13 @@ def ImportSettingsXL():
     if os.path.exists(EXTERNAL_SOURCE_PATH) is True:
         wb = load_workbook(str(EXTERNAL_SOURCE_PATH), read_only=True)
     if os.path.exists(EXTERNAL_SOURCE_PATH) is False:
-        Standard_Functions.Mbox(
+        Text = translate(
+            "context",
             "There is no excel workbook available, while import from external source is enabled!\n"
             + "Please create an excel workbook to export your settings to or disable import from external source.",
             "TitleBlock Workbench",
-            0,
         )
+        Standard_Functions.Mbox(Text, 0)
         return
 
     try:
@@ -584,24 +597,27 @@ def ImportSettingsXL():
                 ws = wb[str(SHEETNAME_SETTINGS_XL)]
                 counter = 1
         if counter == 0:
-            Standard_Functions.Print(
-                Input="TitleBlock Workbench: The sheet didn't exists when trying to import the settings!\n"
+            Text = translate(
+                "context",
+                "TitleBlock Workbench: The sheet didn't exists when trying to import the settings!\n"
                 + f"The sheetname should be {SHEETNAME_SETTINGS_XL}",
-                Type="Warning",
             )
+            Standard_Functions.Print(Input=Text, Type="Warning")
             return
 
         # Get the startcell
         StartCell = SHEETNAME_STARTCELL_XL
         OriginalStartCell = StartCell
         if ENABLE_DEBUG is True:
-            print(StartCell)
+            Text = translate("context", f"The entered startcell is: {StartCell}")
+            Standard_Functions.Print(Text, "Log")
         if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
             StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
             if ENABLE_DEBUG is True:
-                Standard_Functions.Print(
-                    f"TitleBlock Workbench: the startcell converted from {OriginalStartCell} to {StartCell}", "Log"
+                Text = translate(
+                    "context", f"TitleBlock Workbench: the startcell converted from {OriginalStartCell} to {StartCell}"
                 )
+                Standard_Functions.Print(Text, "Log")
 
         # Get the columns
         FirstColumn = int(Standard_Functions.GetNumberFromLetter(StartCell[:1]))
@@ -776,18 +792,22 @@ def ImportSettingsXL():
                 break
 
         if counter > 0:
-            Standard_Functions.Print(
+            Text = translate(
+                "context",
                 "Titleblock workbench: Settings imported from "
                 + f"{EXTERNAL_SOURCE_PATH} from worksheet: {sheetname} at {StartCell}",
-                "Log",
             )
+            Standard_Functions.Print(Text, "Log")
         if counter == 0:
-            Standard_Functions.Print("TitleBlock Workbench: Settings are not imported", "Log")
+            Text = translate("context", "TitleBlock Workbench: Settings are not imported")
+            Standard_Functions.Print(Text, "Log")
 
     except Exception as e:
-        Text = "TitleBlock Workbench: an error occurred!!"
+        Text = translate("context", "TitleBlock Workbench: an error occurred!!")
         if ENABLE_DEBUG is True:
-            Text = "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
+            Text = translate(
+                "context", "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
+            )
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         if ENABLE_DEBUG is True:
             raise (e)

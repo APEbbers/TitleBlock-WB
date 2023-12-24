@@ -25,6 +25,10 @@
 import os
 from inspect import getsourcefile
 import FreeCAD as App
+import Standard_Functions_TitleBlock as Standard_Functions
+
+# Define the translation
+translate = App.Qt.translate
 
 # get the path of the current python script
 PATH_TB = os.path.dirname(getsourcefile(lambda: 0))
@@ -53,9 +57,7 @@ def ImportTemplates():
 
     if IMPORT_EXAMPLE_TEMPLATES is True:
         # Define the parameter path
-        TechDrawTemplateDirParamPath = (
-            "User parameter:BaseApp/Preferences/Mod/TechDraw/Files/"
-        )
+        TechDrawTemplateDirParamPath = "User parameter:BaseApp/Preferences/Mod/TechDraw/Files/"
 
         # Get the parameter group
         TemplateDir = App.ParamGet(TechDrawTemplateDirParamPath)
@@ -69,19 +71,16 @@ def SetDefaultTemplate():
     from Settings import IMPORT_EXAMPLE_TEMPLATES
     from Settings import ENABLE_DEBUG
 
-    ChosenTemplate = os.path.join(
-        TEMPLATE_DIR, GetDefaultTemplate(DEFAULT_TEMPLATE).replace("\\", "/")
-    )
+    ChosenTemplate = os.path.join(TEMPLATE_DIR, GetDefaultTemplate(DEFAULT_TEMPLATE).replace("\\", "/"))
 
     # Print the standard template when debug mode is active
     if ENABLE_DEBUG is True:
-        print(ChosenTemplate)
+        Text = translate("context", f"The chosen template is {ChosenTemplate}")
+        Standard_Functions.Print(Text, "Log")
 
     if IMPORT_EXAMPLE_TEMPLATES is True:
         # Define the parameter path
-        TechDrawTemplateParamPath = (
-            "User parameter:BaseApp/Preferences/Mod/TechDraw/Files/"
-        )
+        TechDrawTemplateParamPath = "User parameter:BaseApp/Preferences/Mod/TechDraw/Files/"
 
         # Get the parameter group
         Template = App.ParamGet(TechDrawTemplateParamPath)

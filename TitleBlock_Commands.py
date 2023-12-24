@@ -26,14 +26,21 @@ import FreeCAD as App
 import FreeCADGui as Gui
 from Settings import AUTOFILL_TITLEBLOCK
 
+# Define the translation
+translate = App.Qt.translate
+
+
+def QT_TRANSLATE_NOOP(context, text):
+    return text
+
 
 # Export data from the titleblock to the spreadsheet
 class FillSpreadsheet_Class:
     def GetResources(self):
         return {
             "Pixmap": "FillSpreadsheet.svg",  # the name of a svg file available in the resources
-            "MenuText": "Import data from titleblock",
-            "ToolTip": "Import data from titleblock to the titleblock spreadsheet",
+            "MenuText": QT_TRANSLATE_NOOP("Import data from titleblock"),
+            "ToolTip": QT_TRANSLATE_NOOP("Import data from titleblock to the titleblock spreadsheet"),
         }
 
     def Activated(self):

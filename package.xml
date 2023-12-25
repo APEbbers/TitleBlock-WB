@@ -13,7 +13,7 @@
 
   <license file="LICENSE">LGPL-2.1-or-later</license>
 
-  <pythonmin>3.0.0</pythonmin>
+  <pythonmin>3.8.0</pythonmin>
 
   <url branch="main" type="repository">https://github.com/APEbbers/TitleBlock-WB</url>
 
@@ -31,7 +31,7 @@
       <depend optional="False" type="python">inspect</depend>
       <depend optional="False" type="python">tkinter</depend>
       <classname>TitleBlockWB</classname>
-      <subdirectory>./.</subdirectory>
+      <subdirectory>./</subdirectory>
     </workbench>
   </content>
 

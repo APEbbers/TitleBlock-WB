@@ -101,11 +101,11 @@ def createExcel():
 
     # Align the columns
     for row in ws[1 : ws.max_row]:
-        Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
-        Column_2 = row[Standard_Functions.GetNumberFromLetter(PropCell[:1]) - 1]
-        Column_3 = row[Standard_Functions.GetNumberFromLetter(IncreaseCell[:1]) - 1]
-        Column_4 = row[Standard_Functions.GetNumberFromLetter(MultiplierCell[:1]) - 1]
-        Column_5 = row[Standard_Functions.GetNumberFromLetter(RemarkCell[:1]) - 1]
+        Column_1 = row[:1][0]
+        Column_2 = row[:1][1]
+        Column_3 = row[:1][2]
+        Column_4 = row[:1][3]
+        Column_5 = row[:1][4]
         Column_1.alignment = Alignment(horizontal="left", vertical="center", indent=1)
         Column_2.alignment = Alignment(horizontal="left", vertical="center", indent=1)
         Column_3.alignment = Alignment(horizontal="left", vertical="center", indent=1)

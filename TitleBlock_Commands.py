@@ -100,19 +100,21 @@ class FillTitleBlock_Class:
         return result
 
 
-class ImportExcel_Class:
+class ImportExtSource_Class:
     def GetResources(self):
         return {
-            "Pixmap": "ImportExcel.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("ImportExcel", "Import data from excel"),
-            "ToolTip": QT_TRANSLATE_NOOP("ImportExcel", "Import data from excel to the titleblock spreadsheet"),
+            "Pixmap": "ImportExtSource.svg",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("ImportExtSource", "Import data from external source"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "ImportExtSource", "Import data from an external source to the titleblock spreadsheet"
+            ),
         }
 
     def Activated(self):
         import FillSpreadsheet
         import FillTitleBlock
 
-        FillSpreadsheet.Start("ImportExcel")
+        FillSpreadsheet.Start("ImportExtSource")
         if AUTOFILL_TITLEBLOCK is True:
             FillTitleBlock.FillTitleBlock()
         return
@@ -137,7 +139,7 @@ class ExportSpreadsheet_class:
     def GetResources(self):
         return {
             "Pixmap": "ExportExcel.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("ExportSpreadSheet", "Export data to excel"),
+            "MenuText": QT_TRANSLATE_NOOP("ExportSpreadSheet", "Export data to an excel file"),
             "ToolTip": QT_TRANSLATE_NOOP(
                 "ExportSpreadSheet", "Export data from the titleblock spreadsheet to an excel file"
             ),
@@ -233,7 +235,7 @@ class OpenExcel_class:
 # Add the commands to the Gui
 Gui.addCommand("FillSpreadsheet", FillSpreadsheet_Class())
 Gui.addCommand("FillTitleBlock", FillTitleBlock_Class())
-Gui.addCommand("ImportExcel", ImportExcel_Class())
+Gui.addCommand("ImportExtSource", ImportExtSource_Class())
 Gui.addCommand("ExportSpreadSheet", ExportSpreadsheet_class())
 Gui.addCommand("ExportSettings", ExportSettings_class())
 Gui.addCommand("ImportSettings", ImportSettings_class())

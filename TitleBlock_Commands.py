@@ -241,10 +241,9 @@ class NewExcel_class:
         }
 
     def Activated(self):
-        import Standard_Functions_TitleBlock as Standard_Functions
-        from Settings import EXTERNAL_SOURCE_PATH
+        import CreateExcel
 
-        Standard_Functions.OpenFile(EXTERNAL_SOURCE_PATH)
+        CreateExcel.createExcel()
         return
 
     def IsActive(self):

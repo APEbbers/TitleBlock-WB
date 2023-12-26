@@ -3,7 +3,7 @@
 # Created by: The Resource Compiler for Qt version 6.5.3
 # WARNING! All changes made in this file will be lost!
 
-from PySide6 import QtCore
+from PySide import QtCore
 
 qt_resource_data = b"\
 \x00\x00cj\
@@ -2887,6 +2887,2293 @@ c00;stroke-width\
 \x0d\x0a       id=\x22pat\
 h20\x22 /></g></svg\
 >\x0d\x0a\
+\x00\x00\x8e\xca\
+<\
+?xml version=\x221.\
+0\x22 encoding=\x22UTF\
+-8\x22 standalone=\x22\
+no\x22?>\x0a<!-- Creat\
+ed with Inkscape\
+ (http://www.ink\
+scape.org/) -->\x0a\
+\x0a<svg\x0a   width=\x22\
+64\x22\x0a   height=\x226\
+4\x22\x0a   viewBox=\x220\
+ 0 16.933333 16.\
+933333\x22\x0a   versi\
+on=\x221.1\x22\x0a   id=\x22\
+svg1\x22\x0a   xml:spa\
+ce=\x22preserve\x22\x0a  \
+ inkscape:versio\
+n=\x221.3 (0e150ed6\
+c4, 2023-07-21)\x22\
+\x0a   sodipodi:doc\
+name=\x22NewExcel.s\
+vg\x22\x0a   xmlns:ink\
+scape=\x22http://ww\
+w.inkscape.org/n\
+amespaces/inksca\
+pe\x22\x0a   xmlns:sod\
+ipodi=\x22http://so\
+dipodi.sourcefor\
+ge.net/DTD/sodip\
+odi-0.dtd\x22\x0a   xm\
+lns:xlink=\x22http:\
+//www.w3.org/199\
+9/xlink\x22\x0a   xmln\
+s=\x22http://www.w3\
+.org/2000/svg\x22\x0a \
+  xmlns:svg=\x22htt\
+p://www.w3.org/2\
+000/svg\x22><sodipo\
+di:namedview\x0a   \
+  id=\x22namedview1\
+\x22\x0a     pagecolor\
+=\x22#505050\x22\x0a     \
+bordercolor=\x22#ee\
+eeee\x22\x0a     borde\
+ropacity=\x221\x22\x0a   \
+  inkscape:showp\
+ageshadow=\x220\x22\x0a  \
+   inkscape:page\
+opacity=\x220\x22\x0a    \
+ inkscape:pagech\
+eckerboard=\x220\x22\x0a \
+    inkscape:des\
+kcolor=\x22#505050\x22\
+\x0a     inkscape:d\
+ocument-units=\x22p\
+x\x22\x0a     inkscape\
+:zoom=\x224\x22\x0a     i\
+nkscape:cx=\x22-46\x22\
+\x0a     inkscape:c\
+y=\x22-16.125\x22\x0a    \
+ inkscape:window\
+-width=\x223440\x22\x0a  \
+   inkscape:wind\
+ow-height=\x221369\x22\
+\x0a     inkscape:w\
+indow-x=\x22-8\x22\x0a   \
+  inkscape:windo\
+w-y=\x22-8\x22\x0a     in\
+kscape:window-ma\
+ximized=\x221\x22\x0a    \
+ inkscape:curren\
+t-layer=\x22layer2\x22\
+\x0a     showguides\
+=\x22true\x22\x0a     sho\
+wgrid=\x22true\x22><in\
+kscape:page\x0a    \
+   x=\x220\x22\x0a       \
+y=\x220\x22\x0a       wid\
+th=\x2216.933332\x22\x0a \
+      height=\x2216\
+.933332\x22\x0a       \
+id=\x22page2\x22\x0a     \
+  margin=\x220 838.\
+30115 0 0\x22\x0a     \
+  bleed=\x220\x22 /><i\
+nkscape:grid\x0a   \
+    id=\x22grid1\x22\x0a \
+      units=\x22px\x22\
+\x0a       originx=\
+\x220\x22\x0a       origi\
+ny=\x220\x22\x0a       sp\
+acingx=\x220.264583\
+33\x22\x0a       spaci\
+ngy=\x220.26458333\x22\
+\x0a       empcolor\
+=\x22#0099e5\x22\x0a     \
+  empopacity=\x220.\
+30196078\x22\x0a      \
+ color=\x22#0099e5\x22\
+\x0a       opacity=\
+\x220.14901961\x22\x0a   \
+    empspacing=\x22\
+5\x22\x0a       dotted\
+=\x22false\x22\x0a       \
+gridanglex=\x2230\x22\x0a\
+       gridangle\
+z=\x2230\x22\x0a       vi\
+sible=\x22true\x22 /><\
+/sodipodi:namedv\
+iew><defs\x0a     i\
+d=\x22defs1\x22><linea\
+rGradient\x0a      \
+ gradientTransfo\
+rm=\x22translate(-4\
+8)\x22\x0a       gradi\
+entUnits=\x22userSp\
+aceOnUse\x22\x0a      \
+ y2=\x2225.999996\x22\x0a\
+       x2=\x2253\x22\x0a \
+      y1=\x2239.999\
+996\x22\x0a       x1=\x22\
+10\x22\x0a       id=\x22l\
+inearGradient378\
+1\x22\x0a       xlink:\
+href=\x22#linearGra\
+dient3775\x22 /><li\
+nearGradient\x0a   \
+    id=\x22linearGr\
+adient3775\x22><sto\
+p\x0a         id=\x22s\
+top3777\x22\x0a       \
+  offset=\x220\x22\x0a   \
+      style=\x22sto\
+p-color:#d3d7cf;\
+stop-opacity:1;\x22\
+ /><stop\x0a       \
+  id=\x22stop3779\x22\x0a\
+         offset=\
+\x221\x22\x0a         sty\
+le=\x22stop-color:#\
+ffffff;stop-opac\
+ity:1\x22 /></linea\
+rGradient><linea\
+rGradient\x0a      \
+ gradientTransfo\
+rm=\x22matrix(1,0,0\
+,0.77777777,0,5.\
+1111114)\x22\x0a      \
+ gradientUnits=\x22\
+userSpaceOnUse\x22\x0a\
+       y2=\x225\x22\x0a  \
+     x2=\x2221\x22\x0a   \
+    y1=\x2258\x22\x0a    \
+   x1=\x2238\x22\x0a     \
+  id=\x22linearGrad\
+ient3789\x22\x0a      \
+ xlink:href=\x22#li\
+nearGradient3775\
+\x22 /><linearGradi\
+ent\x0a       id=\x22l\
+inearGradient331\
+9\x22><stop\x0a       \
+  id=\x22stop3315\x22\x0a\
+         offset=\
+\x220\x22\x0a         sty\
+le=\x22stop-color:#\
+729fcf;stop-opac\
+ity:1\x22 /><stop\x0a \
+        id=\x22stop\
+3317\x22\x0a         o\
+ffset=\x221\x22\x0a      \
+   style=\x22stop-c\
+olor:#204a87;sto\
+p-opacity:1\x22 /><\
+/linearGradient>\
+<linearGradient\x0a\
+       id=\x22linea\
+rGradient4387\x22><\
+stop\x0a         id\
+=\x22stop4389\x22\x0a    \
+     offset=\x220\x22\x0a\
+         style=\x22\
+stop-color:#71b2\
+f8;stop-opacity:\
+1;\x22 /><stop\x0a    \
+     id=\x22stop439\
+1\x22\x0a         offs\
+et=\x221\x22\x0a         \
+style=\x22stop-colo\
+r:#002795;stop-o\
+pacity:1;\x22 /></l\
+inearGradient><r\
+adialGradient\x0a  \
+     gradientTra\
+nsform=\x22translat\
+e(-0.23443224,0.\
+23443198)\x22\x0a     \
+  gradientUnits=\
+\x22userSpaceOnUse\x22\
+\x0a       r=\x2219.46\
+7436\x22\x0a       fy=\
+\x2228.869568\x22\x0a    \
+   fx=\x2245.883327\
+\x22\x0a       cy=\x2228.\
+869568\x22\x0a       c\
+x=\x2245.883327\x22\x0a  \
+     id=\x22radialG\
+radient3692\x22\x0a   \
+    xlink:href=\x22\
+#linearGradient3\
+377\x22 /><linearGr\
+adient\x0a       id\
+=\x22linearGradient\
+3377\x22><stop\x0a    \
+     style=\x22stop\
+-color:#faff2b;s\
+top-opacity:1;\x22\x0a\
+         offset=\
+\x220\x22\x0a         id=\
+\x22stop3379\x22 /><st\
+op\x0a         styl\
+e=\x22stop-color:#f\
+faa00;stop-opaci\
+ty:1;\x22\x0a         \
+offset=\x221\x22\x0a     \
+    id=\x22stop3381\
+\x22 /></linearGrad\
+ient><radialGrad\
+ient\x0a       r=\x221\
+9.467436\x22\x0a      \
+ fy=\x2228.869568\x22\x0a\
+       fx=\x2245.88\
+3327\x22\x0a       cy=\
+\x2228.869568\x22\x0a    \
+   cx=\x2245.883327\
+\x22\x0a       gradien\
+tTransform=\x22matr\
+ix(0.67067175,0,\
+0,0.64145918,-63\
+.380792,0.838454\
+03)\x22\x0a       grad\
+ientUnits=\x22userS\
+paceOnUse\x22\x0a     \
+  id=\x22radialGrad\
+ient6412\x22\x0a      \
+ xlink:href=\x22#li\
+nearGradient3377\
+\x22 /><linearGradi\
+ent\x0a       xlink\
+:href=\x22#linearGr\
+adient3036\x22\x0a    \
+   id=\x22linearGra\
+dient3049\x22\x0a     \
+  gradientUnits=\
+\x22userSpaceOnUse\x22\
+\x0a       gradient\
+Transform=\x22rotat\
+e(33.834399,20.2\
+80412,56.143946)\
+\x22\x0a       x1=\x2214.\
+824193\x22\x0a       y\
+1=\x2250.468616\x22\x0a  \
+     x2=\x2220.9398\
+5\x22\x0a       y2=\x2256\
+.000233\x22 /><line\
+arGradient\x0a     \
+  id=\x22linearGrad\
+ient3036\x22><stop\x0a\
+         style=\x22\
+stop-color:#ef29\
+29;stop-opacity:\
+1\x22\x0a         offs\
+et=\x220\x22\x0a         \
+id=\x22stop3038\x22 />\
+<stop\x0a         s\
+tyle=\x22stop-color\
+:#a40000;stop-op\
+acity:1\x22\x0a       \
+  offset=\x221\x22\x0a   \
+      id=\x22stop30\
+40\x22 /></linearGr\
+adient><linearGr\
+adient\x0a       y2\
+=\x2256.000233\x22\x0a   \
+    x2=\x2220.93985\
+\x22\x0a       y1=\x2250.\
+468616\x22\x0a       x\
+1=\x2214.824193\x22\x0a  \
+     gradientTra\
+nsform=\x22rotate(3\
+3.834399,-6.8783\
+909,90.878388)\x22\x0a\
+       gradientU\
+nits=\x22userSpaceO\
+nUse\x22\x0a       id=\
+\x22linearGradient3\
+307\x22\x0a       xlin\
+k:href=\x22#linearG\
+radient3319\x22 /><\
+linearGradient\x0a \
+      xlink:href\
+=\x22#linearGradien\
+t3864-9\x22\x0a       \
+id=\x22linearGradie\
+nt3808\x22\x0a       x\
+1=\x22-146.74467\x22\x0a \
+      y1=\x2258.261\
+547\x22\x0a       x2=\x22\
+-157.32494\x22\x0a    \
+   y2=\x2226.520763\
+\x22\x0a       gradien\
+tUnits=\x22userSpac\
+eOnUse\x22\x0a       g\
+radientTransform\
+=\x22matrix(0.97668\
+521,0.0547655,-0\
+.0547655,0.97668\
+512,182.70859,-2\
+.2305154)\x22 /><li\
+nearGradient\x0a   \
+    id=\x22linearGr\
+adient3864-9\x22><s\
+top\x0a         sty\
+le=\x22stop-color:#\
+204a87;stop-opac\
+ity:1\x22\x0a         \
+offset=\x220\x22\x0a     \
+    id=\x22stop3866\
+-1\x22 /><stop\x0a    \
+     style=\x22stop\
+-color:#729fcf;s\
+top-opacity:1\x22\x0a \
+        offset=\x22\
+1\x22\x0a         id=\x22\
+stop3868-1\x22 /></\
+linearGradient><\
+linearGradient\x0a \
+      y2=\x22609.50\
+507\x22\x0a       x2=\x22\
+302.85715\x22\x0a     \
+  y1=\x22366.64789\x22\
+\x0a       x1=\x22302.\
+85715\x22\x0a       gr\
+adientTransform=\
+\x22matrix(2.774389\
+,0,0,1.969706,-1\
+892.179,-872.885\
+4)\x22\x0a       gradi\
+entUnits=\x22userSp\
+aceOnUse\x22\x0a      \
+ id=\x22linearGradi\
+ent6715-5\x22\x0a     \
+  xlink:href=\x22#l\
+inearGradient504\
+8\x22 /><linearGrad\
+ient\x0a       id=\x22\
+linearGradient50\
+48\x22><stop\x0a      \
+   style=\x22stop-c\
+olor:black;stop-\
+opacity:0;\x22\x0a    \
+     offset=\x220\x22\x0a\
+         id=\x22sto\
+p5050\x22 /><stop\x0a \
+        id=\x22stop\
+5056\x22\x0a         o\
+ffset=\x220.5\x22\x0a    \
+     style=\x22stop\
+-color:black;sto\
+p-opacity:1;\x22 />\
+<stop\x0a         s\
+tyle=\x22stop-color\
+:black;stop-opac\
+ity:0;\x22\x0a        \
+ offset=\x221\x22\x0a    \
+     id=\x22stop505\
+2\x22 /></linearGra\
+dient><linearGra\
+dient\x0a       ink\
+scape:collect=\x22a\
+lways\x22\x0a       id\
+=\x22linearGradient\
+5060\x22><stop\x0a    \
+     style=\x22stop\
+-color:black;sto\
+p-opacity:1;\x22\x0a  \
+       offset=\x220\
+\x22\x0a         id=\x22s\
+top5062\x22 /><stop\
+\x0a         style=\
+\x22stop-color:blac\
+k;stop-opacity:0\
+;\x22\x0a         offs\
+et=\x221\x22\x0a         \
+id=\x22stop5064\x22 />\
+</linearGradient\
+><linearGradient\
+\x0a       id=\x22line\
+arGradient269\x22><\
+stop\x0a         id\
+=\x22stop270\x22\x0a     \
+    offset=\x220.00\
+00000\x22\x0a         \
+style=\x22stop-colo\
+r:#a3a3a3;stop-o\
+pacity:1.0000000\
+;\x22 /><stop\x0a     \
+    id=\x22stop271\x22\
+\x0a         offset\
+=\x221.0000000\x22\x0a   \
+      style=\x22sto\
+p-color:#4c4c4c;\
+stop-opacity:1.0\
+000000;\x22 /></lin\
+earGradient><lin\
+earGradient\x0a    \
+   id=\x22linearGra\
+dient259\x22><stop\x0a\
+         id=\x22sto\
+p260\x22\x0a         o\
+ffset=\x220.0000000\
+\x22\x0a         style\
+=\x22stop-color:#fa\
+fafa;stop-opacit\
+y:1.0000000;\x22 />\
+<stop\x0a         s\
+tyle=\x22stop-color\
+:#a8a8a8;stop-op\
+acity:1;\x22\x0a      \
+   offset=\x220.5\x22\x0a\
+         id=\x22sto\
+p8238\x22 /><stop\x0a \
+        id=\x22stop\
+261\x22\x0a         of\
+fset=\x221\x22\x0a       \
+  style=\x22stop-co\
+lor:#cdcdcd;stop\
+-opacity:1;\x22 /><\
+/linearGradient>\
+<linearGradient\x0a\
+       id=\x22linea\
+rGradient9766\x22><\
+stop\x0a         st\
+yle=\x22stop-color:\
+#6194cb;stop-opa\
+city:1;\x22\x0a       \
+  offset=\x220\x22\x0a   \
+      id=\x22stop97\
+68\x22 /><stop\x0a    \
+     style=\x22stop\
+-color:#729fcf;s\
+top-opacity:1;\x22\x0a\
+         offset=\
+\x221\x22\x0a         id=\
+\x22stop9770\x22 /></l\
+inearGradient><l\
+inearGradient\x0a  \
+     id=\x22linearG\
+radient148\x22><sto\
+p\x0a         style\
+=\x22stop-color:#ff\
+ffff;stop-opacit\
+y:0.13402061;\x22\x0a \
+        offset=\x22\
+0.0000000\x22\x0a     \
+    id=\x22stop149\x22\
+ /><stop\x0a       \
+  style=\x22stop-co\
+lor:#ffffff;stop\
+-opacity:0.05154\
+6391;\x22\x0a         \
+offset=\x221.000000\
+0\x22\x0a         id=\x22\
+stop150\x22 /></lin\
+earGradient><lin\
+earGradient\x0a    \
+   id=\x22linearGra\
+dient335\x22><stop\x0a\
+         style=\x22\
+stop-color:#ffff\
+ff;stop-opacity:\
+1.0000000;\x22\x0a    \
+     offset=\x220.0\
+000000\x22\x0a        \
+ id=\x22stop336\x22 />\
+<stop\x0a         s\
+tyle=\x22stop-color\
+:#ffffff;stop-op\
+acity:0.0000000;\
+\x22\x0a         offse\
+t=\x221.0000000\x22\x0a  \
+       id=\x22stop3\
+37\x22 /></linearGr\
+adient><linearGr\
+adient\x0a       id\
+=\x22linearGradient\
+1789\x22><stop\x0a    \
+     style=\x22stop\
+-color:#a0a0a0;s\
+top-opacity:1;\x22\x0a\
+         offset=\
+\x220\x22\x0a         id=\
+\x22stop1790\x22 /><st\
+op\x0a         styl\
+e=\x22stop-color:#a\
+8a8a8;stop-opaci\
+ty:1;\x22\x0a         \
+offset=\x221\x22\x0a     \
+    id=\x22stop1791\
+\x22 /></linearGrad\
+ient><linearGrad\
+ient\x0a       id=\x22\
+linearGradient13\
+7\x22><stop\x0a       \
+  style=\x22stop-co\
+lor:#ffffff;stop\
+-opacity:0.70059\
+878;\x22\x0a         o\
+ffset=\x220.0000000\
+\x22\x0a         id=\x22s\
+top138\x22 /><stop\x0a\
+         style=\x22\
+stop-color:#ffff\
+ff;stop-opacity:\
+0.0000000;\x22\x0a    \
+     offset=\x221.0\
+000000\x22\x0a        \
+ id=\x22stop139\x22 />\
+</linearGradient\
+><radialGradient\
+\x0a       inkscape\
+:collect=\x22always\
+\x22\x0a       xlink:h\
+ref=\x22#linearGrad\
+ient5060\x22\x0a      \
+ id=\x22radialGradi\
+ent5031-8\x22\x0a     \
+  gradientUnits=\
+\x22userSpaceOnUse\x22\
+\x0a       gradient\
+Transform=\x22matri\
+x(-2.774389,0,0,\
+1.969706,112.762\
+3,-872.8854)\x22\x0a  \
+     cx=\x22605.714\
+29\x22\x0a       cy=\x224\
+86.64789\x22\x0a      \
+ fx=\x22605.71429\x22\x0a\
+       fy=\x22486.6\
+4789\x22\x0a       r=\x22\
+117.14286\x22 /><ra\
+dialGradient\x0a   \
+    inkscape:col\
+lect=\x22always\x22\x0a  \
+     xlink:href=\
+\x22#linearGradient\
+5060\x22\x0a       id=\
+\x22radialGradient5\
+029-2\x22\x0a       gr\
+adientUnits=\x22use\
+rSpaceOnUse\x22\x0a   \
+    gradientTran\
+sform=\x22matrix(2.\
+774389,0,0,1.969\
+706,-1891.633,-8\
+72.8854)\x22\x0a      \
+ cx=\x22605.71429\x22\x0a\
+       cy=\x22486.6\
+4789\x22\x0a       fx=\
+\x22605.71429\x22\x0a    \
+   fy=\x22486.64789\
+\x22\x0a       r=\x22117.\
+14286\x22 /><linear\
+Gradient\x0a       \
+inkscape:collect\
+=\x22always\x22\x0a      \
+ xlink:href=\x22#li\
+nearGradient5048\
+\x22\x0a       id=\x22lin\
+earGradient5027\x22\
+\x0a       gradient\
+Units=\x22userSpace\
+OnUse\x22\x0a       gr\
+adientTransform=\
+\x22matrix(2.774389\
+,0,0,1.969706,-1\
+892.179,-872.885\
+4)\x22\x0a       x1=\x223\
+02.85715\x22\x0a      \
+ y1=\x22366.64789\x22\x0a\
+       x2=\x22302.8\
+5715\x22\x0a       y2=\
+\x22609.50507\x22 /><r\
+adialGradient\x0a  \
+     inkscape:co\
+llect=\x22always\x22\x0a \
+      xlink:href\
+=\x22#linearGradien\
+t5060\x22\x0a       id\
+=\x22radialGradient\
+4548\x22\x0a       cx=\
+\x2224.306795\x22\x0a    \
+   cy=\x2242.07798\x22\
+\x0a       fx=\x2224.3\
+06795\x22\x0a       fy\
+=\x2242.07798\x22\x0a    \
+   r=\x2215.821514\x22\
+\x0a       gradient\
+Transform=\x22matri\
+x(1.000000,0.000\
+000,0.000000,0.2\
+84916,-6.310056e\
+-16,30.08928)\x22\x0a \
+      gradientUn\
+its=\x22userSpaceOn\
+Use\x22 /><linearGr\
+adient\x0a       id\
+=\x22linearGradient\
+15662\x22><stop\x0a   \
+      style=\x22sto\
+p-color:#ffffff;\
+stop-opacity:1.0\
+000000;\x22\x0a       \
+  offset=\x220.0000\
+000\x22\x0a         id\
+=\x22stop15664\x22 /><\
+stop\x0a         st\
+yle=\x22stop-color:\
+#f8f8f8;stop-opa\
+city:1.0000000;\x22\
+\x0a         offset\
+=\x221.0000000\x22\x0a   \
+      id=\x22stop15\
+666\x22 /></linearG\
+radient><radialG\
+radient\x0a       g\
+radientUnits=\x22us\
+erSpaceOnUse\x22\x0a  \
+     fy=\x2264.5679\
+\x22\x0a       fx=\x2220.\
+8921\x22\x0a       r=\x22\
+5.257\x22\x0a       cy\
+=\x2264.5679\x22\x0a     \
+  cx=\x2220.8921\x22\x0a \
+      id=\x22aigrd3\
+\x22><stop\x0a        \
+ id=\x22stop15573\x22\x0a\
+         style=\x22\
+stop-color:#F0F0\
+F0\x22\x0a         off\
+set=\x220\x22 /><stop\x0a\
+         id=\x22sto\
+p15575\x22\x0a        \
+ style=\x22stop-col\
+or:#9a9a9a;stop-\
+opacity:1.000000\
+0;\x22\x0a         off\
+set=\x221.0000000\x22 \
+/></radialGradie\
+nt><radialGradie\
+nt\x0a       gradie\
+ntUnits=\x22userSpa\
+ceOnUse\x22\x0a       \
+fy=\x22114.5684\x22\x0a  \
+     fx=\x2220.8921\
+\x22\x0a       r=\x225.25\
+6\x22\x0a       cy=\x2211\
+4.5684\x22\x0a       c\
+x=\x2220.8921\x22\x0a    \
+   id=\x22aigrd2\x22><\
+stop\x0a         id\
+=\x22stop15566\x22\x0a   \
+      style=\x22sto\
+p-color:#F0F0F0\x22\
+\x0a         offset\
+=\x220\x22 /><stop\x0a   \
+      id=\x22stop15\
+568\x22\x0a         st\
+yle=\x22stop-color:\
+#9a9a9a;stop-opa\
+city:1.0000000;\x22\
+\x0a         offset\
+=\x221.0000000\x22 /><\
+/radialGradient>\
+<linearGradient\x0a\
+       id=\x22linea\
+rGradient259-6\x22>\
+<stop\x0a         s\
+tyle=\x22stop-color\
+:#fafafa;stop-op\
+acity:1.0000000;\
+\x22\x0a         offse\
+t=\x220.0000000\x22\x0a  \
+       id=\x22stop2\
+60-5\x22 /><stop\x0a  \
+       style=\x22st\
+op-color:#bbbbbb\
+;stop-opacity:1.\
+0000000;\x22\x0a      \
+   offset=\x221.000\
+0000\x22\x0a         i\
+d=\x22stop261-4\x22 />\
+</linearGradient\
+><linearGradient\
+\x0a       id=\x22line\
+arGradient12512\x22\
+><stop\x0a         \
+style=\x22stop-colo\
+r:#ffffff;stop-o\
+pacity:1.0000000\
+;\x22\x0a         offs\
+et=\x220.0000000\x22\x0a \
+        id=\x22stop\
+12513\x22 /><stop\x0a \
+        style=\x22s\
+top-color:#fff52\
+0;stop-opacity:0\
+.89108908;\x22\x0a    \
+     offset=\x220.5\
+0000000\x22\x0a       \
+  id=\x22stop12517\x22\
+ /><stop\x0a       \
+  style=\x22stop-co\
+lor:#fff300;stop\
+-opacity:0.00000\
+00;\x22\x0a         of\
+fset=\x221.0000000\x22\
+\x0a         id=\x22st\
+op12514\x22 /></lin\
+earGradient><rad\
+ialGradient\x0a    \
+   inkscape:coll\
+ect=\x22always\x22\x0a   \
+    xlink:href=\x22\
+#linearGradient1\
+2512\x22\x0a       id=\
+\x22radialGradient2\
+78\x22\x0a       gradi\
+entUnits=\x22userSp\
+aceOnUse\x22\x0a      \
+ cx=\x2255.000000\x22\x0a\
+       cy=\x22125.0\
+0000\x22\x0a       fx=\
+\x2255.000000\x22\x0a    \
+   fy=\x22125.00000\
+\x22\x0a       r=\x2214.3\
+75000\x22 /><radial\
+Gradient\x0a       \
+r=\x2237.751713\x22\x0a  \
+     fy=\x223.75612\
+85\x22\x0a       fx=\x228\
+.8244190\x22\x0a      \
+ cy=\x223.7561285\x22\x0a\
+       cx=\x228.824\
+4190\x22\x0a       gra\
+dientTransform=\x22\
+matrix(0.968273,\
+0,0,1.032767,3.3\
+53553,0.646447)\x22\
+\x0a       gradient\
+Units=\x22userSpace\
+OnUse\x22\x0a       id\
+=\x22radialGradient\
+15656\x22\x0a       xl\
+ink:href=\x22#linea\
+rGradient269\x22\x0a  \
+     inkscape:co\
+llect=\x22always\x22 /\
+><radialGradient\
+\x0a       r=\x2286.70\
+8450\x22\x0a       fy=\
+\x2235.736916\x22\x0a    \
+   fx=\x2233.966679\
+\x22\x0a       cy=\x2235.\
+736916\x22\x0a       c\
+x=\x2233.966679\x22\x0a  \
+     gradientTra\
+nsform=\x22scale(0.\
+960493,1.041132)\
+\x22\x0a       gradien\
+tUnits=\x22userSpac\
+eOnUse\x22\x0a       i\
+d=\x22radialGradien\
+t15658\x22\x0a       x\
+link:href=\x22#line\
+arGradient259-6\x22\
+\x0a       inkscape\
+:collect=\x22always\
+\x22 /><radialGradi\
+ent\x0a       r=\x2238\
+.158695\x22\x0a       \
+fy=\x227.2678967\x22\x0a \
+      fx=\x228.1435\
+566\x22\x0a       cy=\x22\
+7.2678967\x22\x0a     \
+  cx=\x228.1435566\x22\
+\x0a       gradient\
+Transform=\x22matri\
+x(0.968273,0,0,1\
+.032767,3.353553\
+,0.646447)\x22\x0a    \
+   gradientUnits\
+=\x22userSpaceOnUse\
+\x22\x0a       id=\x22rad\
+ialGradient15668\
+\x22\x0a       xlink:h\
+ref=\x22#linearGrad\
+ient15662\x22\x0a     \
+  inkscape:colle\
+ct=\x22always\x22 /><r\
+adialGradient\x0a  \
+     inkscape:co\
+llect=\x22always\x22\x0a \
+      xlink:href\
+=\x22#aigrd2\x22\x0a     \
+  id=\x22radialGrad\
+ient2283\x22\x0a      \
+ gradientUnits=\x22\
+userSpaceOnUse\x22\x0a\
+       gradientT\
+ransform=\x22matrix\
+(0.229703,0,0,0.\
+229703,4.613529,\
+3.979808)\x22\x0a     \
+  cx=\x2220.8921\x22\x0a \
+      cy=\x22114.56\
+84\x22\x0a       fx=\x222\
+0.8921\x22\x0a       f\
+y=\x22114.5684\x22\x0a   \
+    r=\x225.256\x22 />\
+<radialGradient\x0a\
+       inkscape:\
+collect=\x22always\x22\
+\x0a       xlink:hr\
+ef=\x22#aigrd3\x22\x0a   \
+    id=\x22radialGr\
+adient2285\x22\x0a    \
+   gradientUnits\
+=\x22userSpaceOnUse\
+\x22\x0a       gradien\
+tTransform=\x22matr\
+ix(0.229703,0,0,\
+0.229703,4.61352\
+9,3.979808)\x22\x0a   \
+    cx=\x2220.8921\x22\
+\x0a       cy=\x2264.5\
+679\x22\x0a       fx=\x22\
+20.8921\x22\x0a       \
+fy=\x2264.5679\x22\x0a   \
+    r=\x225.257\x22 />\
+</defs><g\x0a     i\
+nkscape:groupmod\
+e=\x22layer\x22\x0a     i\
+d=\x22layer2\x22\x0a     \
+inkscape:label=\x22\
+Layer 2\x22\x0a     tr\
+ansform=\x22matrix(\
+0.08460082,0,0,0\
+.08460082,0.0131\
+684,0)\x22><g\x0a     \
+  id=\x22g2\x22\x0a      \
+ transform=\x22matr\
+ix(3.1274322,0,0\
+,3.1274322,-5.68\
+8013,0)\x22><g\x0a    \
+     inkscape:la\
+bel=\x22Shadow\x22\x0a   \
+      id=\x22layer6\
+\x22><g\x0a           \
+style=\x22display:i\
+nline\x22\x0a         \
+  id=\x22g5022-4\x22\x0a \
+          transf\
+orm=\x22matrix(0.02\
+165152,0,0,0.014\
+85743,43.0076,42\
+.68539)\x22><rect\x0a \
+            y=\x22-\
+150.69685\x22\x0a     \
+        x=\x22-1559\
+.2523\x22\x0a         \
+    height=\x22478.\
+35718\x22\x0a         \
+    width=\x221339.\
+6335\x22\x0a          \
+   id=\x22rect4173-\
+3\x22\x0a             \
+style=\x22color:#00\
+0000;display:inl\
+ine;overflow:vis\
+ible;visibility:\
+visible;opacity:\
+0.402062;fill:ur\
+l(#linearGradien\
+t5027);fill-opac\
+ity:1;fill-rule:\
+nonzero;stroke:n\
+one;stroke-width\
+:1;stroke-lineca\
+p:round;stroke-l\
+inejoin:miter;st\
+roke-miterlimit:\
+4;stroke-dasharr\
+ay:none;stroke-d\
+ashoffset:0;stro\
+ke-opacity:1;mar\
+ker:none;marker-\
+start:none;marke\
+r-mid:none;marke\
+r-end:none\x22 /><p\
+ath\x0a            \
+ sodipodi:nodety\
+pes=\x22cccc\x22\x0a     \
+        id=\x22path\
+5058-1\x22\x0a        \
+     d=\x22m -219.6\
+1876,-150.68038 \
+c 0,0 0,478.3307\
+9 0,478.33079 14\
+2.874166,0.90045\
+ 345.40022,-107.\
+16966 345.40014,\
+-239.196175 0,-1\
+32.026537 -159.4\
+36816,-239.13459\
+5 -345.40014,-23\
+9.134615 z\x22\x0a    \
+         style=\x22\
+color:#000000;di\
+splay:inline;ove\
+rflow:visible;vi\
+sibility:visible\
+;opacity:0.40206\
+2;fill:url(#radi\
+alGradient5029-2\
+);fill-opacity:1\
+;fill-rule:nonze\
+ro;stroke:none;s\
+troke-width:1;st\
+roke-linecap:rou\
+nd;stroke-linejo\
+in:miter;stroke-\
+miterlimit:4;str\
+oke-dasharray:no\
+ne;stroke-dashof\
+fset:0;stroke-op\
+acity:1;marker:n\
+one;marker-start\
+:none;marker-mid\
+:none;marker-end\
+:none\x22 /><path\x0a \
+            styl\
+e=\x22color:#000000\
+;display:inline;\
+overflow:visible\
+;visibility:visi\
+ble;opacity:0.40\
+2062;fill:url(#r\
+adialGradient503\
+1-8);fill-opacit\
+y:1;fill-rule:no\
+nzero;stroke:non\
+e;stroke-width:1\
+;stroke-linecap:\
+round;stroke-lin\
+ejoin:miter;stro\
+ke-miterlimit:4;\
+stroke-dasharray\
+:none;stroke-das\
+hoffset:0;stroke\
+-opacity:1;marke\
+r:none;marker-st\
+art:none;marker-\
+mid:none;marker-\
+end:none\x22\x0a      \
+       d=\x22m -155\
+9.2523,-150.6803\
+8 c 0,0 0,478.33\
+079 0,478.33079 \
+-142.8742,0.9004\
+5 -345.4002,-107\
+.16966 -345.4002\
+,-239.196175 0,-\
+132.026537 159.4\
+368,-239.134595 \
+345.4002,-239.13\
+4615 z\x22\x0a        \
+     id=\x22path501\
+8-9\x22\x0a           \
+  sodipodi:nodet\
+ypes=\x22cccc\x22 /></\
+g></g><g\x0a       \
+  id=\x22layer1-3\x22\x0a\
+         inkscap\
+e:label=\x22Base\x22\x0a \
+        style=\x22d\
+isplay:inline\x22><\
+rect\x0a           \
+ry=\x221.1490486\x22\x0a \
+          y=\x223.6\
+464462\x22\x0a        \
+   x=\x226.6035528\x22\
+\x0a           heig\
+ht=\x2240.920494\x22\x0a \
+          width=\
+\x2234.875\x22\x0a       \
+    id=\x22rect1539\
+1\x22\x0a           st\
+yle=\x22color:#0000\
+00;display:block\
+;overflow:visibl\
+e;visibility:vis\
+ible;fill:url(#r\
+adialGradient156\
+58);fill-opacity\
+:1;fill-rule:non\
+zero;stroke:url(\
+#radialGradient1\
+5656);stroke-wid\
+th:1;stroke-line\
+cap:round;stroke\
+-linejoin:round;\
+stroke-miterlimi\
+t:4;stroke-dasho\
+ffset:0;stroke-o\
+pacity:1;marker:\
+none;marker-star\
+t:none;marker-mi\
+d:none;marker-en\
+d:none\x22 /><rect\x0a\
+           rx=\x220\
+.14904857\x22\x0a     \
+      ry=\x220.1490\
+4857\x22\x0a          \
+ y=\x224.5839462\x22\x0a \
+          x=\x227.6\
+660538\x22\x0a        \
+   height=\x2238.94\
+6384\x22\x0a          \
+ width=\x2232.77588\
+7\x22\x0a           id\
+=\x22rect15660\x22\x0a   \
+        style=\x22c\
+olor:#000000;dis\
+play:block;overf\
+low:visible;visi\
+bility:visible;f\
+ill:none;fill-op\
+acity:1;fill-rul\
+e:nonzero;stroke\
+:url(#radialGrad\
+ient15668);strok\
+e-width:1;stroke\
+-linecap:round;s\
+troke-linejoin:r\
+ound;stroke-mite\
+rlimit:4;stroke-\
+dashoffset:0;str\
+oke-opacity:1;ma\
+rker:none;marker\
+-start:none;mark\
+er-mid:none;mark\
+er-end:none\x22 /><\
+g\x0a           id=\
+\x22g2270\x22\x0a        \
+   transform=\x22tr\
+anslate(0.646447\
+,-0.03798933)\x22><\
+g\x0a             t\
+ransform=\x22matrix\
+(0.229703,0,0,0.\
+229703,4.967081,\
+4.244972)\x22\x0a     \
+        style=\x22f\
+ill:#ffffff;fill\
+-opacity:1;fill-\
+rule:nonzero;str\
+oke:#000000;stro\
+ke-miterlimit:4\x22\
+\x0a             id\
+=\x22g1440\x22><radial\
+Gradient\x0a       \
+        gradient\
+Units=\x22userSpace\
+OnUse\x22\x0a         \
+      fy=\x22114.56\
+84\x22\x0a            \
+   fx=\x2220.892099\
+\x22\x0a              \
+ r=\x225.256\x22\x0a     \
+          cy=\x2211\
+4.5684\x22\x0a        \
+       cx=\x2220.89\
+2099\x22\x0a          \
+     id=\x22radialG\
+radient1442\x22><st\
+op\x0a             \
+    id=\x22stop1444\
+\x22\x0a              \
+   style=\x22stop-c\
+olor:#F0F0F0\x22\x0a  \
+               o\
+ffset=\x220\x22 /><sto\
+p\x0a              \
+   id=\x22stop1446\x22\
+\x0a               \
+  style=\x22stop-co\
+lor:#474747\x22\x0a   \
+              of\
+fset=\x221\x22 /></rad\
+ialGradient><pat\
+h\x0a              \
+ id=\x22path1448\x22\x0a \
+              d=\
+\x22m 23.428,113.07\
+ c 0,1.973 -1.6,\
+3.572 -3.573,3.5\
+72 -1.974,0 -3.5\
+73,-1.6 -3.573,-\
+3.572 0,-1.974 1\
+.6,-3.573 3.573,\
+-3.573 1.973,0 3\
+.573,1.6 3.573,3\
+.573 z\x22\x0a        \
+       style=\x22st\
+roke:none\x22 /><ra\
+dialGradient\x0a   \
+            grad\
+ientUnits=\x22userS\
+paceOnUse\x22\x0a     \
+          fy=\x2264\
+.567902\x22\x0a       \
+        fx=\x2220.8\
+92099\x22\x0a         \
+      r=\x225.257\x22\x0a\
+               c\
+y=\x2264.567902\x22\x0a  \
+             cx=\
+\x2220.892099\x22\x0a    \
+           id=\x22r\
+adialGradient145\
+0\x22><stop\x0a       \
+          id=\x22st\
+op1452\x22\x0a        \
+         style=\x22\
+stop-color:#F0F0\
+F0\x22\x0a            \
+     offset=\x220\x22 \
+/><stop\x0a        \
+         id=\x22sto\
+p1454\x22\x0a         \
+        style=\x22s\
+top-color:#47474\
+7\x22\x0a             \
+    offset=\x221\x22 /\
+></radialGradien\
+t><path\x0a        \
+       id=\x22path1\
+456\x22\x0a           \
+    d=\x22m 23.428,\
+63.07 c 0,1.973 \
+-1.6,3.573 -3.57\
+3,3.573 -1.974,0\
+ -3.573,-1.6 -3.\
+573,-3.573 0,-1.\
+974 1.6,-3.573 3\
+.573,-3.573 1.97\
+3,0 3.573,1.6 3.\
+573,3.573 z\x22\x0a   \
+            styl\
+e=\x22stroke:none\x22 \
+/></g><path\x0a    \
+         id=\x22pat\
+h15570\x22\x0a        \
+     d=\x22m 9.9950\
+109,29.952326 c \
+0,0.453204 -0.36\
+75248,0.820499 -\
+0.8207288,0.8204\
+99 -0.4534338,0 \
+-0.8207289,-0.36\
+7524 -0.8207289,\
+-0.820499 0,-0.4\
+53434 0.3675248,\
+-0.820729 0.8207\
+289,-0.820729 0.\
+453204,0 0.82072\
+88,0.367525 0.82\
+07288,0.820729 z\
+\x22\x0a             s\
+tyle=\x22fill:url(#\
+radialGradient22\
+83);fill-rule:no\
+nzero;stroke:non\
+e;stroke-miterli\
+mit:4\x22 /><path\x0a \
+            id=\x22\
+path15577\x22\x0a     \
+        d=\x22m 9.9\
+950109,18.467176\
+ c 0,0.453204 -0\
+.3675248,0.82072\
+9 -0.8207288,0.8\
+20729 -0.4534338\
+,0 -0.8207289,-0\
+.367525 -0.82072\
+89,-0.820729 0,-\
+0.453434 0.36752\
+48,-0.820729 0.8\
+207289,-0.820729\
+ 0.453204,0 0.82\
+07288,0.367525 0\
+.8207288,0.82072\
+9 z\x22\x0a           \
+  style=\x22fill:ur\
+l(#radialGradien\
+t2285);fill-rule\
+:nonzero;stroke:\
+none;stroke-mite\
+rlimit:4\x22 /></g>\
+<path\x0a          \
+ sodipodi:nodety\
+pes=\x22cc\x22\x0a       \
+    id=\x22path1567\
+2\x22\x0a           d=\
+\x22M 11.505723,5.4\
+942766 V 43.4008\
+69\x22\x0a           s\
+tyle=\x22fill:none;\
+fill-opacity:0.7\
+5;fill-rule:even\
+odd;stroke:#0000\
+00;stroke-width:\
+0.988553;stroke-\
+linecap:butt;str\
+oke-linejoin:mit\
+er;stroke-miterl\
+imit:4;stroke-op\
+acity:0.0175438\x22\
+ /><path\x0a       \
+    sodipodi:nod\
+etypes=\x22cc\x22\x0a    \
+       id=\x22path1\
+5674\x22\x0a          \
+ d=\x22M 12.5,5.020\
+5154 V 43.038228\
+\x22\x0a           sty\
+le=\x22fill:none;fi\
+ll-opacity:0.75;\
+fill-rule:evenod\
+d;stroke:#ffffff\
+;stroke-width:1;\
+stroke-linecap:b\
+utt;stroke-linej\
+oin:miter;stroke\
+-miterlimit:4;st\
+roke-opacity:0.2\
+04678\x22 /></g><g\x0a\
+         id=\x22lay\
+er4\x22\x0a         in\
+kscape:label=\x22ne\
+w\x22\x0a         styl\
+e=\x22display:inlin\
+e\x22><circle\x0a     \
+      style=\x22col\
+or:#000000;displ\
+ay:block;visibil\
+ity:visible;fill\
+:url(#radialGrad\
+ient278);fill-op\
+acity:1;fill-rul\
+e:nonzero;stroke\
+:none;stroke-wid\
+th:1.25;stroke-l\
+inecap:butt;stro\
+ke-linejoin:roun\
+d;stroke-miterli\
+mit:4;stroke-das\
+hoffset:0;stroke\
+-opacity:1;marke\
+r:none;marker-st\
+art:none;marker-\
+mid:none;marker-\
+end:none\x22\x0a      \
+     id=\x22path125\
+11\x22\x0a           t\
+ransform=\x22matrix\
+(0.783292,0,0,0.\
+783292,-6.340883\
+,-86.65168)\x22\x0a   \
+        inkscape\
+:export-filename\
+=\x22/home/jimmac/x\
+imian_art/icons/\
+nautilus/suse93/\
+stock_new-16.png\
+\x22\x0a           ink\
+scape:export-xdp\
+i=\x2233.852203\x22\x0a  \
+         inkscap\
+e:export-ydpi=\x223\
+3.852203\x22\x0a      \
+     cx=\x2255\x22\x0a   \
+        cy=\x22125\x22\
+\x0a           r=\x221\
+4.375\x22 /></g></g\
+><image\x0a       w\
+idth=\x22121.84029\x22\
+\x0a       height=\x22\
+121.84029\x22\x0a     \
+  preserveAspect\
+Ratio=\x22none\x22\x0a   \
+    xlink:href=\x22\
+data:image/png;b\
+ase64,iVBORw0KGg\
+oAAAANSUhEUgAAAg\
+AAAAIACAYAAAD0eN\
+T6AAAABHNCSVQICA\
+gIfAhkiAAAIABJRE\
+FU&#10;eJzt3XmUF\
+NX9/vHnVvf0zLALI\
+quogCgqqCAiKIgsG\
+olGE/ddo6Lmq9n8G\
+ROXBCJKvvGbxBiTq\
+OAa&#10;UdEYo5K4\
+gKAigiwuaMQVRdll\
+G2bvpe7vD0SBDHv3\
+re6+79c5njM9013P\
+5yTM1FPVt6skAAAA\
+AAAA&#10;AAAAAAA\
+AAAAAAAAAAAAAAAA\
+AAAAAAAAAAAAAAAA\
+AAAAAAAAAAAAAAAA\
+AAAAAAAB8ZKIeAPm\
+r42MX&#10;t0zUmU\
+FW6m+MPcDaWGcp3M\
+PKNDZGiajnA3ZE8w\
+57KJbgny0KzlpZW2\
+1lFiqw7ys0b1hrp7\
+45cOR7&#10;u7phC\
+gA20f6uEY0SjXWar\
+D3fyA6STBD1TEA2U\
+ABQVKxdaGUeCsPgg\
+beOvvGjndkEBQCSp\
+AMe+0GT&#10;2vrk\
+D63Mj43UOup5gGyj\
+AKAoWYUK9ITN2NFv\
+DBw5b0deSgGA9nno\
+klPD0PwhMOoY9SxA\
+rlAAUMys&#10;bEb\
+SX8OUbnzrmJFrt+c\
+1FACP7XfP95smE7G\
+/Sjon6lmAXKMAwAd\
+W9gtj7dlzB4x6dVv\
+P5f1dT+31&#10;4C\
+X7JEvis8XOHwCKhp\
+HZ05pgau9pv/7Btp\
+5LAfBQlwcvPiiQps\
+vY/aKeBQCQXUaKy9\
+g/954+8qat&#10;P\
+Y8C4Jmu94/oEhozS\
+ca0i3oWAEAOWXNDr\
++mjfrWlH1MAPNLxs\
+YtbZgK9IJm2Uc8CA\
+Mg9YzWy1/RR&#10;\
+lzb0MwqAL6xMoj64\
+R8Z2jnoUAIA7xto/\
+HfrqyMM2/z4FwBN7\
+PzRihJVOjnoOAIBr\
+pjQIzSP9Xvt9&#10\
+;+cbfpQB4oMMD/9P\
+KKLw56jkAABEJ1DU\
+Vrrth02+h6CViqVG\
+SaRX1HACA6Fhr/t8\
+hM0buveExBaDI&#1\
+0;7fPwJW0Uht+Peg\
+4AQMSMErG0uW7DQw\
+pAkbMZXS5jyrf9TA\
+BA8bMX9p15cxuJAl\
+DcrIyk86IeAwCQ&#\
+10;J4wpSacz50kUg\
+KLWefylhxmZLlHPA\
+QDIJ+G5EgWgyJkhU\
+U8AAMgzVj0Pfm10B\
+wpAMbOZgVGPAADI&\
+#10;M8aYeJgZSgEo\
+YqHMgVHPAADIQ0aH\
+UgCKVPu7RjQyUseo\
+5wAA5KHQ9qQAFKmy\
+Mu0uGf7/BQA0pBM7\
+&#10;iCKVjpkmUc8\
+AAMhPVqY1BaBIlZg\
+MF/8BADTIGDWjAAA\
+A4CEKAAAAHqIAAAD\
+gIQoAAAAeogAAAOA\
+h&#10;CgAAAB6iAA\
+AA4CEKAAAAHqIAAA\
+DgIQoAAAAeogAAAO\
+AhCgAAAB6iAAAA4C\
+EKAAAAHqIAAADgIQ\
+oA&#10;AAAeogAAA\
+OAhCgAAAB6iAAAA4\
+CEKAAAAHqIAAADgI\
+QoAAAAeogAAAOAhC\
+gAAAB6iAAAA4CEKA\
+AAA&#10;HqIAAADg\
+IQoAAAAeogAAAOAh\
+CgAAAB6iAAAA4CEK\
+AAAAHqIAAADgIQoA\
+AAAeogAAAOAhCgAA\
+AB6i&#10;AAAA4CE\
+KAAAAHqIAAADgIQo\
+AAAAeogAAAOAhCgA\
+AAB6iAAAA4CEKAAA\
+AHqIAAADgIQoAAAA\
+eogAA&#10;AOAhCg\
+AAAB6iAAAA4CEKAA\
+AAHqIAAADgIQoAAA\
+AeogAAAOAhCgAAAB\
+6iAAAA4CEKAAAAHq\
+IAAADg&#10;IQoAA\
+AAeogAAAOAhCgAAA\
+B6iAAAA4CEKAAAAH\
+qIAAADgIQoAAAAeo\
+gAAAOAhCgAAAB6iA\
+AAA4CEK&#10;AAAA\
+HqIAAADgIQoAAAAe\
+ogAAAOAhCgAAAB6i\
+AAAA4CEKAAAAHqIA\
+AADgIQoAAAAeogAA\
+AOAhCgAA&#10;AB6\
+iAAAA4CEKAAAAHqI\
+AAADgIQoAAAAeogA\
+AAOAhCgAAAB6KZ3N\
+j7UYP38ua2DHW2N6\
+S3U9W+0im&#10;lT\
+W2sZFJZDMLW1e1cF\
+nUIyCXjCQTKIgFMr\
+FAJl6iWKJEQVlCJh\
+aLejoABWCXC0Cbm0\
+7cx8bt+UGo&#10;s\
+0OjbpL96idm/R8pS\
+WbDFwCyw0qyocIwl\
+FKSlFT6qx+Zkpji5\
+Y0Ub1JOGQCwRTtdA\
+Pb4zQkHB2ld&#10;\
+bYPwHGNNYNnHA3nB\
+pjJKpSqVWlepWHmp\
+Spo2VVBaEvVYAPLM\
+DheADv97fMdMOnab\
+DXWKDSRxdA/k&#10\
+;rUxtvTK19YqVlyu\
+xW1POCAD42g79NWg\
+75sQfhKH+KWMOydV\
+AALLPptPKVNXIBIG\
+ChJ9nA8qaNVZA&#1\
+0;AQK+tl1nAFqOPL\
+5ZPBG7x1p7Kkf8QG\
+Gy1iq5pkKZ+qQSLZ\
+vLGH6XAZ9tswC0/u\
+3wtkE6eFYSR/1A&#\
+10;EcjU1Ko+lVZp6\
+5YyMT4JDPhqq7/97\
+UYP3ytIBdPFzh8oK\
+mEqpfoVq2TTYdSjA\
+IjIFgtA+/87cfcw&\
+#10;MM/JqLPLgQC4\
+EabTql+5SjakBAA+\
+arAAdL39+NJ0vZ0o\
+mf1dDwTAnTCVVnLl\
+Gtmvr98BwBcNrgGo\
+&#10;rIrfaozt63o\
+YAO5l6pNKrl63OtG\
+82fKoZ8mVWGmsrWR\
+2i3oOIJ/81zLgtre\
+cMNxaTeTyfYBHrJS\
+q&#10;r1MYZqKeJC\
+fijRp90qLL3l2ing\
+PIJ5ucAej4+9PKU7\
+W1f2LnD3jGSPHSUi\
+Vra6KeJCdStbWpTD\
+IZ&#10;9RhAXtlkD\
+UC6tvZaFv0BfjLGK\
+Fbi50WCAB99XQBaj\
+jy+mTX2R1EOAyBa8\
+ZISrvUFeOLrAlCSC\
+K6U&#10;TIsohwEQ\
+NaN4nLMAgA/WFwAr\
+I2sujngWAHkgiMc5\
+CwB4IJCktr854Wje\
++wcgScYEMoab5gDF\
+LpAk&#10;a/XdqAc\
+BkD9icQoAUOzWFwB\
+pcNSDAMgfQUABAIp\
+d0OGW77YyVgdGPQi\
+A/LH+bQAWAgDFLEg\
+qeQAX&#10;/gGwCS\
+OJAgAUtSDghj8AGh\
+CYrd4tHECBi1uj9o\
+YbgQHYXGCkr24NYN\
+OhbGW9VBKTSaz/D0\
+Bhiwcy&#10;TbkVK\
+ID/svFbANbK1qWlu\
+vT6vxbGyJTGZBqVy\
+JQ2eFNRAHkurjDTW\
+JzqA7CZQEZbvDfgV\
+4XA1qWl&#10;eKCg\
+SUKmnCsIAoUksIqx\
+9wfwX7b7vGA6VLi2\
+TpmV1bKp4rydMFCM\
+2PkDyI5UqHBljcLK\
++qgnAbAd&#10;KAA\
+AsspWJRWuqpFC1hY\
+B+YwCACDrbDKjzKo\
+a2XQY9SgAtoACACA\
+30qHC1TVShhIA5CM\
+KAIDcyVhl&#10;Vt\
+fydgCQhygAAHIrHS\
+pcWxv1FAA2QwEAkH\
+O2PsOnA4A8QwEA4I\
+StTnKdACCPUAAAuG\
+Elu46zAEC+&#10;o\
+AAAcMYmM7L16ajHA\
+CAKAADHwqpk1CMAE\
+AUAgGvJDGsBgDxAA\
+QDgnK1JRT0C4D0KA\
+ADnbB3rAICo&#10;\
+UQAAuBda3gYAIkYB\
+ABCNJAUAiBIFAEAk\
+bIqbBAFRogAAiITl\
+LoFApCgAAKJBAQAi\
+RQEAEA32/0Ck&#10\
+;KAAAImKjHgDwGgU\
+AQDTY/wORogAAAOA\
+hCgAAAB6iAAAA4CE\
+KAAAAHqIAAADgIQo\
+AAAAeogAAAOAh&#1\
+0;CgAAAB6iAAAA4C\
+EKAAAAHqIAAADgoX\
+jUAxSK0nhC0y79iz\
+q1aOM8e8HqJRo49g\
+dKhxnn2bnWpklL&#\
+10;zbz8bpWXlDrPP\
+v/vN+mFj2Y5zwWAf\
+MAZgO1Un07qVy+Oi\
+yS7c8v2Or3H4Eiyc\
++2nR50Zyc7/3x/O&\
+#10;YOcPwGsUgB3w\
+7IczNeWTuZFkXzPg\
+HJXFE5Fk50qnFm10\
+ds9hznNrU/X61eRo\
+yhwA5AsKwA66YfLd\
+&#10;SmZSznPbNW2\
+lC3od7zw3l34+8Dy\
+VxNy/C3Xrqw/ri4o\
+VznMBIJ9QAHbQgtV\
+LNG7OxEiyf9T/dDU\
+t&#10;bRRJdrZ1b7\
+23Tj5goPPcD1Z+rr\
+GznnaeCwD5hgKwE3\
+7/6iNaVrXaeW7L8m\
+a6rM9JznNz4bpB5y\
+sw&#10;xmmmldV1L\
+9ylVJh2mgsA+YgCs\
+BOqkrW6eer9kWRf0\
+fd72r1R80iys+XQ9\
+t00tOthznMfmzdF0\
+xfO&#10;c54LAPmI\
+ArCT/v7uS5r5xbvO\
+cxsnynRlv1Od52bT\
+DYMukJHbo/+Kuird\
+NPU+p5kAkM8oADvJ\
+yurG&#10;SWOVsaH\
+z7It6DVf7Zrs7z82\
+GwZ1768i9ejrPvfm\
+lB7SypsJ5LgDkKwr\
+ALnhn+QKNf+sF57m\
+l8YR+&#10;euSZzn\
+N3lZHRNQPOdp771t\
+KP9NBbzzvPBYB8Rg\
+HYRbe8/KBW165znn\
+vWwcPUtVVH57m74o\
+T9j9Sh&#10;7bs5z\
+czYUNc8e4dCa53mA\
+kC+owDsorW1lfrtK\
++Od58ZMEMnR9M6Km\
+UA/G+h+3vvm/kvvL\
+F/gPBcA&#10;8h0F\
+IAv+9uZzejeCncx3\
+uh+lHm27OM/dGWf0\
+HKJ9W+3pNHNF9Rrd\
+Os19OQOAQkAByIKM\
+DXXdC3fK&#10;yu1\
+pZiOjXww8z2nmzii\
+NJ3T1UWc5z/3l5HG\
+qqKt2ngsAhYACkCW\
+zFs3Xk/95xXnu4C6\
+91b9TD+e5&#10;O+\
+LCXserQ7PWTjNnfP\
+6unnpvmtNMACgkFI\
+AsGvniPaqsr3Ge+/\
+Oj8/csQONEma7qd5\
+rTzFQmrWue&#10;+\
+7PzMzIAUEgoAFm0o\
+nqN/vja485zD+/YX\
+UO79nGeuz2uOPy7z\
+q9c+KeZf9fHqxY5z\
+QSAQkMByLK7&#10;\
+Zv9Tn6xa7Dz3+giu\
+rb8tLcub6bLDT3aa\
+uahihe6Y8YTTTAAo\
+RBSALEtl0rpu0p3O\
+c7u33lsndR/g&#10\
+;PHdrrup3qvO7F/7\
+ihTtVk6pzmgkAhYg\
+CkAMvf/qWXvholvP\
+cawaco5Ig7jy3IW2\
+btNSFvYY7zZz4&#1\
+0;wWua9PFsp5kAUK\
+goADly4+Sxqk8nnW\
+Z2btleZ/Yc6jRzS/\
+7fgLNVXlLqLK82Va\
+9RL97jLA8ACh0F&#\
+10;IEcWrl2mv876p\
+/Pcqwec5XTH25DOL\
+dvrjJ5DnGbeOm28v\
+qhY4TQTAAoZBSCHb\
+ps+QYsc75TaNmmp&\
+#10;ixyfet/ctQPP\
+dfpWxAcrP9fY2c84\
+ywOAYkAByKG6dFK/\
+juAe9D/qf7qalzVx\
+nitJB+yxt07c/yhn\
+&#10;eVZWv3j+TqX\
+CtLNMACgGFIAce3r\
++q5q+cJ7TzOZlTXT\
+Z4Sc5zdzghkEXOv0\
+44oR5L+q1z99xlgc\
+A&#10;xYIC4MAvXn\
+B/hHpZn5PVunELp5\
+l9Ox6gwV16O8tbW1\
+upm6be7ywPAIoJBc\
+CBD1d+oQfeeNZpZu\
+NE&#10;mX7o+BK8r\
+i9JPPqlB7SqpsJpJ\
+gAUCwqAI//7ykNaU\
+b3GaeaFvYarU4s2T\
+rKGdu2jfp0OcpIlS\
+W8t&#10;/UgPv/2C\
+szwAKDYUAEcq62v0\
+m5f/5jSzJBbXT/qf\
+kfMcI6NrB56b85wN\
+MjbUNc/eodBysx8A\
+2FkU&#10;AIcenTd\
+Zby750Gnm6T2HqGu\
+rjjnNOOmAAerRpnN\
+OMzZ275yJemf5Amd\
+5AFCMKAAOhdbq2uf\
+/6vTI&#10;NWYCXT\
+vwnJxtPx7EdM1RZ+\
+ds+5tbUb1Gt0572F\
+keABQrCoBj85Z9rM\
+feedFp5gn7H6lD23\
+fLybbP&#10;PniYu\
+rTqkJNtN+TGSWO1r\
+r7aWR4AFCsKQARGT\
+71fFXXudmJGRtcMy\
+P5Remk8oZ8cmfs1B\
+hu8/Olb&#10;emr+\
+NGd5AFDMKAARWFlT\
+od+9+ojTzMGde6t/\
+px5Z3ebFh52gdk13\
+z+o2tySq2ywDQLGi\
+AETk3rkT&#10;Nf/\
+Lz5xmZvNz+s1KG+u\
+qI07N2va25fYZf9c\
+nqxY7ywOAYkcBiEg\
+6zOjGSWOdZh7esbu\
+Gdu2TlW1d&#10;3v\
+dk7VbeNCvb2pbP1i\
+zV7TMed5IFAL6gAE\
+To1YXzNPH96U4zrx\
+90/i5fq79ZaWNd3P\
+vELE20bTdM&#10;H\
+qv6dNJZHgD4gAIQs\
+V++OE41qTpned1b7\
+/rd+kYcfpKalzXO0\
+kRbN/H96Zr88WwnW\
+QDgEwpAxJas&#10;\
+W6k7ZjzhNPPagecq\
+HsR26rVNSxvp0sPc\
+HP1XJWt14+RxTrIA\
+wDcUgDxwx8wntGD1\
+Emd5nVu21+k9&#10\
+;Bu/Uay/ufYKalzX\
+J8kQN+79pD2tp5Uo\
+nWQDgGwpAHkhmUvr\
+1lHudZl4z4ByVxRM\
+79JpGJWW6tM93&#1\
+0;cjTRpt7/cqHumT\
+PRSRYA+IgCkCee++\
+h1TVkw11leu6atdP\
+6hx+/Qay7sdbxaNW\
+qeo4m+YWX1s+f+&#\
+10;rFSYznkWAPiKA\
+pBHrn/hLiUzKWd5V\
+/U7dbvPApQEcV1ym\
+Juj/0fenqxZi+Y7y\
+QIAX1EA8sina5Zq&\
+#10;3OxnnOW1btxC\
+Z/QYsl3PPeWgQWrf\
+LPdX/VtbW6mbX3og\
+5zkA4DsKQJ75/fRH\
+taxqtbO8/znilG1+\
+&#10;IsDI6Iq+33U\
+yz01T79eqmgonWQD\
+gMwpAnqlK1mr01Pu\
+d5XVq0UYndR+w1ec\
+M6XqY9tu9U85neXP\
+J&#10;h3pk3qSc5w\
+AAKAB56Yl3X9LML9\
+51lvfjI0/f6tUB/6\
+fv93I+Q8aGuua5Py\
+u0NudZAAAKQF6ysr\
+px&#10;0lhlbOgkb\
+99We27xHgEHt+uqf\
+p0OyvkM42Y/o3eXL\
+8h5DgBgPQpAnnpn+\
+QI99NbzzvJ+3P/0B\
+r9/&#10;5RGn5Dx7\
+RfUa57dHBgDfUQDy\
+2JiX/6bVteucZPVq\
+v5/6d+qxyfc6tWij\
+4fv1z3n29S/crXX1\
+1TnP&#10;AQB8gwK\
+Qx9bWVuq3r4x3lvf\
+D/qdt8vgHfb+nmMn\
+tP5GXP31Lz7z/ak4\
+zAAD/jQKQ5x5881m\
+9vfQj&#10;J1mD9j\
+lUB7frKklqUd50p+\
+8XsL2SmZSum3RnTj\
+MAAA2jAOS50FrdMH\
+msrNysjr+q3/qzAJ\
+f0PkGN&#10;Sspym\
+nX7a4/rk1WLc5oBA\
+GgYBaAAzF40X0+8+\
+5KTrOHd+umyw0/SR\
+b2/ndOcT9cs1Z9mu\
+r0NMgDg&#10;GxSA\
+AvHrKfepsr4m5zmB\
+MRo15JKc3/Tnhkl3\
+qz6dzGkGAGDLKAAF\
+YkX1Gt322mNRj5EV\
+T89/VS9+&#10;Mif\
+qMQDAaxSAAnL37Kc\
+K/j3zqmStfvXiuKj\
+HAADvUQAKSCqTLvh\
+V87dOG6+llauiHgM\
+AvEcBKDAv&#10;f/\
+qWnv/o9ajH2Cnzv/\
+xM9875V9RjAABEAS\
+hIv5w8ruAW0FlZ/e\
+y5vygVpqMeBQAgCk\
+BBWrh2mf7y&#10;+\
+pNRj7FDHn57kmYvm\
+h/1GACAr1AACtQfX\
+3tMX1SsiHqM7bK2t\
+lI3T30g6jEAABuhA\
+BSounRSv55y&#10;\
+X9RjbJdRU+5zdlMj\
+AMD2oQAUsGfef1Uv\
+ffpm1GNs1axF8/Xo\
+vMlRjwEA2AwFoMD9\
+cvLYvF1Ylw4z&#10\
+;uu6FO53dxwAAsP0\
+oAAXuw5Vf6P65/45\
+6jAaNnf203l2+IOo\
+xAAANoAAUgd9OG6/\
+lVaujHmMTy6tW&#1\
+0;6w/TJ0Q9BgBgCy\
+gARaCyvka/efmhqM\
+fYxPWT7ta6+uqoxw\
+AAbAEFoEhMeGey3l\
+jyQdRjSJJe+vRN&#\
+10;TXx/etRjAAC2g\
+gJQJEJr9fPn71Roo\
+11wl8ykdP0Ld0U6A\
+wBg2+JRD4DsmbfsY\
+02YN1lnHTws6lFQ&\
+#10;BOLr0oovrZEk\
+2XSo9Lq6rGeU1MWy\
+vs2GWGPsGvuxkyyg\
+UHAGoMi8ufTDSPMT\
+sRKNGnJxpDMAALaN\
+&#10;AlBEmpY20tV\
+HnRX1GBratY+O27d\
+v1GMAALaCAlBEfj7\
+wXLVp0jLqMSRJtxx\
+7mRqVlEU9BgBgCyg\
+A&#10;RWL/1nvpgl\
+7Dox7jax2atdZV/U\
+6NegwAwBZQAIqAkd\
+GYYy9XPHCzoGp7XX\
+nEKerSqkPUYwAAGk\
+AB&#10;KAKnHjRI/\
+TodFPUY/6UkFtctw\
+y6PegwAQAMoAAWuS\
+aJc1x9zYdRjbNHR+\
+xyib+/XP+oxAACbo\
+QAU&#10;uGsGnKO2\
+ebLwb0tuGnqpGidY\
+EAgA+YQCUMC67b6n\
+vn/Yt6MeY5vaN9td\
+P+5/RtRjAAA2QgEo\
+YGOO&#10;vVwlQWF\
+czPHyw0/Wvq32jHo\
+MAMBXKAAF6rsHDNS\
+Re/WMeoztVhKL65Z\
+jL4t6DADAVygABah\
+xoky/&#10;HPz9qM\
+fYYQP2PlgndR8Q9R\
+gAAFEACtLVR56ldk\
+1bRT3GTrlp2KVqWt\
+oo6jEAwHsUgALTuW\
+V7XdLn&#10;xKjH2\
+Gl7NN5NPznyzKjHA\
+ADvUQAKzOhhI5SIl\
+UQ9xi4Z0ec7OmCPv\
+aMeAwC8RgEoICfsf\
+6QGd+4d&#10;9Ri7\
+LB7EdMuxl8vIRD0K\
+AHiLAlAgyktK9asC\
+XPi3JUfseaC+d+DR\
+UY8BAN6iABSIH/c/\
+XXs23yNn&#10;26+\
+oq9Kwe3+kVJjOWcb\
+mRg65WM3LGjvLAwB\
+8gwJQAPbZrZ0uP/z\
+knGb87a3n9M7yBZo\
+w78Wc5mys&#10;de\
+MWuvqos5zlAQC+QQ\
+EoAKOHjVBpPJGz7a\
+fDjO6d+y9J0v9Ne1\
+i1qfqcZW3u4sNO1I\
+F77OMsDwCw&#10;H\
+gUgzx3f7QgN6XJYT\
+jOeeX+6lqxbKUlaV\
+rVa973x75zmbSxmA\
+o057goWBAKAYxSAP\
+FYWT2jUkEty&#10;\
+njN29tObPP7ja4+p\
+oq4q57kbHN6xu07r\
+MdhZHgCAApDXrup3\
+mjq1aJPTjFmL5uuN\
+JR9s8r2Kuird&#10\
+;OeufOc3d3C8HX6T\
+mZU2cZgKAzygAeWq\
+vFm115RHfy3nOXVv\
+Y0d89+yl9Wb025/k\
+b7N6ouX4+8Fxn&#1\
+0;eQDgOwpAnsr1wj\
+9J+mTVYj374YwGf1\
+adrNNtrz2W0/zNXd\
+BruA5t381pJgD4ig\
+KQh47p3EvDuvbJ&#\
+10;ec4dM59QaO0Wf\
+/7gG89q4dplOZ9jg\
+8AYjTn2cgWGBYEAk\
+GsUgDyTiJVo9LARO\
+c9ZWrlKf//P1K0+&\
+#10;JxWm9btXH8n5\
+LBs7pN2+OrPnUKeZ\
+AOAjCkCeufKIU9Sl\
+ZYec59w9+ymlMtu+\
+6t/f352q/6z4NOfz\
+&#10;bOzGYy5Sy/J\
+mTjMBwDcUgDzSoVl\
+rXdnvlJznVNRV6W9\
+vPrddzw2t1a2vjM/\
+xRJvarbyprj2aBYE\
+A&#10;kEsUgDxy07\
+BL1aikLOc59879l6\
+qStdv9/Oc+el2zF8\
+3P4UT/7bxDvqVD2u\
+3rNBMAfEIByBNH73\
+OI&#10;hnfrl/Oc6\
+mSdxs15Zodf96sX7\
+5HVlhcMZltgjH77r\
+R8oZvgnCgC5wF/XP\
+FASi+uWYZc7yRo35\
+2mt&#10;qqnY4de9\
+seQDTXx/eg4m2rKe\
+bbvqnEOOdZoJAL6g\
+AOSBKw7/rrq0yv3C\
+v+pkne7e7LK/O+Km\
+qfcr&#10;mUllcaJ\
+tu37QBWrVqLnTTAD\
+wAQUgYu2a7q4f9T/\
+dSdY9c5/ZqaP/DT5\
+fu/zruwa60rysia4\
+bdL7T&#10;TADwAQ\
+UgYr8eerEaJ3K/8K\
+8mVae7Zj21y9v5w/\
+QJWlNbmYWJtt9ZPY\
+fpsA77O80EgGJHAY\
+jQgL0P&#10;1on7H\
++Uk6545E3fp6H+Di\
+roq3fbahCxMtP0CY\
+zTmuCtYEAgAWcRf1\
+IiUBHHdcuxlTrKqk\
+rX66+tP&#10;Zm17\
+9879lz5bszRr29se\
+Pdp01gW9hjvNBIBi\
+RgGIyKWHf0f7ttrT\
+Sdads/6p1bXrsra9\
+VCat0S89&#10;kLX\
+tba9fHH2e2jRp6Tw\
+XAIoRBSACezTeTT9\
+2tPCvoq5KY2fv+nv\
+/m5v4/nS9vui9rG9\
+3a5qWNtL1&#10;LA\
+gEgKygAERg1NBL1K\
+y0sZOsP854XBV11T\
+nZ9qgX73V6cSBJOq\
+3HYPXrdJDTTAAoRh\
+QAx/p2PEAn&#10;H\
+zDASdbyqtW6L4cf2\
+3tjyQd6ev6rOdt+Q\
+4zW3zK4JIg7zQWAY\
+kMBcCgexDTmuCtk5\
+OZ+93+YPkG1&#10;\
+qfqcZtz80gPOLw60\
+f+u9dGFvFgQCwK6g\
+ADj0/d4n6IA99naS\
+9UXFCo1/+4Wc53y+\
+drnGzZmY85zN&#10\
+;XTvwXLVlQSAA7DQ\
+KgCOtG7fQ1Ued5Sz\
+vt688pFQm7STrj69\
+NyOqnDLZHk0S5bhx\
+8kdNMACgmFABH&#1\
+0;bjzmIjUvc7Pw7+\
+NVi/SP/7zsJEuSKu\
+qq9Yfpbi8OJEnfO/\
+Bo9e/Uw3kuABQDCo\
+ADfTp212k9jnGW&#\
+10;94fpE5SxobM8S\
+bp/7r/1qeOLAxkZ/\
+ea4K1gQCAA7gQKQY\
+zETaMyxlztb+Pfpm\
+qV6av40J1kbS4Vp&\
+#10;jXn5Qee53Xbf\
+U5f2OdF5LgAUOgpA\
+jl3Qa7gOatPZWd4f\
+pk9QOsw4y9vYM/On\
+a/ai+c5zf3rUWWrX\
+&#10;tJXzXAAoZBS\
+AHNqtvKmuGXC2s7y\
+Fa5fpH/95yVne5qy\
+sRk1xf3GgJolyjRx\
+ysdNMACh0FIAc+uU\
+x&#10;F2m38qbO8v\
+742mORHf1vMGfx+3\
+r+o1nOc0/qPkCDO/\
+d2ngsAhYoCkCMHt+\
+uqM3oOdZa3eN2Xev\
+zd&#10;qc7ytuamq\
+fcpFbr5COLGRg8bo\
+USsxHkuABQiCkAOB\
+MboN8deocC4WfgnS\
+bdNf8zZ5/635ZNVi\
+/Xw&#10;25Oc53Zu\
+2V6XHX6S81wAKEQU\
+gBw475Bv6dD23Zzl\
+LVm3Uo++M9lZ3va4\
+9ZXxqqyvcZ770yPP\
+1J7N&#10;93CeCwC\
+FhgKQZS3Km+rao89\
+1mnn7jMfz5uh/g5U\
+1Fbpz1pPOc8tLSvU\
+rFgQCwDZRALLs+kH\
+nq2V5&#10;M2d5y6\
+tW69F5+XX0v8GfZ/\
+5DSytXOs89Yb/+Gt\
+LlMOe5AFBIKABZ1L\
+NtV5198LFOM2+f8X\
+fVpZNO&#10;M7dXX\
+Tqp3736aCTZo4eNU\
+Gk8EUk2ABQCCkCWB\
+Gb9fepjxt3/pCuq1\
+2j8W887y9sZj7w9S\
+e9/udB5&#10;7j67\
+tdMP+n7XeS4AFAoK\
+QJac2XOoenfYz2nm\
+n2c+kbdH/xtkbKjR\
+Lz0QSfaP+p+uTi3a\
+RJINAPmO&#10;ApA\
+Fzcua6PpBFzjNXF2\
+7Tg/l+dH/BpM/nq1\
+pn73tPLcsntCvh17\
+qPBcACgEFIAt+cfR\
+5atWoudPM&#10;O2\
+Y+oepkndPMXTFqyr\
+0KrdtLBEvSt/btq2\
+Fd+zjPBYB8RwHYRd\
+1b761zDznOaeaa2k\
+o9+MazTjN3&#10;1\
+bvLF+if770SSfZNQ\
+y9lQSAAbIYCsAuMj\
+MYcd5niQcxp7l9e/\
+4eqkrVOM7NhzMsPK\
+plJOc/de7d2&#10;\
+uqrfqc5zASCfUQB2\
+wWk9BuuIPQ9ymrm2\
+tlL3zf2X08xs+aJi\
+he6ZMzGS7B/2O1Vd\
+WnaIJBsA8hEF&#10\
+;YCc1LW2k6wed7zz\
+3rtlPFeTR/wa3vTZ\
+Ba2ornecmYiUaPWy\
+E81wAyFcUgJ30swH\
+nqE2Tlk4z19VX&#1\
+0;69650RxBZ0tFXb\
+Vun/F4JNnHdO6lb+\
+3bN5JsAMg3FICdsN\
+/unXRh7+HOc++e/b\
+Qq6qqd52bbuDnP&#\
+10;6LM1SyPJvvnYy\
+9SopCySbADIJxSAn\
+TDmuMtVEsSdZlbW1\
+2js7KedZuZKKpPWb\
+6eNjyS7Q7PWLAgE&\
+#10;AFEAdtgpBw5S\
+/049nOeOnfO0Kuqq\
+nOfmypP/eUVvL/0o\
+kuwrjzhFXVqxIBCA\
+3ygAO6BJolw3Dr7I\
+&#10;eW51sk7jZj/\
+jPDeXrKxGTrk3kuy\
+SWFy3DLs8kmwAyBc\
+UgB1w9VFnqa3jhX+\
+SdM/cZ7S6dp3z3Fy\
+b&#10;8fm7mvTx7E\
+iyj97nEJ2wX/9Isg\
+EgH1AAtlO33ffUJX\
+1OdJ5bk6rT3bOcc2\
+TkAAAKBUlEQVSecp\
+7r&#10;yqgp9yodZ\
+iLJvmnYpWqcYEEgA\
+D9RALbTqCGXOF/4J\
+0n3z/23VtZUOM915\
+eNVi/TovMmRZLdru\
+rt+&#10;cuQZkWQD\
+QNTc79EKUKcWbbRo\
+3Qr97a3nnGf/ddaT\
+zjNdu3Xaw7Jyf6Mg\
+SWpUUqbSeEL1eX5b\
+ZQDI&#10;NtPm5hP\
+vkrFcIg3AJszqOmn\
+p+qs22nSo9LrsX4G\
+ypGXjrG+zIdaY+fV\
+7l3d3EgYUCN4CAAD\
+AQxQA&#10;AAA8RA\
+EAAMBDFAAAADxEAQ\
+AAwEMUAAAAPEQBAA\
+DAQxQAAAA8RAEAAM\
+BDFAAAADxEAQAAwE\
+MUAAAA&#10;PEQBA\
+ADAQxQAAAA8RAEAA\
+MBDFAAAADxEAQAAw\
+EMUAAAAPEQBAADAQ\
+xQAAAA8RAEAAMBDF\
+AAAADxE&#10;AQAA\
+wEMUAAAAPEQBAADA\
+QxQAAAA8RAEAAMBD\
+FAAAADxEAQAAwEOB\
+USaMeggA+chGPQCA\
+HAoUxKqj&#10;HgJ\
+A/rHWbvwgukEA5EQ\
+QylZGPQSAPJT5Zqf\
+P/h8oPoGxWhL1EAD\
+yj0lv9O6g5Z1CoNg\
+Eoez7UQ8B&#10;IP\
+/Y+sw3X2c4BQAUmy\
+ChxHuyrPYBsBErmW\
+T6m4dpzgAAxSZYfN\
+2Tq2T0btSDAMgjyb\
+SU3mgNQCaz&#10;l\
+ScDKETrrwNgNCXiO\
+QDkk+rU11/aVIZPB\
+AJFKJCkwIT/iHoQA\
+PnDVNZ//XWY4ugfK\
+EaBJC299t/T&#10;\
+JPNJ1MMAyAOpcNMz\
+APXprTwZQKHa8BaA\
+ley4iGcBkA8q6r4+\
+5R8m05teEAhA0fj6\
+XgCpZOYvsloT&#10\
+;5TAAImatzKrarx+\
+GtamtPBlAIfu6AKw\
+e+ew6a8xtUQ4DIFp\
+mda301Uf+wmRallu\
+FAEVrk7sBJsrK&#1\
+0;bmUtAOCpdCi74q\
+ujfyuFNRz9A8Vskw\
+Kw6KeP14YmcyUXBg\
+I8tKxaJlx/xJ+pTc\
+qGHP0Dxcw09M02&#\
+10;Y779e1nzE9fDA\
+IhIRb3MonWS1n/uP\
+11Z5yS2pGVjJznWq\
+kaBWegkDCgANhFMj\
+Tf0g1b1jX6+qrS2&\
+#10;r6z6ux4KgFsm\
+mZGWrL8pqA2tMlX1\
+23hF4TFGjWRt96jn\
+APJGMjMtaOj77418\
+PBm3Jd8Jrea7ngmA\
+&#10;Q2krLayQQit\
+Zq0xlHR/7AzzRYAG\
+QpMXXPbmqxMaOk7U\
+fuxwIgCOZUGbhWim\
+ZkaxVurKeVf+AR7Z\
+Y&#10;ACRpyQ1PfW\
+EVO8rKvuFqIAAOpE\
+KZz9ZKdWkptEqvq5\
+NNc8lfwCdbLQCStO\
+L6p5eHsdggyT7iYB\
+4A&#10;uVadklmwR\
+qrLyKYzSq+r5cgf8\
+FCDnwLYkj3GfHuEs\
+eZWSc1yNA+AXLGSW\
+VkjfVm9/nP+tSlla\
+pOR&#10;juTqUwAA\
+NmWN7t7mGYCNrfjF\
+v+7OxILuocIJXCsA\
+KCAbjvpXVK//mF9F\
+beQ7fwDR2qEzABtr\
+PeY7&#10;h8asvcE\
+qPFkyO1QkADhSnZJ\
+ZWS1VpWTTGYW1qby\
+6vS9nAIBoWKO7d7o\
+AbNBu9PC9wiA4z8q\
+eZWQO&#10;yMZgAH\
+ZBKpQq6mTW1svWpm\
+STaYX1eXhdf2NUsl\
+ujqKcAvJSVArCxVq\
+NP6BAzGmIC9VIm7G\
+5MsHco&#10;20pGT\
+Y1MIptZgNeslUJJm\
+VBKhlJ9SqpJSZVJ2\
+bqUbNrKpjP5t9Pfi\
+AmM4i0oAEAUsl4Ak\
+D/anNv3&#10;LmM1\
+QpLC+rQy1cV3dTcU\
+NhOPKd6sLOoxAC/t\
+8CJAAMgWE+PPDxAl\
+fgMBRMLEOQEJRIkC\
+ACASJh6L&#10;egT\
+AaxQAAM6ZwPAWABA\
+xfgMBOGcSDd6JHIB\
+DFAAAzgWlFAAgahQ\
+AAE6ZeIzT/0Ae4Lc\
+QgFOx8pKo&#10;Rw\
+AgCgAAh0w8JlPC6n\
+8gH1AAADgTa8wVwY\
+F8QQEA4ERQVsJ7/0\
+Ae4bcRQM6ZeKBYI4\
+7+gXxCAQCQ&#10;U\
+yYwijXhpj9AvqEAA\
+Mgds37nbwKu+w/kG\
+woAgNwwRvGmpTJx/\
+swA+YjLcQHIOhMYx\
+ZqWsegPyGMU&#10;\
+AABZZeIxxZuUSpz2\
+B/IaBQBAdhgpVpZQ\
+wJX+gIJAAQCwy4JE\
+XEGjBIv9gAJCAQCw\
+04JEXEE5F/gB&#10\
+;ChEFAMAOMfGYgkR\
+s/S19DUf8QKGiAPj\
+AGI7QsOOMkQkkmUA\
+mtv7fkInHJPb5QFG\
+gAHggSMQUJMqj&#1\
+0;HgMAkEc4LAQAwE\
+MUAAAAPEQBAADAQx\
+QAAAA8RAEAAMBDFA\
+AAADxEAQAAwEMUAA\
+AAPEQBAADAQxQA&#\
+10;AAA8RAEAAMBDF\
+AAAADxEAQAAwEMUA\
+AAAPEQBAADAQxQAA\
+AA8RAEAAMBDFAAAA\
+DxEAQAAwEMUAAAA&\
+#10;PEQBAADAQxQA\
+AAA8RAEAAMBDFAAA\
+ADxEAQAAwEMUAAAA\
+PEQBAADAQxQAAAA8\
+RAEAAMBDFAAAADxE\
+&#10;AQAAwEMUAAA\
+APEQBAADAQxQAAAA\
+8RAEAAMBDFAAAADx\
+EAQAAwEMUAAAAPEQ\
+BAADAQxQAAAA8RAE\
+A&#10;AMBDFAAAAD\
+xEAQAAwEMUAAAAPE\
+QBAADAQxQAAAA8RA\
+EAAMBDFAAAADxEAQ\
+AAwEMUAAAAPEQBAA\
+DA&#10;QxQAAAA8R\
+AEAAMBDFAAAADxEA\
+QAAwEMUAAAAPEQBA\
+ADAQxQAAAA8RAEAA\
+MBDFAAAADxEAQAAw\
+EMU&#10;gCIVWNVF\
+PQMAIE9lVEMBKFKh\
+bGXUMwAA8pMxqqQA\
+FCsbrIh6BABAngrs\
+CgpAkQoC82HUMwAA\
+8lMo&#10;8wEFoEi\
+ZdPo/Uc8AAMhPiSB\
+4jwJQpJY8OvsLWX0\
+a9RwAgPxiZD9a9OC\
+MxRSAImaNJkc9AwA\
+gv4Qy&#10;UyQ+Bl\
+jcrHks6hEAAPnFGP\
+OoRAEoasu7zZxipS\
++ingMAkB+sNZ8v6z\
+rzFYkCUNxGKjRWt0\
+c9BgAg&#10;PwQKb\
+9NIheu/RlHLpMrvt\
+Farop4DABAxa1eYJ\
+pm7NjyMRTkLcq/mv\
+c+STXvsWSmjb0c9C\
+wAgOlb6&#10;0bL7\
+58za8JgzAB5Y1m3m\
+Xdaa2VHPAQCIzIzl\
+3Wbdt/E3KAA+GKkw\
+DMzZsloX9SgAAMes\
+rYzF7IUb&#10;3vv\
+fgALgiS8fmvGxZC+\
+RZKOeBQDgiFVoFFy\
+4+MFZ/3V5eNYAeKT\
+qncXvNenZ8UuJ9QA\
+A4ANj9NOl&#10;D7\
+9+X0M/owB4puqdxb\
+Mb9+xYb6QhkkzU8w\
+AAcsJK9ufLxs/63Z\
+aeQAHwUPU7i19t3L\
+PjF5KON/wb&#10;A\
+ICiYq2tN0aXLBs/6\
+y9bex5HgB5rd3bf3\
+jawE2RNl6hnAQDsO\
+iu7UDJnLh//+sxtP\
+ZejP49VvbN4&#10;\
+aeODW91jlEhZqT9n\
+AwCgUNm0kbkjKXP6\
+yvGvf7I9r+AMACRJ\
+bc/qc6AJguut7OmS\
+oQgAQEGwGWv0&#10\
+;aGCCm5f+beb8HXk\
+lBQCb2OOM/l2CWOY\
+CSefKaJ+o5wEANGi\
+BpIesDR9Y/vDsBTu\
+zAQoAtqj9Wf32&#1\
+0;D4NwsDGml1W4n7\
+VmL1k1NUYtop4NAH\
+xgZddIpsqG+ixm7A\
+dWwRtBkJ6y5KE5H0\
+Q9GwAAAAAAAAAA&#\
+10;AAAAAAAAAAAAA\
+AAAAAAAAAAAAAAAA\
+AAAAAAAAAAAAAAAA\
+AAAAAAAAAAAAAAAh\
+en/A0KBaVOXbGQl&\
+#10;AAAAAElFTkSu\
+QmCC&#10;\x22\x0a     \
+  id=\x22image1\x22\x0a  \
+     x=\x2278.15972\
+1\x22\x0a       y=\x2278.\
+315369\x22\x0a       s\
+tyle=\x22display:in\
+line;mix-blend-m\
+ode:normal\x22 /></\
+g></svg>\x0a\
 \x00\x00Q\x90\
 <\
 ?xml version=\x221.\
@@ -4194,6 +6481,2972 @@ oke-width:0.7412\
 936 z\x22\x0d\x0a        \
  id=\x22path20\x22 /><\
 /g></g></svg>\x0d\x0a\
+\x00\x00\xb92\
+<\
+?xml version=\x221.\
+0\x22 encoding=\x22UTF\
+-8\x22 standalone=\x22\
+no\x22?>\x0a<!-- Creat\
+ed with Inkscape\
+ (http://www.ink\
+scape.org/) -->\x0a\
+\x0a<svg\x0a   width=\x22\
+64\x22\x0a   height=\x226\
+4\x22\x0a   viewBox=\x220\
+ 0 16.933333 16.\
+933333\x22\x0a   versi\
+on=\x221.1\x22\x0a   id=\x22\
+svg1\x22\x0a   xml:spa\
+ce=\x22preserve\x22\x0a  \
+ inkscape:versio\
+n=\x221.3 (0e150ed6\
+c4, 2023-07-21)\x22\
+\x0a   sodipodi:doc\
+name=\x22OpenExcel.\
+svg\x22\x0a   xmlns:in\
+kscape=\x22http://w\
+ww.inkscape.org/\
+namespaces/inksc\
+ape\x22\x0a   xmlns:so\
+dipodi=\x22http://s\
+odipodi.sourcefo\
+rge.net/DTD/sodi\
+podi-0.dtd\x22\x0a   x\
+mlns:xlink=\x22http\
+://www.w3.org/19\
+99/xlink\x22\x0a   xml\
+ns=\x22http://www.w\
+3.org/2000/svg\x22\x0a\
+   xmlns:svg=\x22ht\
+tp://www.w3.org/\
+2000/svg\x22><sodip\
+odi:namedview\x0a  \
+   id=\x22namedview\
+1\x22\x0a     pagecolo\
+r=\x22#505050\x22\x0a    \
+ bordercolor=\x22#e\
+eeeee\x22\x0a     bord\
+eropacity=\x221\x22\x0a  \
+   inkscape:show\
+pageshadow=\x220\x22\x0a \
+    inkscape:pag\
+eopacity=\x220\x22\x0a   \
+  inkscape:pagec\
+heckerboard=\x220\x22\x0a\
+     inkscape:de\
+skcolor=\x22#505050\
+\x22\x0a     inkscape:\
+document-units=\x22\
+px\x22\x0a     inkscap\
+e:zoom=\x228\x22\x0a     \
+inkscape:cx=\x22-50\
+.125\x22\x0a     inksc\
+ape:cy=\x2211.8125\x22\
+\x0a     inkscape:w\
+indow-width=\x22344\
+0\x22\x0a     inkscape\
+:window-height=\x22\
+1369\x22\x0a     inksc\
+ape:window-x=\x22-8\
+\x22\x0a     inkscape:\
+window-y=\x22-8\x22\x0a  \
+   inkscape:wind\
+ow-maximized=\x221\x22\
+\x0a     inkscape:c\
+urrent-layer=\x22la\
+yer2\x22\x0a     showg\
+uides=\x22true\x22\x0a   \
+  showgrid=\x22true\
+\x22><inkscape:page\
+\x0a       x=\x220\x22\x0a  \
+     y=\x220\x22\x0a     \
+  width=\x2216.9333\
+32\x22\x0a       heigh\
+t=\x2216.933332\x22\x0a  \
+     id=\x22page2\x22\x0a\
+       margin=\x220\
+ 838.30115 0 0\x22\x0a\
+       bleed=\x220\x22\
+ /><inkscape:gri\
+d\x0a       id=\x22gri\
+d1\x22\x0a       units\
+=\x22px\x22\x0a       ori\
+ginx=\x220\x22\x0a       \
+originy=\x220\x22\x0a    \
+   spacingx=\x220.2\
+6458333\x22\x0a       \
+spacingy=\x220.2645\
+8333\x22\x0a       emp\
+color=\x22#0099e5\x22\x0a\
+       empopacit\
+y=\x220.30196078\x22\x0a \
+      color=\x22#00\
+99e5\x22\x0a       opa\
+city=\x220.14901961\
+\x22\x0a       empspac\
+ing=\x225\x22\x0a       d\
+otted=\x22false\x22\x0a  \
+     gridanglex=\
+\x2230\x22\x0a       grid\
+anglez=\x2230\x22\x0a    \
+   visible=\x22true\
+\x22 /></sodipodi:n\
+amedview><defs\x0a \
+    id=\x22defs1\x22><\
+linearGradient\x0a \
+      gradientTr\
+ansform=\x22transla\
+te(-48)\x22\x0a       \
+gradientUnits=\x22u\
+serSpaceOnUse\x22\x0a \
+      y2=\x2225.999\
+996\x22\x0a       x2=\x22\
+53\x22\x0a       y1=\x223\
+9.999996\x22\x0a      \
+ x1=\x2210\x22\x0a       \
+id=\x22linearGradie\
+nt3781\x22\x0a       x\
+link:href=\x22#line\
+arGradient3775\x22 \
+/><linearGradien\
+t\x0a       id=\x22lin\
+earGradient3775\x22\
+><stop\x0a         \
+id=\x22stop3777\x22\x0a  \
+       offset=\x220\
+\x22\x0a         style\
+=\x22stop-color:#d3\
+d7cf;stop-opacit\
+y:1;\x22 /><stop\x0a  \
+       id=\x22stop3\
+779\x22\x0a         of\
+fset=\x221\x22\x0a       \
+  style=\x22stop-co\
+lor:#ffffff;stop\
+-opacity:1\x22 /></\
+linearGradient><\
+linearGradient\x0a \
+      gradientTr\
+ansform=\x22matrix(\
+1,0,0,0.77777777\
+,0,5.1111114)\x22\x0a \
+      gradientUn\
+its=\x22userSpaceOn\
+Use\x22\x0a       y2=\x22\
+5\x22\x0a       x2=\x2221\
+\x22\x0a       y1=\x2258\x22\
+\x0a       x1=\x2238\x22\x0a\
+       id=\x22linea\
+rGradient3789\x22\x0a \
+      xlink:href\
+=\x22#linearGradien\
+t3775\x22 /><linear\
+Gradient\x0a       \
+id=\x22linearGradie\
+nt3319\x22><stop\x0a  \
+       id=\x22stop3\
+315\x22\x0a         of\
+fset=\x220\x22\x0a       \
+  style=\x22stop-co\
+lor:#729fcf;stop\
+-opacity:1\x22 /><s\
+top\x0a         id=\
+\x22stop3317\x22\x0a     \
+    offset=\x221\x22\x0a \
+        style=\x22s\
+top-color:#204a8\
+7;stop-opacity:1\
+\x22 /></linearGrad\
+ient><linearGrad\
+ient\x0a       id=\x22\
+linearGradient43\
+87\x22><stop\x0a      \
+   id=\x22stop4389\x22\
+\x0a         offset\
+=\x220\x22\x0a         st\
+yle=\x22stop-color:\
+#71b2f8;stop-opa\
+city:1;\x22 /><stop\
+\x0a         id=\x22st\
+op4391\x22\x0a        \
+ offset=\x221\x22\x0a    \
+     style=\x22stop\
+-color:#002795;s\
+top-opacity:1;\x22 \
+/></linearGradie\
+nt><radialGradie\
+nt\x0a       gradie\
+ntTransform=\x22tra\
+nslate(-0.234432\
+24,0.23443198)\x22\x0a\
+       gradientU\
+nits=\x22userSpaceO\
+nUse\x22\x0a       r=\x22\
+19.467436\x22\x0a     \
+  fy=\x2228.869568\x22\
+\x0a       fx=\x2245.8\
+83327\x22\x0a       cy\
+=\x2228.869568\x22\x0a   \
+    cx=\x2245.88332\
+7\x22\x0a       id=\x22ra\
+dialGradient3692\
+\x22\x0a       xlink:h\
+ref=\x22#linearGrad\
+ient3377\x22 /><lin\
+earGradient\x0a    \
+   id=\x22linearGra\
+dient3377\x22><stop\
+\x0a         style=\
+\x22stop-color:#faf\
+f2b;stop-opacity\
+:1;\x22\x0a         of\
+fset=\x220\x22\x0a       \
+  id=\x22stop3379\x22 \
+/><stop\x0a        \
+ style=\x22stop-col\
+or:#ffaa00;stop-\
+opacity:1;\x22\x0a    \
+     offset=\x221\x22\x0a\
+         id=\x22sto\
+p3381\x22 /></linea\
+rGradient><radia\
+lGradient\x0a      \
+ r=\x2219.467436\x22\x0a \
+      fy=\x2228.869\
+568\x22\x0a       fx=\x22\
+45.883327\x22\x0a     \
+  cy=\x2228.869568\x22\
+\x0a       cx=\x2245.8\
+83327\x22\x0a       gr\
+adientTransform=\
+\x22matrix(0.670671\
+75,0,0,0.6414591\
+8,-63.380792,0.8\
+3845403)\x22\x0a      \
+ gradientUnits=\x22\
+userSpaceOnUse\x22\x0a\
+       id=\x22radia\
+lGradient6412\x22\x0a \
+      xlink:href\
+=\x22#linearGradien\
+t3377\x22 /><linear\
+Gradient\x0a       \
+xlink:href=\x22#lin\
+earGradient3036\x22\
+\x0a       id=\x22line\
+arGradient3049\x22\x0a\
+       gradientU\
+nits=\x22userSpaceO\
+nUse\x22\x0a       gra\
+dientTransform=\x22\
+rotate(33.834399\
+,20.280412,56.14\
+3946)\x22\x0a       x1\
+=\x2214.824193\x22\x0a   \
+    y1=\x2250.46861\
+6\x22\x0a       x2=\x2220\
+.93985\x22\x0a       y\
+2=\x2256.000233\x22 />\
+<linearGradient\x0a\
+       id=\x22linea\
+rGradient3036\x22><\
+stop\x0a         st\
+yle=\x22stop-color:\
+#ef2929;stop-opa\
+city:1\x22\x0a        \
+ offset=\x220\x22\x0a    \
+     id=\x22stop303\
+8\x22 /><stop\x0a     \
+    style=\x22stop-\
+color:#a40000;st\
+op-opacity:1\x22\x0a  \
+       offset=\x221\
+\x22\x0a         id=\x22s\
+top3040\x22 /></lin\
+earGradient><lin\
+earGradient\x0a    \
+   y2=\x2256.000233\
+\x22\x0a       x2=\x2220.\
+93985\x22\x0a       y1\
+=\x2250.468616\x22\x0a   \
+    x1=\x2214.82419\
+3\x22\x0a       gradie\
+ntTransform=\x22rot\
+ate(33.834399,-6\
+.8783909,90.8783\
+88)\x22\x0a       grad\
+ientUnits=\x22userS\
+paceOnUse\x22\x0a     \
+  id=\x22linearGrad\
+ient3307\x22\x0a      \
+ xlink:href=\x22#li\
+nearGradient3319\
+\x22 /><linearGradi\
+ent\x0a       xlink\
+:href=\x22#linearGr\
+adient3864-9\x22\x0a  \
+     id=\x22linearG\
+radient3808\x22\x0a   \
+    x1=\x22-146.744\
+67\x22\x0a       y1=\x225\
+8.261547\x22\x0a      \
+ x2=\x22-157.32494\x22\
+\x0a       y2=\x2226.5\
+20763\x22\x0a       gr\
+adientUnits=\x22use\
+rSpaceOnUse\x22\x0a   \
+    gradientTran\
+sform=\x22matrix(0.\
+97668521,0.05476\
+55,-0.0547655,0.\
+97668512,182.708\
+59,-2.2305154)\x22 \
+/><linearGradien\
+t\x0a       id=\x22lin\
+earGradient3864-\
+9\x22><stop\x0a       \
+  style=\x22stop-co\
+lor:#204a87;stop\
+-opacity:1\x22\x0a    \
+     offset=\x220\x22\x0a\
+         id=\x22sto\
+p3866-1\x22 /><stop\
+\x0a         style=\
+\x22stop-color:#729\
+fcf;stop-opacity\
+:1\x22\x0a         off\
+set=\x221\x22\x0a        \
+ id=\x22stop3868-1\x22\
+ /></linearGradi\
+ent><linearGradi\
+ent\x0a       y2=\x226\
+09.50507\x22\x0a      \
+ x2=\x22302.85715\x22\x0a\
+       y1=\x22366.6\
+4789\x22\x0a       x1=\
+\x22302.85715\x22\x0a    \
+   gradientTrans\
+form=\x22matrix(2.7\
+74389,0,0,1.9697\
+06,-1892.179,-87\
+2.8854)\x22\x0a       \
+gradientUnits=\x22u\
+serSpaceOnUse\x22\x0a \
+      id=\x22linear\
+Gradient6715-5\x22\x0a\
+       xlink:hre\
+f=\x22#linearGradie\
+nt5048\x22 /><linea\
+rGradient\x0a      \
+ id=\x22linearGradi\
+ent5048\x22><stop\x0a \
+        style=\x22s\
+top-color:black;\
+stop-opacity:0;\x22\
+\x0a         offset\
+=\x220\x22\x0a         id\
+=\x22stop5050\x22 /><s\
+top\x0a         id=\
+\x22stop5056\x22\x0a     \
+    offset=\x220.5\x22\
+\x0a         style=\
+\x22stop-color:blac\
+k;stop-opacity:1\
+;\x22 /><stop\x0a     \
+    style=\x22stop-\
+color:black;stop\
+-opacity:0;\x22\x0a   \
+      offset=\x221\x22\
+\x0a         id=\x22st\
+op5052\x22 /></line\
+arGradient><radi\
+alGradient\x0a     \
+  inkscape:colle\
+ct=\x22always\x22\x0a    \
+   xlink:href=\x22#\
+linearGradient50\
+60\x22\x0a       id=\x22r\
+adialGradient503\
+1\x22\x0a       gradie\
+ntUnits=\x22userSpa\
+ceOnUse\x22\x0a       \
+gradientTransfor\
+m=\x22matrix(-2.774\
+389,0,0,1.969706\
+,112.7623,-872.8\
+854)\x22\x0a       cx=\
+\x22605.71429\x22\x0a    \
+   cy=\x22486.64789\
+\x22\x0a       fx=\x22605\
+.71429\x22\x0a       f\
+y=\x22486.64789\x22\x0a  \
+     r=\x22117.1428\
+6\x22 /><linearGrad\
+ient\x0a       inks\
+cape:collect=\x22al\
+ways\x22\x0a       id=\
+\x22linearGradient5\
+060\x22><stop\x0a     \
+    style=\x22stop-\
+color:black;stop\
+-opacity:1;\x22\x0a   \
+      offset=\x220\x22\
+\x0a         id=\x22st\
+op5062\x22 /><stop\x0a\
+         style=\x22\
+stop-color:black\
+;stop-opacity:0;\
+\x22\x0a         offse\
+t=\x221\x22\x0a         i\
+d=\x22stop5064\x22 /><\
+/linearGradient>\
+<radialGradient\x0a\
+       inkscape:\
+collect=\x22always\x22\
+\x0a       xlink:hr\
+ef=\x22#linearGradi\
+ent5060\x22\x0a       \
+id=\x22radialGradie\
+nt5029\x22\x0a       g\
+radientUnits=\x22us\
+erSpaceOnUse\x22\x0a  \
+     gradientTra\
+nsform=\x22matrix(2\
+.774389,0,0,1.96\
+9706,-1891.633,-\
+872.8854)\x22\x0a     \
+  cx=\x22605.71429\x22\
+\x0a       cy=\x22486.\
+64789\x22\x0a       fx\
+=\x22605.71429\x22\x0a   \
+    fy=\x22486.6478\
+9\x22\x0a       r=\x22117\
+.14286\x22 /><linea\
+rGradient\x0a      \
+ id=\x22linearGradi\
+ent269\x22><stop\x0a  \
+       id=\x22stop2\
+70\x22\x0a         off\
+set=\x220.0000000\x22\x0a\
+         style=\x22\
+stop-color:#a3a3\
+a3;stop-opacity:\
+1.0000000;\x22 /><s\
+top\x0a         id=\
+\x22stop271\x22\x0a      \
+   offset=\x221.000\
+0000\x22\x0a         s\
+tyle=\x22stop-color\
+:#4c4c4c;stop-op\
+acity:1.0000000;\
+\x22 /></linearGrad\
+ient><radialGrad\
+ient\x0a       inks\
+cape:collect=\x22al\
+ways\x22\x0a       xli\
+nk:href=\x22#linear\
+Gradient269\x22\x0a   \
+    id=\x22radialGr\
+adient8234\x22\x0a    \
+   gradientUnits\
+=\x22userSpaceOnUse\
+\x22\x0a       gradien\
+tTransform=\x22matr\
+ix(0.968273,0,0,\
+1.046686,44.3645\
+3,-17.00717)\x22\x0a  \
+     cx=\x228.82441\
+90\x22\x0a       cy=\x223\
+.7561285\x22\x0a      \
+ fx=\x228.8244190\x22\x0a\
+       fy=\x223.756\
+1285\x22\x0a       r=\x22\
+37.751713\x22 /><li\
+nearGradient\x0a   \
+    id=\x22linearGr\
+adient259\x22><stop\
+\x0a         id=\x22st\
+op260\x22\x0a         \
+offset=\x220.000000\
+0\x22\x0a         styl\
+e=\x22stop-color:#f\
+afafa;stop-opaci\
+ty:1.0000000;\x22 /\
+><stop\x0a         \
+style=\x22stop-colo\
+r:#a8a8a8;stop-o\
+pacity:1;\x22\x0a     \
+    offset=\x220.5\x22\
+\x0a         id=\x22st\
+op8238\x22 /><stop\x0a\
+         id=\x22sto\
+p261\x22\x0a         o\
+ffset=\x221\x22\x0a      \
+   style=\x22stop-c\
+olor:#cdcdcd;sto\
+p-opacity:1;\x22 />\
+</linearGradient\
+><linearGradient\
+\x0a       inkscape\
+:collect=\x22always\
+\x22\x0a       xlink:h\
+ref=\x22#linearGrad\
+ient259\x22\x0a       \
+id=\x22linearGradie\
+nt8236\x22\x0a       x\
+1=\x2225.875\x22\x0a     \
+  y1=\x2210.625\x22\x0a  \
+     x2=\x2225.25\x22\x0a\
+       y2=\x2230.87\
+5\x22\x0a       gradie\
+ntUnits=\x22userSpa\
+ceOnUse\x22\x0a       \
+gradientTransfor\
+m=\x22matrix(1,0,0,\
+1.238806,0,-7.88\
+0597)\x22 /><linear\
+Gradient\x0a       \
+id=\x22linearGradie\
+nt9766\x22><stop\x0a  \
+       style=\x22st\
+op-color:#6194cb\
+;stop-opacity:1;\
+\x22\x0a         offse\
+t=\x220\x22\x0a         i\
+d=\x22stop9768\x22 /><\
+stop\x0a         st\
+yle=\x22stop-color:\
+#729fcf;stop-opa\
+city:1;\x22\x0a       \
+  offset=\x221\x22\x0a   \
+      id=\x22stop97\
+70\x22 /></linearGr\
+adient><linearGr\
+adient\x0a       id\
+=\x22linearGradient\
+148\x22><stop\x0a     \
+    style=\x22stop-\
+color:#ffffff;st\
+op-opacity:0.134\
+02061;\x22\x0a        \
+ offset=\x220.00000\
+00\x22\x0a         id=\
+\x22stop149\x22 /><sto\
+p\x0a         style\
+=\x22stop-color:#ff\
+ffff;stop-opacit\
+y:0.051546391;\x22\x0a\
+         offset=\
+\x221.0000000\x22\x0a    \
+     id=\x22stop150\
+\x22 /></linearGrad\
+ient><linearGrad\
+ient\x0a       id=\x22\
+linearGradient33\
+5\x22><stop\x0a       \
+  style=\x22stop-co\
+lor:#ffffff;stop\
+-opacity:1.00000\
+00;\x22\x0a         of\
+fset=\x220.0000000\x22\
+\x0a         id=\x22st\
+op336\x22 /><stop\x0a \
+        style=\x22s\
+top-color:#fffff\
+f;stop-opacity:0\
+.0000000;\x22\x0a     \
+    offset=\x221.00\
+00000\x22\x0a         \
+id=\x22stop337\x22 /><\
+/linearGradient>\
+<linearGradient\x0a\
+       id=\x22linea\
+rGradient1789\x22><\
+stop\x0a         st\
+yle=\x22stop-color:\
+#a0a0a0;stop-opa\
+city:1;\x22\x0a       \
+  offset=\x220\x22\x0a   \
+      id=\x22stop17\
+90\x22 /><stop\x0a    \
+     style=\x22stop\
+-color:#a8a8a8;s\
+top-opacity:1;\x22\x0a\
+         offset=\
+\x221\x22\x0a         id=\
+\x22stop1791\x22 /></l\
+inearGradient><l\
+inearGradient\x0a  \
+     id=\x22linearG\
+radient137\x22><sto\
+p\x0a         style\
+=\x22stop-color:#ff\
+ffff;stop-opacit\
+y:0.70059878;\x22\x0a \
+        offset=\x22\
+0.0000000\x22\x0a     \
+    id=\x22stop138\x22\
+ /><stop\x0a       \
+  style=\x22stop-co\
+lor:#ffffff;stop\
+-opacity:0.00000\
+00;\x22\x0a         of\
+fset=\x221.0000000\x22\
+\x0a         id=\x22st\
+op139\x22 /></linea\
+rGradient><linea\
+rGradient\x0a      \
+ inkscape:collec\
+t=\x22always\x22\x0a     \
+  xlink:href=\x22#l\
+inearGradient335\
+\x22\x0a       id=\x22lin\
+earGradient155\x22\x0a\
+       gradientU\
+nits=\x22userSpaceO\
+nUse\x22\x0a       gra\
+dientTransform=\x22\
+scale(1.421537,0\
+.703464)\x22\x0a      \
+ x1=\x2219.116116\x22\x0a\
+       y1=\x2228.94\
+6041\x22\x0a       x2=\
+\x2219.426924\x22\x0a    \
+   y2=\x2251.912693\
+\x22 /><linearGradi\
+ent\x0a       inksc\
+ape:collect=\x22alw\
+ays\x22\x0a       xlin\
+k:href=\x22#linearG\
+radient148\x22\x0a    \
+   id=\x22linearGra\
+dient156\x22\x0a      \
+ gradientUnits=\x22\
+userSpaceOnUse\x22\x0a\
+       gradientT\
+ransform=\x22matrix\
+(1.535299,0,0,0.\
+651339,3.451418,\
+2.448)\x22\x0a       x\
+1=\x2214.899379\x22\x0a  \
+     y1=\x2227.0596\
+43\x22\x0a       x2=\x222\
+2.715446\x22\x0a      \
+ y2=\x2241.836895\x22 \
+/><linearGradien\
+t\x0a       inkscap\
+e:collect=\x22alway\
+s\x22\x0a       xlink:\
+href=\x22#linearGra\
+dient137\x22\x0a      \
+ id=\x22linearGradi\
+ent158\x22\x0a       g\
+radientUnits=\x22us\
+erSpaceOnUse\x22\x0a  \
+     gradientTra\
+nsform=\x22matrix(1\
+.462696,0,0.0690\
+7908,0.683669,0,\
+0)\x22\x0a       x1=\x225\
+.2657914\x22\x0a      \
+ y1=\x2218.725863\x22\x0a\
+       x2=\x228.212\
+2240\x22\x0a       y2=\
+\x2252.625851\x22 /><r\
+adialGradient\x0a  \
+     inkscape:co\
+llect=\x22always\x22\x0a \
+      xlink:href\
+=\x22#linearGradien\
+t1789\x22\x0a       id\
+=\x22radialGradient\
+159\x22\x0a       grad\
+ientUnits=\x22userS\
+paceOnUse\x22\x0a     \
+  gradientTransf\
+orm=\x22matrix(1.01\
+5635,0,0.103105,\
+1.000512,0,-0.08\
+369458)\x22\x0a       \
+cx=\x2226.106777\x22\x0a \
+      cy=\x2238.195\
+114\x22\x0a       fx=\x22\
+26.106777\x22\x0a     \
+  fy=\x2238.195114\x22\
+\x0a       r=\x2232.25\
+9769\x22 /><linearG\
+radient\x0a       i\
+nkscape:collect=\
+\x22always\x22\x0a       \
+xlink:href=\x22#lin\
+earGradient9766\x22\
+\x0a       id=\x22line\
+arGradient13162\x22\
+\x0a       gradient\
+Units=\x22userSpace\
+OnUse\x22\x0a       gr\
+adientTransform=\
+\x22matrix(1,0,0,1.\
+022118,52.05694,\
+-1.323026)\x22\x0a    \
+   x1=\x2222.175976\
+\x22\x0a       y1=\x2236.\
+987999\x22\x0a       x\
+2=\x2222.065331\x22\x0a  \
+     y2=\x2232.0504\
+99\x22 /><linearGra\
+dient\x0a       ink\
+scape:collect=\x22a\
+lways\x22\x0a       xl\
+ink:href=\x22#linea\
+rGradient5060\x22\x0a \
+      id=\x22linear\
+Gradient13848\x22\x0a \
+      x1=\x2222.25\x22\
+\x0a       y1=\x2237.6\
+25\x22\x0a       x2=\x221\
+9.75\x22\x0a       y2=\
+\x2214.875\x22\x0a       \
+gradientUnits=\x22u\
+serSpaceOnUse\x22 /\
+></defs><g\x0a     \
+inkscape:groupmo\
+de=\x22layer\x22\x0a     \
+id=\x22layer2\x22\x0a    \
+ inkscape:label=\
+\x22Layer 2\x22\x0a     t\
+ransform=\x22matrix\
+(0.08460082,0,0,\
+0.08460082,0.013\
+1684,0)\x22><g\x0a    \
+   id=\x22g1\x22\x0a     \
+  transform=\x22mat\
+rix(3.5541007,0,\
+0,3.5541007,-3.9\
+742478,-7.079974\
+9)\x22><g\x0a         \
+id=\x22layer1\x22\x0a    \
+     inkscape:la\
+bel=\x22Folder\x22 /><\
+g\x0a         inksc\
+ape:label=\x22Open\x22\
+\x0a         id=\x22la\
+yer3\x22><path\x0a    \
+       sodipodi:\
+nodetypes=\x22ccccc\
+cssssccc\x22\x0a      \
+     style=\x22colo\
+r:#000000;displa\
+y:inline;overflo\
+w:visible;visibi\
+lity:visible;fil\
+l:url(#radialGra\
+dient159);fill-o\
+pacity:1;fill-ru\
+le:nonzero;strok\
+e:#5a5a5a;stroke\
+-width:1;stroke-\
+linecap:round;st\
+roke-linejoin:ro\
+und;stroke-miter\
+limit:4;stroke-d\
+ashoffset:0;stro\
+ke-opacity:1;mar\
+ker:none;marker-\
+start:none;marke\
+r-mid:none;marke\
+r-end:none\x22\x0a    \
+       id=\x22path2\
+375\x22\x0a           \
+d=\x22m 4.6200285,3\
+8.651015 c 0.041\
+808,0.420455 0.4\
+973856,0.840909 \
+0.9111553,0.8409\
+09 H 36.667346 c\
+ 0.41377,0 0.785\
+732,-0.420454 0.\
+743924,-0.840909\
+ L 34.714653,11.\
+531728 C 34.6728\
+45,11.111274 34.\
+217267,10.69082 \
+33.803498,10.690\
+82 H 21.080082 c\
+ -0.590546,0 -1.\
+209083,-0.379552\
+ -1.402861,-0.96\
+03351 L 18.57421\
+9,6.4246085 C 18\
+.404967,5.917330\
+8 18.027069,5.68\
+88138 17.259746,\
+5.6888138 H 2.32\
+24188 c -0.41376\
+96,0 -0.7857312,\
+0.4204542 -0.743\
+9232,0.8409082 z\
+\x22 /><path\x0a      \
+     style=\x22colo\
+r:#000000;displa\
+y:inline;overflo\
+w:visible;visibi\
+lity:visible;opa\
+city:0.113636;fi\
+ll:#729fcf;fill-\
+opacity:1;fill-r\
+ule:nonzero;stro\
+ke:#000000;strok\
+e-width:1;stroke\
+-linecap:round;s\
+troke-linejoin:r\
+ound;stroke-mite\
+rlimit:4;stroke-\
+dasharray:none;s\
+troke-dashoffset\
+:0;stroke-opacit\
+y:1;marker:none;\
+marker-start:non\
+e;marker-mid:non\
+e;marker-end:non\
+e\x22\x0a           d=\
+\x22M 3.3386019,17.\
+533487 H 34.4884\
+61\x22\x0a           i\
+d=\x22path13113\x22\x0a  \
+         sodipod\
+i:nodetypes=\x22cc\x22\
+ /><path\x0a       \
+    style=\x22color\
+:#000000;display\
+:inline;overflow\
+:visible;visibil\
+ity:visible;opac\
+ity:0.113636;fil\
+l:#729fcf;fill-o\
+pacity:1;fill-ru\
+le:nonzero;strok\
+e:#000000;stroke\
+-width:1;stroke-\
+linecap:round;st\
+roke-linejoin:ro\
+und;stroke-miter\
+limit:4;stroke-d\
+asharray:none;st\
+roke-dashoffset:\
+0;stroke-opacity\
+:1;marker:none;m\
+arker-start:none\
+;marker-mid:none\
+;marker-end:none\
+\x22\x0a           d=\x22\
+M 5.3301525,37.5\
+33487 H 35.31790\
+7\x22\x0a           id\
+=\x22path13160\x22\x0a   \
+        sodipodi\
+:nodetypes=\x22cc\x22 \
+/><path\x0a        \
+   sodipodi:node\
+types=\x22cc\x22\x0a     \
+      id=\x22path13\
+139\x22\x0a           \
+d=\x22M 5.3301525,3\
+5.533487 H 35.31\
+7907\x22\x0a          \
+ style=\x22color:#0\
+00000;display:in\
+line;overflow:vi\
+sible;visibility\
+:visible;opacity\
+:0.113636;fill:#\
+729fcf;fill-opac\
+ity:1;fill-rule:\
+nonzero;stroke:#\
+000000;stroke-wi\
+dth:1;stroke-lin\
+ecap:round;strok\
+e-linejoin:round\
+;stroke-miterlim\
+it:4;stroke-dash\
+array:none;strok\
+e-dashoffset:0;s\
+troke-opacity:1;\
+marker:none;mark\
+er-start:none;ma\
+rker-mid:none;ma\
+rker-end:none\x22 /\
+><g\x0a           s\
+tyle=\x22display:in\
+line\x22\x0a          \
+ id=\x22g5022\x22\x0a    \
+       transform\
+=\x22matrix(0.02165\
+152,0,0,0.019038\
+41,42.41538,36.9\
+3372)\x22><rect\x0a   \
+          y=\x22-15\
+0.69685\x22\x0a       \
+      x=\x22-1559.2\
+523\x22\x0a           \
+  height=\x22478.35\
+718\x22\x0a           \
+  width=\x221339.63\
+35\x22\x0a            \
+ id=\x22rect4173\x22\x0a \
+            styl\
+e=\x22color:#000000\
+;display:inline;\
+overflow:visible\
+;visibility:visi\
+ble;opacity:0.40\
+2062;fill:url(#l\
+inearGradient671\
+5-5);fill-opacit\
+y:1;fill-rule:no\
+nzero;stroke:non\
+e;stroke-width:1\
+;stroke-linecap:\
+round;stroke-lin\
+ejoin:miter;stro\
+ke-miterlimit:4;\
+stroke-dasharray\
+:none;stroke-das\
+hoffset:0;stroke\
+-opacity:1;marke\
+r:none;marker-st\
+art:none;marker-\
+mid:none;marker-\
+end:none\x22 /><pat\
+h\x0a             s\
+odipodi:nodetype\
+s=\x22cccc\x22\x0a       \
+      id=\x22path50\
+58\x22\x0a            \
+ d=\x22m -219.61876\
+,-150.68038 c 0,\
+0 0,478.33079 0,\
+478.33079 142.87\
+4166,0.90045 345\
+.40022,-107.1696\
+6 345.40014,-239\
+.196175 0,-132.0\
+26537 -159.43681\
+6,-239.134595 -3\
+45.40014,-239.13\
+4615 z\x22\x0a        \
+     style=\x22colo\
+r:#000000;displa\
+y:inline;overflo\
+w:visible;visibi\
+lity:visible;opa\
+city:0.402062;fi\
+ll:url(#radialGr\
+adient5029);fill\
+-opacity:1;fill-\
+rule:nonzero;str\
+oke:none;stroke-\
+width:1;stroke-l\
+inecap:round;str\
+oke-linejoin:mit\
+er;stroke-miterl\
+imit:4;stroke-da\
+sharray:none;str\
+oke-dashoffset:0\
+;stroke-opacity:\
+1;marker:none;ma\
+rker-start:none;\
+marker-mid:none;\
+marker-end:none\x22\
+ /><path\x0a       \
+      style=\x22col\
+or:#000000;displ\
+ay:inline;overfl\
+ow:visible;visib\
+ility:visible;op\
+acity:0.402062;f\
+ill:url(#radialG\
+radient5031);fil\
+l-opacity:1;fill\
+-rule:nonzero;st\
+roke:none;stroke\
+-width:1;stroke-\
+linecap:round;st\
+roke-linejoin:mi\
+ter;stroke-miter\
+limit:4;stroke-d\
+asharray:none;st\
+roke-dashoffset:\
+0;stroke-opacity\
+:1;marker:none;m\
+arker-start:none\
+;marker-mid:none\
+;marker-end:none\
+\x22\x0a             d\
+=\x22m -1559.2523,-\
+150.68038 c 0,0 \
+0,478.33079 0,47\
+8.33079 -142.874\
+2,0.90045 -345.4\
+002,-107.16966 -\
+345.4002,-239.19\
+6175 0,-132.0265\
+37 159.4368,-239\
+.134595 345.4002\
+,-239.134615 z\x22\x0a\
+             id=\
+\x22path5018\x22\x0a     \
+        sodipodi\
+:nodetypes=\x22cccc\
+\x22 /></g><path\x0a  \
+         sodipod\
+i:nodetypes=\x22ccc\
+cccsscsscccc\x22\x0a  \
+         id=\x22pat\
+h2380\x22\x0a         \
+  d=\x22m 6.1717518\
+,38.418674 c 0.0\
+31356,0.310327 -\
+0.1546248,0.5172\
+12 -0.475404,0.4\
+13769 v 0 C 5.37\
+55686,38.729001 \
+5.1477798,38.522\
+116 5.1164238,38\
+.211789 L 2.0868\
+572,6.8445942 C \
+2.0555012,6.5342\
+67 2.2434512,6.3\
+468711 2.5537784\
+,6.3468711 L 17.\
+303531,6.2554251\
+ c 0.531284,-0.0\
+0329 0.739429,0.\
+053306 0.879799,\
+0.517212 0,0 1.0\
+85374,3.1127979 \
+1.246234,3.69810\
+49 L 17.873968,7\
+.5537061 C 17.60\
+8788,7.0564434 1\
+7.275224,7.13993\
+65 16.901178,7.1\
+399365 H 3.77177\
+75 c -0.3103272,\
+0 -0.496308,0.20\
+68848 -0.464952,\
+0.517212 L 6.285\
+6462,38.522116 Z\
+\x22\x0a           sty\
+le=\x22color:#00000\
+0;display:block;\
+overflow:visible\
+;visibility:visi\
+ble;fill:url(#li\
+nearGradient158)\
+;fill-opacity:1;\
+fill-rule:nonzer\
+o;stroke:none;st\
+roke-width:1.173\
+41;stroke-lineca\
+p:butt;stroke-li\
+nejoin:miter;str\
+oke-miterlimit:4\
+;stroke-dashoffs\
+et:0;stroke-opac\
+ity:1;marker:non\
+e;marker-start:n\
+one;marker-mid:n\
+one;marker-end:n\
+one\x22 /><path\x0a   \
+        sodipodi\
+:nodetypes=\x22cc\x22\x0a\
+           id=\x22p\
+ath13145\x22\x0a      \
+     d=\x22M 2.3052\
+333,7.533487 H 1\
+7.088967\x22\x0a      \
+     style=\x22colo\
+r:#000000;displa\
+y:inline;overflo\
+w:visible;visibi\
+lity:visible;opa\
+city:0.113636;fi\
+ll:#729fcf;fill-\
+opacity:1;fill-r\
+ule:nonzero;stro\
+ke:#000000;strok\
+e-width:1;stroke\
+-linecap:round;s\
+troke-linejoin:r\
+ound;stroke-mite\
+rlimit:4;stroke-\
+dasharray:none;s\
+troke-dashoffset\
+:0;stroke-opacit\
+y:1;marker:none;\
+marker-start:non\
+e;marker-mid:non\
+e;marker-end:non\
+e\x22 /><path\x0a     \
+      sodipodi:n\
+odetypes=\x22cc\x22\x0a  \
+         id=\x22pat\
+h13115\x22\x0a        \
+   d=\x22M 2.757333\
+3,11.533487 H 33\
+.496214\x22\x0a       \
+    style=\x22color\
+:#000000;display\
+:inline;overflow\
+:visible;visibil\
+ity:visible;opac\
+ity:0.113636;fil\
+l:#729fcf;fill-o\
+pacity:1;fill-ru\
+le:nonzero;strok\
+e:#000000;stroke\
+-width:1;stroke-\
+linecap:round;st\
+roke-linejoin:ro\
+und;stroke-miter\
+limit:4;stroke-d\
+asharray:none;st\
+roke-dashoffset:\
+0;stroke-opacity\
+:1;marker:none;m\
+arker-start:none\
+;marker-mid:none\
+;marker-end:none\
+\x22 /><g\x0a         \
+  inkscape:expor\
+t-ydpi=\x2274.80000\
+3\x22\x0a           in\
+kscape:export-xd\
+pi=\x2274.800003\x22\x0a \
+          inksca\
+pe:export-filena\
+me=\x22/home/jimmac\
+/ximian_art/icon\
+s/nautilus/suse9\
+3/gnome-fs-direc\
+tory.png\x22\x0a      \
+     transform=\x22\
+matrix(1.034424,\
+0,0.10452,1.0344\
+24,-10.03248,2.6\
+31914)\x22\x0a        \
+   id=\x22g2381\x22\x0a  \
+         style=\x22\
+display:block;fi\
+ll:#ffffff;fill-\
+opacity:0.580311\
+;fill-rule:nonze\
+ro;stroke:#00000\
+0;stroke-miterli\
+mit:4\x22><path\x0a   \
+          sodipo\
+di:nodetypes=\x22cs\
+cscs\x22\x0a          \
+   id=\x22path2382\x22\
+\x0a             d=\
+\x22m 41.785743,9.0\
+363862 c 0.0096,\
+-0.4745828 0.015\
+19,-0.7245056 -0\
+.423393,-0.72420\
+32 l -12.55582,0\
+.00866 c -0.3,0 \
+-0.324614,-0.143\
+2061 0,0 0.32461\
+4,0.1432061 1.24\
+7098,0.6582712 2\
+.182697,0.700994\
+7 0,0 10.796477,\
+0.016463 10.7965\
+16,0.014551 z\x22\x0a \
+            styl\
+e=\x22stroke:none\x22 \
+/></g><path\x0a    \
+       sodipodi:\
+nodetypes=\x22cc\x22\x0a \
+          id=\x22pa\
+th13123\x22\x0a       \
+    d=\x22M 3.16289\
+54,15.533487 H 3\
+3.993452\x22\x0a      \
+     style=\x22colo\
+r:#000000;displa\
+y:inline;overflo\
+w:visible;visibi\
+lity:visible;opa\
+city:0.113636;fi\
+ll:#729fcf;fill-\
+opacity:1;fill-r\
+ule:nonzero;stro\
+ke:#000000;strok\
+e-width:1;stroke\
+-linecap:round;s\
+troke-linejoin:r\
+ound;stroke-mite\
+rlimit:4;stroke-\
+dasharray:none;s\
+troke-dashoffset\
+:0;stroke-opacit\
+y:1;marker:none;\
+marker-start:non\
+e;marker-mid:non\
+e;marker-end:non\
+e\x22 /><path\x0a     \
+      style=\x22col\
+or:#000000;displ\
+ay:inline;overfl\
+ow:visible;visib\
+ility:visible;op\
+acity:0.113636;f\
+ill:#729fcf;fill\
+-opacity:1;fill-\
+rule:nonzero;str\
+oke:#000000;stro\
+ke-width:1;strok\
+e-linecap:round;\
+stroke-linejoin:\
+round;stroke-mit\
+erlimit:4;stroke\
+-dasharray:none;\
+stroke-dashoffse\
+t:0;stroke-opaci\
+ty:1;marker:none\
+;marker-start:no\
+ne;marker-mid:no\
+ne;marker-end:no\
+ne\x22\x0a           d\
+=\x22M 5.1594716,33\
+.533487 H 35.147\
+226\x22\x0a           \
+id=\x22path13121\x22\x0a \
+          sodipo\
+di:nodetypes=\x22cc\
+\x22 /><path\x0a      \
+     sodipodi:no\
+detypes=\x22cc\x22\x0a   \
+        id=\x22path\
+13119\x22\x0a         \
+  d=\x22M 4.8658086\
+,31.533487 H 34.\
+974533\x22\x0a        \
+   style=\x22color:\
+#000000;display:\
+inline;overflow:\
+visible;visibili\
+ty:visible;opaci\
+ty:0.113636;fill\
+:#729fcf;fill-op\
+acity:1;fill-rul\
+e:nonzero;stroke\
+:#000000;stroke-\
+width:1;stroke-l\
+inecap:round;str\
+oke-linejoin:rou\
+nd;stroke-miterl\
+imit:4;stroke-da\
+sharray:none;str\
+oke-dashoffset:0\
+;stroke-opacity:\
+1;marker:none;ma\
+rker-start:none;\
+marker-mid:none;\
+marker-end:none\x22\
+ /><path\x0a       \
+    style=\x22color\
+:#000000;display\
+:inline;overflow\
+:visible;visibil\
+ity:visible;opac\
+ity:0.113636;fil\
+l:#729fcf;fill-o\
+pacity:1;fill-ru\
+le:nonzero;strok\
+e:#000000;stroke\
+-width:1;stroke-\
+linecap:round;st\
+roke-linejoin:ro\
+und;stroke-miter\
+limit:4;stroke-d\
+asharray:none;st\
+roke-dashoffset:\
+0;stroke-opacity\
+:1;marker:none;m\
+arker-start:none\
+;marker-mid:none\
+;marker-end:none\
+\x22\x0a           d=\x22\
+M 4.6336367,29.5\
+33487 H 34.80284\
+7\x22\x0a           id\
+=\x22path13135\x22\x0a   \
+        sodipodi\
+:nodetypes=\x22cc\x22 \
+/><path\x0a        \
+   sodipodi:node\
+types=\x22cc\x22\x0a     \
+      id=\x22path13\
+137\x22\x0a           \
+d=\x22M 4.4629557,2\
+7.533487 H 34.63\
+2166\x22\x0a          \
+ style=\x22color:#0\
+00000;display:in\
+line;overflow:vi\
+sible;visibility\
+:visible;opacity\
+:0.113636;fill:#\
+729fcf;fill-opac\
+ity:1;fill-rule:\
+nonzero;stroke:#\
+000000;stroke-wi\
+dth:1;stroke-lin\
+ecap:round;strok\
+e-linejoin:round\
+;stroke-miterlim\
+it:4;stroke-dash\
+array:none;strok\
+e-dashoffset:0;s\
+troke-opacity:1;\
+marker:none;mark\
+er-start:none;ma\
+rker-mid:none;ma\
+rker-end:none\x22 /\
+><path\x0a         \
+  style=\x22color:#\
+000000;display:i\
+nline;overflow:v\
+isible;visibilit\
+y:visible;opacit\
+y:0.113636;fill:\
+#729fcf;fill-opa\
+city:1;fill-rule\
+:nonzero;stroke:\
+#000000;stroke-w\
+idth:1;stroke-li\
+necap:round;stro\
+ke-linejoin:roun\
+d;stroke-miterli\
+mit:4;stroke-das\
+harray:none;stro\
+ke-dashoffset:0;\
+stroke-opacity:1\
+;marker:none;mar\
+ker-start:none;m\
+arker-mid:none;m\
+arker-end:none\x22\x0a\
+           d=\x22M \
+4.2556718,25.533\
+487 H 34.460793\x22\
+\x0a           id=\x22\
+path13143\x22\x0a     \
+      sodipodi:n\
+odetypes=\x22cc\x22 />\
+<path\x0a          \
+ sodipodi:nodety\
+pes=\x22cc\x22\x0a       \
+    id=\x22path1313\
+3\x22\x0a           d=\
+\x22M 4.0235198,23.\
+533487 H 34.2891\
+01\x22\x0a           s\
+tyle=\x22color:#000\
+000;display:inli\
+ne;overflow:visi\
+ble;visibility:v\
+isible;opacity:0\
+.113636;fill:#72\
+9fcf;fill-opacit\
+y:1;fill-rule:no\
+nzero;stroke:#00\
+0000;stroke-widt\
+h:1;stroke-linec\
+ap:round;stroke-\
+linejoin:round;s\
+troke-miterlimit\
+:4;stroke-dashar\
+ray:none;stroke-\
+dashoffset:0;str\
+oke-opacity:1;ma\
+rker:none;marker\
+-start:none;mark\
+er-mid:none;mark\
+er-end:none\x22 /><\
+path\x0a           \
+style=\x22color:#00\
+0000;display:inl\
+ine;overflow:vis\
+ible;visibility:\
+visible;opacity:\
+0.113636;fill:#7\
+29fcf;fill-opaci\
+ty:1;fill-rule:n\
+onzero;stroke:#0\
+00000;stroke-wid\
+th:1;stroke-line\
+cap:round;stroke\
+-linejoin:round;\
+stroke-miterlimi\
+t:4;stroke-dasha\
+rray:none;stroke\
+-dashoffset:0;st\
+roke-opacity:1;m\
+arker:none;marke\
+r-start:none;mar\
+ker-mid:none;mar\
+ker-end:none\x22\x0a  \
+         d=\x22M 3.\
+8528389,21.53348\
+7 H 34.11842\x22\x0a  \
+         id=\x22pat\
+h13117\x22\x0a        \
+   sodipodi:node\
+types=\x22cc\x22 /><g\x0a\
+           inksc\
+ape:export-ydpi=\
+\x2274.800003\x22\x0a    \
+       inkscape:\
+export-xdpi=\x2274.\
+800003\x22\x0a        \
+   inkscape:expo\
+rt-filename=\x22/ho\
+me/jimmac/ximian\
+_art/icons/nauti\
+lus/suse93/gnome\
+-fs-directory.pn\
+g\x22\x0a           tr\
+ansform=\x22matrix(\
+1.034424,0,0.104\
+52,1.034424,-10.\
+03248,2.631914)\x22\
+\x0a           id=\x22\
+g1853\x22\x0a         \
+  style=\x22display\
+:block;fill:#fff\
+fff;fill-opacity\
+:0.580311;fill-r\
+ule:nonzero;stro\
+ke:#000000;strok\
+e-miterlimit:4\x22>\
+<path\x0a          \
+   sodipodi:node\
+types=\x22cscscs\x22\x0a \
+            id=\x22\
+path1855\x22\x0a      \
+       d=\x22m 41.7\
+85743,9.0363862 \
+c 0.0096,-0.4745\
+828 0.01519,-0.7\
+245056 -0.423393\
+,-0.7242032 l -1\
+2.55582,0.00866 \
+c -0.3,0 -0.3246\
+14,-0.1432061 0,\
+0 0.324614,0.143\
+2061 1.247098,0.\
+6582712 2.182697\
+,0.7009947 0,0 1\
+0.796477,0.01646\
+3 10.796516,0.01\
+4551 z\x22\x0a        \
+     style=\x22stro\
+ke:none\x22 /></g><\
+path\x0a           \
+style=\x22color:#00\
+0000;display:inl\
+ine;overflow:vis\
+ible;visibility:\
+visible;opacity:\
+0.113636;fill:#7\
+29fcf;fill-opaci\
+ty:1;fill-rule:n\
+onzero;stroke:#0\
+00000;stroke-wid\
+th:1;stroke-line\
+cap:round;stroke\
+-linejoin:round;\
+stroke-miterlimi\
+t:4;stroke-dasha\
+rray:none;stroke\
+-dashoffset:0;st\
+roke-opacity:1;m\
+arker:none;marke\
+r-start:none;mar\
+ker-mid:none;mar\
+ker-end:none\x22\x0a  \
+         d=\x22M 2.\
+9642313,13.53348\
+7 H 33.990735\x22\x0a \
+          id=\x22pa\
+th13127\x22\x0a       \
+    sodipodi:nod\
+etypes=\x22cc\x22 /><p\
+ath\x0a           s\
+odipodi:nodetype\
+s=\x22cc\x22\x0a         \
+  id=\x22path13125\x22\
+\x0a           d=\x22M\
+ 3.6514189,19.53\
+3487 H 33.947215\
+\x22\x0a           sty\
+le=\x22color:#00000\
+0;display:inline\
+;overflow:visibl\
+e;visibility:vis\
+ible;opacity:0.1\
+13636;fill:#729f\
+cf;fill-opacity:\
+1;fill-rule:nonz\
+ero;stroke:#0000\
+00;stroke-width:\
+1;stroke-linecap\
+:round;stroke-li\
+nejoin:round;str\
+oke-miterlimit:4\
+;stroke-dasharra\
+y:none;stroke-da\
+shoffset:0;strok\
+e-opacity:1;mark\
+er:none;marker-s\
+tart:none;marker\
+-mid:none;marker\
+-end:none\x22 /><pa\
+th\x0a           st\
+yle=\x22color:#0000\
+00;display:inlin\
+e;overflow:visib\
+le;visibility:vi\
+sible;opacity:0.\
+113636;fill:#729\
+fcf;fill-opacity\
+:1;fill-rule:non\
+zero;stroke:#000\
+000;stroke-width\
+:1;stroke-lineca\
+p:round;stroke-l\
+inejoin:round;st\
+roke-miterlimit:\
+4;stroke-dasharr\
+ay:none;stroke-d\
+ashoffset:0;stro\
+ke-opacity:1;mar\
+ker:none;marker-\
+start:none;marke\
+r-mid:none;marke\
+r-end:none\x22\x0a    \
+       d=\x22M 2.52\
+42572,9.5334871 \
+H 17.805073\x22\x0a   \
+        id=\x22path\
+13147\x22\x0a         \
+  sodipodi:nodet\
+ypes=\x22cc\x22 /><pat\
+h\x0a           sty\
+le=\x22color:#00000\
+0;display:block;\
+overflow:visible\
+;visibility:visi\
+ble;opacity:0.39\
+2045;fill:url(#l\
+inearGradient138\
+48);fill-opacity\
+:1;fill-rule:non\
+zero;stroke:none\
+;stroke-width:1;\
+stroke-linecap:b\
+utt;stroke-linej\
+oin:round;stroke\
+-miterlimit:4;st\
+roke-dasharray:n\
+one;stroke-dasho\
+ffset:0;stroke-o\
+pacity:1;marker:\
+none;marker-star\
+t:none;marker-mi\
+d:none;marker-en\
+d:none\x22\x0a        \
+   d=\x22M 34.375,1\
+4.125 37,38.75 6\
+,38.875 c 0,0 -1\
+.875,-24.75 -1.8\
+75,-24.75 0,0 30\
+.375,0 30.25,0 z\
+\x22\x0a           id=\
+\x22path13840\x22\x0a    \
+       sodipodi:\
+nodetypes=\x22cccsc\
+\x22 /><path\x0a      \
+     style=\x22colo\
+r:#000000;displa\
+y:block;overflow\
+:visible;visibil\
+ity:visible;opac\
+ity:1;fill:url(#\
+linearGradient82\
+36);fill-opacity\
+:1;fill-rule:non\
+zero;stroke:url(\
+#radialGradient8\
+234);stroke-widt\
+h:1;stroke-linec\
+ap:butt;stroke-l\
+inejoin:miter;st\
+roke-miterlimit:\
+4;stroke-dasharr\
+ay:none;stroke-d\
+ashoffset:0;stro\
+ke-opacity:1;mar\
+ker:none;marker-\
+start:none;marke\
+r-mid:none;marke\
+r-end:none\x22\x0a    \
+       d=\x22m 43.3\
+75,2.4944033 c 0\
+.5,16.8787317 -9\
+.075063,18.52847\
+57 -6.012563,29.\
+0002577 0,0 -31.\
+487437,0.885937 \
+-31.487437,0.885\
+937 C 4,19.52798\
+6 14.25,11.16604\
+5 11.25,2.649254\
+ Z\x22\x0a           i\
+d=\x22path8230\x22\x0a   \
+        sodipodi\
+:nodetypes=\x22cccc\
+c\x22 /><path\x0a     \
+      style=\x22col\
+or:#000000;displ\
+ay:block;overflo\
+w:visible;visibi\
+lity:visible;opa\
+city:1;fill:none\
+;fill-opacity:1;\
+fill-rule:nonzer\
+o;stroke:#a1a1a1\
+;stroke-width:1;\
+stroke-linecap:b\
+utt;stroke-linej\
+oin:miter;stroke\
+-miterlimit:4;st\
+roke-dasharray:n\
+one;stroke-dasho\
+ffset:0;stroke-o\
+pacity:1;marker:\
+none;marker-star\
+t:none;marker-mi\
+d:none;marker-en\
+d:none\x22\x0a        \
+   d=\x22M 15.4375,\
+6.5624999 H 39\x22\x0a\
+           id=\x22p\
+ath8277\x22\x0a       \
+    sodipodi:nod\
+etypes=\x22cc\x22 /><p\
+ath\x0a           i\
+nkscape:export-y\
+dpi=\x2274.800003\x22\x0a\
+           inksc\
+ape:export-xdpi=\
+\x2274.800003\x22\x0a    \
+       inkscape:\
+export-filename=\
+\x22/home/jimmac/xi\
+mian_art/icons/n\
+autilus/suse93/g\
+nome-fs-director\
+y.png\x22\x0a         \
+  sodipodi:nodet\
+ypes=\x22cccsscccsc\
+c\x22\x0a           id\
+=\x22path2401\x22\x0a    \
+       d=\x22m 5.77\
+85654,39.065997 \
+c 0.103442,0.211\
+469 0.310326,0.4\
+22928 0.6206519,\
+0.422928 H 39.70\
+767 c 0.206892,0\
+ 0.521164,-0.126\
+305 0.708174,-0.\
+264351 0.530402,\
+-0.391535 0.6548\
+6,-0.612385 0.89\
+2782,-0.973467 2\
+.448126,-3.71546\
+ 5.805141,-19.27\
+6893 5.805141,-1\
+9.276893 0.10344\
+2,-0.21146 -0.10\
+3441,-0.42292 -0\
+.413767,-0.42292\
+ H 11.776358 c -\
+0.310326,0 -1.65\
+5965,16.10733 -4\
+.8629988,19.2870\
+23 l -1.2382357,\
+1.22768 z\x22\x0a     \
+      style=\x22col\
+or:#000000;displ\
+ay:block;overflo\
+w:visible;visibi\
+lity:visible;opa\
+city:1;fill:url(\
+#linearGradient1\
+3162);fill-opaci\
+ty:1;fill-rule:n\
+onzero;stroke:#3\
+465a4;stroke-wid\
+th:1;stroke-line\
+cap:butt;stroke-\
+linejoin:round;s\
+troke-miterlimit\
+:4;stroke-dashar\
+ray:none;stroke-\
+dashoffset:0;str\
+oke-opacity:1;ma\
+rker:none;marker\
+-start:none;mark\
+er-mid:none;mark\
+er-end:none\x22 /><\
+path\x0a           \
+sodipodi:nodetyp\
+es=\x22cc\x22\x0a        \
+   id=\x22path8279\x22\
+\x0a           d=\x22M\
+ 15.356073,8.562\
+4999 H 35.08142\x22\
+\x0a           styl\
+e=\x22color:#000000\
+;display:block;o\
+verflow:visible;\
+visibility:visib\
+le;opacity:1;fil\
+l:none;fill-opac\
+ity:1;fill-rule:\
+nonzero;stroke:#\
+a1a1a1;stroke-wi\
+dth:1;stroke-lin\
+ecap:butt;stroke\
+-linejoin:miter;\
+stroke-miterlimi\
+t:4;stroke-dasha\
+rray:none;stroke\
+-dashoffset:0;st\
+roke-opacity:1;m\
+arker:none;marke\
+r-start:none;mar\
+ker-mid:none;mar\
+ker-end:none\x22 />\
+<path\x0a          \
+ id=\x22path323\x22\x0a  \
+         d=\x22m 13\
+.134476,20.13864\
+1 c -0.772747,4.\
+990757 -1.501301\
+,9.009243 -2.715\
+99,13.513864 2.3\
+86485,-0.707107 \
+7.116116,-3.2045\
+05 17.116116,-3.\
+204505 10,0 16.7\
+23573,-9.248699 \
+17.651651,-10.35\
+3553 z\x22\x0a        \
+   style=\x22fill:u\
+rl(#linearGradie\
+nt156);fill-opac\
+ity:1;fill-rule:\
+evenodd;stroke:n\
+one;stroke-width\
+:1px;stroke-line\
+cap:butt;stroke-\
+linejoin:miter;s\
+troke-opacity:1\x22\
+\x0a           sodi\
+podi:nodetypes=\x22\
+ccccc\x22 /><path\x0a \
+          style=\
+\x22color:#000000;d\
+isplay:block;ove\
+rflow:visible;vi\
+sibility:visible\
+;opacity:1;fill:\
+none;fill-opacit\
+y:1;fill-rule:no\
+nzero;stroke:#a1\
+a1a1;stroke-widt\
+h:1;stroke-linec\
+ap:butt;stroke-l\
+inejoin:miter;st\
+roke-miterlimit:\
+4;stroke-dasharr\
+ay:none;stroke-d\
+ashoffset:0;stro\
+ke-opacity:1;mar\
+ker:none;marker-\
+start:none;marke\
+r-mid:none;marke\
+r-end:none\x22\x0a    \
+       d=\x22M 15.1\
+43007,10.5625 H \
+39.457831\x22\x0a     \
+      id=\x22path82\
+81\x22\x0a           s\
+odipodi:nodetype\
+s=\x22cc\x22 /><path\x0a \
+          style=\
+\x22color:#000000;d\
+isplay:inline;ov\
+erflow:visible;v\
+isibility:visibl\
+e;opacity:0.5227\
+27;fill:none;fil\
+l-opacity:1;fill\
+-rule:evenodd;st\
+roke:url(#linear\
+Gradient155);str\
+oke-width:1px;st\
+roke-linecap:rou\
+nd;stroke-linejo\
+in:miter;stroke-\
+miterlimit:4;str\
+oke-dashoffset:0\
+;stroke-opacity:\
+1;marker:none;ma\
+rker-start:none;\
+marker-mid:none;\
+marker-end:none\x22\
+\x0a           d=\x22M\
+ 45.820083,19.68\
+75 H 12.661612 c\
+ 0,0 -2.147748,1\
+6.019607 -4.7222\
+722,18.240578 8.\
+1210772,0 31.571\
+1712,-0.04864 31\
+.5909902,-0.0486\
+4 1.751659,0 4.9\
+07641,-12.636194\
+ 6.289753,-18.19\
+1942 z\x22\x0a        \
+   id=\x22path324\x22\x0a\
+           sodip\
+odi:nodetypes=\x22c\
+ccsc\x22 /><path\x0a  \
+         sodipod\
+i:nodetypes=\x22cc\x22\
+\x0a           id=\x22\
+path8283\x22\x0a      \
+     d=\x22M 14.398\
+767,12.5625 H 38\
+.252159\x22\x0a       \
+    style=\x22color\
+:#000000;display\
+:block;overflow:\
+visible;visibili\
+ty:visible;opaci\
+ty:1;fill:none;f\
+ill-opacity:1;fi\
+ll-rule:nonzero;\
+stroke:#a1a1a1;s\
+troke-width:1;st\
+roke-linecap:but\
+t;stroke-linejoi\
+n:miter;stroke-m\
+iterlimit:4;stro\
+ke-dasharray:non\
+e;stroke-dashoff\
+set:0;stroke-opa\
+city:1;marker:no\
+ne;marker-start:\
+none;marker-mid:\
+none;marker-end:\
+none\x22 /><path\x0a  \
+         style=\x22\
+color:#000000;di\
+splay:block;over\
+flow:visible;vis\
+ibility:visible;\
+opacity:1;fill:n\
+one;fill-opacity\
+:1;fill-rule:non\
+zero;stroke:#a1a\
+1a1;stroke-width\
+:1;stroke-lineca\
+p:butt;stroke-li\
+nejoin:miter;str\
+oke-miterlimit:4\
+;stroke-dasharra\
+y:none;stroke-da\
+shoffset:0;strok\
+e-opacity:1;mark\
+er:none;marker-s\
+tart:none;marker\
+-mid:none;marker\
+-end:none\x22\x0a     \
+      d=\x22M 13.62\
+9028,14.5625 H 3\
+6.975331\x22\x0a      \
+     id=\x22path828\
+5\x22\x0a           so\
+dipodi:nodetypes\
+=\x22cc\x22 /><path\x0a  \
+         sodipod\
+i:nodetypes=\x22cc\x22\
+\x0a           id=\x22\
+path8287\x22\x0a      \
+     d=\x22M 12.520\
+679,16.5625 H 31\
+.16684\x22\x0a        \
+   style=\x22color:\
+#000000;display:\
+block;overflow:v\
+isible;visibilit\
+y:visible;opacit\
+y:1;fill:none;fi\
+ll-opacity:1;fil\
+l-rule:nonzero;s\
+troke:#a1a1a1;st\
+roke-width:1;str\
+oke-linecap:butt\
+;stroke-linejoin\
+:miter;stroke-mi\
+terlimit:4;strok\
+e-dasharray:none\
+;stroke-dashoffs\
+et:0;stroke-opac\
+ity:1;marker:non\
+e;marker-start:n\
+one;marker-mid:n\
+one;marker-end:n\
+one\x22 /><path\x0a   \
+        style=\x22c\
+olor:#000000;dis\
+play:block;overf\
+low:visible;visi\
+bility:visible;o\
+pacity:1;fill:#f\
+fffff;fill-opaci\
+ty:1;fill-rule:n\
+onzero;stroke:no\
+ne;stroke-width:\
+1;stroke-linecap\
+:butt;stroke-lin\
+ejoin:miter;stro\
+ke-miterlimit:4;\
+stroke-dasharray\
+:none;stroke-das\
+hoffset:0;stroke\
+-opacity:1;marke\
+r:none;marker-st\
+art:none;marker-\
+mid:none;marker-\
+end:none\x22\x0a      \
+     d=\x22M 6.375,\
+31.75 C 5.133634\
+4,19.511961 13.5\
+625,12.6875 12,2\
+.9999999 h 30.87\
+5 l -30,0.625 C \
+14.125,13.1875 6\
+.6786165,18.2714\
+47 6.375,31.75 Z\
+\x22\x0a           id=\
+\x22path8289\x22\x0a     \
+      sodipodi:n\
+odetypes=\x22ccccc\x22\
+ /></g><g\x0a      \
+   id=\x22layer2-2\x22\
+\x0a         inksca\
+pe:label=\x22patter\
+n\x22 /></g><image\x0a\
+       width=\x2212\
+1.84029\x22\x0a       \
+height=\x22121.8402\
+9\x22\x0a       preser\
+veAspectRatio=\x22n\
+one\x22\x0a       xlin\
+k:href=\x22data:ima\
+ge/png;base64,iV\
+BORw0KGgoAAAANSU\
+hEUgAAAgAAAAIACA\
+YAAAD0eNT6AAAABH\
+NCSVQICAgIfAhkiA\
+AAIABJREFU&#10;e\
+Jzt3XmUFNX9/vHnV\
+vf0zLALIquogCgqq\
+CAiKIgsGolGE/ddo\
+6Lmq9n8GROXBCJKv\
+vGbxBiTqOAa&#10;\
+UdEYo5K4gKAigiwu\
+aMQVRdllG2bvpe7v\
+D0SBDHv3re6+79c5\
+njM9013P5yTM1FPV\
+t6skAAAAAAAA&#10\
+;AAAAAAAAAAAAAAA\
+AAAAAAAAAAAAAAAA\
+AAAAAAAAAAAAAAAA\
+AAAAAAAAAAAAAAAB\
+8ZKIeAPmr42MX&#1\
+0;t0zUmUFW6m+MPc\
+DaWGcp3MPKNDZGia\
+jnA3ZE8w57KJbgny\
+0KzlpZW21lFiqw7y\
+s0b1hrp745cOR7&#\
+10;u7phCgA20f6uE\
+Y0SjXWarD3fyA6ST\
+BD1TEA2UABQVKxda\
+GUeCsPggbeOvvGjn\
+dkEBQCSpAMe+0GT&\
+#10;2vrkD63Mj43U\
+Oup5gGyjAKAoWYUK\
+9ITN2NFvDBw5b0de\
+SgGA9nnoklPD0Pwh\
+MOoY9SxArlAAUMys\
+&#10;bEbSX8OUbnz\
+rmJFrt+c1FACP7Xf\
+P95smE7G/Sjon6lm\
+AXKMAwAdW9gtj7dl\
+zB4x6dVvP5f1dT+3\
+1&#10;4CX7JEvis8\
+XOHwCKhpHZ05pgau\
+9pv/7Btp5LAfBQlw\
+cvPiiQpsvY/aKeBQ\
+CQXUaKy9g/954+8q\
+at&#10;PY8C4Jmu9\
+4/oEhozSca0i3oWA\
+EAOWXNDr+mjfrWlH\
+1MAPNLxsYtbZgK9I\
+Jm2Uc8CAMg9YzWy1\
+/RR&#10;lzb0MwqA\
+L6xMoj64R8Z2jnoU\
+AIA7xto/HfrqyMM2\
+/z4FwBN7PzRihJVO\
+jnoOAIBrpjQIzSP9\
+Xvt9&#10;+cbfpQB\
+4oMMD/9PKKLw56jk\
+AABEJ1DUVrrth02+\
+h6CViqVGSaRX1HAC\
+A6Fhr/t8hM0buveE\
+xBaDI&#10;7fPwJW\
+0Uht+Peg4AQMSMEr\
+G0uW7DQwpAkbMZXS\
+5jyrf9TABA8bMX9p\
+15cxuJAlDcrIyk86\
+IeAwCQ&#10;J4wpS\
+acz50kUgKLWefylh\
+xmZLlHPAQDIJ+G5E\
+gWgyJkhUU8AAMgzV\
+j0Pfm10BwpAMbOZg\
+VGPAADI&#10;M8aY\
+eJgZSgEoYqHMgVHP\
+AADIQ0aHUgCKVPu7\
+RjQyUseo5wAA5KHQ\
+9qQAFKmyMu0uGf7/\
+BQA0pBM7&#10;iCK\
+VjpkmUc8AAMhPVqY\
+1BaBIlZgMF/8BADT\
+IGDWjAAAA4CEKAAA\
+AHqIAAADgIQoAAAA\
+eogAAAOAh&#10;Cg\
+AAAB6iAAAA4CEKAA\
+AAHqIAAADgIQoAAA\
+AeogAAAOAhCgAAAB\
+6iAAAA4CEKAAAAHq\
+IAAADgIQoA&#10;A\
+AAeogAAAOAhCgAAA\
+B6iAAAA4CEKAAAAH\
+qIAAADgIQoAAAAeo\
+gAAAOAhCgAAAB6iA\
+AAA4CEKAAAA&#10;\
+HqIAAADgIQoAAAAe\
+ogAAAOAhCgAAAB6i\
+AAAA4CEKAAAAHqIA\
+AADgIQoAAAAeogAA\
+AOAhCgAAAB6i&#10\
+;AAAA4CEKAAAAHqI\
+AAADgIQoAAAAeogA\
+AAOAhCgAAAB6iAAA\
+A4CEKAAAAHqIAAAD\
+gIQoAAAAeogAA&#1\
+0;AOAhCgAAAB6iAA\
+AA4CEKAAAAHqIAAA\
+DgIQoAAAAeogAAAO\
+AhCgAAAB6iAAAA4C\
+EKAAAAHqIAAADg&#\
+10;IQoAAAAeogAAA\
+OAhCgAAAB6iAAAA4\
+CEKAAAAHqIAAADgI\
+QoAAAAeogAAAOAhC\
+gAAAB6iAAAA4CEK&\
+#10;AAAAHqIAAADg\
+IQoAAAAeogAAAOAh\
+CgAAAB6iAAAA4CEK\
+AAAAHqIAAADgIQoA\
+AAAeogAAAOAhCgAA\
+&#10;AB6iAAAA4CE\
+KAAAAHqIAAADgIQo\
+AAAAeogAAAOAhCgA\
+AAB6KZ3Nj7UYP38u\
+a2DHW2N6S3U9W+0i\
+m&#10;lTW2sZFJZD\
+MLW1e1cFnUIyCXjC\
+QTKIgFMrFAJl6iWK\
+JEQVlCJhaLejoABW\
+CXC0Cbm07cx8bt+U\
+Go&#10;s0OjbpL96\
+idm/R8pSWbDFwCyw\
+0qyocIwlFKSlFT6q\
+x+Zkpji5Y0Ub1JOG\
+QCwRTtdAPb4zQkHB\
+2ld&#10;bYPwHGNN\
+YNnHA3nBpjJKpSqV\
+WlepWHmpSpo2VVBa\
+EvVYAPLMDheADv97\
+fMdMOnabDXWKDSRx\
+dA/k&#10;rUxtvTK\
+19YqVlyuxW1POCAD\
+42g79NWg75sQfhKH\
++KWMOydVAALLPptP\
+KVNXIBIGChJ9nA8q\
+aNVZA&#10;AQK+tl\
+1nAFqOPL5ZPBG7x1\
+p7Kkf8QGGy1iq5pk\
+KZ+qQSLZvLGH6XAZ\
+9tswC0/u3wtkE6eF\
+YSR/1A&#10;EcjU1\
+Ko+lVZp65YyMT4JD\
+Phqq7/97UYP3ytIB\
+dPFzh8oKmEqpfoVq\
+2TTYdSjAIjIFgtA+\
+/87cfcw&#10;MM/J\
+qLPLgQC4EabTql+5\
+SjakBAA+arAAdL39\
++NJ0vZ0omf1dDwTA\
+nTCVVnLlGtmvr98B\
+wBcNrgGo&#10;rIr\
+faozt63oYAO5l6pN\
+Krl63OtG82fKoZ8m\
+VWGmsrWR2i3oOIJ/\
+81zLgtrecMNxaTeT\
+yfYBHrJSq&#10;r1\
+MYZqKeJCfijRp90q\
+LL3l2ingPIJ5ucAe\
+j4+9PKU7W1f2LnD3\
+jGSPHSUiVra6KeJC\
+dStbWpTDIZ&#10;9\
+RhAXtlkDUC6tvZaF\
+v0BfjLGKFbi50WCA\
+B99XQBajjy+mTX2R\
+1EOAyBa8ZISrvUFe\
+OLrAlCSCK6U&#10;\
+TIsohwEQNaN4nLMA\
+gA/WFwArI2sujngW\
+AHkgiMc5CwB4IJCk\
+tr854Wje+wcgScYE\
+Moab5gDFLpAk&#10\
+;a/XdqAcBkD9icQo\
+AUOzWFwBpcNSDAMg\
+fQUABAIpd0OGW77Y\
+yVgdGPQiA/LH+bQA\
+WAgDFLEgqeQAX&#1\
+0;/gGwCSOJAgAUtS\
+Dghj8AGhCYrd4tHE\
+CBi1uj9oYbgQHYXG\
+Ckr24NYNOhbGW9VB\
+KTSaz/D0Bhiwcy&#\
+10;TbkVKID/svFbA\
+NbK1qWluvT6vxbGy\
+JTGZBqVyJQ2eFNRA\
+HkurjDTWJzqA7CZQ\
+EZbvDfgV4XA1qWl&\
+#10;eKCgSUKmnCsI\
+AoUksIqx9wfwX7b7\
+vGA6VLi2TpmV1bKp\
+4rydMFCM2PkDyI5U\
+qHBljcLK+qgnAbAd\
+&#10;KAAAsspWJRW\
+uqpFC1hYB+YwCACD\
+rbDKjzKoa2XQY9Sg\
+AtoACACA30qHC1TV\
+ShhIA5CMKAIDcyVh\
+l&#10;VtfydgCQhy\
+gAAHIrHSpcWxv1FA\
+A2QwEAkHO2PsOnA4\
+A8QwEA4IStTnKdAC\
+CPUAAAuGElu46zAE\
+C+&#10;oAAAcMYmM\
+7L16ajHACAKAADHw\
+qpk1CMAEAUAgGvJD\
+GsBgDxAAQDgnK1JR\
+T0C4D0KAADnbB3rA\
+ICo&#10;UQAAuBda\
+3gYAIkYBABCNJAUA\
+iBIFAEAkbIqbBAFR\
+ogAAiITlLoFApCgA\
+AKJBAQAiRQEAEA32\
+/0Ck&#10;KAAAImK\
+jHgDwGgUAQDTY/wO\
+RogAAAOAhCgAAAB6\
+iAAAA4CEKAAAAHqI\
+AAADgIQoAAAAeogA\
+AAOAh&#10;CgAAAB\
+6iAAAA4CEKAAAAHq\
+IAAADgoXjUAxSK0n\
+hC0y79izq1aOM8e8\
+HqJRo49gdKhxnn2b\
+nWpklL&#10;zbz8b\
+pWXlDrPPv/vN+mFj\
+2Y5zwWAfMAZgO1Un\
+07qVy+OiyS7c8v2O\
+r3H4Eiyc+2nR50Zy\
+c7/3x/O&#10;YOcP\
+wGsUgB3w7IczNeWT\
+uZFkXzPgHJXFE5Fk\
+50qnFm10ds9hznNr\
+U/X61eRoyhwA5AsK\
+wA66YfLd&#10;SmZ\
+SznPbNW2lC3od7zw\
+3l34+8DyVxNy/C3X\
+rqw/ri4oVznMBIJ9\
+QAHbQgtVLNG7OxEi\
+yf9T/dDUt&#10;bR\
+RJdrZ1b723Tj5goP\
+PcD1Z+rrGznnaeCw\
+D5hgKwE37/6iNaVr\
+XaeW7L8ma6rM9Jzn\
+Nz4bpB5ysw&#10;x\
+mmmldV1L9ylVJh2m\
+gsA+YgCsBOqkrW6e\
+er9kWRf0fd72r1R8\
+0iys+XQ9t00tOthz\
+nMfmzdF0xfO&#10;\
+c54LAPmIArCT/v7u\
+S5r5xbvOcxsnynRl\
+v1Od52bTDYMukJHb\
+o/+KuirdNPU+p5kA\
+kM8oADvJyurG&#10\
+;SWOVsaHz7It6DVf\
+7Zrs7z82GwZ1768i\
+9ejrPvfmlB7SypsJ\
+5LgDkKwrALnhn+QK\
+Nf+sF57ml8YR+&#1\
+0;euSZznN3lZHRNQ\
+POdp771tKP9NBbzz\
+vPBYB8RgHYRbe8/K\
+BW165znnvWwcPUtV\
+VH57m74oT9j9Sh&#\
+10;7bs5zczYUNc8e\
+4dCa53mAkC+owDso\
+rW1lfrtK+Od58ZME\
+MnR9M6KmUA/G+h+3\
+vvm/kvvLF/gPBcA&\
+#10;8h0FIAv+9uZz\
+ejeCncx3uh+lHm27\
+OM/dGWf0HKJ9W+3p\
+NHNF9RrdOs19OQOA\
+QkAByIKMDXXdC3fK\
+&#10;yu1pZiOjXww\
+8z2nmziiNJ3T1UWc\
+5z/3l5HGqqKt2ngs\
+AhYACkCWzFs3Xk/9\
+5xXnu4C691b9TD+e\
+5&#10;O+LCXserQ7\
+PWTjNnfP6unnpvmt\
+NMACgkFIAsGvniPa\
+qsr3Ge+/Oj8/csQO\
+NEma7qd5rTzFQmrW\
+ue&#10;+7PzMzIAU\
+EgoAFm0onqN/vja4\
+85zD+/YXUO79nGeu\
+z2uOPy7zq9c+KeZf\
+9fHqxY5zQSAQkMBy\
+LK7&#10;Zv9Tn6xa\
+7Dz3+giurb8tLcub\
+6bLDT3aauahihe6Y\
+8YTTTAAoRBSALEtl\
+0rpu0p3Oc7u33lsn\
+dR/g&#10;PHdrrup\
+3qvO7F/7ihTtVk6p\
+zmgkAhYgCkAMvf/q\
+WXvholvPcawaco5I\
+g7jy3IW2btNSFvYY\
+7zZz4&#10;wWua9P\
+Fsp5kAUKgoADly4+\
+Sxqk8nnWZ2btleZ/\
+Yc6jRzS/7fgLNVXl\
+LqLK82Va9RL97jLA\
+8ACh0F&#10;IEcWr\
+l2mv876p/Pcqwec5\
+XTH25DOLdvrjJ5Dn\
+GbeOm28vqhY4TQTA\
+AoZBSCHbps+QYsc7\
+5TaNmmp&#10;ixyf\
+et/ctQPPdfpWxAcr\
+P9fY2c84ywOAYkAB\
+yKG6dFK/juAe9D/q\
+f7qalzVxnitJB+yx\
+t07c/yhn&#10;eVZ\
+Wv3j+TqXCtLNMACg\
+GFIAce3r+q5q+cJ7\
+TzOZlTXTZ4Sc5zdz\
+ghkEXOv044oR5L+q\
+1z99xlgcA&#10;xY\
+IC4MAvXnB/hHpZn5\
+PVunELp5l9Ox6gwV\
+16O8tbW1upm6be7y\
+wPAIoJBcCBD1d+oQ\
+feeNZpZuNE&#10;m\
+X7o+BK8ri9JPPqlB\
+7SqpsJpJgAUCwqAI\
+//7ykNaUb3GaeaFv\
+YarU4s2TrKGdu2jf\
+p0OcpIlSW8t&#10;\
+/UgPv/2CszwAKDYU\
+AEcq62v0m5f/5jSz\
+JBbXT/qfkfMcI6Nr\
+B56b85wNMjbUNc/e\
+odBysx8A2FkU&#10\
+;AIcenTdZby750Gn\
+m6T2HqGurjjnNOOm\
+AAerRpnNOMzZ275y\
+Jemf5Amd5AFCMKAA\
+Ohdbq2uf/6vTI&#1\
+0;NWYCXTvwnJxtPx\
+7EdM1RZ+ds+5tbUb\
+1Gt0572FkeABQrCo\
+Bj85Z9rMfeedFp5g\
+n7H6lD23fLybbP&#\
+10;PniYurTqkJNtN\
++TGSWO1rr7aWR4AF\
+CsKQARGT71fFXXud\
+mJGRtcMyP5Remk8o\
+Z8cmfs1Bhu8/Olb&\
+#10;emr+NGd5AFDM\
+KAARWFlTod+9+ojT\
+zMGde6t/px5Z3ebF\
+h52gdk13z+o2tySq\
+2ywDQLGiAETk3rkT\
+&#10;Nf/Lz5xmZvN\
+z+s1KG+uqI07N2va\
+25fYZf9cnqxY7ywO\
+AYkcBiEg6zOjGSWO\
+dZh7esbuGdu2TlW1\
+d&#10;3vdk7VbeNC\
+vb2pbP1izV7TMed5\
+IFAL6gAETo1YXzNP\
+H96U4zrx90/i5fq7\
+9ZaWNd3PvELE20bT\
+dM&#10;Hqv6dNJZH\
+gD4gAIQsV++OE41q\
+Tpned1b7/rd+kYcf\
+pKalzXO0kRbN/H96\
+Zr88WwnWQDgEwpAx\
+Jas&#10;W6k7Zjzh\
+NPPagecqHsR26rVN\
+Sxvp0sPcHP1XJWt1\
+4+RxTrIAwDcUgDxw\
+x8wntGD1Emd5nVu2\
+1+k9&#10;Bu/Uay/\
+ufYKalzXJ8kQN+79\
+pD2tp5UonWQDgGwp\
+AHkhmUvr1lHudZl4\
+z4ByVxRM79JpGJWW\
+6tM93&#10;cjTRpt\
+7/cqHumTPRSRYA+I\
+gCkCee++h1TVkw11\
+leu6atdP6hx+/Qay\
+7sdbxaNWqeo4m+YW\
+X1s+f+&#10;rFSYz\
+nkWAPiKApBHrn/hL\
+iUzKWd5V/U7dbvPA\
+pQEcV1ymJuj/0fen\
+qxZi+Y7yQIAX1EA8\
+sina5Zq&#10;3Oxn\
+nOW1btxCZ/QYsl3P\
+PeWgQWrfLPdX/Vtb\
+W6mbX3og5zkA4DsK\
+QJ75/fRHtaxqtbO8\
+/znilG1+&#10;IsD\
+I6Iq+33Uyz01T79e\
+qmgonWQDgMwpAnql\
+K1mr01Pud5XVq0UY\
+ndR+w1ecM6XqY9tu\
+9U85neXPJ&#10;h3\
+pk3qSc5wAAKAB56Y\
+l3X9LML951lvfjI0\
+/f6tUB/6fv93I+Q8\
+aGuua5Pyu0NudZAA\
+AKQF6ysrpx&#10;0\
+lhlbOgkb99We27xH\
+gEHt+uqfp0OyvkM4\
+2Y/o3eXL8h5DgBgP\
+QpAnnpn+QI99Nbzz\
+vJ+3P/0Br9/&#10;\
+5RGn5Dx7RfUa57dH\
+BgDfUQDy2JiX/6bV\
+teucZPVqv5/6d+qx\
+yfc6tWij4fv1z3n2\
+9S/crXX11TnP&#10\
+;AQB8gwKQx9bWVuq\
+3r4x3lvfD/qdt8vg\
+Hfb+nmMntP5GXP31\
+Lz7z/ak4zAAD/jQK\
+Q5x5881m9vfQj&#1\
+0;J1mD9jlUB7frKk\
+lqUd50p+8XsL2SmZ\
+Sum3RnTjMAAA2jAO\
+S50FrdMHmsrNysjr\
++q3/qzAJf0PkGN&#\
+10;SspymnX7a4/rk\
+1WLc5oBAGgYBaAAz\
+F40X0+8+5KTrOHd+\
+umyw0/SRb2/ndOcT\
+9cs1Z9mur0NMgDg&\
+#10;GxSAAvHrKfep\
+sr4m5zmBMRo15JKc\
+3/Tnhkl3qz6dzGkG\
+AGDLKAAFYkX1Gt32\
+2mNRj5EVT89/VS9+\
+&#10;MifqMQDAaxS\
+AAnL37KcK/j3zqmS\
+tfvXiuKjHAADvUQA\
+KSCqTLvhV87dOG6+\
+llauiHgMAvEcBKDA\
+v&#10;f/qWnv/o9a\
+jH2Cnzv/xM9875V9\
+RjAABEAShIv5w8ru\
+AW0FlZ/ey5vygVpq\
+MeBQAgCkBBWrh2mf\
+7y&#10;+pNRj7FDH\
+n57kmYvmh/1GACAr\
+1AACtQfX3tMX1Ssi\
+HqM7bK2tlI3T30g6\
+jEAABuhABSounRSv\
+55y&#10;X9RjbJdR\
+U+5zdlMjAMD2oQAU\
+sGfef1Uvffpm1GNs\
+1axF8/XovMlRjwEA\
+2AwFoMD9cvLYvF1Y\
+lw4z&#10;uu6FO53\
+dxwAAsP0oAAXuw5V\
+f6P65/456jAaNnf2\
+03l2+IOoxAAANoAA\
+Ugd9OG6/lVaujHmM\
+Ty6tW&#10;6w/TJ0\
+Q9BgBgCygARaCyvk\
+a/efmhqMfYxPWT7t\
+a6+uqoxwAAbAEFoE\
+hMeGey3ljyQdRjSJ\
+Je+vRN&#10;TXx/e\
+tRjAAC2ggJQJEJr9\
+fPn71Roo11wl8ykd\
+P0Ld0U6AwBg2+JRD\
+4DsmbfsY02YN1lnH\
+Tws6lFQ&#10;BOLr\
+0oovrZEk2XSo9Lq6\
+rGeU1MWyvs2GWGPs\
+GvuxkyygUHAGoMi8\
+ufTDSPMTsRKNGnJx\
+pDMAALaN&#10;AlB\
+EmpY20tVHnRX1GBr\
+atY+O27dv1GMAALa\
+CAlBEfj7wXLVp0jL\
+qMSRJtxx7mRqVlEU\
+9BgBgCygA&#10;RW\
+L/1nvpgl7Dox7jax\
+2atdZV/U6NegwAwB\
+ZQAIqAkdGYYy9XPH\
+CzoGp7XXnEKerSqk\
+PUYwAAGkAB&#10;K\
+AKnHjRI/TodFPUY/\
+6UkFtctwy6PegwAQ\
+AMoAAWuSaJc1x9zY\
+dRjbNHR+xyib+/XP\
++oxAACboQAU&#10;\
+uGsGnKO2ebLwb0tu\
+GnqpGidYEAgA+YQC\
+UMC67b6nvn/Yt6Me\
+Y5vaN9tdP+5/RtRj\
+AAA2QgEoYGOO&#10\
+;vVwlQWFczPHyw0/\
+Wvq32jHoMAMBXKAA\
+F6rsHDNSRe/WMeoz\
+tVhKL65ZjL4t6DAD\
+AVygABahxoky/&#1\
+0;HPz9qMfYYQP2Pl\
+gndR8Q9RgAAFEACt\
+LVR56ldk1bRT3GTr\
+lp2KVqWtoo6jEAwH\
+sUgALTuWV7XdLn&#\
+10;xKjH2Gl7NN5NP\
+znyzKjHAADvUQAKz\
+OhhI5SIlUQ9xi4Z0\
+ec7OmCPvaMeAwC8R\
+gEoICfsf6QGd+4d&\
+#10;9Ri7LB7EdMux\
+l8vIRD0KAHiLAlAg\
+yktK9asCXPi3JUfs\
+eaC+d+DRUY8BAN6i\
+ABSIH/c/XXs23yNn\
+&#10;26+oq9Kwe3+\
+kVJjOWcbmRg65WM3\
+LGjvLAwB8gwJQAPb\
+ZrZ0uP/zknGb87a3\
+n9M7yBZow78Wc5my\
+s&#10;deMWuvqos5\
+zlAQC+QQEoAKOHjV\
+BpPJGz7afDjO6d+y\
+9J0v9Ne1i1qfqcZW\
+3u4sNO1IF77OMsDw\
+Cw&#10;HgUgzx3f7\
+QgN6XJYTjOeeX+6l\
+qxbKUlaVrVa973x7\
+5zmbSxmAo057goWB\
+AKAYxSAPFYWT2jUk\
+Ety&#10;njN29tOb\
+PP7ja4+poq4q57kb\
+HN6xu07rMdhZHgCA\
+ApDXrup3mjq1aJPT\
+jFmL5uuNJR9s8r2K\
+uird&#10;OeufOc3\
+d3C8HX6TmZU2cZgK\
+AzygAeWqvFm115RH\
+fy3nOXVvY0d89+yl\
+9Wb025/kb7N6ouX4\
++8Fxn&#10;eQDgOw\
+pAnsr1wj9J+mTVYj\
+374YwGf1adrNNtrz\
+2W0/zNXdBruA5t38\
+1pJgD4igKQh47p3E\
+vDuvbJ&#10;ec4dM\
+59QaO0Wf/7gG89q4\
+dplOZ9jg8AYjTn2c\
+gWGBYEAkGsUgDyTi\
+JVo9LAROc9ZWrlKf\
+//P1K0+&#10;JxWm\
+9btXH8n5LBs7pN2+\
+OrPnUKeZAOAjCkCe\
+ufKIU9SlZYec59w9\
++ymlMtu+6t/f352q\
+/6z4NOfz&#10;bOz\
+GYy5Sy/JmTjMBwDc\
+UgDzSoVlrXdnvlJz\
+nVNRV6W9vPrddzw2\
+t1a2vjM/xRJvarby\
+prj2aBYEA&#10;kE\
+sUgDxy07BL1aikLO\
+c59879l6qStdv9/O\
+c+el2zF83P4UT/7b\
+xDvqVD2u3rNBMAfE\
+IByBNH73OI&#10;h\
+nfrl/Oc6mSdxs15Z\
+odf96sX75HVlhcMZ\
+ltgjH77rR8oZvgnC\
+gC5wF/XPFASi+uWY\
+Zc7yRo352mt&#10;\
+qqnY4de9seQDTXx/\
+eg4m2rKebbvqnEOO\
+dZoJAL6gAOSBKw7/\
+rrq0yv3Cv+pkne7e\
+7LK/O+Kmqfcr&#10\
+;mUllcaJtu37QBWr\
+VqLnTTADwAQUgYu2\
+a7q4f9T/dSdY9c5/\
+ZqaP/DT5fu/zruwa\
+60rysia4bdL7T&#1\
+0;TADwAQUgYr8eer\
+EaJ3K/8K8mVae7Zj\
+21y9v5w/QJWlNbmY\
+WJtt9ZPYfpsA77O8\
+0EgGJHAYjQgL0P&#\
+10;1on7H+Uk6545E\
+3fp6H+Diroq3fbah\
+CxMtP0CYzTmuCtYE\
+AgAWcRf1IiUBHHdc\
+uxlTrKqkrX66+tP&\
+#10;Zm179879lz5b\
+szRr29sePdp01gW9\
+hjvNBIBiRgGIyKWH\
+f0f7ttrTSdads/6p\
+1bXrsra9VCat0S89\
+&#10;kLXtba9fHH2\
+e2jRp6TwXAIoRBSA\
+CezTeTT92tPCvoq5\
+KY2fv+nv/m5v4/nS\
+9vui9rG93a5qWNtL\
+1&#10;LAgEgKygAE\
+Rg1NBL1Ky0sZOsP8\
+54XBV11TnZ9qgX73\
+V6cSBJOq3HYPXrdJ\
+DTTAAoRhQAx/p2PE\
+An&#10;HzDASdbyq\
+tW6L4cf23tjyQd6e\
+v6rOdt+Q4zW3zK4J\
+Ig7zQWAYkMBcCgex\
+DTmuCtk5OZ+93+YP\
+kG1&#10;qfqcZtz8\
+0gPOLw60f+u9dGFv\
+FgQCwK6gADj0/d4n\
+6IA99naS9UXFCo1/\
++4Wc53y+drnGzZmY\
+85zN&#10;XTvwXLV\
+lQSAA7DQKgCOtG7f\
+Q1Ued5Szvt688pFQ\
+m7STrj69NyOqnDLZ\
+Hk0S5bhx8kdNMACg\
+mFABH&#10;bjzmIj\
+Uvc7Pw7+NVi/SP/7\
+zsJEuSKuqq9Yfpbi\
+8OJEnfO/Bo9e/Uw3\
+kuABQDCoADfTp212\
+k9jnGW&#10;94fpE\
+5SxobM8Sbp/7r/1q\
+eOLAxkZ/ea4K1gQC\
+AA7gQKQYzETaMyxl\
+ztb+PfpmqV6av40J\
+1kbS4Vp&#10;jXn5\
+Qee53XbfU5f2OdF5\
+LgAUOgpAjl3Qa7gO\
+atPZWd4fpk9QOsw4\
+y9vYM/Ona/ai+c5z\
+f3rUWWrX&#10;tJX\
+zXAAoZBSAHNqtvKm\
+uGXC2s7yFa5fpH/9\
+5yVne5qysRk1xf3G\
+gJolyjRxysdNMACh\
+0FIAc+uUx&#10;F2\
+m38qbO8v742mORHf\
+1vMGfx+3r+o1nOc0\
+/qPkCDO/d2ngsAhY\
+oCkCMHt+uqM3oOdZ\
+a3eN2Xevzd&#10;q\
+c7ytuamqfcpFbr5C\
+OLGRg8boUSsxHkuA\
+BQiCkAOBMboN8deo\
+cC4WfgnSbdNf8zZ5\
+/635ZNVi/Xw&#10;\
+25Oc53Zu2V6XHX6S\
+81wAKEQUgBw475Bv\
+6dD23ZzlLVm3Uo++\
+M9lZ3va49ZXxqqyv\
+cZ770yPP1J7N&#10\
+;93CeCwCFhgKQZS3\
+Km+rao891mnn7jMf\
+z5uh/g5U1Fbpz1pP\
+Oc8tLSvUrFgQCwDZ\
+RALLs+kHnq2V5&#1\
+0;M2d5y6tW69F5+X\
+X0v8GfZ/5DSytXOs\
+89Yb/+GtLlMOe5AF\
+BIKABZ1LNtV5198L\
+FOM2+f8XfVpZNO&#\
+10;M7dXXTqp3736a\
+CTZo4eNUGk8EUk2A\
+BQCCkCWBGb9fepjx\
+t3/pCuq12j8W887y\
+9sZj7w9Se9/udB5&\
+#10;7j67tdMP+n7X\
+eS4AFAoKQJac2XOo\
+enfYz2nmn2c+kbdH\
+/xtkbKjRLz0QSfaP\
++p+uTi3aRJINAPmO\
+&#10;ApAFzcua6Pp\
+BFzjNXF27Tg/l+dH\
+/BpM/nq1pn73tPLc\
+sntCvh17qPBcACgE\
+FIAt+cfR5atWoudP\
+M&#10;O2Y+oepknd\
+PMXTFqyr0KrdtLBE\
+vSt/btq2Fd+zjPBY\
+B8RwHYRd1b761zDz\
+nOaeaa2ko9+MazTj\
+N3&#10;1bvLF+if7\
+70SSfZNQy9lQSAAb\
+IYCsAuMjMYcd5niQ\
+cxp7l9e/4eqkrVOM\
+7NhzMsPKplJOc/de\
+7d2&#10;uqrfqc5z\
+ASCfUQB2wWk9BuuI\
+PQ9ymrm2tlL3zf2X\
+08xs+aJihe6ZMzGS\
+7B/2O1VdWnaIJBsA\
+8hEF&#10;YCc1LW2\
+k6wed7zz3rtlPFeT\
+R/wa3vTZBa2ornec\
+mYiUaPWyE81wAyFc\
+UgJ30swHnqE2Tlk4\
+z19VX&#10;69650R\
+xBZ0tFXbVun/F4JN\
+nHdO6lb+3bN5JsAM\
+g3FICdsN/unXRh7+\
+HOc++e/bQq6qqd52\
+bbuDnP&#10;6LM1S\
+yPJvvnYy9SopCySb\
+ADIJxSAnTDmuMtVE\
+sSdZlbW12js7KedZ\
+uZKKpPWb6eNjyS7Q\
+7PWLAgE&#10;AFEA\
+dtgpBw5S/049nOeO\
+nfO0KuqqnOfmypP/\
+eUVvL/0okuwrjzhF\
+XVqxIBCA3ygAO6BJ\
+olw3Dr7I&#10;eW5\
+1sk7jZj/jPDeXrKx\
+GTrk3kuySWFy3DLs\
+8kmwAyBcUgB1w9VF\
+nqa3jhX+SdM/cZ7S\
+6dp3z3Fyb&#10;8f\
+m7mvTx7Eiyj97nEJ\
+2wX/9IsgEgH1AAtl\
+O33ffUJX1OdJ5bk6\
+rT3bOcc2TkAAAKBU\
+lEQVSecp7r&#10;y\
+qgp9yodZiLJvmnYp\
+WqcYEEgAD9RALbTq\
+CGXOF/4J0n3z/23V\
+tZUOM915eNVi/Tov\
+MmRZLdrurt+&#10;\
+cuQZkWQDQNTc79EK\
+UKcWbbRo3Qr97a3n\
+nGf/ddaTzjNdu3Xa\
+w7Jyf6MgSWpUUqbS\
+eEL1eX5bZQDI&#10\
+;NtPm5hPvkrFcIg3\
+AJszqOmnp+qs22nS\
+o9LrsX4GypGXjrG+\
+zIdaY+fV7l3d3EgY\
+UCN4CAADAQxQA&#1\
+0;AAA8RAEAAMBDFA\
+AAADxEAQAAwEMUAA\
+AAPEQBAADAQxQAAA\
+A8RAEAAMBDFAAAAD\
+xEAQAAwEMUAAAA&#\
+10;PEQBAADAQxQAA\
+AA8RAEAAMBDFAAAA\
+DxEAQAAwEMUAAAAP\
+EQBAADAQxQAAAA8R\
+AEAAMBDFAAAADxE&\
+#10;AQAAwEMUAAAA\
+PEQBAADAQxQAAAA8\
+RAEAAMBDFAAAADxE\
+AQAAwEOBUSaMeggA\
++chGPQCAHAoUxKqj\
+&#10;HgJA/rHWbvw\
+gukEA5EQQylZGPQS\
+APJT5ZqfP/h8oPoG\
+xWhL1EADyj0lv9O6\
+g5Z1CoNgEoez7UQ8\
+B&#10;IP/Y+sw3X2\
+c4BQAUmyChxHuyrP\
+YBsBErmWT6m4dpzg\
+AAxSZYfN2Tq2T0bt\
+SDAMgjybSU3mgNQC\
+az&#10;lScDKETrr\
+wNgNCXiOQDkk+rU1\
+1/aVIZPBAJFKJCkw\
+IT/iHoQAPnDVNZ//\
+XWY4ugfKEaBJC299\
+t/T&#10;JPNJ1MMA\
+yAOpcNMzAPXprTwZ\
+QKHa8BaAley4iGcB\
+kA8q6r4+5R8m05te\
+EAhA0fj6XgCpZOYv\
+sloT&#10;5TAAIma\
+tzKrarx+GtamtPBl\
+AIfu6AKwe+ew6a8x\
+tUQ4DIFpmda301Uf\
++wmRalluFAEVrk7s\
+BJsrK&#10;bmUtAO\
+CpdCi74qujfyuFNR\
+z9A8VskwKw6KeP14\
+YmcyUXBgI8tKxaJl\
+x/xJ+pTcqGHP0Dxc\
+w09M02&#10;Y779e\
+1nzE9fDAIhIRb3Mo\
+nWS1n/uP11Z5yS2p\
+GVjJznWqkaBWegkD\
+CgANhFMjTf0g1b1j\
+X6+qrS2&#10;r6z6\
+ux4KgFsmmZGWrL8p\
+qA2tMlX123hF4TFG\
+jWRt96jnAPJGMjMt\
+aOj77418PBm3Jd8J\
+rea7ngmA&#10;Q2k\
+rLayQQitZq0xlHR/\
+7AzzRYAGQpMXXPbm\
+qxMaOk7UfuxwIgCO\
+ZUGbhWimZkaxVurK\
+eVf+AR7ZY&#10;AC\
+RpyQ1PfWEVO8rKvu\
+FqIAAOpEKZz9ZKdW\
+kptEqvq5NNc8lfwC\
+dbLQCStOL6p5eHsd\
+ggyT7iYB4A&#10;u\
+VadklmwRqrLyKYzS\
+q+r5cgf8FCDnwLYk\
+j3GfHuEseZWSc1yN\
+A+AXLGSWVkjfVm9/\
+nP+tSllapOR&#10;\
+juTqUwAANmWN7t7m\
+GYCNrfjFv+7OxILu\
+ocIJXCsAKCAbjvpX\
+VK//mF9FbeQ7fwDR\
+2qEzABtrPeY7&#10\
+;h8asvcEqPFkyO1Q\
+kADhSnZJZWS1VpWT\
+TGYW1qby6vS9nAIB\
+oWKO7d7oAbNBu9PC\
+9wiA4z8qeZWQO&#1\
+0;yMZgAHZBKpQq6m\
+TW1svWpmSTaYX1eX\
+hdf2NUslujqKcAvJ\
+SVArCxVqNP6BAzGm\
+IC9VIm7G5MsHco&#\
+10;20pGTY1MIptZg\
+NeslUJJmVBKhlJ9S\
+qpJSZVJ2bqUbNrKp\
+jP5t9PfiAmM4i0oA\
+EAUsl4AkD/anNv3&\
+#10;LmM1QpLC+rQy\
+1cV3dTcUNhOPKd6s\
+LOoxAC/t8CJAAMgW\
+E+PPDxAlfgMBRMLE\
+OQEJRIkCACASJh6L\
+&#10;egTAaxQAAM6\
+ZwPAWABAxfgMBOGc\
+SDd6JHIBDFAAAzgW\
+lFAAgahQAAE6ZeIz\
+T/0Ae4LcQgFOx8pK\
+o&#10;RwAgCgAAh0\
+w8JlPC6n8gH1AAAD\
+gTa8wVwYF8QQEA4E\
+RQVsJ7/0Ae4bcRQM\
+6ZeKBYI47+gXxCAQ\
+CQ&#10;UyYwijXhp\
+j9AvqEAAMgds37nb\
+wKu+w/kGwoAgNwwR\
+vGmpTJx/swA+YjLc\
+QHIOhMYxZqWsegPy\
+GMU&#10;AABZZeIx\
+xZuUSpz2B/IaBQBA\
+dhgpVpZQwJX+gIJA\
+AQCwy4JEXEGjBIv9\
+gAJCAQCw04JEXEE5\
+F/gB&#10;ChEFAMA\
+OMfGYgkRs/S19DUf\
+8QKGiAPjAGI7QsOO\
+MkQkkmUAmtv7fkIn\
+HJPb5QFGgAHggSMQ\
+UJMqj&#10;HgMAkE\
+c4LAQAwEMUAAAAPE\
+QBAADAQxQAAAA8RA\
+EAAMBDFAAAADxEAQ\
+AAwEMUAAAAPEQBAA\
+DAQxQA&#10;AAA8R\
+AEAAMBDFAAAADxEA\
+QAAwEMUAAAAPEQBA\
+ADAQxQAAAA8RAEAA\
+MBDFAAAADxEAQAAw\
+EMUAAAA&#10;PEQB\
+AADAQxQAAAA8RAEA\
+AMBDFAAAADxEAQAA\
+wEMUAAAAPEQBAADA\
+QxQAAAA8RAEAAMBD\
+FAAAADxE&#10;AQA\
+AwEMUAAAAPEQBAAD\
+AQxQAAAA8RAEAAMB\
+DFAAAADxEAQAAwEM\
+UAAAAPEQBAADAQxQ\
+AAAA8RAEA&#10;AM\
+BDFAAAADxEAQAAwE\
+MUAAAAPEQBAADAQx\
+QAAAA8RAEAAMBDFA\
+AAADxEAQAAwEMUAA\
+AAPEQBAADA&#10;Q\
+xQAAAA8RAEAAMBDF\
+AAAADxEAQAAwEMUA\
+AAAPEQBAADAQxQAA\
+AA8RAEAAMBDFAAAA\
+DxEAQAAwEMU&#10;\
+gCIVWNVFPQMAIE9l\
+VEMBKFKhbGXUMwAA\
+8pMxqqQAFCsbrIh6\
+BABAngrsCgpAkQoC\
+82HUMwAA8lMo&#10\
+;8wEFoEiZdPo/Uc8\
+AAMhPiSB4jwJQpJY\
+8OvsLWX0a9RwAgPx\
+iZD9a9OCMxRSAIma\
+NJkc9AwAgv4Qy&#1\
+0;UyQ+BljcrHks6h\
+EAAPnFGPOoRAEoas\
+u7zZxipS+ingMAkB\
++sNZ8v6zrzFYkCUN\
+xGKjRWt0c9BgAg&#\
+10;PwQKb9NIheu/R\
+lHLpMrvtFarop4DA\
+BAxa1eYJpm7NjyMR\
+TkLcq/mvc+STXvsW\
+Smjb0c9CwAgOlb6&\
+#10;0bL758za8Jgz\
+AB5Y1m3mXdaa2VHP\
+AQCIzIzl3Wbdt/E3\
+KAA+GKkwDMzZsloX\
+9SgAAMesrYzF7IUb\
+&#10;3vvfgALgiS8\
+fmvGxZC+RZKOeBQD\
+giFVoFFy4+MFZ/3V\
+5eNYAeKTqncXvNen\
+Z8UuJ9QAA4ANj9NO\
+l&#10;D79+X0M/ow\
+B4puqdxbMb9+xYb6\
+QhkkzU8wAAcsJK9u\
+fLxs/63ZaeQAHwUP\
+U7i19t3LPjF5KON/\
+wb&#10;AICiYq2tN\
+0aXLBs/6y9bex5Hg\
+B5rd3bf3jawE2RNl\
+6hnAQDsOiu7UDJnL\
+h//+sxtPZejP49Vv\
+bN4&#10;aeODW91j\
+lEhZqT9nAwCgUNm0\
+kbkjKXP6yvGvf7I9\
+r+AMACRJbc/qc6AJ\
+guut7OmSoQgAQEGw\
+GWv0&#10;aGCCm5f\
++beb8HXklBQCb2OO\
+M/l2CWOYCSefKaJ+\
+o5wEANGiBpIesDR9\
+Y/vDsBTuzAQoAtqj\
+9Wf32&#10;D4NwsD\
+Gml1W4n7VmL1k1NU\
+Ytop4NAHxgZddIps\
+qG+ixm7AdWwRtBkJ\
+6y5KE5H0Q9GwAAAA\
+AAAAAA&#10;AAAAA\
+AAAAAAAAAAAAAAAA\
+AAAAAAAAAAAAAAAA\
+AAAAAAAAAAAAAAAA\
+AAAAAAAhen/A0KBa\
+VOXbGQl&#10;AAAA\
+AElFTkSuQmCC&#10\
+;\x22\x0a       id=\x22im\
+age1\x22\x0a       x=\x22\
+78.159721\x22\x0a     \
+  y=\x2278.315369\x22\x0a\
+       style=\x22di\
+splay:inline;mix\
+-blend-mode:norm\
+al\x22 /></g></svg>\
+\x0a\
 \x00\x00c\xf7\
 <\
 ?xml version=\x221.\
@@ -7139,10 +12392,18 @@ qt_resource_name = b"\
 \x07m\x02\x07\
 \x00I\
 \x00m\x00p\x00o\x00r\x00t\x00E\x00x\x00c\x00e\x00l\x00.\x00s\x00v\x00g\
+\x00\x0c\
+\x03&#\x07\
+\x00N\
+\x00e\x00w\x00E\x00x\x00c\x00e\x00l\x00.\x00s\x00v\x00g\
 \x00\x0f\
 \x07mp\xc7\
 \x00E\
 \x00x\x00p\x00o\x00r\x00t\x00E\x00x\x00c\x00e\x00l\x00.\x00s\x00v\x00g\
+\x00\x0d\
+\x05g\x02G\
+\x00O\
+\x00p\x00e\x00n\x00E\x00x\x00c\x00e\x00l\x00.\x00s\x00v\x00g\
 \x00\x12\
 \x03\xce\xf5\x07\
 \x00I\
@@ -7175,30 +12436,37 @@ qt_resource_struct = b"\
 \x00\x00\x00\x00\x00\x00\x00\x00\
 \x00\x00\x00\x00\x00\x02\x00\x00\x00\x01\x00\x00\x00\x02\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x00\x18\x00\x02\x00\x00\x00\x08\x00\x00\x00\x03\
+\x00\x00\x00\x18\x00\x02\x00\x00\x00\x0a\x00\x00\x00\x03\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x00\x9a\x00\x00\x00\x00\x00\x01\x00\x01\x05Z\
+\x00\x00\x00v\x00\x00\x00\x00\x00\x01\x00\x00\xb3\xc6\
+\x00\x00\x01\x8c\xa65\xdf\x17\
+\x00\x00\x00\xd8\x00\x00\x00\x00\x00\x01\x00\x02M^\
 \x00\x00\x01\x8crk\xf7\x04\
 \x00\x00\x00(\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\
 \x00\x00\x01\x8crk\xf6\xfc\
-\x00\x00\x01\x12\x00\x01\x00\x00\x00\x01\x00\x01}\xc3\
+\x00\x00\x00\xb8\x00\x00\x00\x00\x00\x01\x00\x01\x94(\
+\x00\x00\x01\x8c\xa65\x13\xf1\
+\x00\x00\x01P\x00\x01\x00\x00\x00\x01\x00\x02\xc5\xc7\
 \x00\x00\x01\x8crk\xf7\x05\
-\x00\x00\x00\xc4\x00\x01\x00\x00\x00\x01\x00\x01iU\
+\x00\x00\x01\x02\x00\x01\x00\x00\x00\x01\x00\x02\xb1Y\
 \x00\x00\x01\x8b}\x07?Q\
 \x00\x00\x00R\x00\x00\x00\x00\x00\x01\x00\x00cn\
 \x00\x00\x01\x8crk\xf7\x02\
-\x00\x00\x00v\x00\x00\x00\x00\x00\x01\x00\x00\xb3\xc6\
+\x00\x00\x00\x94\x00\x00\x00\x00\x00\x01\x00\x01B\x94\
 \x00\x00\x01\x8crk\xf6\xf7\
-\x00\x00\x01d\x00\x01\x00\x00\x00\x01\x00\x01\xa6\xd8\
+\x00\x00\x01\xa2\x00\x01\x00\x00\x00\x01\x00\x02\xee\xdc\
 \x00\x00\x01\x8b|\xc9\xd2j\
-\x00\x00\x018\x00\x01\x00\x00\x00\x01\x00\x01\x92H\
+\x00\x00\x01v\x00\x01\x00\x00\x00\x01\x00\x02\xdaL\
 \x00\x00\x01\x8b|\xc2\x9c\xdc\
 "
+
 
 def qInitResources():
     QtCore.qRegisterResourceData(0x03, qt_resource_struct, qt_resource_name, qt_resource_data)
 
+
 def qCleanupResources():
     QtCore.qUnregisterResourceData(0x03, qt_resource_struct, qt_resource_name, qt_resource_data)
+
 
 qInitResources()

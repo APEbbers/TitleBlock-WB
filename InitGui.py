@@ -103,7 +103,7 @@ class TitleBlockWB(Gui.Workbench):
             "FillSpreadsheet",
         ]
         ExcelList = self.list = [
-            "ExportSpreadSheet",
+            "NewExcel" "ExportSpreadSheet",
             "ImportExcel",
             "OpenExcel",
         ]

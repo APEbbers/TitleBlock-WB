@@ -105,9 +105,7 @@ class ImportExcel_Class:
         return {
             "Pixmap": "ImportExcel.svg",  # the name of a svg file available in the resources
             "MenuText": QT_TRANSLATE_NOOP("ImportExcel", "Import data from an excel file"),
-            "ToolTip": QT_TRANSLATE_NOOP(
-                "ImportExcel", "Import data from an external source to the titleblock spreadsheet"
-            ),
+            "ToolTip": QT_TRANSLATE_NOOP("ImportExcel", "Import data from an excel file to the titleblock spreadsheet"),
         }
 
     def Activated(self):

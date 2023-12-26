@@ -100,13 +100,13 @@ class FillTitleBlock_Class:
         return result
 
 
-class ImportExtSource_Class:
+class ImportExcel_Class:
     def GetResources(self):
         return {
-            "Pixmap": "ImportExtSource.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("ImportExtSource", "Import data from external source"),
+            "Pixmap": "ImportExcel.svg",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("ImportExcel", "Import data from an excel file"),
             "ToolTip": QT_TRANSLATE_NOOP(
-                "ImportExtSource", "Import data from an external source to the titleblock spreadsheet"
+                "ImportExcel", "Import data from an external source to the titleblock spreadsheet"
             ),
         }
 
@@ -114,7 +114,7 @@ class ImportExtSource_Class:
         import FillSpreadsheet
         import FillTitleBlock
 
-        FillSpreadsheet.Start("ImportExtSource")
+        FillSpreadsheet.Start("ImportExcel")
         if AUTOFILL_TITLEBLOCK is True:
             FillTitleBlock.FillTitleBlock()
         return
@@ -214,8 +214,8 @@ class OpenExcel_class:
     def GetResources(self):
         return {
             "Pixmap": "OpenExcel.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("OpenExcel", "Open the Excel workbook"),
-            "ToolTip": QT_TRANSLATE_NOOP("OpenExcel", "Open the Excel workbook in it's default application"),
+            "MenuText": QT_TRANSLATE_NOOP("OpenExcel", "Open the excel workbook"),
+            "ToolTip": QT_TRANSLATE_NOOP("OpenExcel", "Open the excel workbook in it's default application"),
         }
 
     def Activated(self):
@@ -235,7 +235,7 @@ class OpenExcel_class:
 # Add the commands to the Gui
 Gui.addCommand("FillSpreadsheet", FillSpreadsheet_Class())
 Gui.addCommand("FillTitleBlock", FillTitleBlock_Class())
-Gui.addCommand("ImportExtSource", ImportExtSource_Class())
+Gui.addCommand("ImportExcel", ImportExcel_Class())
 Gui.addCommand("ExportSpreadSheet", ExportSpreadsheet_class())
 Gui.addCommand("ExportSettings", ExportSettings_class())
 Gui.addCommand("ImportSettings", ImportSettings_class())

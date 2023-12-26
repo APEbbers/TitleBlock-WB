@@ -86,7 +86,7 @@ class TitleBlockWB(Gui.Workbench):
 
         if USE_EXTERNAL_SOURCE is True:
             ToolbarList = self.list = [
-                "ImportExtSource",
+                "ImportExcel",
                 "FillTitleBlock",
             ]
         if USE_EXTERNAL_SOURCE is False:
@@ -104,7 +104,7 @@ class TitleBlockWB(Gui.Workbench):
         ]
         ExcelList = self.list = [
             "ExportSpreadSheet",
-            "ImportExtSource",
+            "ImportExcel",
             "OpenExcel",
         ]
         SettingsList = self.list = [

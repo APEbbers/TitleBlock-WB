@@ -8,5 +8,7 @@
         <file>Resources/Icons/ExportExcel.svg</file>
         <file>Resources/Icons/ExportSettings.svg</file>
         <file>Resources/Icons/ImportSettings.svg</file>
+        <file>Resources/Icons/OpenExcel.svg</file>
+        <file>Resources/Icons/NewExcel.svg</file>
     </qresource>
 </RCC>

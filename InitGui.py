@@ -103,6 +103,7 @@ class TitleBlockWB(Gui.Workbench):
             "FillSpreadsheet",
         ]
         ExcelList = self.list = [
+            "NewExcel",
             "ExportSpreadSheet",
             "ImportExcel",
             "OpenExcel",
@@ -115,7 +116,7 @@ class TitleBlockWB(Gui.Workbench):
             QT_TRANSLATE_NOOP("Workbench", "TitleBlock"),
             StandardList,
         )  # creates a new menu
-        self.appendMenu(QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "Excel functions"]), ExcelList)
+        self.appendMenu(QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "External source"]), ExcelList)
         self.appendMenu(QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "Settings"]), SettingsList)
 
         if ADD_TOOLBAR_TECHDRAW is True:

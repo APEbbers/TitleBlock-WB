@@ -98,19 +98,6 @@ def createExcel():
 
     # add the table to the worksheet
     ws.add_table(tab)
-
-    # Align the columns
-    for row in ws[1 : ws.max_row]:
-        Column_1 = row[:1][0]
-        Column_2 = row[:1][1]
-        Column_3 = row[:1][2]
-        Column_4 = row[:1][3]
-        Column_5 = row[:1][4]
-        Column_1.alignment = Alignment(horizontal="left", vertical="center", indent=1)
-        Column_2.alignment = Alignment(horizontal="left", vertical="center", indent=1)
-        Column_3.alignment = Alignment(horizontal="left", vertical="center", indent=1)
-        Column_4.alignment = Alignment(horizontal="left", vertical="center", indent=1)
-        Column_5.alignment = Alignment(horizontal="left", vertical="center", indent=1)
     # endregion
 
     # Make the columns to autofit the date
@@ -136,6 +123,8 @@ def createExcel():
         wb.save(str(FileName))
         # Close the workbook
         wb.close()
+        # Update the preferences
+        preferences.SetString("ExternalFile", FileName)
 
     # If import settings from excel is enabled, export settings to the new excel file.
     if IMPORT_SETTINGS_XL is True:

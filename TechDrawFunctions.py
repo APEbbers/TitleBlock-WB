@@ -75,7 +75,7 @@ def SetDefaultTemplate():
 
     # Print the standard template when debug mode is active
     if ENABLE_DEBUG is True:
-        Text = translate("context", f"The chosen template is {ChosenTemplate}")
+        Text = translate("TitleBlock Workbench", f"The chosen template is {ChosenTemplate}")
         Standard_Functions.Print(Text, "Log")
 
     if IMPORT_EXAMPLE_TEMPLATES is True:

@@ -43,7 +43,7 @@ def ExportSpreadSheet():
         # get the spreadsheet "TitleBlock"
         sheet = sheet = App.ActiveDocument.getObject("TitleBlock")
         if sheet is None:
-            message = translate("context", "No spreadsheet named 'TitleBlock'!!!")
+            message = translate("TitleBlock Workbench", "No spreadsheet named 'TitleBlock'!!!")
             Standard_Functions.Mbox(message, "", 0)
             return
         sheet.recompute()
@@ -71,7 +71,7 @@ def ExportSpreadSheet():
         ) + str(TopRow)
 
         if ENABLE_DEBUG is True:
-            message = translate("context", f"the startcell is: {StartCell}")
+            message = translate("TitleBlock Workbench", f"the startcell is: {StartCell}")
             print(message)
 
         # Set the headers
@@ -192,7 +192,8 @@ def ExportSpreadSheet():
 
         # print a message if you succeded.
         message = translate(
-            "context", f"The titleblock data is exported to the workbook {FileName} in the worksheet {ws.title}"
+            "TitleBlock Workbench",
+            f"The titleblock data is exported to the workbook {FileName} in the worksheet {ws.title}",
         )
         Standard_Functions.Mbox(
             message,
@@ -200,10 +201,11 @@ def ExportSpreadSheet():
             0,
         )
     except Exception as e:
-        Text = translate("context", "TitleBlock Workbench: an error occurred!!")
+        Text = translate("TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!")
         if ENABLE_DEBUG is True:
             Text = translate(
-                "context", "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
+                "TitleBlock Workbench",
+                "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details",
             )
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         if ENABLE_DEBUG is True:

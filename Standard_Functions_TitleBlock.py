@@ -30,26 +30,32 @@ def Mbox(text, title="", style=0, default="", stringList="[,]"):
     2 : Inputbox                    (text, title, style, default)\n
     3 : Inputbox with dropdown      (text, title, style, default, stringlist)\n
     """
-    from PySide import QtGui
+    from PySide2.QtWidgets import QMessageBox, QInputDialog
+    import FreeCAD as App
 
     if style == 0:
-        reply = str(QtGui.QMessageBox.information(None, title, text))
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText(text)
+        msgBox.setWindowTitle(title)
+
+        reply = msgBox.exec_()
         return reply
     if style == 1:
-        reply = QtGui.QMessageBox.question(
-            None,
-            title,
-            text,
-            QtGui.QMessageBox.Yes | QtGui.QMessageBox.No,
-            QtGui.QMessageBox.No,
-        )
-        if reply == QtGui.QMessageBox.Yes:
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText(text)
+        msgBox.setWindowTitle(title)
+        msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        msgBox.setDefaultButton(QMessageBox.No)
+
+        reply = msgBox.exec_()
+        if reply == QMessageBox.Yes:
             return "yes"
-        if reply == QtGui.QMessageBox.No:
+        if reply == QMessageBox.No:
             return "no"
     if style == 2:
-        reply = QtGui.QInputDialog.getText(None, title, text, text=default)
-
+        reply = QInputDialog.getText(None, title, text, text=default)
         if reply[1]:
             # user clicked OK
             replyText = reply[0]
@@ -58,8 +64,7 @@ def Mbox(text, title="", style=0, default="", stringList="[,]"):
             replyText = reply[0]  # which will be "" if they clicked Cancel
         return str(replyText)
     if style == 3:
-        reply = QtGui.QInputDialog.getItem(None, title, text, stringList, 1, True)
-
+        reply = QInputDialog.getItem(None, title, text, stringList, 1, True)
         if reply[1]:
             # user clicked OK
             replyText = reply[0]

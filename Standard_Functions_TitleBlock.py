@@ -33,24 +33,22 @@ def Mbox(text, title="", style=0, default="", stringList="[,]"):
     from PySide2.QtWidgets import QMessageBox, QInputDialog
     import FreeCAD as App
 
-    Parent = App.Gui.getMainWindow
-    
     if style == 0:
         msgBox = QMessageBox()
         msgBox.setIcon(QMessageBox.Information)
-        msgBox.setText(text )
+        msgBox.setText(text)
         msgBox.setWindowTitle(title)
-        
-        reply  = msgBox.exec_()
+
+        reply = msgBox.exec_()
         return reply
     if style == 1:
         msgBox = QMessageBox()
         msgBox.setIcon(QMessageBox.Information)
-        msgBox.setText(text )
+        msgBox.setText(text)
         msgBox.setWindowTitle(title)
-        msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)        
+        msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         msgBox.setDefaultButton(QMessageBox.No)
-        
+
         reply = msgBox.exec_()
         if reply == QMessageBox.Yes:
             return "yes"

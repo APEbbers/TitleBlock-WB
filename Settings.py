@@ -646,20 +646,24 @@ def ImportSettingsXL():
                 SetBoolSetting("UseExternalSource", Cell_Value.value)
                 counter = counter + 1
 
+            # This is desabled because the preference must be leading at all time.
+            # The are not allowed to be overridden by importing the settings.
+            # -----------------------------------------------------------
             # Import EXTERNAL_SOURCE_PATH
-            if Cell_Name.value == "ExternalFile":
-                SetStringSetting("ExternalFile", str(Cell_Value.value))
-                counter = counter + 1
+            # if Cell_Name.value == "ExternalFile":
+            #     SetStringSetting("ExternalFile", str(Cell_Value.value))
+            #     counter = counter + 1
 
             # Import EXTERNAL_SOURCE_SHEET_NAME
-            if Cell_Name.value == "SheetName":
-                SetStringSetting("SheetName", str(Cell_Value.value))
-                counter = counter + 1
+            # if Cell_Name.value == "SheetName":
+            #     SetStringSetting("SheetName", str(Cell_Value.value))
+            #     counter = counter + 1
 
             # Import EXTERNAL_SOURCE_STARTCELL
-            if Cell_Name.value == "StartCell":
-                SetStringSetting("StartCell", str(Cell_Value.value))
-                counter = counter + 1
+            # if Cell_Name.value == "StartCell":
+            #     SetStringSetting("StartCell", str(Cell_Value.value))
+            #     counter = counter + 1
+            # -----------------------------------------------------------
 
             # Import AUTOFILL_TITLEBLOCK
             if Cell_Name.value == "AutoFillTitleBlock":

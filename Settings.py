@@ -575,6 +575,7 @@ def ExportSettingsXL(Silent=False):
 def ImportSettingsXL():
     from openpyxl import load_workbook
     import os.path
+    import errno
 
     # Get the workbook. If it doesn't exist. Let the user now.
     if os.path.exists(EXTERNAL_SOURCE_PATH) is True:
@@ -801,7 +802,18 @@ def ImportSettingsXL():
         if counter == 0:
             Text = translate("context", "TitleBlock Workbench: Settings are not imported")
             Standard_Functions.Print(Text, "Log")
-
+    # If there is an IO Error continue:
+    except IOError as e:
+        # If there is an read/write error, print an error in the report view
+        if e.errno == errno.EACCES:
+            Text = translate("context", f"No permision to open {EXTERNAL_SOURCE_PATH}!")
+            if ENABLE_DEBUG is True:
+                Text = translate(
+                    "context", f"No permision to open {EXTERNAL_SOURCE_PATH}!\nSee the report view for details"
+                )
+            return Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+        # For all other IO errors, raise e.
+        raise (e)
     except Exception as e:
         Text = translate("context", "TitleBlock Workbench: an error occurred!!")
         if ENABLE_DEBUG is True:

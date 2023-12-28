@@ -57,7 +57,7 @@ def Mbox(text, title="", style=0, default="", stringList="[,]"):
         if reply == QMessageBox.No:
             return "no"
     if style == 2:
-        reply = QInputDialog.getText(Parent, title, text, text=default)
+        reply = QInputDialog.getText(None, title, text, text=default)
         if reply[1]:
             # user clicked OK
             replyText = reply[0]
@@ -66,7 +66,7 @@ def Mbox(text, title="", style=0, default="", stringList="[,]"):
             replyText = reply[0]  # which will be "" if they clicked Cancel
         return str(replyText)
     if style == 3:
-        reply = QInputDialog.getItem(Parent, title, text, stringList, 1, True)
+        reply = QInputDialog.getItem(None, title, text, stringList, 1, True)
         if reply[1]:
             # user clicked OK
             replyText = reply[0]

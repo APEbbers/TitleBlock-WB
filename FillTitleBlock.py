@@ -121,7 +121,7 @@ def FillTitleBlock():
                                 # if in debug mode. Show the value of the multiplier
                                 if ENABLE_DEBUG is True:
                                     Text = translate(
-                                        "context", "The values will be multiplied with: " + str(Multiplier)
+                                        "TitleBlock Workbench", "The values will be multiplied with: " + str(Multiplier)
                                     )
                                     Standard_Functions.Print(Text, "Log")
 
@@ -149,7 +149,7 @@ def FillTitleBlock():
                                 # If Debug mode is enabled, show NumCounter and Multplier
                                 if ENABLE_DEBUG is True:
                                     Text = translate(
-                                        "context",
+                                        "TitleBlock Workbench",
                                         "NumCounter is: "
                                         + str((NumCounter))
                                         + ", Multiplier is: "
@@ -173,7 +173,7 @@ def FillTitleBlock():
 
             except Exception as e:
                 # raise an exeception if there is no spreadsheet.
-                Text = translate("context", "An error occured when writing the values!!")
+                Text = translate("TitleBlock Workbench", "An error occured when writing the values!!")
                 Standard_Functions.Mbox(Text, "TitleBlock Workbench", 0)
                 # if degbug mode is enabeled, print the exception
                 if ENABLE_DEBUG is True:
@@ -183,7 +183,8 @@ def FillTitleBlock():
         Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:
             Text = translate(
-                "context", "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details"
+                "TitleBlock Workbench",
+                "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details",
             )
             raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)

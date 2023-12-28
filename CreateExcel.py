@@ -62,7 +62,7 @@ def createExcel():
     ) + str(TopRow)
 
     if ENABLE_DEBUG is True:
-        message = translate("context", f"the startcell is: {StartCell}")
+        message = translate("TitleBlock Workbench", f"the startcell is: {StartCell}")
         print(message)
 
     # Set the headers
@@ -132,7 +132,8 @@ def createExcel():
 
     # print a message if you succeded.
     message = translate(
-        "context", f"The titleblock data is exported to the workbook {FileName} in the worksheet {ws.title}"
+        "TitleBlock Workbench",
+        f"The titleblock data is exported to the workbook {FileName} in the worksheet {ws.title}",
     )
     Standard_Functions.Mbox(
         message,

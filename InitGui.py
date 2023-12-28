@@ -85,9 +85,12 @@ class TitleBlockWB(Gui.Workbench):
             Settings.ImportSettingsXL()
 
         if USE_EXTERNAL_SOURCE is True:
-            ToolbarList = self.list = [
+            ToolbarListMain = self.list = [
+                "Separator",
                 "ImportExcel",
                 "FillTitleBlock",
+            ]
+            ToolbarListExtra = self.list = [
                 "Separator",
                 "OpenExcel",
                 "NewExcel",
@@ -100,9 +103,12 @@ class TitleBlockWB(Gui.Workbench):
                 "ImportSettings",
             ]
         if USE_EXTERNAL_SOURCE is False:
-            ToolbarList = self.list = [
+            ToolbarListMain = self.list = [
+                "Separator",
                 "FillSpreadsheet",
                 "FillTitleBlock",
+            ]  # a list of command names created in the line above
+            ToolbarListExtra = self.list = [
                 "Separator",
                 "OpenExcel",
                 "NewExcel",
@@ -113,9 +119,12 @@ class TitleBlockWB(Gui.Workbench):
                 "Separator",
                 "ExportSettings",
                 "ImportSettings",
-            ]  # a list of command names created in the line above
+            ]
         self.appendToolbar(
-            QT_TRANSLATE_NOOP("Workbench", "TitleBlock"), ToolbarList
+            QT_TRANSLATE_NOOP("Workbench", "TitleBlock"), ToolbarListMain
+        )  # creates a new toolbar with your commands
+        self.appendToolbar(
+            QT_TRANSLATE_NOOP("Workbench", "TitleBlock"), ToolbarListExtra
         )  # creates a new toolbar with your commands
 
         StandardList = self.list = [

@@ -220,7 +220,7 @@ def ExportSettingsXL(Silent=False):
                 "Please enter the name of the cell.\n"
                 + "Enter a single cell like 'A1', 'B2', etc. Other notations will be ignored!",
             )
-            StartCell = str(Standard_Functions.Mbox(Text, style=2, default="A1"))
+            StartCell = str(Standard_Functions.Mbox(text=Text, style=2, default="A1"))
             if not StartCell.strip():
                 StartCell = "A1"
 
@@ -564,7 +564,7 @@ def ExportSettingsXL(Silent=False):
         wb.close()
     except openpyxl.utils.exceptions.ReadOnlyWorkbookException as e:
         Text = translate("TitleBlock Workbench", "The excel file is read only!")
-        Standard_Functions.Mbox(Text, "TitleBlock Workbench", 0)
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         if ENABLE_DEBUG is True:
             raise (e)
     except Exception as e:
@@ -594,7 +594,7 @@ def ImportSettingsXL():
             + "Please create an excel workbook to export your settings to or disable import from external source.",
             "TitleBlock Workbench",
         )
-        Standard_Functions.Mbox(Text, 0)
+        Standard_Functions.Mbox(text=Text, style=0)
         return
 
     try:

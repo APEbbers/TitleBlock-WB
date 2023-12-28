@@ -30,29 +30,34 @@ def Mbox(text, title="", style=0, default="", stringList="[,]"):
     2 : Inputbox                    (text, title, style, default)\n
     3 : Inputbox with dropdown      (text, title, style, default, stringlist)\n
     """
-    from PySide2.QtWidgets import QApplication, QMessageBox, QInputDialog
+    from PySide2.QtWidgets import QMessageBox, QInputDialog
+    import FreeCAD as App
 
+    Parent = App.Gui.getMainWindow
+    
     if style == 0:
-        app = QApplication([])
-        reply = QMessageBox.information(None, title, text)
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText(text )
+        msgBox.setWindowTitle(title)
+        
+        reply  = msgBox.exec_()
         return reply
     if style == 1:
-        app = QApplication([])
-        reply = QMessageBox.question(
-            None,
-            title,
-            text,
-            QMessageBox.Yes | QMessageBox.No,
-            QMessageBox.No,
-        )
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText(text )
+        msgBox.setWindowTitle(title)
+        msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)        
+        msgBox.setDefaultButton(QMessageBox.No)
+        
+        reply = msgBox.exec_()
         if reply == QMessageBox.Yes:
             return "yes"
         if reply == QMessageBox.No:
             return "no"
     if style == 2:
-        app = QApplication([])
-        reply = QInputDialog.getText(None, title, text, text=default)
-
+        reply = QInputDialog.getText(Parent, title, text, text=default)
         if reply[1]:
             # user clicked OK
             replyText = reply[0]
@@ -61,9 +66,7 @@ def Mbox(text, title="", style=0, default="", stringList="[,]"):
             replyText = reply[0]  # which will be "" if they clicked Cancel
         return str(replyText)
     if style == 3:
-        app = QApplication([])
-        reply = QInputDialog.getItem(None, title, text, stringList, 1, True)
-
+        reply = QInputDialog.getItem(Parent, title, text, stringList, 1, True)
         if reply[1]:
             # user clicked OK
             replyText = reply[0]

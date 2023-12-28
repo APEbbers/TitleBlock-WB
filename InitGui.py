@@ -124,7 +124,7 @@ class TitleBlockWB(Gui.Workbench):
             QT_TRANSLATE_NOOP("Workbench", "TitleBlock"), ToolbarListMain
         )  # creates a new toolbar with your commands
         self.appendToolbar(
-            QT_TRANSLATE_NOOP("Workbench", "TitleBlock"), ToolbarListExtra
+            QT_TRANSLATE_NOOP("Workbench", "TitleBlock extra"), ToolbarListExtra
         )  # creates a new toolbar with your commands
 
         StandardList = self.list = [

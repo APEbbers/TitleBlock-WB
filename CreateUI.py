@@ -83,7 +83,8 @@ def CreateTechDrawToolbar() -> object:
 
     # Force the toolbars to be recreated
     wb = Gui.activeWorkbench()
-    wb.reloadActive()
+    if int(App.Version()[0]) == 0 and int(App.Version()[1]) > 19: 
+        wb.reloadActive()
 
 
 def RemoveTechDrawToolbar() -> None:

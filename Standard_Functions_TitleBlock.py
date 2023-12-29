@@ -217,16 +217,14 @@ def OpenFile(FileName: str):
             else:  # linux variants
                 print(FileName)
                 try:
-                    subprocess.check_output(
-                        ["xdg-open", FileName.strip()]                   
-                        )
-                except subprocess.CalledProcessError as e:
+                    subprocess.check_output(["xdg-open", FileName.strip()])
+                except subprocess.CalledProcessError:
                     Print(
-                        f"An error occured when opening {FileName}!\n" + 
-                        "This can happen when running FreeCAD as an AppImage.\n" +
-                        "Please install FreeCAD directly.",
-                        "Error"
-                          )
+                        f"An error occured when opening {FileName}!\n"
+                        + "This can happen when running FreeCAD as an AppImage.\n"
+                        + "Please install FreeCAD directly.",
+                        "Error",
+                    )
         else:
             print(f"Error: {FileName} does not exist.")
     except Exception as e:

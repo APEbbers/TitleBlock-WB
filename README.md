@@ -28,7 +28,8 @@ Please see the [wiki page](https://github.com/APEbbers/TechDrawTitleBlockUtility
 ## License:
 LGPL2.+
 
-## Screenshots  
-<img src="https://github.com/APEbbers/TitleBlock-WB/assets/10145631/79a65d44-5c1f-4480-b09c-1610a2c2dfb4" width="800">
+## Screenshots
+<img src="https://github.com/APEbbers/TitleBlock-WB/assets/10145631/fb10ced2-0ead-4f5a-a985-e92adeb200bd" width="800">
+
 
 

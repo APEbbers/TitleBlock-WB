@@ -43,8 +43,8 @@ def ExportSpreadSheet():
         # get the spreadsheet "TitleBlock"
         sheet = sheet = App.ActiveDocument.getObject("TitleBlock")
         if sheet is None:
-            message = translate("TitleBlock Workbench", "No spreadsheet named 'TitleBlock'!!!")
-            Standard_Functions.Mbox(message, "", 0)
+            Text = translate("TitleBlock Workbench", "No spreadsheet named 'TitleBlock'!!!")
+            Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
             return
         sheet.recompute()
 
@@ -71,8 +71,8 @@ def ExportSpreadSheet():
         ) + str(TopRow)
 
         if ENABLE_DEBUG is True:
-            message = translate("TitleBlock Workbench", f"the startcell is: {StartCell}")
-            print(message)
+            Text = translate("TitleBlock Workbench", f"the startcell is: {StartCell}")
+            print(Text)
 
         # Set the headers
         ws[StartCell].value = str(sheet.getContents("A1"))
@@ -191,15 +191,11 @@ def ExportSpreadSheet():
             Settings.ExportSettingsXL(Silent=True)
 
         # print a message if you succeded.
-        message = translate(
+        Text = translate(
             "TitleBlock Workbench",
             f"The titleblock data is exported to the workbook {FileName} in the worksheet {ws.title}",
         )
-        Standard_Functions.Mbox(
-            message,
-            "TitleBlock Workbench",
-            0,
-        )
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
     except Exception as e:
         Text = translate("TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!")
         if ENABLE_DEBUG is True:

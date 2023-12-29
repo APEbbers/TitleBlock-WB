@@ -192,8 +192,8 @@ def ExportSettingsXL(Silent=False):
             Input_SheetName = str(
                 Standard_Functions.Mbox(
                     text=Text,
-                    title="",
-                    style=3,
+                    title="TitleBlock Workbench",
+                    style=21,
                     default="Settings",
                     stringList=Worksheets_List,
                 )
@@ -220,7 +220,7 @@ def ExportSettingsXL(Silent=False):
                 "Please enter the name of the cell.\n"
                 + "Enter a single cell like 'A1', 'B2', etc. Other notations will be ignored!",
             )
-            StartCell = str(Standard_Functions.Mbox(text=Text, style=2, default="A1"))
+            StartCell = str(Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=2, default="A1"))
             if not StartCell.strip():
                 StartCell = "A1"
 
@@ -594,7 +594,7 @@ def ImportSettingsXL():
             + "Please create an excel workbook to export your settings to or disable import from external source.",
             "TitleBlock Workbench",
         )
-        Standard_Functions.Mbox(text=Text, style=0)
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         return
 
     try:

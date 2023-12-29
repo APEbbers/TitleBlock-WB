@@ -135,8 +135,4 @@ def createExcel():
         "TitleBlock Workbench",
         f"The titleblock data is exported to the workbook {FileName} in the worksheet {ws.title}",
     )
-    Standard_Functions.Mbox(
-        message,
-        "TitleBlock Workbench",
-        0,
-    )
+    Standard_Functions.Mbox(text=message, title="TitleBlock Workbench", style=0)

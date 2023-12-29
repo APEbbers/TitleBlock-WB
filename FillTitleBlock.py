@@ -174,7 +174,7 @@ def FillTitleBlock():
             except Exception as e:
                 # raise an exeception if there is no spreadsheet.
                 Text = translate("TitleBlock Workbench", "An error occured when writing the values!!")
-                Standard_Functions.Mbox(Text, "TitleBlock Workbench", 0)
+                Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
                 # if degbug mode is enabeled, print the exception
                 if ENABLE_DEBUG is True:
                     raise e

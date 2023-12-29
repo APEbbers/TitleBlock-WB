@@ -509,7 +509,7 @@ def ImportDataExcel():
                     Input_SheetName = str(
                         Standard_Functions.Mbox(
                             text=Text,
-                            title="",
+                            title="TitleBlock Workbench",
                             style=3,
                             default="TitleBlockData",
                             stringList=Worksheets_List,
@@ -528,7 +528,7 @@ def ImportDataExcel():
                     "TitleBlock Workbench",
                     "an problem occured while openening the excel file!\nDo you have it open in an another application",
                 )
-                Standard_Functions.Mbox(Text)
+                Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
                 return
 
             # get the spreadsheet "TitleBlock"
@@ -549,8 +549,9 @@ def ImportDataExcel():
                 )
                 StartCell = str(
                     Standard_Functions.Mbox(
-                        Text,
-                        style=2,
+                        text=Text,
+                        title="TitleBlock Workbench",
+                        style=20,
                         default="A1",
                     )
                 )
@@ -676,7 +677,7 @@ def ImportDataExcel():
 
         else:
             Text = translate("TitleBlock Workbench", "External source is not enabled!")
-            Standard_Functions.Mbox(Text, "", 0)
+            Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
     except Exception as e:
         Text = translate("TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!\n")
         if ENABLE_DEBUG is True:

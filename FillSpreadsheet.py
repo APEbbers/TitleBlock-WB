@@ -416,8 +416,9 @@ def FormatTable(sheet, Endrow):
 
     # TableRange
     RangeAlign2 = "B1:E" + str(Endrow)
+    RangeStyle2 = "B1:E" + str(Endrow)
     # First column
-    RangeStyle2 = "A2:A" + str(Endrow)
+    RangeStyle3 = "A2:A" + str(Endrow)
 
     # Font style for the top row
     sheet.setStyle(
@@ -429,11 +430,20 @@ def FormatTable(sheet, Endrow):
 
     # Font style for the first column
     sheet.setStyle(
-        RangeStyle2,
+        RangeStyle3,
         FontStyle(
             SPREADSHEET_COLUMNFONTSTYLE_BOLD, SPREADSHEET_COLUMNFONTSTYLE_ITALIC, SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
         ),
-    )  # \bold|italic|underline'
+    )
+
+    # Font style for the rest of the table
+    sheet.setStyle(
+        RangeStyle2,
+        FontStyle(
+            SPREADSHEET_TABLEFONTSTYLE_BOLD, SPREADSHEET_TABLEFONTSTYLE_ITALIC, SPREADSHEET_HEADERFONTSTYLE_UNDERLINE
+        ),
+    )
+
     sheet.setBackground(RangeStyle1, SPREADSHEET_HEADERBACKGROUND)
     sheet.setForeground(RangeStyle1, SPREADSHEET_HEADERFOREGROUND)
 
@@ -494,8 +504,8 @@ def FillSheet():
             except Exception:
                 sheet.set("C" + str(StartRow), "")
 
-        # Finally recompute the spreadsheet
-        sheet.recompute()
+        # Finally recompute the document
+        App.ActiveDocument.recompute(None, True, True)
 
         # Run the def to map system data
         MapData(sheet=sheet)
@@ -518,9 +528,8 @@ def FillSheet():
             extraRows = extraRows + 1
         FormatTable(sheet=sheet, Endrow=StartRow + extraRows)
 
-        # Finally recompute the spreadsheet
-        sheet.recompute()
-        App.ActiveDocument.recompute()
+        # Finally recompute the document
+        App.ActiveDocument.recompute(None, True, True)
     # except TypeError:
     #     pass
     except Exception as e:

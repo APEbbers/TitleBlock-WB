@@ -81,7 +81,10 @@ def FillTitleBlock():
                         textValue = ""
 
                         # if the value in B is not a number, just fill in
-                        if str(sheet.getContents("B" + str(RowNum))).isnumeric() is False:
+                        if (
+                            str(sheet.getContents("B" + str(RowNum))).isnumeric()
+                            is False
+                        ):
                             # write the editable text
                             textValue = str(sheet.getContents("B" + str(RowNum)))
                             if textValue[:1] == "'":
@@ -93,7 +96,10 @@ def FillTitleBlock():
                             texts[textField] = textValue
 
                         # If the value in B is a number continue:
-                        if str(sheet.getContents("B" + str(RowNum))).isnumeric() is True:
+                        if (
+                            str(sheet.getContents("B" + str(RowNum))).isnumeric()
+                            is True
+                        ):
                             # Check if the total number of sheets must be filled in.
                             if MAP_NOSHEETS != "":
                                 # define TextCompare as Value of MAP_NOSHEETs for comparison. if it starts with ', remove it.
@@ -114,14 +120,20 @@ def FillTitleBlock():
                                 Multiplier = 1
                                 if str(sheet.getContents("D" + str(RowNum))).strip():
                                     # Check if the value in D is a number.
-                                    if str(sheet.getContents("D" + str(RowNum))).isnumeric():
+                                    if str(
+                                        sheet.getContents("D" + str(RowNum))
+                                    ).isnumeric():
                                         # convert it to a number and use it as multiplier
-                                        Multiplier = int(sheet.getContents("D" + str(RowNum)))
+                                        Multiplier = int(
+                                            sheet.getContents("D" + str(RowNum))
+                                        )
 
                                 # if in debug mode. Show the value of the multiplier
                                 if ENABLE_DEBUG is True:
                                     Text = translate(
-                                        "TitleBlock Workbench", "The values will be multiplied with: " + str(Multiplier)
+                                        "TitleBlock Workbench",
+                                        "The values will be multiplied with: "
+                                        + str(Multiplier),
                                     )
                                     Standard_Functions.Print(Text, "Log")
 
@@ -140,7 +152,10 @@ def FillTitleBlock():
                                 #
                                 # When the 1st page has number 1, page 2 has number 11, page 3 has number 21,
                                 # page 4 has 41, etc.
-                                textValue = str((int(sheet.getContents("B" + str(RowNum)))) + (Multiplier * NumCounter))
+                                textValue = str(
+                                    (int(sheet.getContents("B" + str(RowNum))))
+                                    + (Multiplier * NumCounter)
+                                )
                                 if textValue[:1] == "'":
                                     textValue = textValue[1:]
 
@@ -173,8 +188,12 @@ def FillTitleBlock():
 
             except Exception as e:
                 # raise an exeception if there is no spreadsheet.
-                Text = translate("TitleBlock Workbench", "An error occured when writing the values!!")
-                Standard_Functions.Mbox(Text, "TitleBlock Workbench", 0)
+                Text = translate(
+                    "TitleBlock Workbench", "An error occured when writing the values!!"
+                )
+                Standard_Functions.Mbox(
+                    text=Text, title="TitleBlock Workbench", style=0
+                )
                 # if degbug mode is enabeled, print the exception
                 if ENABLE_DEBUG is True:
                     raise e
@@ -184,7 +203,8 @@ def FillTitleBlock():
         if ENABLE_DEBUG is True:
             Text = translate(
                 "TitleBlock Workbench",
-                "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details",
+                "TitleBlock Workbench: an error occurred!!\n"
+                + "See the report view for details",
             )
             raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)

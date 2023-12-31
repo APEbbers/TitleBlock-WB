@@ -71,6 +71,20 @@ from Settings import DOCINFO_COMMENT
 from Settings import ENABLE_DEBUG
 from Settings import USE_FILENAME_DRAW_NO
 from Settings import DRAW_NO_FiELD
+from Settings import SPREADSHEET_HEADERBACKGROUND
+from Settings import SPREADSHEET_HEADERFOREGROUND
+from Settings import SPREADSHEET_HEADERFONTSTYLE_BOLD
+from Settings import SPREADSHEET_HEADERFONTSTYLE_ITALIC
+from Settings import SPREADSHEET_HEADERFONTSTYLE_UNDERLINE
+from Settings import SPREADSHEET_TABLEBACKGROUND_1
+from Settings import SPREADSHEET_TABLEBACKGROUND_2
+from Settings import SPREADSHEET_TABLEFOREGROUND
+from Settings import SPREADSHEET_TABLEFONTSTYLE_BOLD
+from Settings import SPREADSHEET_TABLEFONTSTYLE_ITALIC
+from Settings import SPREADSHEET_TABLEFONTSTYLE_UNDERLINE
+from Settings import SPREADSHEET_COLUMNFONTSTYLE_BOLD
+from Settings import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
+from Settings import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
 
 
 # If no start cell is defined. the start cell will be "A1"
@@ -122,13 +136,23 @@ def AddExtraData(sheet, StartRow):
     if ENABLE_DEBUG is True:
         Text = ""
         if INCLUDE_LENGTH is True:
-            Text = translate("TitleBlock Workbench", "Length unit is included: " + str(INCLUDE_LENGTH))
+            Text = translate(
+                "TitleBlock Workbench",
+                "Length unit is included: " + str(INCLUDE_LENGTH),
+            )
         if INCLUDE_ANGLE is True:
-            Text = translate("TitleBlock Workbench", "Angle unit is included: " + str(INCLUDE_ANGLE))
+            Text = translate(
+                "TitleBlock Workbench", "Angle unit is included: " + str(INCLUDE_ANGLE)
+            )
         if INCLUDE_MASS is True:
-            Text = translate("TitleBlock Workbench", "Mass unit is included: " + str(INCLUDE_MASS))
+            Text = translate(
+                "TitleBlock Workbench", "Mass unit is included: " + str(INCLUDE_MASS)
+            )
         if INCLUDE_NO_SHEETS is True:
-            Text = translate("TitleBlock Workbench", "Number of pages is included: " + str(INCLUDE_NO_SHEETS))
+            Text = translate(
+                "TitleBlock Workbench",
+                "Number of pages is included: " + str(INCLUDE_NO_SHEETS),
+            )
         Standard_Functions.Print(Text, "Log")
     # get units scheme
     SchemeNumber = App.Units.getSchema()
@@ -138,7 +162,11 @@ def AddExtraData(sheet, StartRow):
         sheet.set("A" + str(StartRow + 1), "Length_Units")
         sheet.set(
             "B" + str(StartRow + 1),
-            str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Length), SchemeNumber))
+            str(
+                App.Units.schemaTranslate(
+                    App.Units.Quantity(50, App.Units.Length), SchemeNumber
+                )
+            )
             .split()[1]
             .replace("'", "")
             .replace(",", ""),
@@ -150,7 +178,11 @@ def AddExtraData(sheet, StartRow):
         sheet.set("A" + str(StartRow + 1), "Angle_Units")
         sheet.set(
             "B" + str(StartRow + 1),
-            str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Angle), SchemeNumber))
+            str(
+                App.Units.schemaTranslate(
+                    App.Units.Quantity(50, App.Units.Angle), SchemeNumber
+                )
+            )
             .split()[1]
             .replace("'", "")
             .replace(",", ""),
@@ -162,7 +194,11 @@ def AddExtraData(sheet, StartRow):
         sheet.set("A" + str(StartRow + 1), "Mass_Units")
         sheet.set(
             "B" + str(StartRow + 1),
-            str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Mass), SchemeNumber))
+            str(
+                App.Units.schemaTranslate(
+                    App.Units.Quantity(50, App.Units.Mass), SchemeNumber
+                )
+            )
             .split()[1]
             .replace("'", "")
             .replace(",", ""),
@@ -188,16 +224,29 @@ def MapData(sheet):
     if ENABLE_DEBUG is True:
         Text = ""
         if str(MAP_LENGTH).strip():
-            Text = translate("TitleBlock Workbench", "Length unit is mapped to: " + str(MAP_LENGTH))
+            Text = translate(
+                "TitleBlock Workbench", "Length unit is mapped to: " + str(MAP_LENGTH)
+            )
         if str(MAP_ANGLE).strip():
-            Text = translate("TitleBlock Workbench", "Angle unit is mapped to: " + str(MAP_ANGLE))
+            Text = translate(
+                "TitleBlock Workbench", "Angle unit is mapped to: " + str(MAP_ANGLE)
+            )
         if str(MAP_MASS).strip():
-            Text = translate("TitleBlock Workbench", "Mass unit is mapped to: " + str(MAP_MASS))
+            Text = translate(
+                "TitleBlock Workbench", "Mass unit is mapped to: " + str(MAP_MASS)
+            )
         if str(MAP_NOSHEETS).strip():
-            Text = translate("TitleBlock Workbench", "the number of pages is mapped to: " + str(MAP_NOSHEETS))
+            Text = translate(
+                "TitleBlock Workbench",
+                "the number of pages is mapped to: " + str(MAP_NOSHEETS),
+            )
         if USE_FILENAME_DRAW_NO is True:
             Text = translate(
-                "TitleBlock Workbench", "The filename (" + str(filename) + ") is mapped to: " + str(DRAW_NO_FiELD)
+                "TitleBlock Workbench",
+                "The filename ("
+                + str(filename)
+                + ") is mapped to: "
+                + str(DRAW_NO_FiELD),
             )
         Standard_Functions.Print(Text, "Log")
 
@@ -221,7 +270,11 @@ def MapData(sheet):
             if PropertyName == MAP_LENGTH:
                 sheet.set(
                     "B" + str(RowNum),
-                    str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Length), SchemeNumber))
+                    str(
+                        App.Units.schemaTranslate(
+                            App.Units.Quantity(50, App.Units.Length), SchemeNumber
+                        )
+                    )
                     .split()[1]
                     .replace("'", "")
                     .replace(",", ""),
@@ -234,7 +287,11 @@ def MapData(sheet):
             if PropertyName == MAP_ANGLE:
                 sheet.set(
                     "B" + str(RowNum),
-                    str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Angle), SchemeNumber))
+                    str(
+                        App.Units.schemaTranslate(
+                            App.Units.Quantity(50, App.Units.Angle), SchemeNumber
+                        )
+                    )
                     .split()[1]
                     .replace("'", "")
                     .replace(",", ""),
@@ -247,7 +304,11 @@ def MapData(sheet):
             if PropertyName == MAP_MASS:
                 sheet.set(
                     "B" + str(RowNum),
-                    str(App.Units.schemaTranslate(App.Units.Quantity(50, App.Units.Mass), SchemeNumber))
+                    str(
+                        App.Units.schemaTranslate(
+                            App.Units.Quantity(50, App.Units.Mass), SchemeNumber
+                        )
+                    )
                     .split()[1]
                     .replace("'", "")
                     .replace(",", ""),
@@ -285,27 +346,49 @@ def MapDocInfo(sheet):
     if ENABLE_DEBUG is True:
         Text = ""
         if str(DOCINFO_NAME).strip():
-            Text = translate("TitleBlock Workbench", "Document name is mapped to:  " + str(DOCINFO_NAME))
+            Text = translate(
+                "TitleBlock Workbench",
+                "Document name is mapped to:  " + str(DOCINFO_NAME),
+            )
         if str(DOCINFO_CREATEDBY).strip():
-            Text = translate("TitleBlock Workbench", "Created by value is mapped to:  " + str(DOCINFO_CREATEDBY))
+            Text = translate(
+                "TitleBlock Workbench",
+                "Created by value is mapped to:  " + str(DOCINFO_CREATEDBY),
+            )
         if str(DOCINFO_CREATEDDATE).strip():
-            Text = translate("TitleBlock Workbench", "Created date is mapped to:  " + str(DOCINFO_CREATEDDATE))
+            Text = translate(
+                "TitleBlock Workbench",
+                "Created date is mapped to:  " + str(DOCINFO_CREATEDDATE),
+            )
         if str(DOCINFO_LASTMODIFIEDBY).strip():
             Text = translate(
-                "TitleBlock Workbench", "Last modified by value is mapped to:  " + str(DOCINFO_LASTMODIFIEDBY)
+                "TitleBlock Workbench",
+                "Last modified by value is mapped to:  " + str(DOCINFO_LASTMODIFIEDBY),
             )
         if str(DOCINFO_LASTMODIFIEDDATE).strip():
             Text = translate(
-                "TitleBlock Workbench", "Last modified date is mapped to:  " + str(DOCINFO_LASTMODIFIEDDATE)
+                "TitleBlock Workbench",
+                "Last modified date is mapped to:  " + str(DOCINFO_LASTMODIFIEDDATE),
             )
         if str(DOCINFO_COMPANY).strip():
-            Text = translate("TitleBlock Workbench", "Company name is mapped to:  " + str(DOCINFO_COMPANY))
+            Text = translate(
+                "TitleBlock Workbench",
+                "Company name is mapped to:  " + str(DOCINFO_COMPANY),
+            )
         if str(DOCINFO_LICENSE).strip():
-            Text = translate("TitleBlock Workbench", "License name is mapped to:  " + str(DOCINFO_LICENSE))
+            Text = translate(
+                "TitleBlock Workbench",
+                "License name is mapped to:  " + str(DOCINFO_LICENSE),
+            )
         if str(DOCINFO_LICENSEURL).strip():
-            Text = translate("TitleBlock Workbench", "License link is mapped to:  " + str(DOCINFO_LICENSEURL))
+            Text = translate(
+                "TitleBlock Workbench",
+                "License link is mapped to:  " + str(DOCINFO_LICENSEURL),
+            )
         if str(DOCINFO_COMMENT).strip():
-            Text = translate("TitleBlock Workbench", "Comment is mapped to:  " + str(DOCINFO_COMMENT))
+            Text = translate(
+                "TitleBlock Workbench", "Comment is mapped to:  " + str(DOCINFO_COMMENT)
+            )
         Standard_Functions.Print(Text, "Log")
 
     # Go through the column A in the spreadsheet and find the properties.
@@ -375,28 +458,78 @@ def MapDocInfo(sheet):
     return
 
 
-def FormatTable(sheet, Endrow):
-    RangeAlign1 = "A1:A" + str(Endrow)
-    RangeAlign2 = "B1:E" + str(Endrow)
-    RangeStyle1 = "A1:E1"
-    RangeStyle2 = "A2:A" + str(Endrow)
+def FontStyle(Bold: bool, Italic: bool, UnderLine: bool) -> str:
+    result = ""
+    if Bold is True:
+        if result == "":
+            result = "bold"
+        if result != "":
+            result = result + "|bold"
+    if Italic is True:
+        if result == "":
+            result = "italic"
+        if result != "":
+            result = result + "|italic"
+    if UnderLine is True:
+        if result == "":
+            result = "underline"
+        if result != "":
+            result = result + "|underline"
+    return result
 
-    # Style the top row
-    sheet.setStyle(RangeStyle1, "bold")  # \bold|italic|underline'
-    sheet.setStyle(RangeStyle2, "bold")  # \bold|italic|underline'
-    sheet.setBackground(RangeStyle1, Standard_Functions.ColorConvertor([255, 128, 0]))
-    # sheet.setBackground(RangeStyle2, Standard_Functions.ColorConvertor([0, 153, 0]))
-    sheet.setForeground(RangeStyle1, Standard_Functions.ColorConvertor([0, 0, 0]))  # RGBA
+
+def FormatTable(sheet, Endrow):
+    # HeaderRange
+    RangeAlign1 = "A1:A" + str(Endrow)
+    RangeStyle1 = "A1:E1"
+
+    # TableRange
+    RangeAlign2 = "B1:E" + str(Endrow)
+    RangeStyle2 = "B1:E" + str(Endrow)
+    # First column
+    RangeStyle3 = "A2:A" + str(Endrow)
+
+    # Font style for the top row
+    sheet.setStyle(
+        RangeStyle1,
+        FontStyle(
+            SPREADSHEET_HEADERFONTSTYLE_BOLD,
+            SPREADSHEET_HEADERFONTSTYLE_ITALIC,
+            SPREADSHEET_HEADERFONTSTYLE_UNDERLINE,
+        ),
+    )
+
+    # Font style for the first column
+    sheet.setStyle(
+        RangeStyle3,
+        FontStyle(
+            SPREADSHEET_COLUMNFONTSTYLE_BOLD,
+            SPREADSHEET_COLUMNFONTSTYLE_ITALIC,
+            SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE,
+        ),
+    )
+
+    # Font style for the rest of the table
+    sheet.setStyle(
+        RangeStyle2,
+        FontStyle(
+            SPREADSHEET_TABLEFONTSTYLE_BOLD,
+            SPREADSHEET_TABLEFONTSTYLE_ITALIC,
+            SPREADSHEET_HEADERFONTSTYLE_UNDERLINE,
+        ),
+    )
+
+    sheet.setBackground(RangeStyle1, SPREADSHEET_HEADERBACKGROUND)
+    sheet.setForeground(RangeStyle1, SPREADSHEET_HEADERFOREGROUND)
 
     # Style the rest of the table
-
     for i in range(2, int(Endrow + 1), 2):
         RangeStyle3 = f"A{i}:E{i}"
         RangeStyle4 = f"A{i+1}:E{i+1}"
-        sheet.setBackground(RangeStyle3, Standard_Functions.ColorConvertor([128, 128, 128]))
-        sheet.setBackground(RangeStyle4, Standard_Functions.ColorConvertor([64, 64, 64]))
-        sheet.setForeground(RangeStyle3, Standard_Functions.ColorConvertor([0, 0, 0]))
-        sheet.setForeground(RangeStyle4, Standard_Functions.ColorConvertor([0, 0, 0]))
+        sheet.setBackground(RangeStyle3, SPREADSHEET_TABLEBACKGROUND_1)
+        sheet.setBackground(RangeStyle4, SPREADSHEET_TABLEBACKGROUND_2)
+        sheet.setForeground(RangeStyle3, SPREADSHEET_TABLEFOREGROUND)
+        sheet.setForeground(RangeStyle4, SPREADSHEET_TABLEFOREGROUND)
 
     # align the columns
     sheet.setAlignment(RangeAlign1, "left|vcenter")
@@ -417,7 +550,10 @@ def FillSheet():
 
         # Debug mode is active, show all editable text in the page
         if ENABLE_DEBUG is True:
-            Text = translate("TitleBlock Workbench", "the following editable text are present in your page:")
+            Text = translate(
+                "TitleBlock Workbench",
+                "the following editable text are present in your page:",
+            )
             Standard_Functions.Print(Text, "Log")
             for EditableText in texts.items():
                 Text = translate("TitleBlock Workbench", str(EditableText))
@@ -446,8 +582,8 @@ def FillSheet():
             except Exception:
                 sheet.set("C" + str(StartRow), "")
 
-        # Finally recompute the spreadsheet
-        sheet.recompute()
+        # Finally recompute the document
+        App.ActiveDocument.recompute(None, True, True)
 
         # Run the def to map system data
         MapData(sheet=sheet)
@@ -470,9 +606,8 @@ def FillSheet():
             extraRows = extraRows + 1
         FormatTable(sheet=sheet, Endrow=StartRow + extraRows)
 
-        # Finally recompute the spreadsheet
-        sheet.recompute()
-        App.ActiveDocument.recompute()
+        # Finally recompute the document
+        App.ActiveDocument.recompute(None, True, True)
     # except TypeError:
     #     pass
     except Exception as e:
@@ -480,7 +615,8 @@ def FillSheet():
         if ENABLE_DEBUG is True:
             Text = translate(
                 "TitleBlock Workbench",
-                "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details",
+                "TitleBlock Workbench: an error occurred!!\n"
+                + "See the report view for details",
             )
             raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
@@ -505,11 +641,13 @@ def ImportDataExcel():
                 if EXTERNAL_SOURCE_SHEET_NAME == "":
                     # Set the sheetname with a inputbox
                     Worksheets_List = [i for i in wb.sheetnames if i != "Settings"]
-                    Text = translate("TitleBlock Workbench", "Please enter the name of the worksheet")
+                    Text = translate(
+                        "TitleBlock Workbench", "Please enter the name of the worksheet"
+                    )
                     Input_SheetName = str(
                         Standard_Functions.Mbox(
                             text=Text,
-                            title="",
+                            title="TitleBlock Workbench",
                             style=3,
                             default="TitleBlockData",
                             stringList=Worksheets_List,
@@ -528,7 +666,9 @@ def ImportDataExcel():
                     "TitleBlock Workbench",
                     "an problem occured while openening the excel file!\nDo you have it open in an another application",
                 )
-                Standard_Functions.Mbox(Text)
+                Standard_Functions.Mbox(
+                    text=Text, title="TitleBlock Workbench", style=0
+                )
                 return
 
             # get the spreadsheet "TitleBlock"
@@ -549,8 +689,9 @@ def ImportDataExcel():
                 )
                 StartCell = str(
                     Standard_Functions.Mbox(
-                        Text,
-                        style=2,
+                        text=Text,
+                        title="TitleBlock Workbench",
+                        style=20,
                         default="A1",
                     )
                 )
@@ -566,12 +707,17 @@ def ImportDataExcel():
             # If debug mode is on, show the start colum and its number
             if ENABLE_DEBUG is True:
                 Standard_Functions.Print(
-                    translate("TitleBlock Workbench", "Start column is: " + str(StartColumn), "Log")
+                    translate(
+                        "TitleBlock Workbench",
+                        "Start column is: " + str(StartColumn),
+                        "Log",
+                    )
                 )
                 Standard_Functions.Print(
                     translate(
                         "TitleBlock Workbench",
-                        "Column number is: " + str(Standard_Functions.GetNumberFromLetter(StartColumn)),
+                        "Column number is: "
+                        + str(Standard_Functions.GetNumberFromLetter(StartColumn)),
                     ),
                     "Log",
                 )
@@ -592,7 +738,9 @@ def ImportDataExcel():
             StartRow = EXTERNAL_SOURCE_STARTCELL[1:2]
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
-                Text = translate("TitleBlock Workbench", "the start row is: " + str(StartRow))
+                Text = translate(
+                    "TitleBlock Workbench", "the start row is: " + str(StartRow)
+                )
                 Standard_Functions.Print(Text, "Log")
 
             # import the headers from the excelsheet into the spreadsheet
@@ -676,13 +824,16 @@ def ImportDataExcel():
 
         else:
             Text = translate("TitleBlock Workbench", "External source is not enabled!")
-            Standard_Functions.Mbox(Text, "", 0)
+            Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
     except Exception as e:
-        Text = translate("TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!\n")
+        Text = translate(
+            "TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!\n"
+        )
         if ENABLE_DEBUG is True:
             Text = translate(
                 "TitleBlock Workbench",
-                "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details",
+                "TitleBlock Workbench: an error occurred!!\n"
+                + "See the report view for details",
             )
             raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)

@@ -22,30 +22,42 @@
 # ***************************************************************************/
 
 
-def Mbox(text, title="", style=0, default="", stringList="[,]"):
+def Mbox(text, title="", style=0, IconType="Information", default="", stringList="[,]"):
     """
     Message Styles:\n
     0 : OK                          (text, title, style)\n
     1 : Yes | No                    (text, title, style)\n
-    2 : Inputbox                    (text, title, style, default)\n
-    3 : Inputbox with dropdown      (text, title, style, default, stringlist)\n
+    20 : Inputbox                    (text, title, style, default)\n
+    21 : Inputbox with dropdown      (text, title, style, default, stringlist)\n
     """
     from PySide2.QtWidgets import QMessageBox, QInputDialog
-    import FreeCAD as App
+
+    Icon = QMessageBox.Information
+    if IconType == "NoIcon":
+        Icon = QMessageBox.NoIcon
+    if IconType == "Question":
+        Icon = QMessageBox.Question
+    if IconType == "Warning":
+        Icon = QMessageBox.Warning
+    if IconType == "Critical":
+        Icon = QMessageBox.Critical
 
     if style == 0:
+        # Set the messagebox
         msgBox = QMessageBox()
-        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setIcon(Icon)
         msgBox.setText(text)
         msgBox.setWindowTitle(title)
 
         reply = msgBox.exec_()
         return reply
     if style == 1:
+        # Set the messagebox
         msgBox = QMessageBox()
-        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setIcon(Icon)
         msgBox.setText(text)
         msgBox.setWindowTitle(title)
+        # Set the buttons and default button
         msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         msgBox.setDefaultButton(QMessageBox.No)
 
@@ -54,8 +66,8 @@ def Mbox(text, title="", style=0, default="", stringList="[,]"):
             return "yes"
         if reply == QMessageBox.No:
             return "no"
-    if style == 2:
-        reply = QInputDialog.getText(None, title, text, text=default)
+    if style == 20:
+        reply = QInputDialog.getText(parent=None, title=title, label=text, text=default)
         if reply[1]:
             # user clicked OK
             replyText = reply[0]
@@ -63,8 +75,15 @@ def Mbox(text, title="", style=0, default="", stringList="[,]"):
             # user clicked Cancel
             replyText = reply[0]  # which will be "" if they clicked Cancel
         return str(replyText)
-    if style == 3:
-        reply = QInputDialog.getItem(None, title, text, stringList, 1, True)
+    if style == 21:
+        reply = QInputDialog.getItem(
+            parent=None,
+            title=title,
+            label=text,
+            items=stringList,
+            current=1,
+            editable=True,
+        )
         if reply[1]:
             # user clicked OK
             replyText = reply[0]
@@ -169,7 +188,7 @@ def CheckIfWorkbookExists(FullFileName: str, CreateIfNone: bool = True):
     return result
 
 
-def ColorConvertor(ColorRGB: [], Alpha: float = 1) -> ():
+def ColorConvertor(ColorRGB: [], Alpha: float = 255) -> ():
     """
     A single function to convert colors to rgba colors as a tuple of float from 0-1
     ColorRGB:   [255,255,255]
@@ -180,10 +199,11 @@ def ColorConvertor(ColorRGB: [], Alpha: float = 1) -> ():
     ColorRed = ColorRGB[0] / 255
     colorGreen = ColorRGB[1] / 255
     colorBlue = ColorRGB[2] / 255
+    ColorAlpha = Alpha / 255
 
     color = (ColorRed, colorGreen, colorBlue)
 
-    result = mcolors.to_rgba(color, Alpha)
+    result = mcolors.to_rgba(color, ColorAlpha)
 
     return result
 
@@ -196,15 +216,27 @@ def OpenFile(FileName: str):
     import os
     import platform
 
-    if os.path.exists(FileName):
-        if platform.system() == "Darwin":  # macOS
-            subprocess.call(("open", FileName))
-        elif platform.system() == "Windows":  # Windows
-            os.startfile(FileName)
-        else:  # linux variants
-            subprocess.call(("xdg-open", FileName))
-    else:
-        print(f"Error: {FileName} does not exist.")
+    try:
+        if os.path.exists(FileName):
+            if platform.system() == "Darwin":  # macOS
+                subprocess.call(("open", FileName))
+            elif platform.system() == "Windows":  # Windows
+                os.startfile(FileName)
+            else:  # linux variants
+                print(FileName)
+                try:
+                    subprocess.check_output(["xdg-open", FileName.strip()])
+                except subprocess.CalledProcessError:
+                    Print(
+                        f"An error occured when opening {FileName}!\n"
+                        + "This can happen when running FreeCAD as an AppImage.\n"
+                        + "Please install FreeCAD directly.",
+                        "Error",
+                    )
+        else:
+            print(f"Error: {FileName} does not exist.")
+    except Exception as e:
+        raise e
 
 
 def SetColumnWidth_SpreadSheet(sheet, cellValue: str, factor=10) -> bool:

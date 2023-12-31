@@ -28,7 +28,9 @@ import Standard_Functions_TitleBlock as Standard_Functions
 # Define the translation
 translate = App.Qt.translate
 
-preferences = App.ParamGet("User parameter:BaseApp/Preferences/Mod/TitleBlock Workbench")
+preferences = App.ParamGet(
+    "User parameter:BaseApp/Preferences/Mod/TitleBlock Workbench"
+)
 # endregion
 
 
@@ -55,9 +57,22 @@ def GetBoolSetting(settingName: str) -> bool:
     return result
 
 
+def GetColorSetting(settingName: str) -> object:
+    from PySide2.QtGui import QColor
+
+    # Create a tuple from the int value of the color
+    result = QColor.fromRgba(preferences.GetUnsigned(settingName)).toTuple()
+
+    # correct the order of the tuple and devide them by 255
+    result = (result[3] / 255, result[0] / 255, result[1] / 255, result[2] / 255)
+
+    return result
+
+
 def SetStringSetting(settingName: str, value: str):
     Text = translate(
-        "TitleBlock Workbench", f"string setting not applied!!\n Settings was: {settingName} and value was {value}"
+        "TitleBlock Workbench",
+        f"string setting not applied!!\n Settings was: {settingName} and value was {value}",
     )
     if value.lower() == "none":
         if ENABLE_DEBUG is True:
@@ -71,7 +86,8 @@ def SetBoolSetting(settingName: str, value):
         Bool = True
     if str(value).lower() == "none" or value.lower() != "true":
         Text = translate(
-            "TitleBlock Workbench", f"bool setting not applied!!\n Settings was: {settingName} and value was {value}"
+            "TitleBlock Workbench",
+            f"bool setting not applied!!\n Settings was: {settingName} and value was {value}",
         )
         if ENABLE_DEBUG is True:
             Standard_Functions.Print(Text, "Log")
@@ -126,6 +142,29 @@ INCLUDE_ANGLE = GetBoolSetting("IncludeAngle")
 INCLUDE_MASS = GetBoolSetting("IncludeMass")
 INCLUDE_NO_SHEETS = GetBoolSetting("IncludeNoOfSheets")
 
+# UI Settings
+SPREADSHEET_HEADERBACKGROUND = GetColorSetting("SpreadSheetHeaderBackGround")
+SPREADSHEET_HEADERFOREGROUND = GetColorSetting("SpreadSheetHeaderForeGround")
+SPREADSHEET_HEADERFONTSTYLE_BOLD = GetBoolSetting("SpreadsheetHeaderFontStyle_Bold")
+SPREADSHEET_HEADERFONTSTYLE_ITALIC = GetBoolSetting("SpreadsheetHeaderFontStyle_Italic")
+SPREADSHEET_HEADERFONTSTYLE_UNDERLINE = GetBoolSetting(
+    "SpreadsheetHeaderFontStyle_Underline"
+)
+SPREADSHEET_TABLEBACKGROUND_1 = GetColorSetting("SpreadSheetTableBackGround_1")
+SPREADSHEET_TABLEBACKGROUND_2 = GetColorSetting("SpreadSheetTableBackGround_2")
+SPREADSHEET_TABLEFOREGROUND = GetColorSetting("SpreadSheetTableForeGround")
+SPREADSHEET_TABLEFONTSTYLE_BOLD = GetBoolSetting("SpreadsheetTableFontStyle_Bold")
+SPREADSHEET_TABLEFONTSTYLE_ITALIC = GetBoolSetting("SpreadsheetTableFontStyle_Italic")
+SPREADSHEET_TABLEFONTSTYLE_UNDERLINE = GetBoolSetting(
+    "SpreadsheetTableFontStyle_Underline"
+)
+SPREADSHEET_COLUMNFONTSTYLE_BOLD = GetBoolSetting("SpreadsheetColumnFontStyle_Bold")
+SPREADSHEET_COLUMNFONTSTYLE_ITALIC = GetBoolSetting("SpreadsheetColumnFontStyle_Italic")
+SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE = GetBoolSetting(
+    "SpreadsheetColumnFontStyle_Underline"
+)
+
+
 # Enable debug mode. This will enable additional report messages
 ENABLE_DEBUG = GetBoolSetting("EnableDebug")
 
@@ -158,6 +197,20 @@ SettingsList = [
     INCLUDE_ANGLE,
     INCLUDE_MASS,
     INCLUDE_NO_SHEETS,
+    SPREADSHEET_HEADERBACKGROUND,
+    SPREADSHEET_HEADERFOREGROUND,
+    SPREADSHEET_HEADERFONTSTYLE_BOLD,
+    SPREADSHEET_HEADERFONTSTYLE_ITALIC,
+    SPREADSHEET_HEADERFONTSTYLE_UNDERLINE,
+    SPREADSHEET_TABLEBACKGROUND_1,
+    SPREADSHEET_TABLEBACKGROUND_2,
+    SPREADSHEET_HEADERFOREGROUND,
+    SPREADSHEET_TABLEFONTSTYLE_BOLD,
+    SPREADSHEET_TABLEFONTSTYLE_ITALIC,
+    SPREADSHEET_TABLEFONTSTYLE_UNDERLINE,
+    SPREADSHEET_COLUMNFONTSTYLE_BOLD,
+    SPREADSHEET_COLUMNFONTSTYLE_ITALIC,
+    SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE,
     ENABLE_DEBUG,
 ]
 
@@ -176,7 +229,10 @@ def ExportSettingsXL(Silent=False):
         # If the user wants to export the settins, start an input dialog.
         if Silent is False:
             # load the excel file with the custm function
-            if Standard_Functions.CheckIfWorkbookExists(EXTERNAL_SOURCE_PATH, True) is True:
+            if (
+                Standard_Functions.CheckIfWorkbookExists(EXTERNAL_SOURCE_PATH, True)
+                is True
+            ):
                 wb = load_workbook(EXTERNAL_SOURCE_PATH)
             else:
                 Text = translate(
@@ -188,12 +244,14 @@ def ExportSettingsXL(Silent=False):
 
             # Set the sheetname with a inputbox
             Worksheets_List = [i for i in wb.sheetnames if i != "TitleBlockData"]
-            Text = translate("TitleBlock Workbench", "Please enter the name of the worksheet")
+            Text = translate(
+                "TitleBlock Workbench", "Please enter the name of the worksheet"
+            )
             Input_SheetName = str(
                 Standard_Functions.Mbox(
                     text=Text,
-                    title="",
-                    style=3,
+                    title="TitleBlock Workbench",
+                    style=21,
                     default="Settings",
                     stringList=Worksheets_List,
                 )
@@ -220,7 +278,11 @@ def ExportSettingsXL(Silent=False):
                 "Please enter the name of the cell.\n"
                 + "Enter a single cell like 'A1', 'B2', etc. Other notations will be ignored!",
             )
-            StartCell = str(Standard_Functions.Mbox(text=Text, style=2, default="A1"))
+            StartCell = str(
+                Standard_Functions.Mbox(
+                    text=Text, title="TitleBlock Workbench", style=2, default="A1"
+                )
+            )
             if not StartCell.strip():
                 StartCell = "A1"
 
@@ -231,7 +293,12 @@ def ExportSettingsXL(Silent=False):
         # Load the workbook with the sheet from the preference menu.
         if Silent is True:
             try:
-                if Standard_Functions.CheckIfWorkbookExists(EXTERNAL_SOURCE_PATH, False) is True:
+                if (
+                    Standard_Functions.CheckIfWorkbookExists(
+                        EXTERNAL_SOURCE_PATH, False
+                    )
+                    is True
+                ):
                     wb = load_workbook(str(EXTERNAL_SOURCE_PATH))
                 else:
                     Text = translate(
@@ -257,7 +324,9 @@ def ExportSettingsXL(Silent=False):
         ws[StartCell].value = "Name"
         TopRow = int(StartCell[1:])
         ValueCell = str(
-            Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1)
+            Standard_Functions.GetLetterFromNumber(
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
+            )
         ) + str(TopRow)
         ws[ValueCell].value = "Value"
         # endregion
@@ -412,14 +481,18 @@ def ExportSettingsXL(Silent=False):
         RowNumber = RowNumber + 1
 
         # DOCINFO_LASTMODIFIEDBY
-        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "DocInfo_LastModifiedBy"
+        ws[
+            str(StartCell[:1] + str(TopRow + RowNumber))
+        ].value = "DocInfo_LastModifiedBy"
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = DOCINFO_LASTMODIFIEDBY
         RowNumber = RowNumber + 1
 
         # DOCINFO_NAME
-        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "DocInfo_LastModifiedDate"
+        ws[
+            str(StartCell[:1] + str(TopRow + RowNumber))
+        ].value = "DocInfo_LastModifiedDate"
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = DOCINFO_LASTMODIFIEDDATE
@@ -508,7 +581,9 @@ def ExportSettingsXL(Silent=False):
         #
         # Define the the last cell
         EndCell = str(
-            Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1)
+            Standard_Functions.GetLetterFromNumber(
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
+            )
         ) + str(RowNumber + TopRow - 1)
 
         # Define the table
@@ -535,13 +610,20 @@ def ExportSettingsXL(Silent=False):
 
         # Align the columns
         if ENABLE_DEBUG is True:
-            Text = translate("TitleBlock Workbench", f"TitleBlock Workbench: Table range is: {StartCell}:{EndCell}")
+            Text = translate(
+                "TitleBlock Workbench",
+                f"TitleBlock Workbench: Table range is: {StartCell}:{EndCell}",
+            )
             Standard_Functions.Print(Text, "Log")
         for row in ws[1 : ws.max_row]:
             Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
             Column_2 = row[Standard_Functions.GetNumberFromLetter(EndCell[:1]) - 1]
-            Column_1.alignment = Alignment(horizontal="left", vertical="center", indent=1)
-            Column_2.alignment = Alignment(horizontal="left", vertical="center", indent=1)
+            Column_1.alignment = Alignment(
+                horizontal="left", vertical="center", indent=1
+            )
+            Column_2.alignment = Alignment(
+                horizontal="left", vertical="center", indent=1
+            )
         # endregion
 
         # Make the columns to autofit the date
@@ -568,11 +650,14 @@ def ExportSettingsXL(Silent=False):
         if ENABLE_DEBUG is True:
             raise (e)
     except Exception as e:
-        Text = translate("TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!")
+        Text = translate(
+            "TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!"
+        )
         if ENABLE_DEBUG is True:
             Text = translate(
                 "TitleBlock Workbench",
-                "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details",
+                "TitleBlock Workbench: an error occurred!!\n"
+                + "See the report view for details",
             )
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         if ENABLE_DEBUG is True:
@@ -594,7 +679,7 @@ def ImportSettingsXL():
             + "Please create an excel workbook to export your settings to or disable import from external source.",
             "TitleBlock Workbench",
         )
-        Standard_Functions.Mbox(text=Text, style=0)
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         return
 
     try:
@@ -617,7 +702,9 @@ def ImportSettingsXL():
         StartCell = SHEETNAME_STARTCELL_XL
         OriginalStartCell = StartCell
         if ENABLE_DEBUG is True:
-            Text = translate("TitleBlock Workbench", f"The entered startcell is: {StartCell}")
+            Text = translate(
+                "TitleBlock Workbench", f"The entered startcell is: {StartCell}"
+            )
             Standard_Functions.Print(Text, "Log")
         if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
             StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
@@ -812,27 +899,37 @@ def ImportSettingsXL():
             )
             Standard_Functions.Print(Text, "Log")
         if counter == 0:
-            Text = translate("TitleBlock Workbench", "TitleBlock Workbench: Settings are not imported")
+            Text = translate(
+                "TitleBlock Workbench",
+                "TitleBlock Workbench: Settings are not imported",
+            )
             Standard_Functions.Print(Text, "Log")
     # If there is an IO Error continue:
     except IOError as e:
         # If there is an read/write error, print an error in the report view
         if e.errno == errno.EACCES:
-            Text = translate("TitleBlock Workbench", f"No permision to open {EXTERNAL_SOURCE_PATH}!")
+            Text = translate(
+                "TitleBlock Workbench", f"No permision to open {EXTERNAL_SOURCE_PATH}!"
+            )
             if ENABLE_DEBUG is True:
                 Text = translate(
                     "TitleBlock Workbench",
                     f"No permision to open {EXTERNAL_SOURCE_PATH}!\nSee the report view for details",
                 )
-            return Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+            return Standard_Functions.Mbox(
+                text=Text, title="TitleBlock Workbench", style=0
+            )
         # For all other IO errors, raise e.
         raise (e)
     except Exception as e:
-        Text = translate("TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!")
+        Text = translate(
+            "TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!"
+        )
         if ENABLE_DEBUG is True:
             Text = translate(
                 "TitleBlock Workbench",
-                "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details",
+                "TitleBlock Workbench: an error occurred!!\n"
+                + "See the report view for details",
             )
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         if ENABLE_DEBUG is True:

@@ -49,16 +49,24 @@ def createExcel():
     StartCell = str("A1")
     TopRow = int(StartCell[1:])
     PropCell = str(
-        Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1)
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
+        )
     ) + str(TopRow)
     IncreaseCell = str(
-        Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 2)
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 2
+        )
     ) + str(TopRow)
     MultiplierCell = str(
-        Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 3)
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 3
+        )
     ) + str(TopRow)
     RemarkCell = str(
-        Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4)
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
+        )
     ) + str(TopRow)
 
     if ENABLE_DEBUG is True:
@@ -135,8 +143,4 @@ def createExcel():
         "TitleBlock Workbench",
         f"The titleblock data is exported to the workbook {FileName} in the worksheet {ws.title}",
     )
-    Standard_Functions.Mbox(
-        message,
-        "TitleBlock Workbench",
-        0,
-    )
+    Standard_Functions.Mbox(text=message, title="TitleBlock Workbench", style=0)

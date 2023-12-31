@@ -145,8 +145,12 @@ class TitleBlockWB(Gui.Workbench):
             QT_TRANSLATE_NOOP("Workbench", "TitleBlock"),
             StandardList,
         )  # creates a new menu
-        self.appendMenu(QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "External source"]), ExcelList)
-        self.appendMenu(QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "Settings"]), SettingsList)
+        self.appendMenu(
+            QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "External source"]), ExcelList
+        )
+        self.appendMenu(
+            QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "Settings"]), SettingsList
+        )
 
         if ADD_TOOLBAR_TECHDRAW is True:
             CreateUI.CreateTechDrawToolbar()

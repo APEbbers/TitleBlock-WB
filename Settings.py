@@ -50,6 +50,13 @@ def GetIntSetting(settingName: str) -> int:
     return result
 
 
+def GetFloatSetting(settingName: str) -> int:
+    result = preferences.GetFloat(settingName)
+    if result == "":
+        result = None
+    return result
+
+
 def GetBoolSetting(settingName: str) -> bool:
     result = preferences.GetBool(settingName)
     if str(result).lower() == "none":
@@ -163,7 +170,7 @@ SPREADSHEET_COLUMNFONTSTYLE_ITALIC = GetBoolSetting("SpreadsheetColumnFontStyle_
 SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE = GetBoolSetting(
     "SpreadsheetColumnFontStyle_Underline"
 )
-
+AUTOFIT_FACTOR = GetFloatSetting("AutoFitFactor")
 
 # Enable debug mode. This will enable additional report messages
 ENABLE_DEBUG = GetBoolSetting("EnableDebug")
@@ -615,7 +622,7 @@ def ExportSettingsXL(Silent=False):
                 f"TitleBlock Workbench: Table range is: {StartCell}:{EndCell}",
             )
             Standard_Functions.Print(Text, "Log")
-        for row in ws[1 : ws.max_row]:
+        for row in ws[1: ws.max_row]:
             Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
             Column_2 = row[Standard_Functions.GetNumberFromLetter(EndCell[:1]) - 1]
             Column_1.alignment = Alignment(

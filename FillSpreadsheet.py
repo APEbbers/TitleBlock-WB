@@ -434,17 +434,17 @@ def FormatTable(sheet, Endrow):
             SPREADSHEET_TABLEFONTSTYLE_BOLD, SPREADSHEET_TABLEFONTSTYLE_ITALIC, SPREADSHEET_TABLEFONTSTYLE_UNDERLINE
         ),
     )  # \bold|italic|underline'
-    sheet.setBackground(RangeStyle1, Standard_Functions.ColorConvertor(SPREADSHEET_HEADERBACKGROUND))
-    sheet.setForeground(RangeStyle1, Standard_Functions.ColorConvertor(SPREADSHEET_HEADERFOREGROUND))
+    sheet.setBackground(RangeStyle1, SPREADSHEET_HEADERBACKGROUND)
+    sheet.setForeground(RangeStyle1, SPREADSHEET_HEADERFOREGROUND)
 
     # Style the rest of the table
     for i in range(2, int(Endrow + 1), 2):
         RangeStyle3 = f"A{i}:E{i}"
         RangeStyle4 = f"A{i+1}:E{i+1}"
-        sheet.setBackground(RangeStyle3, Standard_Functions.ColorConvertor(SPREADSHEET_TABLEBACKGROUND_1))
-        sheet.setBackground(RangeStyle4, Standard_Functions.ColorConvertor(SPREADSHEET_TABLEBACKGROUND_2))
-        sheet.setForeground(RangeStyle3, Standard_Functions.ColorConvertor(SPREADSHEET_HEADERFOREGROUND))
-        sheet.setForeground(RangeStyle4, Standard_Functions.ColorConvertor(SPREADSHEET_TABLEFOREGROUND))
+        sheet.setBackground(RangeStyle3, SPREADSHEET_TABLEBACKGROUND_1)
+        sheet.setBackground(RangeStyle4, SPREADSHEET_TABLEBACKGROUND_2)
+        sheet.setForeground(RangeStyle3, SPREADSHEET_HEADERFOREGROUND)
+        sheet.setForeground(RangeStyle4, SPREADSHEET_TABLEFOREGROUND)
 
     # align the columns
     sheet.setAlignment(RangeAlign1, "left|vcenter")

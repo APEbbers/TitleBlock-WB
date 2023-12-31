@@ -56,10 +56,11 @@ def GetBoolSetting(settingName: str) -> bool:
 
 
 def GetColorSetting(settingName: str) -> object:
-    from PySide2.QtGui import QColor
+    from matplotlib import colors as mcolors
 
     result = preferences.GetUnsigned(settingName)
-    RGB_Color = QColor(result)
+    HEX_color = "#{:06x}".format(result)
+    RGB_Color = mcolors.to_rgba(HEX_color)
 
     return RGB_Color.toTuple()
 

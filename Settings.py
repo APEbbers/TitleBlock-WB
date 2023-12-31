@@ -62,7 +62,7 @@ def GetColorSetting(settingName: str) -> object:
     HEX_color = "#{:06x}".format(result)
     RGB_Color = mcolors.to_rgba(HEX_color)
 
-    return RGB_Color.toTuple()
+    return RGB_Color
 
 
 def SetStringSetting(settingName: str, value: str):

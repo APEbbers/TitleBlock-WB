@@ -61,9 +61,9 @@ def GetColorSetting(settingName: str) -> object:
     result = preferences.GetUnsigned(settingName)
 
     HEX_color = "#{:06x}".format(result)
-    RGB_Color = mcolors.to_rgb(HEX_color)
+    RGB_Color = mcolors.to_rgba(HEX_color)
     if result == "255":
-        result = [0, 0, 0]
+        result = [0, 0, 0, 0]
 
     return RGB_Color
 

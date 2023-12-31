@@ -219,7 +219,9 @@ if __name__ == "__main__":
         print(handler.data)
 
     elif arg == "install":
-        zippath = os.path.join(os.path.abspath(os.path.dirname(__file__)), "freecad-addons.zip")
+        zippath = os.path.join(
+            os.path.abspath(os.path.dirname(__file__)), "freecad-addons.zip"
+        )
         tempfolder = tempfile.mkdtemp()
         print("creating temp folder " + tempfolder)
         os.chdir(tempfolder)

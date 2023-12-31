@@ -57,7 +57,9 @@ def ImportTemplates():
 
     if IMPORT_EXAMPLE_TEMPLATES is True:
         # Define the parameter path
-        TechDrawTemplateDirParamPath = "User parameter:BaseApp/Preferences/Mod/TechDraw/Files/"
+        TechDrawTemplateDirParamPath = (
+            "User parameter:BaseApp/Preferences/Mod/TechDraw/Files/"
+        )
 
         # Get the parameter group
         TemplateDir = App.ParamGet(TechDrawTemplateDirParamPath)
@@ -71,16 +73,22 @@ def SetDefaultTemplate():
     from Settings import IMPORT_EXAMPLE_TEMPLATES
     from Settings import ENABLE_DEBUG
 
-    ChosenTemplate = os.path.join(TEMPLATE_DIR, GetDefaultTemplate(DEFAULT_TEMPLATE).replace("\\", "/"))
+    ChosenTemplate = os.path.join(
+        TEMPLATE_DIR, GetDefaultTemplate(DEFAULT_TEMPLATE).replace("\\", "/")
+    )
 
     # Print the standard template when debug mode is active
     if ENABLE_DEBUG is True:
-        Text = translate("TitleBlock Workbench", f"The chosen template is {ChosenTemplate}")
+        Text = translate(
+            "TitleBlock Workbench", f"The chosen template is {ChosenTemplate}"
+        )
         Standard_Functions.Print(Text, "Log")
 
     if IMPORT_EXAMPLE_TEMPLATES is True:
         # Define the parameter path
-        TechDrawTemplateParamPath = "User parameter:BaseApp/Preferences/Mod/TechDraw/Files/"
+        TechDrawTemplateParamPath = (
+            "User parameter:BaseApp/Preferences/Mod/TechDraw/Files/"
+        )
 
         # Get the parameter group
         Template = App.ParamGet(TechDrawTemplateParamPath)

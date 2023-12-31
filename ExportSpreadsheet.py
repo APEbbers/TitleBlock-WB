@@ -43,7 +43,9 @@ def ExportSpreadSheet():
         # get the spreadsheet "TitleBlock"
         sheet = sheet = App.ActiveDocument.getObject("TitleBlock")
         if sheet is None:
-            Text = translate("TitleBlock Workbench", "No spreadsheet named 'TitleBlock'!!!")
+            Text = translate(
+                "TitleBlock Workbench", "No spreadsheet named 'TitleBlock'!!!"
+            )
             Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
             return
         sheet.recompute()
@@ -58,16 +60,24 @@ def ExportSpreadSheet():
         StartCell = str(EXTERNAL_SOURCE_STARTCELL)
         TopRow = int(StartCell[1:])
         PropCell = str(
-            Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1)
+            Standard_Functions.GetLetterFromNumber(
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
+            )
         ) + str(TopRow)
         IncreaseCell = str(
-            Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 2)
+            Standard_Functions.GetLetterFromNumber(
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 2
+            )
         ) + str(TopRow)
         MultiplierCell = str(
-            Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 3)
+            Standard_Functions.GetLetterFromNumber(
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 3
+            )
         ) + str(TopRow)
         RemarkCell = str(
-            Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4)
+            Standard_Functions.GetLetterFromNumber(
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
+            )
         ) + str(TopRow)
 
         if ENABLE_DEBUG is True:
@@ -87,17 +97,23 @@ def ExportSpreadSheet():
             RowNumber = RowNumber + 1 + TopRow
 
             try:
-                ws[StartCell[:1] + str(RowNumber)].value = str(sheet.getContents("A" + str(RowNumber - TopRow + 1)))
+                ws[StartCell[:1] + str(RowNumber)].value = str(
+                    sheet.getContents("A" + str(RowNumber - TopRow + 1))
+                )
             except Exception:
                 ws[StartCell[:1] + str(RowNumber)].value = ""
 
             try:
-                ws[PropCell[:1] + str(RowNumber)].value = str(sheet.getContents("B" + str(RowNumber - TopRow + 1)))
+                ws[PropCell[:1] + str(RowNumber)].value = str(
+                    sheet.getContents("B" + str(RowNumber - TopRow + 1))
+                )
             except Exception:
                 ws[PropCell[:1] + str(RowNumber)].value = ""
 
             try:
-                ws[IncreaseCell[:1] + str(RowNumber)].value = str(sheet.getContents("C" + str(RowNumber - TopRow + 1)))
+                ws[IncreaseCell[:1] + str(RowNumber)].value = str(
+                    sheet.getContents("C" + str(RowNumber - TopRow + 1))
+                )
             except Exception:
                 ws[IncreaseCell[:1] + str(RowNumber)].value = ""
 
@@ -109,7 +125,9 @@ def ExportSpreadSheet():
                 ws[MultiplierCell[:1] + str(RowNumber)].value = ""
 
             try:
-                ws[RemarkCell[:1] + str(RowNumber)].value = str(sheet.getContents("E" + str(RowNumber - TopRow + 1)))
+                ws[RemarkCell[:1] + str(RowNumber)].value = str(
+                    sheet.getContents("E" + str(RowNumber - TopRow + 1))
+                )
             except Exception:
                 ws[RemarkCell[:1] + str(RowNumber)].value = ""
 
@@ -123,7 +141,9 @@ def ExportSpreadSheet():
         #
         # Define the the last cell
         EndCell = str(
-            Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4)
+            Standard_Functions.GetLetterFromNumber(
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
+            )
         ) + str(RowNumber - 1)
 
         # Define the table
@@ -153,13 +173,25 @@ def ExportSpreadSheet():
             Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
             Column_2 = row[Standard_Functions.GetNumberFromLetter(PropCell[:1]) - 1]
             Column_3 = row[Standard_Functions.GetNumberFromLetter(IncreaseCell[:1]) - 1]
-            Column_4 = row[Standard_Functions.GetNumberFromLetter(MultiplierCell[:1]) - 1]
+            Column_4 = row[
+                Standard_Functions.GetNumberFromLetter(MultiplierCell[:1]) - 1
+            ]
             Column_5 = row[Standard_Functions.GetNumberFromLetter(RemarkCell[:1]) - 1]
-            Column_1.alignment = Alignment(horizontal="left", vertical="center", indent=1)
-            Column_2.alignment = Alignment(horizontal="left", vertical="center", indent=1)
-            Column_3.alignment = Alignment(horizontal="left", vertical="center", indent=1)
-            Column_4.alignment = Alignment(horizontal="left", vertical="center", indent=1)
-            Column_5.alignment = Alignment(horizontal="left", vertical="center", indent=1)
+            Column_1.alignment = Alignment(
+                horizontal="left", vertical="center", indent=1
+            )
+            Column_2.alignment = Alignment(
+                horizontal="left", vertical="center", indent=1
+            )
+            Column_3.alignment = Alignment(
+                horizontal="left", vertical="center", indent=1
+            )
+            Column_4.alignment = Alignment(
+                horizontal="left", vertical="center", indent=1
+            )
+            Column_5.alignment = Alignment(
+                horizontal="left", vertical="center", indent=1
+            )
         # endregion
 
         # Make the columns to autofit the date
@@ -197,11 +229,14 @@ def ExportSpreadSheet():
         )
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
     except Exception as e:
-        Text = translate("TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!")
+        Text = translate(
+            "TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!"
+        )
         if ENABLE_DEBUG is True:
             Text = translate(
                 "TitleBlock Workbench",
-                "TitleBlock Workbench: an error occurred!!\n" + "See the report view for details",
+                "TitleBlock Workbench: an error occurred!!\n"
+                + "See the report view for details",
             )
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         if ENABLE_DEBUG is True:

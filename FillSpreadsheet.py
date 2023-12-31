@@ -74,6 +74,7 @@ from Settings import INCLUDE_NO_SHEETS
 from Settings import INCLUDE_MASS
 from Settings import INCLUDE_ANGLE
 from Settings import INCLUDE_LENGTH
+from Settings import AUTOFIT_FACTOR
 from Settings import preferences
 import os
 import FreeCAD as App
@@ -537,11 +538,16 @@ def FormatTable(sheet, Endrow):
 
     # Set the column width
     for i in range(1, Endrow):
-        Standard_Functions.SetColumnWidth_SpreadSheet(sheet=sheet, column=f"A{i}", cellValue=sheet.getContents(f"A{i}"))
-        Standard_Functions.SetColumnWidth_SpreadSheet(sheet=sheet, column=f"B{i}", cellValue=sheet.getContents(f"B{i}"))
-        Standard_Functions.SetColumnWidth_SpreadSheet(sheet=sheet, column=f"C{i}", cellValue=sheet.getContents(f"C{i}"))
-        Standard_Functions.SetColumnWidth_SpreadSheet(sheet=sheet, column=f"D{i}", cellValue=sheet.getContents(f"D{i}"))
-        Standard_Functions.SetColumnWidth_SpreadSheet(sheet=sheet, column=f"E{i}", cellValue=sheet.getContents(f"E{i}"))
+        Standard_Functions.SetColumnWidth_SpreadSheet(
+            sheet=sheet, column=f"A{i}", cellValue=sheet.getContents(f"A{i}"), factor=AUTOFIT_FACTOR)
+        Standard_Functions.SetColumnWidth_SpreadSheet(
+            sheet=sheet, column=f"B{i}", cellValue=sheet.getContents(f"B{i}"), factor=AUTOFIT_FACTOR)
+        Standard_Functions.SetColumnWidth_SpreadSheet(
+            sheet=sheet, column=f"C{i}", cellValue=sheet.getContents(f"C{i}"), factor=AUTOFIT_FACTOR)
+        Standard_Functions.SetColumnWidth_SpreadSheet(
+            sheet=sheet, column=f"D{i}", cellValue=sheet.getContents(f"D{i}"), factor=AUTOFIT_FACTOR)
+        Standard_Functions.SetColumnWidth_SpreadSheet(
+            sheet=sheet, column=f"E{i}", cellValue=sheet.getContents(f"E{i}"), factor=AUTOFIT_FACTOR)
     return
 
 

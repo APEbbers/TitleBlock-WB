@@ -1676,7 +1676,7 @@
        <x>5</x>
        <y>10</y>
        <width>426</width>
-       <height>261</height>
+       <height>291</height>
       </rect>
      </property>
      <property name="title">
@@ -1688,7 +1688,7 @@
         <x>17</x>
         <y>27</y>
         <width>301</width>
-        <height>220</height>
+        <height>248</height>
        </rect>
       </property>
       <layout class="QFormLayout" name="formLayout">
@@ -2078,6 +2078,33 @@
          </item>
         </layout>
        </item>
+       <item row="5" column="0">
+        <layout class="QFormLayout" name="formLayout_2">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_35">
+           <property name="text">
+            <string>Width factor for AutoFit</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="Gui::PrefDoubleSpinBox" name="AutoFitFactor">
+           <property name="singleStep">
+            <double>0.500000000000000</double>
+           </property>
+           <property name="value">
+            <double>7.500000000000000</double>
+           </property>
+           <property name="prefEntry" stdset="0">
+            <cstring>AutoFitFactor</cstring>
+           </property>
+           <property name="prefPath" stdset="0">
+            <cstring>Mod/TitleBlock Workbench</cstring>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
       </layout>
      </widget>
     </widget>
@@ -2119,6 +2146,11 @@
   <customwidget>
    <class>Gui::PrefLineEdit</class>
    <extends>QLineEdit</extends>
+   <header>Gui/PrefWidgets.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Gui::PrefDoubleSpinBox</class>
+   <extends>QDoubleSpinBox</extends>
    <header>Gui/PrefWidgets.h</header>
   </customwidget>
  </customwidgets>

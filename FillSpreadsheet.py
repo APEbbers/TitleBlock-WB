@@ -416,7 +416,7 @@ def FormatTable(sheet, Endrow):
 
     # TableRange
     RangeAlign2 = "B1:E" + str(Endrow)
-    RangeStyle2 = "B1:E" + str(Endrow)
+    RangeStyle2 = "B2:E" + str(Endrow)
     # First column
     RangeStyle3 = "A2:A" + str(Endrow)
 

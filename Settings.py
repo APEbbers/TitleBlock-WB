@@ -58,11 +58,11 @@ def GetBoolSetting(settingName: str) -> bool:
 def GetColorSetting(settingName: str) -> object:
     from matplotlib import colors as mcolors
 
-    result = preferences.GetUnsigned(settingName)
+    result = int(preferences.GetUnsigned(settingName))
 
     HEX_color = "#{:06x}".format(result)
     RGB_Color = mcolors.to_rgba(HEX_color)
-    if result == "255":
+    if result == 255:
         result = [0, 0, 0, 0]
 
     return RGB_Color

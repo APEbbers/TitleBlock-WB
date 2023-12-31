@@ -1682,7 +1682,7 @@
      <property name="title">
       <string>Spreadsheet</string>
      </property>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>17</x>
@@ -1787,7 +1787,7 @@
             </color>
            </property>
            <property name="prefEntry" stdset="0">
-            <cstring>SpreadSheetHeaderForeGround</cstring>
+            <cstring>SpreadSheetTableForeGround</cstring>
            </property>
            <property name="prefPath" stdset="0">
             <cstring>Mod/TitleBlock Workbench</cstring>

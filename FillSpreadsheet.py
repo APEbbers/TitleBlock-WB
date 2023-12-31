@@ -71,6 +71,20 @@ from Settings import DOCINFO_COMMENT
 from Settings import ENABLE_DEBUG
 from Settings import USE_FILENAME_DRAW_NO
 from Settings import DRAW_NO_FiELD
+from Settings import SPREADSHEET_HEADERBACKGROUND
+from Settings import SPREADSHEET_HEADERFOREGROUND
+from Settings import SPREADSHEET_HEADERFONTSTYLE_BOLD
+from Settings import SPREADSHEET_HEADERFONTSTYLE_ITALIC
+from Settings import SPREADSHEET_HEADERFONTSTYLE_UNDERLINE
+from Settings import SPREADSHEET_TABLEBACKGROUND_1
+from Settings import SPREADSHEET_TABLEBACKGROUND_2
+from Settings import SPREADSHEET_TABLEFOREGROUND
+from Settings import SPREADSHEET_TABLEFONTSTYLE_BOLD
+from Settings import SPREADSHEET_TABLEFONTSTYLE_ITALIC
+from Settings import SPREADSHEET_TABLEFONTSTYLE_UNDERLINE
+from Settings import SPREADSHEET_COLUMNFONTSTYLE_BOLD
+from Settings import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
+from Settings import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
 
 
 # If no start cell is defined. the start cell will be "A1"
@@ -375,28 +389,62 @@ def MapDocInfo(sheet):
     return
 
 
+def FontStyle(Bold: bool, Italic: bool, UnderLine: bool) -> str:
+    result = ""
+    if Bold is True:
+        if result == "":
+            result = "bold"
+        if result != "":
+            result = result + "|bold"
+    if Italic is True:
+        if result == "":
+            result = "italic"
+        if result != "":
+            result = result + "|italic"
+    if UnderLine is True:
+        if result == "":
+            result = "underline"
+        if result != "":
+            result = result + "|underline"
+    return result
+
+
 def FormatTable(sheet, Endrow):
+    # HeaderRange
     RangeAlign1 = "A1:A" + str(Endrow)
-    RangeAlign2 = "B1:E" + str(Endrow)
     RangeStyle1 = "A1:E1"
+
+    # TableRange
+    RangeAlign2 = "B1:E" + str(Endrow)
+    # First column
     RangeStyle2 = "A2:A" + str(Endrow)
 
-    # Style the top row
-    sheet.setStyle(RangeStyle1, "bold")  # \bold|italic|underline'
-    sheet.setStyle(RangeStyle2, "bold")  # \bold|italic|underline'
-    # sheet.setBackground(RangeStyle1, Standard_Functions.ColorConvertor([255, 128, 0]))
-    sheet.setBackground(RangeStyle1, Standard_Functions.ColorConvertor([243, 202, 98]))
-    # sheet.setBackground(RangeStyle2, Standard_Functions.ColorConvertor([0, 153, 0]))
-    sheet.setForeground(RangeStyle1, Standard_Functions.ColorConvertor([0, 0, 0]))  # RGBA
+    # Font style for the top row
+    sheet.setStyle(
+        RangeStyle1,
+        FontStyle(
+            SPREADSHEET_HEADERFONTSTYLE_BOLD, SPREADSHEET_HEADERFONTSTYLE_ITALIC, SPREADSHEET_HEADERFONTSTYLE_UNDERLINE
+        ),
+    )
+
+    # Font style for the first column
+    sheet.setStyle(
+        RangeStyle2,
+        FontStyle(
+            SPREADSHEET_TABLEFONTSTYLE_BOLD, SPREADSHEET_TABLEFONTSTYLE_ITALIC, SPREADSHEET_TABLEFONTSTYLE_UNDERLINE
+        ),
+    )  # \bold|italic|underline'
+    sheet.setBackground(RangeStyle1, Standard_Functions.ColorConvertor(SPREADSHEET_HEADERBACKGROUND))
+    sheet.setForeground(RangeStyle1, Standard_Functions.ColorConvertor(SPREADSHEET_HEADERFOREGROUND))
 
     # Style the rest of the table
     for i in range(2, int(Endrow + 1), 2):
         RangeStyle3 = f"A{i}:E{i}"
         RangeStyle4 = f"A{i+1}:E{i+1}"
-        sheet.setBackground(RangeStyle3, Standard_Functions.ColorConvertor([169, 169, 169]))
-        sheet.setBackground(RangeStyle4, Standard_Functions.ColorConvertor([128, 128, 128]))
-        sheet.setForeground(RangeStyle3, Standard_Functions.ColorConvertor([0, 0, 0]))
-        sheet.setForeground(RangeStyle4, Standard_Functions.ColorConvertor([0, 0, 0]))
+        sheet.setBackground(RangeStyle3, Standard_Functions.ColorConvertor(SPREADSHEET_TABLEBACKGROUND_1))
+        sheet.setBackground(RangeStyle4, Standard_Functions.ColorConvertor(SPREADSHEET_TABLEBACKGROUND_2))
+        sheet.setForeground(RangeStyle3, Standard_Functions.ColorConvertor(SPREADSHEET_HEADERFOREGROUND))
+        sheet.setForeground(RangeStyle4, Standard_Functions.ColorConvertor(SPREADSHEET_TABLEFOREGROUND))
 
     # align the columns
     sheet.setAlignment(RangeAlign1, "left|vcenter")

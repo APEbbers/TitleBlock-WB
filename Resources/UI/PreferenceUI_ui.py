@@ -580,10 +580,10 @@ class Ui_Form(object):
         self.Spreadsheet_Layout = QGroupBox(self.UIsettings)
         self.Spreadsheet_Layout.setObjectName(u"Spreadsheet_Layout")
         self.Spreadsheet_Layout.setGeometry(QRect(5, 10, 426, 261))
-        self.widget1 = QWidget(self.Spreadsheet_Layout)
-        self.widget1.setObjectName(u"widget1")
-        self.widget1.setGeometry(QRect(17, 27, 301, 220))
-        self.formLayout = QFormLayout(self.widget1)
+        self.layoutWidget3 = QWidget(self.Spreadsheet_Layout)
+        self.layoutWidget3.setObjectName(u"layoutWidget3")
+        self.layoutWidget3.setGeometry(QRect(17, 27, 301, 220))
+        self.formLayout = QFormLayout(self.layoutWidget3)
         self.formLayout.setSpacing(6)
         self.formLayout.setContentsMargins(5, 5, 5, 5)
         self.formLayout.setObjectName(u"formLayout")
@@ -591,12 +591,12 @@ class Ui_Form(object):
         self.gridLayout_3 = QGridLayout()
         self.gridLayout_3.setSpacing(6)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.label_27 = QLabel(self.widget1)
+        self.label_27 = QLabel(self.layoutWidget3)
         self.label_27.setObjectName(u"label_27")
 
         self.gridLayout_3.addWidget(self.label_27, 0, 0, 1, 1)
 
-        self.SprHeaderBackGround = Gui_PrefColorButton(self.widget1)
+        self.SprHeaderBackGround = Gui_PrefColorButton(self.layoutWidget3)
         self.SprHeaderBackGround.setObjectName(u"SprHeaderBackGround")
         self.SprHeaderBackGround.setColor(QColor(243, 202, 98))
         self.SprHeaderBackGround.setProperty("prefEntry", QByteArray(u"SpreadSheetHeaderBackGround"))
@@ -604,12 +604,12 @@ class Ui_Form(object):
 
         self.gridLayout_3.addWidget(self.SprHeaderBackGround, 0, 1, 1, 1)
 
-        self.label_28 = QLabel(self.widget1)
+        self.label_28 = QLabel(self.layoutWidget3)
         self.label_28.setObjectName(u"label_28")
 
         self.gridLayout_3.addWidget(self.label_28, 1, 0, 1, 1)
 
-        self.SprHeaderForeGround = Gui_PrefColorButton(self.widget1)
+        self.SprHeaderForeGround = Gui_PrefColorButton(self.layoutWidget3)
         self.SprHeaderForeGround.setObjectName(u"SprHeaderForeGround")
         self.SprHeaderForeGround.setColor(QColor(0, 0, 0))
         self.SprHeaderForeGround.setProperty("prefEntry", QByteArray(u"SpreadSheetHeaderForeGround"))
@@ -623,12 +623,12 @@ class Ui_Form(object):
         self.gridLayout_5 = QGridLayout()
         self.gridLayout_5.setSpacing(6)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
-        self.label_31 = QLabel(self.widget1)
+        self.label_31 = QLabel(self.layoutWidget3)
         self.label_31.setObjectName(u"label_31")
 
         self.gridLayout_5.addWidget(self.label_31, 2, 0, 1, 1)
 
-        self.SprTableBackGround_1 = Gui_PrefColorButton(self.widget1)
+        self.SprTableBackGround_1 = Gui_PrefColorButton(self.layoutWidget3)
         self.SprTableBackGround_1.setObjectName(u"SprTableBackGround_1")
         self.SprTableBackGround_1.setColor(QColor(169, 169, 169))
         self.SprTableBackGround_1.setProperty("prefEntry", QByteArray(u"SpreadSheetTableBackGround_1"))
@@ -636,25 +636,25 @@ class Ui_Form(object):
 
         self.gridLayout_5.addWidget(self.SprTableBackGround_1, 0, 1, 1, 1)
 
-        self.label_30 = QLabel(self.widget1)
+        self.label_30 = QLabel(self.layoutWidget3)
         self.label_30.setObjectName(u"label_30")
 
         self.gridLayout_5.addWidget(self.label_30, 0, 0, 1, 1)
 
-        self.SprTableForeGround = Gui_PrefColorButton(self.widget1)
+        self.SprTableForeGround = Gui_PrefColorButton(self.layoutWidget3)
         self.SprTableForeGround.setObjectName(u"SprTableForeGround")
         self.SprTableForeGround.setColor(QColor(0, 0, 0))
-        self.SprTableForeGround.setProperty("prefEntry", QByteArray(u"SpreadSheetHeaderForeGround"))
+        self.SprTableForeGround.setProperty("prefEntry", QByteArray(u"SpreadSheetTableForeGround"))
         self.SprTableForeGround.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.gridLayout_5.addWidget(self.SprTableForeGround, 2, 1, 1, 1)
 
-        self.label_33 = QLabel(self.widget1)
+        self.label_33 = QLabel(self.layoutWidget3)
         self.label_33.setObjectName(u"label_33")
 
         self.gridLayout_5.addWidget(self.label_33, 1, 0, 1, 1)
 
-        self.SprTableBackGround_2 = Gui_PrefColorButton(self.widget1)
+        self.SprTableBackGround_2 = Gui_PrefColorButton(self.layoutWidget3)
         self.SprTableBackGround_2.setObjectName(u"SprTableBackGround_2")
         self.SprTableBackGround_2.setColor(QColor(128, 128, 128))
         self.SprTableBackGround_2.setProperty("prefEntry", QByteArray(u"SpreadSheetTableBackGround_2"))
@@ -668,7 +668,7 @@ class Ui_Form(object):
         self.gridLayout_4 = QGridLayout()
         self.gridLayout_4.setSpacing(6)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.label_29 = QLabel(self.widget1)
+        self.label_29 = QLabel(self.layoutWidget3)
         self.label_29.setObjectName(u"label_29")
         sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy3.setHorizontalStretch(40)
@@ -678,7 +678,7 @@ class Ui_Form(object):
 
         self.gridLayout_4.addWidget(self.label_29, 0, 0, 1, 1)
 
-        self.SprHeaderFontStyle_Bold = Gui_PrefCheckBox(self.widget1)
+        self.SprHeaderFontStyle_Bold = Gui_PrefCheckBox(self.layoutWidget3)
         self.SprHeaderFontStyle_Bold.setObjectName(u"SprHeaderFontStyle_Bold")
         self.SprHeaderFontStyle_Bold.setFont(font1)
         self.SprHeaderFontStyle_Bold.setProperty("prefEntry", QByteArray(u"SpreadsheetHeaderFontStyle_Bold"))
@@ -686,7 +686,7 @@ class Ui_Form(object):
 
         self.gridLayout_4.addWidget(self.SprHeaderFontStyle_Bold, 0, 1, 1, 1)
 
-        self.SprHeaderFontStyle_Italic = Gui_PrefCheckBox(self.widget1)
+        self.SprHeaderFontStyle_Italic = Gui_PrefCheckBox(self.layoutWidget3)
         self.SprHeaderFontStyle_Italic.setObjectName(u"SprHeaderFontStyle_Italic")
         self.SprHeaderFontStyle_Italic.setFont(font)
         self.SprHeaderFontStyle_Italic.setProperty("prefEntry", QByteArray(u"SpreadsheetHeaderFontStyle_Italic"))
@@ -694,7 +694,7 @@ class Ui_Form(object):
 
         self.gridLayout_4.addWidget(self.SprHeaderFontStyle_Italic, 0, 2, 1, 1)
 
-        self.SprHeaderFontStyle_Underline = Gui_PrefCheckBox(self.widget1)
+        self.SprHeaderFontStyle_Underline = Gui_PrefCheckBox(self.layoutWidget3)
         self.SprHeaderFontStyle_Underline.setObjectName(u"SprHeaderFontStyle_Underline")
         font4 = QFont()
         font4.setUnderline(True)
@@ -710,14 +710,14 @@ class Ui_Form(object):
         self.gridLayout_6 = QGridLayout()
         self.gridLayout_6.setSpacing(6)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.label_32 = QLabel(self.widget1)
+        self.label_32 = QLabel(self.layoutWidget3)
         self.label_32.setObjectName(u"label_32")
         sizePolicy3.setHeightForWidth(self.label_32.sizePolicy().hasHeightForWidth())
         self.label_32.setSizePolicy(sizePolicy3)
 
         self.gridLayout_6.addWidget(self.label_32, 0, 0, 1, 1)
 
-        self.SprTableFontStyle_Bold = Gui_PrefCheckBox(self.widget1)
+        self.SprTableFontStyle_Bold = Gui_PrefCheckBox(self.layoutWidget3)
         self.SprTableFontStyle_Bold.setObjectName(u"SprTableFontStyle_Bold")
         self.SprTableFontStyle_Bold.setFont(font1)
         self.SprTableFontStyle_Bold.setProperty("prefEntry", QByteArray(u"SpreadsheetTableFontStyle_Bold"))
@@ -725,7 +725,7 @@ class Ui_Form(object):
 
         self.gridLayout_6.addWidget(self.SprTableFontStyle_Bold, 0, 1, 1, 1)
 
-        self.SprTableFontStyle_Italic = Gui_PrefCheckBox(self.widget1)
+        self.SprTableFontStyle_Italic = Gui_PrefCheckBox(self.layoutWidget3)
         self.SprTableFontStyle_Italic.setObjectName(u"SprTableFontStyle_Italic")
         self.SprTableFontStyle_Italic.setFont(font)
         self.SprTableFontStyle_Italic.setProperty("prefEntry", QByteArray(u"SpreadsheetTableFontStyle_Italic"))
@@ -733,7 +733,7 @@ class Ui_Form(object):
 
         self.gridLayout_6.addWidget(self.SprTableFontStyle_Italic, 0, 2, 1, 1)
 
-        self.SprTableFontStyle_Underline = Gui_PrefCheckBox(self.widget1)
+        self.SprTableFontStyle_Underline = Gui_PrefCheckBox(self.layoutWidget3)
         self.SprTableFontStyle_Underline.setObjectName(u"SprTableFontStyle_Underline")
         self.SprTableFontStyle_Underline.setFont(font4)
         self.SprTableFontStyle_Underline.setProperty("prefEntry", QByteArray(u"SpreadsheetTableFontStyle_Underline"))
@@ -749,14 +749,14 @@ class Ui_Form(object):
         self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.gridLayout_7.setSizeConstraint(QLayout.SetDefaultConstraint)
         self.gridLayout_7.setHorizontalSpacing(6)
-        self.label_34 = QLabel(self.widget1)
+        self.label_34 = QLabel(self.layoutWidget3)
         self.label_34.setObjectName(u"label_34")
         sizePolicy3.setHeightForWidth(self.label_34.sizePolicy().hasHeightForWidth())
         self.label_34.setSizePolicy(sizePolicy3)
 
         self.gridLayout_7.addWidget(self.label_34, 0, 0, 1, 1)
 
-        self.SprColumnFontStyle_Bold = Gui_PrefCheckBox(self.widget1)
+        self.SprColumnFontStyle_Bold = Gui_PrefCheckBox(self.layoutWidget3)
         self.SprColumnFontStyle_Bold.setObjectName(u"SprColumnFontStyle_Bold")
         self.SprColumnFontStyle_Bold.setFont(font1)
         self.SprColumnFontStyle_Bold.setProperty("prefEntry", QByteArray(u"SpreadsheetColumnFontStyle_Bold"))
@@ -764,7 +764,7 @@ class Ui_Form(object):
 
         self.gridLayout_7.addWidget(self.SprColumnFontStyle_Bold, 0, 1, 1, 1)
 
-        self.SprColumnFontStyle_Italic = Gui_PrefCheckBox(self.widget1)
+        self.SprColumnFontStyle_Italic = Gui_PrefCheckBox(self.layoutWidget3)
         self.SprColumnFontStyle_Italic.setObjectName(u"SprColumnFontStyle_Italic")
         self.SprColumnFontStyle_Italic.setFont(font)
         self.SprColumnFontStyle_Italic.setProperty("prefEntry", QByteArray(u"SpreadsheetColumnFontStyle_Italic"))
@@ -772,7 +772,7 @@ class Ui_Form(object):
 
         self.gridLayout_7.addWidget(self.SprColumnFontStyle_Italic, 0, 2, 1, 1)
 
-        self.SprColumnFontStyle_Underline = Gui_PrefCheckBox(self.widget1)
+        self.SprColumnFontStyle_Underline = Gui_PrefCheckBox(self.layoutWidget3)
         self.SprColumnFontStyle_Underline.setObjectName(u"SprColumnFontStyle_Underline")
         self.SprColumnFontStyle_Underline.setFont(font4)
         self.SprColumnFontStyle_Underline.setProperty("prefEntry", QByteArray(u"SpreadsheetColumnFontStyle_Underline"))

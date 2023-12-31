@@ -152,7 +152,7 @@ def GetA1fromR1C1(input: str) -> str:
         input = input.upper()
         ColumnPosition = input.find("C")
         RowNumber = int(input[1:(ColumnPosition)])
-        ColumnNumber = int(input[(ColumnPosition + 1) :])
+        ColumnNumber = int(input[(ColumnPosition + 1):])
 
         ColumnLetter = GetLetterFromNumber(ColumnNumber)
 
@@ -239,20 +239,32 @@ def OpenFile(FileName: str):
         raise e
 
 
-def SetColumnWidth_SpreadSheet(sheet, cellValue: str, factor=10) -> bool:
-    result = False
-    if cellValue == "" or sheet is None:
-        result = False
-        return result
+def SetColumnWidth_SpreadSheet(
+    sheet, column: str, cellValue: str, factor: int = 10
+) -> bool:
+    """_summary_
 
-    # Calculate the text length needed.
-    length = int(len(cellValue) * factor)
+    Args:
+        sheet (_type_): FreeCAD spreadsheet object.\n
+        column (str): The column for which the width will be set. must be like "A", "B", etc.\n
+        cellValue (str): The string to calulate the widht from.\n
+        factor (int, optional): to increase the stringlength with a factor. Defaults to 10.\n
 
-    # Set the column width
-    sheet.setColumnWidth("A", length)
+    Returns:
+        bool: returns True or False
+    """
+    try:
+        # Calculate the text length needed.
+        length = int(len(cellValue) * factor)
 
-    # Recompute the sheet
-    sheet.recompute()
+        # Set the column width
+        if sheet.getColumnWidth(column) < length:
+            sheet.setColumnWidth(column, length)
+
+        # Recompute the sheet
+        sheet.recompute()
+    except Exception:
+        return False
 
     return True
 

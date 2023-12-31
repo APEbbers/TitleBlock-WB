@@ -36,6 +36,45 @@
 #  - Import data from excel or libre office
 #  - Etc.
 
+from Settings import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
+from Settings import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
+from Settings import SPREADSHEET_COLUMNFONTSTYLE_BOLD
+from Settings import SPREADSHEET_TABLEFONTSTYLE_UNDERLINE
+from Settings import SPREADSHEET_TABLEFONTSTYLE_ITALIC
+from Settings import SPREADSHEET_TABLEFONTSTYLE_BOLD
+from Settings import SPREADSHEET_TABLEFOREGROUND
+from Settings import SPREADSHEET_TABLEBACKGROUND_2
+from Settings import SPREADSHEET_TABLEBACKGROUND_1
+from Settings import SPREADSHEET_HEADERFONTSTYLE_UNDERLINE
+from Settings import SPREADSHEET_HEADERFONTSTYLE_ITALIC
+from Settings import SPREADSHEET_HEADERFONTSTYLE_BOLD
+from Settings import SPREADSHEET_HEADERFOREGROUND
+from Settings import SPREADSHEET_HEADERBACKGROUND
+from Settings import DRAW_NO_FiELD
+from Settings import USE_FILENAME_DRAW_NO
+from Settings import ENABLE_DEBUG
+from Settings import DOCINFO_COMMENT
+from Settings import DOCINFO_LICENSEURL
+from Settings import DOCINFO_LICENSE
+from Settings import DOCINFO_COMPANY
+from Settings import DOCINFO_LASTMODIFIEDDATE
+from Settings import DOCINFO_LASTMODIFIEDBY
+from Settings import DOCINFO_CREATEDDATE
+from Settings import DOCINFO_CREATEDBY
+from Settings import DOCINFO_NAME
+from Settings import MAP_NOSHEETS
+from Settings import MAP_MASS
+from Settings import MAP_ANGLE
+from Settings import MAP_LENGTH
+from Settings import EXTERNAL_SOURCE_STARTCELL
+from Settings import EXTERNAL_SOURCE_SHEET_NAME
+from Settings import EXTERNAL_SOURCE_PATH
+from Settings import USE_EXTERNAL_SOURCE
+from Settings import INCLUDE_NO_SHEETS
+from Settings import INCLUDE_MASS
+from Settings import INCLUDE_ANGLE
+from Settings import INCLUDE_LENGTH
+from Settings import preferences
 import os
 import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
@@ -44,47 +83,8 @@ import Standard_Functions_TitleBlock as Standard_Functions
 translate = App.Qt.translate
 
 # Get the preferences
-from Settings import preferences
 
 # Get the settings
-from Settings import INCLUDE_LENGTH
-from Settings import INCLUDE_ANGLE
-from Settings import INCLUDE_MASS
-from Settings import INCLUDE_NO_SHEETS
-from Settings import USE_EXTERNAL_SOURCE
-from Settings import EXTERNAL_SOURCE_PATH
-from Settings import EXTERNAL_SOURCE_SHEET_NAME
-from Settings import EXTERNAL_SOURCE_STARTCELL
-from Settings import MAP_LENGTH
-from Settings import MAP_ANGLE
-from Settings import MAP_MASS
-from Settings import MAP_NOSHEETS
-from Settings import DOCINFO_NAME
-from Settings import DOCINFO_CREATEDBY
-from Settings import DOCINFO_CREATEDDATE
-from Settings import DOCINFO_LASTMODIFIEDBY
-from Settings import DOCINFO_LASTMODIFIEDDATE
-from Settings import DOCINFO_COMPANY
-from Settings import DOCINFO_LICENSE
-from Settings import DOCINFO_LICENSEURL
-from Settings import DOCINFO_COMMENT
-from Settings import ENABLE_DEBUG
-from Settings import USE_FILENAME_DRAW_NO
-from Settings import DRAW_NO_FiELD
-from Settings import SPREADSHEET_HEADERBACKGROUND
-from Settings import SPREADSHEET_HEADERFOREGROUND
-from Settings import SPREADSHEET_HEADERFONTSTYLE_BOLD
-from Settings import SPREADSHEET_HEADERFONTSTYLE_ITALIC
-from Settings import SPREADSHEET_HEADERFONTSTYLE_UNDERLINE
-from Settings import SPREADSHEET_TABLEBACKGROUND_1
-from Settings import SPREADSHEET_TABLEBACKGROUND_2
-from Settings import SPREADSHEET_TABLEFOREGROUND
-from Settings import SPREADSHEET_TABLEFONTSTYLE_BOLD
-from Settings import SPREADSHEET_TABLEFONTSTYLE_ITALIC
-from Settings import SPREADSHEET_TABLEFONTSTYLE_UNDERLINE
-from Settings import SPREADSHEET_COLUMNFONTSTYLE_BOLD
-from Settings import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
-from Settings import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
 
 
 # If no start cell is defined. the start cell will be "A1"
@@ -515,7 +515,7 @@ def FormatTable(sheet, Endrow):
         FontStyle(
             SPREADSHEET_TABLEFONTSTYLE_BOLD,
             SPREADSHEET_TABLEFONTSTYLE_ITALIC,
-            SPREADSHEET_HEADERFONTSTYLE_UNDERLINE,
+            SPREADSHEET_TABLEFONTSTYLE_UNDERLINE,
         ),
     )
 

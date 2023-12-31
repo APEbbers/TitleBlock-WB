@@ -1704,7 +1704,7 @@
          <item row="0" column="1">
           <widget class="Gui::PrefColorButton" name="SprHeaderBackGround">
            <property name="autoDefault">
-            <bool>true</bool>
+            <bool>false</bool>
            </property>
            <property name="default">
             <bool>true</bool>
@@ -1763,6 +1763,84 @@
            </property>
            <property name="prefEntry" stdset="0">
             <cstring>SpreadSheetHeaderForeGround</cstring>
+           </property>
+           <property name="prefPath" stdset="0">
+            <cstring>Mod/TitleBlock Workbench</cstring>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_29">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>40</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Header font style</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="Gui::PrefCheckBox" name="SprHeaderFontStyle_Bold">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Bold</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+           <property name="prefEntry" stdset="0">
+            <cstring>SpreadsheetHeaderFontStyle_Bold</cstring>
+           </property>
+           <property name="prefPath" stdset="0">
+            <cstring>Mod/TitleBlock Workbench</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="Gui::PrefCheckBox" name="SprHeaderFontStyle_Italic">
+           <property name="font">
+            <font>
+             <italic>true</italic>
+            </font>
+           </property>
+           <property name="text">
+            <string>Italic</string>
+           </property>
+           <property name="prefEntry" stdset="0">
+            <cstring>SpreadsheetHeaderFontStyle_Italic</cstring>
+           </property>
+           <property name="prefPath" stdset="0">
+            <cstring>Mod/TitleBlock Workbench</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="Gui::PrefCheckBox" name="SprHeaderFontStyle_Underline">
+           <property name="font">
+            <font>
+             <underline>true</underline>
+            </font>
+           </property>
+           <property name="text">
+            <string>Underline</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+           <property name="prefEntry" stdset="0">
+            <cstring>SpreadsheetHeaderFontStyle_Underline</cstring>
            </property>
            <property name="prefPath" stdset="0">
             <cstring>Mod/TitleBlock Workbench</cstring>
@@ -1839,78 +1917,6 @@
            </property>
            <property name="prefEntry" stdset="0">
             <cstring>SpreadSheetTableBackGround_2</cstring>
-           </property>
-           <property name="prefPath" stdset="0">
-            <cstring>Mod/TitleBlock Workbench</cstring>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="1" column="0" colspan="2">
-        <layout class="QGridLayout" name="gridLayout_4">
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_29">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-             <horstretch>40</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="text">
-            <string>Header font style</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="Gui::PrefCheckBox" name="SprHeaderFontStyle_Bold">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Bold</string>
-           </property>
-           <property name="prefEntry" stdset="0">
-            <cstring>SpreadsheetHeaderFontStyle_Bold</cstring>
-           </property>
-           <property name="prefPath" stdset="0">
-            <cstring>Mod/TitleBlock Workbench</cstring>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <widget class="Gui::PrefCheckBox" name="SprHeaderFontStyle_Italic">
-           <property name="font">
-            <font>
-             <italic>true</italic>
-            </font>
-           </property>
-           <property name="text">
-            <string>Italic</string>
-           </property>
-           <property name="prefEntry" stdset="0">
-            <cstring>SpreadsheetHeaderFontStyle_Italic</cstring>
-           </property>
-           <property name="prefPath" stdset="0">
-            <cstring>Mod/TitleBlock Workbench</cstring>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3">
-          <widget class="Gui::PrefCheckBox" name="SprHeaderFontStyle_Underline">
-           <property name="font">
-            <font>
-             <underline>true</underline>
-            </font>
-           </property>
-           <property name="text">
-            <string>Underline</string>
-           </property>
-           <property name="prefEntry" stdset="0">
-            <cstring>SpreadsheetHeaderFontStyle_Underline</cstring>
            </property>
            <property name="prefPath" stdset="0">
             <cstring>Mod/TitleBlock Workbench</cstring>
@@ -2022,6 +2028,9 @@
            </property>
            <property name="text">
             <string>Bold</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
            </property>
            <property name="prefEntry" stdset="0">
             <cstring>SpreadsheetColumnFontStyle_Bold</cstring>

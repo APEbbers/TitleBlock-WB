@@ -598,7 +598,7 @@ class Ui_Form(object):
 
         self.SprHeaderBackGround = Gui_PrefColorButton(self.layoutWidget3)
         self.SprHeaderBackGround.setObjectName(u"SprHeaderBackGround")
-        self.SprHeaderBackGround.setAutoDefault(True)
+        self.SprHeaderBackGround.setAutoDefault(False)
         self.SprHeaderBackGround.setColor(QColor(243, 202, 98))
         self.SprHeaderBackGround.setAllowTransparency(False)
         self.SprHeaderBackGround.setProperty("prefEntry", QByteArray(u"SpreadSheetHeaderBackGround"))
@@ -626,6 +626,50 @@ class Ui_Form(object):
 
 
         self.formLayout.setLayout(0, QFormLayout.LabelRole, self.gridLayout_3)
+
+        self.gridLayout_4 = QGridLayout()
+        self.gridLayout_4.setSpacing(6)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.label_29 = QLabel(self.layoutWidget3)
+        self.label_29.setObjectName(u"label_29")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy3.setHorizontalStretch(40)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.label_29.sizePolicy().hasHeightForWidth())
+        self.label_29.setSizePolicy(sizePolicy3)
+
+        self.gridLayout_4.addWidget(self.label_29, 0, 0, 1, 1)
+
+        self.SprHeaderFontStyle_Bold = Gui_PrefCheckBox(self.layoutWidget3)
+        self.SprHeaderFontStyle_Bold.setObjectName(u"SprHeaderFontStyle_Bold")
+        self.SprHeaderFontStyle_Bold.setFont(font1)
+        self.SprHeaderFontStyle_Bold.setChecked(True)
+        self.SprHeaderFontStyle_Bold.setProperty("prefEntry", QByteArray(u"SpreadsheetHeaderFontStyle_Bold"))
+        self.SprHeaderFontStyle_Bold.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
+
+        self.gridLayout_4.addWidget(self.SprHeaderFontStyle_Bold, 0, 1, 1, 1)
+
+        self.SprHeaderFontStyle_Italic = Gui_PrefCheckBox(self.layoutWidget3)
+        self.SprHeaderFontStyle_Italic.setObjectName(u"SprHeaderFontStyle_Italic")
+        self.SprHeaderFontStyle_Italic.setFont(font)
+        self.SprHeaderFontStyle_Italic.setProperty("prefEntry", QByteArray(u"SpreadsheetHeaderFontStyle_Italic"))
+        self.SprHeaderFontStyle_Italic.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
+
+        self.gridLayout_4.addWidget(self.SprHeaderFontStyle_Italic, 0, 2, 1, 1)
+
+        self.SprHeaderFontStyle_Underline = Gui_PrefCheckBox(self.layoutWidget3)
+        self.SprHeaderFontStyle_Underline.setObjectName(u"SprHeaderFontStyle_Underline")
+        font4 = QFont()
+        font4.setUnderline(True)
+        self.SprHeaderFontStyle_Underline.setFont(font4)
+        self.SprHeaderFontStyle_Underline.setChecked(True)
+        self.SprHeaderFontStyle_Underline.setProperty("prefEntry", QByteArray(u"SpreadsheetHeaderFontStyle_Underline"))
+        self.SprHeaderFontStyle_Underline.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
+
+        self.gridLayout_4.addWidget(self.SprHeaderFontStyle_Underline, 0, 3, 1, 1)
+
+
+        self.formLayout.setLayout(1, QFormLayout.SpanningRole, self.gridLayout_4)
 
         self.gridLayout_5 = QGridLayout()
         self.gridLayout_5.setSpacing(6)
@@ -671,48 +715,6 @@ class Ui_Form(object):
 
 
         self.formLayout.setLayout(2, QFormLayout.LabelRole, self.gridLayout_5)
-
-        self.gridLayout_4 = QGridLayout()
-        self.gridLayout_4.setSpacing(6)
-        self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.label_29 = QLabel(self.layoutWidget3)
-        self.label_29.setObjectName(u"label_29")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy3.setHorizontalStretch(40)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.label_29.sizePolicy().hasHeightForWidth())
-        self.label_29.setSizePolicy(sizePolicy3)
-
-        self.gridLayout_4.addWidget(self.label_29, 0, 0, 1, 1)
-
-        self.SprHeaderFontStyle_Bold = Gui_PrefCheckBox(self.layoutWidget3)
-        self.SprHeaderFontStyle_Bold.setObjectName(u"SprHeaderFontStyle_Bold")
-        self.SprHeaderFontStyle_Bold.setFont(font1)
-        self.SprHeaderFontStyle_Bold.setProperty("prefEntry", QByteArray(u"SpreadsheetHeaderFontStyle_Bold"))
-        self.SprHeaderFontStyle_Bold.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
-
-        self.gridLayout_4.addWidget(self.SprHeaderFontStyle_Bold, 0, 1, 1, 1)
-
-        self.SprHeaderFontStyle_Italic = Gui_PrefCheckBox(self.layoutWidget3)
-        self.SprHeaderFontStyle_Italic.setObjectName(u"SprHeaderFontStyle_Italic")
-        self.SprHeaderFontStyle_Italic.setFont(font)
-        self.SprHeaderFontStyle_Italic.setProperty("prefEntry", QByteArray(u"SpreadsheetHeaderFontStyle_Italic"))
-        self.SprHeaderFontStyle_Italic.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
-
-        self.gridLayout_4.addWidget(self.SprHeaderFontStyle_Italic, 0, 2, 1, 1)
-
-        self.SprHeaderFontStyle_Underline = Gui_PrefCheckBox(self.layoutWidget3)
-        self.SprHeaderFontStyle_Underline.setObjectName(u"SprHeaderFontStyle_Underline")
-        font4 = QFont()
-        font4.setUnderline(True)
-        self.SprHeaderFontStyle_Underline.setFont(font4)
-        self.SprHeaderFontStyle_Underline.setProperty("prefEntry", QByteArray(u"SpreadsheetHeaderFontStyle_Underline"))
-        self.SprHeaderFontStyle_Underline.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
-
-        self.gridLayout_4.addWidget(self.SprHeaderFontStyle_Underline, 0, 3, 1, 1)
-
-
-        self.formLayout.setLayout(1, QFormLayout.SpanningRole, self.gridLayout_4)
 
         self.gridLayout_6 = QGridLayout()
         self.gridLayout_6.setSpacing(6)
@@ -766,6 +768,7 @@ class Ui_Form(object):
         self.SprColumnFontStyle_Bold = Gui_PrefCheckBox(self.layoutWidget3)
         self.SprColumnFontStyle_Bold.setObjectName(u"SprColumnFontStyle_Bold")
         self.SprColumnFontStyle_Bold.setFont(font1)
+        self.SprColumnFontStyle_Bold.setChecked(True)
         self.SprColumnFontStyle_Bold.setProperty("prefEntry", QByteArray(u"SpreadsheetColumnFontStyle_Bold"))
         self.SprColumnFontStyle_Bold.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
@@ -970,13 +973,13 @@ class Ui_Form(object):
         self.Spreadsheet_Layout.setTitle(QCoreApplication.translate("Form", u"Spreadsheet", None))
         self.label_27.setText(QCoreApplication.translate("Form", u"Header background       ", None))
         self.label_28.setText(QCoreApplication.translate("Form", u"Header foreground", None))
-        self.label_31.setText(QCoreApplication.translate("Form", u"Table foreground", None))
-        self.label_30.setText(QCoreApplication.translate("Form", u"Table background 1       ", None))
-        self.label_33.setText(QCoreApplication.translate("Form", u"Table background 2", None))
         self.label_29.setText(QCoreApplication.translate("Form", u"Header font style", None))
         self.SprHeaderFontStyle_Bold.setText(QCoreApplication.translate("Form", u"Bold", None))
         self.SprHeaderFontStyle_Italic.setText(QCoreApplication.translate("Form", u"Italic", None))
         self.SprHeaderFontStyle_Underline.setText(QCoreApplication.translate("Form", u"Underline", None))
+        self.label_31.setText(QCoreApplication.translate("Form", u"Table foreground", None))
+        self.label_30.setText(QCoreApplication.translate("Form", u"Table background 1       ", None))
+        self.label_33.setText(QCoreApplication.translate("Form", u"Table background 2", None))
         self.label_32.setText(QCoreApplication.translate("Form", u"Table font style", None))
         self.SprTableFontStyle_Bold.setText(QCoreApplication.translate("Form", u"Bold", None))
         self.SprTableFontStyle_Italic.setText(QCoreApplication.translate("Form", u"Italic", None))

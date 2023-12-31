@@ -56,16 +56,15 @@ def GetBoolSetting(settingName: str) -> bool:
 
 
 def GetColorSetting(settingName: str) -> object:
-    from matplotlib import colors as mcolors
+    from PySide2.QtGui import QColor
 
-    result = int(preferences.GetUnsigned(settingName))
+    # Create a tuple from the int value of the color
+    result = QColor.fromRgba(preferences.GetUnsigned(settingName)).toTuple()
 
-    HEX_color = "#{:06x}".format(result)
-    RGB_Color = mcolors.to_rgba(HEX_color)
-    if result == 255:
-        result = [0, 0, 0, 0]
+    # correct the order of the tuple and devide them by 255
+    result = (result[3] / 255, result[0] / 255, result[1] / 255, result[2] / 255)
 
-    return RGB_Color
+    return result
 
 
 def SetStringSetting(settingName: str, value: str):

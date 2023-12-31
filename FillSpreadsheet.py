@@ -443,7 +443,7 @@ def FormatTable(sheet, Endrow):
         RangeStyle4 = f"A{i+1}:E{i+1}"
         sheet.setBackground(RangeStyle3, SPREADSHEET_TABLEBACKGROUND_1)
         sheet.setBackground(RangeStyle4, SPREADSHEET_TABLEBACKGROUND_2)
-        sheet.setForeground(RangeStyle3, SPREADSHEET_HEADERFOREGROUND)
+        sheet.setForeground(RangeStyle3, SPREADSHEET_TABLEFOREGROUND)
         sheet.setForeground(RangeStyle4, SPREADSHEET_TABLEFOREGROUND)
 
     # align the columns

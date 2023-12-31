@@ -598,7 +598,9 @@ class Ui_Form(object):
 
         self.SprHeaderBackGround = Gui_PrefColorButton(self.layoutWidget3)
         self.SprHeaderBackGround.setObjectName(u"SprHeaderBackGround")
+        self.SprHeaderBackGround.setAutoDefault(True)
         self.SprHeaderBackGround.setColor(QColor(243, 202, 98))
+        self.SprHeaderBackGround.setAllowTransparency(False)
         self.SprHeaderBackGround.setProperty("prefEntry", QByteArray(u"SpreadSheetHeaderBackGround"))
         self.SprHeaderBackGround.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
@@ -611,7 +613,12 @@ class Ui_Form(object):
 
         self.SprHeaderForeGround = Gui_PrefColorButton(self.layoutWidget3)
         self.SprHeaderForeGround.setObjectName(u"SprHeaderForeGround")
+        self.SprHeaderForeGround.setCheckable(False)
+        self.SprHeaderForeGround.setChecked(False)
+        self.SprHeaderForeGround.setAutoDefault(False)
+        self.SprHeaderForeGround.setFlat(False)
         self.SprHeaderForeGround.setColor(QColor(0, 0, 0))
+        self.SprHeaderForeGround.setAllowTransparency(False)
         self.SprHeaderForeGround.setProperty("prefEntry", QByteArray(u"SpreadSheetHeaderForeGround"))
         self.SprHeaderForeGround.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
@@ -840,6 +847,8 @@ class Ui_Form(object):
         self.ImportSettingsXL.toggled.connect(self.label_14.setEnabled)
 
         self.tabWidget.setCurrentIndex(3)
+        self.SprHeaderBackGround.setDefault(True)
+        self.SprHeaderForeGround.setDefault(False)
 
 
         QMetaObject.connectSlotsByName(Form)

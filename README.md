@@ -22,10 +22,16 @@ There are three main ways to use this workbench:
 
 Please see the [wiki page](https://github.com/APEbbers/TechDrawTitleBlockUtility/wiki) for more details and instructions on how to use this workbench.
 
+## Extra software needed:
+- Software that can open and edit '*.xlsx files'. For example Microsoft Excel or LibreOffice Calc.
+
 ## License:
 LGPL2.+
 
-## Screenshots  
-<img src="https://github.com/APEbbers/TitleBlock-WB/assets/10145631/79a65d44-5c1f-4480-b09c-1610a2c2dfb4" width="800">
+## Screenshots
+<img src="https://github.com/APEbbers/TitleBlock-WB/assets/10145631/7f71b9fb-4c78-498a-8500-11415f1495aa" width="800">
+
+
+
 
 

@@ -384,17 +384,17 @@ def FormatTable(sheet, Endrow):
     # Style the top row
     sheet.setStyle(RangeStyle1, "bold")  # \bold|italic|underline'
     sheet.setStyle(RangeStyle2, "bold")  # \bold|italic|underline'
-    sheet.setBackground(RangeStyle1, Standard_Functions.ColorConvertor([255, 128, 0]))
+    # sheet.setBackground(RangeStyle1, Standard_Functions.ColorConvertor([255, 128, 0]))
+    sheet.setBackground(RangeStyle1, Standard_Functions.ColorConvertor([243, 202, 98]))
     # sheet.setBackground(RangeStyle2, Standard_Functions.ColorConvertor([0, 153, 0]))
     sheet.setForeground(RangeStyle1, Standard_Functions.ColorConvertor([0, 0, 0]))  # RGBA
 
     # Style the rest of the table
-
     for i in range(2, int(Endrow + 1), 2):
         RangeStyle3 = f"A{i}:E{i}"
         RangeStyle4 = f"A{i+1}:E{i+1}"
-        sheet.setBackground(RangeStyle3, Standard_Functions.ColorConvertor([128, 128, 128]))
-        sheet.setBackground(RangeStyle4, Standard_Functions.ColorConvertor([64, 64, 64]))
+        sheet.setBackground(RangeStyle3, Standard_Functions.ColorConvertor([169, 169, 169]))
+        sheet.setBackground(RangeStyle4, Standard_Functions.ColorConvertor([128, 128, 128]))
         sheet.setForeground(RangeStyle3, Standard_Functions.ColorConvertor([0, 0, 0]))
         sheet.setForeground(RangeStyle4, Standard_Functions.ColorConvertor([0, 0, 0]))
 

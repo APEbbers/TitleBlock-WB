@@ -181,7 +181,7 @@ def CheckIfWorkbookExists(FullFileName: str, CreateIfNone: bool = True):
     return result
 
 
-def ColorConvertor(ColorRGB: [], Alpha: float = 1) -> ():
+def ColorConvertor(ColorRGB: [], Alpha: float = 255) -> ():
     """
     A single function to convert colors to rgba colors as a tuple of float from 0-1
     ColorRGB:   [255,255,255]
@@ -192,10 +192,11 @@ def ColorConvertor(ColorRGB: [], Alpha: float = 1) -> ():
     ColorRed = ColorRGB[0] / 255
     colorGreen = ColorRGB[1] / 255
     colorBlue = ColorRGB[2] / 255
+    ColorAlpha = Alpha / 255
 
     color = (ColorRed, colorGreen, colorBlue)
 
-    result = mcolors.to_rgba(color, Alpha)
+    result = mcolors.to_rgba(color, ColorAlpha)
 
     return result
 

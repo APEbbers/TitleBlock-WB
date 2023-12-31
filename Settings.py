@@ -126,6 +126,23 @@ INCLUDE_ANGLE = GetBoolSetting("IncludeAngle")
 INCLUDE_MASS = GetBoolSetting("IncludeMass")
 INCLUDE_NO_SHEETS = GetBoolSetting("IncludeNoOfSheets")
 
+# UI Settings
+# SPREADSHEET_HEADERBACKGROUND = SpreadSheetHeaderBackGround
+# SPREADSHEET_HEADERFOREGROUND = SpreadSheetHeaderForeGround
+# SPREADSHEETHEADERFONTSTYLE_BOLD = SpreadsheetHeaderFontStyle_Bold
+# SPREADSHEETHEADERFONTSTYLE_ITALIC = SpreadsheetHeaderFontStyle_Italic
+# SPREADSHEETHEADERFONTSTYLE_UNDERLINE = SpreadsheetHeaderFontStyle_Underline
+# SPREADSHEET_TABLEBACKGROUND_1 = SpreadSheetTableBackGround_1
+# SPREADSHEET_TABLEBACKGROUND_2 = SpreadSheetTableBackGround_2
+# SPREADSHEET_HEADERFOREGROUND = SpreadSheetHeaderForeGround
+# SPREADSHEETTABLEFONTSTYLE_BOLD = SpreadsheetTableFontStyle_Bold
+# SPREADSHEETTABLEFONTSTYLE_ITALIC = SpreadsheetTableFontStyle_Italic
+# SPREADSHEETTABLEFONTSTYLE_UNDERLINE = SpreadsheetTableFontStyle_Underline
+# SPREADSHEETCOLUMNFONTSTYLE_BOLD = SpreadsheetColumnFontStyle_Bold
+# SPREADSHEETCOLUMNFONTSTYLE_ITALIC = SpreadsheetColumnFontStyle_Italic
+# SPREADSHEETCOLUMNFONTSTYLE_UNDERLINE = SpreadsheetColumnFontStyle_Underline
+
+
 # Enable debug mode. This will enable additional report messages
 ENABLE_DEBUG = GetBoolSetting("EnableDebug")
 

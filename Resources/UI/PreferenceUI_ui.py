@@ -3,21 +3,16 @@
 ################################################################################
 ## Form generated from reading UI file 'PreferenceUI.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.3
+## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QGroupBox,
-    QHBoxLayout, QLabel, QScrollArea, QSizePolicy,
-    QTabWidget, QVBoxLayout, QWidget)
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
+
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -61,8 +56,8 @@ class Ui_Form(object):
         self.EnableDebug = Gui_PrefCheckBox(self.layoutWidget_2)
         self.EnableDebug.setObjectName(u"EnableDebug")
         self.EnableDebug.setChecked(False)
-        self.EnableDebug.setProperty("prefEntry", u"EnableDebug")
-        self.EnableDebug.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.EnableDebug.setProperty("prefEntry", QByteArray(u"EnableDebug"))
+        self.EnableDebug.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.horizontalLayout.addWidget(self.EnableDebug)
 
@@ -86,7 +81,7 @@ class Ui_Form(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, -314, 434, 805))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 434, 805))
         self.verticalLayout_3 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_3.setSpacing(6)
         self.verticalLayout_3.setContentsMargins(5, 5, 5, 5)
@@ -97,6 +92,7 @@ class Ui_Form(object):
         self.groupBox_DrawingNumber.setMinimumSize(QSize(0, 101))
         font1 = QFont()
         font1.setBold(True)
+        font1.setWeight(75)
         self.groupBox_DrawingNumber.setFont(font1)
         self.groupBox_DrawingNumber.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.groupBox_DrawingNumber.setFlat(False)
@@ -105,16 +101,17 @@ class Ui_Form(object):
         self.UseFileName.setGeometry(QRect(10, 25, 241, 17))
         font2 = QFont()
         font2.setBold(False)
+        font2.setWeight(50)
         self.UseFileName.setFont(font2)
-        self.UseFileName.setProperty("prefEntry", u"UseFileName")
-        self.UseFileName.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.UseFileName.setProperty("prefEntry", QByteArray(u"UseFileName"))
+        self.UseFileName.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
         self.DrawingNumber = Gui_PrefLineEdit(self.groupBox_DrawingNumber)
         self.DrawingNumber.setObjectName(u"DrawingNumber")
         self.DrawingNumber.setEnabled(False)
         self.DrawingNumber.setGeometry(QRect(10, 70, 241, 20))
         self.DrawingNumber.setFont(font2)
-        self.DrawingNumber.setProperty("prefEntry", u"DrwNrFieldName")
-        self.DrawingNumber.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.DrawingNumber.setProperty("prefEntry", QByteArray(u"DrwNrFieldName"))
+        self.DrawingNumber.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
         self.label_10 = QLabel(self.groupBox_DrawingNumber)
         self.label_10.setObjectName(u"label_10")
         self.label_10.setEnabled(False)
@@ -145,8 +142,8 @@ class Ui_Form(object):
         self.MapLength = Gui_PrefLineEdit(self.layoutWidget)
         self.MapLength.setObjectName(u"MapLength")
         self.MapLength.setFont(font2)
-        self.MapLength.setProperty("prefEntry", u"MapLength")
-        self.MapLength.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.MapLength.setProperty("prefEntry", QByteArray(u"MapLength"))
+        self.MapLength.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.gridLayout.addWidget(self.MapLength, 0, 1, 1, 1)
 
@@ -159,16 +156,16 @@ class Ui_Form(object):
         self.MapAngle = Gui_PrefLineEdit(self.layoutWidget)
         self.MapAngle.setObjectName(u"MapAngle")
         self.MapAngle.setFont(font2)
-        self.MapAngle.setProperty("prefEntry", u"MapAngle")
-        self.MapAngle.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.MapAngle.setProperty("prefEntry", QByteArray(u"MapAngle"))
+        self.MapAngle.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.gridLayout.addWidget(self.MapAngle, 1, 1, 1, 1)
 
         self.MapMass = Gui_PrefLineEdit(self.layoutWidget)
         self.MapMass.setObjectName(u"MapMass")
         self.MapMass.setFont(font2)
-        self.MapMass.setProperty("prefEntry", u"MapMass")
-        self.MapMass.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.MapMass.setProperty("prefEntry", QByteArray(u"MapMass"))
+        self.MapMass.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.gridLayout.addWidget(self.MapMass, 2, 1, 1, 1)
 
@@ -176,8 +173,8 @@ class Ui_Form(object):
         self.MapNoSheets.setObjectName(u"MapNoSheets")
         self.MapNoSheets.setFont(font2)
         self.MapNoSheets.setInputMethodHints(Qt.ImhNone)
-        self.MapNoSheets.setProperty("prefEntry", u"MapNoSheets")
-        self.MapNoSheets.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.MapNoSheets.setProperty("prefEntry", QByteArray(u"MapNoSheets"))
+        self.MapNoSheets.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.gridLayout.addWidget(self.MapNoSheets, 3, 1, 1, 1)
 
@@ -229,8 +226,8 @@ class Ui_Form(object):
         self.DocInfo_Name = Gui_PrefLineEdit(self.layoutWidget1)
         self.DocInfo_Name.setObjectName(u"DocInfo_Name")
         self.DocInfo_Name.setFont(font2)
-        self.DocInfo_Name.setProperty("prefEntry", u"DocInfo_Name")
-        self.DocInfo_Name.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.DocInfo_Name.setProperty("prefEntry", QByteArray(u"DocInfo_Name"))
+        self.DocInfo_Name.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.gridLayout_2.addWidget(self.DocInfo_Name, 0, 1, 1, 2)
 
@@ -243,8 +240,8 @@ class Ui_Form(object):
         self.DocInfo_CreatedBy = Gui_PrefLineEdit(self.layoutWidget1)
         self.DocInfo_CreatedBy.setObjectName(u"DocInfo_CreatedBy")
         self.DocInfo_CreatedBy.setFont(font2)
-        self.DocInfo_CreatedBy.setProperty("prefEntry", u"DocInfo_CreatedBy")
-        self.DocInfo_CreatedBy.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.DocInfo_CreatedBy.setProperty("prefEntry", QByteArray(u"DocInfo_CreatedBy"))
+        self.DocInfo_CreatedBy.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.gridLayout_2.addWidget(self.DocInfo_CreatedBy, 1, 1, 1, 2)
 
@@ -257,8 +254,8 @@ class Ui_Form(object):
         self.DocInfo_CreatedDate = Gui_PrefLineEdit(self.layoutWidget1)
         self.DocInfo_CreatedDate.setObjectName(u"DocInfo_CreatedDate")
         self.DocInfo_CreatedDate.setFont(font2)
-        self.DocInfo_CreatedDate.setProperty("prefEntry", u"DocInfo_CreatedDate")
-        self.DocInfo_CreatedDate.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.DocInfo_CreatedDate.setProperty("prefEntry", QByteArray(u"DocInfo_CreatedDate"))
+        self.DocInfo_CreatedDate.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.gridLayout_2.addWidget(self.DocInfo_CreatedDate, 2, 1, 1, 2)
 
@@ -272,8 +269,8 @@ class Ui_Form(object):
         self.DocInfo_LastModifiedBy.setObjectName(u"DocInfo_LastModifiedBy")
         self.DocInfo_LastModifiedBy.setFont(font2)
         self.DocInfo_LastModifiedBy.setInputMethodHints(Qt.ImhNone)
-        self.DocInfo_LastModifiedBy.setProperty("prefEntry", u"DocInfo_LastModifiedBy")
-        self.DocInfo_LastModifiedBy.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.DocInfo_LastModifiedBy.setProperty("prefEntry", QByteArray(u"DocInfo_LastModifiedBy"))
+        self.DocInfo_LastModifiedBy.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.gridLayout_2.addWidget(self.DocInfo_LastModifiedBy, 3, 1, 1, 2)
 
@@ -287,8 +284,8 @@ class Ui_Form(object):
         self.DocInfo_LastModifiedDate.setObjectName(u"DocInfo_LastModifiedDate")
         self.DocInfo_LastModifiedDate.setFont(font2)
         self.DocInfo_LastModifiedDate.setInputMethodHints(Qt.ImhNone)
-        self.DocInfo_LastModifiedDate.setProperty("prefEntry", u"DocInfo_LastModifiedDate")
-        self.DocInfo_LastModifiedDate.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.DocInfo_LastModifiedDate.setProperty("prefEntry", QByteArray(u"DocInfo_LastModifiedDate"))
+        self.DocInfo_LastModifiedDate.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.gridLayout_2.addWidget(self.DocInfo_LastModifiedDate, 4, 1, 1, 2)
 
@@ -302,8 +299,8 @@ class Ui_Form(object):
         self.DocInfo_Company.setObjectName(u"DocInfo_Company")
         self.DocInfo_Company.setFont(font2)
         self.DocInfo_Company.setInputMethodHints(Qt.ImhNone)
-        self.DocInfo_Company.setProperty("prefEntry", u"DocInfo_Company")
-        self.DocInfo_Company.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.DocInfo_Company.setProperty("prefEntry", QByteArray(u"DocInfo_Company"))
+        self.DocInfo_Company.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.gridLayout_2.addWidget(self.DocInfo_Company, 5, 1, 1, 2)
 
@@ -317,8 +314,8 @@ class Ui_Form(object):
         self.DocInfo_License.setObjectName(u"DocInfo_License")
         self.DocInfo_License.setFont(font2)
         self.DocInfo_License.setInputMethodHints(Qt.ImhNone)
-        self.DocInfo_License.setProperty("prefEntry", u"DocInfo_License")
-        self.DocInfo_License.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.DocInfo_License.setProperty("prefEntry", QByteArray(u"DocInfo_License"))
+        self.DocInfo_License.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.gridLayout_2.addWidget(self.DocInfo_License, 6, 1, 1, 2)
 
@@ -332,8 +329,8 @@ class Ui_Form(object):
         self.DocInfo_LicenseURL.setObjectName(u"DocInfo_LicenseURL")
         self.DocInfo_LicenseURL.setFont(font2)
         self.DocInfo_LicenseURL.setInputMethodHints(Qt.ImhNone)
-        self.DocInfo_LicenseURL.setProperty("prefEntry", u"DocInfo_LicenseURL")
-        self.DocInfo_LicenseURL.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.DocInfo_LicenseURL.setProperty("prefEntry", QByteArray(u"DocInfo_LicenseURL"))
+        self.DocInfo_LicenseURL.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.gridLayout_2.addWidget(self.DocInfo_LicenseURL, 7, 1, 1, 2)
 
@@ -347,8 +344,8 @@ class Ui_Form(object):
         self.DocInfo_Comment.setObjectName(u"DocInfo_Comment")
         self.DocInfo_Comment.setFont(font2)
         self.DocInfo_Comment.setInputMethodHints(Qt.ImhNone)
-        self.DocInfo_Comment.setProperty("prefEntry", u"DocInfo_Comment")
-        self.DocInfo_Comment.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.DocInfo_Comment.setProperty("prefEntry", QByteArray(u"DocInfo_Comment"))
+        self.DocInfo_Comment.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.gridLayout_2.addWidget(self.DocInfo_Comment, 8, 1, 1, 2)
 
@@ -383,32 +380,32 @@ class Ui_Form(object):
         self.IncludeLengthUnit = Gui_PrefCheckBox(self.layoutWidget2)
         self.IncludeLengthUnit.setObjectName(u"IncludeLengthUnit")
         self.IncludeLengthUnit.setFont(font2)
-        self.IncludeLengthUnit.setProperty("prefEntry", u"IncludeLength")
-        self.IncludeLengthUnit.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.IncludeLengthUnit.setProperty("prefEntry", QByteArray(u"IncludeLength"))
+        self.IncludeLengthUnit.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.verticalLayout.addWidget(self.IncludeLengthUnit)
 
         self.IncludeAngleUnit = Gui_PrefCheckBox(self.layoutWidget2)
         self.IncludeAngleUnit.setObjectName(u"IncludeAngleUnit")
         self.IncludeAngleUnit.setFont(font2)
-        self.IncludeAngleUnit.setProperty("prefEntry", u"IncludeAngle")
-        self.IncludeAngleUnit.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.IncludeAngleUnit.setProperty("prefEntry", QByteArray(u"IncludeAngle"))
+        self.IncludeAngleUnit.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.verticalLayout.addWidget(self.IncludeAngleUnit)
 
         self.IncludeMassUnit = Gui_PrefCheckBox(self.layoutWidget2)
         self.IncludeMassUnit.setObjectName(u"IncludeMassUnit")
         self.IncludeMassUnit.setFont(font2)
-        self.IncludeMassUnit.setProperty("prefEntry", u"IncludeMass")
-        self.IncludeMassUnit.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.IncludeMassUnit.setProperty("prefEntry", QByteArray(u"IncludeMass"))
+        self.IncludeMassUnit.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.verticalLayout.addWidget(self.IncludeMassUnit)
 
         self.IncludeNoOfSheets = Gui_PrefCheckBox(self.layoutWidget2)
         self.IncludeNoOfSheets.setObjectName(u"IncludeNoOfSheets")
         self.IncludeNoOfSheets.setFont(font2)
-        self.IncludeNoOfSheets.setProperty("prefEntry", u"IncludeNoOfSheets")
-        self.IncludeNoOfSheets.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.IncludeNoOfSheets.setProperty("prefEntry", QByteArray(u"IncludeNoOfSheets"))
+        self.IncludeNoOfSheets.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
 
         self.verticalLayout.addWidget(self.IncludeNoOfSheets)
 
@@ -431,8 +428,8 @@ class Ui_Form(object):
         self.UseExternalSource.setObjectName(u"UseExternalSource")
         self.UseExternalSource.setGeometry(QRect(10, 25, 231, 17))
         self.UseExternalSource.setFont(font2)
-        self.UseExternalSource.setProperty("prefEntry", u"UseExternalSource")
-        self.UseExternalSource.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.UseExternalSource.setProperty("prefEntry", QByteArray(u"UseExternalSource"))
+        self.UseExternalSource.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
         self.label_16 = QLabel(self.groupBox_2)
         self.label_16.setObjectName(u"label_16")
         self.label_16.setEnabled(False)
@@ -445,15 +442,15 @@ class Ui_Form(object):
         self.SheetName.setEnabled(False)
         self.SheetName.setGeometry(QRect(10, 105, 361, 25))
         self.SheetName.setFont(font2)
-        self.SheetName.setProperty("prefEntry", u"SheetName")
-        self.SheetName.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.SheetName.setProperty("prefEntry", QByteArray(u"SheetName"))
+        self.SheetName.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
         self.ExternalFileChooser = Gui_PrefFileChooser(self.groupBox_2)
         self.ExternalFileChooser.setObjectName(u"ExternalFileChooser")
         self.ExternalFileChooser.setEnabled(False)
         self.ExternalFileChooser.setGeometry(QRect(10, 45, 401, 25))
         self.ExternalFileChooser.setFont(font2)
-        self.ExternalFileChooser.setProperty("prefEntry", u"ExternalFile")
-        self.ExternalFileChooser.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.ExternalFileChooser.setProperty("prefEntry", QByteArray(u"ExternalFile"))
+        self.ExternalFileChooser.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
         self.label_15 = QLabel(self.groupBox_2)
         self.label_15.setObjectName(u"label_15")
         self.label_15.setEnabled(False)
@@ -468,6 +465,7 @@ class Ui_Form(object):
         font3 = QFont()
         font3.setBold(False)
         font3.setItalic(True)
+        font3.setWeight(50)
         self.label_2.setFont(font3)
         self.label_2.setWordWrap(True)
         self.StartCell = Gui_PrefLineEdit(self.groupBox_2)
@@ -475,16 +473,16 @@ class Ui_Form(object):
         self.StartCell.setEnabled(False)
         self.StartCell.setGeometry(QRect(10, 180, 153, 25))
         self.StartCell.setFont(font2)
-        self.StartCell.setProperty("prefEntry", u"StartCell")
-        self.StartCell.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.StartCell.setProperty("prefEntry", QByteArray(u"StartCell"))
+        self.StartCell.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
         self.AutoFillTitleBlock = Gui_PrefCheckBox(self.groupBox_2)
         self.AutoFillTitleBlock.setObjectName(u"AutoFillTitleBlock")
         self.AutoFillTitleBlock.setEnabled(False)
         self.AutoFillTitleBlock.setGeometry(QRect(10, 215, 158, 17))
         self.AutoFillTitleBlock.setFont(font2)
         self.AutoFillTitleBlock.setChecked(True)
-        self.AutoFillTitleBlock.setProperty("prefEntry", u"AutoFillTitleBlock")
-        self.AutoFillTitleBlock.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.AutoFillTitleBlock.setProperty("prefEntry", QByteArray(u"AutoFillTitleBlock"))
+        self.AutoFillTitleBlock.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
         self.groupBox_3 = QGroupBox(self.External_Source)
         self.groupBox_3.setObjectName(u"groupBox_3")
         self.groupBox_3.setGeometry(QRect(5, 275, 421, 206))
@@ -497,22 +495,22 @@ class Ui_Form(object):
         self.ImportSettingsXL.setEnabled(False)
         self.ImportSettingsXL.setGeometry(QRect(5, 10, 381, 17))
         self.ImportSettingsXL.setFont(font2)
-        self.ImportSettingsXL.setProperty("prefEntry", u"ImportSettingsXL")
-        self.ImportSettingsXL.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.ImportSettingsXL.setProperty("prefEntry", QByteArray(u"ImportSettingsXL"))
+        self.ImportSettingsXL.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
         self.SheetName_Settings = Gui_PrefLineEdit(self.widget_ImportSettings)
         self.SheetName_Settings.setObjectName(u"SheetName_Settings")
         self.SheetName_Settings.setEnabled(False)
         self.SheetName_Settings.setGeometry(QRect(10, 70, 133, 25))
         self.SheetName_Settings.setFont(font2)
-        self.SheetName_Settings.setProperty("prefEntry", u"SheetName_Settings")
-        self.SheetName_Settings.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.SheetName_Settings.setProperty("prefEntry", QByteArray(u"SheetName_Settings"))
+        self.SheetName_Settings.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
         self.StartCell_Settings = Gui_PrefLineEdit(self.widget_ImportSettings)
         self.StartCell_Settings.setObjectName(u"StartCell_Settings")
         self.StartCell_Settings.setEnabled(False)
         self.StartCell_Settings.setGeometry(QRect(7, 140, 151, 25))
         self.StartCell_Settings.setFont(font2)
-        self.StartCell_Settings.setProperty("prefEntry", u"StartCell_Settings")
-        self.StartCell_Settings.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.StartCell_Settings.setProperty("prefEntry", QByteArray(u"StartCell_Settings"))
+        self.StartCell_Settings.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
         self.label_9 = QLabel(self.widget_ImportSettings)
         self.label_9.setObjectName(u"label_9")
         self.label_9.setEnabled(False)
@@ -553,8 +551,8 @@ class Ui_Form(object):
         self.AddToolBarTechDraw.setGeometry(QRect(11, 26, 219, 17))
         self.AddToolBarTechDraw.setFont(font2)
         self.AddToolBarTechDraw.setChecked(True)
-        self.AddToolBarTechDraw.setProperty("prefEntry", u"AddToolBarTechDraw")
-        self.AddToolBarTechDraw.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.AddToolBarTechDraw.setProperty("prefEntry", QByteArray(u"AddToolBarTechDraw"))
+        self.AddToolBarTechDraw.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
         self.label_12 = QLabel(self.groupBox)
         self.label_12.setObjectName(u"label_12")
         self.label_12.setEnabled(False)
@@ -562,8 +560,8 @@ class Ui_Form(object):
         self.Import_templates = Gui_PrefCheckBox(self.groupBox)
         self.Import_templates.setObjectName(u"Import_templates")
         self.Import_templates.setGeometry(QRect(11, 49, 148, 17))
-        self.Import_templates.setProperty("prefEntry", u"Import_templates")
-        self.Import_templates.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.Import_templates.setProperty("prefEntry", QByteArray(u"Import_templates"))
+        self.Import_templates.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
         self.Default_Template = Gui_PrefComboBox(self.groupBox)
         self.Default_Template.addItem("")
         self.Default_Template.addItem("")
@@ -574,9 +572,218 @@ class Ui_Form(object):
         self.Default_Template.setObjectName(u"Default_Template")
         self.Default_Template.setEnabled(False)
         self.Default_Template.setGeometry(QRect(11, 91, 211, 20))
-        self.Default_Template.setProperty("prefEntry", u"Default_Template")
-        self.Default_Template.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.Default_Template.setProperty("prefEntry", QByteArray(u"Default_Template"))
+        self.Default_Template.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
         self.tabWidget.addTab(self.TechDraw_Workbench, "")
+        self.UIsettings = QWidget()
+        self.UIsettings.setObjectName(u"UIsettings")
+        self.Spreadsheet_Layout = QGroupBox(self.UIsettings)
+        self.Spreadsheet_Layout.setObjectName(u"Spreadsheet_Layout")
+        self.Spreadsheet_Layout.setGeometry(QRect(5, 10, 426, 261))
+        self.widget1 = QWidget(self.Spreadsheet_Layout)
+        self.widget1.setObjectName(u"widget1")
+        self.widget1.setGeometry(QRect(17, 27, 301, 220))
+        self.formLayout = QFormLayout(self.widget1)
+        self.formLayout.setSpacing(6)
+        self.formLayout.setContentsMargins(5, 5, 5, 5)
+        self.formLayout.setObjectName(u"formLayout")
+        self.formLayout.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_3 = QGridLayout()
+        self.gridLayout_3.setSpacing(6)
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.label_27 = QLabel(self.widget1)
+        self.label_27.setObjectName(u"label_27")
+
+        self.gridLayout_3.addWidget(self.label_27, 0, 0, 1, 1)
+
+        self.SprHeaderBackGround = Gui_PrefColorButton(self.widget1)
+        self.SprHeaderBackGround.setObjectName(u"SprHeaderBackGround")
+        self.SprHeaderBackGround.setColor(QColor(243, 202, 98))
+        self.SprHeaderBackGround.setProperty("prefEntry", QByteArray(u"SpreadSheetHeaderBackGround"))
+        self.SprHeaderBackGround.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
+
+        self.gridLayout_3.addWidget(self.SprHeaderBackGround, 0, 1, 1, 1)
+
+        self.label_28 = QLabel(self.widget1)
+        self.label_28.setObjectName(u"label_28")
+
+        self.gridLayout_3.addWidget(self.label_28, 1, 0, 1, 1)
+
+        self.SprHeaderForeGround = Gui_PrefColorButton(self.widget1)
+        self.SprHeaderForeGround.setObjectName(u"SprHeaderForeGround")
+        self.SprHeaderForeGround.setColor(QColor(0, 0, 0))
+        self.SprHeaderForeGround.setProperty("prefEntry", QByteArray(u"SpreadSheetHeaderForeGround"))
+        self.SprHeaderForeGround.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
+
+        self.gridLayout_3.addWidget(self.SprHeaderForeGround, 1, 1, 1, 1)
+
+
+        self.formLayout.setLayout(0, QFormLayout.LabelRole, self.gridLayout_3)
+
+        self.gridLayout_5 = QGridLayout()
+        self.gridLayout_5.setSpacing(6)
+        self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.label_31 = QLabel(self.widget1)
+        self.label_31.setObjectName(u"label_31")
+
+        self.gridLayout_5.addWidget(self.label_31, 2, 0, 1, 1)
+
+        self.SprTableBackGround_1 = Gui_PrefColorButton(self.widget1)
+        self.SprTableBackGround_1.setObjectName(u"SprTableBackGround_1")
+        self.SprTableBackGround_1.setColor(QColor(169, 169, 169))
+        self.SprTableBackGround_1.setProperty("prefEntry", QByteArray(u"SpreadSheetTableBackGround_1"))
+        self.SprTableBackGround_1.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
+
+        self.gridLayout_5.addWidget(self.SprTableBackGround_1, 0, 1, 1, 1)
+
+        self.label_30 = QLabel(self.widget1)
+        self.label_30.setObjectName(u"label_30")
+
+        self.gridLayout_5.addWidget(self.label_30, 0, 0, 1, 1)
+
+        self.SprTableForeGround = Gui_PrefColorButton(self.widget1)
+        self.SprTableForeGround.setObjectName(u"SprTableForeGround")
+        self.SprTableForeGround.setColor(QColor(0, 0, 0))
+        self.SprTableForeGround.setProperty("prefEntry", QByteArray(u"SpreadSheetHeaderForeGround"))
+        self.SprTableForeGround.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
+
+        self.gridLayout_5.addWidget(self.SprTableForeGround, 2, 1, 1, 1)
+
+        self.label_33 = QLabel(self.widget1)
+        self.label_33.setObjectName(u"label_33")
+
+        self.gridLayout_5.addWidget(self.label_33, 1, 0, 1, 1)
+
+        self.SprTableBackGround_2 = Gui_PrefColorButton(self.widget1)
+        self.SprTableBackGround_2.setObjectName(u"SprTableBackGround_2")
+        self.SprTableBackGround_2.setColor(QColor(128, 128, 128))
+        self.SprTableBackGround_2.setProperty("prefEntry", QByteArray(u"SpreadSheetTableBackGround_2"))
+        self.SprTableBackGround_2.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
+
+        self.gridLayout_5.addWidget(self.SprTableBackGround_2, 1, 1, 1, 1)
+
+
+        self.formLayout.setLayout(2, QFormLayout.LabelRole, self.gridLayout_5)
+
+        self.gridLayout_4 = QGridLayout()
+        self.gridLayout_4.setSpacing(6)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.label_29 = QLabel(self.widget1)
+        self.label_29.setObjectName(u"label_29")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy3.setHorizontalStretch(40)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.label_29.sizePolicy().hasHeightForWidth())
+        self.label_29.setSizePolicy(sizePolicy3)
+
+        self.gridLayout_4.addWidget(self.label_29, 0, 0, 1, 1)
+
+        self.SprHeaderFontStyle_Bold = Gui_PrefCheckBox(self.widget1)
+        self.SprHeaderFontStyle_Bold.setObjectName(u"SprHeaderFontStyle_Bold")
+        self.SprHeaderFontStyle_Bold.setFont(font1)
+        self.SprHeaderFontStyle_Bold.setProperty("prefEntry", QByteArray(u"SpreadsheetHeaderFontStyle_Bold"))
+        self.SprHeaderFontStyle_Bold.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
+
+        self.gridLayout_4.addWidget(self.SprHeaderFontStyle_Bold, 0, 1, 1, 1)
+
+        self.SprHeaderFontStyle_Italic = Gui_PrefCheckBox(self.widget1)
+        self.SprHeaderFontStyle_Italic.setObjectName(u"SprHeaderFontStyle_Italic")
+        self.SprHeaderFontStyle_Italic.setFont(font)
+        self.SprHeaderFontStyle_Italic.setProperty("prefEntry", QByteArray(u"SpreadsheetHeaderFontStyle_Italic"))
+        self.SprHeaderFontStyle_Italic.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
+
+        self.gridLayout_4.addWidget(self.SprHeaderFontStyle_Italic, 0, 2, 1, 1)
+
+        self.SprHeaderFontStyle_Underline = Gui_PrefCheckBox(self.widget1)
+        self.SprHeaderFontStyle_Underline.setObjectName(u"SprHeaderFontStyle_Underline")
+        font4 = QFont()
+        font4.setUnderline(True)
+        self.SprHeaderFontStyle_Underline.setFont(font4)
+        self.SprHeaderFontStyle_Underline.setProperty("prefEntry", QByteArray(u"SpreadsheetHeaderFontStyle_Underline"))
+        self.SprHeaderFontStyle_Underline.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
+
+        self.gridLayout_4.addWidget(self.SprHeaderFontStyle_Underline, 0, 3, 1, 1)
+
+
+        self.formLayout.setLayout(1, QFormLayout.SpanningRole, self.gridLayout_4)
+
+        self.gridLayout_6 = QGridLayout()
+        self.gridLayout_6.setSpacing(6)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.label_32 = QLabel(self.widget1)
+        self.label_32.setObjectName(u"label_32")
+        sizePolicy3.setHeightForWidth(self.label_32.sizePolicy().hasHeightForWidth())
+        self.label_32.setSizePolicy(sizePolicy3)
+
+        self.gridLayout_6.addWidget(self.label_32, 0, 0, 1, 1)
+
+        self.SprTableFontStyle_Bold = Gui_PrefCheckBox(self.widget1)
+        self.SprTableFontStyle_Bold.setObjectName(u"SprTableFontStyle_Bold")
+        self.SprTableFontStyle_Bold.setFont(font1)
+        self.SprTableFontStyle_Bold.setProperty("prefEntry", QByteArray(u"SpreadsheetTableFontStyle_Bold"))
+        self.SprTableFontStyle_Bold.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
+
+        self.gridLayout_6.addWidget(self.SprTableFontStyle_Bold, 0, 1, 1, 1)
+
+        self.SprTableFontStyle_Italic = Gui_PrefCheckBox(self.widget1)
+        self.SprTableFontStyle_Italic.setObjectName(u"SprTableFontStyle_Italic")
+        self.SprTableFontStyle_Italic.setFont(font)
+        self.SprTableFontStyle_Italic.setProperty("prefEntry", QByteArray(u"SpreadsheetTableFontStyle_Italic"))
+        self.SprTableFontStyle_Italic.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
+
+        self.gridLayout_6.addWidget(self.SprTableFontStyle_Italic, 0, 2, 1, 1)
+
+        self.SprTableFontStyle_Underline = Gui_PrefCheckBox(self.widget1)
+        self.SprTableFontStyle_Underline.setObjectName(u"SprTableFontStyle_Underline")
+        self.SprTableFontStyle_Underline.setFont(font4)
+        self.SprTableFontStyle_Underline.setProperty("prefEntry", QByteArray(u"SpreadsheetTableFontStyle_Underline"))
+        self.SprTableFontStyle_Underline.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
+
+        self.gridLayout_6.addWidget(self.SprTableFontStyle_Underline, 0, 3, 1, 1)
+
+
+        self.formLayout.setLayout(3, QFormLayout.SpanningRole, self.gridLayout_6)
+
+        self.gridLayout_7 = QGridLayout()
+        self.gridLayout_7.setSpacing(6)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.gridLayout_7.setSizeConstraint(QLayout.SetDefaultConstraint)
+        self.gridLayout_7.setHorizontalSpacing(6)
+        self.label_34 = QLabel(self.widget1)
+        self.label_34.setObjectName(u"label_34")
+        sizePolicy3.setHeightForWidth(self.label_34.sizePolicy().hasHeightForWidth())
+        self.label_34.setSizePolicy(sizePolicy3)
+
+        self.gridLayout_7.addWidget(self.label_34, 0, 0, 1, 1)
+
+        self.SprColumnFontStyle_Bold = Gui_PrefCheckBox(self.widget1)
+        self.SprColumnFontStyle_Bold.setObjectName(u"SprColumnFontStyle_Bold")
+        self.SprColumnFontStyle_Bold.setFont(font1)
+        self.SprColumnFontStyle_Bold.setProperty("prefEntry", QByteArray(u"SpreadsheetColumnFontStyle_Bold"))
+        self.SprColumnFontStyle_Bold.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
+
+        self.gridLayout_7.addWidget(self.SprColumnFontStyle_Bold, 0, 1, 1, 1)
+
+        self.SprColumnFontStyle_Italic = Gui_PrefCheckBox(self.widget1)
+        self.SprColumnFontStyle_Italic.setObjectName(u"SprColumnFontStyle_Italic")
+        self.SprColumnFontStyle_Italic.setFont(font)
+        self.SprColumnFontStyle_Italic.setProperty("prefEntry", QByteArray(u"SpreadsheetColumnFontStyle_Italic"))
+        self.SprColumnFontStyle_Italic.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
+
+        self.gridLayout_7.addWidget(self.SprColumnFontStyle_Italic, 0, 2, 1, 1)
+
+        self.SprColumnFontStyle_Underline = Gui_PrefCheckBox(self.widget1)
+        self.SprColumnFontStyle_Underline.setObjectName(u"SprColumnFontStyle_Underline")
+        self.SprColumnFontStyle_Underline.setFont(font4)
+        self.SprColumnFontStyle_Underline.setProperty("prefEntry", QByteArray(u"SpreadsheetColumnFontStyle_Underline"))
+        self.SprColumnFontStyle_Underline.setProperty("prefPath", QByteArray(u"Mod/TitleBlock Workbench"))
+
+        self.gridLayout_7.addWidget(self.SprColumnFontStyle_Underline, 0, 3, 1, 1)
+
+
+        self.formLayout.setLayout(4, QFormLayout.SpanningRole, self.gridLayout_7)
+
+        self.tabWidget.addTab(self.UIsettings, "")
         QWidget.setTabOrder(self.tabWidget, self.UseFileName)
         QWidget.setTabOrder(self.UseFileName, self.DrawingNumber)
         QWidget.setTabOrder(self.DrawingNumber, self.MapLength)
@@ -632,7 +839,7 @@ class Ui_Form(object):
         self.UseFileName.toggled.connect(self.label_10.setEnabled)
         self.ImportSettingsXL.toggled.connect(self.label_14.setEnabled)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(Form)
@@ -751,6 +958,25 @@ class Ui_Form(object):
         self.Default_Template.setItemText(5, QCoreApplication.translate("Form", u"A4_Portrait", None))
 
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.TechDraw_Workbench), QCoreApplication.translate("Form", u"TechDraw Workbench", None))
+        self.Spreadsheet_Layout.setTitle(QCoreApplication.translate("Form", u"Spreadsheet", None))
+        self.label_27.setText(QCoreApplication.translate("Form", u"Header background       ", None))
+        self.label_28.setText(QCoreApplication.translate("Form", u"Header foreground", None))
+        self.label_31.setText(QCoreApplication.translate("Form", u"Table foreground", None))
+        self.label_30.setText(QCoreApplication.translate("Form", u"Table background 1       ", None))
+        self.label_33.setText(QCoreApplication.translate("Form", u"Table background 2", None))
+        self.label_29.setText(QCoreApplication.translate("Form", u"Header font style", None))
+        self.SprHeaderFontStyle_Bold.setText(QCoreApplication.translate("Form", u"Bold", None))
+        self.SprHeaderFontStyle_Italic.setText(QCoreApplication.translate("Form", u"Italic", None))
+        self.SprHeaderFontStyle_Underline.setText(QCoreApplication.translate("Form", u"Underline", None))
+        self.label_32.setText(QCoreApplication.translate("Form", u"Table font style", None))
+        self.SprTableFontStyle_Bold.setText(QCoreApplication.translate("Form", u"Bold", None))
+        self.SprTableFontStyle_Italic.setText(QCoreApplication.translate("Form", u"Italic", None))
+        self.SprTableFontStyle_Underline.setText(QCoreApplication.translate("Form", u"Underline", None))
+        self.label_34.setText(QCoreApplication.translate("Form", u"1st column font style", None))
+        self.SprColumnFontStyle_Bold.setText(QCoreApplication.translate("Form", u"Bold", None))
+        self.SprColumnFontStyle_Italic.setText(QCoreApplication.translate("Form", u"Italic", None))
+        self.SprColumnFontStyle_Underline.setText(QCoreApplication.translate("Form", u"Underline", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.UIsettings), QCoreApplication.translate("Form", u"UI Settings", None))
         pass
     # retranslateUi
 

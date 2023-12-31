@@ -59,6 +59,8 @@ def GetColorSetting(settingName: str) -> object:
     from matplotlib import colors as mcolors
 
     result = preferences.GetUnsigned(settingName)
+    if result == "255":
+        result = "0"
     HEX_color = "#{:06x}".format(result)
     RGB_Color = mcolors.to_rgb(HEX_color)
 

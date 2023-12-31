@@ -76,7 +76,14 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
             replyText = reply[0]  # which will be "" if they clicked Cancel
         return str(replyText)
     if style == 21:
-        reply = QInputDialog.getItem(parent=None, title=title, label=text, items=stringList, current=1, editable=True)
+        reply = QInputDialog.getItem(
+            parent=None,
+            title=title,
+            label=text,
+            items=stringList,
+            current=1,
+            editable=True,
+        )
         if reply[1]:
             # user clicked OK
             replyText = reply[0]

@@ -45,7 +45,9 @@ def CreateTechDrawToolbar() -> object:
     # Define the name for the toolbar
     ToolBarName = "TitleBlock_Toolbar"
     # define the parameter path for the toolbar
-    TechDrawToolBarsParamPath = "User parameter:BaseApp/Workbench/TechDrawWorkbench/Toolbar/"
+    TechDrawToolBarsParamPath = (
+        "User parameter:BaseApp/Workbench/TechDrawWorkbench/Toolbar/"
+    )
 
     # endregion
 
@@ -63,7 +65,9 @@ def CreateTechDrawToolbar() -> object:
     # region -- Set the Toolbar up
 
     # add the ToolbarGroup in the FreeCAD Parameters
-    TechDrawToolbar = App.ParamGet("User parameter:BaseApp/Workbench/TechDrawWorkbench/Toolbar/" + ToolbarGroupName)
+    TechDrawToolbar = App.ParamGet(
+        "User parameter:BaseApp/Workbench/TechDrawWorkbench/Toolbar/" + ToolbarGroupName
+    )
 
     # Set the name.
     TechDrawToolbar.SetString("Name", ToolBarName)
@@ -83,7 +87,7 @@ def CreateTechDrawToolbar() -> object:
 
     # Force the toolbars to be recreated
     wb = Gui.activeWorkbench()
-    if int(App.Version()[0]) == 0 and int(App.Version()[1]) > 19: 
+    if int(App.Version()[0]) == 0 and int(App.Version()[1]) > 19:
         wb.reloadActive()
 
 
@@ -93,12 +97,17 @@ def RemoveTechDrawToolbar() -> None:
     # Define the name for the toolbar
     ToolBarName = "TitleBlock_Toolbar"
     # define the parameter path for the toolbar
-    TechDrawToolBarsParamPath = "User parameter:BaseApp/Workbench/TechDrawWorkbench/Toolbar/"
+    TechDrawToolBarsParamPath = (
+        "User parameter:BaseApp/Workbench/TechDrawWorkbench/Toolbar/"
+    )
 
     # region -- check if the toolbar already exits. if so, exit.
     name_taken = get_toolbar_with_name(ToolBarName, TechDrawToolBarsParamPath)
     if name_taken is True:
-        TechDrawToolbar = App.ParamGet("User parameter:BaseApp/Workbench/TechDrawWorkbench/Toolbar/" + ToolbarGroupName)
+        TechDrawToolbar = App.ParamGet(
+            "User parameter:BaseApp/Workbench/TechDrawWorkbench/Toolbar/"
+            + ToolbarGroupName
+        )
         TechDrawToolbar
     # endregion
 
@@ -110,7 +119,9 @@ def ReplaceButtons() -> None:
     # Define the name for the ToolbarGroup in the FreeCAD Parameters
     ToolbarGroupName = "TiTleBlock_Toolbar_TechDraw"
     # define the parameter path for the toolbar
-    TechDrawToolBarsParamPath = "User parameter:BaseApp/Workbench/TechDrawWorkbench/Toolbar/"
+    TechDrawToolBarsParamPath = (
+        "User parameter:BaseApp/Workbench/TechDrawWorkbench/Toolbar/"
+    )
     TechDrawToolbar = App.ParamGet(TechDrawToolBarsParamPath + ToolbarGroupName)
     TechDrawToolbar.RemString("ImportExcel")
     TechDrawToolbar.RemString("FillSpreadsheet")

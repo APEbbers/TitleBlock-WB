@@ -31,6 +31,7 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
     21 : Inputbox with dropdown      (text, title, style, default, stringlist)\n
     """
     from PySide2.QtWidgets import QMessageBox, QInputDialog
+    from PySide2.QtCore import Qt
 
     Icon = QMessageBox.Information
     if IconType == "NoIcon":
@@ -81,6 +82,8 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
             title=title,
             label=text,
             items=stringList,
+            current=1,
+            editable=True,
         )
         if reply[1]:
             # user clicked OK

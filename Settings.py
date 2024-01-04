@@ -396,7 +396,7 @@ def ExportSettings_FreeCAD(Silent=False):
                     return
             except Exception:
                 return
-            sheet = ff.create_sheet(SHEETNAME_SETTINGS_XL)
+            sheet = ff.getObject(SHEETNAME_SETTINGS_XL)
             StartCell = SHEETNAME_STARTCELL_XL
             if ENABLE_DEBUG is True:
                 Text = translate(

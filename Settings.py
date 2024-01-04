@@ -342,6 +342,7 @@ def ExportSettings_FreeCAD(Silent=False):
                 return
 
             # Set the sheetname with a inputbox
+            Spreadsheet_List = ff.findObjects('Spreadsheet::Sheet')
             Text = translate(
                 "TitleBlock Workbench", "Please enter the name of the spreadsheet"
             )
@@ -349,8 +350,9 @@ def ExportSettings_FreeCAD(Silent=False):
                 Standard_Functions.Mbox(
                     text=Text,
                     title="TitleBlock Workbench",
-                    style=20,
+                    style=21,
                     default="Settings",
+                    stringList=Spreadsheet_List,
                 )
             )
             # if the user canceled, exit this function.

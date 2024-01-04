@@ -531,7 +531,7 @@ def FormatTable(sheet, Endrow):
     sheet.setForeground(RangeStyle1, SPREADSHEET_HEADERFOREGROUND)
 
     # Style the rest of the table
-    for i in range(2, int(Endrow + 1), 2):
+    for i in range(2, int(Endrow) + 1, 2):
         RangeStyle3 = f"A{i}:E{i}"
         RangeStyle4 = f"A{i+1}:E{i+1}"
         sheet.setBackground(RangeStyle3, SPREADSHEET_TABLEBACKGROUND_1)

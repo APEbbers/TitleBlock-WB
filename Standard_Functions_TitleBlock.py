@@ -30,7 +30,7 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
     20 : Inputbox                    (text, title, style, default)\n
     21 : Inputbox with dropdown      (text, title, style, default, stringlist)\n
     """
-    from PySide2.QtWidgets import QMessageBox, QInputDialog
+    from PySide2.QtWidgets import QMessageBox, QInputDialog, QLineEdit
     from PySide2 import QtCore
 
     Icon = QMessageBox.Information
@@ -69,9 +69,9 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
             return "no"
     if style == 20:
         reply = QInputDialog.getText(
-            parent=None,
-            title=title,
-            label=text,
+            None,
+            title,
+            text,
             text=default,
         )
         if reply[1]:
@@ -83,12 +83,12 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
         return str(replyText)
     if style == 21:
         reply = QInputDialog.getItem(
-            parent=None,
-            title=title,
-            label=text,
-            items=stringList,
-            current=1,
-            editable=True,
+            None,
+            title,
+            text,
+            stringList,
+            0,
+            True,
         )
         if reply[1]:
             # user clicked OK

@@ -297,7 +297,7 @@ def FormatTable(sheet, Endrow):
     sheet.setForeground(RangeStyle1, SPREADSHEET_HEADERFOREGROUND)
 
     # Style the rest of the table
-    for i in range(2, int(Endrow + 1), 2):
+    for i in range(2, int(Endrow) + 1, 2):
         RangeStyle3 = f"A{i}:B{i}"
         RangeStyle4 = f"A{i+1}:B{i+1}"
         sheet.setBackground(RangeStyle3, SPREADSHEET_TABLEBACKGROUND_1)
@@ -640,9 +640,11 @@ def ExportSettings_FreeCAD(Silent=False):
 
         # region Format the settings with the values as a Table
         #
-        FormatTable(sheet=sheet, Endrow=str(ValueCell[:1] + str(TopRow + RowNumber)))
+        FormatTable(sheet=sheet, Endrow=TopRow + RowNumber - 1)
         # endregion
 
+        # recompute the document
+        ff.recompute(None, True, True)
         # Save the workbook
         ff.save()
         # Close the FreeCAD file
@@ -972,6 +974,8 @@ def ImportSettings_XL():
 
         # Get the startcell
         StartCell = SHEETNAME_STARTCELL_XL
+        if StartCell == "" or StartCell is None:
+            StartCell = "A1"
         OriginalStartCell = StartCell
         if ENABLE_DEBUG is True:
             Text = translate(
@@ -1275,10 +1279,10 @@ def ExportSettings_XL(Silent=False):
             )
             StartCell = str(
                 Standard_Functions.Mbox(
-                    text=Text, title="TitleBlock Workbench", style=2, default="A1"
+                    text=Text, title="TitleBlock Workbench", style=20, default="A1"
                 )
             )
-            if not StartCell.strip():
+            if StartCell == "" or StartCell is None:
                 StartCell = "A1"
 
             # Set SHEETNAME_STARTCELL_XL to the chosen sheetname
@@ -1306,6 +1310,8 @@ def ExportSettings_XL(Silent=False):
                 return
             ws = wb.create_sheet(SHEETNAME_SETTINGS_XL)
             StartCell = SHEETNAME_STARTCELL_XL
+            if StartCell is None or StartCell == "":
+                StartCell = "A1"
             if ENABLE_DEBUG is True:
                 Text = translate(
                     "TitleBlock Workbench",

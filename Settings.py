@@ -410,6 +410,9 @@ def ExportSettings_FreeCAD(Silent=False):
 
         # region -- Create the headers
         sheet = ff.getObject(SHEETNAME_SETTINGS_XL)
+        if sheet is None:
+            Standard_Functions.Print(f"This FreeCAD file doesn't have a spreadsheet named {SHEETNAME_SETTINGS_XL}")
+            return
         sheet.set(StartCell, "Name")
         TopRow = int(StartCell[1:])
         ValueCell = str(

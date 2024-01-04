@@ -322,6 +322,7 @@ def FormatTable(sheet, Endrow):
 
 def ExportSettings_FreeCAD(Silent=False):
     try:
+        sheet = ff.getObject(SHEETNAME_SETTINGS_XL)
         # region -- Get the workbook, create a new sheet and set the startcell (top left cell of table).
         # If the user wants to export the settins, start an input dialog.
         if Silent is False:

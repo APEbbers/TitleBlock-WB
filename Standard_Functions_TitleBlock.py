@@ -81,10 +81,6 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
             title=title,
             label=text,
             items=stringList,
-            current=1,
-            editable=True,
-            flags=0,
-            inputMethodHints=False,
         )
         if reply[1]:
             # user clicked OK

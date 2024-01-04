@@ -87,7 +87,7 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
             title,
             text,
             stringList,
-            0,
+            1,
             True,
         )
         if reply[1]:

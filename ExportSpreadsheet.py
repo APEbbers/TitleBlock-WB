@@ -380,6 +380,17 @@ def ExportSpreadSheet_FreeCAD():
 
         # Create a new FreeCAD file
         ff = App.newDocument()
+
+        # Save the FreeCAD file in a folder of your choosing
+        Filter = [
+            ("FreeCAD", "*.FCStd"),
+        ]
+        FileName = Standard_Functions.SaveDialog(Filter)
+        if FileName is not None:
+            ff.recompute(None, True, True)
+            # Save the workbook
+            ff.saveAs(FileName)
+
         # Create a spreadsheet in it.
         TitleBlockData = ff.addObject("Spreadsheet::Sheet", "TitleBlockData")
         preferences.SetString("SheetName", "TitleBlockData")
@@ -472,20 +483,15 @@ def ExportSpreadSheet_FreeCAD():
 
         # region Format the settings with the values as a Table
         #
-        FormatTable(sheet=sheet, Endrow=RowNumber)
+        FormatTable(sheet=sheet, Endrow=RowNumber - 1)
         # endregion
 
-        # Save the excel file in a folder of your choosing
-        Filter = [
-            ("FreeCAD", "*.FCStd"),
-        ]
-        FileName = Standard_Functions.SaveDialog(Filter)
-        if FileName is not None:
-            ff.recompute(None, True, True)
-            # Save the workbook
-            ff.saveAs(FileName)
-            # Close the FreeCAD file
-            App.closeDocument(ff.Name)
+        # recompute the document
+        ff.recompute(None, True, True)
+        # Save the workbook
+        ff.save()
+        # Close the FreeCAD file
+        App.closeDocument(ff.Name)
 
         # If import settings from external source is enabled, export settings to the new excel file.
         if IMPORT_SETTINGS_XL is True:

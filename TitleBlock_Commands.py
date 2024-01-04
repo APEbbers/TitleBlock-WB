@@ -158,7 +158,7 @@ class ExportSpreadsheet_class:
     def Activated(self):
         import ExportSpreadsheet
 
-        ExportSpreadsheet.ExportSpreadSheet()
+        ExportSpreadsheet.ExportSpreadSheet_Excel()
         return
 
     def IsActive(self):
@@ -191,7 +191,7 @@ class ExportSettings_class:
     def Activated(self):
         import Settings
 
-        Settings.ExportSettingsXL()
+        Settings.ExportSettings_XL()
         return
 
     def IsActive(self):
@@ -223,7 +223,7 @@ class ImportSettings_class:
     def Activated(self):
         import Settings
 
-        Settings.ImportSettingsXL()
+        Settings.ImportSettings_XL()
         return
 
     def IsActive(self):

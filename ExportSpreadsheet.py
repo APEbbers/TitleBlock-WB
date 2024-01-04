@@ -28,11 +28,128 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment
 from openpyxl.worksheet.table import Table, TableStyleInfo
 
+# Get the settings
+import Settings
+from Settings import IMPORT_SETTINGS_XL
+from Settings import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
+from Settings import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
+from Settings import SPREADSHEET_COLUMNFONTSTYLE_BOLD
+from Settings import SPREADSHEET_TABLEFONTSTYLE_UNDERLINE
+from Settings import SPREADSHEET_TABLEFONTSTYLE_ITALIC
+from Settings import SPREADSHEET_TABLEFONTSTYLE_BOLD
+from Settings import SPREADSHEET_TABLEFOREGROUND
+from Settings import SPREADSHEET_TABLEBACKGROUND_2
+from Settings import SPREADSHEET_TABLEBACKGROUND_1
+from Settings import SPREADSHEET_HEADERFONTSTYLE_UNDERLINE
+from Settings import SPREADSHEET_HEADERFONTSTYLE_ITALIC
+from Settings import SPREADSHEET_HEADERFONTSTYLE_BOLD
+from Settings import SPREADSHEET_HEADERFOREGROUND
+from Settings import SPREADSHEET_HEADERBACKGROUND
+from Settings import AUTOFIT_FACTOR
+
 # Define the translation
 translate = App.Qt.translate
 
+# region - supporting functions
 
-def ExportSpreadSheet():
+
+# Function the return the correct string to use in the FormatTable function
+def FontStyle(Bold: bool, Italic: bool, UnderLine: bool) -> str:
+    result = ""
+    if Bold is True:
+        if result == "":
+            result = "bold"
+        if result != "":
+            result = result + "|bold"
+    if Italic is True:
+        if result == "":
+            result = "italic"
+        if result != "":
+            result = result + "|italic"
+    if UnderLine is True:
+        if result == "":
+            result = "underline"
+        if result != "":
+            result = result + "|underline"
+    return result
+
+
+# Format the table based on the preferences
+def FormatTable(sheet, Endrow):
+    # HeaderRange
+    RangeAlign1 = "A1:A" + str(Endrow)
+    RangeStyle1 = "A1:E1"
+
+    # TableRange
+    RangeAlign2 = "B1:E" + str(Endrow)
+    RangeStyle2 = "B2:E" + str(Endrow)
+    # First column
+    RangeStyle3 = "A2:A" + str(Endrow)
+
+    # Font style for the top row
+    sheet.setStyle(
+        RangeStyle1,
+        FontStyle(
+            SPREADSHEET_HEADERFONTSTYLE_BOLD,
+            SPREADSHEET_HEADERFONTSTYLE_ITALIC,
+            SPREADSHEET_HEADERFONTSTYLE_UNDERLINE,
+        ),
+    )
+
+    # Font style for the first column
+    sheet.setStyle(
+        RangeStyle3,
+        FontStyle(
+            SPREADSHEET_COLUMNFONTSTYLE_BOLD,
+            SPREADSHEET_COLUMNFONTSTYLE_ITALIC,
+            SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE,
+        ),
+    )
+
+    # Font style for the rest of the table
+    sheet.setStyle(
+        RangeStyle2,
+        FontStyle(
+            SPREADSHEET_TABLEFONTSTYLE_BOLD,
+            SPREADSHEET_TABLEFONTSTYLE_ITALIC,
+            SPREADSHEET_TABLEFONTSTYLE_UNDERLINE,
+        ),
+    )
+
+    sheet.setBackground(RangeStyle1, SPREADSHEET_HEADERBACKGROUND)
+    sheet.setForeground(RangeStyle1, SPREADSHEET_HEADERFOREGROUND)
+
+    # Style the rest of the table
+    for i in range(2, int(Endrow + 1), 2):
+        RangeStyle3 = f"A{i}:E{i}"
+        RangeStyle4 = f"A{i+1}:E{i+1}"
+        sheet.setBackground(RangeStyle3, SPREADSHEET_TABLEBACKGROUND_1)
+        sheet.setBackground(RangeStyle4, SPREADSHEET_TABLEBACKGROUND_2)
+        sheet.setForeground(RangeStyle3, SPREADSHEET_TABLEFOREGROUND)
+        sheet.setForeground(RangeStyle4, SPREADSHEET_TABLEFOREGROUND)
+
+    # align the columns
+    sheet.setAlignment(RangeAlign1, "left|vcenter")
+    sheet.setAlignment(RangeAlign2, "center|vcenter")
+
+    # Set the column width
+    for i in range(1, Endrow):
+        Standard_Functions.SetColumnWidth_SpreadSheet(
+            sheet=sheet, column=f"A{i}", cellValue=sheet.getContents(f"A{i}"), factor=AUTOFIT_FACTOR)
+        Standard_Functions.SetColumnWidth_SpreadSheet(
+            sheet=sheet, column=f"B{i}", cellValue=sheet.getContents(f"B{i}"), factor=AUTOFIT_FACTOR)
+        Standard_Functions.SetColumnWidth_SpreadSheet(
+            sheet=sheet, column=f"C{i}", cellValue=sheet.getContents(f"C{i}"), factor=AUTOFIT_FACTOR)
+        Standard_Functions.SetColumnWidth_SpreadSheet(
+            sheet=sheet, column=f"D{i}", cellValue=sheet.getContents(f"D{i}"), factor=AUTOFIT_FACTOR)
+        Standard_Functions.SetColumnWidth_SpreadSheet(
+            sheet=sheet, column=f"E{i}", cellValue=sheet.getContents(f"E{i}"), factor=AUTOFIT_FACTOR)
+    return
+
+# endregion
+
+
+def ExportSpreadSheet_Excel():
     import Settings
     from Settings import preferences
     from Settings import IMPORT_SETTINGS_XL
@@ -169,7 +286,7 @@ def ExportSpreadSheet():
         ws.add_table(tab)
 
         # Align the columns
-        for row in ws[1 : ws.max_row]:
+        for row in ws[1: ws.max_row]:
             Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
             Column_2 = row[Standard_Functions.GetNumberFromLetter(PropCell[:1]) - 1]
             Column_3 = row[Standard_Functions.GetNumberFromLetter(IncreaseCell[:1]) - 1]
@@ -220,12 +337,163 @@ def ExportSpreadSheet():
 
         # If import settings from excel is enabled, export settings to the new excel file.
         if IMPORT_SETTINGS_XL is True:
-            Settings.ExportSettingsXL(Silent=True)
+            Settings.ExportSettings_XL(Silent=True)
 
         # print a message if you succeded.
         Text = translate(
             "TitleBlock Workbench",
             f"The titleblock data is exported to the workbook {FileName} in the worksheet {ws.title}",
+        )
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+    except Exception as e:
+        Text = translate(
+            "TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!"
+        )
+        if ENABLE_DEBUG is True:
+            Text = translate(
+                "TitleBlock Workbench",
+                "TitleBlock Workbench: an error occurred!!\n"
+                + "See the report view for details",
+            )
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+        if ENABLE_DEBUG is True:
+            raise (e)
+
+
+def ExportSpreadSheet_FreeCAD():
+    # import Settings
+    from Settings import preferences
+    # from Settings import IMPORT_SETTINGS_XL
+    # from Settings import EXTERNAL_SOURCE_STARTCELL
+    from Settings import ENABLE_DEBUG
+
+    try:
+        # get the spreadsheet "TitleBlock"
+        sheet = App.ActiveDocument.getObject("TitleBlock")
+        if sheet is None:
+            Text = translate(
+                "TitleBlock Workbench", "No spreadsheet named 'TitleBlock'!!!"
+            )
+            Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+            return
+        sheet.recompute()
+
+        # Create a new FreeCAD file
+        ff = App.newDocument()
+        # Create a spreadsheet in it.
+        TitleBlockData = ff.addObject("Spreadsheet::Sheet", "TitleBlockData")
+        preferences.SetString("SheetName", "TitleBlockData")
+
+        # Get the startcell and the next cells
+        StartCell = "A1"
+        TopRow = int(StartCell[1:])
+        PropCell = str(
+            Standard_Functions.GetLetterFromNumber(
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
+            )
+        ) + str(TopRow)
+        IncreaseCell = str(
+            Standard_Functions.GetLetterFromNumber(
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 2
+            )
+        ) + str(TopRow)
+        MultiplierCell = str(
+            Standard_Functions.GetLetterFromNumber(
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 3
+            )
+        ) + str(TopRow)
+        RemarkCell = str(
+            Standard_Functions.GetLetterFromNumber(
+                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
+            )
+        ) + str(TopRow)
+
+        if ENABLE_DEBUG is True:
+            Text = translate("TitleBlock Workbench", f"the startcell is: {StartCell}")
+            print(Text)
+
+        # Set the headers
+        TitleBlockData.set(StartCell, str(sheet.getContents("A1")))
+        TitleBlockData.set(PropCell, str(sheet.getContents("B1")))
+        TitleBlockData.set(IncreaseCell, str(sheet.getContents("C1")))
+        TitleBlockData.set(MultiplierCell, str(sheet.getContents("D1")))
+        TitleBlockData.set(RemarkCell, str(sheet.getContents("E1")))
+
+        # Go through the spreadsheet.
+        for RowNumber in range(1000):
+            # Start with x+1 first, to make sure that x is at least 1.
+            RowNumber = RowNumber + 1 + TopRow
+
+            try:
+                TitleBlockData.set(
+                    StartCell[: 1] + str(RowNumber),
+                    str(sheet.getContents("A" + str(RowNumber - TopRow + 1)))
+                )
+            except Exception:
+                TitleBlockData.set(StartCell[: 1] + str(RowNumber), "")
+
+            try:
+                TitleBlockData.set(
+                    PropCell[: 1] + str(RowNumber),
+                    str(sheet.getContents("B" + str(RowNumber - TopRow + 1)))
+                )
+            except Exception:
+                TitleBlockData.set(PropCell[: 1] + str(RowNumber), "")
+
+            try:
+                TitleBlockData.set(
+                    IncreaseCell[: 1] + str(RowNumber),
+                    str(sheet.getContents("C" + str(RowNumber - TopRow + 1)))
+                )
+            except Exception:
+                TitleBlockData.set(PropCell[: 1] + str(RowNumber), "")
+
+            try:
+                TitleBlockData.set(
+                    MultiplierCell[: 1] + str(RowNumber),
+                    str(sheet.getContents("D" + str(RowNumber - TopRow + 1)))
+                )
+            except Exception:
+                TitleBlockData.set(PropCell[: 1] + str(RowNumber), "")
+
+            try:
+                TitleBlockData.set(
+                    RemarkCell[: 1] + str(RowNumber),
+                    str(sheet.getContents("E" + str(RowNumber - TopRow + 1)))
+                )
+            except Exception:
+                TitleBlockData.set(PropCell[: 1] + str(RowNumber), "")
+
+            # Check if the next row exits. If not this is the end of all the available values.
+            try:
+                sheet.getContents("A" + str(RowNumber - TopRow + 1))
+            except Exception:
+                break
+
+        # region Format the settings with the values as a Table
+        #
+        FormatTable(sheet=sheet, Endrow=RowNumber)
+        # endregion
+
+        # Save the excel file in a folder of your choosing
+        Filter = [
+            ("FreeCAD", "*.FCStd"),
+        ]
+        FileName = Standard_Functions.SaveDialog(Filter)
+        if FileName is not None:
+            # Save the workbook
+            ff.saveAs(FileName)
+            # Close the FreeCAD file
+            ff.close()
+
+        # If import settings from external source is enabled, export settings to the new excel file.
+        if IMPORT_SETTINGS_XL is True:
+            Settings.ExportSettings_FreeCAD(Silent=True)
+
+        # print a message if you succeded.
+        Text = translate(
+            "TitleBlock Workbench",
+            f"The titleblock data is exported to the FreeCAD file {FileName} in the spreadsheet TitleBlockData",
         )
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
     except Exception as e:

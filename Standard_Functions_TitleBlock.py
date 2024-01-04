@@ -188,6 +188,31 @@ def CheckIfWorkbookExists(FullFileName: str, CreateIfNone: bool = True):
     return result
 
 
+def CheckIfFreeCADfileExists(FullFileName: str, CreateIfNone: bool = True):
+    import os
+    import FreeCAD as App
+
+    result = False
+    try:
+        result = os.path.exists(FullFileName)
+    except Exception:
+        if CreateIfNone is True:
+            Filter = [
+                ("FreeCAD", "*.FCStd"),
+            ]
+            FullFileName = SaveDialog(Filter)
+            if FullFileName.strip():
+                ff = App.newDocument()
+                # Save the workbook
+                ff.saveAs(FullFileName)
+                # Close the FreeCAD file
+                ff.close()
+                result = True
+        if CreateIfNone is False:
+            result = False
+    return result
+
+
 def ColorConvertor(ColorRGB: [], Alpha: float = 255) -> ():
     """
     A single function to convert colors to rgba colors as a tuple of float from 0-1

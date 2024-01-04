@@ -121,8 +121,8 @@
      <rect>
       <x>10</x>
       <y>30</y>
-      <width>397</width>
-      <height>19</height>
+      <width>399</width>
+      <height>21</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -165,7 +165,7 @@
     <bool>false</bool>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="TitleBlock">
     <attribute name="title">
@@ -197,7 +197,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>434</width>
+        <width>437</width>
         <height>805</height>
        </rect>
       </property>
@@ -359,7 +359,7 @@
             <x>10</x>
             <y>65</y>
             <width>281</width>
-            <height>100</height>
+            <height>108</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout">
@@ -552,7 +552,7 @@
             <x>11</x>
             <y>66</y>
             <width>246</width>
-            <height>230</height>
+            <height>248</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
@@ -943,8 +943,8 @@
            <rect>
             <x>10</x>
             <y>80</y>
-            <width>144</width>
-            <height>88</height>
+            <width>146</width>
+            <height>96</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout">
@@ -1169,7 +1169,7 @@
        <string/>
       </property>
       <property name="filter">
-       <string>*.xlsx</string>
+       <string>*.xlsx; *.FCStd</string>
       </property>
       <property name="prefEntry" stdset="0">
        <cstring>ExternalFile</cstring>

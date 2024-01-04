@@ -136,7 +136,7 @@ def createExcel():
 
     # If import settings from excel is enabled, export settings to the new excel file.
     if IMPORT_SETTINGS_XL is True:
-        Settings.ExportSettingsXL(Silent=True)
+        Settings.ExportSettings_XL(Silent=True)
 
     # print a message if you succeded.
     message = translate(

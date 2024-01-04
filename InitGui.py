@@ -82,7 +82,7 @@ class TitleBlockWB(Gui.Workbench):
         Gui.addLanguagePath(PATH_TRANSLATION)
 
         if IMPORT_SETTINGS_XL is True:
-            Settings.ImportSettingsXL()
+            Settings.ImportSettings_XL()
 
         if USE_EXTERNAL_SOURCE is True:
             ToolbarListMain = self.list = [

@@ -73,6 +73,7 @@ class TitleBlockWB(Gui.Workbench):
         from Settings import USE_EXTERNAL_SOURCE
         from Settings import IMPORT_SETTINGS_XL
         from Settings import ADD_TOOLBAR_TECHDRAW
+        from Settings import Extenstion
         import CreateUI
         import TechDrawFunctions
 
@@ -81,9 +82,10 @@ class TitleBlockWB(Gui.Workbench):
 
         Gui.addLanguagePath(PATH_TRANSLATION)
 
-        if IMPORT_SETTINGS_XL is True:
+        if IMPORT_SETTINGS_XL is True and Extenstion.lower() == ".xlsx":
             Settings.ImportSettings_XL()
-
+        if IMPORT_SETTINGS_XL is True and Extenstion.lower() == ".fcstd":
+            Settings.ImportSettings_FreeCAD()
         if USE_EXTERNAL_SOURCE is True:
             ToolbarListMain = self.list = [
                 "Separator",

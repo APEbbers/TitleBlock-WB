@@ -322,6 +322,8 @@ def FormatTable(sheet, Endrow):
 
 def ExportSettings_FreeCAD(Silent=False):
     try:
+        doc = App.ActiveDocument
+        LastActiveDoc = doc.Name
         sheet = None
         ff = None
         # region -- Get the workbook, create a new sheet and set the startcell (top left cell of table).
@@ -342,8 +344,14 @@ def ExportSettings_FreeCAD(Silent=False):
                 return
 
             # Set the sheetname with a inputbox
-            Spreadsheet_List: list = ff.findObjects('Spreadsheet::Sheet')
-            if len(Spreadsheet_List) == 0:
+            Spreadsheet_List = []
+            HasSettings = False
+            sheets = ff.findObjects('Spreadsheet::Sheet')
+            for i in range(len(sheets)):
+                Spreadsheet_List.append(sheets[i].Name)
+                if sheets[i].Name == "Settings":
+                    HasSettings = True
+            if len(Spreadsheet_List) == 0 or HasSettings is False:
                 Spreadsheet_List.append("Settings")
             Text = translate(
                 "TitleBlock Workbench", "Please enter the name of the spreadsheet"
@@ -649,6 +657,8 @@ def ExportSettings_FreeCAD(Silent=False):
         ff.save()
         # Close the FreeCAD file
         App.closeDocument(ff.Name)
+        # Activate the document which was active when this command started.
+        App.setActiveDocument(LastActiveDoc)
     # except openpyxl.utils.exceptions.ReadOnlyWorkbookException as e:
     #     Text = translate("TitleBlock Workbench", "The excel file is read only!")
     #     Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)

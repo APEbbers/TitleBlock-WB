@@ -369,7 +369,10 @@ def ExportSpreadSheet_FreeCAD():
 
     try:
         # get the spreadsheet "TitleBlock"
-        sheet = App.ActiveDocument.getObject("TitleBlock")
+        doc = App.ActiveDocument
+        sheet = doc.getObject("TitleBlock")
+        LastActiveDoc = doc.Name
+
         if sheet is None:
             Text = translate(
                 "TitleBlock Workbench", "No spreadsheet named 'TitleBlock'!!!"
@@ -380,16 +383,21 @@ def ExportSpreadSheet_FreeCAD():
 
         # Create a new FreeCAD file
         ff = App.newDocument()
-
         # Save the FreeCAD file in a folder of your choosing
         Filter = [
             ("FreeCAD", "*.FCStd"),
         ]
         FileName = Standard_Functions.SaveDialog(Filter)
         if FileName is not None:
-            ff.recompute(None, True, True)
             # Save the workbook
             ff.saveAs(FileName)
+            App.closeDocument(ff.Name)
+        if FileName is None:
+            return
+
+        ff = App.openDocument(FileName, True)
+        ff.recompute(None, True, True)
+        ff.save
 
         # Create a spreadsheet in it.
         TitleBlockData = ff.addObject("Spreadsheet::Sheet", "TitleBlockData")
@@ -477,13 +485,15 @@ def ExportSpreadSheet_FreeCAD():
 
             # Check if the next row exits. If not this is the end of all the available values.
             try:
-                sheet.getContents("A" + str(RowNumber - TopRow + 1))
+                test = sheet.getContents("A" + str(RowNumber - TopRow + 1))
+                if test == "" or test is None:
+                    break
             except Exception:
                 break
 
         # region Format the settings with the values as a Table
         #
-        FormatTable(sheet=sheet, Endrow=RowNumber - 1)
+        FormatTable(sheet=TitleBlockData, Endrow=RowNumber - 2)
         # endregion
 
         # recompute the document
@@ -492,6 +502,8 @@ def ExportSpreadSheet_FreeCAD():
         ff.save()
         # Close the FreeCAD file
         App.closeDocument(ff.Name)
+        # Activate the document which was active when this command started.
+        App.setActiveDocument(LastActiveDoc)
 
         # If import settings from external source is enabled, export settings to the new excel file.
         if IMPORT_SETTINGS_XL is True:

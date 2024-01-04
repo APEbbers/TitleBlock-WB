@@ -342,7 +342,9 @@ def ExportSettings_FreeCAD(Silent=False):
                 return
 
             # Set the sheetname with a inputbox
-            Spreadsheet_List = ff.findObjects('Spreadsheet::Sheet')
+            Spreadsheet_List: list = ff.findObjects('Spreadsheet::Sheet')
+            if len(Spreadsheet_List) == 0:
+                Spreadsheet_List.append("Settings")
             Text = translate(
                 "TitleBlock Workbench", "Please enter the name of the spreadsheet"
             )

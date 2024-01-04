@@ -73,8 +73,6 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
             title=title,
             label=text,
             text=default,
-            flags=QtCore.Qt.WindowFlags(),
-            inputMethodHints=QtCore.Qt.ImhNone
         )
         if reply[1]:
             # user clicked OK
@@ -91,8 +89,6 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
             items=stringList,
             current=1,
             editable=True,
-            flags=QtCore.Qt.WindowFlags(),
-            inputMethodHints=QtCore.Qt.ImhNone
         )
         if reply[1]:
             # user clicked OK

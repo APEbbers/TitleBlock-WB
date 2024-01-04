@@ -873,8 +873,10 @@ def ImportDataFreeCAD():
         # Check if it is allowed to use an external source and if so, continue
         if USE_EXTERNAL_SOURCE is True:
             doc = App.ActiveDocument
+            Input_SheetName = EXTERNAL_SOURCE_SHEET_NAME
             # get the spreadsheet "TitleBlock"
             sheet = doc.getObject("TitleBlock")
+            ExtSheet = None
 
             # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
             try:

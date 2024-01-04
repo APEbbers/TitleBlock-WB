@@ -484,7 +484,7 @@ def ExportSpreadSheet_FreeCAD():
             # Save the workbook
             ff.saveAs(FileName)
             # Close the FreeCAD file
-            ff.close()
+            App.closeDocument(FileName)
 
         # If import settings from external source is enabled, export settings to the new excel file.
         if IMPORT_SETTINGS_XL is True:

@@ -639,7 +639,7 @@ def ExportSettings_FreeCAD(Silent=False):
         # Save the workbook
         ff.save()
         # Close the FreeCAD file
-        ff.close()
+        App.closeDocument(EXTERNAL_SOURCE_PATH)
     # except openpyxl.utils.exceptions.ReadOnlyWorkbookException as e:
     #     Text = translate("TitleBlock Workbench", "The excel file is read only!")
     #     Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)

@@ -222,6 +222,9 @@ SettingsList = [
     ENABLE_DEBUG,
 ]
 
+
+Extenstion = EXTERNAL_SOURCE_PATH.rsplit(".", 1)[0]
+
 # endregion
 
 

@@ -142,7 +142,45 @@ class ImportExcel_Class:
         return result
 
 
-class ExportSpreadsheet_class:
+class ImportFreeCAD_Class:
+    def GetResources(self):
+        return {
+            "Pixmap": "",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP(
+                "ImportFreeCAD", "Import data from an FreeCAD file with a spreadsheet"
+            ),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "ImportFreeCAD",
+                "Import data from an FreeCAD file with a spreadsheet to the titleblock spreadsheet",
+            ),
+        }
+
+    def Activated(self):
+        import FillSpreadsheet
+        import FillTitleBlock
+
+        FillSpreadsheet.Start("ImportFreeCAD")
+        if AUTOFILL_TITLEBLOCK is True:
+            FillTitleBlock.FillTitleBlock()
+        return
+
+    def IsActive(self):
+        """Here you can define if the command must be active or not (greyed) if certain conditions
+        are met or not. This function is optional."""
+        # Set the default state
+        result = False
+        # Get for the active document.
+        ActiveDoc = App.activeDocument()
+        if ActiveDoc is not None:
+            # Check if the document has any pages. If so the result is True and the command is activated.
+            pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+            if pages is not None:
+                result = True
+
+        return result
+
+
+class ExportSpreadsheet_Excel_class:
     def GetResources(self):
         return {
             "Pixmap": "ExportExcel.svg",  # the name of a svg file available in the resources
@@ -177,11 +215,46 @@ class ExportSpreadsheet_class:
         return result
 
 
-class ExportSettings_class:
+class ExportSpreadsheet_FreeCAD_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP(
+                "ExportSpreadSheet", "Export data to an FreeCAD file"
+            ),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "ExportSpreadSheet",
+                "Export data from the titleblock spreadsheet to an FreeCAD file",
+            ),
+        }
+
+    def Activated(self):
+        import ExportSpreadsheet
+
+        ExportSpreadsheet.ExportSpreadSheet_FreeCAD()
+        return
+
+    def IsActive(self):
+        """Here you can define if the command must be active or not (greyed) if certain conditions
+        are met or not. This function is optional."""
+        # Set the default state
+        result = False
+        # Get for the active document.
+        ActiveDoc = App.activeDocument()
+        if ActiveDoc is not None:
+            # Check if the document has any pages. If so the result is True and the command is activated.
+            pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+            if pages is not None:
+                result = True
+
+        return result
+
+
+class ExportSettings_Excel_class:
     def GetResources(self):
         return {
             "Pixmap": "ExportSettings.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("ExportSettings", "Export settings"),
+            "MenuText": QT_TRANSLATE_NOOP("ExportSettings_Excel", "Export settings_Excel"),
             "ToolTip": QT_TRANSLATE_NOOP(
                 "ExportSettings",
                 "Exports all settings to the external excel workbook in its own sheet",
@@ -209,7 +282,39 @@ class ExportSettings_class:
         return result
 
 
-class ImportSettings_class:
+class ExportSettings_FreeCAD_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("ExportSettings_FreeCAD", "Export settings_FreeCAD"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "ExportSettings",
+                "Exports all settings to the external FreeCAD file in its own sheet",
+            ),
+        }
+
+    def Activated(self):
+        import Settings
+
+        Settings.ExportSettings_XL()
+        return
+
+    def IsActive(self):
+        """Here you can define if the command must be active or not (greyed) if certain conditions
+        are met or not. This function is optional."""
+        from Settings import USE_EXTERNAL_SOURCE
+        from Settings import IMPORT_SETTINGS_XL
+
+        # Set the default state
+        result = False
+        # Check if the use of an external source is enabeled and if it is used for importing the settings
+        if USE_EXTERNAL_SOURCE is True and IMPORT_SETTINGS_XL is True:
+            result = True
+
+        return result
+
+
+class ImportSettings_Excel_class:
     def GetResources(self):
         return {
             "Pixmap": "ImportSettings.svg",  # the name of a svg file available in the resources
@@ -224,6 +329,38 @@ class ImportSettings_class:
         import Settings
 
         Settings.ImportSettings_XL()
+        return
+
+    def IsActive(self):
+        """Here you can define if the command must be active or not (greyed) if certain conditions
+        are met or not. This function is optional."""
+        from Settings import USE_EXTERNAL_SOURCE
+        from Settings import IMPORT_SETTINGS_XL
+
+        # Set the default state
+        result = False
+        # Check if the use of an external source is enabeled and if it is used for importing the settings
+        if USE_EXTERNAL_SOURCE is True and IMPORT_SETTINGS_XL is True:
+            result = True
+
+        return result
+
+
+class ImportSettings_FreeCAD_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("ImportSettings_FreeCAD", "Import settings_FreeCAD"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "ImportSettings",
+                "Imports all settings from the external FreeCAD file",
+            ),
+        }
+
+    def Activated(self):
+        import Settings
+
+        Settings.ImportSettings_FreeCAD()
         return
 
     def IsActive(self):
@@ -304,8 +441,12 @@ class NewExcel_class:
 Gui.addCommand("FillSpreadsheet", FillSpreadsheet_Class())
 Gui.addCommand("FillTitleBlock", FillTitleBlock_Class())
 Gui.addCommand("ImportExcel", ImportExcel_Class())
-Gui.addCommand("ExportSpreadSheet", ExportSpreadsheet_class())
-Gui.addCommand("ExportSettings", ExportSettings_class())
-Gui.addCommand("ImportSettings", ImportSettings_class())
+Gui.addCommand("ExportSpreadSheet_Excel", ExportSpreadsheet_Excel_class())
+Gui.addCommand("ExportSettings_Excel", ExportSettings_Excel_class())
+Gui.addCommand("ImportSettings_Excel", ImportSettings_Excel_class())
 Gui.addCommand("OpenExcel", OpenExcel_class())
 Gui.addCommand("NewExcel", NewExcel_class())
+Gui.addCommand("ImportFreeCAD", ImportFreeCAD_Class())
+Gui.addCommand("ExportSpreadSheet_FreeCAD", ExportSpreadsheet_FreeCAD_class())
+Gui.addCommand("ExportSettings_FreeCAD", ExportSettings_FreeCAD_class())
+Gui.addCommand("ImportSettings_FreeCAD", ImportSettings_FreeCAD_class())

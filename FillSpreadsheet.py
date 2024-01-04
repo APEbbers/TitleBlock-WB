@@ -41,7 +41,6 @@
 import os
 import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
-import General_Functions_TitleBlock
 
 # Get the settings
 from Settings import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE

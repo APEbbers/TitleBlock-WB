@@ -89,6 +89,8 @@ class TitleBlockWB(Gui.Workbench):
                 "Separator",
                 "ImportExcel",
                 "FillTitleBlock",
+                "Separator",
+                "ImportFreeCAD",
             ]
             ToolbarListExtra = self.list = [
                 "Separator",
@@ -101,12 +103,19 @@ class TitleBlockWB(Gui.Workbench):
                 "Separator",
                 "ExportSettings",
                 "ImportSettings",
+                "Separator",
+                "ExportSpreadSheet_FreeCAD",
+                "ExportSettings_FreeCAD",
+                "ImportSettings_FreeCAD",
+                "Separator",
             ]
         if USE_EXTERNAL_SOURCE is False:
             ToolbarListMain = self.list = [
                 "Separator",
                 "FillSpreadsheet",
                 "FillTitleBlock",
+                "Separator",
+                "ImportFreeCAD",
             ]  # a list of command names created in the line above
             ToolbarListExtra = self.list = [
                 "Separator",
@@ -119,6 +128,11 @@ class TitleBlockWB(Gui.Workbench):
                 "Separator",
                 "ExportSettings",
                 "ImportSettings",
+                "Separator",
+                "ExportSpreadSheet_FreeCAD",
+                "ExportSettings_FreeCAD",
+                "ImportSettings_FreeCAD",
+                "Separator",
             ]
         self.appendToolbar(
             QT_TRANSLATE_NOOP("Workbench", "TitleBlock"), ToolbarListMain
@@ -137,9 +151,15 @@ class TitleBlockWB(Gui.Workbench):
             "ImportExcel",
             "OpenExcel",
         ]
+        FreeCADList = self.list = [
+            "ExportSpreadSheet_FreeCAD",
+            "ImportFreeCAD",
+        ]
         SettingsList = self.list = [
             "ExportSettings",
             "ImportSettings",
+            "ExportSettings_FreeCAD",
+            "ImportSettings_FreeCAD",
         ]
         self.appendMenu(
             QT_TRANSLATE_NOOP("Workbench", "TitleBlock"),

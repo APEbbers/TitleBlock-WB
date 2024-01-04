@@ -23,7 +23,6 @@
 
 import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
-import General_Functions_TitleBlock
 
 # region defenitions
 # Define the translation

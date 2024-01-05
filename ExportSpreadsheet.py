@@ -368,18 +368,20 @@ def ExportSpreadSheet_FreeCAD():
     from Settings import ENABLE_DEBUG
 
     try:
-        # get the spreadsheet "TitleBlock"
+        # Get the active document
         doc = App.ActiveDocument
+        # get the spreadsheet "TitleBlock"
         sheet = doc.getObject("TitleBlock")
+        # Save the name of the active document to reactivate it at the end of this function.
         LastActiveDoc = doc.Name
 
+        # If there is no spreadsheet named TitleBlock, show a message and exit this function.
         if sheet is None:
             Text = translate(
                 "TitleBlock Workbench", "No spreadsheet named 'TitleBlock'!!!"
             )
             Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
             return
-        sheet.recompute()
 
         # Create a new FreeCAD file
         ff = App.newDocument()
@@ -391,15 +393,17 @@ def ExportSpreadSheet_FreeCAD():
         if FileName is not None:
             # Save the workbook
             ff.saveAs(FileName)
+            # Close the document before reopening
             App.closeDocument(ff.Name)
         if FileName is None:
             return
 
+        # Open the document hidden, recompute and save it
         ff = App.openDocument(FileName, True)
         ff.recompute(None, True, True)
         ff.save
 
-        # Create a spreadsheet in it.
+        # Create a spreadsheet for the titleblock data.
         TitleBlockData = ff.addObject("Spreadsheet::Sheet", "TitleBlockData")
         preferences.SetString("SheetName", "TitleBlockData")
 
@@ -438,7 +442,7 @@ def ExportSpreadSheet_FreeCAD():
         TitleBlockData.set(MultiplierCell, str(sheet.getContents("D1")))
         TitleBlockData.set(RemarkCell, str(sheet.getContents("E1")))
 
-        # Go through the spreadsheet.
+        # Go through the external spreadsheet and fill in the data.
         for RowNumber in range(1000):
             # Start with x+1 first, to make sure that x is at least 1.
             RowNumber = RowNumber + 1 + TopRow
@@ -483,7 +487,7 @@ def ExportSpreadSheet_FreeCAD():
             except Exception:
                 TitleBlockData.set(PropCell[: 1] + str(RowNumber), "")
 
-            # Check if the next row exits. If not this is the end of all the available values.
+            # Check if the next row of the spreadsheet has data. If not this is the end of all the available values.
             try:
                 test = sheet.getContents("A" + str(RowNumber - TopRow + 1))
                 if test == "" or test is None:

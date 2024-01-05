@@ -145,7 +145,7 @@ class ImportExcel_Class:
 class ImportFreeCAD_Class:
     def GetResources(self):
         return {
-            "Pixmap": "",  # the name of a svg file available in the resources
+            "Pixmap": "ImportFreeCAD.svg",  # the name of a svg file available in the resources
             "MenuText": QT_TRANSLATE_NOOP(
                 "ImportFreeCAD", "Import data from an FreeCAD file with a spreadsheet"
             ),
@@ -218,7 +218,7 @@ class ExportSpreadsheet_Excel_class:
 class ExportSpreadsheet_FreeCAD_class:
     def GetResources(self):
         return {
-            "Pixmap": "",  # the name of a svg file available in the resources
+            "Pixmap": "ExportFreeCAD.svg",  # the name of a svg file available in the resources
             "MenuText": QT_TRANSLATE_NOOP(
                 "ExportSpreadSheet_FreeCAD", "Export data to an FreeCAD file"
             ),
@@ -285,7 +285,7 @@ class ExportSettings_Excel_class:
 class ExportSettings_FreeCAD_class:
     def GetResources(self):
         return {
-            "Pixmap": "",  # the name of a svg file available in the resources
+            "Pixmap": "ExportSettings_FreeCAD.svg",  # the name of a svg file available in the resources
             "MenuText": QT_TRANSLATE_NOOP("ExportSettings_FreeCAD", "Export settings FreeCAD"),
             "ToolTip": QT_TRANSLATE_NOOP(
                 "ExportSettings_FreeCAD",
@@ -349,7 +349,7 @@ class ImportSettings_Excel_class:
 class ImportSettings_FreeCAD_class:
     def GetResources(self):
         return {
-            "Pixmap": "",  # the name of a svg file available in the resources
+            "Pixmap": "ImportSettings_FreeCAD.svg",  # the name of a svg file available in the resources
             "MenuText": QT_TRANSLATE_NOOP("ImportSettings_FreeCAD", "Import settings_FreeCAD"),
             "ToolTip": QT_TRANSLATE_NOOP(
                 "ImportSettings_FreeCAD",
@@ -391,8 +391,47 @@ class OpenExcel_class:
     def Activated(self):
         import Standard_Functions_TitleBlock as Standard_Functions
         from Settings import EXTERNAL_SOURCE_PATH
+        from Settings import Extenstion
 
-        Standard_Functions.OpenFile(EXTERNAL_SOURCE_PATH)
+        if Extenstion.lower().endswith("xlsx") or Extenstion.lower().endswith("xlsm"):
+            Standard_Functions.OpenFile(EXTERNAL_SOURCE_PATH)
+        else:
+            Standard_Functions.Print("Not an excel file!!", "Error")
+        return
+
+    def IsActive(self):
+        """Here you can define if the command must be active or not (greyed) if certain conditions
+        are met or not. This function is optional."""
+        from Settings import USE_EXTERNAL_SOURCE
+
+        # Set the default state
+        result = False
+        # Check if the use of an external source is enabeled and if it is used for importing the settings
+        if USE_EXTERNAL_SOURCE is True:
+            result = True
+
+        return result
+
+
+class OpenFreeCAD_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "OpenFreeCAD.svg",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("OpenFreeCAD", "Open the FreeCAD file"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "OpenExcel", "Open the FreeCAD file with the titleblock data"
+            ),
+        }
+
+    def Activated(self):
+        import Standard_Functions_TitleBlock as Standard_Functions
+        from Settings import EXTERNAL_SOURCE_PATH
+        from Settings import Extenstion
+
+        if Extenstion.lower().endswith("fcstd"):
+            Standard_Functions.OpenFreeCADFile(EXTERNAL_SOURCE_PATH)
+        else:
+            Standard_Functions.Print("Not an FreeCAD file!!", "Error")
         return
 
     def IsActive(self):
@@ -418,9 +457,37 @@ class NewExcel_class:
         }
 
     def Activated(self):
-        import CreateExcel
+        import CreateNewFile
 
-        CreateExcel.createExcel()
+        CreateNewFile.createExcel()
+        return
+
+    def IsActive(self):
+        """Here you can define if the command must be active or not (greyed) if certain conditions
+        are met or not. This function is optional."""
+        from Settings import USE_EXTERNAL_SOURCE
+
+        # Set the default state
+        result = False
+        # Check if the use of an external source is enabeled and if it is used for importing the settings
+        if USE_EXTERNAL_SOURCE is True:
+            result = True
+
+        return result
+
+
+class NewFreeCAD_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "NewFreeCAD.svg",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("NewFreeCAD", "Create a new FreeCAD file"),
+            "ToolTip": QT_TRANSLATE_NOOP("NewFreeCAD", "Create an new FreeCAD file with an empty spreadsheet for the titleblock data"),
+        }
+
+    def Activated(self):
+        import CreateNewFile
+
+        CreateNewFile.CreateFreeCAD()
         return
 
     def IsActive(self):
@@ -450,3 +517,4 @@ Gui.addCommand("ImportFreeCAD", ImportFreeCAD_Class())
 Gui.addCommand("ExportSpreadSheet_FreeCAD", ExportSpreadsheet_FreeCAD_class())
 Gui.addCommand("ExportSettings_FreeCAD", ExportSettings_FreeCAD_class())
 Gui.addCommand("ImportSettings_FreeCAD", ImportSettings_FreeCAD_class())
+Gui.addCommand("NewFreeCAD", NewFreeCAD_class())

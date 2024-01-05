@@ -30,8 +30,7 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
     20 : Inputbox                    (text, title, style, default)\n
     21 : Inputbox with dropdown      (text, title, style, default, stringlist)\n
     """
-    from PySide2.QtWidgets import QMessageBox, QInputDialog, QLineEdit
-    from PySide2 import QtCore
+    from PySide2.QtWidgets import QMessageBox, QInputDialog
 
     Icon = QMessageBox.Information
     if IconType == "NoIcon":
@@ -87,7 +86,7 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
             title,
             text,
             stringList,
-            1,
+            0,
             True,
         )
         if reply[1]:
@@ -270,6 +269,17 @@ def OpenFile(FileName: str):
         raise e
 
 
+def OpenFreeCADFile(FileName: str):
+    import FreeCAD as App
+
+    # Open the document visible, recompute and save it
+    ff = App.openDocument(FileName, False)
+    ff.recompute(None, True, True)
+    ff.save
+
+    return
+
+
 def SetColumnWidth_SpreadSheet(
     sheet, column: str, cellValue: str, factor: int = 10
 ) -> bool:
@@ -305,7 +315,7 @@ def Print(Input: str, Type: str = ""):
 
     Args:
         Input (str): Text to print.\n
-        Type (str, optional): Type of message. (enter Warning, Error or Log). Defaults to "".
+        Type (str, optional): Type of message.\n (enter Warning, Error or Log). Defaults to "".
     """
     import FreeCAD as App
 

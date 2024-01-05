@@ -322,10 +322,14 @@ def FormatTable(sheet, Endrow):
 
 def ExportSettings_FreeCAD(Silent=False):
     try:
+        # Get the name of the current document and use it at the end of this function to reactivate this document
         doc = App.ActiveDocument
         LastActiveDoc = doc.Name
+
+        # Define sheet and freecad file (ff)
         sheet = None
         ff = None
+
         # region -- Get the workbook, create a new sheet and set the startcell (top left cell of table).
         # If the user wants to export the settins, start an input dialog.
         if Silent is False:
@@ -343,19 +347,20 @@ def ExportSettings_FreeCAD(Silent=False):
                 Standard_Functions.Print(Text, "Error")
                 return
 
-            # Set the sheetname with a inputbox
+            # Set the sheetname with a inputbox.
+            # Create a list with the current spreadsheets for input in the inputdialog.
+            # Make sure that "Settings" is on that list.
             Spreadsheet_List = []
-            HasSettings = False
+            # Add "Settings" to the new list.
+            Spreadsheet_List.append("Settings")
+            # Get the sheet objects and go through them.
             sheets = ff.findObjects('Spreadsheet::Sheet')
             for i in range(len(sheets)):
-                Spreadsheet_List.append(sheets[i].Name)
-                if sheets[i].Name == "Settings":
-                    HasSettings = True
-            if len(Spreadsheet_List) == 0 or HasSettings is False:
-                Spreadsheet_List.append("Settings")
-            Text = translate(
-                "TitleBlock Workbench", "Please enter the name of the spreadsheet"
-            )
+                # If the sheet is not named "Settings", add it to the list.
+                if sheets[i].Name != "Settings":
+                    Spreadsheet_List.append(sheets[i].Name)
+            # Show the inputdialog
+            Text = translate("TitleBlock Workbench", "Please enter the name of the spreadsheet")
             Input_SheetName = str(
                 Standard_Functions.Mbox(
                     text=Text,
@@ -373,11 +378,11 @@ def ExportSettings_FreeCAD(Silent=False):
             preferences.SetString("SheetName_Settings", Input_SheetName)
 
             # Delete the current sheet if it exists
-            try:
-                sheet = ff.findObjects('Spreadsheet::Sheet').Name
-                ff.removeObject(Input_SheetName)
-            except Exception:
-                pass
+            sheets = ff.findObjects('Spreadsheet::Sheet')
+            for i in range(len(sheets)):
+                # If the sheet is not named "Settings", add it to the list.
+                if sheets[i].Name == Input_SheetName:
+                    ff.removeObject(Input_SheetName)
 
             # create a new sheet
             sheet = ff.addObject("Spreadsheet::Sheet", Input_SheetName)
@@ -419,11 +424,14 @@ def ExportSettings_FreeCAD(Silent=False):
         # endregion
 
         # region -- Create the headers
+        # Define the sheet. If it not exists, exit this function
         sheet = ff.getObject(SHEETNAME_SETTINGS_XL)
         if sheet is None:
             Standard_Functions.Print(f"This FreeCAD file doesn't have a spreadsheet named {SHEETNAME_SETTINGS_XL}")
             return
+        # Set the header for the first column
         sheet.set(StartCell, "Name")
+        # Set the header for the second column
         TopRow = int(StartCell[1:])
         ValueCell = str(
             Standard_Functions.GetLetterFromNumber(
@@ -659,11 +667,6 @@ def ExportSettings_FreeCAD(Silent=False):
         App.closeDocument(ff.Name)
         # Activate the document which was active when this command started.
         App.setActiveDocument(LastActiveDoc)
-    # except openpyxl.utils.exceptions.ReadOnlyWorkbookException as e:
-    #     Text = translate("TitleBlock Workbench", "The excel file is read only!")
-    #     Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-    #     if ENABLE_DEBUG is True:
-    #         raise (e)
     except Exception as e:
         Text = translate(
             "TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!"
@@ -682,6 +685,10 @@ def ExportSettings_FreeCAD(Silent=False):
 def ImportSettings_FreeCAD():
     import os.path
     import errno
+
+    # Get the name of the current document and use it at the end of this function to reactivate this document
+    doc = App.ActiveDocument
+    LastActiveDoc = doc.Name
 
     # Get the workbook. If it doesn't exist. Let the user now.
     if os.path.exists(EXTERNAL_SOURCE_PATH) is True:
@@ -893,8 +900,11 @@ def ImportSettings_FreeCAD():
 
             # endregion
 
-            # Note: ENABLE_DEBUG is excluded from import.
-            # This is a setting only needed for debuggin and thus a per user setting.
+            # Notes:
+            # - ENABLE_DEBUG is excluded from export.
+            #   This is a setting only needed for debuggin and thus a per user setting.
+            # - Spreadsheet format settings are excluded from export.
+            #   This is a per user setting
 
             if counter == len(SettingsList) + 1:
                 break
@@ -944,8 +954,14 @@ def ImportSettings_FreeCAD():
             raise (e)
         return
 
-    # Close the workbook
-    ff.close()
+    # recompute the document
+    ff.recompute(None, True, True)
+    # Save the workbook
+    ff.save()
+    # Close the FreeCAD file
+    App.closeDocument(ff.Name)
+    # Activate the document which was active when this command started.
+    App.setActiveDocument(LastActiveDoc)
 
 
 def ImportSettings_XL():

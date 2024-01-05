@@ -99,6 +99,9 @@ class TitleBlockWB(Gui.Workbench):
                 "OpenExcel",
                 "NewExcel",
                 "Separator",
+                "OpenFreeCAD",
+                "NewFreeCAD",
+                "Separator",
                 "FillSpreadsheet",
                 "Separator",
                 "ExportSpreadSheet_Excel",
@@ -123,6 +126,9 @@ class TitleBlockWB(Gui.Workbench):
                 "Separator",
                 "OpenExcel",
                 "NewExcel",
+                "Separator",
+                "OpenFreeCAD",
+                "NewFreeCAD",
                 "Separator",
                 "ImportExcel",
                 "Separator",
@@ -154,8 +160,10 @@ class TitleBlockWB(Gui.Workbench):
             "OpenExcel",
         ]
         FreeCADList = self.list = [
+            "NewFreeCAD",
             "ExportSpreadSheet_FreeCAD",
             "ImportFreeCAD",
+            "OpenFreeCAD",
         ]
         SettingsList = self.list = [
             "ExportSettings_Excel",

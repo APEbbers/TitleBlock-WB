@@ -391,9 +391,8 @@ class OpenExcel_class:
     def Activated(self):
         import Standard_Functions_TitleBlock as Standard_Functions
         from Settings import EXTERNAL_SOURCE_PATH
-        from Settings import Extenstion
 
-        if Extenstion.lower().endswith("xlsx") or Extenstion.lower().endswith("xlsm"):
+        if EXTERNAL_SOURCE_PATH.lower().endswith("xlsx") or EXTERNAL_SOURCE_PATH.lower().endswith("xlsm"):
             Standard_Functions.OpenFile(EXTERNAL_SOURCE_PATH)
         else:
             Standard_Functions.Print("Not an excel file!!", "Error")
@@ -426,9 +425,8 @@ class OpenFreeCAD_class:
     def Activated(self):
         import Standard_Functions_TitleBlock as Standard_Functions
         from Settings import EXTERNAL_SOURCE_PATH
-        from Settings import Extenstion
 
-        if Extenstion.lower().endswith("fcstd"):
+        if EXTERNAL_SOURCE_PATH.lower().endswith("fcstd"):
             Standard_Functions.OpenFreeCADFile(EXTERNAL_SOURCE_PATH)
         else:
             Standard_Functions.Print("Not an FreeCAD file!!", "Error")

@@ -160,6 +160,7 @@ class TitleBlockWB(Gui.Workbench):
             "OpenExcel",
         ]
         FreeCADList = self.list = [
+            "Separator",
             "NewFreeCAD",
             "ExportSpreadSheet_FreeCAD",
             "ImportFreeCAD",

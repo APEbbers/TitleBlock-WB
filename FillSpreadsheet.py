@@ -1041,6 +1041,14 @@ def ImportDataFreeCAD():
                         str(ExtSheet.getContents(Column4 + str(RowNumber))),
                     )
 
+                # Check if the next row of the spreadsheet has data. If not this is the end of all the available values.
+                try:
+                    test = sheet.getContents("A" + str(RowNumber))
+                    if test == "" or test is None:
+                        break
+                except Exception:
+                    break
+
             # Finally recompute the spreadsheet
             sheet.recompute()
 
@@ -1066,9 +1074,9 @@ def ImportDataFreeCAD():
             FormatTable(sheet=sheet, Endrow=RowNumber + extraRows - 1)
 
             # recompute the document
-            ff.recompute(None, True, True)
+            doc.recompute(None, True, True)
             # Save the workbook
-            ff.save()
+            doc.save()
             # Close the FreeCAD file
             App.closeDocument(ff.Name)
             # Activate the document which was active when this command started.

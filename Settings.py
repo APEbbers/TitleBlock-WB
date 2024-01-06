@@ -742,7 +742,11 @@ def ImportSettings_FreeCAD():
         counter = 0
         for i in range(1, 1000):
             Cell_Name = sheet.getContents(str(FirstColumn) + str(i))
+            if Cell_Name.startswith("'"):
+                Cell_Name = Cell_Name[1:]
             Cell_Value = sheet.getContents(str(SecondColumn) + str(i))
+            if Cell_Value.startswith("'"):
+                Cell_Value = Cell_Name[1:]
 
             print(Cell_Name + ", " + Cell_Value)
             # region -- Import the external source settings

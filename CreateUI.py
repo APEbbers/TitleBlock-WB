@@ -38,6 +38,8 @@ translate = App.Qt.translate
 
 
 def DefineToolbars():
+    ToolbarListMain = []
+    ToolbarListExtra = []
     if USE_EXTERNAL_SOURCE is True:
         if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd") is False:
             ToolbarListMain = [

@@ -98,7 +98,7 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
         return str(replyText)
 
 
-def SaveDialog(files, OverWrite: bool = True):
+def GetFileDialog(files, OverWrite: bool = True):
     """
     files must be like:\n
     files = [\n
@@ -108,8 +108,8 @@ def SaveDialog(files, OverWrite: bool = True):
     ]\n
     \n
     OverWrite:\n
-    If True, file will be overwritten\n
-    If False, only the path+filename will be returned\n
+    If True,  as SaveAs dialog will open and the file will be overwritten\n
+    If False, an OpenFile dialog will be open and the file will be opened.\n
     """
     import tkinter as tk
     from tkinter.filedialog import asksaveasfile
@@ -182,7 +182,7 @@ def CheckIfWorkbookExists(FullFileName: str, CreateIfNone: bool = True):
                     "*.xlsm",
                 ),
             ]
-            FullFileName = SaveDialog(Filter)
+            FullFileName = GetFileDialog(Filter)
             if FullFileName.strip():
                 wb = Workbook(str(FullFileName))
                 wb.save(FullFileName)
@@ -205,7 +205,7 @@ def CheckIfFreeCADfileExists(FullFileName: str, CreateIfNone: bool = True):
             Filter = [
                 ("FreeCAD", "*.FCStd"),
             ]
-            FullFileName = SaveDialog(Filter)
+            FullFileName = GetFileDialog(Filter)
             if FullFileName.strip():
                 ff = App.newDocument()
                 # Save the workbook

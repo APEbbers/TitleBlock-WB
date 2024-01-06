@@ -140,7 +140,7 @@ def createExcel():
     Filter = [
         ("Excel", "*.xlsx"),
     ]
-    FileName = Standard_Functions.SaveDialog(Filter)
+    FileName = Standard_Functions.GetFileDialog(Filter)
     if FileName is not None:
         # Save the workbook
         wb.save(str(FileName))
@@ -180,7 +180,7 @@ def CreateFreeCAD():
     Filter = [
         ("FreeCAD", "*.FCStd"),
     ]
-    FileName = Standard_Functions.SaveDialog(Filter)
+    FileName = Standard_Functions.GetFileDialog(Filter)
     if FileName is not None:
         # Save the workbook
         ff.saveAs(FileName)

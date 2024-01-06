@@ -41,6 +41,7 @@
 import os
 import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
+import TableFormat_Functions
 
 # Get the settings
 from Settings import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
@@ -1071,7 +1072,8 @@ def ImportDataFreeCAD():
                 extraRows = extraRows + 1
             if INCLUDE_NO_SHEETS is True:
                 extraRows = extraRows + 1
-            FormatTable(sheet=sheet, Endrow=RowNumber + extraRows - 1)
+            # FormatTable(sheet=sheet, Endrow=RowNumber + extraRows - 1)
+            FormatTable()
 
             # recompute the document
             doc.recompute(None, True, True)

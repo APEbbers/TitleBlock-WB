@@ -127,8 +127,12 @@ def DefineMenus():
         "ExportSettings_FreeCAD",
         "ImportSettings_FreeCAD",
     ]
-    result = {"StandardList": StandardList, "ExcelList": ExcelList,
-              "FreeCADList": FreeCADList, SettingsList: "SettingsList"}
+    result = {
+        "StandardList": StandardList,
+        "ExcelList": ExcelList,
+        "FreeCADList": FreeCADList,
+        "SettingsList": SettingsList
+    }
 
     return result
 

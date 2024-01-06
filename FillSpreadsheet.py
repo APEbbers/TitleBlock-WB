@@ -874,11 +874,13 @@ def ImportDataFreeCAD():
         if USE_EXTERNAL_SOURCE is True:
             # Get the active document
             doc = App.ActiveDocument
+            # Get the name of the external source
             Input_SheetName = EXTERNAL_SOURCE_SHEET_NAME
             # get the spreadsheet "TitleBlock"
             sheet = doc.getObject("TitleBlock")
             # Save the name of the active document to reactivate it at the end of this function.
             LastActiveDoc = doc.Name
+            # Define the External sheet and document
             ExtSheet = None
             ff = None
 
@@ -1070,8 +1072,10 @@ def ImportDataFreeCAD():
             # Close the FreeCAD file
             App.closeDocument(ff.Name)
             # Activate the document which was active when this command started.
-            App.setActiveDocument(LastActiveDoc)
-
+            try:
+                App.setActiveDocument(LastActiveDoc)
+            except Exception:
+                pass
         else:
             Text = translate("TitleBlock Workbench", "External source is not enabled!")
             Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)

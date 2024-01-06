@@ -666,7 +666,10 @@ def ExportSettings_FreeCAD(Silent=False):
         # Close the FreeCAD file
         App.closeDocument(ff.Name)
         # Activate the document which was active when this command started.
-        App.setActiveDocument(LastActiveDoc)
+        try:
+            App.setActiveDocument(LastActiveDoc)
+        except Exception:
+            pass
     except Exception as e:
         Text = translate(
             "TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!"

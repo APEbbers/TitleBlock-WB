@@ -507,7 +507,10 @@ def ExportSpreadSheet_FreeCAD():
         # Close the FreeCAD file
         App.closeDocument(ff.Name)
         # Activate the document which was active when this command started.
-        App.setActiveDocument(LastActiveDoc)
+        try:
+            App.setActiveDocument(LastActiveDoc)
+        except Exception:
+            pass
 
         # If import settings from external source is enabled, export settings to the new excel file.
         if IMPORT_SETTINGS_XL is True:

@@ -502,6 +502,33 @@ class NewFreeCAD_class:
         return result
 
 
+class ExpandToolbar_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "Expand arrow - #1.svg",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("ExpandToolbar", "Expand toolbar"),
+            "ToolTip": QT_TRANSLATE_NOOP("ExpandToolbar", "Expand toolbar"),
+        }
+
+    def Activated(self):
+        import CreateUI
+
+        CreateUI.toggleToolbars(self)
+        return
+
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True:
+    #          result = True
+
+    #     return result
+
+
 # Add the commands to the Gui
 Gui.addCommand("FillSpreadsheet", FillSpreadsheet_Class())
 Gui.addCommand("FillTitleBlock", FillTitleBlock_Class())
@@ -517,3 +544,4 @@ Gui.addCommand("ExportSettings_FreeCAD", ExportSettings_FreeCAD_class())
 Gui.addCommand("ImportSettings_FreeCAD", ImportSettings_FreeCAD_class())
 Gui.addCommand("OpenFreeCAD", OpenFreeCAD_class())
 Gui.addCommand("NewFreeCAD", NewFreeCAD_class())
+Gui.addCommand("ExpandToolbar", ExpandToolbar_class())

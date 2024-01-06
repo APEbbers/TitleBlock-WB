@@ -71,9 +71,10 @@ class TitleBlockWB(Gui.Workbench):
         import TitleBlock_Commands  # import here all the needed files that create your FreeCAD commands
         import Settings
         from Settings import USE_EXTERNAL_SOURCE
+        from Settings import EXTERNAL_SOURCE_PATH
         from Settings import IMPORT_SETTINGS_XL
         from Settings import ADD_TOOLBAR_TECHDRAW
-        from Settings import Extenstion
+
         import CreateUI
         import TechDrawFunctions
 
@@ -82,32 +83,42 @@ class TitleBlockWB(Gui.Workbench):
 
         Gui.addLanguagePath(PATH_TRANSLATION)
 
-        if IMPORT_SETTINGS_XL is True and Extenstion.lower() == ".xlsx":
+        if IMPORT_SETTINGS_XL is True and EXTERNAL_SOURCE_PATH.lower() == ".xlsx":
             Settings.ImportSettings_XL()
-        if IMPORT_SETTINGS_XL is True and Extenstion.lower() == ".fcstd":
+        if IMPORT_SETTINGS_XL is True and EXTERNAL_SOURCE_PATH.lower() == ".fcstd":
             Settings.ImportSettings_FreeCAD()
         if USE_EXTERNAL_SOURCE is True:
+            if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd") is False:
+                ToolbarListMain = self.list = [
+                    "Separator",
+                    "ImportExcel",
+                    "FillTitleBlock",
+                ]
+                ToolbarListExtra = self.list = [
+                    "Separator",
+                    "OpenExcel",
+                    "NewExcel",
+                    "Separator",
+                    "FillSpreadsheet",
+                    "Separator",
+                    "ExportSpreadSheet_Excel",
+                    "Separator",
+                    "ExportSettings_Excel",
+                    "ImportSettings_Excel",
+                    "Separator",
+                ]
+        if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd") is True:
             ToolbarListMain = self.list = [
                 "Separator",
-                "ImportExcel",
-                "FillTitleBlock",
-                "Separator",
                 "ImportFreeCAD",
+                "FillTitleBlock",
             ]
             ToolbarListExtra = self.list = [
-                "Separator",
-                "OpenExcel",
-                "NewExcel",
                 "Separator",
                 "OpenFreeCAD",
                 "NewFreeCAD",
                 "Separator",
                 "FillSpreadsheet",
-                "Separator",
-                "ExportSpreadSheet_Excel",
-                "Separator",
-                "ExportSettings_Excel",
-                "ImportSettings_Excel",
                 "Separator",
                 "ExportSpreadSheet_FreeCAD",
                 "ExportSettings_FreeCAD",
@@ -121,6 +132,7 @@ class TitleBlockWB(Gui.Workbench):
                 "FillTitleBlock",
                 "Separator",
                 "ImportFreeCAD",
+                "ExpandToolbar",
             ]  # a list of command names created in the line above
             ToolbarListExtra = self.list = [
                 "Separator",

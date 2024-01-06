@@ -15,6 +15,7 @@
         <file>Resources/Icons/OpenFreeCAD.svg</file>
         <file>Resources/Icons/NewFreeCAD.svg</file>
         <file>Resources/Icons/ImportSettings_FreeCAD.svg</file>
-        <file>Resources/Icons/ExportSettings_FreeCAD.svg</file> 
+        <file>Resources/Icons/ExportSettings_FreeCAD.svg</file>
+        <file>Resources/Icons/Expand arrow - #1.svg</file>
     </qresource>
 </RCC>

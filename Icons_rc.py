@@ -15609,6 +15609,189 @@ ccccccc\x22\x0a       \
 ctor-curvature=\x22\
 0\x22 /></g></g></s\
 vg>\x0a\
+\x00\x00\x0bF\
+<\
+?xml version=\x221.\
+0\x22 encoding=\x22UTF\
+-8\x22 standalone=\x22\
+no\x22?>\x0a<!-- Creat\
+ed with Inkscape\
+ (http://www.ink\
+scape.org/) -->\x0a\
+\x0a<svg\x0a   width=\x22\
+64\x22\x0a   height=\x226\
+4\x22\x0a   viewBox=\x220\
+ 0 16.933333 16.\
+933333\x22\x0a   versi\
+on=\x221.1\x22\x0a   id=\x22\
+svg1\x22\x0a   inkscap\
+e:version=\x221.3 (\
+0e150ed6c4, 2023\
+-07-21)\x22\x0a   sodi\
+podi:docname=\x22Ex\
+pand arrow - #1.\
+svg\x22\x0a   xmlns:in\
+kscape=\x22http://w\
+ww.inkscape.org/\
+namespaces/inksc\
+ape\x22\x0a   xmlns:so\
+dipodi=\x22http://s\
+odipodi.sourcefo\
+rge.net/DTD/sodi\
+podi-0.dtd\x22\x0a   x\
+mlns:xlink=\x22http\
+://www.w3.org/19\
+99/xlink\x22\x0a   xml\
+ns=\x22http://www.w\
+3.org/2000/svg\x22\x0a\
+   xmlns:svg=\x22ht\
+tp://www.w3.org/\
+2000/svg\x22>\x0a  <so\
+dipodi:namedview\
+\x0a     id=\x22namedv\
+iew1\x22\x0a     pagec\
+olor=\x22#505050\x22\x0a \
+    bordercolor=\
+\x22#eeeeee\x22\x0a     b\
+orderopacity=\x221\x22\
+\x0a     inkscape:s\
+howpageshadow=\x220\
+\x22\x0a     inkscape:\
+pageopacity=\x220\x22\x0a\
+     inkscape:pa\
+gecheckerboard=\x22\
+false\x22\x0a     inks\
+cape:deskcolor=\x22\
+#505050\x22\x0a     in\
+kscape:document-\
+units=\x22px\x22\x0a     \
+showgrid=\x22true\x22\x0a\
+     inkscape:zo\
+om=\x2216.265625\x22\x0a \
+    inkscape:cx=\
+\x2232.03074\x22\x0a     \
+inkscape:cy=\x2231.\
+96926\x22\x0a     inks\
+cape:window-widt\
+h=\x222292\x22\x0a     in\
+kscape:window-he\
+ight=\x221360\x22\x0a    \
+ inkscape:window\
+-x=\x221139\x22\x0a     i\
+nkscape:window-y\
+=\x220\x22\x0a     inksca\
+pe:window-maximi\
+zed=\x220\x22\x0a     ink\
+scape:current-la\
+yer=\x22layer1\x22>\x0a  \
+  <inkscape:grid\
+\x0a       id=\x22grid\
+1\x22\x0a       units=\
+\x22px\x22\x0a       orig\
+inx=\x220\x22\x0a       o\
+riginy=\x220\x22\x0a     \
+  spacingx=\x220.26\
+458333\x22\x0a       s\
+pacingy=\x220.26458\
+333\x22\x0a       empc\
+olor=\x22#0099e5\x22\x0a \
+      empopacity\
+=\x220.30196078\x22\x0a  \
+     color=\x22#009\
+9e5\x22\x0a       opac\
+ity=\x220.14901961\x22\
+\x0a       empspaci\
+ng=\x225\x22\x0a       do\
+tted=\x22false\x22\x0a   \
+    gridanglex=\x22\
+30\x22\x0a       grida\
+nglez=\x2230\x22\x0a     \
+  visible=\x22true\x22\
+ />\x0a  </sodipodi\
+:namedview>\x0a  <d\
+efs\x0a     id=\x22def\
+s1\x22>\x0a    <linear\
+Gradient\x0a       \
+id=\x22swatch1\x22\x0a   \
+    inkscape:swa\
+tch=\x22solid\x22>\x0a   \
+   <stop\x0a       \
+  style=\x22stop-co\
+lor:#2e2e2e;stop\
+-opacity:1;\x22\x0a   \
+      offset=\x220\x22\
+\x0a         id=\x22st\
+op1\x22 />\x0a    </li\
+nearGradient>\x0a  \
+  <linearGradien\
+t\x0a       inkscap\
+e:collect=\x22alway\
+s\x22\x0a       xlink:\
+href=\x22#swatch1\x22\x0a\
+       id=\x22linea\
+rGradient1\x22\x0a    \
+   x1=\x221.3229166\
+\x22\x0a       y1=\x228.5\
+989578\x22\x0a       x\
+2=\x227.9374996\x22\x0a  \
+     y2=\x228.59895\
+78\x22\x0a       gradi\
+entUnits=\x22userSp\
+aceOnUse\x22 />\x0a   \
+ <linearGradient\
+\x0a       inkscape\
+:collect=\x22always\
+\x22\x0a       xlink:h\
+ref=\x22#swatch1\x22\x0a \
+      id=\x22linear\
+Gradient2\x22\x0a     \
+  gradientUnits=\
+\x22userSpaceOnUse\x22\
+\x0a       x1=\x221.32\
+29166\x22\x0a       y1\
+=\x228.5989578\x22\x0a   \
+    x2=\x227.937499\
+6\x22\x0a       y2=\x228.\
+5989578\x22\x0a       \
+gradientTransfor\
+m=\x22translate(7.9\
+374999)\x22 />\x0a  </\
+defs>\x0a  <g\x0a     \
+inkscape:label=\x22\
+Layer 1\x22\x0a     in\
+kscape:groupmode\
+=\x22layer\x22\x0a     id\
+=\x22layer1\x22>\x0a    <\
+path\x0a       styl\
+e=\x22fill:none;fil\
+l-rule:evenodd;s\
+troke-width:0.26\
+4583;paint-order\
+:markers fill st\
+roke;stroke:url(\
+#linearGradient1\
+)\x22\x0a       d=\x22m 1\
+.3229166,1.32291\
+66 6.614583,6.61\
+4583 -6.614583,7\
+.9374994\x22\x0a      \
+ id=\x22path1\x22 />\x0a \
+   <path\x0a       \
+style=\x22fill:none\
+;fill-rule:eveno\
+dd;stroke:url(#l\
+inearGradient2);\
+stroke-width:0.2\
+64583;paint-orde\
+r:markers fill s\
+troke\x22\x0a       d=\
+\x22M 9.2604165,1.3\
+229166 15.874999\
+,7.9374996 9.260\
+4165,15.874999\x22\x0a\
+       id=\x22path1\
+-6\x22 />\x0a  </g>\x0a</\
+svg>\x0a\
 \x00\x00\x14\x8c\
 \x00\
 \x00c\x04x\xda\xed\x5c\xd9r\xdbH\x96}\xf7W`\
@@ -16347,6 +16530,11 @@ qt_resource_name = b"\
 \x00E\
 \x00x\x00p\x00o\x00r\x00t\x00S\x00e\x00t\x00t\x00i\x00n\x00g\x00s\x00_\x00F\x00r\
 \x00e\x00e\x00C\x00A\x00D\x00.\x00s\x00v\x00g\
+\x00\x15\
+\x0b^\x82\xa7\
+\x00E\
+\x00x\x00p\x00a\x00n\x00d\x00 \x00a\x00r\x00r\x00o\x00w\x00 \x00-\x00 \x00#\x001\
+\x00.\x00s\x00v\x00g\
 \x00\x13\
 \x0e\xa4B\x87\
 \x00F\
@@ -16364,7 +16552,7 @@ qt_resource_struct = b"\
 \x00\x00\x00\x00\x00\x00\x00\x00\
 \x00\x00\x00\x00\x00\x02\x00\x00\x00\x01\x00\x00\x00\x02\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x00\x18\x00\x02\x00\x00\x00\x10\x00\x00\x00\x03\
+\x00\x00\x00\x18\x00\x02\x00\x00\x00\x11\x00\x00\x00\x03\
 \x00\x00\x00\x00\x00\x00\x00\x00\
 \x00\x00\x00\xb0\x00\x00\x00\x00\x00\x01\x00\x00\xed|\
 \x00\x00\x01\x8c\xa65\xdc\xc8\
@@ -16388,13 +16576,15 @@ qt_resource_struct = b"\
 \x00\x00\x01\x8crk\xf5X\
 \x00\x00\x00\xf2\x00\x00\x00\x00\x00\x01\x00\x01\x964\
 \x00\x00\x01\x8crk\xf5X\
-\x00\x00\x02\xac\x00\x01\x00\x00\x00\x01\x00\x03\xe1\xba\
+\x00\x00\x02\xdc\x00\x01\x00\x00\x00\x01\x00\x03\xed\x04\
 \x00\x00\x01\x8b|\xc9\xd18\
+\x00\x00\x02\x80\x00\x00\x00\x00\x00\x01\x00\x03\xcd*\
+\x00\x00\x01\x8c\xd9\xc7\x9c\x02\
 \x00\x00\x02F\x00\x00\x00\x00\x00\x01\x00\x03\x92q\
 \x00\x00\x01\x8c\xd9\x0e\x98\x1a\
 \x00\x00\x01\x88\x00\x01\x00\x00\x00\x01\x00\x03,\x82\
 \x00\x00\x01\x8c\xd9\x16\xd1\x7f\
-\x00\x00\x02\x80\x00\x01\x00\x00\x00\x01\x00\x03\xcd*\
+\x00\x00\x02\xb0\x00\x01\x00\x00\x00\x01\x00\x03\xd8t\
 \x00\x00\x01\x8b|\xc2\x99\x90\
 \x00\x00\x00\xce\x00\x01\x00\x00\x00\x01\x00\x01|J\
 \x00\x00\x01\x8c\xd9\x18b9\

@@ -74,7 +74,6 @@ class TitleBlockWB(Gui.Workbench):
         from Settings import EXTERNAL_SOURCE_PATH
         from Settings import IMPORT_SETTINGS_XL
         from Settings import ADD_TOOLBAR_TECHDRAW
-
         import CreateUI
         import TechDrawFunctions
 
@@ -83,78 +82,15 @@ class TitleBlockWB(Gui.Workbench):
 
         Gui.addLanguagePath(PATH_TRANSLATION)
 
+        # import the settings with the correct function based on the extension
         if IMPORT_SETTINGS_XL is True and EXTERNAL_SOURCE_PATH.lower() == ".xlsx":
             Settings.ImportSettings_XL()
         if IMPORT_SETTINGS_XL is True and EXTERNAL_SOURCE_PATH.lower() == ".fcstd":
             Settings.ImportSettings_FreeCAD()
-        if USE_EXTERNAL_SOURCE is True:
-            if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd") is False:
-                ToolbarListMain = self.list = [
-                    "Separator",
-                    "ImportExcel",
-                    "FillTitleBlock",
-                ]
-                ToolbarListExtra = self.list = [
-                    "Separator",
-                    "OpenExcel",
-                    "NewExcel",
-                    "Separator",
-                    "FillSpreadsheet",
-                    "Separator",
-                    "ExportSpreadSheet_Excel",
-                    "Separator",
-                    "ExportSettings_Excel",
-                    "ImportSettings_Excel",
-                    "Separator",
-                ]
-        if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd") is True:
-            ToolbarListMain = self.list = [
-                "Separator",
-                "ImportFreeCAD",
-                "FillTitleBlock",
-                "ExpandToolbar",
-            ]
-            ToolbarListExtra = self.list = [
-                "Separator",
-                "OpenFreeCAD",
-                "NewFreeCAD",
-                "Separator",
-                "FillSpreadsheet",
-                "Separator",
-                "ExportSpreadSheet_FreeCAD",
-                "ExportSettings_FreeCAD",
-                "ImportSettings_FreeCAD",
-                "Separator",
-            ]
-        if USE_EXTERNAL_SOURCE is False:
-            ToolbarListMain = self.list = [
-                "Separator",
-                "FillSpreadsheet",
-                "FillTitleBlock",
-                "Separator",
-                "ImportFreeCAD",
-                "ExpandToolbar",
-            ]  # a list of command names created in the line above
-            ToolbarListExtra = self.list = [
-                "Separator",
-                "OpenExcel",
-                "NewExcel",
-                "Separator",
-                "OpenFreeCAD",
-                "NewFreeCAD",
-                "Separator",
-                "ImportExcel",
-                "Separator",
-                "ExportSpreadSheet_Excel",
-                "Separator",
-                "ExportSettings_Excel",
-                "ImportSettings_Excel",
-                "Separator",
-                "ExportSpreadSheet_FreeCAD",
-                "ExportSettings_FreeCAD",
-                "ImportSettings_FreeCAD",
-                "Separator",
-            ]
+
+        # region - Create toolbars
+        ToolbarListMain = CreateUI.DefineToolbars()[0]
+        ToolbarListExtra = CreateUI.DefineToolbars()[1]
         self.appendToolbar(
             QT_TRANSLATE_NOOP("Workbench", "TitleBlock"), ToolbarListMain
         )  # creates a new toolbar with your commands
@@ -162,29 +98,13 @@ class TitleBlockWB(Gui.Workbench):
             QT_TRANSLATE_NOOP("Workbench", "TitleBlock extra"), ToolbarListExtra
         )  # creates a new toolbar with your commands
 
-        StandardList = self.list = [
-            "FillTitleBlock",
-            "FillSpreadsheet",
-        ]
-        ExcelList = self.list = [
-            "NewExcel",
-            "ExportSpreadSheet_Excel",
-            "ImportExcel",
-            "OpenExcel",
-        ]
-        FreeCADList = self.list = [
-            "Separator",
-            "NewFreeCAD",
-            "ExportSpreadSheet_FreeCAD",
-            "ImportFreeCAD",
-            "OpenFreeCAD",
-        ]
-        SettingsList = self.list = [
-            "ExportSettings_Excel",
-            "ImportSettings_Excel",
-            "ExportSettings_FreeCAD",
-            "ImportSettings_FreeCAD",
-        ]
+        # endregion
+
+        # region - Create menus
+        StandardList = CreateUI.DefineMenus()["StandardList"]
+        ExcelList = CreateUI.DefineMenus()["ExcelList"]
+        FreeCADList = CreateUI.DefineMenus()["FreeCADList"]
+        SettingsList = CreateUI.DefineMenus()["SettingsList"]
         self.appendMenu(
             QT_TRANSLATE_NOOP("Workbench", "TitleBlock"),
             StandardList,
@@ -198,14 +118,21 @@ class TitleBlockWB(Gui.Workbench):
         self.appendMenu(
             QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "Settings"]), SettingsList
         )
+        # endregion
 
+        # region - Create toolbar for TechDraw workbench
         if ADD_TOOLBAR_TECHDRAW is True:
             CreateUI.CreateTechDrawToolbar()
         if ADD_TOOLBAR_TECHDRAW is False:
             CreateUI.RemoveTechDrawToolbar()
+        # endregion
 
+        # region set the templates for the TechDraw workbench
         TechDrawFunctions.ImportTemplates()
         TechDrawFunctions.SetDefaultTemplate()
+        # endregion
+
+        return
 
     def Activated(self):
         """This function is executed whenever the workbench is activated"""

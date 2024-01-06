@@ -37,6 +37,102 @@ import Standard_Functions_TitleBlock as Standard_Functions
 translate = App.Qt.translate
 
 
+def DefineToolbars():
+    if USE_EXTERNAL_SOURCE is True:
+        if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd") is False:
+            ToolbarListMain = [
+                "Separator",
+                "ImportExcel",
+                "FillTitleBlock",
+                "ExpandToolbar",
+            ]
+            ToolbarListExtra = [
+                "OpenExcel",
+                "NewExcel",
+                "Separator",
+                "FillSpreadsheet",
+                "Separator",
+                "ExportSpreadSheet_Excel",
+                "Separator",
+                "ExportSettings_Excel",
+                "ImportSettings_Excel",
+            ]
+        if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd") is True:
+            ToolbarListMain = [
+                "Separator",
+                "ImportFreeCAD",
+                "FillTitleBlock",
+                "ExpandToolbar",
+            ]
+            ToolbarListExtra = [
+                "OpenFreeCAD",
+                "NewFreeCAD",
+                "Separator",
+                "FillSpreadsheet",
+                "Separator",
+                "ExportSpreadSheet_FreeCAD",
+                "ExportSettings_FreeCAD",
+                "ImportSettings_FreeCAD",
+            ]
+        if USE_EXTERNAL_SOURCE is False:
+            ToolbarListMain = [
+                "Separator",
+                "FillSpreadsheet",
+                "FillTitleBlock",
+                "ExpandToolbar",
+            ]  # a list of command names created in the line above
+            ToolbarListExtra = [
+                "OpenExcel",
+                "NewExcel",
+                "Separator",
+                "OpenFreeCAD",
+                "NewFreeCAD",
+                "Separator",
+                "ImportExcel",
+                "Separator",
+                "ExportSpreadSheet_Excel",
+                "Separator",
+                "ExportSettings_Excel",
+                "ImportSettings_Excel",
+                "Separator",
+                "ExportSpreadSheet_FreeCAD",
+                "ExportSettings_FreeCAD",
+                "ImportSettings_FreeCAD",
+            ]
+        result = {"ToolbarListMain": ToolbarListMain, "ToolbarListExtra": ToolbarListExtra}
+    return result
+
+
+def DefineMenus():
+    StandardList = [
+        "FillTitleBlock",
+        "FillSpreadsheet",
+    ]
+    ExcelList = [
+        "NewExcel",
+        "ExportSpreadSheet_Excel",
+        "ImportExcel",
+        "OpenExcel",
+    ]
+    FreeCADList = [
+        "Separator",
+        "NewFreeCAD",
+        "ExportSpreadSheet_FreeCAD",
+        "ImportFreeCAD",
+        "OpenFreeCAD",
+    ]
+    SettingsList = [
+        "ExportSettings_Excel",
+        "ImportSettings_Excel",
+        "ExportSettings_FreeCAD",
+        "ImportSettings_FreeCAD",
+    ]
+    result = {"StandardList": StandardList, "ExcelList": ExcelList,
+              "FreeCADList": FreeCADList, SettingsList: "SettingsList"}
+
+    return result
+
+
 def QT_TRANSLATE_NOOP(context, text):
     return text
 
@@ -154,26 +250,7 @@ def get_toolbar_with_name(name: str, UserParam: str) -> bool:
 
 def toggleToolbars():
     WB = Gui.getWorkbench("TitleBlockWB")
-    ToolbarListExtra = WB.list = [
-        "Separator",
-        "OpenExcel",
-        "NewExcel",
-        "Separator",
-        "OpenFreeCAD",
-        "NewFreeCAD",
-        "Separator",
-        "ImportExcel",
-        "Separator",
-        "ExportSpreadSheet_Excel",
-        "Separator",
-        "ExportSettings_Excel",
-        "ImportSettings_Excel",
-        "Separator",
-        "ExportSpreadSheet_FreeCAD",
-        "ExportSettings_FreeCAD",
-        "ImportSettings_FreeCAD",
-        "Separator",
-    ]
+    ToolbarListExtra = DefineToolbars()["ToolbarListExtra"]
 
     ListToolbars = WB.listToolbars()
     ToolbarExists = False

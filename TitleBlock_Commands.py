@@ -505,7 +505,7 @@ class NewFreeCAD_class:
 class ExpandToolbar_class:
     def GetResources(self):
         return {
-            "Pixmap": "Expand arrow - #1.svg",  # the name of a svg file available in the resources
+            "Pixmap": "Expand Dots - #1.svg",  # the name of a svg file available in the resources
             "MenuText": QT_TRANSLATE_NOOP("ExpandToolbar", "Expand toolbar"),
             "ToolTip": QT_TRANSLATE_NOOP("ExpandToolbar", "Expand toolbar"),
         }

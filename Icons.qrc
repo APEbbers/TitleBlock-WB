@@ -18,5 +18,6 @@
         <file>Resources/Icons/ExportSettings_FreeCAD.svg</file>
         <file>Resources/Icons/Expand arrow - #1.svg</file>
         <file>Resources/Icons/Expand arrow - #2.svg</file>
+        <file>Resources/Icons/Expand Dots - #1.svg</file>
     </qresource>
 </RCC>

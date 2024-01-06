@@ -398,16 +398,16 @@ class OpenExcel_class:
             Standard_Functions.Print("Not an excel file!!", "Error")
         return
 
-    def IsActive(self):
-        """Here you can define if the command must be active or not (greyed) if certain conditions
-        are met or not. This function is optional."""
-        from Settings import USE_EXTERNAL_SOURCE
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+    #     from Settings import USE_EXTERNAL_SOURCE
 
-        # Set the default state
-        result = False
-        # Check if the use of an external source is enabeled and if it is used for importing the settings
-        if USE_EXTERNAL_SOURCE is True:
-            result = True
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True:
+    #         result = True
 
         return result
 
@@ -432,18 +432,18 @@ class OpenFreeCAD_class:
             Standard_Functions.Print("Not an FreeCAD file!!", "Error")
         return
 
-    def IsActive(self):
-        """Here you can define if the command must be active or not (greyed) if certain conditions
-        are met or not. This function is optional."""
-        from Settings import USE_EXTERNAL_SOURCE
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+    #     from Settings import USE_EXTERNAL_SOURCE
 
-        # Set the default state
-        result = False
-        # Check if the use of an external source is enabeled and if it is used for importing the settings
-        if USE_EXTERNAL_SOURCE is True:
-            result = True
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True:
+    #         result = True
 
-        return result
+    #     return result
 
 
 class NewExcel_class:
@@ -460,18 +460,18 @@ class NewExcel_class:
         CreateNewFile.createExcel()
         return
 
-    def IsActive(self):
-        """Here you can define if the command must be active or not (greyed) if certain conditions
-        are met or not. This function is optional."""
-        from Settings import USE_EXTERNAL_SOURCE
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+    #     from Settings import USE_EXTERNAL_SOURCE
 
-        # Set the default state
-        result = False
-        # Check if the use of an external source is enabeled and if it is used for importing the settings
-        if USE_EXTERNAL_SOURCE is True:
-            result = True
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True:
+    #         result = True
 
-        return result
+    #     return result
 
 
 class NewFreeCAD_class:
@@ -488,18 +488,18 @@ class NewFreeCAD_class:
         CreateNewFile.CreateFreeCAD()
         return
 
-    def IsActive(self):
-        """Here you can define if the command must be active or not (greyed) if certain conditions
-        are met or not. This function is optional."""
-        from Settings import USE_EXTERNAL_SOURCE
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+    #     from Settings import USE_EXTERNAL_SOURCE
 
-        # Set the default state
-        result = False
-        # Check if the use of an external source is enabeled and if it is used for importing the settings
-        if USE_EXTERNAL_SOURCE is True:
-            result = True
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True:
+    #         result = True
 
-        return result
+    #     return result
 
 
 class ExpandToolbar_class:

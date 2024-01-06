@@ -89,8 +89,8 @@ class TitleBlockWB(Gui.Workbench):
             Settings.ImportSettings_FreeCAD()
 
         # region - Create toolbars
-        ToolbarListMain = CreateUI.DefineToolbars()("ToolbarListMain")
-        ToolbarListExtra = CreateUI.DefineToolbars()("ToolbarListExtra")
+        ToolbarListMain = CreateUI.DefineToolbars()["ToolbarListMain"]
+        ToolbarListExtra = CreateUI.DefineToolbars()["ToolbarListExtra"]
         self.appendToolbar(
             QT_TRANSLATE_NOOP("Workbench", "TitleBlock"), ToolbarListMain
         )  # creates a new toolbar with your commands

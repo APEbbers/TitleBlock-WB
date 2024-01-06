@@ -99,7 +99,9 @@ def DefineToolbars():
                 "ExportSettings_FreeCAD",
                 "ImportSettings_FreeCAD",
             ]
-        result = {"ToolbarListMain": ToolbarListMain, "ToolbarListExtra": ToolbarListExtra}
+
+    result = {"ToolbarListMain": ToolbarListMain, "ToolbarListExtra": ToolbarListExtra}
+
     return result
 
 

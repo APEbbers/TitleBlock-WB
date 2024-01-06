@@ -338,7 +338,7 @@ def ExportSettings_FreeCAD(Silent=False):
                 Filter = [
                     ("FreeCAD", "*.FCStd"),
                 ]
-                FileName = Standard_Functions.GetFileDialog(Filter)
+                FileName = Standard_Functions.GetFileDialog(Filter, False)
                 if FileName is not None or FileName != "":
                     ff = App.openDocument(FileName, True)
                 else:
@@ -709,7 +709,7 @@ def ImportSettings_FreeCAD():
         Filter = [
             ("Excel", "*.xlsx"),
         ]
-        FileName = Standard_Functions.GetFileDialog(files=Filter)
+        FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=False)
         if FileName is not None or FileName != "":
             ff = App.openDocument(FileName, True)
         else:
@@ -1009,7 +1009,7 @@ def ExportSettings_XL(Silent=False):
                 Filter = [
                     ("Excel", "*.xlsx"),
                 ]
-                FileName = Standard_Functions.GetFileDialog(Filter)
+                FileName = Standard_Functions.GetFileDialog(Filter, False)
                 if FileName is not None or FileName != "":
                     wb = load_workbook(FileName)
                 else:
@@ -1464,7 +1464,7 @@ def ImportSettings_XL():
             Filter = [
                 ("Excel", "*.xlsx"),
             ]
-            FileName = Standard_Functions.GetFileDialog(files=Filter)
+            FileName = Standard_Functions.GetFileDialog(Filter, False)
             if FileName is not None or FileName != "":
                 wb = load_workbook(str(FileName), read_only=True)
             else:

@@ -98,7 +98,7 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
         return str(replyText)
 
 
-def GetFileDialog(files, OverWrite: bool = True):
+def GetFileDialog(files, SaveAs: bool = True):
     """
     files must be like:\n
     files = [\n
@@ -107,7 +107,7 @@ def GetFileDialog(files, OverWrite: bool = True):
         ('Text Document', '*.txt')\n
     ]\n
     \n
-    OverWrite:\n
+    SaveAs:\n
     If True,  as SaveAs dialog will open and the file will be overwritten\n
     If False, an OpenFile dialog will be open and the file will be opened.\n
     """
@@ -120,11 +120,11 @@ def GetFileDialog(files, OverWrite: bool = True):
     # Hide the window
     root.withdraw()
 
-    if OverWrite is True:
+    if SaveAs is True:
         file = asksaveasfile(filetypes=files, defaultextension=files)
         if file is not None:
             return file.name
-    if OverWrite is False:
+    if SaveAs is False:
         file = askopenfilename(filetypes=files, defaultextension=files)
         if file is not None:
             return file

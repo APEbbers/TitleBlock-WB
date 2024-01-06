@@ -986,7 +986,7 @@ def ImportDataFreeCAD():
 
             # import the headers from the excelsheet into the spreadsheet
             print(f"{sheet.Name}, {ExtSheet.Name}")
-            doc.assObject(ExtSheet)
+            doc.addObject(ExtSheet)
             # sheet.set("A1", str(ExtSheet[str(StartColumn) + str(StartRow)].value))
             # sheet.set("B1", str(ExtSheet[str(Column2) + str(StartRow)].value))
             # sheet.set("C1", str(ExtSheet[str(Column3) + str(StartRow)].value))

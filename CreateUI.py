@@ -76,31 +76,31 @@ def DefineToolbars():
                 "ExportSettings_FreeCAD",
                 "ImportSettings_FreeCAD",
             ]
-        if USE_EXTERNAL_SOURCE is False:
-            ToolbarListMain = [
-                "Separator",
-                "FillSpreadsheet",
-                "FillTitleBlock",
-                "ExpandToolbar",
-            ]  # a list of command names created in the line above
-            ToolbarListExtra = [
-                "OpenExcel",
-                "NewExcel",
-                "Separator",
-                "OpenFreeCAD",
-                "NewFreeCAD",
-                "Separator",
-                "ImportExcel",
-                "Separator",
-                "ExportSpreadSheet_Excel",
-                "Separator",
-                "ExportSettings_Excel",
-                "ImportSettings_Excel",
-                "Separator",
-                "ExportSpreadSheet_FreeCAD",
-                "ExportSettings_FreeCAD",
-                "ImportSettings_FreeCAD",
-            ]
+    if USE_EXTERNAL_SOURCE is False:
+        ToolbarListMain = [
+            "Separator",
+            "FillSpreadsheet",
+            "FillTitleBlock",
+            "ExpandToolbar",
+        ]  # a list of command names created in the line above
+        ToolbarListExtra = [
+            "OpenExcel",
+            "NewExcel",
+            "Separator",
+            "OpenFreeCAD",
+            "NewFreeCAD",
+            "Separator",
+            "ImportExcel",
+            "Separator",
+            "ExportSpreadSheet_Excel",
+            "Separator",
+            "ExportSettings_Excel",
+            "ImportSettings_Excel",
+            "Separator",
+            "ExportSpreadSheet_FreeCAD",
+            "ExportSettings_FreeCAD",
+            "ImportSettings_FreeCAD",
+        ]
 
     result = {"ToolbarListMain": ToolbarListMain, "ToolbarListExtra": ToolbarListExtra}
 

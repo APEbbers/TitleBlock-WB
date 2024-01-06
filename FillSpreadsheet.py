@@ -998,7 +998,7 @@ def ImportDataFreeCAD():
                 RowNumber = int(StartRow) + i + 1
 
                 # check if you reached the end of the data.
-                if ExtSheet[str(StartColumn) + str(RowNumber)].value is None:
+                if ExtSheet.getContents(str(StartColumn) + str(RowNumber)) is None:
                     break
 
                 # Get the number of row difference between the start row in the excelsheet

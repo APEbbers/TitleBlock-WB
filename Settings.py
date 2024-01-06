@@ -334,9 +334,12 @@ def ExportSettings_FreeCAD(Silent=False):
         # If the user wants to export the settins, start an input dialog.
         if Silent is False:
             if USE_EXTERNAL_SOURCE is False:
-                result = Standard_Functions.SaveDialog(("FreeCAD", "*.FCStd"), True)
-                if result is not None or result != "":
-                    EXTERNAL_SOURCE_PATH = result
+                Filter = [
+                    ("FreeCAD", "*.FCStd"),
+                ]
+                FileName = Standard_Functions.SaveDialog(Filter)
+                if FileName is not None or FileName != "":
+                    EXTERNAL_SOURCE_PATH = FileName
 
             # load the excel file with the custom function
             if (
@@ -1266,6 +1269,14 @@ def ExportSettings_XL(Silent=False):
         # region -- Get the workbook, create a new sheet and set the startcell (top left cell of table).
         # If the user wants to export the settins, start an input dialog.
         if Silent is False:
+            if USE_EXTERNAL_SOURCE is False:
+                Filter = [
+                    ("Excel", "*.xlsx"),
+                ]
+                FileName = Standard_Functions.SaveDialog(Filter)
+                if FileName is not None or FileName != "":
+                    EXTERNAL_SOURCE_PATH = FileName
+
             # load the excel file with the custm function
             if (
                 Standard_Functions.CheckIfWorkbookExists(EXTERNAL_SOURCE_PATH, True)

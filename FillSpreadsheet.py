@@ -1009,31 +1009,31 @@ def ImportDataFreeCAD():
                 # Fill the property name
                 sheet.set(
                     str("A" + str(RowNumber - Delta)),
-                    str(ExtSheet[str(StartColumn) + str(RowNumber)].value),
+                    str(ExtSheet.getContents(str(StartColumn) + str(RowNumber))),
                 )
                 # Fill the property value
                 if ExtSheet[Column2 + str(RowNumber)].value is not None:
                     sheet.set(
                         str("B" + str(RowNumber - Delta)),
-                        str(ExtSheet[Column2 + str(RowNumber)].value),
+                        str(ExtSheet.getContents(Column2 + str(RowNumber))),
                     )
                 # Fill the value for auto increasement(yes or no)
                 if ExtSheet[Column3 + str(RowNumber)].value is not None:
                     sheet.set(
                         str("C" + str(RowNumber - Delta)),
-                        str(ExtSheet[Column3 + str(RowNumber)].value),
+                        str(ExtSheet.getContents(Column3 + str(RowNumber))),
                     )
                 # Fill the multipliers
                 if ExtSheet[Column4 + str(RowNumber)].value is not None:
                     sheet.set(
                         str("D" + str(RowNumber - Delta)),
-                        str(ExtSheet[Column4 + str(RowNumber)].value),
+                        str(ExtSheet.getContents(Column4 + str(RowNumber))),
                     )
                 # Fill the remarks
                 if ExtSheet[Column5 + str(RowNumber)].value is not None:
                     sheet.set(
                         str("E" + str(RowNumber - Delta)),
-                        str(ExtSheet[Column4 + str(RowNumber)].value),
+                        str(ExtSheet.getContents(Column4 + str(RowNumber))),
                     )
 
             # Finally recompute the spreadsheet

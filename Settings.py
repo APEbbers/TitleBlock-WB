@@ -736,7 +736,7 @@ def ImportSettings_FreeCAD():
         # Get the columns
         FirstColumn = int(Standard_Functions.GetNumberFromLetter(StartCell[:1]))
         SecondColumn = Standard_Functions.GetLetterFromNumber(FirstColumn + 1)
-        FirstColumn = Standard_Functions.GetLetterFromNumber(FirstColumn)
+        FirstColumn = StartCell[:1]
 
         # go through the excel until all settings are imported.
         counter = 0

@@ -112,6 +112,7 @@ class TitleBlockWB(Gui.Workbench):
                 "Separator",
                 "ImportFreeCAD",
                 "FillTitleBlock",
+                "ExpandToolbar",
             ]
             ToolbarListExtra = self.list = [
                 "Separator",

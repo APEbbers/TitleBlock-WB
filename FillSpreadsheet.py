@@ -872,10 +872,13 @@ def ImportDataFreeCAD():
     try:
         # Check if it is allowed to use an external source and if so, continue
         if USE_EXTERNAL_SOURCE is True:
+            # Get the active document
             doc = App.ActiveDocument
             Input_SheetName = EXTERNAL_SOURCE_SHEET_NAME
             # get the spreadsheet "TitleBlock"
             sheet = doc.getObject("TitleBlock")
+            # Save the name of the active document to reactivate it at the end of this function.
+            LastActiveDoc = doc.Name
             ExtSheet = None
             ff = None
 
@@ -1060,11 +1063,14 @@ def ImportDataFreeCAD():
                 extraRows = extraRows + 1
             FormatTable(sheet=sheet, Endrow=RowNumber + extraRows - 1)
 
-            # Finally recompute the spreadsheet
-            sheet.recompute()
-            App.ActiveDocument.recompute()
-
-            ff.close()
+            # recompute the document
+            ff.recompute(None, True, True)
+            # Save the workbook
+            ff.save()
+            # Close the FreeCAD file
+            App.closeDocument(ff.Name)
+            # Activate the document which was active when this command started.
+            App.setActiveDocument(LastActiveDoc)
 
         else:
             Text = translate("TitleBlock Workbench", "External source is not enabled!")

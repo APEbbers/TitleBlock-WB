@@ -267,19 +267,19 @@ class ExportSettings_Excel_class:
         Settings.ExportSettings_XL()
         return
 
-    def IsActive(self):
-        """Here you can define if the command must be active or not (greyed) if certain conditions
-        are met or not. This function is optional."""
-        from Settings import USE_EXTERNAL_SOURCE
-        from Settings import IMPORT_SETTINGS_XL
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+    #     from Settings import USE_EXTERNAL_SOURCE
+    #     from Settings import IMPORT_SETTINGS_XL
 
-        # Set the default state
-        result = False
-        # Check if the use of an external source is enabeled and if it is used for importing the settings
-        if USE_EXTERNAL_SOURCE is True and IMPORT_SETTINGS_XL is True:
-            result = True
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True and IMPORT_SETTINGS_XL is True:
+    #         result = True
 
-        return result
+    #     return result
 
 
 class ExportSettings_FreeCAD_class:
@@ -299,19 +299,19 @@ class ExportSettings_FreeCAD_class:
         Settings.ExportSettings_FreeCAD()
         return
 
-    def IsActive(self):
-        """Here you can define if the command must be active or not (greyed) if certain conditions
-        are met or not. This function is optional."""
-        from Settings import USE_EXTERNAL_SOURCE
-        from Settings import IMPORT_SETTINGS_XL
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+    #     from Settings import USE_EXTERNAL_SOURCE
+    #     from Settings import IMPORT_SETTINGS_XL
 
-        # Set the default state
-        result = False
-        # Check if the use of an external source is enabeled and if it is used for importing the settings
-        if USE_EXTERNAL_SOURCE is True and IMPORT_SETTINGS_XL is True:
-            result = True
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True and IMPORT_SETTINGS_XL is True:
+    #         result = True
 
-        return result
+    #     return result
 
 
 class ImportSettings_Excel_class:
@@ -331,19 +331,19 @@ class ImportSettings_Excel_class:
         Settings.ImportSettings_XL()
         return
 
-    def IsActive(self):
-        """Here you can define if the command must be active or not (greyed) if certain conditions
-        are met or not. This function is optional."""
-        from Settings import USE_EXTERNAL_SOURCE
-        from Settings import IMPORT_SETTINGS_XL
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+    #     from Settings import USE_EXTERNAL_SOURCE
+    #     from Settings import IMPORT_SETTINGS_XL
 
-        # Set the default state
-        result = False
-        # Check if the use of an external source is enabeled and if it is used for importing the settings
-        if USE_EXTERNAL_SOURCE is True and IMPORT_SETTINGS_XL is True:
-            result = True
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True and IMPORT_SETTINGS_XL is True:
+    #         result = True
 
-        return result
+    #     return result
 
 
 class ImportSettings_FreeCAD_class:
@@ -363,19 +363,19 @@ class ImportSettings_FreeCAD_class:
         Settings.ImportSettings_FreeCAD()
         return
 
-    def IsActive(self):
-        """Here you can define if the command must be active or not (greyed) if certain conditions
-        are met or not. This function is optional."""
-        from Settings import USE_EXTERNAL_SOURCE
-        from Settings import IMPORT_SETTINGS_XL
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+    #     from Settings import USE_EXTERNAL_SOURCE
+    #     from Settings import IMPORT_SETTINGS_XL
 
-        # Set the default state
-        result = False
-        # Check if the use of an external source is enabeled and if it is used for importing the settings
-        if USE_EXTERNAL_SOURCE is True and IMPORT_SETTINGS_XL is True:
-            result = True
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True and IMPORT_SETTINGS_XL is True:
+    #         result = True
 
-        return result
+    #     return result
 
 
 class OpenExcel_class:

@@ -740,11 +740,11 @@ def ImportSettings_FreeCAD():
 
         # go through the excel until all settings are imported.
         counter = 0
-        print(str(FirstColumn) + ", " + str(SecondColumn))
         for i in range(1, 1000):
             Cell_Name = sheet.getContents(str(FirstColumn) + str(i))
             Cell_Value = sheet.getContents(str(SecondColumn) + str(i))
 
+            print(Cell_Name + ", " + Cell_Value)
             # region -- Import the external source settings
             #
             # Import USE_EXTERNAL_SOURCE

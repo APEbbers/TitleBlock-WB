@@ -513,7 +513,7 @@ class ExpandToolbar_class:
     def Activated(self):
         import CreateUI
 
-        CreateUI.toggleToolbars(self)
+        CreateUI.toggleToolbars()
         return
 
     # def IsActive(self):

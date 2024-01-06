@@ -986,56 +986,56 @@ def ImportDataFreeCAD():
 
             # import the headers from the excelsheet into the spreadsheet
             print(f"{sheet.Name}, {ExtSheet.Name}")
-            App.setActiveDocument(doc.Name)
-            sheet.set("A1", str(ExtSheet[str(StartColumn) + str(StartRow)].value))
-            sheet.set("B1", str(ExtSheet[str(Column2) + str(StartRow)].value))
-            sheet.set("C1", str(ExtSheet[str(Column3) + str(StartRow)].value))
-            sheet.set("D1", str(ExtSheet[str(Column4) + str(StartRow)].value))
-            sheet.set("E1", str(ExtSheet[str(Column5) + str(StartRow)].value))
+            doc.assObject(ExtSheet)
+            # sheet.set("A1", str(ExtSheet[str(StartColumn) + str(StartRow)].value))
+            # sheet.set("B1", str(ExtSheet[str(Column2) + str(StartRow)].value))
+            # sheet.set("C1", str(ExtSheet[str(Column3) + str(StartRow)].value))
+            # sheet.set("D1", str(ExtSheet[str(Column4) + str(StartRow)].value))
+            # sheet.set("E1", str(ExtSheet[str(Column5) + str(StartRow)].value))
 
-            # Go through the excel until the cell in the first column is empty.
-            for i in range(1000):
-                # Define the start row. This is the Header row +1 + i as counter
-                RowNumber = int(StartRow) + i + 1
+            # # Go through the excel until the cell in the first column is empty.
+            # for i in range(1000):
+            #     # Define the start row. This is the Header row +1 + i as counter
+            #     RowNumber = int(StartRow) + i + 1
 
-                # check if you reached the end of the data.
-                if ExtSheet[str(StartColumn) + str(RowNumber)].value is None:
-                    break
+            #     # check if you reached the end of the data.
+            #     if ExtSheet[str(StartColumn) + str(RowNumber)].value is None:
+            #         break
 
-                # Get the number of row difference between the start row in the excelsheet
-                # and the first row in the spreadsheet.
-                # This to start at second row in the spreadsheet. (under the headers)
-                Delta = int(StartRow) - 1
+            #     # Get the number of row difference between the start row in the excelsheet
+            #     # and the first row in the spreadsheet.
+            #     # This to start at second row in the spreadsheet. (under the headers)
+            #     Delta = int(StartRow) - 1
 
-                # Fill the property name
-                sheet.set(
-                    str("A" + str(RowNumber - Delta)),
-                    str(ExtSheet[str(StartColumn) + str(RowNumber)].value),
-                )
-                # Fill the property value
-                if ExtSheet[Column2 + str(RowNumber)].value is not None:
-                    sheet.set(
-                        str("B" + str(RowNumber - Delta)),
-                        str(ExtSheet[Column2 + str(RowNumber)].value),
-                    )
-                # Fill the value for auto increasement(yes or no)
-                if ExtSheet[Column3 + str(RowNumber)].value is not None:
-                    sheet.set(
-                        str("C" + str(RowNumber - Delta)),
-                        str(ExtSheet[Column3 + str(RowNumber)].value),
-                    )
-                # Fill the multipliers
-                if ExtSheet[Column4 + str(RowNumber)].value is not None:
-                    sheet.set(
-                        str("D" + str(RowNumber - Delta)),
-                        str(ExtSheet[Column4 + str(RowNumber)].value),
-                    )
-                # Fill the remarks
-                if ExtSheet[Column5 + str(RowNumber)].value is not None:
-                    sheet.set(
-                        str("E" + str(RowNumber - Delta)),
-                        str(ExtSheet[Column4 + str(RowNumber)].value),
-                    )
+            #     # Fill the property name
+            #     sheet.set(
+            #         str("A" + str(RowNumber - Delta)),
+            #         str(ExtSheet[str(StartColumn) + str(RowNumber)].value),
+            #     )
+            #     # Fill the property value
+            #     if ExtSheet[Column2 + str(RowNumber)].value is not None:
+            #         sheet.set(
+            #             str("B" + str(RowNumber - Delta)),
+            #             str(ExtSheet[Column2 + str(RowNumber)].value),
+            #         )
+            #     # Fill the value for auto increasement(yes or no)
+            #     if ExtSheet[Column3 + str(RowNumber)].value is not None:
+            #         sheet.set(
+            #             str("C" + str(RowNumber - Delta)),
+            #             str(ExtSheet[Column3 + str(RowNumber)].value),
+            #         )
+            #     # Fill the multipliers
+            #     if ExtSheet[Column4 + str(RowNumber)].value is not None:
+            #         sheet.set(
+            #             str("D" + str(RowNumber - Delta)),
+            #             str(ExtSheet[Column4 + str(RowNumber)].value),
+            #         )
+            #     # Fill the remarks
+            #     if ExtSheet[Column5 + str(RowNumber)].value is not None:
+            #         sheet.set(
+            #             str("E" + str(RowNumber - Delta)),
+            #             str(ExtSheet[Column4 + str(RowNumber)].value),
+            #         )
 
             # Finally recompute the spreadsheet
             sheet.recompute()

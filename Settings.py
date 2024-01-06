@@ -341,7 +341,7 @@ def ExportSettings_FreeCAD(Silent=False):
                 FileName = Standard_Functions.GetFileDialog(Filter, False)
                 if FileName is not None or FileName != "":
                     ff = App.openDocument(FileName, True)
-                else:
+                if FileName is None or FileName == "":
                     return
             if USE_EXTERNAL_SOURCE is True:
                 if (
@@ -707,12 +707,12 @@ def ImportSettings_FreeCAD():
     ff = None
     if USE_EXTERNAL_SOURCE is False:
         Filter = [
-            ("Excel", "*.xlsx"),
+            ("FreeCAD", "*.FCStd"),
         ]
         FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=False)
         if FileName is not None or FileName != "":
             ff = App.openDocument(FileName, True)
-        else:
+        if FileName is None or FileName == "":
             return
     if USE_EXTERNAL_SOURCE is True:
         if os.path.exists(EXTERNAL_SOURCE_PATH) is True:
@@ -1012,7 +1012,7 @@ def ExportSettings_XL(Silent=False):
                 FileName = Standard_Functions.GetFileDialog(Filter, False)
                 if FileName is not None or FileName != "":
                     wb = load_workbook(FileName)
-                else:
+                if FileName is None or FileName == "":
                     return
             if USE_EXTERNAL_SOURCE is True:
                 if (
@@ -1467,7 +1467,7 @@ def ImportSettings_XL():
             FileName = Standard_Functions.GetFileDialog(Filter, False)
             if FileName is not None or FileName != "":
                 wb = load_workbook(str(FileName), read_only=True)
-            else:
+            if FileName is None or FileName == "":
                 return
         if USE_EXTERNAL_SOURCE is True:
             if os.path.exists(EXTERNAL_SOURCE_PATH) is True:

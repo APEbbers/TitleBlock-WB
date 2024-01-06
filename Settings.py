@@ -711,7 +711,7 @@ def ImportSettings_FreeCAD():
         sheet = ff.getObject(SHEETNAME_SETTINGS_XL)
         if sheet is None:
             Text = translate(
-                "TitleBlock Workbench", "No spreadsheet named 'TitleBlock'!!!"
+                "TitleBlock Workbench", f"No spreadsheet named '{SHEETNAME_SETTINGS_XL}'!!!"
             )
             Standard_Functions.Print(Input=Text, Type="Warning")
             return

@@ -124,6 +124,7 @@ def DefineMenus():
     SettingsList = [
         "ExportSettings_Excel",
         "ImportSettings_Excel",
+        "Separator",
         "ExportSettings_FreeCAD",
         "ImportSettings_FreeCAD",
     ]
@@ -256,6 +257,9 @@ def toggleToolbars():
     WB = Gui.getWorkbench("TitleBlockWB")
     ToolbarListExtra = DefineToolbars()["ToolbarListExtra"]
 
+    Icon1 = Gui.getIcon("Expand arrow - #1.svg")
+    Icon2 = Gui.getIcon("Expand arrow - #2.svg")
+
     ListToolbars = WB.listToolbars()
     ToolbarExists = False
     for i in range(len(ListToolbars)):
@@ -266,9 +270,14 @@ def toggleToolbars():
         WB.appendToolbar(
             QT_TRANSLATE_NOOP("Workbench", "TitleBlock extra"), ToolbarListExtra
         )  # creates a new toolbar with your commands
+        Icon1 = Gui.getIcon("Expand arrow - #1.svg")
+        Icon2 = Gui.getIcon("Expand arrow - #2.svg")
+        Icon1.swap(Icon2)
         WB.reloadActive()
     if ToolbarExists is True:
         WB.removeToolbar("TitleBlock extra")
+
+        Icon2.swap(Icon1)
         WB.reloadActive()
 
     return

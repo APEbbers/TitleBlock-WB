@@ -73,6 +73,7 @@ def DefineToolbars():
                 "FillSpreadsheet",
                 "Separator",
                 "ExportSpreadSheet_FreeCAD",
+                "Separator",
                 "ExportSettings_FreeCAD",
                 "ImportSettings_FreeCAD",
             ]
@@ -84,20 +85,9 @@ def DefineToolbars():
             "ExpandToolbar",
         ]  # a list of command names created in the line above
         ToolbarListExtra = [
-            "OpenExcel",
-            "NewExcel",
-            "Separator",
-            "OpenFreeCAD",
-            "NewFreeCAD",
-            "Separator",
-            "ImportExcel",
-            "Separator",
-            "ExportSpreadSheet_Excel",
-            "Separator",
             "ExportSettings_Excel",
             "ImportSettings_Excel",
             "Separator",
-            "ExportSpreadSheet_FreeCAD",
             "ExportSettings_FreeCAD",
             "ImportSettings_FreeCAD",
         ]

@@ -333,6 +333,11 @@ def ExportSettings_FreeCAD(Silent=False):
         # region -- Get the workbook, create a new sheet and set the startcell (top left cell of table).
         # If the user wants to export the settins, start an input dialog.
         if Silent is False:
+            if USE_EXTERNAL_SOURCE is False:
+                result = Standard_Functions.SaveDialog(("FreeCAD", "*.FCStd"), True)
+                if result is not None or result != "":
+                    EXTERNAL_SOURCE_PATH = result
+
             # load the excel file with the custom function
             if (
                 Standard_Functions.CheckIfFreeCADfileExists(EXTERNAL_SOURCE_PATH, True)

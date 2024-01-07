@@ -32,6 +32,8 @@ import FreeCADGui as Gui
 from Settings import USE_EXTERNAL_SOURCE
 from Settings import EXTERNAL_SOURCE_PATH
 import Standard_Functions_TitleBlock as Standard_Functions
+from PySide2.QtWidgets import QToolBar
+
 
 # Define the translation
 translate = App.Qt.translate
@@ -247,8 +249,8 @@ def get_toolbar_with_name(name: str, UserParam: str) -> bool:
     return False
 
 
-def toggleToolbars():
-    WB = Gui.getWorkbench("TitleBlockWB")
+def toggleToolbars(self):
+    WB = Gui.activeWorkbench()
     ToolbarListExtra = DefineToolbars()["ToolbarListExtra"]
 
     ListToolbars = WB.listToolbars()
@@ -257,13 +259,19 @@ def toggleToolbars():
         if ListToolbars[i] == "TitleBlock extra":
             ToolbarExists = True
 
-    if ToolbarExists is False:
-        WB.appendToolbar(
-            QT_TRANSLATE_NOOP("Workbench", "TitleBlock extra"), ToolbarListExtra
-        )  # creates a new toolbar with your commands
-        WB.reloadActive()
-    if ToolbarExists is True:
-        WB.removeToolbar("TitleBlock extra")
-        WB.reloadActive()
+    # if ToolbarExists is False:
+    #     WB.appendToolbar(
+    #         QT_TRANSLATE_NOOP("Workbench", "TitleBlock extra"), ToolbarListExtra
+    #     )  # creates a new toolbar with your commands
+    #     WB.reloadActive()
+    # if ToolbarExists is True:
+    #     WB.removeToolbar("TitleBlock extra")
+    #     WB.reloadActive()
 
+    mainWindow = Gui.getMainWindow()
+    ToolBar = mainWindow.findChild(QToolBar, "TitleBlock extra")
+    if ToolBar.isHidden() is False:
+        ToolBar.Hide()
+    if ToolBar.isHidden() is True:
+        ToolBar.Show()
     return

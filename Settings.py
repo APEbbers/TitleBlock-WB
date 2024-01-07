@@ -398,7 +398,7 @@ def ExportSettings_FreeCAD(Silent=False):
             sheet = ff.addObject("Spreadsheet::Sheet", Input_SheetName)
 
             # Set the startcell
-            StartCell = "A1"
+            StartCell = "A1"  # To be updated
 
             # Set SHEETNAME_STARTCELL_XL to the chosen sheetname
             preferences.SetString("StartCell_Settings", StartCell)
@@ -738,21 +738,21 @@ def ImportSettings_FreeCAD():
             return
 
         # Get the startcell
-        StartCell = "A1"
-        # OriginalStartCell = StartCell
-        # if ENABLE_DEBUG is True:
-        #     Text = translate(
-        #         "TitleBlock Workbench", f"The entered startcell is: {StartCell}"
-        #     )
-        #     Standard_Functions.Print(Text, "Log")
-        # if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
-        #     StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
-        #     if ENABLE_DEBUG is True:
-        #         Text = translate(
-        #             "TitleBlock Workbench",
-        #             f"TitleBlock Workbench: the startcell converted from {OriginalStartCell} to {StartCell}",
-        #         )
-        #         Standard_Functions.Print(Text, "Log")
+        StartCell = "A1"  # To be updated
+        OriginalStartCell = StartCell
+        if ENABLE_DEBUG is True:
+            Text = translate(
+                "TitleBlock Workbench", f"The entered startcell is: {StartCell}"
+            )
+            Standard_Functions.Print(Text, "Log")
+        if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
+            StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
+            if ENABLE_DEBUG is True:
+                Text = translate(
+                    "TitleBlock Workbench",
+                    f"TitleBlock Workbench: the startcell converted from {OriginalStartCell} to {StartCell}",
+                )
+                Standard_Functions.Print(Text, "Log")
 
         # Get the columns
         FirstColumn = int(Standard_Functions.GetNumberFromLetter(StartCell[:1]))
@@ -769,7 +769,6 @@ def ImportSettings_FreeCAD():
             if Cell_Value.startswith("'"):
                 Cell_Value = Cell_Value[1:]
 
-            print(Cell_Name + ", " + Cell_Value)
             # region -- Import the external source settings
             #
             # Import USE_EXTERNAL_SOURCE
@@ -934,6 +933,9 @@ def ImportSettings_FreeCAD():
             #   This is a setting only needed for debuggin and thus a per user setting.
             # - Spreadsheet format settings are excluded from export.
             #   This is a per user setting
+
+            if Cell_Name == "":
+                break
 
             if counter == len(SettingsList) + 1:
                 break
@@ -1687,6 +1689,9 @@ def ImportSettings_XL():
 
             # Note: ENABLE_DEBUG is excluded from import.
             # This is a setting only needed for debuggin and thus a per user setting.
+
+            if Cell_Name == "":
+                break
 
             if counter == len(SettingsList) + 1:
                 break

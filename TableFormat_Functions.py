@@ -172,6 +172,9 @@ def FormatTable(
     for i in range(TableRangeRowStart, TableRangeRowEnd):
         for j in range(Standard_Functions.GetNumberFromLetter(TableRangeColumnStart),
                        Standard_Functions.GetNumberFromLetter(TableRangeColumnEnd)):
+
+            print(f"{Standard_Functions.GetNumberFromLetter(TableRangeColumnStart)}, {Standard_Functions.GetNumberFromLetter(TableRangeColumnEnd)}")
+
             Standard_Functions.SetColumnWidth_SpreadSheet(
                 sheet=sheet, column=f"{FirstColumnRange}{j}", cellValue=sheet.getContents(
                     f"{Standard_Functions.GetLetterFromNumber(j)}{i}"),

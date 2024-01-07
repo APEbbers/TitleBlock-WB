@@ -86,11 +86,15 @@ def DefineToolbars():
             "ExpandToolbar",
         ]  # a list of command names created in the line above
         ToolbarListExtra = [
+            "ExportSpreadSheet_Excel",
             "ExportSettings_Excel",
             "ImportSettings_Excel",
+            "OpenExcel",
             "Separator",
+            "ExportSpreadSheet_FreeCAD",
             "ExportSettings_FreeCAD",
             "ImportSettings_FreeCAD",
+            "OpenFreeCAD",
         ]
 
     result = {"ToolbarListMain": ToolbarListMain, "ToolbarListExtra": ToolbarListExtra}

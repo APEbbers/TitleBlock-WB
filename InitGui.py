@@ -24,11 +24,6 @@ import os
 import FreeCAD as App
 import FreeCADGui as Gui
 import Settings
-from Settings import EXTERNAL_SOURCE_PATH
-from Settings import IMPORT_SETTINGS_XL
-from Settings import ADD_TOOLBAR_TECHDRAW
-import CreateUI
-import TechDrawFunctions
 
 # Define the translation
 translate = App.Qt.translate
@@ -73,6 +68,13 @@ class TitleBlockWB(Gui.Workbench):
         It is executed once in a FreeCAD session followed by the Activated function.
         """
         import TitleBlock_Commands  # import here all the needed files that create your FreeCAD commands
+        import Settings
+        from Settings import USE_EXTERNAL_SOURCE
+        from Settings import EXTERNAL_SOURCE_PATH
+        from Settings import IMPORT_SETTINGS_XL
+        from Settings import ADD_TOOLBAR_TECHDRAW
+        import CreateUI
+        import TechDrawFunctions
 
         def QT_TRANSLATE_NOOP(context, text):
             return text
@@ -133,6 +135,8 @@ class TitleBlockWB(Gui.Workbench):
 
     def Activated(self):
         """This function is executed whenever the workbench is activated"""
+
+        import TechDrawFunctions
 
         TechDrawFunctions.ImportTemplates()
         TechDrawFunctions.SetDefaultTemplate()

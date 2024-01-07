@@ -271,7 +271,7 @@ def toggleToolbars():
     mainWindow = Gui.getMainWindow()
     ToolBar = mainWindow.findChild(QToolBar, "TitleBlock extra")
     if ToolBar.isHidden() is False:
-        ToolBar.Hide()
+        ToolBar.hide()
     if ToolBar.isHidden() is True:
-        ToolBar.Show()
+        ToolBar.show()
     return

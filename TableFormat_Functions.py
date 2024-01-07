@@ -177,4 +177,4 @@ def FormatTable(
                     f"{Standard_Functions.GetLetterFromNumber(j)}{i}"),
                 factor=AUTOFIT_FACTOR)
     # ------------------------------------------------------------------------------------------------------------------
-    return
+    return sheet

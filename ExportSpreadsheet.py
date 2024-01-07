@@ -521,8 +521,8 @@ def ExportSpreadSheet_FreeCAD():
         FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber}")
 
         # Format the table
-        TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
-                                          TableRange=TableRange, FirstColumnRange=FirstColumnRange)
+        sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
+                                                  TableRange=TableRange, FirstColumnRange=FirstColumnRange)
 
         # FormatTable(sheet=TitleBlockData, Endrow=RowNumber - 2)
 

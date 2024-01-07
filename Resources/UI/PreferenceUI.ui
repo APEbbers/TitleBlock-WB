@@ -1081,7 +1081,7 @@
      </widget>
      <widget class="QLabel" name="label_16">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="geometry">
        <rect>
@@ -1180,7 +1180,7 @@
      </widget>
      <widget class="QLabel" name="label_15">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="geometry">
        <rect>
@@ -1208,7 +1208,7 @@
      </widget>
      <widget class="QLabel" name="label_2">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="geometry">
        <rect>

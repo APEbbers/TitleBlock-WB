@@ -400,7 +400,15 @@ def ExportSettings_FreeCAD(Silent=False):
             sheet = ff.addObject("Spreadsheet::Sheet", Input_SheetName)
 
             # Set the startcell
-            StartCell = "A1"  # To be updated
+            StartCell = SHEETNAME_STARTCELL_XL
+            if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
+                StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
+                if ENABLE_DEBUG is True:
+                    Text = translate(
+                        "TitleBlock Workbench",
+                        f"TitleBlock Workbench: the startcell converted from {SHEETNAME_STARTCELL_XL} to {StartCell}",
+                    )
+                    Standard_Functions.Print(Text, "Log")
 
             # Set SHEETNAME_STARTCELL_XL to the chosen sheetname
             preferences.SetString("StartCell_Settings", StartCell)
@@ -764,7 +772,7 @@ def ImportSettings_FreeCAD():
             return
 
         # Get the startcell
-        StartCell = "A1"  # To be updated
+        StartCell = SHEETNAME_STARTCELL_XL
         OriginalStartCell = StartCell
         if ENABLE_DEBUG is True:
             Text = translate(
@@ -1126,6 +1134,14 @@ def ExportSettings_XL(Silent=False):
                 return
             ws = wb.create_sheet(SHEETNAME_SETTINGS_XL)
             StartCell = SHEETNAME_STARTCELL_XL
+            if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
+                StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
+                if ENABLE_DEBUG is True:
+                    Text = translate(
+                        "TitleBlock Workbench",
+                        f"TitleBlock Workbench: the startcell converted from {SHEETNAME_STARTCELL_XL} to {StartCell}",
+                    )
+                    Standard_Functions.Print(Text, "Log")
             if StartCell is None or StartCell == "":
                 StartCell = "A1"
             if ENABLE_DEBUG is True:

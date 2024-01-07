@@ -20,28 +20,9 @@
 # *   USA                                                                   *
 # *                                                                         *
 # ***************************************************************************/
-import Standard_Functions_TitleBlock as Standard_Functions
-
-# Get the settings
-import Settings
-from Settings import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
-from Settings import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
-from Settings import SPREADSHEET_COLUMNFONTSTYLE_BOLD
-from Settings import SPREADSHEET_TABLEFONTSTYLE_UNDERLINE
-from Settings import SPREADSHEET_TABLEFONTSTYLE_ITALIC
-from Settings import SPREADSHEET_TABLEFONTSTYLE_BOLD
-from Settings import SPREADSHEET_TABLEFOREGROUND
-from Settings import SPREADSHEET_TABLEBACKGROUND_2
-from Settings import SPREADSHEET_TABLEBACKGROUND_1
-from Settings import SPREADSHEET_HEADERFONTSTYLE_UNDERLINE
-from Settings import SPREADSHEET_HEADERFONTSTYLE_ITALIC
-from Settings import SPREADSHEET_HEADERFONTSTYLE_BOLD
-from Settings import SPREADSHEET_HEADERFOREGROUND
-from Settings import SPREADSHEET_HEADERBACKGROUND
-from Settings import AUTOFIT_FACTOR
-
-
 # Function the return the correct string to use in the FormatTable function
+
+
 def FontStyle(Bold: bool, Italic: bool, UnderLine: bool) -> str:
     result = ""
     if Bold is True:
@@ -76,6 +57,22 @@ def FormatTable(
         TableRange (string): Range for the table
         FirstColumnRange (string): Range for the first column
     """
+    import Standard_Functions_TitleBlock as Standard_Functions
+    from Settings import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
+    from Settings import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
+    from Settings import SPREADSHEET_COLUMNFONTSTYLE_BOLD
+    from Settings import SPREADSHEET_TABLEFONTSTYLE_UNDERLINE
+    from Settings import SPREADSHEET_TABLEFONTSTYLE_ITALIC
+    from Settings import SPREADSHEET_TABLEFONTSTYLE_BOLD
+    from Settings import SPREADSHEET_TABLEFOREGROUND
+    from Settings import SPREADSHEET_TABLEBACKGROUND_2
+    from Settings import SPREADSHEET_TABLEBACKGROUND_1
+    from Settings import SPREADSHEET_HEADERFONTSTYLE_UNDERLINE
+    from Settings import SPREADSHEET_HEADERFONTSTYLE_ITALIC
+    from Settings import SPREADSHEET_HEADERFONTSTYLE_BOLD
+    from Settings import SPREADSHEET_HEADERFOREGROUND
+    from Settings import SPREADSHEET_HEADERBACKGROUND
+    from Settings import AUTOFIT_FACTOR
 
     # Format the header ------------------------------------------------------------------------------------------------
     # Set the font style for the header

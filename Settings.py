@@ -339,9 +339,9 @@ def ExportSettings_FreeCAD(Silent=False):
                     ("FreeCAD", "*.FCStd"),
                 ]
                 FileName = Standard_Functions.GetFileDialog(Filter, False)
-                if FileName is not None or FileName != "":
+                if FileName != "":
                     ff = App.openDocument(FileName, True)
-                if FileName is None or FileName == "":
+                if FileName == "":
                     return
             if USE_EXTERNAL_SOURCE is True:
                 if (
@@ -710,9 +710,9 @@ def ImportSettings_FreeCAD():
             ("FreeCAD", "*.FCStd"),
         ]
         FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=False)
-        if FileName is not None or FileName != "":
+        if FileName != "":
             ff = App.openDocument(FileName, True)
-        if FileName is None or FileName == "":
+        if FileName == "":
             return
     if USE_EXTERNAL_SOURCE is True:
         if os.path.exists(EXTERNAL_SOURCE_PATH) is True:
@@ -1010,9 +1010,9 @@ def ExportSettings_XL(Silent=False):
                     ("Excel", "*.xlsx"),
                 ]
                 FileName = Standard_Functions.GetFileDialog(Filter, False)
-                if FileName is not None or FileName != "":
+                if FileName != "":
                     wb = load_workbook(FileName)
-                if FileName is None or FileName == "":
+                if FileName == "":
                     return
             if USE_EXTERNAL_SOURCE is True:
                 if (
@@ -1465,9 +1465,9 @@ def ImportSettings_XL():
                 ("Excel", "*.xlsx"),
             ]
             FileName = Standard_Functions.GetFileDialog(Filter, False)
-            if FileName is not None or FileName != "":
+            if FileName != "":
                 wb = load_workbook(str(FileName), read_only=True)
-            if FileName is None or FileName == "":
+            if FileName == "":
                 return
         if USE_EXTERNAL_SOURCE is True:
             if os.path.exists(EXTERNAL_SOURCE_PATH) is True:

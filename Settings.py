@@ -341,6 +341,7 @@ def ExportSettings_FreeCAD(Silent=False):
                 FileName = Standard_Functions.GetFileDialog(Filter, False)
                 if FileName != "":
                     ff = App.openDocument(FileName, True)
+                    preferences.SetString("ExternalFile", FileName)
                 if FileName == "":
                     return
             if USE_EXTERNAL_SOURCE is True:
@@ -1014,6 +1015,7 @@ def ExportSettings_XL(Silent=False):
                 FileName = Standard_Functions.GetFileDialog(Filter, False)
                 if FileName != "":
                     wb = load_workbook(FileName)
+                    preferences.SetString("ExternalFile", FileName)
                 if FileName == "":
                     return
             if USE_EXTERNAL_SOURCE is True:

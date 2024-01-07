@@ -31,6 +31,10 @@ import TableFormat_Functions
 
 # Get the settings
 import Settings
+from Settings import preferences
+from Settings import EXTERNAL_SOURCE_STARTCELL
+from Settings import EXTERNAL_SOURCE_SHEET_NAME
+from Settings import EXTERNAL_SOURCE_PATH
 from Settings import IMPORT_SETTINGS_XL
 from Settings import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
 from Settings import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
@@ -47,6 +51,7 @@ from Settings import SPREADSHEET_HEADERFONTSTYLE_BOLD
 from Settings import SPREADSHEET_HEADERFOREGROUND
 from Settings import SPREADSHEET_HEADERBACKGROUND
 from Settings import AUTOFIT_FACTOR
+from Settings import ENABLE_DEBUG
 
 # Define the translation
 translate = App.Qt.translate
@@ -153,9 +158,6 @@ def FormatTable(sheet, Endrow):
 def ExportSpreadSheet_Excel():
     import Settings
     from Settings import preferences
-    from Settings import IMPORT_SETTINGS_XL
-    from Settings import EXTERNAL_SOURCE_STARTCELL
-    from Settings import ENABLE_DEBUG
 
     try:
         # get the spreadsheet "TitleBlock"
@@ -362,12 +364,6 @@ def ExportSpreadSheet_Excel():
 
 
 def ExportSpreadSheet_FreeCAD():
-    # import Settings
-    from Settings import preferences
-    # from Settings import IMPORT_SETTINGS_XL
-    # from Settings import EXTERNAL_SOURCE_STARTCELL
-    from Settings import ENABLE_DEBUG
-
     try:
         # Get the active document
         doc = App.ActiveDocument
@@ -409,7 +405,16 @@ def ExportSpreadSheet_FreeCAD():
         preferences.SetString("SheetName", "TitleBlockData")
 
         # Get the startcell and the next cells
-        StartCell = "A1"
+        StartCell = EXTERNAL_SOURCE_STARTCELL
+        if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
+            StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
+            if ENABLE_DEBUG is True:
+                Text = translate(
+                    "TitleBlock Workbench",
+                    f"TitleBlock Workbench: the startcell converted from {EXTERNAL_SOURCE_STARTCELL} to {StartCell}",
+                )
+                Standard_Functions.Print(Text, "Log")
+
         TopRow = int(StartCell[1:])
         PropCell = str(
             Standard_Functions.GetLetterFromNumber(

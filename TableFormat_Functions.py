@@ -114,8 +114,6 @@ def FormatTable(
         ) + 1
     )
 
-    print(f"{TableRangeColumnStart}{TableRangeRowStart}, {TableRangeColumnEnd}{TableRangeRowEnd}, {TableRangeSecondColumn}")
-
     # Calculate the delta between the start and end of the table in vertical direction (Rows).
     DeltaRange = TableRangeRowEnd - TableRangeRowStart + 1
     # Go through the range
@@ -173,10 +171,8 @@ def FormatTable(
         for j in range(Standard_Functions.GetNumberFromLetter(TableRangeColumnStart),
                        Standard_Functions.GetNumberFromLetter(TableRangeColumnEnd)):
 
-            print(f"{Standard_Functions.GetNumberFromLetter(TableRangeColumnStart)}, {Standard_Functions.GetNumberFromLetter(TableRangeColumnEnd)}")
-
             Standard_Functions.SetColumnWidth_SpreadSheet(
-                sheet=sheet, column=f"{FirstColumnRange}{j}", cellValue=sheet.getContents(
+                sheet=sheet, column=Standard_Functions.GetLetterFromNumber(j), cellValue=sheet.getContents(
                     f"{Standard_Functions.GetLetterFromNumber(j)}{i}"),
                 factor=AUTOFIT_FACTOR)
     # ------------------------------------------------------------------------------------------------------------------

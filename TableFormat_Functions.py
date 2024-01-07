@@ -116,7 +116,7 @@ def FormatTable(
         ) + 1
     )
 
-    print(f"{TableRangeColumnStart}:{TableRangeColumnStart}, {TableRangeColumnEnd}:{TableRangeRowEnd}, {TableRangeSecondColumn}")
+    print(f"{TableRangeColumnStart}{TableRangeRowStart}, {TableRangeColumnEnd}{TableRangeRowEnd}, {TableRangeSecondColumn}")
 
     # Calculate the delta between the start and end of the table in vertical direction (Rows).
     DeltaRange = TableRangeRowEnd - TableRangeRowStart + 1

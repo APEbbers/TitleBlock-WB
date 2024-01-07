@@ -23,6 +23,7 @@
 
 import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
+import TableFormat_Functions
 
 # region defenitions
 # Define the translation
@@ -667,7 +668,31 @@ def ExportSettings_FreeCAD(Silent=False):
 
         # region Format the settings with the values as a Table
         #
-        FormatTable(sheet=sheet, Endrow=TopRow + RowNumber - 1)
+        # Define the header range
+        HeaderRange = str(f"{StartCell}:{ValueCell}")
+
+        # Get the first row below the header
+        FirstTableRow = ""
+        for i in range(len(StartCell)):
+            if StartCell[i].isdigit():
+                FirstTableRow = FirstTableRow + str(StartCell[i])
+        FirstTableRow = int(FirstTableRow) + 1
+
+        # Get the first column
+        FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
+
+        # Get the last column
+        LastColumn = Standard_Functions.RemoveNumbersFromString(ValueCell)
+
+        # Define the table range
+        TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber - 1}")
+
+        # Define the First column range
+        FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber - 1}")
+
+        # Format the table
+        sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
+                                                  TableRange=TableRange, FirstColumnRange=FirstColumnRange)
         # endregion
 
         # recompute the document

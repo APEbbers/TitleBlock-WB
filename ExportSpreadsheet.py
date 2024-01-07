@@ -496,7 +496,7 @@ def ExportSpreadSheet_FreeCAD():
             except Exception:
                 break
 
-        # region Format the settings with the values as a Table
+        # region Format the data with the values as a Table
         #
         # Define the header range
         HeaderRange = str(f"{StartCell}:{RemarkCell}")
@@ -515,16 +515,14 @@ def ExportSpreadSheet_FreeCAD():
         LastColumn = Standard_Functions.RemoveNumbersFromString(RemarkCell)
 
         # Define the table range
-        TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber}")
+        TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber - 1}")
 
         # Define the First column range
-        FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber}")
+        FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber - 1}")
 
         # Format the table
         sheet = TableFormat_Functions.FormatTable(sheet=TitleBlockData, HeaderRange=HeaderRange,
                                                   TableRange=TableRange, FirstColumnRange=FirstColumnRange)
-
-        # FormatTable(sheet=TitleBlockData, Endrow=RowNumber - 2)
 
         # endregion
 

@@ -2205,22 +2205,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>SheetName</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>124</x>
-     <y>68</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>129</x>
-     <y>146</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>ImportSettingsXL</sender>
    <signal>toggled(bool)</signal>
    <receiver>groupBox_DrawingNumber</receiver>
@@ -2281,54 +2265,6 @@
     <hint type="destinationlabel">
      <x>214</x>
      <y>159</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_2</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>124</x>
-     <y>68</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>213</x>
-     <y>212</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>widget_ImportSettings</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>62</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>212</x>
-     <y>327</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>ExternalFileChooser</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>124</x>
-     <y>68</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>209</x>
-     <y>96</y>
     </hint>
    </hints>
   </connection>
@@ -2397,38 +2333,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>groupBox_Map_DocInfo</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>70</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>217</x>
-     <y>487</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>AutoFillTitleBlock</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>62</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>121</x>
-     <y>259</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>UseFileName</sender>
    <signal>toggled(bool)</signal>
    <receiver>DrawingNumber</receiver>
@@ -2441,86 +2345,6 @@
     <hint type="destinationlabel">
      <x>134</x>
      <y>119</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>StartCell</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>124</x>
-     <y>68</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>69</x>
-     <y>238</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_15</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>62</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>189</x>
-     <y>184</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_16</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>62</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>204</x>
-     <y>134</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>ImportSettingsXL</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>70</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>209</x>
-     <y>332</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>ImportSettingsXL</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>62</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>201</x>
-     <y>332</y>
     </hint>
    </hints>
   </connection>
@@ -2553,6 +2377,38 @@
     <hint type="destinationlabel">
      <x>325</x>
      <y>372</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>ImportSettingsXL</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>62</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>201</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>ImportSettingsXL</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>70</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>209</x>
+     <y>332</y>
     </hint>
    </hints>
   </connection>

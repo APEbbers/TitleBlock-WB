@@ -513,18 +513,12 @@ class ExpandToolbar_class:
     def Activated(self):
         import CreateUI
 
-        CreateUI.toggleToolbars()
+        CreateUI.toggleToolbars(ToolbarName="TitleBlock extra")
         return
 
     # def IsActive(self):
     #     """Here you can define if the command must be active or not (greyed) if certain conditions
     #     are met or not. This function is optional."""
-
-    #     # Set the default state
-    #     result = False
-    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
-    #     if USE_EXTERNAL_SOURCE is True:
-    #          result = True
 
     #     return result
 

@@ -32,7 +32,6 @@ import FreeCADGui as Gui
 from Settings import USE_EXTERNAL_SOURCE
 from Settings import EXTERNAL_SOURCE_PATH
 import Standard_Functions_TitleBlock as Standard_Functions
-from PySide2.QtWidgets import QToolBar
 
 
 # Define the translation
@@ -249,30 +248,35 @@ def get_toolbar_with_name(name: str, UserParam: str) -> bool:
     return False
 
 
-def toggleToolbars():
-    WB = Gui.activeWorkbench()
-    ToolbarListExtra = DefineToolbars()["ToolbarListExtra"]
+def toggleToolbars(ToolbarName: str, WorkBench: str = ""):
+    import FreeCADGui as Gui
+    from PySide2.QtWidgets import QToolBar
 
+    # Get the active workbench
+    if WorkBench == "":
+        WB = Gui.activeWorkbench()
+    if WorkBench != "":
+        WB = Gui.getWorkbench(WorkBench)
+
+    # Cet the list of toolbars present.
     ListToolbars = WB.listToolbars()
+    # Go through the list. If the toolbar exists set ToolbarExists to True
     ToolbarExists = False
     for i in range(len(ListToolbars)):
-        if ListToolbars[i] == "TitleBlock extra":
+        if ListToolbars[i] == ToolbarName:
             ToolbarExists = True
 
-    # if ToolbarExists is False:
-    #     WB.appendToolbar(
-    #         QT_TRANSLATE_NOOP("Workbench", "TitleBlock extra"), ToolbarListExtra
-    #     )  # creates a new toolbar with your commands
-    #     WB.reloadActive()
-    # if ToolbarExists is True:
-    #     WB.removeToolbar("TitleBlock extra")
-    #     WB.reloadActive()
+    # If ToolbarExists is True continue. Otherwise return.
     if ToolbarExists is True:
+        # Get the main window
         mainWindow = Gui.getMainWindow()
-        ToolBar = mainWindow.findChild(QToolBar, "TitleBlock extra")
+        # Get the toolbar
+        ToolBar = mainWindow.findChild(QToolBar, ToolbarName)
+        # If the toolbar is not hidden, hide it and return.
         if ToolBar.isHidden() is False:
             ToolBar.setHidden(True)
             return
+        # If the toolbar is hidden, set visible and return.
         if ToolBar.isHidden() is True:
             ToolBar.setVisible(True)
             return

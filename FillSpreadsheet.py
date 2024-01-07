@@ -44,20 +44,6 @@ import Standard_Functions_TitleBlock as Standard_Functions
 import TableFormat_Functions
 
 # Get the settings
-from Settings import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
-from Settings import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
-from Settings import SPREADSHEET_COLUMNFONTSTYLE_BOLD
-from Settings import SPREADSHEET_TABLEFONTSTYLE_UNDERLINE
-from Settings import SPREADSHEET_TABLEFONTSTYLE_ITALIC
-from Settings import SPREADSHEET_TABLEFONTSTYLE_BOLD
-from Settings import SPREADSHEET_TABLEFOREGROUND
-from Settings import SPREADSHEET_TABLEBACKGROUND_2
-from Settings import SPREADSHEET_TABLEBACKGROUND_1
-from Settings import SPREADSHEET_HEADERFONTSTYLE_UNDERLINE
-from Settings import SPREADSHEET_HEADERFONTSTYLE_ITALIC
-from Settings import SPREADSHEET_HEADERFONTSTYLE_BOLD
-from Settings import SPREADSHEET_HEADERFOREGROUND
-from Settings import SPREADSHEET_HEADERBACKGROUND
 from Settings import DRAW_NO_FiELD
 from Settings import USE_FILENAME_DRAW_NO
 from Settings import ENABLE_DEBUG
@@ -82,7 +68,6 @@ from Settings import INCLUDE_NO_SHEETS
 from Settings import INCLUDE_MASS
 from Settings import INCLUDE_ANGLE
 from Settings import INCLUDE_LENGTH
-from Settings import AUTOFIT_FACTOR
 from Settings import preferences
 # endregion
 
@@ -464,100 +449,6 @@ def MapDocInfo(sheet):
                 sheet.set("B" + str(RowNum), doc.Comment)
     return
 
-
-# Function the return the correct string to use in the FormatTable function
-def FontStyle(Bold: bool, Italic: bool, UnderLine: bool) -> str:
-    result = ""
-    if Bold is True:
-        if result == "":
-            result = "bold"
-        if result != "":
-            result = result + "|bold"
-    if Italic is True:
-        if result == "":
-            result = "italic"
-        if result != "":
-            result = result + "|italic"
-    if UnderLine is True:
-        if result == "":
-            result = "underline"
-        if result != "":
-            result = result + "|underline"
-    return result
-
-
-# Format the table based on the preferences
-def FormatTable(sheet, Endrow):
-    # HeaderRange
-    RangeAlign1 = "A1:A" + str(Endrow)
-    RangeStyle1 = "A1:E1"
-
-    # TableRange
-    RangeAlign2 = "B1:E" + str(Endrow)
-    RangeStyle2 = "B2:E" + str(Endrow)
-    # First column
-    RangeStyle3 = "A2:A" + str(Endrow)
-
-    # Font style for the top row
-    sheet.setStyle(
-        RangeStyle1,
-        FontStyle(
-            SPREADSHEET_HEADERFONTSTYLE_BOLD,
-            SPREADSHEET_HEADERFONTSTYLE_ITALIC,
-            SPREADSHEET_HEADERFONTSTYLE_UNDERLINE,
-        ),
-    )
-
-    # Font style for the first column
-    sheet.setStyle(
-        RangeStyle3,
-        FontStyle(
-            SPREADSHEET_COLUMNFONTSTYLE_BOLD,
-            SPREADSHEET_COLUMNFONTSTYLE_ITALIC,
-            SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE,
-        ),
-    )
-
-    # Font style for the rest of the table
-    sheet.setStyle(
-        RangeStyle2,
-        FontStyle(
-            SPREADSHEET_TABLEFONTSTYLE_BOLD,
-            SPREADSHEET_TABLEFONTSTYLE_ITALIC,
-            SPREADSHEET_TABLEFONTSTYLE_UNDERLINE,
-        ),
-    )
-
-    sheet.setBackground(RangeStyle1, SPREADSHEET_HEADERBACKGROUND)
-    sheet.setForeground(RangeStyle1, SPREADSHEET_HEADERFOREGROUND)
-
-    # Style the rest of the table
-    for i in range(2, int(Endrow) + 1, 2):
-        RangeStyle3 = f"A{i}:E{i}"
-        RangeStyle4 = f"A{i+1}:E{i+1}"
-        sheet.setBackground(RangeStyle3, SPREADSHEET_TABLEBACKGROUND_1)
-        sheet.setBackground(RangeStyle4, SPREADSHEET_TABLEBACKGROUND_2)
-        sheet.setForeground(RangeStyle3, SPREADSHEET_TABLEFOREGROUND)
-        sheet.setForeground(RangeStyle4, SPREADSHEET_TABLEFOREGROUND)
-
-    # align the columns
-    sheet.setAlignment(RangeAlign1, "left|vcenter")
-    sheet.setAlignment(RangeAlign2, "center|vcenter")
-
-    # Set the column width
-    for i in range(1, Endrow):
-        Standard_Functions.SetColumnWidth_SpreadSheet(
-            sheet=sheet, column=f"A{i}", cellValue=sheet.getContents(f"A{i}"), factor=AUTOFIT_FACTOR)
-        Standard_Functions.SetColumnWidth_SpreadSheet(
-            sheet=sheet, column=f"B{i}", cellValue=sheet.getContents(f"B{i}"), factor=AUTOFIT_FACTOR)
-        Standard_Functions.SetColumnWidth_SpreadSheet(
-            sheet=sheet, column=f"C{i}", cellValue=sheet.getContents(f"C{i}"), factor=AUTOFIT_FACTOR)
-        Standard_Functions.SetColumnWidth_SpreadSheet(
-            sheet=sheet, column=f"D{i}", cellValue=sheet.getContents(f"D{i}"), factor=AUTOFIT_FACTOR)
-        Standard_Functions.SetColumnWidth_SpreadSheet(
-            sheet=sheet, column=f"E{i}", cellValue=sheet.getContents(f"E{i}"), factor=AUTOFIT_FACTOR)
-    return
-
 # endregion
 
 
@@ -839,7 +730,36 @@ def ImportDataExcel():
                 extraRows = extraRows + 1
             if INCLUDE_NO_SHEETS is True:
                 extraRows = extraRows + 1
-            FormatTable(sheet=sheet, Endrow=RowNumber + extraRows - 1)
+
+            # region Format the data with the values as a Table
+            #
+            # Define the header range
+            HeaderRange = "A1:E1"
+
+            # Get the first row below the header
+            FirstTableRow = ""
+            for i in range(len(StartCell)):
+                if StartCell[i].isdigit():
+                    FirstTableRow = FirstTableRow + str(StartCell[i])
+            FirstTableRow = int(FirstTableRow) + 1
+
+            # Get the first column
+            FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
+
+            # Get the last column
+            LastColumn = Standard_Functions.RemoveNumbersFromString("E1")
+
+            # Define the table range
+            TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber - 1 + extraRows}")
+
+            # Define the First column range
+            FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber - 1}")
+
+            # Format the table
+            sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
+                                                      TableRange=TableRange, FirstColumnRange=FirstColumnRange)
+
+            # endregion
 
             # Finally recompute the spreadsheet
             sheet.recompute()

@@ -169,7 +169,7 @@ def FormatTable(
     # Set the column width
     for i in range(TableRangeRowStart, TableRangeRowEnd):
         for j in range(Standard_Functions.GetNumberFromLetter(TableRangeColumnStart),
-                       Standard_Functions.GetNumberFromLetter(TableRangeColumnEnd)):
+                       Standard_Functions.GetNumberFromLetter(TableRangeColumnEnd) + 1):
 
             Standard_Functions.SetColumnWidth_SpreadSheet(
                 sheet=sheet, column=Standard_Functions.GetLetterFromNumber(j), cellValue=sheet.getContents(

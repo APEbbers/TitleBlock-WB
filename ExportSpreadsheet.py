@@ -33,8 +33,8 @@ import TableFormat_Functions
 import Settings
 from Settings import preferences
 from Settings import EXTERNAL_SOURCE_STARTCELL
-from Settings import EXTERNAL_SOURCE_SHEET_NAME
-from Settings import EXTERNAL_SOURCE_PATH
+# from Settings import EXTERNAL_SOURCE_SHEET_NAME
+# from Settings import EXTERNAL_SOURCE_PATH
 from Settings import IMPORT_SETTINGS_XL
 from Settings import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
 from Settings import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
@@ -156,9 +156,6 @@ def FormatTable(sheet, Endrow):
 
 
 def ExportSpreadSheet_Excel():
-    import Settings
-    from Settings import preferences
-
     try:
         # get the spreadsheet "TitleBlock"
         sheet = sheet = App.ActiveDocument.getObject("TitleBlock")

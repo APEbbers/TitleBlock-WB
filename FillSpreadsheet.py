@@ -36,20 +36,14 @@
 #  - Import data from excel or libre office
 #  - Etc.
 
-from Settings import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
-from Settings import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
-from Settings import SPREADSHEET_COLUMNFONTSTYLE_BOLD
-from Settings import SPREADSHEET_TABLEFONTSTYLE_UNDERLINE
-from Settings import SPREADSHEET_TABLEFONTSTYLE_ITALIC
-from Settings import SPREADSHEET_TABLEFONTSTYLE_BOLD
-from Settings import SPREADSHEET_TABLEFOREGROUND
-from Settings import SPREADSHEET_TABLEBACKGROUND_2
-from Settings import SPREADSHEET_TABLEBACKGROUND_1
-from Settings import SPREADSHEET_HEADERFONTSTYLE_UNDERLINE
-from Settings import SPREADSHEET_HEADERFONTSTYLE_ITALIC
-from Settings import SPREADSHEET_HEADERFONTSTYLE_BOLD
-from Settings import SPREADSHEET_HEADERFOREGROUND
-from Settings import SPREADSHEET_HEADERBACKGROUND
+# region imports
+
+import os
+import FreeCAD as App
+import Standard_Functions_TitleBlock as Standard_Functions
+import TableFormat_Functions
+
+# Get the settings
 from Settings import DRAW_NO_FiELD
 from Settings import USE_FILENAME_DRAW_NO
 from Settings import ENABLE_DEBUG
@@ -74,19 +68,13 @@ from Settings import INCLUDE_NO_SHEETS
 from Settings import INCLUDE_MASS
 from Settings import INCLUDE_ANGLE
 from Settings import INCLUDE_LENGTH
-from Settings import AUTOFIT_FACTOR
 from Settings import preferences
-import os
-import FreeCAD as App
-import Standard_Functions_TitleBlock as Standard_Functions
+# endregion
 
 # Define the translation
 translate = App.Qt.translate
 
-# Get the preferences
-
-# Get the settings
-
+# region - Setting corrections
 
 # If no start cell is defined. the start cell will be "A1"
 if len(EXTERNAL_SOURCE_STARTCELL) == 0:
@@ -121,18 +109,21 @@ if str(DOCINFO_LICENSEURL).startswith("'"):
     DOCINFO_LICENSEURL = str(DOCINFO_LICENSEURL)[1:]
 if str(DOCINFO_COMMENT).startswith("'"):
     DOCINFO_COMMENT = str(DOCINFO_COMMENT)[1:]
-
 if str(DRAW_NO_FiELD).startswith("'"):
     DRAW_NO_FiELD = str(DRAW_NO_FiELD)[1:]
+# endregion
+
+# region - suporting functions
+
+# The following system values can be added: length unit, angle unit, mass unti and number of sheets.
+# You can use these for you specific templates.
+# Use the "bind function" of the spreadsheet workbench to create the correct entry for your template.:
+#   1. add the correct Property name
+#   2. bind the cell to the value of your specific template property.
+#   3. Mark the cell in column C if this value needs to be increased per page
 
 
 def AddExtraData(sheet, StartRow):
-    # The following system values can be added. You can use these for you specific templates.
-    # Use the "bind function" of the spreadsheet workbench to create the correct entry for your template.:
-    #   1. add the correct Property name
-    #   2. bind the cell to the value of your specific template property.
-    #   3. Mark the cell in column C if this value needs to be increased per page
-
     # If the debug mode is active, show which property is includex.difference(y)
     if ENABLE_DEBUG is True:
         Text = ""
@@ -458,97 +449,7 @@ def MapDocInfo(sheet):
                 sheet.set("B" + str(RowNum), doc.Comment)
     return
 
-
-def FontStyle(Bold: bool, Italic: bool, UnderLine: bool) -> str:
-    result = ""
-    if Bold is True:
-        if result == "":
-            result = "bold"
-        if result != "":
-            result = result + "|bold"
-    if Italic is True:
-        if result == "":
-            result = "italic"
-        if result != "":
-            result = result + "|italic"
-    if UnderLine is True:
-        if result == "":
-            result = "underline"
-        if result != "":
-            result = result + "|underline"
-    return result
-
-
-def FormatTable(sheet, Endrow):
-    # HeaderRange
-    RangeAlign1 = "A1:A" + str(Endrow)
-    RangeStyle1 = "A1:E1"
-
-    # TableRange
-    RangeAlign2 = "B1:E" + str(Endrow)
-    RangeStyle2 = "B2:E" + str(Endrow)
-    # First column
-    RangeStyle3 = "A2:A" + str(Endrow)
-
-    # Font style for the top row
-    sheet.setStyle(
-        RangeStyle1,
-        FontStyle(
-            SPREADSHEET_HEADERFONTSTYLE_BOLD,
-            SPREADSHEET_HEADERFONTSTYLE_ITALIC,
-            SPREADSHEET_HEADERFONTSTYLE_UNDERLINE,
-        ),
-    )
-
-    # Font style for the first column
-    sheet.setStyle(
-        RangeStyle3,
-        FontStyle(
-            SPREADSHEET_COLUMNFONTSTYLE_BOLD,
-            SPREADSHEET_COLUMNFONTSTYLE_ITALIC,
-            SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE,
-        ),
-    )
-
-    # Font style for the rest of the table
-    sheet.setStyle(
-        RangeStyle2,
-        FontStyle(
-            SPREADSHEET_TABLEFONTSTYLE_BOLD,
-            SPREADSHEET_TABLEFONTSTYLE_ITALIC,
-            SPREADSHEET_TABLEFONTSTYLE_UNDERLINE,
-        ),
-    )
-
-    sheet.setBackground(RangeStyle1, SPREADSHEET_HEADERBACKGROUND)
-    sheet.setForeground(RangeStyle1, SPREADSHEET_HEADERFOREGROUND)
-
-    # Style the rest of the table
-    for i in range(2, int(Endrow + 1), 2):
-        RangeStyle3 = f"A{i}:E{i}"
-        RangeStyle4 = f"A{i+1}:E{i+1}"
-        sheet.setBackground(RangeStyle3, SPREADSHEET_TABLEBACKGROUND_1)
-        sheet.setBackground(RangeStyle4, SPREADSHEET_TABLEBACKGROUND_2)
-        sheet.setForeground(RangeStyle3, SPREADSHEET_TABLEFOREGROUND)
-        sheet.setForeground(RangeStyle4, SPREADSHEET_TABLEFOREGROUND)
-
-    # align the columns
-    sheet.setAlignment(RangeAlign1, "left|vcenter")
-    sheet.setAlignment(RangeAlign2, "center|vcenter")
-
-    # Set the column width
-    for i in range(1, Endrow):
-        Standard_Functions.SetColumnWidth_SpreadSheet(
-            sheet=sheet, column=f"A{i}", cellValue=sheet.getContents(f"A{i}"), factor=AUTOFIT_FACTOR)
-        Standard_Functions.SetColumnWidth_SpreadSheet(
-            sheet=sheet, column=f"B{i}", cellValue=sheet.getContents(f"B{i}"), factor=AUTOFIT_FACTOR)
-        Standard_Functions.SetColumnWidth_SpreadSheet(
-            sheet=sheet, column=f"C{i}", cellValue=sheet.getContents(f"C{i}"), factor=AUTOFIT_FACTOR)
-        Standard_Functions.SetColumnWidth_SpreadSheet(
-            sheet=sheet, column=f"D{i}", cellValue=sheet.getContents(f"D{i}"), factor=AUTOFIT_FACTOR)
-        Standard_Functions.SetColumnWidth_SpreadSheet(
-            sheet=sheet, column=f"E{i}", cellValue=sheet.getContents(f"E{i}"), factor=AUTOFIT_FACTOR)
-    return
+# endregion
 
 
 # Fill the spreadsheet with all the date from the titleblock
@@ -829,7 +730,36 @@ def ImportDataExcel():
                 extraRows = extraRows + 1
             if INCLUDE_NO_SHEETS is True:
                 extraRows = extraRows + 1
-            FormatTable(sheet=sheet, Endrow=RowNumber + extraRows - 1)
+
+            # region Format the data with the values as a Table
+            #
+            # Define the header range
+            HeaderRange = "A1:E1"
+
+            # Get the first row below the header
+            FirstTableRow = ""
+            for i in range(len(StartCell)):
+                if StartCell[i].isdigit():
+                    FirstTableRow = FirstTableRow + str(StartCell[i])
+            FirstTableRow = int(FirstTableRow) + 1
+
+            # Get the first column
+            FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
+
+            # Get the last column
+            LastColumn = Standard_Functions.RemoveNumbersFromString("E1")
+
+            # Define the table range
+            TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber - 1 + extraRows}")
+
+            # Define the First column range
+            FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber - 1}")
+
+            # Format the table
+            sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
+                                                      TableRange=TableRange, FirstColumnRange=FirstColumnRange)
+
+            # endregion
 
             # Finally recompute the spreadsheet
             sheet.recompute()
@@ -853,9 +783,251 @@ def ImportDataExcel():
     return
 
 
+# Import data from an central FreeCAD file
+def ImportDataFreeCAD():
+    # if debug mode is enabled, show the external file including path.
+    if ENABLE_DEBUG is True:
+        Text = translate("TitleBlock Workbench", str(EXTERNAL_SOURCE_PATH))
+        Standard_Functions.Print(Text, "Log")
+
+    try:
+        # Check if it is allowed to use an external source and if so, continue
+        if USE_EXTERNAL_SOURCE is True:
+            # Get the active document
+            doc = App.ActiveDocument
+            # Get the name of the external source
+            Input_SheetName = EXTERNAL_SOURCE_SHEET_NAME
+            # get the spreadsheet "TitleBlock"
+            sheet = doc.getObject("TitleBlock")
+            # Save the name of the active document to reactivate it at the end of this function.
+            LastActiveDoc = doc.Name
+            # Define the External sheet and document
+            ExtSheet = None
+            ff = None
+
+            # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
+            try:
+                ff = App.openDocument(EXTERNAL_SOURCE_PATH, True)
+                if EXTERNAL_SOURCE_SHEET_NAME == "":
+                    # Set the sheetname with a inputbox
+                    Spreadsheet_List = ff.findObjects('Spreadsheet::Sheet')
+                    Text = translate(
+                        "TitleBlock Workbench", "Please enter the name of the spreadsheet"
+                    )
+                    Input_SheetName = str(
+                        Standard_Functions.Mbox(
+                            text=Text,
+                            title="TitleBlock Workbench",
+                            style=21,
+                            default="Settings",
+                            stringList=Spreadsheet_List,
+                        )
+                    )
+                    # if the user canceled, exit this function.
+                    if not Input_SheetName.strip():
+                        return
+
+                    ExtSheet = ff.getObject(Input_SheetName)
+                if EXTERNAL_SOURCE_SHEET_NAME != "":
+                    ExtSheet = ff.getObject(Input_SheetName)
+            except Exception as e:
+                if ENABLE_DEBUG is True:
+                    raise (e)
+                Text = translate(
+                    "TitleBlock Workbench",
+                    "an problem occured while openening the FreeCAD file!\nDo you have it open in an another application",
+                )
+                Standard_Functions.Mbox(
+                    text=Text, title="TitleBlock Workbench", style=0
+                )
+                return
+
+            # Get the startcolumn and the other three columns from there
+            StartCell = "A1"
+            if EXTERNAL_SOURCE_SHEET_NAME == "":
+                # Set EXTERNAL_SOURCE_SHEET_NAME to the chosen sheetname
+                preferences.SetString("SheetName", Input_SheetName)
+                ExtSheet = ff.getObject(Input_SheetName)
+                # Set the startcell with an inputbox
+                Text = translate(
+                    "TitleBlock Workbench",
+                    "Please enter the name of the cell.\n"
+                    + "Enter a single cell like 'A1', 'B2', etc. Other notations will be ignored!",
+                )
+                StartCell = str(
+                    Standard_Functions.Mbox(
+                        text=Text,
+                        title="TitleBlock Workbench",
+                        style=20,
+                        default="A1",
+                    )
+                )
+                if not StartCell.strip():
+                    StartCell = "A1"
+
+                # Set SHEETNAME_STARTCELL to the chosen sheetname
+                preferences.SetString("StartCell", StartCell)
+
+            if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
+                StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
+            StartColumn = StartCell[:1]
+            # If debug mode is on, show the start colum and its number
+            if ENABLE_DEBUG is True:
+                Standard_Functions.Print(
+                    translate(
+                        "TitleBlock Workbench",
+                        "Start column is: " + str(StartColumn),
+                        "Log",
+                    )
+                )
+                Standard_Functions.Print(
+                    translate(
+                        "TitleBlock Workbench",
+                        "Column number is: "
+                        + str(Standard_Functions.GetNumberFromLetter(StartColumn)),
+                    ),
+                    "Log",
+                )
+            Column2 = Standard_Functions.GetLetterFromNumber(
+                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 1), True
+            )
+            Column3 = Standard_Functions.GetLetterFromNumber(
+                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 2), True
+            )
+            Column4 = Standard_Functions.GetLetterFromNumber(
+                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 3), True
+            )
+            Column5 = Standard_Functions.GetLetterFromNumber(
+                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 4), True
+            )
+
+            # Get the start row
+            StartRow = EXTERNAL_SOURCE_STARTCELL[1:2]
+            # if debug mode is on, show your start row
+            if ENABLE_DEBUG is True:
+                Text = translate(
+                    "TitleBlock Workbench", "the start row is: " + str(StartRow)
+                )
+                Standard_Functions.Print(Text, "Log")
+
+            # import the headers from the excelsheet into the spreadsheet
+            print(f"{sheet.Name}, {ExtSheet.Name}")
+            sheet.set("A1", str(ExtSheet.getContents(str(StartColumn) + str(StartRow))))
+            sheet.set("B1", str(ExtSheet.getContents(str(Column2) + str(StartRow))))
+            sheet.set("C1", str(ExtSheet.getContents(str(Column3) + str(StartRow))))
+            sheet.set("D1", str(ExtSheet.getContents(str(Column4) + str(StartRow))))
+            sheet.set("E1", str(ExtSheet.getContents(str(Column5) + str(StartRow))))
+
+            # Go through the excel until the cell in the first column is empty.
+            for i in range(1000):
+                # Define the start row. This is the Header row +1 + i as counter
+                RowNumber = int(StartRow) + i + 1
+
+                # check if you reached the end of the data.
+                if ExtSheet.getContents(str(StartColumn) + str(RowNumber)) is None:
+                    break
+
+                # Get the number of row difference between the start row in the excelsheet
+                # and the first row in the spreadsheet.
+                # This to start at second row in the spreadsheet. (under the headers)
+                Delta = int(StartRow) - 1
+
+                # Fill the property name
+                sheet.set(
+                    str("A" + str(RowNumber - Delta)),
+                    str(ExtSheet.getContents(str(StartColumn) + str(RowNumber))),
+                )
+                # Fill the property value
+                if ExtSheet.getContents(Column2 + str(RowNumber)) is not None:
+                    sheet.set(
+                        str("B" + str(RowNumber - Delta)),
+                        str(ExtSheet.getContents(Column2 + str(RowNumber))),
+                    )
+                # Fill the value for auto increasement(yes or no)
+                if ExtSheet.getContents(Column3 + str(RowNumber)) is not None:
+                    sheet.set(
+                        str("C" + str(RowNumber - Delta)),
+                        str(ExtSheet.getContents(Column3 + str(RowNumber))),
+                    )
+                # Fill the multipliers
+                if ExtSheet.getContents(Column4 + str(RowNumber)) is not None:
+                    sheet.set(
+                        str("D" + str(RowNumber - Delta)),
+                        str(ExtSheet.getContents(Column4 + str(RowNumber))),
+                    )
+                # Fill the remarks
+                if ExtSheet.getContents(Column5 + str(RowNumber)) is not None:
+                    sheet.set(
+                        str("E" + str(RowNumber - Delta)),
+                        str(ExtSheet.getContents(Column4 + str(RowNumber))),
+                    )
+
+                # Check if the next row of the spreadsheet has data. If not this is the end of all the available values.
+                try:
+                    test = sheet.getContents("A" + str(RowNumber))
+                    if test == "" or test is None:
+                        break
+                except Exception:
+                    break
+
+            # Finally recompute the spreadsheet
+            sheet.recompute()
+
+            # Run the def to add extra system data.
+            MapData(sheet=sheet)
+
+            # Run the def to add document information
+            MapDocInfo(sheet=sheet)
+
+            # Run the def to add extra system data. This is the final value of "RowNumber" minus the "StartRow".
+            AddExtraData(sheet, RowNumber - int(StartRow))
+
+            # Format the spreadsheet
+            extraRows = 0
+            if INCLUDE_LENGTH is True:
+                extraRows = extraRows + 1
+            if INCLUDE_ANGLE is True:
+                extraRows = extraRows + 1
+            if INCLUDE_MASS is True:
+                extraRows = extraRows + 1
+            if INCLUDE_NO_SHEETS is True:
+                extraRows = extraRows + 1
+            # FormatTable(sheet=sheet, Endrow=RowNumber + extraRows - 1)
+            FormatTable()
+
+            # recompute the document
+            doc.recompute(None, True, True)
+            # Save the workbook
+            doc.save()
+            # Close the FreeCAD file
+            App.closeDocument(ff.Name)
+            # Activate the document which was active when this command started.
+            try:
+                App.setActiveDocument(LastActiveDoc)
+            except Exception:
+                pass
+        else:
+            Text = translate("TitleBlock Workbench", "External source is not enabled!")
+            Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+    except Exception as e:
+        Text = translate(
+            "TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!\n"
+        )
+        if ENABLE_DEBUG is True:
+            Text = translate(
+                "TitleBlock Workbench",
+                "TitleBlock Workbench: an error occurred!!\n"
+                + "See the report view for details",
+            )
+            raise e
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+    return
+
+
+# Use this function to run the function "Populate sheet"
 def Start(command):
     try:
-        sheet = sheet = App.ActiveDocument.getObject("TitleBlock")
+        sheet = App.ActiveDocument.getObject("TitleBlock")
         # check if the result is not empty
         if sheet is not None:
             # Proceed with the macro.
@@ -863,6 +1035,8 @@ def Start(command):
                 FillSheet()
             if command == "ImportExcel":
                 ImportDataExcel()
+            if command == "ImportFreeCAD":
+                ImportDataFreeCAD()
 
             # if the debug mode is on, report presense of titleblock spreadsheet
             if ENABLE_DEBUG is True:
@@ -879,6 +1053,9 @@ def Start(command):
                 FillSheet()
             if command == "ImportExcel":
                 ImportDataExcel()
+            if command == "ImportFreeCAD":
+                ImportDataFreeCAD()
+
             # if the debug mode is on, report creation of titleblock spreadsheet
             if ENABLE_DEBUG is True:
                 Text = translate("TitleBlock Workbench", "TitleBlock created")

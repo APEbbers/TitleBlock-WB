@@ -249,7 +249,7 @@ def get_toolbar_with_name(name: str, UserParam: str) -> bool:
     return False
 
 
-def toggleToolbars(self):
+def toggleToolbars():
     WB = Gui.activeWorkbench()
     ToolbarListExtra = DefineToolbars()["ToolbarListExtra"]
 

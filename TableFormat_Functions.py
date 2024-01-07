@@ -23,6 +23,7 @@
 import Standard_Functions_TitleBlock as Standard_Functions
 
 # Get the settings
+import Settings
 from Settings import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
 from Settings import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
 from Settings import SPREADSHEET_COLUMNFONTSTYLE_BOLD

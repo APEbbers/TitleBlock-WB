@@ -24,6 +24,7 @@
 # FreeCAD init script of the Work Features module
 import FreeCAD as App
 import FreeCADGui as Gui
+import Settings
 from Settings import AUTOFILL_TITLEBLOCK
 
 # Define the translation
@@ -262,7 +263,6 @@ class ExportSettings_Excel_class:
         }
 
     def Activated(self):
-        import Settings
 
         Settings.ExportSettings_XL()
         return
@@ -294,8 +294,6 @@ class ExportSettings_FreeCAD_class:
         }
 
     def Activated(self):
-        import Settings
-
         Settings.ExportSettings_FreeCAD()
         return
 
@@ -326,8 +324,6 @@ class ImportSettings_Excel_class:
         }
 
     def Activated(self):
-        import Settings
-
         Settings.ImportSettings_XL()
         return
 
@@ -358,8 +354,6 @@ class ImportSettings_FreeCAD_class:
         }
 
     def Activated(self):
-        import Settings
-
         Settings.ImportSettings_FreeCAD()
         return
 

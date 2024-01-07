@@ -27,6 +27,10 @@ from openpyxl import Workbook
 from openpyxl.worksheet.table import Table, TableStyleInfo
 
 # Get the settings
+import Settings
+from Settings import preferences
+from Settings import IMPORT_SETTINGS_XL
+from Settings import ENABLE_DEBUG
 from Settings import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
 from Settings import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
 from Settings import SPREADSHEET_COLUMNFONTSTYLE_BOLD
@@ -48,11 +52,6 @@ translate = App.Qt.translate
 
 
 def createExcel():
-    import Settings
-    from Settings import preferences
-    from Settings import IMPORT_SETTINGS_XL
-    from Settings import ENABLE_DEBUG
-
     # Create a workbook and activate the first sheet
     wb = Workbook()
     ws = wb.active
@@ -164,11 +163,6 @@ def createExcel():
 
 
 def CreateFreeCAD():
-    import Settings
-    from Settings import preferences
-    from Settings import IMPORT_SETTINGS_XL
-    from Settings import ENABLE_DEBUG
-
     # Get the active document
     doc = App.ActiveDocument
     # Save the name of the active document to reactivate it at the end of this function.

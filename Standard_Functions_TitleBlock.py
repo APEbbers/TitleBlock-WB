@@ -98,7 +98,7 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
         return str(replyText)
 
 
-def GetFileDialog(files, SaveAs: bool = True):
+def GetFileDialog(files, SaveAs: bool = True) -> str:
     """
     files must be like:\n
     files = [\n
@@ -120,14 +120,14 @@ def GetFileDialog(files, SaveAs: bool = True):
     # Hide the window
     root.withdraw()
 
+    file = ""
     if SaveAs is True:
         file = asksaveasfile(filetypes=files, defaultextension=files)
         if file is not None:
-            return file.name
+            file = str(file.name)
     if SaveAs is False:
         file = askopenfilename(filetypes=files, defaultextension=files)
-        if file is not None:
-            return file
+    return file
 
 
 def GetLetterFromNumber(number: int, UCase: bool = True):

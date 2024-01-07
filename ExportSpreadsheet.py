@@ -27,6 +27,7 @@ import Standard_Functions_TitleBlock as Standard_Functions
 from openpyxl import Workbook
 from openpyxl.styles import Alignment
 from openpyxl.worksheet.table import Table, TableStyleInfo
+import TableFormat_Functions
 
 # Get the settings
 import Settings
@@ -497,7 +498,34 @@ def ExportSpreadSheet_FreeCAD():
 
         # region Format the settings with the values as a Table
         #
-        FormatTable(sheet=TitleBlockData, Endrow=RowNumber - 2)
+        # Define the header range
+        HeaderRange = str(f"{StartCell}:{RemarkCell}")
+
+        # Get the first row below the header
+        FirstTableRow = ""
+        for i in range(len(StartCell)):
+            if StartCell[i].isdigit():
+                FirstTableRow = FirstTableRow + str(StartCell[i])
+        FirstTableRow = int(FirstTableRow) + 1
+
+        # Get the first column
+        FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
+
+        # Get the last column
+        LastColumn = Standard_Functions.RemoveNumbersFromString(RemarkCell)
+
+        # Define the table range
+        TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber}")
+
+        # Define the First column range
+        FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber}")
+
+        # Format the table
+        TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
+                                          TableRange=TableRange, FirstColumnRange=FirstColumnRange)
+
+        # FormatTable(sheet=TitleBlockData, Endrow=RowNumber - 2)
+
         # endregion
 
         # recompute the document

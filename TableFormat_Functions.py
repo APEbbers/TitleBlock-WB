@@ -20,7 +20,6 @@
 # *   USA                                                                   *
 # *                                                                         *
 # ***************************************************************************/
-import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
 
 # Get the settings
@@ -74,13 +73,7 @@ def FormatTable(
         sheet (object): FreeCAD sheet object
         HeaderRange (string): Range for the header.
         TableRange (string): Range for the table
-        HeaderColorRGB (List): RGB color for the header. (e.g. [255, 255, 255])
-        FirstColorRGB (list): RGB color for every 1st row. (e.g. [255, 255, 255])
-        SecondColorRGB (list): RGB color for every 2nd row. (e.g. [255, 255, 255])
-        ForeGroundHeaderRGB (list, optional): _description_. Defaults to [0, 0, 0].
-        ForeGroundTable (list, optional): _description_. Defaults to [0, 0, 0].
-        HeaderStyle (str, optional): Font style for the header. (bold|italic|underline) Defaults to "bold".
-        TableStyle (str, optional): Font style for the table. (bold|italic|underline) Defaults to "".
+        FirstColumnRange (string): Range for the first column
     """
 
     # Format the header ------------------------------------------------------------------------------------------------
@@ -114,6 +107,15 @@ def FormatTable(
         Standard_Functions.RemoveLettersFromString(TableRange.split(":")[1])
     )
 
+    # Get the second column
+    TableRangeSecondColumn = Standard_Functions.GetLetterFromNumber(
+        Standard_Functions.GetNumberFromLetter(
+            Standard_Functions.RemoveNumbersFromString(
+                TableRange.split(":")[0]
+            )
+        ) + 1
+    )
+
     # Calculate the delta between the start and end of the table in vertical direction (Rows).
     DeltaRange = TableRangeRowEnd - TableRangeRowStart + 1
     # Go through the range
@@ -141,11 +143,38 @@ def FormatTable(
                 SecondRow, SPREADSHEET_TABLEFOREGROUND
             )
 
-        # Set the font style for the table
-        sheet.setStyle(
-            TableRange,
-            FontStyle(
-                SPREADSHEET_TABLEFONTSTYLE_BOLD, SPREADSHEET_TABLEFONTSTYLE_ITALIC,
-                SPREADSHEET_TABLEFONTSTYLE_UNDERLINE))  # \bold|italic|underline'
+    # Set the font style for the table
+    sheet.setStyle(
+        TableRange,
+        FontStyle(
+            SPREADSHEET_TABLEFONTSTYLE_BOLD, SPREADSHEET_TABLEFONTSTYLE_ITALIC,
+            SPREADSHEET_TABLEFONTSTYLE_UNDERLINE))  # \bold|italic|underline'
+
+    # Set the font style for the first column
+    sheet.setStyle(
+        FirstColumnRange,
+        FontStyle(
+            SPREADSHEET_COLUMNFONTSTYLE_BOLD, SPREADSHEET_COLUMNFONTSTYLE_ITALIC, SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
+        )
+    )  # \bold|italic|underline'
+    # ------------------------------------------------------------------------------------------------------------------
+
+    # Align the table and headers --------------------------------------------------------------------------------------
+    # align the columns
+    sheet.setAlignment(
+        f"{TableRangeColumnStart}{TableRangeRowStart}:{TableRangeColumnStart}{TableRangeRowEnd}", "left|vcenter"
+    )
+    sheet.setAlignment(
+        f"{TableRangeSecondColumn}{TableRangeRowStart}:{TableRangeColumnEnd}{TableRangeRowEnd}", "center|vcenter"
+    )
+
+    # Set the column width
+    for i in range(TableRangeRowStart, TableRangeRowEnd):
+        for j in range(Standard_Functions.GetNumberFromLetter(TableRangeColumnStart),
+                       Standard_Functions.GetNumberFromLetter(TableRangeColumnEnd)):
+            Standard_Functions.SetColumnWidth_SpreadSheet(
+                sheet=sheet, column=f"{FirstColumnRange}{j}", cellValue=sheet.getContents(
+                    f"{Standard_Functions.GetLetterFromNumber(j)}{i}"),
+                factor=AUTOFIT_FACTOR)
     # ------------------------------------------------------------------------------------------------------------------
     return

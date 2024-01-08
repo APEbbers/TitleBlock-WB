@@ -518,7 +518,38 @@ def FillSheet():
             extraRows = extraRows + 1
         if INCLUDE_NO_SHEETS is True:
             extraRows = extraRows + 1
-        FormatTable(sheet=sheet, Endrow=StartRow + extraRows)
+            
+        # region Format the data with the values as a Table
+        #
+        # Define the header range
+        StartCell = "A1"
+        RemarkCell = "E1"
+        HeaderRange = str(f"{StartCell}:{RemarkCell}")
+
+        # Get the first row below the header
+        FirstTableRow = ""
+        for i in range(len(StartCell)):
+            if StartCell[i].isdigit():
+                FirstTableRow = FirstTableRow + str(StartCell[i])
+        FirstTableRow = int(FirstTableRow) + 1
+
+        # Get the first column
+        FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
+
+        # Get the last column
+        LastColumn = Standard_Functions.RemoveNumbersFromString(RemarkCell)
+
+        # Define the table range
+        TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{StartRow + extraRows}")
+
+        # Define the First column range
+        FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{StartRow + extraRows}")
+
+        # Format the table
+        sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
+                                                  TableRange=TableRange, FirstColumnRange=FirstColumnRange)
+
+        # endregion
 
         # Finally recompute the document
         App.ActiveDocument.recompute(None, True, True)
@@ -981,8 +1012,7 @@ def ImportDataFreeCAD():
 
             # Run the def to add extra system data. This is the final value of "RowNumber" minus the "StartRow".
             AddExtraData(sheet, RowNumber - int(StartRow))
-
-            # Format the spreadsheet
+            
             extraRows = 0
             if INCLUDE_LENGTH is True:
                 extraRows = extraRows + 1
@@ -992,8 +1022,36 @@ def ImportDataFreeCAD():
                 extraRows = extraRows + 1
             if INCLUDE_NO_SHEETS is True:
                 extraRows = extraRows + 1
-            # FormatTable(sheet=sheet, Endrow=RowNumber + extraRows - 1)
-            FormatTable()
+
+            # region Format the data with the values as a Table
+            #
+            # Define the header range
+            HeaderRange = "A1:E1"
+
+            # Get the first row below the header
+            FirstTableRow = ""
+            for i in range(len(StartCell)):
+                if StartCell[i].isdigit():
+                    FirstTableRow = FirstTableRow + str(StartCell[i])
+            FirstTableRow = int(FirstTableRow) + 1
+
+            # Get the first column
+            FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
+
+            # Get the last column
+            LastColumn = Standard_Functions.RemoveNumbersFromString("E1")
+
+            # Define the table range
+            TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber - 1 + extraRows}")
+
+            # Define the First column range
+            FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber - 1}")
+
+            # Format the table
+            sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
+                                                      TableRange=TableRange, FirstColumnRange=FirstColumnRange)
+
+            # endregion
 
             # recompute the document
             doc.recompute(None, True, True)

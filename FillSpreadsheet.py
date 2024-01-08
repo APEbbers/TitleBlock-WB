@@ -44,7 +44,7 @@ import Standard_Functions_TitleBlock as Standard_Functions
 import TableFormat_Functions
 
 # Get the settings
-from Settings import DRAW_NO_FiELD
+from Settings import DRAW_NO_FIELD
 from Settings import USE_FILENAME_DRAW_NO
 from Settings import ENABLE_DEBUG
 from Settings import DOCINFO_COMMENT
@@ -109,8 +109,8 @@ if str(DOCINFO_LICENSEURL).startswith("'"):
     DOCINFO_LICENSEURL = str(DOCINFO_LICENSEURL)[1:]
 if str(DOCINFO_COMMENT).startswith("'"):
     DOCINFO_COMMENT = str(DOCINFO_COMMENT)[1:]
-if str(DRAW_NO_FiELD).startswith("'"):
-    DRAW_NO_FiELD = str(DRAW_NO_FiELD)[1:]
+if str(DRAW_NO_FIELD).startswith("'"):
+    DRAW_NO_FIELD = str(DRAW_NO_FIELD)[1:]
 # endregion
 
 # region - suporting functions
@@ -238,7 +238,7 @@ def MapData(sheet):
                 "The filename ("
                 + str(filename)
                 + ") is mapped to: "
-                + str(DRAW_NO_FiELD),
+                + str(DRAW_NO_FIELD),
             )
         Standard_Functions.Print(Text, "Log")
 
@@ -318,9 +318,9 @@ def MapData(sheet):
         # Map the filename
         # Map only as requested
         if USE_FILENAME_DRAW_NO is True:
-            if str(DRAW_NO_FiELD).strip():
-                # If the cell in column A is equal to DRAW_NO_FiELD, add the value in column B
-                if PropertyName == DRAW_NO_FiELD:
+            if str(DRAW_NO_FIELD).strip():
+                # If the cell in column A is equal to DRAW_NO_FIELD, add the value in column B
+                if PropertyName == DRAW_NO_FIELD:
                     sheet.set("B" + str(RowNum), filename)
 
         # Check if the next row exits. If not this is the end of all the available values.

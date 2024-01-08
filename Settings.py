@@ -125,7 +125,7 @@ SHEETNAME_STARTCELL_XL = GetStringSetting("StartCell_Settings")
 
 # Use filename as drawingnumber
 USE_FILENAME_DRAW_NO = GetBoolSetting("UseFileName")
-DRAW_NO_FiELD = GetStringSetting("DrwNrFieldName")
+DRAW_NO_FIELD = GetStringSetting("DrwNrFieldName")
 
 # The values that are mapped
 MAP_LENGTH = GetStringSetting("MapLength")
@@ -187,7 +187,7 @@ SettingsList = [
     SHEETNAME_SETTINGS_XL,
     SHEETNAME_STARTCELL_XL,
     USE_FILENAME_DRAW_NO,
-    DRAW_NO_FiELD,
+    DRAW_NO_FIELD,
     MAP_LENGTH,
     MAP_ANGLE,
     MAP_MASS,

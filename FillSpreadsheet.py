@@ -482,7 +482,7 @@ def FillSheet():
 
         # set the start value for the start row.
         # (x=0, the spreadsheet whill be populated from the first row. the headers will be overwritten)
-        StartRow = 0
+        StartRow = 1
         for key, value in texts.items():
             # Increase StartRow by one, to fill the next row
             StartRow = StartRow + 1

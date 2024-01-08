@@ -531,8 +531,8 @@ def FillSheet():
         FirstColumnRange = str(f"A2:A{StartRow + extraRows}")
 
         # Format the table
-        sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
-                                                  TableRange=TableRange, FirstColumnRange=FirstColumnRange)
+        # sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
+        #   TableRange=TableRange, FirstColumnRange=FirstColumnRange)
 
         # endregion
 

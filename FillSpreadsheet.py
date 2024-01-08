@@ -1011,7 +1011,7 @@ def ImportDataFreeCAD():
             HeaderRange = "A1:E1"
 
             # Define the table range
-            TableRange = str(f"B2:E{RowNumber - 1 + extraRows}")
+            TableRange = str(f"A2:E{RowNumber - 1 + extraRows}")
 
             # Define the First column range
             FirstColumnRange = str(f"A2:A{RowNumber - 1 + extraRows}")

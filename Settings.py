@@ -442,7 +442,7 @@ def ExportSettings_FreeCAD(Silent=False):
         sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "DrwNrFieldName")
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(DRAW_NO_FiELD))
+        sheet.set(SettingValue, str(DRAW_NO_FIELD))
         RowNumber = RowNumber + 1
 
         # endregion
@@ -1161,7 +1161,7 @@ def ExportSettings_XL(Silent=False):
         ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "DrwNrFieldName"
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        ws[SettingValue].value = DRAW_NO_FiELD
+        ws[SettingValue].value = DRAW_NO_FIELD
         RowNumber = RowNumber + 1
 
         # endregion

@@ -1011,10 +1011,10 @@ def ImportDataFreeCAD():
             HeaderRange = "A1:E1"
 
             # Define the table range
-            TableRange = str(f"A2:E{RowNumber - 1 + extraRows}")
+            TableRange = str(f"B2:E{RowNumber - 1 + extraRows}")
 
             # Define the First column range
-            FirstColumnRange = str(f"A1:A{RowNumber - 1}")
+            FirstColumnRange = str(f"A2:A{RowNumber - 1 + extraRows}")
 
             # Format the table
             sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,

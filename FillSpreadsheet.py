@@ -935,6 +935,7 @@ def ImportDataFreeCAD():
             sheet.set("E1", str(ExtSheet.getContents(str(Column5) + str(StartRow))))
 
             # Go through the excel until the cell in the first column is empty.
+            RowNumber = 0
             for i in range(1000):
                 # Define the start row. This is the Header row +1 + i as counter
                 RowNumber = int(StartRow) + i + 1

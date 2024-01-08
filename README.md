@@ -8,11 +8,15 @@ This workbench makes use of the interal workbench SpreadSheet and Microsoft Exce
 The main functions of the workbench are:
 - Load the data (editable fields with or without values) from your drawing into a spreadsheet to be edited there.
 - Export the data to an Excel workbook.
+- Export the data to an seperate FreeCAD document.
 - Import data from an Excel workbook to an spreadsheet.
+- Import data from an separate FreeCAD to an spreadsheet.
 - Fill the titleblock on all pages in your document from data in the spreadsheet.
 - increase values per page. For example page numbers.
 - Export the workbench settings to a excel workbook.
+- Export the workbench settings to an seperate FreeCAD document.
 - Import the workbook settings from a excel workbook at startup.
+- Import the workbook settings from an separate FreeCAD to an spreadsheet.
 
 There are three main ways to use this workbench:
 1. Use a spreadsheet with data to fill titleblocks in a document with multiple TechDraw pages.

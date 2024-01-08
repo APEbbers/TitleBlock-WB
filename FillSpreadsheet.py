@@ -977,7 +977,7 @@ def ImportDataFreeCAD():
 
                 # Check if the next row of the spreadsheet has data. If not this is the end of all the available values.
                 try:
-                    test = ExtSheet.getContents(str(StartColumnExt) + str(RowNumber))
+                    test = str(ExtSheet.getContents(str(StartColumnExt) + str(RowNumber)))
                     if test == "":
                         break
                 except Exception:

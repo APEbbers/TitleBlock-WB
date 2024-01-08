@@ -67,7 +67,12 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
         if reply == QMessageBox.No:
             return "no"
     if style == 20:
-        reply = QInputDialog.getText(parent=None, title=title, label=text, text=default)
+        reply = QInputDialog.getText(
+            None,
+            title,
+            text,
+            text=default,
+        )
         if reply[1]:
             # user clicked OK
             replyText = reply[0]
@@ -77,12 +82,12 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
         return str(replyText)
     if style == 21:
         reply = QInputDialog.getItem(
-            parent=None,
-            title=title,
-            label=text,
-            items=stringList,
-            current=1,
-            editable=True,
+            None,
+            title,
+            text,
+            stringList,
+            0,
+            True,
         )
         if reply[1]:
             # user clicked OK
@@ -93,7 +98,7 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
         return str(replyText)
 
 
-def SaveDialog(files, OverWrite: bool = True):
+def GetFileDialog(files, SaveAs: bool = True) -> str:
     """
     files must be like:\n
     files = [\n
@@ -102,9 +107,9 @@ def SaveDialog(files, OverWrite: bool = True):
         ('Text Document', '*.txt')\n
     ]\n
     \n
-    OverWrite:\n
-    If True, file will be overwritten\n
-    If False, only the path+filename will be returned\n
+    SaveAs:\n
+    If True,  as SaveAs dialog will open and the file will be overwritten\n
+    If False, an OpenFile dialog will be open and the file will be opened.\n
     """
     import tkinter as tk
     from tkinter.filedialog import asksaveasfile
@@ -115,14 +120,14 @@ def SaveDialog(files, OverWrite: bool = True):
     # Hide the window
     root.withdraw()
 
-    if OverWrite is True:
+    file = ""
+    if SaveAs is True:
         file = asksaveasfile(filetypes=files, defaultextension=files)
         if file is not None:
-            return file.name
-    if OverWrite is False:
+            file = str(file.name)
+    if SaveAs is False:
         file = askopenfilename(filetypes=files, defaultextension=files)
-        if file is not None:
-            return file
+    return file
 
 
 def GetLetterFromNumber(number: int, UCase: bool = True):
@@ -161,6 +166,36 @@ def GetA1fromR1C1(input: str) -> str:
         return ""
 
 
+def RemoveNumbersFromString(string: str) -> str:
+    no_digits = []
+
+    # Iterate through the string, adding non-numbers to the no_digits list
+    for i in string:
+        if not i.isdigit():
+            no_digits.append(i)
+
+    # Now join all elements of the list with '',
+    # which puts all of the characters together.
+    result = "".join(no_digits)
+
+    return result
+
+
+def RemoveLettersFromString(string: str) -> str:
+    no_chars = []
+
+    # Iterate through the string, adding non-numbers to the no_digits list
+    for i in string:
+        if i.isdigit():
+            no_chars.append(i)
+
+    # Now join all elements of the list with '',
+    # which puts all of the characters together.
+    result = "".join(no_chars)
+
+    return result
+
+
 def CheckIfWorkbookExists(FullFileName: str, CreateIfNone: bool = True):
     import os
     from openpyxl import Workbook
@@ -177,11 +212,36 @@ def CheckIfWorkbookExists(FullFileName: str, CreateIfNone: bool = True):
                     "*.xlsm",
                 ),
             ]
-            FullFileName = SaveDialog(Filter)
+            FullFileName = GetFileDialog(Filter)
             if FullFileName.strip():
                 wb = Workbook(str(FullFileName))
                 wb.save(FullFileName)
                 wb.close()
+                result = True
+        if CreateIfNone is False:
+            result = False
+    return result
+
+
+def CheckIfFreeCADfileExists(FullFileName: str, CreateIfNone: bool = True):
+    import os
+    import FreeCAD as App
+
+    result = False
+    try:
+        result = os.path.exists(FullFileName)
+    except Exception:
+        if CreateIfNone is True:
+            Filter = [
+                ("FreeCAD", "*.FCStd"),
+            ]
+            FullFileName = GetFileDialog(Filter)
+            if FullFileName.strip():
+                ff = App.newDocument()
+                # Save the workbook
+                ff.saveAs(FullFileName)
+                # Close the FreeCAD file
+                ff.close()
                 result = True
         if CreateIfNone is False:
             result = False
@@ -239,6 +299,17 @@ def OpenFile(FileName: str):
         raise e
 
 
+def OpenFreeCADFile(FileName: str):
+    import FreeCAD as App
+
+    # Open the document visible, recompute and save it
+    ff = App.openDocument(FileName, False)
+    ff.recompute(None, True, True)
+    ff.save
+
+    return
+
+
 def SetColumnWidth_SpreadSheet(
     sheet, column: str, cellValue: str, factor: int = 10
 ) -> bool:
@@ -274,7 +345,7 @@ def Print(Input: str, Type: str = ""):
 
     Args:
         Input (str): Text to print.\n
-        Type (str, optional): Type of message. (enter Warning, Error or Log). Defaults to "".
+        Type (str, optional): Type of message.\n (enter Warning, Error or Log). Defaults to "".
     """
     import FreeCAD as App
 

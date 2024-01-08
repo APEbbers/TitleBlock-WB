@@ -518,7 +518,7 @@ def FillSheet():
             extraRows = extraRows + 1
         if INCLUDE_NO_SHEETS is True:
             extraRows = extraRows + 1
-            
+
         # region Format the data with the values as a Table
         #
         # Define the header range
@@ -874,7 +874,7 @@ def ImportDataFreeCAD():
                 return
 
             # Get the startcolumn and the other three columns from there
-            StartCell = "A1"
+            StartCell = EXTERNAL_SOURCE_STARTCELL
             if EXTERNAL_SOURCE_SHEET_NAME == "":
                 # Set EXTERNAL_SOURCE_SHEET_NAME to the chosen sheetname
                 preferences.SetString("SheetName", Input_SheetName)
@@ -1012,7 +1012,7 @@ def ImportDataFreeCAD():
 
             # Run the def to add extra system data. This is the final value of "RowNumber" minus the "StartRow".
             AddExtraData(sheet, RowNumber - int(StartRow))
-            
+
             extraRows = 0
             if INCLUDE_LENGTH is True:
                 extraRows = extraRows + 1

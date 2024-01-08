@@ -125,7 +125,11 @@ SHEETNAME_STARTCELL_XL = GetStringSetting("StartCell_Settings")
 
 # Use filename as drawingnumber
 USE_FILENAME_DRAW_NO = GetBoolSetting("UseFileName")
-DRAW_NO_FiELD = GetStringSetting("DrwNrFieldName")
+DRAW_NO_FIELD = GetStringSetting("DrwNrFieldName")
+
+# Use pagename as drawing number
+USE_PAGENAME_DRAW_NO = GetBoolSetting("UsePageName")
+DRAW_NO_FIELD_PAGE = GetStringSetting("DrwNrFieldName_Page")
 
 # The values that are mapped
 MAP_LENGTH = GetStringSetting("MapLength")
@@ -187,7 +191,9 @@ SettingsList = [
     SHEETNAME_SETTINGS_XL,
     SHEETNAME_STARTCELL_XL,
     USE_FILENAME_DRAW_NO,
-    DRAW_NO_FiELD,
+    DRAW_NO_FIELD,
+    USE_PAGENAME_DRAW_NO,
+    DRAW_NO_FIELD_PAGE,
     MAP_LENGTH,
     MAP_ANGLE,
     MAP_MASS,
@@ -442,7 +448,25 @@ def ExportSettings_FreeCAD(Silent=False):
         sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "DrwNrFieldName")
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(DRAW_NO_FiELD))
+        sheet.set(SettingValue, str(DRAW_NO_FIELD))
+        RowNumber = RowNumber + 1
+
+        # endregion
+
+        # region -- Export the pagename settings
+        #
+        # USE_PAGENAME_DRAW_NO
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UsePageName")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(USE_PAGENAME_DRAW_NO).upper())
+        RowNumber = RowNumber + 1
+
+        # DRAW_NO_FiELD_PAGE
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "DrwNrFieldName_Page")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(DRAW_NO_FIELD_PAGE))
         RowNumber = RowNumber + 1
 
         # endregion
@@ -768,6 +792,20 @@ def ImportSettings_FreeCAD():
             # Import DRAW_NO_FiELD
             if Cell_Name == "DrwNrFieldName":
                 SetStringSetting("DrwNrFieldName", str(Cell_Value))
+                counter = counter + 1
+
+            # endregion
+
+            # region -- Import the pagename settings
+            #
+            # Import USE_PAGENAME_DRAW_NO
+            if Cell_Name == "UsePageName":
+                SetBoolSetting("UsePageName", Cell_Value)
+                counter = counter + 1
+
+            # Import DRAW_NO_FiELD_PAGE
+            if Cell_Name == "DrwNrFieldName_Page":
+                SetStringSetting("DrwNrFieldName_Page", str(Cell_Value))
                 counter = counter + 1
 
             # endregion
@@ -1161,7 +1199,29 @@ def ExportSettings_XL(Silent=False):
         ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "DrwNrFieldName"
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        ws[SettingValue].value = DRAW_NO_FiELD
+        ws[SettingValue].value = DRAW_NO_FIELD
+        RowNumber = RowNumber + 1
+
+        # endregion
+
+        # region -- Export the pagename settings
+        #
+        # USE_FILENAME_DRAW_NO
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "UsePageName"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        # Create a dropdown for the boolan
+        dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
+        ws.add_data_validation(dv)
+        dv.add(ws[SettingValue])
+        ws[SettingValue].value = str(USE_PAGENAME_DRAW_NO).upper()
+        RowNumber = RowNumber + 1
+
+        # DRAW_NO_FiELD
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "DrwNrFieldName_Page"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = DRAW_NO_FIELD_PAGE
         RowNumber = RowNumber + 1
 
         # endregion
@@ -1536,6 +1596,20 @@ def ImportSettings_XL():
             # Import DRAW_NO_FiELD
             if Cell_Name.value == "DrwNrFieldName":
                 SetStringSetting("DrwNrFieldName", str(Cell_Value.value))
+                counter = counter + 1
+
+            # endregion
+
+            # region -- Import the pagename settings
+            #
+            # Import USE_FILENAME_DRAW_NO
+            if Cell_Name.value == "UsePageName":
+                SetBoolSetting("UsePageName", Cell_Value.value)
+                counter = counter + 1
+
+            # Import DRAW_NO_FiELD
+            if Cell_Name.value == "DrwNrFieldName_Page":
+                SetStringSetting("DrwNrFieldName_Page", str(Cell_Value.value))
                 counter = counter + 1
 
             # endregion

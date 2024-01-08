@@ -522,15 +522,7 @@ def FillSheet():
         # region Format the data with the values as a Table
         #
         # Define the header range
-        StartCell = "A1"
-        HeaderRange = str(f"A1:E1")
-
-        # Get the first row below the header
-        FirstTableRow = ""
-        for i in range(len(StartCell)):
-            if StartCell[i].isdigit():
-                FirstTableRow = FirstTableRow + str(StartCell[i])
-        FirstTableRow = int(FirstTableRow) + 1
+        HeaderRange = str("A1:E1")
 
         # Define the table range
         TableRange = str(f"A2:E{StartRow + extraRows}")

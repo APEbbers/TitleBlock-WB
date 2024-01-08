@@ -167,7 +167,7 @@ def FormatTable(
     )
 
     # Set the column width
-    for i in range(TableRangeRowStart, TableRangeRowEnd):
+    for i in range(TableRangeRowStart - 1, TableRangeRowEnd):
         for j in range(Standard_Functions.GetNumberFromLetter(TableRangeColumnStart),
                        Standard_Functions.GetNumberFromLetter(TableRangeColumnEnd) + 1):
 

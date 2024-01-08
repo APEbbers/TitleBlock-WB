@@ -65,7 +65,7 @@ def FillTitleBlock():
             try:
                 # Increase the NumCounter
                 NumCounter = NumCounter + 1
-                RowNum = 1
+                RowNum = 0
                 # Go through the spreadsheet.
                 for i in range(len(texts)):
                     # for RowNum in range(1000):

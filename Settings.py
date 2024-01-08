@@ -23,7 +23,6 @@
 
 import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
-import TableFormat_Functions
 
 # region defenitions
 # Define the translation
@@ -125,7 +124,7 @@ SHEETNAME_STARTCELL_XL = GetStringSetting("StartCell_Settings")
 
 # Use filename as drawingnumber
 USE_FILENAME_DRAW_NO = GetBoolSetting("UseFileName")
-DRAW_NO_FIELD = GetStringSetting("DrwNrFieldName")
+DRAW_NO_FiELD = GetStringSetting("DrwNrFieldName")
 
 # The values that are mapped
 MAP_LENGTH = GetStringSetting("MapLength")
@@ -187,7 +186,7 @@ SettingsList = [
     SHEETNAME_SETTINGS_XL,
     SHEETNAME_STARTCELL_XL,
     USE_FILENAME_DRAW_NO,
-    DRAW_NO_FIELD,
+    DRAW_NO_FiELD,
     MAP_LENGTH,
     MAP_ANGLE,
     MAP_MASS,
@@ -222,721 +221,10 @@ SettingsList = [
     ENABLE_DEBUG,
 ]
 
-
-Extenstion = EXTERNAL_SOURCE_PATH.rsplit(".", 1)[0]
-
 # endregion
 
 
-def ExportSettings_FreeCAD(Silent=False):
-    try:
-        # Get the name of the current document and use it at the end of this function to reactivate this document
-        doc = App.ActiveDocument
-        LastActiveDoc = doc.Name
-
-        # Define sheet and freecad file (ff)
-        sheet = None
-        ff = None
-
-        # region -- Get the workbook, create a new sheet and set the startcell (top left cell of table).
-        # If the user wants to export the settins, start an input dialog.
-        if Silent is False:
-            # load the excel file with the custom function
-            if USE_EXTERNAL_SOURCE is False:
-                Filter = [
-                    ("FreeCAD", "*.FCStd"),
-                ]
-                FileName = Standard_Functions.GetFileDialog(Filter, False)
-                if FileName != "":
-                    ff = App.openDocument(FileName, True)
-                    preferences.SetString("ExternalFile", FileName)
-                if FileName == "":
-                    return
-            if USE_EXTERNAL_SOURCE is True:
-                if (
-                    Standard_Functions.CheckIfFreeCADfileExists(EXTERNAL_SOURCE_PATH, True)
-                    is True
-                ):
-                    ff = App.openDocument(EXTERNAL_SOURCE_PATH, True)
-                else:
-                    Text = translate(
-                        "TitleBlock Workbench",
-                        f"TitleBlock Workbench: Something went wrong with loading {EXTERNAL_SOURCE_PATH}",
-                    )
-                    Standard_Functions.Print(Text, "Error")
-                    return
-
-            # Set the sheetname with a inputbox.
-            # Create a list with the current spreadsheets for input in the inputdialog.
-            # Make sure that "Settings" is on that list.
-            Spreadsheet_List = []
-            # Add "Settings" to the new list.
-            Spreadsheet_List.append("Settings")
-            # Get the sheet objects and go through them.
-            sheets = ff.findObjects('Spreadsheet::Sheet')
-            for i in range(len(sheets)):
-                # If the sheet is not named "Settings", add it to the list.
-                if sheets[i].Name != "Settings":
-                    Spreadsheet_List.append(sheets[i].Name)
-            # Show the inputdialog
-            Text = translate("TitleBlock Workbench", "Please enter the name of the spreadsheet")
-            Input_SheetName = str(
-                Standard_Functions.Mbox(
-                    text=Text,
-                    title="TitleBlock Workbench",
-                    style=21,
-                    default="Settings",
-                    stringList=Spreadsheet_List,
-                )
-            )
-            # if the user canceled, exit this function.
-            if not Input_SheetName.strip():
-                return
-
-            # Set SHEETNAME_SETTINGS_XL to the chosen sheetname
-            preferences.SetString("SheetName_Settings", Input_SheetName)
-
-            # Delete the current sheet if it exists
-            sheets = ff.findObjects('Spreadsheet::Sheet')
-            for i in range(len(sheets)):
-                # If the sheet is not named "Settings", add it to the list.
-                if sheets[i].Name == Input_SheetName:
-                    ff.removeObject(Input_SheetName)
-
-            # create a new sheet
-            sheet = ff.addObject("Spreadsheet::Sheet", Input_SheetName)
-
-            # Set the startcell
-            StartCell = SHEETNAME_STARTCELL_XL
-            if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
-                StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
-                if ENABLE_DEBUG is True:
-                    Text = translate(
-                        "TitleBlock Workbench",
-                        f"TitleBlock Workbench: the startcell converted from {SHEETNAME_STARTCELL_XL} to {StartCell}",
-                    )
-                    Standard_Functions.Print(Text, "Log")
-
-            # Set SHEETNAME_STARTCELL_XL to the chosen sheetname
-            preferences.SetString("StartCell_Settings", StartCell)
-
-        # If a new excel file is created and the sittings must be imported from that excel (IMPORT_SETTINGS_XL = True),
-        # Load the workbook with the sheet from the preference menu.
-        if Silent is True:
-            try:
-                if (
-                    Standard_Functions.CheckIfFreeCADfileExists(
-                        EXTERNAL_SOURCE_PATH, False
-                    )
-                    is True
-                ):
-                    ff = App.openDocument(EXTERNAL_SOURCE_PATH, True)
-                else:
-                    Text = translate(
-                        "TitleBlock Workbench",
-                        f"TitleBlock Workbench: FreeCAD file didn't exist!. ({EXTERNAL_SOURCE_PATH})",
-                    )
-                    Standard_Functions.Print(Text, "Error")
-                    return
-            except Exception:
-                return
-            StartCell = SHEETNAME_STARTCELL_XL
-            if ENABLE_DEBUG is True:
-                Text = translate(
-                    "TitleBlock Workbench",
-                    "TitleBlock Workbench: Spreadsheetname and startcell for the settings is: "
-                    + f"{SHEETNAME_SETTINGS_XL}, {SHEETNAME_STARTCELL_XL}",
-                )
-                Standard_Functions.Print(Text, "Log")
-        # endregion
-
-        # region -- Create the headers
-        # Define the sheet. If it not exists, exit this function
-        sheet = ff.getObject(SHEETNAME_SETTINGS_XL)
-        if sheet is None:
-            Standard_Functions.Print(f"This FreeCAD file doesn't have a spreadsheet named {SHEETNAME_SETTINGS_XL}")
-            return
-        # Set the header for the first column
-        sheet.set(StartCell, "Name")
-        # Set the header for the second column
-        TopRow = int(StartCell[1:])
-        ValueCell = str(
-            Standard_Functions.GetLetterFromNumber(
-                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
-            )
-        ) + str(TopRow)
-        sheet.set(ValueCell, "Value")
-        # endregion
-
-        # region -- Export the external source settings
-        #
-        # USE_EXTERNAL_SOURCE
-        RowNumber = 1
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UseExternalSource")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(USE_EXTERNAL_SOURCE).upper())
-        RowNumber = RowNumber + 1
-
-        # EXTERNAL_SOURCE_PATH
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "ExternalFile")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(EXTERNAL_SOURCE_PATH))
-        RowNumber = RowNumber + 1
-
-        # EXTERNAL_SOURCE_SHEET_NAME
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "SheetName")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(EXTERNAL_SOURCE_SHEET_NAME))
-        RowNumber = RowNumber + 1
-
-        # EXTERNAL_SOURCE_STARTCELL
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "StartCell")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(EXTERNAL_SOURCE_STARTCELL))
-        RowNumber = RowNumber + 1
-
-        # AUTOFILL_TITLEBLOCK
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "AutoFillTitleBlock")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(AUTOFILL_TITLEBLOCK).upper())
-        RowNumber = RowNumber + 1
-
-        # IMPORT_SETTINGS_XL
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "ImportSettingsXL")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(IMPORT_SETTINGS_XL).upper())
-        RowNumber = RowNumber + 1
-
-        # SHEETNAME_SETTINGS_XL
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "SheetName_Settings")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(SHEETNAME_SETTINGS_XL))
-        RowNumber = RowNumber + 1
-
-        # SHEETNAME_STARTCELL_XL
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "StartCell_Settings")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(SHEETNAME_STARTCELL_XL))
-        RowNumber = RowNumber + 1
-
-        # endregion
-
-        # region -- Export the filename settings
-        #
-        # USE_FILENAME_DRAW_NO
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UseFileName")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(USE_FILENAME_DRAW_NO).upper())
-        RowNumber = RowNumber + 1
-
-        # DRAW_NO_FiELD
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "DrwNrFieldName")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(DRAW_NO_FIELD))
-        RowNumber = RowNumber + 1
-
-        # endregion
-
-        # region -- Export the Mapping settings
-        #
-        # MAP_LENGTH
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "MapLength")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(MAP_LENGTH))
-        RowNumber = RowNumber + 1
-
-        # MAP_ANGLE
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "MapAngle")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(MAP_ANGLE))
-        RowNumber = RowNumber + 1
-
-        # MAP_MASS
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "MapMass")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(MAP_MASS))
-        RowNumber = RowNumber + 1
-
-        # MAP_NOSHEETS
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "MapNoSheets")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(MAP_NOSHEETS))
-        RowNumber = RowNumber + 1
-        # endregion
-
-        # region -- Map the document information settings
-        #
-        # DOCINFO_NAME
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "DocInfo_Name")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(DOCINFO_NAME))
-        RowNumber = RowNumber + 1
-
-        # DOCINFO_CREATEDBY
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "DocInfo_CreatedBy")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(DOCINFO_CREATEDBY))
-        RowNumber = RowNumber + 1
-
-        # DOCINFO_CREATEDDATE
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "DocInfo_CreatedDate")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(DOCINFO_CREATEDDATE))
-        RowNumber = RowNumber + 1
-
-        # DOCINFO_LASTMODIFIEDBY
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "DocInfo_LastModifiedBy")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(DOCINFO_LASTMODIFIEDBY))
-        RowNumber = RowNumber + 1
-
-        # DOCINFO_NAME
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "DocInfo_LastModifiedDate")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(DOCINFO_LASTMODIFIEDDATE))
-        RowNumber = RowNumber + 1
-
-        # DOCINFO_COMPANY
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "DocInfo_Company")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(DOCINFO_COMPANY))
-        RowNumber = RowNumber + 1
-
-        # DOCINFO_LICENSE
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "DocInfo_License")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(DOCINFO_LICENSE))
-        RowNumber = RowNumber + 1
-
-        # DOCINFO_LICENSEURL
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "DocInfo_LicenseURL")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(DOCINFO_LICENSEURL))
-        RowNumber = RowNumber + 1
-
-        # DOCINFO_COMMENT
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "DocInfo_Comment")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(DOCINFO_COMMENT))
-        RowNumber = RowNumber + 1
-        # endregion
-
-        # region -- Export the included value settings
-        #
-        # INCLUDE_LENGTH
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "IncludeLength")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(INCLUDE_LENGTH).upper())
-        RowNumber = RowNumber + 1
-
-        # INCLUDE_ANGLE
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "IncludeAngle")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(INCLUDE_ANGLE).upper())
-        RowNumber = RowNumber + 1
-
-        # INCLUDE_MASS
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "IncludeMass")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(INCLUDE_MASS).upper())
-        RowNumber = RowNumber + 1
-
-        # INCLUDE_NO_SHEETS
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "IncludeNoOfSheets")
-        # Write the value
-        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        sheet.set(SettingValue, str(INCLUDE_NO_SHEETS).upper())
-        RowNumber = RowNumber + 1
-        # endregion
-
-        # Notes:
-        # - ENABLE_DEBUG is excluded from export.
-        #   This is a setting only needed for debuggin and thus a per user setting.
-        # - Spreadsheet format settings are excluded from export.
-        #   This is a per user setting
-
-        # region Format the settings with the values as a Table
-        #
-        # Define the header range
-        HeaderRange = str(f"{StartCell}:{ValueCell}")
-
-        # Get the first row below the header
-        FirstTableRow = ""
-        for i in range(len(StartCell)):
-            if StartCell[i].isdigit():
-                FirstTableRow = FirstTableRow + str(StartCell[i])
-        FirstTableRow = int(FirstTableRow) + 1
-
-        # Get the first column
-        FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
-
-        # Get the last column
-        LastColumn = Standard_Functions.RemoveNumbersFromString(ValueCell)
-
-        # Define the table range
-        TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber + 1}")
-
-        # Define the First column range
-        FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber + 1}")
-
-        # Format the table
-        sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
-                                                  TableRange=TableRange, FirstColumnRange=FirstColumnRange)
-        # endregion
-
-        # recompute the document
-        ff.recompute(None, True, True)
-        # Save the workbook
-        ff.save()
-        # Close the FreeCAD file
-        App.closeDocument(ff.Name)
-        # Activate the document which was active when this command started.
-        try:
-            App.setActiveDocument(LastActiveDoc)
-        except Exception:
-            pass
-    except Exception as e:
-        Text = translate(
-            "TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!"
-        )
-        if ENABLE_DEBUG is True:
-            Text = translate(
-                "TitleBlock Workbench",
-                "TitleBlock Workbench: an error occurred!!\n"
-                + "See the report view for details",
-            )
-        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-        if ENABLE_DEBUG is True:
-            raise (e)
-
-
-def ImportSettings_FreeCAD():
-    import os.path
-    import errno
-
-    # Get the name of the current document and use it at the end of this function to reactivate this document
-    doc = App.ActiveDocument
-    LastActiveDoc = doc.Name
-
-    # Get the workbook. If it doesn't exist. Let the user now.
-    ff = None
-    if USE_EXTERNAL_SOURCE is False:
-        Filter = [
-            ("FreeCAD", "*.FCStd"),
-        ]
-        FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=False)
-        if FileName != "":
-            ff = App.openDocument(FileName, True)
-        if FileName == "":
-            return
-    if USE_EXTERNAL_SOURCE is True:
-        if os.path.exists(EXTERNAL_SOURCE_PATH) is True:
-            ff = App.openDocument(EXTERNAL_SOURCE_PATH, True)
-        if os.path.exists(EXTERNAL_SOURCE_PATH) is False:
-            Text = translate(
-                "TitleBlock Workbench",
-                "There is no FreeCAD file available, while import from external source is enabled!\n"
-                + "Please create an FreeCAD file to export your settings to or disable import from external source.",
-                "TitleBlock Workbench",
-            )
-            Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-            return
-
-    try:
-        # Get the sheetname
-        sheet = ff.getObject(SHEETNAME_SETTINGS_XL)
-        if sheet is None:
-            Text = translate(
-                "TitleBlock Workbench", f"No spreadsheet named '{SHEETNAME_SETTINGS_XL}'!!!"
-            )
-            Standard_Functions.Print(Input=Text, Type="Warning")
-            return
-
-        # Get the startcell
-        StartCell = SHEETNAME_STARTCELL_XL
-        OriginalStartCell = StartCell
-        if ENABLE_DEBUG is True:
-            Text = translate(
-                "TitleBlock Workbench", f"The entered startcell is: {StartCell}"
-            )
-            Standard_Functions.Print(Text, "Log")
-        if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
-            StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
-            if ENABLE_DEBUG is True:
-                Text = translate(
-                    "TitleBlock Workbench",
-                    f"TitleBlock Workbench: the startcell converted from {OriginalStartCell} to {StartCell}",
-                )
-                Standard_Functions.Print(Text, "Log")
-
-        # Get the columns
-        FirstColumn = int(Standard_Functions.GetNumberFromLetter(StartCell[:1]))
-        SecondColumn = Standard_Functions.GetLetterFromNumber(FirstColumn + 1)
-        FirstColumn = StartCell[:1]
-
-        # go through the excel until all settings are imported.
-        counter = 0
-        for i in range(1, 1000):
-            Cell_Name = sheet.getContents(str(FirstColumn) + str(i))
-            if Cell_Name.startswith("'"):
-                Cell_Name = Cell_Name[1:]
-            Cell_Value = sheet.getContents(str(SecondColumn) + str(i))
-            if Cell_Value.startswith("'"):
-                Cell_Value = Cell_Value[1:]
-
-            # region -- Import the external source settings
-            #
-            # Import USE_EXTERNAL_SOURCE
-            if Cell_Name == "UseExternalSource":
-                SetBoolSetting("UseExternalSource", Cell_Value)
-                counter = counter + 1
-
-            # This is desabled because the preference must be leading at all time.
-            # The are not allowed to be overridden by importing the settings.
-            # -----------------------------------------------------------
-            # Import EXTERNAL_SOURCE_PATH
-            # if Cell_Name == "ExternalFile":
-            #     SetStringSetting("ExternalFile", str(Cell_Value))
-            #     counter = counter + 1
-
-            # Import EXTERNAL_SOURCE_SHEET_NAME
-            # if Cell_Name == "SheetName":
-            #     SetStringSetting("SheetName", str(Cell_Value))
-            #     counter = counter + 1
-
-            # Import EXTERNAL_SOURCE_STARTCELL
-            # if Cell_Name == "StartCell":
-            #     SetStringSetting("StartCell", str(Cell_Value))
-            #     counter = counter + 1
-            # -----------------------------------------------------------
-
-            # Import AUTOFILL_TITLEBLOCK
-            if Cell_Name == "AutoFillTitleBlock":
-                SetBoolSetting("AutoFillTitleBlock", Cell_Value)
-                counter = counter + 1
-
-            # Import IMPORT_SETTINGS_XL
-            if Cell_Name == "ImportSettingsXL":
-                SetBoolSetting("ImportSettingsXL", Cell_Value)
-                counter = counter + 1
-
-            # Import SHEETNAME_SETTINGS_XL
-            if Cell_Name == "SheetName_Settings":
-                SetStringSetting("SheetName_Settings", str(Cell_Value))
-                counter = counter + 1
-
-            # Import SHEETNAME_STARTCELL_XL
-            if Cell_Name == "StartCell_Settings":
-                SetStringSetting("StartCell_Settings", str(Cell_Value))
-                counter = counter + 1
-
-            # endregion
-
-            # region -- Import the filename settings
-            #
-            # Import USE_FILENAME_DRAW_NO
-            if Cell_Name == "UseFileName":
-                SetBoolSetting("UseFileName", Cell_Value)
-                counter = counter + 1
-
-            # Import DRAW_NO_FiELD
-            if Cell_Name == "DrwNrFieldName":
-                SetStringSetting("DrwNrFieldName", str(Cell_Value))
-                counter = counter + 1
-
-            # endregion
-
-            # region -- Import the mapping settings
-            #
-            # Import MAP_LENGTH
-            if Cell_Name == "MapLength":
-                SetStringSetting("MapLength", str(Cell_Value))
-                counter = counter + 1
-
-            # Import MAP_ANGLE
-            if Cell_Name == "MapAngle":
-                SetStringSetting("MapAngle", str(Cell_Value))
-                counter = counter + 1
-
-            # Import MAP_MASS
-            if Cell_Name == "MapMass":
-                SetStringSetting("MapMass", str(Cell_Value))
-                counter = counter + 1
-
-            # Import MAP_NOSHEETS
-            if Cell_Name == "MapNoSheets":
-                SetStringSetting("MapNoSheets", str(Cell_Value))
-                counter = counter + 1
-
-            # endregion
-
-            # region -- Import the document information settings
-            #
-            # Import DOCINFO_NAME
-            if Cell_Name == "DocInfo_Name":
-                SetStringSetting("DocInfo_Name", str(Cell_Value))
-                counter = counter + 1
-
-            # DOCINFO_CREATEDBY
-            if Cell_Name == "DocInfo_CreatedBy":
-                SetStringSetting("DocInfo_CreatedBy", str(Cell_Value))
-                counter = counter + 1
-
-            # DOCINFO_CREATEDDATE
-            if Cell_Name == "DocInfo_CreatedDate":
-                SetStringSetting("DocInfo_CreatedDate", str(Cell_Value))
-                counter = counter + 1
-
-            # DOCINFO_LASTMODIFIEDBY
-            if Cell_Name == "DocInfo_LastModifiedBy":
-                SetStringSetting("DocInfo_LastModifiedBy", str(Cell_Value))
-                counter = counter + 1
-
-            # DOCINFO_LASTMODIFIEDDATE
-            if Cell_Name == "DocInfo_LastModifiedDate":
-                SetStringSetting("DocInfo_LastModifiedDate", str(Cell_Value))
-                counter = counter + 1
-
-            # DOCINFO_COMPANY
-            if Cell_Name == "DocInfo_Company":
-                SetStringSetting("DocInfo_Company", str(Cell_Value))
-                counter = counter + 1
-
-            # DOCINFO_LICENSE
-            if Cell_Name == "DocInfo_License":
-                SetStringSetting("DocInfo_License", str(Cell_Value))
-                counter = counter + 1
-
-            # DOCINFO_LICENSEURL
-            if Cell_Name == "DocInfo_LicenseURL":
-                SetStringSetting("DocInfo_LicenseURL", str(Cell_Value))
-                counter = counter + 1
-
-            # DOCINFO_COMMENT
-            if Cell_Name == "DocInfo_Comment":
-                SetStringSetting("DocInfo_Comment", str(Cell_Value))
-                counter = counter + 1
-
-            # endregion
-
-            # region -- Import the Include settings
-            #
-            # Import INCLUDE_LENGTH
-            if Cell_Name == "IncludeLength":
-                SetBoolSetting("IncludeLength", Cell_Value)
-                counter = counter + 1
-
-            # Import INCLUDE_ANGLE
-            if Cell_Name == "IncludeAngle":
-                SetBoolSetting("IncludeAngle", Cell_Value)
-                counter = counter + 1
-
-            # Import INCLUDE_MASS
-            if Cell_Name == "IncludeMass":
-                SetBoolSetting("IncludeMass", Cell_Value)
-                counter = counter + 1
-
-            # Import INCLUDE_NO_SHEETS
-            if Cell_Name == "IncludeNoOfSheets":
-                SetBoolSetting("IncludeNoOfSheets", Cell_Value)
-                counter = counter + 1
-
-            # endregion
-
-            # Notes:
-            # - ENABLE_DEBUG is excluded from export.
-            #   This is a setting only needed for debuggin and thus a per user setting.
-            # - Spreadsheet format settings are excluded from export.
-            #   This is a per user setting
-
-            if Cell_Name == "":
-                break
-
-            if counter == len(SettingsList) + 1:
-                break
-
-        if counter > 0:
-            Text = translate(
-                "TitleBlock Workbench",
-                "Titleblock workbench: Settings imported from "
-                + f"{EXTERNAL_SOURCE_PATH} from worksheet: {EXTERNAL_SOURCE_SHEET_NAME} at {StartCell}",
-            )
-            Standard_Functions.Print(Text, "Log")
-        if counter == 0:
-            Text = translate(
-                "TitleBlock Workbench",
-                "TitleBlock Workbench: Settings are not imported",
-            )
-            Standard_Functions.Print(Text, "Log")
-    # If there is an IO Error continue:
-    except IOError as e:
-        # If there is an read/write error, print an error in the report view
-        if e.errno == errno.EACCES:
-            Text = translate(
-                "TitleBlock Workbench", f"No permision to open {EXTERNAL_SOURCE_PATH}!"
-            )
-            if ENABLE_DEBUG is True:
-                Text = translate(
-                    "TitleBlock Workbench",
-                    f"No permision to open {EXTERNAL_SOURCE_PATH}!\nSee the report view for details",
-                )
-            return Standard_Functions.Mbox(
-                text=Text, title="TitleBlock Workbench", style=0
-            )
-        # For all other IO errors, raise e.
-        raise (e)
-    except Exception as e:
-        Text = translate(
-            "TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!"
-        )
-        if ENABLE_DEBUG is True:
-            Text = translate(
-                "TitleBlock Workbench",
-                "TitleBlock Workbench: an error occurred!!\n"
-                + "See the report view for details",
-            )
-        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-        if ENABLE_DEBUG is True:
-            raise (e)
-        return
-
-    # recompute the document
-    ff.recompute(None, True, True)
-    # Save the workbook
-    ff.save()
-    # Close the FreeCAD file
-    App.closeDocument(ff.Name)
-    # Activate the document which was active when this command started.
-    App.setActiveDocument(LastActiveDoc)
-
-
-def ExportSettings_XL(Silent=False):
+def ExportSettingsXL(Silent=False):
     import openpyxl.utils.exceptions
     from openpyxl import load_workbook
     from openpyxl.styles import Alignment
@@ -948,29 +236,18 @@ def ExportSettings_XL(Silent=False):
         # If the user wants to export the settins, start an input dialog.
         if Silent is False:
             # load the excel file with the custm function
-            if USE_EXTERNAL_SOURCE is False:
-                Filter = [
-                    ("Excel", "*.xlsx"),
-                ]
-                FileName = Standard_Functions.GetFileDialog(Filter, False)
-                if FileName != "":
-                    wb = load_workbook(FileName)
-                    preferences.SetString("ExternalFile", FileName)
-                if FileName == "":
-                    return
-            if USE_EXTERNAL_SOURCE is True:
-                if (
-                    Standard_Functions.CheckIfWorkbookExists(EXTERNAL_SOURCE_PATH, True)
-                    is True
-                ):
-                    wb = load_workbook(EXTERNAL_SOURCE_PATH)
-                else:
-                    Text = translate(
-                        "TitleBlock Workbench",
-                        f"TitleBlock Workbench: Something went wrong with loading {EXTERNAL_SOURCE_PATH}",
-                    )
-                    Standard_Functions.Print(Text, "Error")
-                    return
+            if (
+                Standard_Functions.CheckIfWorkbookExists(EXTERNAL_SOURCE_PATH, True)
+                is True
+            ):
+                wb = load_workbook(EXTERNAL_SOURCE_PATH)
+            else:
+                Text = translate(
+                    "TitleBlock Workbench",
+                    f"TitleBlock Workbench: Something went wrong with loading {EXTERNAL_SOURCE_PATH}",
+                )
+                Standard_Functions.Print(Text, "Error")
+                return
 
             # Set the sheetname with a inputbox
             Worksheets_List = [i for i in wb.sheetnames if i != "TitleBlockData"]
@@ -1010,10 +287,10 @@ def ExportSettings_XL(Silent=False):
             )
             StartCell = str(
                 Standard_Functions.Mbox(
-                    text=Text, title="TitleBlock Workbench", style=20, default="A1"
+                    text=Text, title="TitleBlock Workbench", style=2, default="A1"
                 )
             )
-            if StartCell == "" or StartCell is None:
+            if not StartCell.strip():
                 StartCell = "A1"
 
             # Set SHEETNAME_STARTCELL_XL to the chosen sheetname
@@ -1041,16 +318,6 @@ def ExportSettings_XL(Silent=False):
                 return
             ws = wb.create_sheet(SHEETNAME_SETTINGS_XL)
             StartCell = SHEETNAME_STARTCELL_XL
-            if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
-                StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
-                if ENABLE_DEBUG is True:
-                    Text = translate(
-                        "TitleBlock Workbench",
-                        f"TitleBlock Workbench: the startcell converted from {SHEETNAME_STARTCELL_XL} to {StartCell}",
-                    )
-                    Standard_Functions.Print(Text, "Log")
-            if StartCell is None or StartCell == "":
-                StartCell = "A1"
             if ENABLE_DEBUG is True:
                 Text = translate(
                     "TitleBlock Workbench",
@@ -1161,7 +428,7 @@ def ExportSettings_XL(Silent=False):
         ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "DrwNrFieldName"
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
-        ws[SettingValue].value = DRAW_NO_FIELD
+        ws[SettingValue].value = DRAW_NO_FiELD
         RowNumber = RowNumber + 1
 
         # endregion
@@ -1404,35 +671,25 @@ def ExportSettings_XL(Silent=False):
             raise (e)
 
 
-def ImportSettings_XL():
+def ImportSettingsXL():
     from openpyxl import load_workbook
     import os.path
     import errno
 
-    try:
-        # Get the workbook. If it doesn't exist. Let the user now.
-        wb = None
-        if USE_EXTERNAL_SOURCE is False:
-            Filter = [
-                ("Excel", "*.xlsx"),
-            ]
-            FileName = Standard_Functions.GetFileDialog(Filter, False)
-            if FileName != "":
-                wb = load_workbook(str(FileName), read_only=True)
-            if FileName == "":
-                return
-        if USE_EXTERNAL_SOURCE is True:
-            if os.path.exists(EXTERNAL_SOURCE_PATH) is True:
-                wb = load_workbook(str(EXTERNAL_SOURCE_PATH), read_only=True)
-            if os.path.exists(EXTERNAL_SOURCE_PATH) is False:
-                Text = translate(
-                    "TitleBlock Workbench",
-                    "There is no excel workbook available, while import from external source is enabled!\n" +
-                    "Please create an excel workbook to export your settings to or disable import from external source.",
-                    "TitleBlock Workbench",)
-                Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-                return
+    # Get the workbook. If it doesn't exist. Let the user now.
+    if os.path.exists(EXTERNAL_SOURCE_PATH) is True:
+        wb = load_workbook(str(EXTERNAL_SOURCE_PATH), read_only=True)
+    if os.path.exists(EXTERNAL_SOURCE_PATH) is False:
+        Text = translate(
+            "TitleBlock Workbench",
+            "There is no excel workbook available, while import from external source is enabled!\n"
+            + "Please create an excel workbook to export your settings to or disable import from external source.",
+            "TitleBlock Workbench",
+        )
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+        return
 
+    try:
         # Get the sheetname
         counter = 0
         for sheetname in wb.sheetnames:
@@ -1450,8 +707,6 @@ def ImportSettings_XL():
 
         # Get the startcell
         StartCell = SHEETNAME_STARTCELL_XL
-        if StartCell == "" or StartCell is None:
-            StartCell = "A1"
         OriginalStartCell = StartCell
         if ENABLE_DEBUG is True:
             Text = translate(
@@ -1639,9 +894,6 @@ def ImportSettings_XL():
 
             # Note: ENABLE_DEBUG is excluded from import.
             # This is a setting only needed for debuggin and thus a per user setting.
-
-            if Cell_Name == "":
-                break
 
             if counter == len(SettingsList) + 1:
                 break

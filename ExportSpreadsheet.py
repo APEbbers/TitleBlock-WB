@@ -27,22 +27,18 @@ import Standard_Functions_TitleBlock as Standard_Functions
 from openpyxl import Workbook
 from openpyxl.styles import Alignment
 from openpyxl.worksheet.table import Table, TableStyleInfo
-import TableFormat_Functions
-
-# Get the settings
-import Settings
-from Settings import preferences
-from Settings import EXTERNAL_SOURCE_STARTCELL
-# from Settings import EXTERNAL_SOURCE_SHEET_NAME
-# from Settings import EXTERNAL_SOURCE_PATH
-from Settings import IMPORT_SETTINGS_XL
-from Settings import ENABLE_DEBUG
 
 # Define the translation
 translate = App.Qt.translate
 
 
-def ExportSpreadSheet_Excel():
+def ExportSpreadSheet():
+    import Settings
+    from Settings import preferences
+    from Settings import IMPORT_SETTINGS_XL
+    from Settings import EXTERNAL_SOURCE_STARTCELL
+    from Settings import ENABLE_DEBUG
+
     try:
         # get the spreadsheet "TitleBlock"
         sheet = sheet = App.ActiveDocument.getObject("TitleBlock")
@@ -173,7 +169,7 @@ def ExportSpreadSheet_Excel():
         ws.add_table(tab)
 
         # Align the columns
-        for row in ws[1: ws.max_row]:
+        for row in ws[1 : ws.max_row]:
             Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
             Column_2 = row[Standard_Functions.GetNumberFromLetter(PropCell[:1]) - 1]
             Column_3 = row[Standard_Functions.GetNumberFromLetter(IncreaseCell[:1]) - 1]
@@ -215,7 +211,7 @@ def ExportSpreadSheet_Excel():
         Filter = [
             ("Excel", "*.xlsx"),
         ]
-        FileName = Standard_Functions.GetFileDialog(Filter)
+        FileName = Standard_Functions.SaveDialog(Filter)
         if FileName is not None:
             # Save the workbook
             wb.save(str(FileName))
@@ -224,217 +220,12 @@ def ExportSpreadSheet_Excel():
 
         # If import settings from excel is enabled, export settings to the new excel file.
         if IMPORT_SETTINGS_XL is True:
-            Settings.ExportSettings_XL(Silent=True)
+            Settings.ExportSettingsXL(Silent=True)
 
         # print a message if you succeded.
         Text = translate(
             "TitleBlock Workbench",
             f"The titleblock data is exported to the workbook {FileName} in the worksheet {ws.title}",
-        )
-        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-    except Exception as e:
-        Text = translate(
-            "TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!"
-        )
-        if ENABLE_DEBUG is True:
-            Text = translate(
-                "TitleBlock Workbench",
-                "TitleBlock Workbench: an error occurred!!\n"
-                + "See the report view for details",
-            )
-        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-        if ENABLE_DEBUG is True:
-            raise (e)
-
-
-def ExportSpreadSheet_FreeCAD():
-    try:
-        # Get the active document
-        doc = App.ActiveDocument
-        # get the spreadsheet "TitleBlock"
-        sheet = doc.getObject("TitleBlock")
-        # Save the name of the active document to reactivate it at the end of this function.
-        LastActiveDoc = doc.Name
-
-        # If there is no spreadsheet named TitleBlock, show a message and exit this function.
-        if sheet is None:
-            Text = translate(
-                "TitleBlock Workbench", "No spreadsheet named 'TitleBlock'!!!"
-            )
-            Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-            return
-
-        # Create a new FreeCAD file
-        ff = App.newDocument()
-        # Save the FreeCAD file in a folder of your choosing
-        Filter = [
-            ("FreeCAD", "*.FCStd"),
-        ]
-        FileName = Standard_Functions.GetFileDialog(Filter)
-        if FileName is not None:
-            # Save the workbook
-            ff.saveAs(FileName)
-            # Close the document before reopening
-            App.closeDocument(ff.Name)
-        if FileName is None:
-            return
-
-        # Open the document hidden, recompute and save it
-        ff = App.openDocument(FileName, True)
-        ff.recompute(None, True, True)
-        ff.save
-
-        # Create a spreadsheet for the titleblock data.
-        TitleBlockData = ff.addObject("Spreadsheet::Sheet", "TitleBlockData")
-        preferences.SetString("SheetName", "TitleBlockData")
-
-        # Get the startcell and the next cells
-        StartCell = EXTERNAL_SOURCE_STARTCELL
-        if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
-            StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
-            if ENABLE_DEBUG is True:
-                Text = translate(
-                    "TitleBlock Workbench",
-                    f"TitleBlock Workbench: the startcell converted from {EXTERNAL_SOURCE_STARTCELL} to {StartCell}",
-                )
-                Standard_Functions.Print(Text, "Log")
-
-        TopRow = int(StartCell[1:])
-        PropCell = str(
-            Standard_Functions.GetLetterFromNumber(
-                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
-            )
-        ) + str(TopRow)
-        IncreaseCell = str(
-            Standard_Functions.GetLetterFromNumber(
-                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 2
-            )
-        ) + str(TopRow)
-        MultiplierCell = str(
-            Standard_Functions.GetLetterFromNumber(
-                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 3
-            )
-        ) + str(TopRow)
-        RemarkCell = str(
-            Standard_Functions.GetLetterFromNumber(
-                Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
-            )
-        ) + str(TopRow)
-
-        if ENABLE_DEBUG is True:
-            Text = translate("TitleBlock Workbench", f"the startcell is: {StartCell}")
-            print(Text)
-
-        # Set the headers
-        TitleBlockData.set(StartCell, str(sheet.getContents("A1")))
-        TitleBlockData.set(PropCell, str(sheet.getContents("B1")))
-        TitleBlockData.set(IncreaseCell, str(sheet.getContents("C1")))
-        TitleBlockData.set(MultiplierCell, str(sheet.getContents("D1")))
-        TitleBlockData.set(RemarkCell, str(sheet.getContents("E1")))
-
-        # Go through the external spreadsheet and fill in the data.
-        for RowNumber in range(1000):
-            # Start with x+1 first, to make sure that x is at least 1.
-            RowNumber = RowNumber + 1 + TopRow
-
-            try:
-                TitleBlockData.set(
-                    StartCell[: 1] + str(RowNumber),
-                    str(sheet.getContents("A" + str(RowNumber - TopRow + 1)))
-                )
-            except Exception:
-                TitleBlockData.set(StartCell[: 1] + str(RowNumber), "")
-
-            try:
-                TitleBlockData.set(
-                    PropCell[: 1] + str(RowNumber),
-                    str(sheet.getContents("B" + str(RowNumber - TopRow + 1)))
-                )
-            except Exception:
-                TitleBlockData.set(PropCell[: 1] + str(RowNumber), "")
-
-            try:
-                TitleBlockData.set(
-                    IncreaseCell[: 1] + str(RowNumber),
-                    str(sheet.getContents("C" + str(RowNumber - TopRow + 1)))
-                )
-            except Exception:
-                TitleBlockData.set(PropCell[: 1] + str(RowNumber), "")
-
-            try:
-                TitleBlockData.set(
-                    MultiplierCell[: 1] + str(RowNumber),
-                    str(sheet.getContents("D" + str(RowNumber - TopRow + 1)))
-                )
-            except Exception:
-                TitleBlockData.set(PropCell[: 1] + str(RowNumber), "")
-
-            try:
-                TitleBlockData.set(
-                    RemarkCell[: 1] + str(RowNumber),
-                    str(sheet.getContents("E" + str(RowNumber - TopRow + 1)))
-                )
-            except Exception:
-                TitleBlockData.set(PropCell[: 1] + str(RowNumber), "")
-
-            # Check if the next row of the spreadsheet has data. If not this is the end of all the available values.
-            try:
-                test = sheet.getContents("A" + str(RowNumber - TopRow + 1))
-                if test == "" or test is None:
-                    break
-            except Exception:
-                break
-
-        # region Format the data with the values as a Table
-        #
-        # Define the header range
-        HeaderRange = str(f"{StartCell}:{RemarkCell}")
-
-        # Get the first row below the header
-        FirstTableRow = ""
-        for i in range(len(StartCell)):
-            if StartCell[i].isdigit():
-                FirstTableRow = FirstTableRow + str(StartCell[i])
-        FirstTableRow = int(FirstTableRow) + 1
-
-        # Get the first column
-        FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
-
-        # Get the last column
-        LastColumn = Standard_Functions.RemoveNumbersFromString(RemarkCell)
-
-        # Define the table range
-        TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber - 1}")
-
-        # Define the First column range
-        FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber - 1}")
-
-        # Format the table
-        sheet = TableFormat_Functions.FormatTable(sheet=TitleBlockData, HeaderRange=HeaderRange,
-                                                  TableRange=TableRange, FirstColumnRange=FirstColumnRange)
-
-        # endregion
-
-        # If import settings from external source is enabled, export settings to the new excel file.
-        if IMPORT_SETTINGS_XL is True:
-            Settings.ExportSettings_FreeCAD(Silent=True)
-
-        # recompute the document
-        ff.recompute(None, True, True)
-        # Save the workbook
-        ff.save()
-        # Close the FreeCAD file
-        App.closeDocument(ff.Name)
-        # Activate the document which was active when this command started.
-        try:
-            App.setActiveDocument(LastActiveDoc)
-        except Exception:
-            pass
-
-        # print a message if you succeded.
-        Text = translate(
-            "TitleBlock Workbench",
-            f"The titleblock data is exported to the FreeCAD file {FileName} in the spreadsheet TitleBlockData",
         )
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
     except Exception as e:

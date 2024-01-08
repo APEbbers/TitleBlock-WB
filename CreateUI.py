@@ -30,115 +30,9 @@
 import FreeCAD as App
 import FreeCADGui as Gui
 from Settings import USE_EXTERNAL_SOURCE
-from Settings import EXTERNAL_SOURCE_PATH
-import Standard_Functions_TitleBlock as Standard_Functions
-
 
 # Define the translation
 translate = App.Qt.translate
-
-
-def DefineToolbars():
-    ToolbarListMain = []
-    ToolbarListExtra = []
-    if USE_EXTERNAL_SOURCE is True:
-        if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd") is False:
-            ToolbarListMain = [
-                "Separator",
-                "ImportExcel",
-                "FillTitleBlock",
-                "ExpandToolbar",
-            ]
-            ToolbarListExtra = [
-                "OpenExcel",
-                "NewExcel",
-                "Separator",
-                "FillSpreadsheet",
-                "Separator",
-                "ExportSpreadSheet_Excel",
-                "Separator",
-                "ExportSettings_Excel",
-                "ImportSettings_Excel",
-            ]
-        if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd") is True:
-            ToolbarListMain = [
-                "Separator",
-                "ImportFreeCAD",
-                "FillTitleBlock",
-                "ExpandToolbar",
-            ]
-            ToolbarListExtra = [
-                "OpenFreeCAD",
-                "NewFreeCAD",
-                "Separator",
-                "FillSpreadsheet",
-                "Separator",
-                "ExportSpreadSheet_FreeCAD",
-                "Separator",
-                "ExportSettings_FreeCAD",
-                "ImportSettings_FreeCAD",
-            ]
-    if USE_EXTERNAL_SOURCE is False:
-        ToolbarListMain = [
-            "Separator",
-            "FillSpreadsheet",
-            "FillTitleBlock",
-            "ExpandToolbar",
-        ]  # a list of command names created in the line above
-        ToolbarListExtra = [
-            "ExportSpreadSheet_Excel",
-            "ExportSettings_Excel",
-            "ImportSettings_Excel",
-            "OpenExcel",
-            "Separator",
-            "ExportSpreadSheet_FreeCAD",
-            "ExportSettings_FreeCAD",
-            "ImportSettings_FreeCAD",
-            "OpenFreeCAD",
-        ]
-
-    result = {"ToolbarListMain": ToolbarListMain, "ToolbarListExtra": ToolbarListExtra}
-
-    return result
-
-
-def DefineMenus():
-    StandardList = [
-        "FillTitleBlock",
-        "FillSpreadsheet",
-    ]
-    ExcelList = [
-        "NewExcel",
-        "ExportSpreadSheet_Excel",
-        "ImportExcel",
-        "OpenExcel",
-    ]
-    FreeCADList = [
-        "Separator",
-        "NewFreeCAD",
-        "ExportSpreadSheet_FreeCAD",
-        "ImportFreeCAD",
-        "OpenFreeCAD",
-    ]
-    SettingsList = [
-        "ExportSettings_Excel",
-        "ImportSettings_Excel",
-        "Separator",
-        "ExportSettings_FreeCAD",
-        "ImportSettings_FreeCAD",
-    ]
-    result = {
-        "StandardList": StandardList,
-        "ExcelList": ExcelList,
-        "FreeCADList": FreeCADList,
-        "SettingsList": SettingsList
-    }
-
-    return result
-
-
-def QT_TRANSLATE_NOOP(context, text):
-    return text
 
 
 def CreateTechDrawToolbar() -> object:
@@ -157,7 +51,7 @@ def CreateTechDrawToolbar() -> object:
 
     # endregion
 
-    # region -- check if the toolbar already exits.
+    # region -- check if the toolbar already exits. if so, exit.
     name_taken = get_toolbar_with_name(ToolBarName, TechDrawToolBarsParamPath)
     if name_taken:
         i = 2  # Don't use (1), start at (2)
@@ -183,12 +77,8 @@ def CreateTechDrawToolbar() -> object:
 
     # add the commands
     if USE_EXTERNAL_SOURCE is True:
-        if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd") is False:
-            TechDrawToolbar.SetString("ImportExcel", "FreeCAD")
-            TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
-        if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd") is True:
-            TechDrawToolbar.SetString("ImportFreeCAD", "FreeCAD")
-            TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
+        TechDrawToolbar.SetString("ImportExcel", "FreeCAD")
+        TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
     if USE_EXTERNAL_SOURCE is False:
         TechDrawToolbar.SetString("FillSpreadsheet", "FreeCAD")
         TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
@@ -204,10 +94,22 @@ def CreateTechDrawToolbar() -> object:
 def RemoveTechDrawToolbar() -> None:
     # Define the name for the ToolbarGroup in the FreeCAD Parameters
     ToolbarGroupName = "TiTleBlock_Toolbar_TechDraw"
+    # Define the name for the toolbar
+    ToolBarName = "TitleBlock_Toolbar"
     # define the parameter path for the toolbar
     TechDrawToolBarsParamPath = (
         "User parameter:BaseApp/Workbench/TechDrawWorkbench/Toolbar/"
     )
+
+    # region -- check if the toolbar already exits. if so, exit.
+    name_taken = get_toolbar_with_name(ToolBarName, TechDrawToolBarsParamPath)
+    if name_taken is True:
+        TechDrawToolbar = App.ParamGet(
+            "User parameter:BaseApp/Workbench/TechDrawWorkbench/Toolbar/"
+            + ToolbarGroupName
+        )
+        TechDrawToolbar
+    # endregion
 
     custom_toolbars = App.ParamGet(TechDrawToolBarsParamPath)
     custom_toolbars.RemGroup(ToolbarGroupName)
@@ -226,12 +128,8 @@ def ReplaceButtons() -> None:
 
     # add the commands
     if USE_EXTERNAL_SOURCE is True:
-        if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd") is False:
-            TechDrawToolbar.SetString("ImportExcel", "FreeCAD")
-            TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
-        if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd") is True:
-            TechDrawToolbar.SetString("ImportFreeCAD", "FreeCAD")
-            TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
+        TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
+        TechDrawToolbar.SetString("ImportExcel", "FreeCAD")
     if USE_EXTERNAL_SOURCE is False:
         TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
         TechDrawToolbar.SetString("FillSpreadsheet", "FreeCAD")
@@ -239,7 +137,7 @@ def ReplaceButtons() -> None:
 
 # this is an modified verion of the one in:
 # https://github.com/FreeCAD/FreeCAD/blob/main/src/Mod/AddonManager/install_to_toolbar.py
-def get_toolbar_with_name(name: str, UserParam: str) -> bool:
+def get_toolbar_with_name(name: str, UserParam: str) -> object:
     """Try to find a toolbar with a given name. Returns True if the preference group for the toolbar
     if found, or False if it does not exist."""
     top_group = App.ParamGet(UserParam)
@@ -250,38 +148,3 @@ def get_toolbar_with_name(name: str, UserParam: str) -> bool:
         if group_name == name:
             return True
     return False
-
-
-def toggleToolbars(ToolbarName: str, WorkBench: str = ""):
-    import FreeCADGui as Gui
-    from PySide2.QtWidgets import QToolBar
-
-    # Get the active workbench
-    if WorkBench == "":
-        WB = Gui.activeWorkbench()
-    if WorkBench != "":
-        WB = Gui.getWorkbench(WorkBench)
-
-    # Cet the list of toolbars present.
-    ListToolbars = WB.listToolbars()
-    # Go through the list. If the toolbar exists set ToolbarExists to True
-    ToolbarExists = False
-    for i in range(len(ListToolbars)):
-        if ListToolbars[i] == ToolbarName:
-            ToolbarExists = True
-
-    # If ToolbarExists is True continue. Otherwise return.
-    if ToolbarExists is True:
-        # Get the main window
-        mainWindow = Gui.getMainWindow()
-        # Get the toolbar
-        ToolBar = mainWindow.findChild(QToolBar, ToolbarName)
-        # If the toolbar is not hidden, hide it and return.
-        if ToolBar.isHidden() is False:
-            ToolBar.setHidden(True)
-            return
-        # If the toolbar is hidden, set visible and return.
-        if ToolBar.isHidden() is True:
-            ToolBar.setVisible(True)
-            return
-    return

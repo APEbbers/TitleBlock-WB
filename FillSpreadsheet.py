@@ -533,10 +533,10 @@ def FillSheet():
         FirstTableRow = int(FirstTableRow) + 1
 
         # Define the table range
-        TableRange = str(f"A1:E{StartRow + extraRows}")
+        TableRange = str(f"A2:E{StartRow + extraRows}")
 
         # Define the First column range
-        FirstColumnRange = str(f"A1:E{StartRow + extraRows}")
+        FirstColumnRange = str(f"A2:A{StartRow + extraRows}")
 
         # Format the table
         sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,

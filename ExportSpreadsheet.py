@@ -415,6 +415,10 @@ def ExportSpreadSheet_FreeCAD():
 
         # endregion
 
+        # If import settings from external source is enabled, export settings to the new excel file.
+        if IMPORT_SETTINGS_XL is True:
+            Settings.ExportSettings_FreeCAD(Silent=True)
+
         # recompute the document
         ff.recompute(None, True, True)
         # Save the workbook
@@ -426,10 +430,6 @@ def ExportSpreadSheet_FreeCAD():
             App.setActiveDocument(LastActiveDoc)
         except Exception:
             pass
-
-        # If import settings from external source is enabled, export settings to the new excel file.
-        if IMPORT_SETTINGS_XL is True:
-            Settings.ExportSettings_FreeCAD(Silent=True)
 
         # print a message if you succeded.
         Text = translate(

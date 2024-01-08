@@ -918,7 +918,7 @@ def ImportDataFreeCAD():
             )
 
             # Get the start row
-            StartRow = EXTERNAL_SOURCE_STARTCELL[1:2]
+            StartRow = int(Standard_Functions.RemoveLettersFromString(EXTERNAL_SOURCE_STARTCELL))
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
                 Text = translate(
@@ -935,18 +935,19 @@ def ImportDataFreeCAD():
             sheet.set("E1", str(ExtSheet.getContents(str(Column5) + str(StartRow))))
 
             # Go through the excel until the cell in the first column is empty.
-            RowNumber = 0
-            # Get the number of row difference between the start row in the excelsheet
-            # and the first row in the spreadsheet.
-            # This to start at second row in the spreadsheet. (under the headers)
-            Delta = int(StartRow) - 1
+            RowNumber = 1
             for i in range(1000):
                 # Define the start row. This is the Header row +1 + i as counter
-                RowNumber = int(StartRow) + i + 1
+                RowNumber = int(StartRow) + i
 
                 # check if you reached the end of the data.
                 if ExtSheet.getContents(str(StartColumn) + str(RowNumber)) is None:
                     break
+
+                # Get the number of row difference between the start row in the excelsheet
+                # and the first row in the spreadsheet.
+                # This to start at second row in the spreadsheet. (under the headers)
+                Delta = int(StartRow) - 1
 
                 # Fill the property name
                 sheet.set(
@@ -980,8 +981,8 @@ def ImportDataFreeCAD():
 
                 # Check if the next row of the spreadsheet has data. If not this is the end of all the available values.
                 try:
-                    test = sheet.getContents("A" + str(RowNumber))
-                    if test == "" or test is None:
+                    test = str(sheet.getContents("A" + str(RowNumber)))
+                    if test == "":
                         break
                 except Exception:
                     break

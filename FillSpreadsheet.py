@@ -523,8 +523,7 @@ def FillSheet():
         #
         # Define the header range
         StartCell = "A1"
-        RemarkCell = "E1"
-        HeaderRange = str(f"{StartCell}:{RemarkCell}")
+        HeaderRange = str(f"A1:E1")
 
         # Get the first row below the header
         FirstTableRow = ""
@@ -533,17 +532,11 @@ def FillSheet():
                 FirstTableRow = FirstTableRow + str(StartCell[i])
         FirstTableRow = int(FirstTableRow) + 1
 
-        # Get the first column
-        FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
-
-        # Get the last column
-        LastColumn = Standard_Functions.RemoveNumbersFromString(RemarkCell)
-
         # Define the table range
-        TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{StartRow + extraRows}")
+        TableRange = str(f"A1:E{StartRow + extraRows}")
 
         # Define the First column range
-        FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{StartRow + extraRows}")
+        FirstColumnRange = str(f"A1:E{StartRow + extraRows}")
 
         # Format the table
         sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,

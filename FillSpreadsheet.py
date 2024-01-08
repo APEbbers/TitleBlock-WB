@@ -1013,24 +1013,11 @@ def ImportDataFreeCAD():
             # Define the header range
             HeaderRange = "A1:E1"
 
-            # Get the first row below the header
-            FirstTableRow = ""
-            for i in range(len(StartCell)):
-                if StartCell[i].isdigit():
-                    FirstTableRow = FirstTableRow + str(StartCell[i])
-            FirstTableRow = int(FirstTableRow) + 1
-
-            # Get the first column
-            FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
-
-            # Get the last column
-            LastColumn = Standard_Functions.RemoveNumbersFromString("E1")
-
             # Define the table range
-            TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber - 1 + extraRows}")
+            TableRange = str(f"A2:E{RowNumber - 1 + extraRows}")
 
             # Define the First column range
-            FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber - 1}")
+            FirstColumnRange = str(f"A1:A{RowNumber - 1}")
 
             # Format the table
             sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,

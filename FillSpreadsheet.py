@@ -938,11 +938,7 @@ def ImportDataFreeCAD():
             RowNumber = 1
             for i in range(1000):
                 # Define the start row. This is the Header row +1 + i as counter
-                RowNumber = int(StartRow) + i+1
-
-                # check if you reached the end of the data.
-                if ExtSheet.getContents(str(StartColumnExt) + str(RowNumber)) is None:
-                    break
+                RowNumber = int(StartRow) + i + 1
 
                 # Get the number of row difference between the start row in the excelsheet
                 # and the first row in the spreadsheet.
@@ -979,13 +975,13 @@ def ImportDataFreeCAD():
                         str(ExtSheet.getContents(Column4 + str(RowNumber))),
                     )
 
-                # # Check if the next row of the spreadsheet has data. If not this is the end of all the available values.
-                # try:
-                #     test = str(sheet.getContents("A" + str(RowNumber)))
-                #     if test == "":
-                #         break
-                # except Exception:
-                #     break
+                # Check if the next row of the spreadsheet has data. If not this is the end of all the available values.
+                try:
+                    test = ExtSheet.getContents(str(StartColumnExt) + str(RowNumber))
+                    if test == "":
+                        break
+                except Exception:
+                    break
 
             # Finally recompute the spreadsheet
             sheet.recompute()

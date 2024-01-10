@@ -403,7 +403,7 @@ class OpenExcel_class:
     #     if USE_EXTERNAL_SOURCE is True:
     #         result = True
 
-        return result
+        # return result
 
 
 class OpenFreeCAD_class:

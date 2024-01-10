@@ -42,6 +42,8 @@ translate = App.Qt.translate
 def FillTitleBlock():
     from Settings import ENABLE_DEBUG
     from Settings import MAP_NOSHEETS
+    from Settings import USE_PAGENAME_DRAW_NO
+    from Settings import DRAW_NO_FIELD_PAGE
 
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1
@@ -88,8 +90,11 @@ def FillTitleBlock():
                             str(sheet.getContents("B" + str(RowNum))).isnumeric()
                             is False
                         ):
-                            # write the editable text
-                            textValue = str(sheet.getContents("B" + str(RowNum)))
+                            if USE_PAGENAME_DRAW_NO is True and DRAW_NO_FIELD_PAGE == textField:
+                                textValue = page.Label
+                            else:
+                                # write the editable text
+                                textValue = str(sheet.getContents("B" + str(RowNum)))
                             if textValue[:1] == "'":
                                 textValue = textValue[1:]
 

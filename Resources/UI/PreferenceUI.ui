@@ -214,7 +214,7 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-131</y>
+        <y>0</y>
         <width>434</width>
         <height>1052</height>
        </rect>
@@ -275,6 +275,9 @@
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
          </property>
          <property name="flat">
+          <bool>false</bool>
+         </property>
+         <property name="checkable">
           <bool>false</bool>
          </property>
          <widget class="Gui::PrefCheckBox" name="UsePageName">
@@ -2639,6 +2642,54 @@
     <hint type="destinationlabel">
      <x>209</x>
      <y>211</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UsePageName</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>DrawingNumber_Page</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>205</x>
+     <y>101</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>210</x>
+     <y>138</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UsePageName</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_36</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>170</x>
+     <y>100</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>177</x>
+     <y>121</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UsePageName</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>UseFileName</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>141</x>
+     <y>93</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>228</y>
     </hint>
    </hints>
   </connection>

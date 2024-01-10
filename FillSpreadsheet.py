@@ -517,6 +517,7 @@ def FillSheet():
             sheet.set("A" + str(StartRow), "{0}".format(key, value))
             # Fill the property value
             sheet.set("B" + str(StartRow), "{1}".format(key, value))
+            print(f'{"{0}".format(key, value)}, {"{1}".format(key, value)}')
             # If there is no value yet, the increase function will be set empty by default.
             try:
                 str(sheet.getContents("C" + str(StartRow)))
@@ -567,7 +568,6 @@ def FillSheet():
 
         # Define the table range
         TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{int(StartRow) + extraRows}")
-        print(TableRange)
 
         # Define the First column range
         FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{int(StartRow) + extraRows}")
@@ -988,7 +988,6 @@ def ImportDataFreeCAD():
                 Standard_Functions.Print(Text, "Log")
 
             # import the headers from the excelsheet into the spreadsheet
-            print(f"{sheet.Name}, {ExtSheet.Name}")
             sheet.set("A1", str(ExtSheet.getContents(str(StartColumnExt) + str(StartRow))))
             sheet.set("B1", str(ExtSheet.getContents(str(Column2) + str(StartRow))))
             sheet.set("C1", str(ExtSheet.getContents(str(Column3) + str(StartRow))))
@@ -1090,10 +1089,10 @@ def ImportDataFreeCAD():
             LastColumn = Standard_Functions.RemoveNumbersFromString(RemarkCell)
 
             # Define the table range
-            TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{int(RowNumber) + extraRows}")
+            TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{int(RowNumber) + extraRows-1}")
 
             # Define the First column range
-            FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{int(RowNumber) + extraRows}")
+            FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{int(RowNumber) + extraRows-1}")
 
             # Format the table
             sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,

@@ -125,7 +125,10 @@ if str(DRAW_NO_FIELD).startswith("'"):
 #   3. Mark the cell in column C if this value needs to be increased per page
 
 
-def AddExtraData(sheet, StartRow):
+def AddExtraData(sheet, StartRow, doc=None):
+    if doc is None:
+        doc = App.ActiveDocument
+
     # If the debug mode is active, show which property is includex.difference(y)
     if ENABLE_DEBUG is True:
         Text = ""
@@ -210,10 +213,13 @@ def AddExtraData(sheet, StartRow):
 
 
 # Map data from the system and/or document to the spreadsheet
-def MapData(sheet):
+def MapData(sheet, doc=None):
+    if doc is None:
+        doc = App.ActiveDocument
+
     # Get the filename
-    filename = os.path.basename(App.ActiveDocument.FileName).split(".")[0]
-    pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+    filename = os.path.basename(doc.FileName).split(".")[0]
+    pages = doc.findObjects("TechDraw::DrawPage")
     pagename = pages[0].Label
 
     # if the debug mode is on, show what is mapped to which property
@@ -350,8 +356,9 @@ def MapData(sheet):
 
 
 # Map document information
-def MapDocInfo(sheet):
-    doc = App.ActiveDocument
+def MapDocInfo(sheet, doc=None):
+    if doc is None:
+        doc = App.ActiveDocument
 
     # if the debug mode is on, show what is mapped to which property
     if ENABLE_DEBUG is True:
@@ -1023,13 +1030,13 @@ def ImportDataFreeCAD():
             sheet.recompute()
 
             # Run the def to add extra system data.
-            MapData(sheet=sheet)
+            MapData(sheet=sheet, doc=doc)
 
             # Run the def to add document information
-            MapDocInfo(sheet=sheet)
+            MapDocInfo(sheet=sheet, doc=doc)
 
             # Run the def to add extra system data. This is the final value of "RowNumber" minus the "StartRow".
-            AddExtraData(sheet, RowNumber - int(StartRow))
+            AddExtraData(sheet, RowNumber - int(StartRow), doc)
 
             extraRows = 0
             if INCLUDE_LENGTH is True:

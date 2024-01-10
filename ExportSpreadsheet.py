@@ -421,6 +421,7 @@ def ExportSpreadSheet_FreeCAD():
         ff.save()
         # Close the FreeCAD file
         App.closeDocument(ff.Name)
+        App.closeDocument(TitleBlockData.Name)
         # Activate the document which was active when this command started.
         try:
             App.setActiveDocument(LastActiveDoc)

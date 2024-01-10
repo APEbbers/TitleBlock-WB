@@ -790,7 +790,9 @@ def ImportDataExcel():
             # region Format the data with the values as a Table
             #
             # Define the header range
-            HeaderRange = "A1:E1"
+            StartCell = "A1"
+            RemarkCell = "E1"
+            HeaderRange = str(f"{StartCell}:{RemarkCell}")
 
             # Get the first row below the header
             FirstTableRow = ""
@@ -803,13 +805,13 @@ def ImportDataExcel():
             FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
 
             # Get the last column
-            LastColumn = Standard_Functions.RemoveNumbersFromString("E1")
+            LastColumn = Standard_Functions.RemoveNumbersFromString(RemarkCell)
 
             # Define the table range
-            TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber - 1 + extraRows}")
+            TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{StartRow + extraRows}")
 
             # Define the First column range
-            FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber - 1}")
+            FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{StartRow + extraRows}")
 
             # Format the table
             sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
@@ -1051,7 +1053,9 @@ def ImportDataFreeCAD():
             # region Format the data with the values as a Table
             #
             # Define the header range
-            HeaderRange = "A1:E1"
+            StartCell = "A1"
+            RemarkCell = "E1"
+            HeaderRange = str(f"{StartCell}:{RemarkCell}")
 
             # Get the first row below the header
             FirstTableRow = ""
@@ -1064,13 +1068,13 @@ def ImportDataFreeCAD():
             FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
 
             # Get the last column
-            LastColumn = Standard_Functions.RemoveNumbersFromString("E1")
+            LastColumn = Standard_Functions.RemoveNumbersFromString(RemarkCell)
 
             # Define the table range
-            TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber - 1 + extraRows}")
+            TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{StartRow + extraRows}")
 
             # Define the First column range
-            FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber - 1}")
+            FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{StartRow + extraRows}")
 
             # Format the table
             sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,

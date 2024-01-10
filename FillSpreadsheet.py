@@ -247,7 +247,7 @@ def MapData(sheet):
         if USE_PAGENAME_DRAW_NO is True:
             Text = translate(
                 "TitleBlock Workbench",
-                + "The pagenames will be mapped to",
+                "The pagenames will be mapped to"
                 + str(DRAW_NO_FIELD_PAGE),
             )
         Standard_Functions.Print(Text, "Log")

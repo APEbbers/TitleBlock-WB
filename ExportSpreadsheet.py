@@ -215,7 +215,7 @@ def ExportSpreadSheet_Excel():
         Filter = [
             ("Excel", "*.xlsx"),
         ]
-        FileName = Standard_Functions.GetFileDialog(Filter)
+        FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=True)
         if FileName is not None:
             # Save the workbook
             wb.save(str(FileName))
@@ -270,7 +270,7 @@ def ExportSpreadSheet_FreeCAD():
         Filter = [
             ("FreeCAD", "*.FCStd"),
         ]
-        FileName = Standard_Functions.GetFileDialog(Filter)
+        FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=True)
         if FileName is not None:
             # Save the workbook
             ff.saveAs(FileName)

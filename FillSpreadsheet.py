@@ -611,7 +611,7 @@ def ImportDataExcel():
                 wb = ""
                 if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd"):
                     Filter = [("Excel", "*.xlsx"), ]
-                    FileName = Standard_Functions.GetFileDialog(Filter)
+                    FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=False)
                     if FileName is not None:
                         wb = load_workbook(FileName, data_only=True)
                 else:
@@ -875,7 +875,7 @@ def ImportDataFreeCAD():
             try:
                 if EXTERNAL_SOURCE_PATH.lower().endswith(".xlsx"):
                     Filter = [("FreeCAD", "*.FCStd"), ]
-                    FileName = Standard_Functions.GetFileDialog(Filter)
+                    FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=False)
                     if FileName is not None:
                         ff = App.openDocument(FileName, True)
                 else:
@@ -1042,8 +1042,8 @@ def ImportDataFreeCAD():
                 except Exception:
                     break
 
-            # Finally recompute the spreadsheet
-            sheet.recompute()
+            # Finally recompute the document
+            App.ActiveDocument.recompute(None, True, True)
 
             # Run the def to add extra system data.
             MapData(sheet=sheet, doc=doc)

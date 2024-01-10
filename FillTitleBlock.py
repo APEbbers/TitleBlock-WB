@@ -44,6 +44,7 @@ def FillTitleBlock():
     from Settings import MAP_NOSHEETS
     from Settings import USE_PAGENAME_DRAW_NO
     from Settings import DRAW_NO_FIELD_PAGE
+    from Settings import DRAW_NO_FIELD
 
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1
@@ -92,6 +93,8 @@ def FillTitleBlock():
                         ):
                             if USE_PAGENAME_DRAW_NO is True and DRAW_NO_FIELD_PAGE == textField:
                                 textValue = page.Label
+                            elif USE_PAGENAME_DRAW_NO is True and DRAW_NO_FIELD == textField:
+                                pass
                             else:
                                 # write the editable text
                                 textValue = str(sheet.getContents("B" + str(RowNum)))

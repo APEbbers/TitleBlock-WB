@@ -129,6 +129,7 @@ def GetFileDialog(files, SaveAs: bool = True) -> str:
             file = ""
     if SaveAs is False:
         file = askopenfilename(filetypes=files, defaultextension=files)
+    print(file)
     return file
 
 

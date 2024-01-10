@@ -128,8 +128,10 @@ def GetFileDialog(files, SaveAs: bool = True) -> str:
         else:
             file = ""
     if SaveAs is False:
-        file = askopenfilename(filetypes=files, defaultextension=files)
-    print(file)
+        if file:
+            file = askopenfilename(filetypes=files, defaultextension=files)
+        else:
+            file = ""
     return file
 
 

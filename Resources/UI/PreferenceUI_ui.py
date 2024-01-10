@@ -956,7 +956,7 @@ class Ui_Form(object):
         self.UsePageName.toggled.connect(self.label_36.setEnabled)
         self.UsePageName.toggled.connect(self.UseFileName.toggle)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(4)
         self.SprHeaderBackGround.setDefault(True)
         self.SprHeaderForeGround.setDefault(False)
 

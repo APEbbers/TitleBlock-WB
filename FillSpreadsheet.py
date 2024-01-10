@@ -448,7 +448,8 @@ def MapDocInfo(sheet, doc=None):
         if str(DOCINFO_LASTMODIFIEDDATE).strip():
             # If the cell in column A is equal to # DOCINFO_LASTMODIFIEDDATE, add the value in column B
             if PropertyName == DOCINFO_LASTMODIFIEDDATE:
-                sheet.set("B" + str(RowNum), doc.LastModifiedDate)
+                ModificationDate = doc.LastModifiedDate.split("T")[0]
+                sheet.set("B" + str(RowNum), ModificationDate)
 
         # DOCINFO_COMPANY
         if str(DOCINFO_COMPANY).strip():
@@ -607,7 +608,14 @@ def ImportDataExcel():
         if USE_EXTERNAL_SOURCE is True:
             # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
             try:
-                wb = load_workbook(str(EXTERNAL_SOURCE_PATH), data_only=True)
+                wb = ""
+                if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd"):
+                    Filter = [("Excel", "*.xlsx"), ]
+                    FileName = Standard_Functions.GetFileDialog(Filter)
+                    if FileName is not None:
+                        wb = load_workbook(FileName, data_only=True)
+                else:
+                    wb = load_workbook(str(EXTERNAL_SOURCE_PATH), data_only=True)
                 if EXTERNAL_SOURCE_SHEET_NAME == "":
                     # Set the sheetname with a inputbox
                     Worksheets_List = [i for i in wb.sheetnames if i != "Settings"]
@@ -865,7 +873,13 @@ def ImportDataFreeCAD():
 
             # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
             try:
-                ff = App.openDocument(EXTERNAL_SOURCE_PATH, True)
+                if EXTERNAL_SOURCE_PATH.lower().endswith(".xlsx"):
+                    Filter = [("FreeCAD", "*.FCStd"), ]
+                    FileName = Standard_Functions.GetFileDialog(Filter)
+                    if FileName is not None:
+                        ff = App.openDocument(FileName, True)
+                else:
+                    ff = App.openDocument(EXTERNAL_SOURCE_PATH, True)
                 if EXTERNAL_SOURCE_SHEET_NAME == "":
                     # Set the sheetname with a inputbox
                     Spreadsheet_List = ff.findObjects('Spreadsheet::Sheet')

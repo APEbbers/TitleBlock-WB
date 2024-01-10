@@ -214,7 +214,7 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-561</y>
+        <y>0</y>
         <width>434</width>
         <height>1052</height>
        </rect>
@@ -333,7 +333,7 @@
            <string>Enter the property name...</string>
           </property>
           <property name="prefEntry" stdset="0">
-           <cstring>DrwNrFieldName</cstring>
+           <cstring>DrwNrFieldName_Page</cstring>
           </property>
           <property name="prefPath" stdset="0">
            <cstring>Mod/TitleBlock Workbench</cstring>

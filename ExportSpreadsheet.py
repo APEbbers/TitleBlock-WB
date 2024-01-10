@@ -271,7 +271,6 @@ def ExportSpreadSheet_FreeCAD():
             ("FreeCAD", "*.FCStd"),
         ]
         FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=True)
-        print(f"Filename is: {FileName}")
         if FileName != "":
             # Save the workbook
             ff.saveAs(FileName)

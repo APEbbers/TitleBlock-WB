@@ -517,7 +517,6 @@ def FillSheet():
             sheet.set("A" + str(StartRow), "{0}".format(key, value))
             # Fill the property value
             sheet.set("B" + str(StartRow), "{1}".format(key, value))
-            print(f'{"{0}".format(key, value)}, {"{1}".format(key, value)}')
             # If there is no value yet, the increase function will be set empty by default.
             try:
                 str(sheet.getContents("C" + str(StartRow)))
@@ -613,9 +612,9 @@ def ImportDataExcel():
                 if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd"):
                     Filter = [("Excel", "*.xlsx"), ]
                     FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=False)
-                    if FileName != "":
+                    if FileName != "" or FileName is not None:
                         wb = load_workbook(FileName, data_only=True)
-                    else:
+                    if FileName == "" or FileName is None:
                         return
                 else:
                     wb = load_workbook(str(EXTERNAL_SOURCE_PATH), data_only=True)
@@ -879,9 +878,9 @@ def ImportDataFreeCAD():
                 if EXTERNAL_SOURCE_PATH.lower().endswith(".xlsx"):
                     Filter = [("FreeCAD", "*.FCStd"), ]
                     FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=False)
-                    if FileName != "":
+                    if FileName != "" or FileName is not None:
                         ff = App.openDocument(FileName, True)
-                    else:
+                    if FileName == "" or FileName is None:
                         return
                 else:
                     ff = App.openDocument(EXTERNAL_SOURCE_PATH, True)

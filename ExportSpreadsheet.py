@@ -216,7 +216,7 @@ def ExportSpreadSheet_Excel():
             ("Excel", "*.xlsx"),
         ]
         FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=True)
-        if FileName != "":
+        if FileName != "" or FileName is not None:
             # Save the workbook
             wb.save(str(FileName))
             # Close the workbook
@@ -271,12 +271,12 @@ def ExportSpreadSheet_FreeCAD():
             ("FreeCAD", "*.FCStd"),
         ]
         FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=True)
-        if FileName != "":
+        if FileName != "" or FileName is not None:
             # Save the workbook
             ff.saveAs(FileName)
             # Close the document before reopening
             App.closeDocument(ff.Name)
-        if FileName is None:
+        if FileName == "" or FileName is None:
             return
 
         # Open the document hidden, recompute and save it

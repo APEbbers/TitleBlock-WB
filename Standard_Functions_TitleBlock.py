@@ -176,7 +176,7 @@ def RemoveNumbersFromString(string: str) -> str:
 
     # Now join all elements of the list with '',
     # which puts all of the characters together.
-    result = "".join(no_digits).replace(".", "")
+    result = "".join(no_digits)
 
     return result
 
@@ -191,7 +191,7 @@ def RemoveLettersFromString(string: str) -> str:
 
     # Now join all elements of the list with '',
     # which puts all of the characters together.
-    result = "".join(no_chars).replace(".", "")
+    result = "".join(no_chars)
 
     return result
 

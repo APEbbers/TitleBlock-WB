@@ -253,7 +253,7 @@ def MapData(sheet, doc=None):
         if USE_PAGENAME_DRAW_NO is True:
             Text = translate(
                 "TitleBlock Workbench",
-                "The pagenames will be mapped to"
+                "The pagenames will be mapped to: "
                 + str(DRAW_NO_FIELD_PAGE),
             )
         Standard_Functions.Print(Text, "Log")
@@ -920,7 +920,7 @@ def ImportDataFreeCAD():
                 return
 
             # Get the startcolumn and the other three columns from there
-            StartCell = "A1"
+            StartCellExt = "A1"
             if EXTERNAL_SOURCE_SHEET_NAME == "":
                 # Set EXTERNAL_SOURCE_SHEET_NAME to the chosen sheetname
                 preferences.SetString("SheetName", Input_SheetName)
@@ -931,7 +931,7 @@ def ImportDataFreeCAD():
                     "Please enter the name of the cell.\n"
                     + "Enter a single cell like 'A1', 'B2', etc. Other notations will be ignored!",
                 )
-                StartCell = str(
+                StartCellExt = str(
                     Standard_Functions.Mbox(
                         text=Text,
                         title="TitleBlock Workbench",
@@ -939,21 +939,21 @@ def ImportDataFreeCAD():
                         default="A1",
                     )
                 )
-                if not StartCell.strip():
-                    StartCell = "A1"
+                if not StartCellExt.strip():
+                    StartCellExt = "A1"
 
                 # Set SHEETNAME_STARTCELL to the chosen sheetname
-                preferences.SetString("StartCell", StartCell)
+                preferences.SetString("StartCell", StartCellExt)
 
-            if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
-                StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
-            StartColumn = StartCell[:1]
+            if (Standard_Functions.GetA1fromR1C1(StartCellExt)).strip():
+                StartCellExt = Standard_Functions.GetA1fromR1C1(StartCellExt)
+            StartColumnExt = StartCellExt[:1]
             # If debug mode is on, show the start colum and its number
             if ENABLE_DEBUG is True:
                 Standard_Functions.Print(
                     translate(
                         "TitleBlock Workbench",
-                        "Start column is: " + str(StartColumn),
+                        "Start column is: " + str(StartColumnExt),
                         "Log",
                     )
                 )
@@ -961,21 +961,21 @@ def ImportDataFreeCAD():
                     translate(
                         "TitleBlock Workbench",
                         "Column number is: "
-                        + str(Standard_Functions.GetNumberFromLetter(StartColumn)),
+                        + str(Standard_Functions.GetNumberFromLetter(StartColumnExt)),
                     ),
                     "Log",
                 )
             Column2 = Standard_Functions.GetLetterFromNumber(
-                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 1), True
+                int(Standard_Functions.GetNumberFromLetter(StartColumnExt) + 1), True
             )
             Column3 = Standard_Functions.GetLetterFromNumber(
-                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 2), True
+                int(Standard_Functions.GetNumberFromLetter(StartColumnExt) + 2), True
             )
             Column4 = Standard_Functions.GetLetterFromNumber(
-                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 3), True
+                int(Standard_Functions.GetNumberFromLetter(StartColumnExt) + 3), True
             )
             Column5 = Standard_Functions.GetLetterFromNumber(
-                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 4), True
+                int(Standard_Functions.GetNumberFromLetter(StartColumnExt) + 4), True
             )
 
             # Get the start row
@@ -989,7 +989,7 @@ def ImportDataFreeCAD():
 
             # import the headers from the excelsheet into the spreadsheet
             print(f"{sheet.Name}, {ExtSheet.Name}")
-            sheet.set("A1", str(ExtSheet.getContents(str(StartColumn) + str(StartRow))))
+            sheet.set("A1", str(ExtSheet.getContents(str(StartColumnExt) + str(StartRow))))
             sheet.set("B1", str(ExtSheet.getContents(str(Column2) + str(StartRow))))
             sheet.set("C1", str(ExtSheet.getContents(str(Column3) + str(StartRow))))
             sheet.set("D1", str(ExtSheet.getContents(str(Column4) + str(StartRow))))
@@ -1001,7 +1001,7 @@ def ImportDataFreeCAD():
                 RowNumber = int(StartRow) + i + 1
 
                 # check if you reached the end of the data.
-                if ExtSheet.getContents(str(StartColumn) + str(RowNumber)) is None:
+                if ExtSheet.getContents(str(StartColumnExt) + str(RowNumber)) is None:
                     break
 
                 # Get the number of row difference between the start row in the excelsheet
@@ -1012,7 +1012,7 @@ def ImportDataFreeCAD():
                 # Fill the property name
                 sheet.set(
                     str("A" + str(RowNumber - Delta)),
-                    str(ExtSheet.getContents(str(StartColumn) + str(RowNumber))),
+                    str(ExtSheet.getContents(str(StartColumnExt) + str(RowNumber))),
                 )
                 # Fill the property value
                 if ExtSheet.getContents(Column2 + str(RowNumber)) is not None:
@@ -1084,7 +1084,7 @@ def ImportDataFreeCAD():
             FirstTableRow = int(FirstTableRow) + 1
 
             # Get the first column
-            FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
+            FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCellExt)
 
             # Get the last column
             LastColumn = Standard_Functions.RemoveNumbersFromString(RemarkCell)

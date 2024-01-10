@@ -565,10 +565,10 @@ def FillSheet():
         LastColumn = Standard_Functions.RemoveNumbersFromString(RemarkCell)
 
         # Define the table range
-        TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{StartRow + extraRows}")
+        TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{int(StartRow) + extraRows}")
 
         # Define the First column range
-        FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{StartRow + extraRows}")
+        FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{int(StartRow) + extraRows}")
 
         # Format the table
         sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
@@ -808,10 +808,10 @@ def ImportDataExcel():
             LastColumn = Standard_Functions.RemoveNumbersFromString(RemarkCell)
 
             # Define the table range
-            TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{StartRow + extraRows}")
+            TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{int(StartRow) + extraRows}")
 
             # Define the First column range
-            FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{StartRow + extraRows}")
+            FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{int(StartRow) + extraRows}")
 
             # Format the table
             sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
@@ -1071,10 +1071,10 @@ def ImportDataFreeCAD():
             LastColumn = Standard_Functions.RemoveNumbersFromString(RemarkCell)
 
             # Define the table range
-            TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{StartRow + extraRows}")
+            TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{int(StartRow) + extraRows}")
 
             # Define the First column range
-            FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{StartRow + extraRows}")
+            FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{int(StartRow) + extraRows}")
 
             # Format the table
             sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,

@@ -612,9 +612,9 @@ def ImportDataExcel():
                 if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd"):
                     Filter = [("Excel", "*.xlsx"), ]
                     FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=False)
-                    if FileName != "" or FileName is not None:
+                    if FileName != "":
                         wb = load_workbook(FileName, data_only=True)
-                    if FileName == "" or FileName is None:
+                    if FileName == "":
                         return
                 else:
                     wb = load_workbook(str(EXTERNAL_SOURCE_PATH), data_only=True)
@@ -878,9 +878,9 @@ def ImportDataFreeCAD():
                 if EXTERNAL_SOURCE_PATH.lower().endswith(".xlsx"):
                     Filter = [("FreeCAD", "*.FCStd"), ]
                     FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=False)
-                    if FileName != "" or FileName is not None:
+                    if FileName != "":
                         ff = App.openDocument(FileName, True)
-                    if FileName == "" or FileName is None:
+                    if FileName == "":
                         return
                 else:
                     ff = App.openDocument(EXTERNAL_SOURCE_PATH, True)

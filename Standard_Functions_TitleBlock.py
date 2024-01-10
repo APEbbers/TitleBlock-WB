@@ -123,8 +123,10 @@ def GetFileDialog(files, SaveAs: bool = True) -> str:
     file = ""
     if SaveAs is True:
         file = asksaveasfile(filetypes=files, defaultextension=files)
-        if file is not None:
+        if file:
             file = str(file.name)
+        else:
+            file = ""
     if SaveAs is False:
         file = askopenfilename(filetypes=files, defaultextension=files)
     return file

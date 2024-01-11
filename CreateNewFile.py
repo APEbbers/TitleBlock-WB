@@ -168,19 +168,21 @@ def CreateFreeCAD():
     # Save the name of the active document to reactivate it at the end of this function.
     LastActiveDoc = doc.Name
 
-    # Create a new FreeCAD file
-    ff = App.newDocument()
+    # Create a placeholder for the new document
+    ff = ""
     # Save the FreeCAD file in a folder of your choosing
     Filter = [
         ("FreeCAD", "*.FCStd"),
     ]
-    FileName = Standard_Functions.GetFileDialog(Filter)
-    if FileName is not None:
+    FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=True)
+    if FileName != "":
+        # Create a new FreeCAD file
+        ff = App.newDocument()
         # Save the workbook
         ff.saveAs(FileName)
-        # Close the document before reopening to be sure it exists
+        # Close the document before reopening
         App.closeDocument(ff.Name)
-    if FileName is None:
+    if FileName == "":
         return
 
     # Open the document hidden, recompute and save it

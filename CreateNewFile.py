@@ -25,6 +25,7 @@ import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
 from openpyxl import Workbook
 from openpyxl.worksheet.table import Table, TableStyleInfo
+import os
 
 # Get the settings
 import Settings
@@ -176,6 +177,16 @@ def CreateFreeCAD():
     ]
     FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=True)
     if FileName != "":
+        # Check if the file is already open. If so, close it.
+        # Get the keys from the dictionary
+        OpenDocumentsKeys = App.listDocuments().keys()
+        # Go through the keys
+        for i in range(len(OpenDocumentsKeys)):
+            # get the filename without extension
+            DocumentName = str(os.path.basename()).removesuffix(".FCStd")
+            # If the filename is the same ad the created name, close it.
+            if OpenDocumentsKeys[i] == FileName:
+                App.closeDocument(App.listDocuments()[DocumentName])
         # Create a new FreeCAD file
         ff = App.newDocument()
         # Save the workbook

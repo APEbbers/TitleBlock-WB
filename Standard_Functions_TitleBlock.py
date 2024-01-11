@@ -129,7 +129,7 @@ def GetFileDialog(files, SaveAs: bool = True) -> str:
                 file = str(file.name)
             else:
                 file = ""
-        except PermissionError:
+        except IOError:
             Mbox("Permission error!!\nDo you have the file open?", "Titleblock Workbench", 0, IconType="Critical")
         except Exception as e:
             Mbox("Unknown error!!'nSee the report view for details!", "Titleblock Workbench", 0, IconType="Critical")

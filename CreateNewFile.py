@@ -186,10 +186,8 @@ def CreateFreeCAD():
             DocumentName = str(os.path.basename(FileName)).replace(".FCStd", "")
             print(DocumentName + ", " + OpenDocumentsKeys[i])
             # If the filename is the same ad the created name, close it.
-            if OpenDocumentsKeys[i] == FileName:
-                Standard_Functions.Mbox(
-                    "This file is already open!\nPlease close it first or choose another name.", "Titleblock workbench", 0)
-                return
+            if OpenDocumentsKeys[i] == DocumentName:
+                App.closeDocument(App.listDocuments()[DocumentName].Name)
         # Create a new FreeCAD file
         ff = App.newDocument()
         # Save the workbook

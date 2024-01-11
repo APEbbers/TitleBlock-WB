@@ -25,6 +25,7 @@ class Ui_Form(object):
         if not Form.objectName():
             Form.setObjectName(u"Form")
         Form.setWindowModality(Qt.ApplicationModal)
+        Form.setEnabled(True)
         Form.resize(1966, 1330)
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
@@ -79,6 +80,7 @@ class Ui_Form(object):
 
         self.tabWidget = QTabWidget(Form)
         self.tabWidget.setObjectName(u"tabWidget")
+        self.tabWidget.setEnabled(True)
         self.tabWidget.setGeometry(QRect(5, 5, 456, 516))
         self.tabWidget.setAutoFillBackground(False)
         self.TitleBlock = QWidget()
@@ -99,7 +101,7 @@ class Ui_Form(object):
         self.scrollArea.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 434, 1052))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 178, 1052))
         sizePolicy.setHeightForWidth(self.scrollAreaWidgetContents.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContents.setSizePolicy(sizePolicy)
         self.verticalLayout_3 = QVBoxLayout(self.scrollAreaWidgetContents)
@@ -904,9 +906,6 @@ class Ui_Form(object):
         self.formLayout.setLayout(5, QFormLayout.LabelRole, self.formLayout_2)
 
         self.tabWidget.addTab(self.UIsettings, "")
-        self.Advanced = QWidget()
-        self.Advanced.setObjectName(u"Advanced")
-        self.tabWidget.addTab(self.Advanced, "")
         QWidget.setTabOrder(self.tabWidget, self.UseFileName)
         QWidget.setTabOrder(self.UseFileName, self.DrawingNumber)
         QWidget.setTabOrder(self.DrawingNumber, self.MapLength)
@@ -956,7 +955,7 @@ class Ui_Form(object):
         self.UsePageName.toggled.connect(self.label_36.setEnabled)
         self.UsePageName.toggled.connect(self.UseFileName.toggle)
 
-        self.tabWidget.setCurrentIndex(4)
+        self.tabWidget.setCurrentIndex(3)
         self.SprHeaderBackGround.setDefault(True)
         self.SprHeaderForeGround.setDefault(False)
 
@@ -1108,7 +1107,6 @@ class Ui_Form(object):
         self.SprColumnFontStyle_Underline.setText(QCoreApplication.translate("Form", u"Underline", None))
         self.label_35.setText(QCoreApplication.translate("Form", u"Width factor for AutoFit", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.UIsettings), QCoreApplication.translate("Form", u"UI Settings", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Advanced), QCoreApplication.translate("Form", u"Advanced", None))
         pass
     # retranslateUi
 

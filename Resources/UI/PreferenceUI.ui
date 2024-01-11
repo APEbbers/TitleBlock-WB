@@ -5,6 +5,9 @@
   <property name="windowModality">
    <enum>Qt::ApplicationModal</enum>
   </property>
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -159,6 +162,9 @@
    </widget>
   </widget>
   <widget class="QTabWidget" name="tabWidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>5</x>
@@ -171,7 +177,7 @@
     <bool>false</bool>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="TitleBlock">
     <attribute name="title">
@@ -215,7 +221,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>434</width>
+        <width>178</width>
         <height>1052</height>
        </rect>
       </property>
@@ -2336,11 +2342,6 @@
       </layout>
      </widget>
     </widget>
-   </widget>
-   <widget class="QWidget" name="Advanced">
-    <attribute name="title">
-     <string>Advanced</string>
-    </attribute>
    </widget>
   </widget>
  </widget>

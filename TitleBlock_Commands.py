@@ -451,7 +451,7 @@ class NewExcel_class:
     def Activated(self):
         import CreateNewFile
 
-        CreateNewFile.createExcel()
+        CreateNewFile.CcreateExcel()
         return
 
     # def IsActive(self):

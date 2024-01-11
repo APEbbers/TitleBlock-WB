@@ -52,7 +52,7 @@ from Settings import AUTOFIT_FACTOR
 translate = App.Qt.translate
 
 
-def createExcel():
+def CcreateExcel():
     # Create a workbook and activate the first sheet
     wb = Workbook()
     ws = wb.active

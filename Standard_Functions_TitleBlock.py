@@ -27,8 +27,9 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
     Message Styles:\n
     0 : OK                          (text, title, style)\n
     1 : Yes | No                    (text, title, style)\n
-    20 : Inputbox                    (text, title, style, default)\n
-    21 : Inputbox with dropdown      (text, title, style, default, stringlist)\n
+    20 : Inputbox                   (text, title, style, default)\n
+    21 : Inputbox with dropdown     (text, title, style, default, stringlist)\n
+    Icontype:                       string: NoIcon, Question, Warning, Critical. Default Information 
     """
     from PySide2.QtWidgets import QMessageBox, QInputDialog
 
@@ -122,11 +123,17 @@ def GetFileDialog(files, SaveAs: bool = True) -> str:
 
     file = ""
     if SaveAs is True:
-        file = asksaveasfile(filetypes=files, defaultextension=files)
-        if file:
-            file = str(file.name)
-        else:
-            file = ""
+        try:
+            file = asksaveasfile(filetypes=files, defaultextension=files)
+            if file:
+                file = str(file.name)
+            else:
+                file = ""
+        except PermissionError:
+            Mbox("Permission error!!\nDo you have the file open?", "Titleblock Workbench", 0, IconType="Critical")
+        except Exception as e:
+            Mbox("Unknown error!!'nSee the report view for details!", "Titleblock Workbench", 0, IconType="Critical")
+            raise e
     if SaveAs is False:
         if file:
             file = askopenfilename(filetypes=files, defaultextension=files)

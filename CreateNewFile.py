@@ -268,7 +268,10 @@ def CreateFreeCAD():
     # Close the FreeCAD file
     App.closeDocument(ff.Name)
     # Activate the document which was active when this command started.
-    App.setActiveDocument(LastActiveDoc)
+    try:
+        App.setActiveDocument(LastActiveDoc)
+    except Exception:
+        pass
 
     return
 

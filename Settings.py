@@ -629,10 +629,10 @@ def ExportSettings_FreeCAD(Silent=False):
         LastColumn = Standard_Functions.RemoveNumbersFromString(ValueCell)
 
         # Define the table range
-        TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber - 1}")
+        TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber}")
 
         # Define the First column range
-        FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber - 1}")
+        FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber}")
 
         # Format the table
         sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,

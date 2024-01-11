@@ -122,24 +122,32 @@ def FormatTable(
         j = i - 1
         # Define the first row
         FirstRow = f"{TableRangeColumnStart}{str(j+TableRangeRowStart)}:{TableRangeColumnEnd}{str(j+TableRangeRowStart)}"
+        # define the first cell in the first column
+        Firstcell = f"{TableRangeColumnStart}{j+TableRangeRowStart}"
+
         # Define the second row
         SecondRow = f"{TableRangeColumnStart}{str(j+TableRangeRowStart+1)}:{TableRangeColumnEnd}{str(j+TableRangeRowStart+1)}"
 
+        # define the second cell in the first column
+        Secondcell = f"{TableRangeColumnStart}{j+TableRangeRowStart}"
+
         # if the first and second rows are within the range, set the colors
-        if i <= DeltaRange:
-            sheet.setBackground(
-                FirstRow, SPREADSHEET_TABLEBACKGROUND_1
-            )
-            sheet.setForeground(
-                FirstRow, SPREADSHEET_TABLEFOREGROUND
-            )
-        if i + 1 <= DeltaRange:
-            sheet.setBackground(
-                SecondRow, SPREADSHEET_TABLEBACKGROUND_2
-            )
-            sheet.setForeground(
-                SecondRow, SPREADSHEET_TABLEFOREGROUND
-            )
+        if j <= DeltaRange:
+            if sheet.getContents(Firstcell) != "":
+                sheet.setBackground(
+                    FirstRow, SPREADSHEET_TABLEBACKGROUND_1
+                )
+                sheet.setForeground(
+                    FirstRow, SPREADSHEET_TABLEFOREGROUND
+                )
+        if j + 1 <= DeltaRange:
+            if sheet.getContents(Secondcell) != "":
+                sheet.setBackground(
+                    SecondRow, SPREADSHEET_TABLEBACKGROUND_2
+                )
+                sheet.setForeground(
+                    SecondRow, SPREADSHEET_TABLEFOREGROUND
+                )
 
     # Set the font style for the table
     sheet.setStyle(

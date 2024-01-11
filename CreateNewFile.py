@@ -141,13 +141,15 @@ def CcreateExcel():
         ("Excel", "*.xlsx"),
     ]
     FileName = Standard_Functions.GetFileDialog(Filter)
-    if FileName is not None:
+    if FileName != "":
         # Save the workbook
         wb.save(str(FileName))
         # Close the workbook
         wb.close()
         # Update the preferences
         preferences.SetString("ExternalFile", FileName)
+    if FileName == "":
+        return
 
     # If import settings from excel is enabled, export settings to the new excel file.
     if IMPORT_SETTINGS_XL is True:

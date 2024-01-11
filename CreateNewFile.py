@@ -184,6 +184,7 @@ def CreateFreeCAD():
         for i in range(len(OpenDocumentsKeys)):
             # get the filename without extension
             DocumentName = str(os.path.basename()).removesuffix(".FCStd")
+            print(DocumentName + ", " + OpenDocumentsKeys[i])
             # If the filename is the same ad the created name, close it.
             if OpenDocumentsKeys[i] == FileName:
                 App.closeDocument(App.listDocuments()[DocumentName])

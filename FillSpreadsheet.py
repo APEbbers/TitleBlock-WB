@@ -588,8 +588,6 @@ def FillSheet():
 
         # Finally recompute the document
         App.ActiveDocument.recompute(None, True, True)
-    # except TypeError:
-    #     pass
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:
@@ -599,7 +597,7 @@ def FillSheet():
                 + "See the report view for details",
             )
             raise e
-        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0, IconType="Critical")
     return
 
 
@@ -648,6 +646,10 @@ def ImportDataExcel():
                     ws = wb[str(Input_SheetName)]
                 if EXTERNAL_SOURCE_SHEET_NAME != "":
                     ws = wb[str(EXTERNAL_SOURCE_SHEET_NAME)]
+            except IOError:
+                Standard_Functions.Mbox("Permission error!!\nDo you have the file open?",
+                                        "Titleblock Workbench", 0, IconType="Critical")
+                return
             except Exception as e:
                 if ENABLE_DEBUG is True:
                     raise (e)

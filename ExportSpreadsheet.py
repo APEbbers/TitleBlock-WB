@@ -45,7 +45,7 @@ translate = App.Qt.translate
 def ExportSpreadSheet_Excel():
     try:
         # get the spreadsheet "TitleBlock"
-        sheet = sheet = App.ActiveDocument.getObject("TitleBlock")
+        sheet = App.ActiveDocument.getObject("TitleBlock")
         if sheet is None:
             Text = translate(
                 "TitleBlock Workbench", "No spreadsheet named 'TitleBlock'!!!"
@@ -264,14 +264,16 @@ def ExportSpreadSheet_FreeCAD():
             Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
             return
 
-        # Create a new FreeCAD file
-        ff = App.newDocument()
+        # Create a placeholder for the new document
+        ff = ""
         # Save the FreeCAD file in a folder of your choosing
         Filter = [
             ("FreeCAD", "*.FCStd"),
         ]
         FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=True)
         if FileName != "":
+            # Create a new FreeCAD file
+            ff = App.newDocument()
             # Save the workbook
             ff.saveAs(FileName)
             # Close the document before reopening

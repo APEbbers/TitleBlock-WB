@@ -239,10 +239,6 @@ def CreateFreeCAD():
     ff.recompute(None, True, True)
     # Save the workbook
     ff.save()
-    # Close the FreeCAD file
-    App.closeDocument(ff.Name)
-    # Activate the document which was active when this command started.
-    App.setActiveDocument(LastActiveDoc)
 
     # If import settings from excel is enabled, export settings to the new excel file.
     if IMPORT_SETTINGS_XL is True:
@@ -254,6 +250,11 @@ def CreateFreeCAD():
         f"The titleblock data is exported to the workbook {FileName} in the worksheet {TitleBlockData}",
     )
     Standard_Functions.Mbox(text=message, title="TitleBlock Workbench", style=0)
+
+    # Close the FreeCAD file
+    App.closeDocument(ff.Name)
+    # Activate the document which was active when this command started.
+    App.setActiveDocument(LastActiveDoc)
 
     return
 

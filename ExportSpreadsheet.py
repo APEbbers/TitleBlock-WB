@@ -28,6 +28,7 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment
 from openpyxl.worksheet.table import Table, TableStyleInfo
 import TableFormat_Functions
+import os
 
 # Get the settings
 import Settings
@@ -272,12 +273,17 @@ def ExportSpreadSheet_FreeCAD():
         ]
         FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=True)
         if FileName != "":
-            # Create a new FreeCAD file
-            ff = App.newDocument()
-            # Save the workbook
-            ff.saveAs(FileName)
-            # Close the document before reopening
-            App.closeDocument(ff.Name)
+            # Check if the file is already open. If so, close it.
+            # Get the keys from the dictionary
+            OpenDocumentsKeys = list(App.listDocuments().keys())
+            # Go through the keys
+            for i in range(len(OpenDocumentsKeys)):
+                # get the filename without extension
+                DocumentName = str(os.path.basename(FileName)).replace(".FCStd", "")
+                print(DocumentName + ", " + OpenDocumentsKeys[i])
+                # If the filename is the same ad the created name, close it.
+                if OpenDocumentsKeys[i] == DocumentName:
+                    App.closeDocument(App.listDocuments()[DocumentName].Name)
         if FileName == "":
             return
 

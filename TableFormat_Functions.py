@@ -129,7 +129,7 @@ def FormatTable(
         SecondRow = f"{TableRangeColumnStart}{str(j+TableRangeRowStart+1)}:{TableRangeColumnEnd}{str(j+TableRangeRowStart+1)}"
 
         # define the second cell in the first column
-        Secondcell = f"{TableRangeColumnStart}{j+TableRangeRowStart}"
+        Secondcell = f"{TableRangeColumnStart}{j+1+TableRangeRowStart}"
 
         # if the first and second rows are within the range, set the colors
         if j <= DeltaRange:

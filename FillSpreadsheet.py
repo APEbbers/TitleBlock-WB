@@ -622,11 +622,11 @@ def ImportDataExcel():
                     Filter = [("Excel", "*.xlsx"), ]
                     FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=False)
                     if FileName != "":
-                        wb = load_workbook(FileName, data_only=True)
+                        wb = load_workbook(FileName, read_only=True, data_only=True)
                     if FileName == "":
                         return
                 else:
-                    wb = load_workbook(str(EXTERNAL_SOURCE_PATH), data_only=True)
+                    wb = load_workbook(str(EXTERNAL_SOURCE_PATH), read_only=True, data_only=True)
                 if EXTERNAL_SOURCE_SHEET_NAME == "":
                     # Set the sheetname with a inputbox
                     Worksheets_List = [i for i in wb.sheetnames if i != "Settings"]

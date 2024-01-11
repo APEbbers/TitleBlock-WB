@@ -220,7 +220,11 @@ def MapData(sheet, doc=None):
     # Get the filename
     filename = os.path.basename(doc.FileName).split(".")[0]
     pages = doc.findObjects("TechDraw::DrawPage")
-    pagename = pages[0].Label
+    # get the fist page.
+    pagename = ""
+    pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+    if len(pages) > 0:
+        pagename = pages[0].Label
 
     # if the debug mode is on, show what is mapped to which property
     if ENABLE_DEBUG is True:
@@ -342,7 +346,7 @@ def MapData(sheet, doc=None):
         # Map the pagename
         # Map only as requested
         if USE_PAGENAME_DRAW_NO is True:
-            if str(DRAW_NO_FIELD_PAGE).strip():
+            if str(DRAW_NO_FIELD_PAGE).strip() and pagename != "":
                 # If the cell in column A is equal to DRAW_NO_FIELD, add the value in column B
                 if PropertyName == DRAW_NO_FIELD_PAGE:
                     sheet.set("B" + str(RowNum), pagename)

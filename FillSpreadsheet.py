@@ -1141,6 +1141,8 @@ def ImportDataFreeCAD():
 def Start(command):
     try:
         sheet = App.ActiveDocument.getObject("TitleBlock")
+        # Clear the sheet
+        sheet.clearAll()
         # check if the result is not empty
         if sheet is not None:
             # Proceed with the macro.

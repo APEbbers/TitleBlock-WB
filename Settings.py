@@ -362,10 +362,11 @@ def ExportSettings_FreeCAD(Silent=False):
         if sheet is None:
             if Silent is False:
                 Standard_Functions.Print(f"This FreeCAD file doesn't have a spreadsheet named {SHEETNAME_SETTINGS_XL}")
+                return
             if Silent is True:
                 # Create a spreadsheet for the titleblock data.
                 sheet = ff.addObject("Spreadsheet::Sheet", SHEETNAME_SETTINGS_XL)
-            return
+
         # Set the header for the first column
         sheet.set(StartCell, "Name")
         # Set the header for the second column

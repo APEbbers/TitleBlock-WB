@@ -187,7 +187,7 @@ def CreateFreeCAD():
             print(DocumentName + ", " + OpenDocumentsKeys[i])
             # If the filename is the same ad the created name, close it.
             if OpenDocumentsKeys[i] == FileName:
-                App.closeDocument(App.listDocuments()[DocumentName])
+                App.closeDocument(App.listDocuments()[DocumentName].Name)
         # Create a new FreeCAD file
         ff = App.newDocument()
         # Save the workbook

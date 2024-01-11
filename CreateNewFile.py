@@ -183,7 +183,7 @@ def CreateFreeCAD():
         # Go through the keys
         for i in range(len(OpenDocumentsKeys)):
             # get the filename without extension
-            DocumentName = str(os.path.basename(FileName)).removesuffix(".FCStd")
+            DocumentName = str(os.path.basename(FileName)).replace(".FCStd", "")
             print(DocumentName + ", " + OpenDocumentsKeys[i])
             # If the filename is the same ad the created name, close it.
             if OpenDocumentsKeys[i] == FileName:

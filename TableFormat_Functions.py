@@ -168,14 +168,14 @@ def FormatTable(
     # Align the table and headers --------------------------------------------------------------------------------------
     # align the columns
     sheet.setAlignment(
-        f"{TableRangeColumnStart}{TableRangeRowStart}:{TableRangeColumnStart}{TableRangeRowEnd}", "left|vcenter"
+        f"{TableRangeColumnStart}{TableRangeRowStart-1}:{TableRangeColumnStart}{TableRangeRowEnd}", "left|vcenter"
     )
     sheet.setAlignment(
-        f"{TableRangeSecondColumn}{TableRangeRowStart}:{TableRangeColumnEnd}{TableRangeRowEnd}", "center|vcenter"
+        f"{TableRangeSecondColumn}{TableRangeRowStart-1}:{TableRangeColumnEnd}{TableRangeRowEnd}", "center|vcenter"
     )
 
     # Set the column width
-    for i in range(TableRangeRowStart, TableRangeRowEnd):
+    for i in range(TableRangeRowStart-1, TableRangeRowEnd):
         for j in range(Standard_Functions.GetNumberFromLetter(TableRangeColumnStart),
                        Standard_Functions.GetNumberFromLetter(TableRangeColumnEnd) + 1):
 

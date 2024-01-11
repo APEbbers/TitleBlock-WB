@@ -179,7 +179,7 @@ def CreateFreeCAD():
     if FileName != "":
         # Check if the file is already open. If so, close it.
         # Get the keys from the dictionary
-        OpenDocumentsKeys = App.listDocuments().keys()
+        OpenDocumentsKeys = list(App.listDocuments().keys())
         # Go through the keys
         for i in range(len(OpenDocumentsKeys)):
             # get the filename without extension

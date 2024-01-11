@@ -184,14 +184,14 @@ def CreateTechDrawToolbar() -> object:
     # add the commands
     if USE_EXTERNAL_SOURCE is True:
         if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd") is False:
+            TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
             TechDrawToolbar.SetString("ImportExcel", "FreeCAD")
-            TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
         if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd") is True:
-            TechDrawToolbar.SetString("ImportFreeCAD", "FreeCAD")
             TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
+            TechDrawToolbar.SetString("ImportFreeCAD", "FreeCAD")
     if USE_EXTERNAL_SOURCE is False:
-        TechDrawToolbar.SetString("FillSpreadsheet", "FreeCAD")
         TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
+        TechDrawToolbar.SetString("FillSpreadsheet", "FreeCAD")
 
     # endregion
 

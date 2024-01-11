@@ -482,8 +482,13 @@ def MapDocInfo(sheet, doc=None):
 # Fill the spreadsheet with all the date from the titleblock
 def FillSheet():
     try:
-        # get the fist page
-        page = App.ActiveDocument.Page
+        # get the fist page. If there is no page, return
+        pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+        if len(pages) > 0:
+            page = pages[0]
+        if len(pages) == 0:
+            return
+
         # get the editable texts
         texts = page.Template.EditableTexts
         # get the spreadsheet "TitleBlock"

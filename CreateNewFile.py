@@ -251,7 +251,7 @@ def CreateFreeCAD():
     # print a message if you succeded.
     message = translate(
         "TitleBlock Workbench",
-        f"The titleblock data is exported to the workbook {FileName} in the worksheet {TitleBlockData.Name}",
+        f"The titleblock data is exported to the workbook {FileName} in the worksheet {TitleBlockData}",
     )
     Standard_Functions.Mbox(text=message, title="TitleBlock Workbench", style=0)
 

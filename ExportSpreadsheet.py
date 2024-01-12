@@ -425,12 +425,15 @@ def ExportSpreadSheet_FreeCAD():
 
         # endregion
 
+        # Save the name of the external file before Export settings closes
+        ExternalFileName = ff.Name
+
         # If import settings from external source is enabled, export settings to the new excel file.
         if IMPORT_SETTINGS_XL is True:
             Settings.ExportSettings_FreeCAD(Silent=True)
 
         # recompute the document
-        if Standard_Functions.CheckIfDocumentIsOpen(ff.Name):
+        if Standard_Functions.CheckIfDocumentIsOpen(ExternalFileName):
             ff.recompute(None, True, True)
             # Save the workbook
             ff.save()

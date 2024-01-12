@@ -654,13 +654,12 @@ def ExportSettings_FreeCAD(Silent=False):
         )
         # endregion
 
-        if Standard_Functions.CheckIfDocumentIsOpen(ff.Name):
-            # recompute the document
-            ff.recompute(None, True, True)
-            # Save the workbook
-            ff.save()
-            # Close the FreeCAD file
-            App.closeDocument(ff.Name)
+        # recompute the document
+        ff.recompute(None, True, True)
+        # Save the workbook
+        ff.save()
+        # Close the FreeCAD file
+        App.closeDocument(ff.Name)
         # Activate the document which was active when this command started.
         try:
             App.setActiveDocument(LastActiveDoc)

@@ -24,6 +24,7 @@
 import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
 import TableFormat_Functions
+import os
 
 # region defenitions
 # Define the translation
@@ -115,7 +116,7 @@ DEFAULT_TEMPLATE = GetIntSetting("Default_Template")
 
 # External source
 USE_EXTERNAL_SOURCE = GetBoolSetting("UseExternalSource")
-EXTERNAL_SOURCE_PATH = GetStringSetting("ExternalFile")
+EXTERNAL_SOURCE_PATH = os.path.abspath(GetStringSetting("ExternalFile"))
 EXTERNAL_SOURCE_SHEET_NAME = GetStringSetting("SheetName")
 EXTERNAL_SOURCE_STARTCELL = GetStringSetting("StartCell")
 AUTOFILL_TITLEBLOCK = GetBoolSetting("AutoFillTitleBlock")

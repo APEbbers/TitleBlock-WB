@@ -127,13 +127,10 @@ SHEETNAME_STARTCELL_XL = GetStringSetting("StartCell_Settings")
 # Use filename as drawingnumber
 USE_FILENAME_DRAW_NO = GetBoolSetting("UseFileName")
 DRAW_NO_FIELD = GetStringSetting("DrwNrFieldName")
-<<<<<<< HEAD
-=======
 
 # Use pagename as drawing number
 USE_PAGENAME_DRAW_NO = GetBoolSetting("UsePageName")
 DRAW_NO_FIELD_PAGE = GetStringSetting("DrwNrFieldName_Page")
->>>>>>> Develop
 
 # The values that are mapped
 MAP_LENGTH = GetStringSetting("MapLength")

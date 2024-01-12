@@ -739,6 +739,8 @@ def ImportSettings_FreeCAD():
             if Cell_Value.startswith("'"):
                 Cell_Value = Cell_Value[1:]
 
+            print(Cell_Name + ", " + Cell_Value)
+
             # region -- Import the external source settings
             #
             # Import USE_EXTERNAL_SOURCE

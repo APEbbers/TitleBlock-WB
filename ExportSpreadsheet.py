@@ -304,7 +304,7 @@ def ExportSpreadSheet_FreeCAD():
                 )
                 Standard_Functions.Print(Text, "Log")
 
-        TopRow = int(StartCell[1:])
+        TopRow = int(Standard_Functions.RemoveLettersFromString(StartCell))
         PropCell = str(
             Standard_Functions.GetLetterFromNumber(
                 Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
@@ -344,43 +344,43 @@ def ExportSpreadSheet_FreeCAD():
 
             try:
                 TitleBlockData.set(
-                    StartCell[: 1] + str(RowNumber),
+                    Standard_Functions.RemoveNumbersFromString(StartCell) + str(RowNumber),
                     str(sheet.getContents("A" + str(RowNumber - TopRow + 1)))
                 )
             except Exception:
-                TitleBlockData.set(StartCell[: 1] + str(RowNumber), "")
+                TitleBlockData.set(Standard_Functions.RemoveNumbersFromString(StartCell) + str(RowNumber), "")
 
             try:
                 TitleBlockData.set(
-                    PropCell[: 1] + str(RowNumber),
+                    Standard_Functions.RemoveNumbersFromString(PropCell) + str(RowNumber),
                     str(sheet.getContents("B" + str(RowNumber - TopRow + 1)))
                 )
             except Exception:
-                TitleBlockData.set(PropCell[: 1] + str(RowNumber), "")
+                TitleBlockData.set(Standard_Functions.RemoveNumbersFromString(PropCell), "")
 
             try:
                 TitleBlockData.set(
-                    IncreaseCell[: 1] + str(RowNumber),
+                    Standard_Functions.RemoveNumbersFromString(IncreaseCell) + str(RowNumber),
                     str(sheet.getContents("C" + str(RowNumber - TopRow + 1)))
                 )
             except Exception:
-                TitleBlockData.set(PropCell[: 1] + str(RowNumber), "")
+                TitleBlockData.set(Standard_Functions.RemoveNumbersFromString(IncreaseCell) + str(RowNumber), "")
 
             try:
                 TitleBlockData.set(
-                    MultiplierCell[: 1] + str(RowNumber),
+                    Standard_Functions.RemoveNumbersFromString(MultiplierCell) + str(RowNumber),
                     str(sheet.getContents("D" + str(RowNumber - TopRow + 1)))
                 )
             except Exception:
-                TitleBlockData.set(PropCell[: 1] + str(RowNumber), "")
+                TitleBlockData.set(Standard_Functions.RemoveNumbersFromString(MultiplierCell) + str(RowNumber), "")
 
             try:
                 TitleBlockData.set(
-                    RemarkCell[: 1] + str(RowNumber),
+                    Standard_Functions.RemoveNumbersFromString(RemarkCell) + str(RowNumber),
                     str(sheet.getContents("E" + str(RowNumber - TopRow + 1)))
                 )
             except Exception:
-                TitleBlockData.set(PropCell[: 1] + str(RowNumber), "")
+                TitleBlockData.set(Standard_Functions.RemoveNumbersFromString(RemarkCell) + str(RowNumber), "")
 
             # Check if the next row of the spreadsheet has data. If not this is the end of all the available values.
             try:

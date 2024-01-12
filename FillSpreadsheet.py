@@ -46,6 +46,8 @@ import TableFormat_Functions
 # Get the settings
 from Settings import DRAW_NO_FIELD
 from Settings import USE_FILENAME_DRAW_NO
+from Settings import DRAW_NO_FIELD_PAGE
+from Settings import USE_PAGENAME_DRAW_NO
 from Settings import ENABLE_DEBUG
 from Settings import DOCINFO_COMMENT
 from Settings import DOCINFO_LICENSEURL
@@ -123,7 +125,10 @@ if str(DRAW_NO_FIELD).startswith("'"):
 #   3. Mark the cell in column C if this value needs to be increased per page
 
 
-def AddExtraData(sheet, StartRow):
+def AddExtraData(sheet, StartRow, doc=None):
+    if doc is None:
+        doc = App.ActiveDocument
+
     # If the debug mode is active, show which property is includex.difference(y)
     if ENABLE_DEBUG is True:
         Text = ""
@@ -208,9 +213,18 @@ def AddExtraData(sheet, StartRow):
 
 
 # Map data from the system and/or document to the spreadsheet
-def MapData(sheet):
+def MapData(sheet, doc=None):
+    if doc is None:
+        doc = App.ActiveDocument
+
     # Get the filename
-    filename = os.path.basename(App.ActiveDocument.FileName).split(".")[0]
+    filename = os.path.basename(doc.FileName).split(".")[0]
+    pages = doc.findObjects("TechDraw::DrawPage")
+    # get the fist page.
+    pagename = ""
+    pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+    if len(pages) > 0:
+        pagename = pages[0].Label
 
     # if the debug mode is on, show what is mapped to which property
     if ENABLE_DEBUG is True:
@@ -239,6 +253,12 @@ def MapData(sheet):
                 + str(filename)
                 + ") is mapped to: "
                 + str(DRAW_NO_FIELD),
+            )
+        if USE_PAGENAME_DRAW_NO is True:
+            Text = translate(
+                "TitleBlock Workbench",
+                "The pagenames will be mapped to: "
+                + str(DRAW_NO_FIELD_PAGE),
             )
         Standard_Functions.Print(Text, "Log")
 
@@ -323,6 +343,15 @@ def MapData(sheet):
                 if PropertyName == DRAW_NO_FIELD:
                     sheet.set("B" + str(RowNum), filename)
 
+        # Map the pagename
+        # Map only as requested
+        if USE_PAGENAME_DRAW_NO is True:
+            if str(DRAW_NO_FIELD_PAGE).strip() and pagename != "":
+                # If the cell in column A is equal to DRAW_NO_FIELD, add the value in column B
+                if PropertyName == DRAW_NO_FIELD_PAGE:
+                    sheet.set("B" + str(RowNum), pagename)
+                    sheet.set("E" + str(RowNum), "The name of each page will be mapped to its titleblock")
+
         # Check if the next row exits. If not this is the end of all the available values.
         try:
             sheet.getContents("A" + str(RowNum + 1))
@@ -331,8 +360,9 @@ def MapData(sheet):
 
 
 # Map document information
-def MapDocInfo(sheet):
-    doc = App.ActiveDocument
+def MapDocInfo(sheet, doc=None):
+    if doc is None:
+        doc = App.ActiveDocument
 
     # if the debug mode is on, show what is mapped to which property
     if ENABLE_DEBUG is True:
@@ -422,7 +452,8 @@ def MapDocInfo(sheet):
         if str(DOCINFO_LASTMODIFIEDDATE).strip():
             # If the cell in column A is equal to # DOCINFO_LASTMODIFIEDDATE, add the value in column B
             if PropertyName == DOCINFO_LASTMODIFIEDDATE:
-                sheet.set("B" + str(RowNum), doc.LastModifiedDate)
+                ModificationDate = doc.LastModifiedDate.split("T")[0]
+                sheet.set("B" + str(RowNum), ModificationDate)
 
         # DOCINFO_COMPANY
         if str(DOCINFO_COMPANY).strip():
@@ -455,12 +486,19 @@ def MapDocInfo(sheet):
 # Fill the spreadsheet with all the date from the titleblock
 def FillSheet():
     try:
-        # get the fist page
-        page = App.ActiveDocument.Page
+        # get the fist page. If there is no page, return
+        pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+        if len(pages) > 0:
+            page = pages[0]
+        if len(pages) == 0:
+            return
+
         # get the editable texts
         texts = page.Template.EditableTexts
         # get the spreadsheet "TitleBlock"
         sheet = App.ActiveDocument.getObject("TitleBlock")
+        # Clear the sheet
+        sheet.clearAll()
 
         # Debug mode is active, show all editable text in the page
         if ENABLE_DEBUG is True:
@@ -508,7 +546,6 @@ def FillSheet():
         # Run the def to add extra system data
         AddExtraData(sheet, StartRow)
 
-        # Format the spreadsheet
         extraRows = 0
         if INCLUDE_LENGTH is True:
             extraRows = extraRows + 1
@@ -522,13 +559,28 @@ def FillSheet():
         # region Format the data with the values as a Table
         #
         # Define the header range
-        HeaderRange = str("A1:E1")
+        StartCell = "A1"
+        RemarkCell = "E1"
+        HeaderRange = str(f"{StartCell}:{RemarkCell}")
+
+        # Get the first row below the header
+        FirstTableRow = ""
+        for i in range(len(StartCell)):
+            if StartCell[i].isdigit():
+                FirstTableRow = FirstTableRow + str(StartCell[i])
+        FirstTableRow = int(FirstTableRow) + 1
+
+        # Get the first column
+        FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
+
+        # Get the last column
+        LastColumn = Standard_Functions.RemoveNumbersFromString(RemarkCell)
 
         # Define the table range
-        TableRange = str(f"A2:E{StartRow + extraRows}")
+        TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{int(StartRow) + extraRows}")
 
         # Define the First column range
-        FirstColumnRange = str(f"A2:A{StartRow + extraRows}")
+        FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{int(StartRow) + extraRows}")
 
         # Format the table
         sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
@@ -538,8 +590,6 @@ def FillSheet():
 
         # Finally recompute the document
         App.ActiveDocument.recompute(None, True, True)
-    # except TypeError:
-    #     pass
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:
@@ -549,7 +599,7 @@ def FillSheet():
                 + "See the report view for details",
             )
             raise e
-        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0, IconType="Critical")
     return
 
 
@@ -562,47 +612,62 @@ def ImportDataExcel():
         Text = translate("TitleBlock Workbench", str(EXTERNAL_SOURCE_PATH))
         Standard_Functions.Print(Text, "Log")
 
-    try:
-        # Check if it is allowed to use an external source and if so, continue
-        if USE_EXTERNAL_SOURCE is True:
-            # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
-            try:
-                wb = load_workbook(str(EXTERNAL_SOURCE_PATH), data_only=True)
-                if EXTERNAL_SOURCE_SHEET_NAME == "":
-                    # Set the sheetname with a inputbox
-                    Worksheets_List = [i for i in wb.sheetnames if i != "Settings"]
-                    Text = translate(
-                        "TitleBlock Workbench", "Please enter the name of the worksheet"
-                    )
-                    Input_SheetName = str(
-                        Standard_Functions.Mbox(
-                            text=Text,
-                            title="TitleBlock Workbench",
-                            style=3,
-                            default="TitleBlockData",
-                            stringList=Worksheets_List,
-                        )
-                    )
-                    # if the user canceled, exit this function.
-                    if not Input_SheetName.strip():
-                        return
-                    ws = wb[str(Input_SheetName)]
-                if EXTERNAL_SOURCE_SHEET_NAME != "":
-                    ws = wb[str(EXTERNAL_SOURCE_SHEET_NAME)]
-            except Exception as e:
-                if ENABLE_DEBUG is True:
-                    raise (e)
+    # Check if it is allowed to use an external source and if so, continue
+    if USE_EXTERNAL_SOURCE is True:
+        # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
+        try:
+            wb = ""
+            if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd"):
+                Filter = [("Excel", "*.xlsx"), ]
+                FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=False)
+                if FileName != "":
+                    wb = load_workbook(FileName, read_only=True, data_only=True)
+                if FileName == "":
+                    return
+            else:
+                wb = load_workbook(str(EXTERNAL_SOURCE_PATH), read_only=True, data_only=True)
+            if EXTERNAL_SOURCE_SHEET_NAME == "":
+                # Set the sheetname with a inputbox
+                Worksheets_List = [i for i in wb.sheetnames if i != "Settings"]
                 Text = translate(
-                    "TitleBlock Workbench",
-                    "an problem occured while openening the excel file!\nDo you have it open in an another application",
+                    "TitleBlock Workbench", "Please enter the name of the worksheet"
                 )
-                Standard_Functions.Mbox(
-                    text=Text, title="TitleBlock Workbench", style=0
+                Input_SheetName = str(
+                    Standard_Functions.Mbox(
+                        text=Text,
+                        title="TitleBlock Workbench",
+                        style=3,
+                        default="TitleBlockData",
+                        stringList=Worksheets_List,
+                    )
                 )
-                return
+                # if the user canceled, exit this function.
+                if not Input_SheetName.strip():
+                    return
+                ws = wb[str(Input_SheetName)]
+            if EXTERNAL_SOURCE_SHEET_NAME != "":
+                ws = wb[str(EXTERNAL_SOURCE_SHEET_NAME)]
+        except IOError:
+            Standard_Functions.Mbox("Permission error!!\nDo you have the file open?",
+                                    "Titleblock Workbench", 0, IconType="Critical")
+            return
+        except Exception as e:
+            if ENABLE_DEBUG is True:
+                raise (e)
+            Text = translate(
+                "TitleBlock Workbench",
+                "an problem occured while openening the excel file!\nDo you have it open in an another application",
+            )
+            Standard_Functions.Mbox(
+                text=Text, title="TitleBlock Workbench", style=0
+            )
+            return
 
+        try:
             # get the spreadsheet "TitleBlock"
             sheet = App.ActiveDocument.getObject("TitleBlock")
+            # Clear the sheet
+            sheet.clearAll()
 
             # Get the startcolumn and the other three columns from there
             StartCell = EXTERNAL_SOURCE_STARTCELL
@@ -750,13 +815,28 @@ def ImportDataExcel():
             # region Format the data with the values as a Table
             #
             # Define the header range
-            HeaderRange = "A1:E1"
+            StartCell = "A1"
+            RemarkCell = "E1"
+            HeaderRange = str(f"{StartCell}:{RemarkCell}")
+
+            # Get the first row below the header
+            FirstTableRow = ""
+            for i in range(len(StartCell)):
+                if StartCell[i].isdigit():
+                    FirstTableRow = FirstTableRow + str(StartCell[i])
+            FirstTableRow = int(FirstTableRow) + 1
+
+            # Get the first column
+            FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
+
+            # Get the last column
+            LastColumn = Standard_Functions.RemoveNumbersFromString(RemarkCell)
 
             # Define the table range
-            TableRange = str(f"A2:E{RowNumber - 2 + extraRows}")
+            TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{int(RowNumber) + extraRows}")
 
             # Define the First column range
-            FirstColumnRange = str(f"A2:A{RowNumber - 2 + extraRows}")
+            FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{int(RowNumber) + extraRows}")
 
             # Format the table
             sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
@@ -768,20 +848,20 @@ def ImportDataExcel():
             sheet.recompute()
             App.ActiveDocument.recompute()
 
-        else:
-            Text = translate("TitleBlock Workbench", "External source is not enabled!")
-            Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-    except Exception as e:
-        Text = translate(
-            "TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!\n"
-        )
-        if ENABLE_DEBUG is True:
+        except Exception as e:
             Text = translate(
-                "TitleBlock Workbench",
-                "TitleBlock Workbench: an error occurred!!\n"
-                + "See the report view for details",
+                "TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!\n"
             )
-            raise e
+            if ENABLE_DEBUG is True:
+                Text = translate(
+                    "TitleBlock Workbench",
+                    "TitleBlock Workbench: an error occurred!!\n"
+                    + "See the report view for details",
+                )
+                raise e
+            Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+    else:
+        Text = translate("TitleBlock Workbench", "External source is not enabled!")
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
     return
 
@@ -802,15 +882,25 @@ def ImportDataFreeCAD():
             Input_SheetName = EXTERNAL_SOURCE_SHEET_NAME
             # get the spreadsheet "TitleBlock"
             sheet = doc.getObject("TitleBlock")
+            # Clear the sheet
+            sheet.clearAll()
             # Save the name of the active document to reactivate it at the end of this function.
             LastActiveDoc = doc.Name
             # Define the External sheet and document
             ExtSheet = None
-            ff = None
+            # ff = None
 
             # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
             try:
-                ff = App.openDocument(EXTERNAL_SOURCE_PATH, True)
+                if EXTERNAL_SOURCE_PATH.lower().endswith(".xlsx"):
+                    Filter = [("FreeCAD", "*.FCStd"), ]
+                    FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=False)
+                    if FileName != "":
+                        ff = App.openDocument(FileName, True)
+                    if FileName == "":
+                        return
+                else:
+                    ff = App.openDocument(EXTERNAL_SOURCE_PATH, True)
                 if EXTERNAL_SOURCE_SHEET_NAME == "":
                     # Set the sheetname with a inputbox
                     Spreadsheet_List = ff.findObjects('Spreadsheet::Sheet')
@@ -873,15 +963,15 @@ def ImportDataFreeCAD():
 
             if (Standard_Functions.GetA1fromR1C1(StartCellExt)).strip():
                 StartCellExt = Standard_Functions.GetA1fromR1C1(StartCellExt)
-            StartColumnExt = StartCellExt[:1]
+            StartColumnExt = Standard_Functions.RemoveNumbersFromString(StartCellExt)
             # If debug mode is on, show the start colum and its number
             if ENABLE_DEBUG is True:
                 Standard_Functions.Print(
                     translate(
                         "TitleBlock Workbench",
                         "Start column is: " + str(StartColumnExt),
-                        "Log",
-                    )
+                    ),
+                    "Log",
                 )
                 Standard_Functions.Print(
                     translate(
@@ -905,7 +995,7 @@ def ImportDataFreeCAD():
             )
 
             # Get the start row
-            StartRow = int(Standard_Functions.RemoveLettersFromString(EXTERNAL_SOURCE_STARTCELL))
+            StartRow = Standard_Functions.RemoveLettersFromString(EXTERNAL_SOURCE_STARTCELL)
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
                 Text = translate(
@@ -914,7 +1004,6 @@ def ImportDataFreeCAD():
                 Standard_Functions.Print(Text, "Log")
 
             # import the headers from the excelsheet into the spreadsheet
-            print(f"{sheet.Name}, {ExtSheet.Name}")
             sheet.set("A1", str(ExtSheet.getContents(str(StartColumnExt) + str(StartRow))))
             sheet.set("B1", str(ExtSheet.getContents(str(Column2) + str(StartRow))))
             sheet.set("C1", str(ExtSheet.getContents(str(Column3) + str(StartRow))))
@@ -926,6 +1015,11 @@ def ImportDataFreeCAD():
             for i in range(1000):
                 # Define the start row. This is the Header row +1 + i as counter
                 RowNumber = int(StartRow) + i + 1
+
+                # check if you reached the end of the data.
+                test = ExtSheet.getContents(str(StartColumnExt) + str(RowNumber))
+                if test == "" or test is None:
+                    break
 
                 # Get the number of row difference between the start row in the excelsheet
                 # and the first row in the spreadsheet.
@@ -962,25 +1056,17 @@ def ImportDataFreeCAD():
                         str(ExtSheet.getContents(Column4 + str(RowNumber))),
                     )
 
-                # Check if the next row of the spreadsheet has data. If not this is the end of all the available values.
-                try:
-                    test = str(ExtSheet.getContents(str(StartColumnExt) + str(RowNumber)))
-                    if test == "":
-                        break
-                except Exception:
-                    break
-
-            # Finally recompute the spreadsheet
-            sheet.recompute()
+            # Finally recompute the document
+            App.ActiveDocument.recompute(None, True, True)
 
             # Run the def to add extra system data.
-            MapData(sheet=sheet)
+            MapData(sheet=sheet, doc=doc)
 
             # Run the def to add document information
-            MapDocInfo(sheet=sheet)
+            MapDocInfo(sheet=sheet, doc=doc)
 
             # Run the def to add extra system data. This is the final value of "RowNumber" minus the "StartRow".
-            AddExtraData(sheet, RowNumber - int(StartRow))
+            AddExtraData(sheet, RowNumber - int(StartRow), doc)
 
             extraRows = 0
             if INCLUDE_LENGTH is True:
@@ -995,13 +1081,28 @@ def ImportDataFreeCAD():
             # region Format the data with the values as a Table
             #
             # Define the header range
-            HeaderRange = "A1:E1"
+            StartCell = "A1"
+            RemarkCell = "E1"
+            HeaderRange = str(f"{StartCell}:{RemarkCell}")
+
+            # Get the first row below the header
+            FirstTableRow = ""
+            for i in range(len(StartCell)):
+                if StartCell[i].isdigit():
+                    FirstTableRow = FirstTableRow + str(StartCell[i])
+            FirstTableRow = int(FirstTableRow) + 1
+
+            # Get the first column
+            FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
+
+            # Get the last column
+            LastColumn = Standard_Functions.RemoveNumbersFromString(RemarkCell)
 
             # Define the table range
-            TableRange = str(f"A2:E{RowNumber - 2 + extraRows}")
+            TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{int(RowNumber) + extraRows-1}")
 
             # Define the First column range
-            FirstColumnRange = str(f"A2:A{RowNumber - 2 + extraRows}")
+            FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{int(RowNumber) + extraRows-1}")
 
             # Format the table
             sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,

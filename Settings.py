@@ -24,6 +24,7 @@
 import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
 import TableFormat_Functions
+import os
 
 # region defenitions
 # Define the translation
@@ -127,6 +128,10 @@ SHEETNAME_STARTCELL_XL = GetStringSetting("StartCell_Settings")
 USE_FILENAME_DRAW_NO = GetBoolSetting("UseFileName")
 DRAW_NO_FIELD = GetStringSetting("DrwNrFieldName")
 
+# Use pagename as drawing number
+USE_PAGENAME_DRAW_NO = GetBoolSetting("UsePageName")
+DRAW_NO_FIELD_PAGE = GetStringSetting("DrwNrFieldName_Page")
+
 # The values that are mapped
 MAP_LENGTH = GetStringSetting("MapLength")
 MAP_ANGLE = GetStringSetting("MapAngle")
@@ -188,6 +193,8 @@ SettingsList = [
     SHEETNAME_STARTCELL_XL,
     USE_FILENAME_DRAW_NO,
     DRAW_NO_FIELD,
+    USE_PAGENAME_DRAW_NO,
+    DRAW_NO_FIELD_PAGE,
     MAP_LENGTH,
     MAP_ANGLE,
     MAP_MASS,
@@ -354,8 +361,13 @@ def ExportSettings_FreeCAD(Silent=False):
         # Define the sheet. If it not exists, exit this function
         sheet = ff.getObject(SHEETNAME_SETTINGS_XL)
         if sheet is None:
-            Standard_Functions.Print(f"This FreeCAD file doesn't have a spreadsheet named {SHEETNAME_SETTINGS_XL}")
-            return
+            if Silent is False:
+                Standard_Functions.Print(f"This FreeCAD file doesn't have a spreadsheet named {SHEETNAME_SETTINGS_XL}")
+                return
+            if Silent is True:
+                # Create a spreadsheet for the titleblock data.
+                sheet = ff.addObject("Spreadsheet::Sheet", SHEETNAME_SETTINGS_XL)
+
         # Set the header for the first column
         sheet.set(StartCell, "Name")
         # Set the header for the second column
@@ -443,6 +455,24 @@ def ExportSettings_FreeCAD(Silent=False):
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         sheet.set(SettingValue, str(DRAW_NO_FIELD))
+        RowNumber = RowNumber + 1
+
+        # endregion
+
+        # region -- Export the pagename settings
+        #
+        # USE_PAGENAME_DRAW_NO
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UsePageName")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(USE_PAGENAME_DRAW_NO).upper())
+        RowNumber = RowNumber + 1
+
+        # DRAW_NO_FiELD_PAGE
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "DrwNrFieldName_Page")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(DRAW_NO_FIELD_PAGE))
         RowNumber = RowNumber + 1
 
         # endregion
@@ -600,10 +630,10 @@ def ExportSettings_FreeCAD(Silent=False):
         LastColumn = Standard_Functions.RemoveNumbersFromString(ValueCell)
 
         # Define the table range
-        TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber + 1}")
+        TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber}")
 
         # Define the First column range
-        FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber + 1}")
+        FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber}")
 
         # Format the table
         sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
@@ -670,8 +700,8 @@ def ImportSettings_FreeCAD():
 
     try:
         # Get the sheetname
-        sheet = ff.getObject(SHEETNAME_SETTINGS_XL)
-        if sheet is None:
+        ExtSheet = ff.getObject(SHEETNAME_SETTINGS_XL)
+        if ExtSheet is None:
             Text = translate(
                 "TitleBlock Workbench", f"No spreadsheet named '{SHEETNAME_SETTINGS_XL}'!!!"
             )
@@ -696,17 +726,19 @@ def ImportSettings_FreeCAD():
                 Standard_Functions.Print(Text, "Log")
 
         # Get the columns
-        FirstColumn = int(Standard_Functions.GetNumberFromLetter(StartCell[:1]))
-        SecondColumn = Standard_Functions.GetLetterFromNumber(FirstColumn + 1)
-        FirstColumn = StartCell[:1]
+        FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
+        SecondColumn = Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(FirstColumn) + 1)
+
+        # Get the first table row
+        FirstTableRow = int(Standard_Functions.RemoveLettersFromString(StartCell)) + 1
 
         # go through the excel until all settings are imported.
         counter = 0
-        for i in range(1, 1000):
-            Cell_Name = sheet.getContents(str(FirstColumn) + str(i))
+        for i in range(FirstTableRow, 1000):
+            Cell_Name = ExtSheet.getContents(str(FirstColumn) + str(i))
             if Cell_Name.startswith("'"):
                 Cell_Name = Cell_Name[1:]
-            Cell_Value = sheet.getContents(str(SecondColumn) + str(i))
+            Cell_Value = ExtSheet.getContents(str(SecondColumn) + str(i))
             if Cell_Value.startswith("'"):
                 Cell_Value = Cell_Value[1:]
 
@@ -768,6 +800,20 @@ def ImportSettings_FreeCAD():
             # Import DRAW_NO_FiELD
             if Cell_Name == "DrwNrFieldName":
                 SetStringSetting("DrwNrFieldName", str(Cell_Value))
+                counter = counter + 1
+
+            # endregion
+
+            # region -- Import the pagename settings
+            #
+            # Import USE_PAGENAME_DRAW_NO
+            if Cell_Name == "UsePageName":
+                SetBoolSetting("UsePageName", Cell_Value)
+                counter = counter + 1
+
+            # Import DRAW_NO_FiELD_PAGE
+            if Cell_Name == "DrwNrFieldName_Page":
+                SetStringSetting("DrwNrFieldName_Page", str(Cell_Value))
                 counter = counter + 1
 
             # endregion
@@ -894,6 +940,15 @@ def ImportSettings_FreeCAD():
                 "TitleBlock Workbench: Settings are not imported",
             )
             Standard_Functions.Print(Text, "Log")
+
+        # recompute the document
+        ff.recompute(None, True, True)
+        # Save the workbook
+        ff.save()
+        # Close the FreeCAD file
+        App.closeDocument(ff.Name)
+        # Activate the document which was active when this command started.
+        App.setActiveDocument(LastActiveDoc)
     # If there is an IO Error continue:
     except IOError as e:
         # If there is an read/write error, print an error in the report view
@@ -906,10 +961,15 @@ def ImportSettings_FreeCAD():
                     "TitleBlock Workbench",
                     f"No permision to open {EXTERNAL_SOURCE_PATH}!\nSee the report view for details",
                 )
+
+            # Close the FreeCAD file
+            App.closeDocument(ff.Name)
             return Standard_Functions.Mbox(
                 text=Text, title="TitleBlock Workbench", style=0
             )
         # For all other IO errors, raise e.
+        # Close the FreeCAD file
+        App.closeDocument(ff.Name)
         raise (e)
     except Exception as e:
         Text = translate(
@@ -923,17 +983,12 @@ def ImportSettings_FreeCAD():
             )
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         if ENABLE_DEBUG is True:
+            # Close the FreeCAD file
+            App.closeDocument(ff.Name)
             raise (e)
+        # Close the FreeCAD file
+        App.closeDocument(ff.Name)
         return
-
-    # recompute the document
-    ff.recompute(None, True, True)
-    # Save the workbook
-    ff.save()
-    # Close the FreeCAD file
-    App.closeDocument(ff.Name)
-    # Activate the document which was active when this command started.
-    App.setActiveDocument(LastActiveDoc)
 
 
 def ExportSettings_XL(Silent=False):
@@ -1162,6 +1217,28 @@ def ExportSettings_XL(Silent=False):
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = DRAW_NO_FIELD
+        RowNumber = RowNumber + 1
+
+        # endregion
+
+        # region -- Export the pagename settings
+        #
+        # USE_FILENAME_DRAW_NO
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "UsePageName"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        # Create a dropdown for the boolan
+        dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
+        ws.add_data_validation(dv)
+        dv.add(ws[SettingValue])
+        ws[SettingValue].value = str(USE_PAGENAME_DRAW_NO).upper()
+        RowNumber = RowNumber + 1
+
+        # DRAW_NO_FiELD
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "DrwNrFieldName_Page"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = DRAW_NO_FIELD_PAGE
         RowNumber = RowNumber + 1
 
         # endregion
@@ -1536,6 +1613,20 @@ def ImportSettings_XL():
             # Import DRAW_NO_FiELD
             if Cell_Name.value == "DrwNrFieldName":
                 SetStringSetting("DrwNrFieldName", str(Cell_Value.value))
+                counter = counter + 1
+
+            # endregion
+
+            # region -- Import the pagename settings
+            #
+            # Import USE_FILENAME_DRAW_NO
+            if Cell_Name.value == "UsePageName":
+                SetBoolSetting("UsePageName", Cell_Value.value)
+                counter = counter + 1
+
+            # Import DRAW_NO_FiELD
+            if Cell_Name.value == "DrwNrFieldName_Page":
+                SetStringSetting("DrwNrFieldName_Page", str(Cell_Value.value))
                 counter = counter + 1
 
             # endregion

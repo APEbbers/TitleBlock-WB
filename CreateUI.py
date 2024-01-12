@@ -28,7 +28,6 @@
 # https://github.com/FreeCAD/FreeCAD/blob/main/src/Mod/AddonManager/install_to_toolbar.py
 
 import FreeCAD as App
-import FreeCADGui as Gui
 from Settings import USE_EXTERNAL_SOURCE
 from Settings import EXTERNAL_SOURCE_PATH
 import Standard_Functions_TitleBlock as Standard_Functions
@@ -143,13 +142,15 @@ def QT_TRANSLATE_NOOP(context, text):
 
 def CreateTechDrawToolbar() -> object:
     """Creates a toolbar in the standard TechDraw WorkBench with the most importand commands"""
+    import FreeCADGui as Gui
+    from PySide2.QtWidgets import QToolBar
 
     # region -- define the names and folders
 
     # Define the name for the ToolbarGroup in the FreeCAD Parameters
     ToolbarGroupName = "TiTleBlock_Toolbar_TechDraw"
     # Define the name for the toolbar
-    ToolBarName = "TitleBlock_Toolbar"
+    ToolBarName = "TitleBlock Toolbar"
     # define the parameter path for the toolbar
     TechDrawToolBarsParamPath = (
         "User parameter:BaseApp/Workbench/TechDrawWorkbench/Toolbar/"
@@ -184,14 +185,14 @@ def CreateTechDrawToolbar() -> object:
     # add the commands
     if USE_EXTERNAL_SOURCE is True:
         if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd") is False:
+            TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
             TechDrawToolbar.SetString("ImportExcel", "FreeCAD")
-            TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
         if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd") is True:
-            TechDrawToolbar.SetString("ImportFreeCAD", "FreeCAD")
             TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
+            TechDrawToolbar.SetString("ImportFreeCAD", "FreeCAD")
     if USE_EXTERNAL_SOURCE is False:
-        TechDrawToolbar.SetString("FillSpreadsheet", "FreeCAD")
         TechDrawToolbar.SetString("FillTitleBlock", "FreeCAD")
+        TechDrawToolbar.SetString("FillSpreadsheet", "FreeCAD")
 
     # endregion
 
@@ -199,6 +200,7 @@ def CreateTechDrawToolbar() -> object:
     wb = Gui.activeWorkbench()
     if int(App.Version()[0]) == 0 and int(App.Version()[1]) > 19:
         wb.reloadActive()
+    return
 
 
 def RemoveTechDrawToolbar() -> None:
@@ -262,7 +264,7 @@ def toggleToolbars(ToolbarName: str, WorkBench: str = ""):
     if WorkBench != "":
         WB = Gui.getWorkbench(WorkBench)
 
-    # Cet the list of toolbars present.
+    # Get the list of toolbars present.
     ListToolbars = WB.listToolbars()
     # Go through the list. If the toolbar exists set ToolbarExists to True
     ToolbarExists = False

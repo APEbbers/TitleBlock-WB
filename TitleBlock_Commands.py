@@ -403,7 +403,7 @@ class OpenExcel_class:
     #     if USE_EXTERNAL_SOURCE is True:
     #         result = True
 
-        return result
+        # return result
 
 
 class OpenFreeCAD_class:
@@ -451,7 +451,7 @@ class NewExcel_class:
     def Activated(self):
         import CreateNewFile
 
-        CreateNewFile.createExcel()
+        CreateNewFile.CcreateExcel()
         return
 
     # def IsActive(self):

@@ -28,6 +28,7 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment
 from openpyxl.worksheet.table import Table, TableStyleInfo
 import TableFormat_Functions
+import os
 
 # Get the settings
 import Settings
@@ -45,7 +46,7 @@ translate = App.Qt.translate
 def ExportSpreadSheet_Excel():
     try:
         # get the spreadsheet "TitleBlock"
-        sheet = sheet = App.ActiveDocument.getObject("TitleBlock")
+        sheet = App.ActiveDocument.getObject("TitleBlock")
         if sheet is None:
             Text = translate(
                 "TitleBlock Workbench", "No spreadsheet named 'TitleBlock'!!!"
@@ -86,7 +87,7 @@ def ExportSpreadSheet_Excel():
 
         if ENABLE_DEBUG is True:
             Text = translate("TitleBlock Workbench", f"the startcell is: {StartCell}")
-            print(Text)
+            Standard_Functions.Print(Input=Text, Type="Log")
 
         # Set the headers
         ws[StartCell].value = str(sheet.getContents("A1"))
@@ -215,12 +216,14 @@ def ExportSpreadSheet_Excel():
         Filter = [
             ("Excel", "*.xlsx"),
         ]
-        FileName = Standard_Functions.GetFileDialog(Filter)
-        if FileName is not None:
+        FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=True)
+        if FileName != "":
             # Save the workbook
             wb.save(str(FileName))
             # Close the workbook
             wb.close()
+        if FileName == "":
+            return
 
         # If import settings from excel is enabled, export settings to the new excel file.
         if IMPORT_SETTINGS_XL is True:
@@ -264,19 +267,26 @@ def ExportSpreadSheet_FreeCAD():
             Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
             return
 
-        # Create a new FreeCAD file
-        ff = App.newDocument()
+        # Create a placeholder for the new document
+        ff = ""
         # Save the FreeCAD file in a folder of your choosing
         Filter = [
             ("FreeCAD", "*.FCStd"),
         ]
-        FileName = Standard_Functions.GetFileDialog(Filter)
-        if FileName is not None:
-            # Save the workbook
-            ff.saveAs(FileName)
-            # Close the document before reopening
-            App.closeDocument(ff.Name)
-        if FileName is None:
+        FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=True)
+        if FileName != "":
+            FileNameOnly = os.path.basename(FileName)
+            if Standard_Functions.CheckIfDocumentIsOpen(FileNameOnly) is False:
+                # Create a new FreeCAD file
+                ff = App.newDocument()
+                # Save the workbook
+                ff.saveAs(FileName)
+                # Close the document before reopening
+                App.closeDocument(ff.Name)
+
+            if Standard_Functions.CheckIfDocumentIsOpen(FileNameOnly) is True:
+                App.closeDocument(FileNameOnly)
+        if FileName == "":
             return
 
         # Open the document hidden, recompute and save it
@@ -299,7 +309,7 @@ def ExportSpreadSheet_FreeCAD():
                 )
                 Standard_Functions.Print(Text, "Log")
 
-        TopRow = int(StartCell[1:])
+        TopRow = int(Standard_Functions.RemoveLettersFromString(StartCell))
         PropCell = str(
             Standard_Functions.GetLetterFromNumber(
                 Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
@@ -323,7 +333,7 @@ def ExportSpreadSheet_FreeCAD():
 
         if ENABLE_DEBUG is True:
             Text = translate("TitleBlock Workbench", f"the startcell is: {StartCell}")
-            print(Text)
+            Standard_Functions.Print(Input=Text, Type="Log")
 
         # Set the headers
         TitleBlockData.set(StartCell, str(sheet.getContents("A1")))
@@ -339,43 +349,43 @@ def ExportSpreadSheet_FreeCAD():
 
             try:
                 TitleBlockData.set(
-                    StartCell[: 1] + str(RowNumber),
+                    Standard_Functions.RemoveNumbersFromString(StartCell) + str(RowNumber),
                     str(sheet.getContents("A" + str(RowNumber - TopRow + 1)))
                 )
             except Exception:
-                TitleBlockData.set(StartCell[: 1] + str(RowNumber), "")
+                TitleBlockData.set(Standard_Functions.RemoveNumbersFromString(StartCell) + str(RowNumber), "")
 
             try:
                 TitleBlockData.set(
-                    PropCell[: 1] + str(RowNumber),
+                    Standard_Functions.RemoveNumbersFromString(PropCell) + str(RowNumber),
                     str(sheet.getContents("B" + str(RowNumber - TopRow + 1)))
                 )
             except Exception:
-                TitleBlockData.set(PropCell[: 1] + str(RowNumber), "")
+                TitleBlockData.set(Standard_Functions.RemoveNumbersFromString(PropCell), "")
 
             try:
                 TitleBlockData.set(
-                    IncreaseCell[: 1] + str(RowNumber),
+                    Standard_Functions.RemoveNumbersFromString(IncreaseCell) + str(RowNumber),
                     str(sheet.getContents("C" + str(RowNumber - TopRow + 1)))
                 )
             except Exception:
-                TitleBlockData.set(PropCell[: 1] + str(RowNumber), "")
+                TitleBlockData.set(Standard_Functions.RemoveNumbersFromString(IncreaseCell) + str(RowNumber), "")
 
             try:
                 TitleBlockData.set(
-                    MultiplierCell[: 1] + str(RowNumber),
+                    Standard_Functions.RemoveNumbersFromString(MultiplierCell) + str(RowNumber),
                     str(sheet.getContents("D" + str(RowNumber - TopRow + 1)))
                 )
             except Exception:
-                TitleBlockData.set(PropCell[: 1] + str(RowNumber), "")
+                TitleBlockData.set(Standard_Functions.RemoveNumbersFromString(MultiplierCell) + str(RowNumber), "")
 
             try:
                 TitleBlockData.set(
-                    RemarkCell[: 1] + str(RowNumber),
+                    Standard_Functions.RemoveNumbersFromString(RemarkCell) + str(RowNumber),
                     str(sheet.getContents("E" + str(RowNumber - TopRow + 1)))
                 )
             except Exception:
-                TitleBlockData.set(PropCell[: 1] + str(RowNumber), "")
+                TitleBlockData.set(Standard_Functions.RemoveNumbersFromString(RemarkCell) + str(RowNumber), "")
 
             # Check if the next row of the spreadsheet has data. If not this is the end of all the available values.
             try:
@@ -427,7 +437,8 @@ def ExportSpreadSheet_FreeCAD():
         App.closeDocument(ff.Name)
         # Activate the document which was active when this command started.
         try:
-            App.setActiveDocument(LastActiveDoc)
+            doc = App.setActiveDocument(LastActiveDoc)
+            doc.recompute(None, True, True)
         except Exception:
             pass
 

@@ -150,7 +150,7 @@ def CreateTechDrawToolbar() -> object:
     # Define the name for the ToolbarGroup in the FreeCAD Parameters
     ToolbarGroupName = "TiTleBlock_Toolbar_TechDraw"
     # Define the name for the toolbar
-    ToolBarName = "TitleBlock_Toolbar"
+    ToolBarName = "TitleBlock Toolbar"
     # define the parameter path for the toolbar
     TechDrawToolBarsParamPath = (
         "User parameter:BaseApp/Workbench/TechDrawWorkbench/Toolbar/"

@@ -1099,7 +1099,7 @@ def ImportDataFreeCAD():
             FirstTableRow = int(FirstTableRow) + 1
 
             # Get the first column
-            FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCellExt)
+            FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
 
             # Get the last column
             LastColumn = Standard_Functions.RemoveNumbersFromString(RemarkCell)

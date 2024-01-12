@@ -963,7 +963,7 @@ def ImportDataFreeCAD():
 
             if (Standard_Functions.GetA1fromR1C1(StartCellExt)).strip():
                 StartCellExt = Standard_Functions.GetA1fromR1C1(StartCellExt)
-            StartColumnExt = Standard_Functions.RemoveLettersFromString(StartCellExt)
+            StartColumnExt = Standard_Functions.RemoveNumbersFromString(StartCellExt)
             # If debug mode is on, show the start colum and its number
             if ENABLE_DEBUG is True:
                 Standard_Functions.Print(

@@ -1111,8 +1111,8 @@ def ImportDataFreeCAD():
             FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{int(RowNumber) + extraRows-1}")
 
             # Format the table
-            sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
-                                                      TableRange=TableRange, FirstColumnRange=FirstColumnRange)
+            # sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
+            #   TableRange=TableRange, FirstColumnRange=FirstColumnRange)
 
             # endregion
 

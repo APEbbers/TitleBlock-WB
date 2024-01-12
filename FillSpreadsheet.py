@@ -888,7 +888,7 @@ def ImportDataFreeCAD():
             LastActiveDoc = doc.Name
             # Define the External sheet and document
             ExtSheet = None
-            ff = None
+            # ff = None
 
             # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
             try:
@@ -900,7 +900,7 @@ def ImportDataFreeCAD():
                     if FileName == "":
                         return
                 else:
-                    ff = App.openDocument(f"{EXTERNAL_SOURCE_PATH}", True)
+                    ff = App.openDocument(EXTERNAL_SOURCE_PATH, True)
                 if EXTERNAL_SOURCE_SHEET_NAME == "":
                     # Set the sheetname with a inputbox
                     Spreadsheet_List = ff.findObjects('Spreadsheet::Sheet')

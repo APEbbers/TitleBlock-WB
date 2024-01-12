@@ -610,58 +610,58 @@ def ImportDataExcel():
         Text = translate("TitleBlock Workbench", str(EXTERNAL_SOURCE_PATH))
         Standard_Functions.Print(Text, "Log")
 
-    try:
-        # Check if it is allowed to use an external source and if so, continue
-        if USE_EXTERNAL_SOURCE is True:
-            # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
-            try:
-                wb = ""
-                if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd"):
-                    Filter = [("Excel", "*.xlsx"), ]
-                    FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=False)
-                    if FileName != "":
-                        wb = load_workbook(FileName, read_only=True, data_only=True)
-                    if FileName == "":
-                        return
-                else:
-                    wb = load_workbook(str(EXTERNAL_SOURCE_PATH), read_only=True, data_only=True)
-                if EXTERNAL_SOURCE_SHEET_NAME == "":
-                    # Set the sheetname with a inputbox
-                    Worksheets_List = [i for i in wb.sheetnames if i != "Settings"]
-                    Text = translate(
-                        "TitleBlock Workbench", "Please enter the name of the worksheet"
-                    )
-                    Input_SheetName = str(
-                        Standard_Functions.Mbox(
-                            text=Text,
-                            title="TitleBlock Workbench",
-                            style=3,
-                            default="TitleBlockData",
-                            stringList=Worksheets_List,
-                        )
-                    )
-                    # if the user canceled, exit this function.
-                    if not Input_SheetName.strip():
-                        return
-                    ws = wb[str(Input_SheetName)]
-                if EXTERNAL_SOURCE_SHEET_NAME != "":
-                    ws = wb[str(EXTERNAL_SOURCE_SHEET_NAME)]
-            except IOError:
-                Standard_Functions.Mbox("Permission error!!\nDo you have the file open?",
-                                        "Titleblock Workbench", 0, IconType="Critical")
-                return
-            except Exception as e:
-                if ENABLE_DEBUG is True:
-                    raise (e)
+    # Check if it is allowed to use an external source and if so, continue
+    if USE_EXTERNAL_SOURCE is True:
+        # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
+        try:
+            wb = ""
+            if EXTERNAL_SOURCE_PATH.lower().endswith(".fcstd"):
+                Filter = [("Excel", "*.xlsx"), ]
+                FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=False)
+                if FileName != "":
+                    wb = load_workbook(FileName, read_only=True, data_only=True)
+                if FileName == "":
+                    return
+            else:
+                wb = load_workbook(str(EXTERNAL_SOURCE_PATH), read_only=True, data_only=True)
+            if EXTERNAL_SOURCE_SHEET_NAME == "":
+                # Set the sheetname with a inputbox
+                Worksheets_List = [i for i in wb.sheetnames if i != "Settings"]
                 Text = translate(
-                    "TitleBlock Workbench",
-                    "an problem occured while openening the excel file!\nDo you have it open in an another application",
+                    "TitleBlock Workbench", "Please enter the name of the worksheet"
                 )
-                Standard_Functions.Mbox(
-                    text=Text, title="TitleBlock Workbench", style=0
+                Input_SheetName = str(
+                    Standard_Functions.Mbox(
+                        text=Text,
+                        title="TitleBlock Workbench",
+                        style=3,
+                        default="TitleBlockData",
+                        stringList=Worksheets_List,
+                    )
                 )
-                return
+                # if the user canceled, exit this function.
+                if not Input_SheetName.strip():
+                    return
+                ws = wb[str(Input_SheetName)]
+            if EXTERNAL_SOURCE_SHEET_NAME != "":
+                ws = wb[str(EXTERNAL_SOURCE_SHEET_NAME)]
+        except IOError:
+            Standard_Functions.Mbox("Permission error!!\nDo you have the file open?",
+                                    "Titleblock Workbench", 0, IconType="Critical")
+            return
+        except Exception as e:
+            if ENABLE_DEBUG is True:
+                raise (e)
+            Text = translate(
+                "TitleBlock Workbench",
+                "an problem occured while openening the excel file!\nDo you have it open in an another application",
+            )
+            Standard_Functions.Mbox(
+                text=Text, title="TitleBlock Workbench", style=0
+            )
+            return
 
+        try:
             # get the spreadsheet "TitleBlock"
             sheet = App.ActiveDocument.getObject("TitleBlock")
 
@@ -844,20 +844,21 @@ def ImportDataExcel():
             sheet.recompute()
             App.ActiveDocument.recompute()
 
-        else:
-            Text = translate("TitleBlock Workbench", "External source is not enabled!")
-            Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-    except Exception as e:
-        Text = translate(
-            "TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!\n"
-        )
-        if ENABLE_DEBUG is True:
+        except Exception as e:
             Text = translate(
-                "TitleBlock Workbench",
-                "TitleBlock Workbench: an error occurred!!\n"
-                + "See the report view for details",
+                "TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!\n"
             )
-            raise e
+            if ENABLE_DEBUG is True:
+                Text = translate(
+                    "TitleBlock Workbench",
+                    "TitleBlock Workbench: an error occurred!!\n"
+                    + "See the report view for details",
+                )
+                raise e
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+
+    else:
+        Text = translate("TitleBlock Workbench", "External source is not enabled!")
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
     return
 

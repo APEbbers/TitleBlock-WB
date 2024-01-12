@@ -936,7 +936,7 @@ def ImportDataFreeCAD():
                 return
 
             # Get the startcolumn and the other three columns from there
-            StartCellExt = "A1"
+            StartCellExt = EXTERNAL_SOURCE_STARTCELL
             if EXTERNAL_SOURCE_SHEET_NAME == "":
                 # Set EXTERNAL_SOURCE_SHEET_NAME to the chosen sheetname
                 preferences.SetString("SheetName", Input_SheetName)
@@ -1062,8 +1062,8 @@ def ImportDataFreeCAD():
                 except Exception:
                     break
 
-            # # Finally recompute the document
-            # App.ActiveDocument.recompute(None, True, True)
+            # Finally recompute the document
+            App.ActiveDocument.recompute(None, True, True)
 
             # Run the def to add extra system data.
             MapData(sheet=sheet, doc=doc)

@@ -196,7 +196,7 @@ def CreateFreeCAD():
     # If there already are objects, clean the document
     Objects = ff.Objects
     for i in range(len(Objects)):
-        ff.removeObject(Objects[i])
+        ff.removeObject(Objects[i].Name)
 
     # Create a spreadsheet for the titleblock data.
     TitleBlockData = ff.addObject("Spreadsheet::Sheet", "TitleBlockData")

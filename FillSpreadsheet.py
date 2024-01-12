@@ -963,7 +963,7 @@ def ImportDataFreeCAD():
 
             if (Standard_Functions.GetA1fromR1C1(StartCellExt)).strip():
                 StartCellExt = Standard_Functions.GetA1fromR1C1(StartCellExt)
-            StartColumnExt = StartCellExt[:1]
+            StartColumnExt = int(Standard_Functions.RemoveLettersFromString(StartCellExt))
             # If debug mode is on, show the start colum and its number
             if ENABLE_DEBUG is True:
                 Standard_Functions.Print(
@@ -1111,8 +1111,8 @@ def ImportDataFreeCAD():
             FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{int(RowNumber) + extraRows-1}")
 
             # Format the table
-            # sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
-            #   TableRange=TableRange, FirstColumnRange=FirstColumnRange)
+            sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
+                                                      TableRange=TableRange, FirstColumnRange=FirstColumnRange)
 
             # endregion
 

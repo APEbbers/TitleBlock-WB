@@ -79,13 +79,14 @@ def FormatTable(
     sheet.setStyle(
         HeaderRange,
         FontStyle(
-            SPREADSHEET_HEADERFONTSTYLE_BOLD, SPREADSHEET_HEADERFONTSTYLE_ITALIC,
-            SPREADSHEET_HEADERFONTSTYLE_UNDERLINE))  # \bold|italic|underline'
+            SPREADSHEET_HEADERFONTSTYLE_BOLD,
+            SPREADSHEET_HEADERFONTSTYLE_ITALIC,
+            SPREADSHEET_HEADERFONTSTYLE_UNDERLINE,
+        ),
+    )  # \bold|italic|underline'
     # Set the colors for the header
     sheet.setBackground(HeaderRange, SPREADSHEET_HEADERBACKGROUND)
-    sheet.setForeground(
-        HeaderRange, SPREADSHEET_HEADERFOREGROUND
-    )  # RGBA
+    sheet.setForeground(HeaderRange, SPREADSHEET_HEADERFOREGROUND)  # RGBA
     # ------------------------------------------------------------------------------------------------------------------
 
     # Format the table -------------------------------------------------------------------------------------------------
@@ -108,10 +109,9 @@ def FormatTable(
     # Get the second column
     TableRangeSecondColumn = Standard_Functions.GetLetterFromNumber(
         Standard_Functions.GetNumberFromLetter(
-            Standard_Functions.RemoveNumbersFromString(
-                TableRange.split(":")[0]
-            )
-        ) + 1
+            Standard_Functions.RemoveNumbersFromString(TableRange.split(":")[0])
+        )
+        + 1
     )
 
     # Calculate the delta between the start and end of the table in vertical direction (Rows).
@@ -134,54 +134,58 @@ def FormatTable(
         # if the first and second rows are within the range, set the colors
         if j <= DeltaRange:
             if sheet.getContents(Firstcell) != "":
-                sheet.setBackground(
-                    FirstRow, SPREADSHEET_TABLEBACKGROUND_1
-                )
-                sheet.setForeground(
-                    FirstRow, SPREADSHEET_TABLEFOREGROUND
-                )
+                sheet.setBackground(FirstRow, SPREADSHEET_TABLEBACKGROUND_1)
+                sheet.setForeground(FirstRow, SPREADSHEET_TABLEFOREGROUND)
         if j + 1 <= DeltaRange:
             if sheet.getContents(Secondcell) != "":
-                sheet.setBackground(
-                    SecondRow, SPREADSHEET_TABLEBACKGROUND_2
-                )
-                sheet.setForeground(
-                    SecondRow, SPREADSHEET_TABLEFOREGROUND
-                )
+                sheet.setBackground(SecondRow, SPREADSHEET_TABLEBACKGROUND_2)
+                sheet.setForeground(SecondRow, SPREADSHEET_TABLEFOREGROUND)
 
     # Set the font style for the table
     sheet.setStyle(
         TableRange,
         FontStyle(
-            SPREADSHEET_TABLEFONTSTYLE_BOLD, SPREADSHEET_TABLEFONTSTYLE_ITALIC,
-            SPREADSHEET_TABLEFONTSTYLE_UNDERLINE))  # \bold|italic|underline'
+            SPREADSHEET_TABLEFONTSTYLE_BOLD,
+            SPREADSHEET_TABLEFONTSTYLE_ITALIC,
+            SPREADSHEET_TABLEFONTSTYLE_UNDERLINE,
+        ),
+    )  # \bold|italic|underline'
 
     # Set the font style for the first column
     sheet.setStyle(
         FirstColumnRange,
         FontStyle(
-            SPREADSHEET_COLUMNFONTSTYLE_BOLD, SPREADSHEET_COLUMNFONTSTYLE_ITALIC, SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
-        )
+            SPREADSHEET_COLUMNFONTSTYLE_BOLD,
+            SPREADSHEET_COLUMNFONTSTYLE_ITALIC,
+            SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE,
+        ),
     )  # \bold|italic|underline'
     # ------------------------------------------------------------------------------------------------------------------
 
     # Align the table and headers --------------------------------------------------------------------------------------
     # align the columns
     sheet.setAlignment(
-        f"{TableRangeColumnStart}{TableRangeRowStart-1}:{TableRangeColumnStart}{TableRangeRowEnd}", "left|vcenter"
+        f"{TableRangeColumnStart}{TableRangeRowStart-1}:{TableRangeColumnStart}{TableRangeRowEnd}",
+        "left|vcenter",
     )
     sheet.setAlignment(
-        f"{TableRangeSecondColumn}{TableRangeRowStart-1}:{TableRangeColumnEnd}{TableRangeRowEnd}", "center|vcenter"
+        f"{TableRangeSecondColumn}{TableRangeRowStart-1}:{TableRangeColumnEnd}{TableRangeRowEnd}",
+        "center|vcenter",
     )
 
     # Set the column width
     for i in range(TableRangeRowStart - 1, TableRangeRowEnd):
-        for j in range(Standard_Functions.GetNumberFromLetter(TableRangeColumnStart),
-                       Standard_Functions.GetNumberFromLetter(TableRangeColumnEnd) + 1):
-
+        for j in range(
+            Standard_Functions.GetNumberFromLetter(TableRangeColumnStart),
+            Standard_Functions.GetNumberFromLetter(TableRangeColumnEnd) + 1,
+        ):
             Standard_Functions.SetColumnWidth_SpreadSheet(
-                sheet=sheet, column=Standard_Functions.GetLetterFromNumber(j), cellValue=sheet.getContents(
-                    f"{Standard_Functions.GetLetterFromNumber(j)}{i}"),
-                factor=AUTOFIT_FACTOR)
+                sheet=sheet,
+                column=Standard_Functions.GetLetterFromNumber(j),
+                cellValue=sheet.getContents(
+                    f"{Standard_Functions.GetLetterFromNumber(j)}{i}"
+                ),
+                factor=AUTOFIT_FACTOR,
+            )
     # ------------------------------------------------------------------------------------------------------------------
     return sheet

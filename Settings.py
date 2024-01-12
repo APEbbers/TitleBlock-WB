@@ -261,7 +261,9 @@ def ExportSettings_FreeCAD(Silent=False):
                     return
             if USE_EXTERNAL_SOURCE is True:
                 if (
-                    Standard_Functions.CheckIfFreeCADfileExists(EXTERNAL_SOURCE_PATH, True)
+                    Standard_Functions.CheckIfFreeCADfileExists(
+                        EXTERNAL_SOURCE_PATH, True
+                    )
                     is True
                 ):
                     ff = App.openDocument(EXTERNAL_SOURCE_PATH, True)
@@ -280,13 +282,15 @@ def ExportSettings_FreeCAD(Silent=False):
             # Add "Settings" to the new list.
             Spreadsheet_List.append("Settings")
             # Get the sheet objects and go through them.
-            sheets = ff.findObjects('Spreadsheet::Sheet')
+            sheets = ff.findObjects("Spreadsheet::Sheet")
             for i in range(len(sheets)):
                 # If the sheet is not named "Settings", add it to the list.
                 if sheets[i].Name != "Settings":
                     Spreadsheet_List.append(sheets[i].Name)
             # Show the inputdialog
-            Text = translate("TitleBlock Workbench", "Please enter the name of the spreadsheet")
+            Text = translate(
+                "TitleBlock Workbench", "Please enter the name of the spreadsheet"
+            )
             Input_SheetName = str(
                 Standard_Functions.Mbox(
                     text=Text,
@@ -304,7 +308,7 @@ def ExportSettings_FreeCAD(Silent=False):
             preferences.SetString("SheetName_Settings", Input_SheetName)
 
             # Delete the current sheet if it exists
-            sheets = ff.findObjects('Spreadsheet::Sheet')
+            sheets = ff.findObjects("Spreadsheet::Sheet")
             for i in range(len(sheets)):
                 # If the sheet is not named "Settings", add it to the list.
                 if sheets[i].Name == Input_SheetName:
@@ -362,7 +366,9 @@ def ExportSettings_FreeCAD(Silent=False):
         sheet = ff.getObject(SHEETNAME_SETTINGS_XL)
         if sheet is None:
             if Silent is False:
-                Standard_Functions.Print(f"This FreeCAD file doesn't have a spreadsheet named {SHEETNAME_SETTINGS_XL}")
+                Standard_Functions.Print(
+                    f"This FreeCAD file doesn't have a spreadsheet named {SHEETNAME_SETTINGS_XL}"
+                )
                 return
             if Silent is True:
                 # Create a spreadsheet for the titleblock data.
@@ -532,14 +538,18 @@ def ExportSettings_FreeCAD(Silent=False):
         RowNumber = RowNumber + 1
 
         # DOCINFO_LASTMODIFIEDBY
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "DocInfo_LastModifiedBy")
+        sheet.set(
+            str(StartCell[:1] + str(TopRow + RowNumber)), "DocInfo_LastModifiedBy"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         sheet.set(SettingValue, str(DOCINFO_LASTMODIFIEDBY))
         RowNumber = RowNumber + 1
 
         # DOCINFO_NAME
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "DocInfo_LastModifiedDate")
+        sheet.set(
+            str(StartCell[:1] + str(TopRow + RowNumber)), "DocInfo_LastModifiedDate"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         sheet.set(SettingValue, str(DOCINFO_LASTMODIFIEDDATE))
@@ -636,8 +646,12 @@ def ExportSettings_FreeCAD(Silent=False):
         FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber}")
 
         # Format the table
-        sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
-                                                  TableRange=TableRange, FirstColumnRange=FirstColumnRange)
+        sheet = TableFormat_Functions.FormatTable(
+            sheet=sheet,
+            HeaderRange=HeaderRange,
+            TableRange=TableRange,
+            FirstColumnRange=FirstColumnRange,
+        )
         # endregion
 
         # recompute the document
@@ -703,7 +717,8 @@ def ImportSettings_FreeCAD():
         ExtSheet = ff.getObject(SHEETNAME_SETTINGS_XL)
         if ExtSheet is None:
             Text = translate(
-                "TitleBlock Workbench", f"No spreadsheet named '{SHEETNAME_SETTINGS_XL}'!!!"
+                "TitleBlock Workbench",
+                f"No spreadsheet named '{SHEETNAME_SETTINGS_XL}'!!!",
             )
             Standard_Functions.Print(Input=Text, Type="Warning")
             return
@@ -727,7 +742,9 @@ def ImportSettings_FreeCAD():
 
         # Get the columns
         FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
-        SecondColumn = Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(FirstColumn) + 1)
+        SecondColumn = Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(FirstColumn) + 1
+        )
 
         # Get the first table row
         FirstTableRow = int(Standard_Functions.RemoveLettersFromString(StartCell)) + 1
@@ -1432,7 +1449,7 @@ def ExportSettings_XL(Silent=False):
                 f"TitleBlock Workbench: Table range is: {StartCell}:{EndCell}",
             )
             Standard_Functions.Print(Text, "Log")
-        for row in ws[1: ws.max_row]:
+        for row in ws[1 : ws.max_row]:
             Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
             Column_2 = row[Standard_Functions.GetNumberFromLetter(EndCell[:1]) - 1]
             Column_1.alignment = Alignment(
@@ -1504,10 +1521,13 @@ def ImportSettings_XL():
             if os.path.exists(EXTERNAL_SOURCE_PATH) is False:
                 Text = translate(
                     "TitleBlock Workbench",
-                    "There is no excel workbook available, while import from external source is enabled!\n" +
-                    "Please create an excel workbook to export your settings to or disable import from external source.",
-                    "TitleBlock Workbench",)
-                Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+                    "There is no excel workbook available, while import from external source is enabled!\n"
+                    + "Please create an excel workbook to export your settings to or disable import from external source.",
+                    "TitleBlock Workbench",
+                )
+                Standard_Functions.Mbox(
+                    text=Text, title="TitleBlock Workbench", style=0
+                )
                 return
 
         # Get the sheetname
@@ -1784,4 +1804,3 @@ def ImportSettings_XL():
 
     # Close the workbook
     wb.close()
-

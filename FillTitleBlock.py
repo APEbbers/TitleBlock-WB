@@ -57,7 +57,9 @@ def FillTitleBlock():
         # Get the spreadsheet.
         sheet = App.ActiveDocument.getObject("TitleBlock")
         if sheet is None:
-            Standard_Functions.Mbox("No titleblock spreadsheet present!", "TitleBlock Workbench", 0)
+            Standard_Functions.Mbox(
+                "No titleblock spreadsheet present!", "TitleBlock Workbench", 0
+            )
             return
 
         for page in pages:
@@ -91,9 +93,15 @@ def FillTitleBlock():
                             str(sheet.getContents("B" + str(RowNum))).isnumeric()
                             is False
                         ):
-                            if USE_PAGENAME_DRAW_NO is True and DRAW_NO_FIELD_PAGE == textField:
+                            if (
+                                USE_PAGENAME_DRAW_NO is True
+                                and DRAW_NO_FIELD_PAGE == textField
+                            ):
                                 textValue = page.Label
-                            elif USE_PAGENAME_DRAW_NO is True and DRAW_NO_FIELD == textField:
+                            elif (
+                                USE_PAGENAME_DRAW_NO is True
+                                and DRAW_NO_FIELD == textField
+                            ):
                                 pass
                             else:
                                 # write the editable text

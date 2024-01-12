@@ -970,8 +970,8 @@ def ImportDataFreeCAD():
                     translate(
                         "TitleBlock Workbench",
                         "Start column is: " + str(StartColumnExt),
-                        "Log",
-                    )
+                    ),
+                    "Log",
                 )
                 Standard_Functions.Print(
                     translate(
@@ -1055,13 +1055,13 @@ def ImportDataFreeCAD():
                         str(ExtSheet.getContents(Column4 + str(RowNumber))),
                     )
 
-                # Check if the next row of the spreadsheet has data. If not this is the end of all the available values.
-                try:
-                    test = sheet.getContents("A" + str(RowNumber))
-                    if test == "" or test is None:
-                        break
-                except Exception:
-                    break
+                # # Check if the next row of the spreadsheet has data. If not this is the end of all the available values.
+                # try:
+                #     test = sheet.getContents("A" + str(RowNumber))
+                #     if test == "" or test is None:
+                #         break
+                # except Exception:
+                #     break
 
             # Finally recompute the document
             App.ActiveDocument.recompute(None, True, True)

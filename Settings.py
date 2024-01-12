@@ -925,9 +925,6 @@ def ImportSettings_FreeCAD():
             if counter == len(SettingsList) + 1:
                 break
 
-        # Close the FreeCAD file
-        App.closeDocument(ff.Name)
-
         if counter > 0:
             Text = translate(
                 "TitleBlock Workbench",

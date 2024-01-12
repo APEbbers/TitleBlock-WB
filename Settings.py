@@ -196,11 +196,8 @@ SettingsList = [
     SHEETNAME_STARTCELL_XL,
     USE_FILENAME_DRAW_NO,
     DRAW_NO_FIELD,
-<<<<<<< HEAD
-=======
     USE_PAGENAME_DRAW_NO,
     DRAW_NO_FIELD_PAGE,
->>>>>>> Develop
     MAP_LENGTH,
     MAP_ANGLE,
     MAP_MASS,

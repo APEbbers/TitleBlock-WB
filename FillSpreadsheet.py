@@ -562,15 +562,6 @@ def FillSheet():
         # region Format the data with the values as a Table
         #
         # Define the header range
-<<<<<<< HEAD
-        HeaderRange = str("A1:E1")
-
-        # Define the table range
-        TableRange = str(f"A2:E{StartRow + extraRows}")
-
-        # Define the First column range
-        FirstColumnRange = str(f"A2:A{StartRow + extraRows}")
-=======
         StartCell = "A1"
         RemarkCell = "E1"
         HeaderRange = str(f"{StartCell}:{RemarkCell}")
@@ -593,7 +584,6 @@ def FillSheet():
 
         # Define the First column range
         FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{int(StartRow) + extraRows}")
->>>>>>> Develop
 
         # Format the table
         sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,

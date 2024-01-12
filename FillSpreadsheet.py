@@ -253,12 +253,15 @@ def MapData(sheet, doc=None):
                 + str(filename)
                 + ") is mapped to: "
                 + str(DRAW_NO_FIELD),
+<<<<<<< HEAD
+=======
             )
         if USE_PAGENAME_DRAW_NO is True:
             Text = translate(
                 "TitleBlock Workbench",
                 "The pagenames will be mapped to: "
                 + str(DRAW_NO_FIELD_PAGE),
+>>>>>>> Develop
             )
         Standard_Functions.Print(Text, "Log")
 
@@ -559,6 +562,15 @@ def FillSheet():
         # region Format the data with the values as a Table
         #
         # Define the header range
+<<<<<<< HEAD
+        HeaderRange = str("A1:E1")
+
+        # Define the table range
+        TableRange = str(f"A2:E{StartRow + extraRows}")
+
+        # Define the First column range
+        FirstColumnRange = str(f"A2:A{StartRow + extraRows}")
+=======
         StartCell = "A1"
         RemarkCell = "E1"
         HeaderRange = str(f"{StartCell}:{RemarkCell}")
@@ -581,6 +593,7 @@ def FillSheet():
 
         # Define the First column range
         FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{int(StartRow) + extraRows}")
+>>>>>>> Develop
 
         # Format the table
         sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
@@ -819,6 +832,13 @@ def ImportDataExcel():
             RemarkCell = "E1"
             HeaderRange = str(f"{StartCell}:{RemarkCell}")
 
+<<<<<<< HEAD
+            # Define the table range
+            TableRange = str(f"A2:E{RowNumber - 2 + extraRows}")
+
+            # Define the First column range
+            FirstColumnRange = str(f"A2:A{RowNumber - 2 + extraRows}")
+=======
             # Get the first row below the header
             FirstTableRow = ""
             for i in range(len(StartCell)):
@@ -837,6 +857,7 @@ def ImportDataExcel():
 
             # Define the First column range
             FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{int(RowNumber) + extraRows}")
+>>>>>>> Develop
 
             # Format the table
             sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
@@ -963,15 +984,24 @@ def ImportDataFreeCAD():
 
             if (Standard_Functions.GetA1fromR1C1(StartCellExt)).strip():
                 StartCellExt = Standard_Functions.GetA1fromR1C1(StartCellExt)
+<<<<<<< HEAD
+            StartColumnExt = StartCellExt[:1]
+=======
             StartColumnExt = Standard_Functions.RemoveNumbersFromString(StartCellExt)
+>>>>>>> Develop
             # If debug mode is on, show the start colum and its number
             if ENABLE_DEBUG is True:
                 Standard_Functions.Print(
                     translate(
                         "TitleBlock Workbench",
                         "Start column is: " + str(StartColumnExt),
+<<<<<<< HEAD
+                        "Log",
+                    )
+=======
                     ),
                     "Log",
+>>>>>>> Develop
                 )
                 Standard_Functions.Print(
                     translate(
@@ -995,7 +1025,11 @@ def ImportDataFreeCAD():
             )
 
             # Get the start row
+<<<<<<< HEAD
+            StartRow = int(Standard_Functions.RemoveLettersFromString(EXTERNAL_SOURCE_STARTCELL))
+=======
             StartRow = Standard_Functions.RemoveLettersFromString(EXTERNAL_SOURCE_STARTCELL)
+>>>>>>> Develop
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
                 Text = translate(
@@ -1004,6 +1038,10 @@ def ImportDataFreeCAD():
                 Standard_Functions.Print(Text, "Log")
 
             # import the headers from the excelsheet into the spreadsheet
+<<<<<<< HEAD
+            print(f"{sheet.Name}, {ExtSheet.Name}")
+=======
+>>>>>>> Develop
             sheet.set("A1", str(ExtSheet.getContents(str(StartColumnExt) + str(StartRow))))
             sheet.set("B1", str(ExtSheet.getContents(str(Column2) + str(StartRow))))
             sheet.set("C1", str(ExtSheet.getContents(str(Column3) + str(StartRow))))
@@ -1011,15 +1049,19 @@ def ImportDataFreeCAD():
             sheet.set("E1", str(ExtSheet.getContents(str(Column5) + str(StartRow))))
 
             # Go through the excel until the cell in the first column is empty.
+            RowNumber = 1
             for i in range(1000):
                 # Define the start row. This is the Header row +1 + i as counter
                 RowNumber = int(StartRow) + i + 1
 
+<<<<<<< HEAD
+=======
                 # check if you reached the end of the data.
                 test = ExtSheet.getContents(str(StartColumnExt) + str(RowNumber))
                 if test == "" or test is None:
                     break
 
+>>>>>>> Develop
                 # Get the number of row difference between the start row in the excelsheet
                 # and the first row in the spreadsheet.
                 # This to start at second row in the spreadsheet. (under the headers)
@@ -1055,8 +1097,21 @@ def ImportDataFreeCAD():
                         str(ExtSheet.getContents(Column4 + str(RowNumber))),
                     )
 
+<<<<<<< HEAD
+                # Check if the next row of the spreadsheet has data. If not this is the end of all the available values.
+                try:
+                    test = str(ExtSheet.getContents(str(StartColumnExt) + str(RowNumber)))
+                    if test == "":
+                        break
+                except Exception:
+                    break
+
+            # Finally recompute the spreadsheet
+            sheet.recompute()
+=======
             # Finally recompute the document
             App.ActiveDocument.recompute(None, True, True)
+>>>>>>> Develop
 
             # Run the def to add extra system data.
             MapData(sheet=sheet, doc=doc)
@@ -1080,6 +1135,15 @@ def ImportDataFreeCAD():
             # region Format the data with the values as a Table
             #
             # Define the header range
+<<<<<<< HEAD
+            HeaderRange = "A1:E1"
+
+            # Define the table range
+            TableRange = str(f"A2:E{RowNumber - 2 + extraRows}")
+
+            # Define the First column range
+            FirstColumnRange = str(f"A2:A{RowNumber - 2 + extraRows}")
+=======
             StartCell = "A1"
             RemarkCell = "E1"
             HeaderRange = str(f"{StartCell}:{RemarkCell}")
@@ -1102,6 +1166,7 @@ def ImportDataFreeCAD():
 
             # Define the First column range
             FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{int(RowNumber) + extraRows-1}")
+>>>>>>> Develop
 
             # Format the table
             sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,

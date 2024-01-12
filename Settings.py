@@ -127,10 +127,13 @@ SHEETNAME_STARTCELL_XL = GetStringSetting("StartCell_Settings")
 # Use filename as drawingnumber
 USE_FILENAME_DRAW_NO = GetBoolSetting("UseFileName")
 DRAW_NO_FIELD = GetStringSetting("DrwNrFieldName")
+<<<<<<< HEAD
+=======
 
 # Use pagename as drawing number
 USE_PAGENAME_DRAW_NO = GetBoolSetting("UsePageName")
 DRAW_NO_FIELD_PAGE = GetStringSetting("DrwNrFieldName_Page")
+>>>>>>> Develop
 
 # The values that are mapped
 MAP_LENGTH = GetStringSetting("MapLength")
@@ -193,8 +196,11 @@ SettingsList = [
     SHEETNAME_STARTCELL_XL,
     USE_FILENAME_DRAW_NO,
     DRAW_NO_FIELD,
+<<<<<<< HEAD
+=======
     USE_PAGENAME_DRAW_NO,
     DRAW_NO_FIELD_PAGE,
+>>>>>>> Develop
     MAP_LENGTH,
     MAP_ANGLE,
     MAP_MASS,
@@ -455,6 +461,8 @@ def ExportSettings_FreeCAD(Silent=False):
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         sheet.set(SettingValue, str(DRAW_NO_FIELD))
+<<<<<<< HEAD
+=======
         RowNumber = RowNumber + 1
 
         # endregion
@@ -473,6 +481,7 @@ def ExportSettings_FreeCAD(Silent=False):
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         sheet.set(SettingValue, str(DRAW_NO_FIELD_PAGE))
+>>>>>>> Develop
         RowNumber = RowNumber + 1
 
         # endregion
@@ -630,10 +639,17 @@ def ExportSettings_FreeCAD(Silent=False):
         LastColumn = Standard_Functions.RemoveNumbersFromString(ValueCell)
 
         # Define the table range
+<<<<<<< HEAD
+        TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber + 1}")
+
+        # Define the First column range
+        FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber + 1}")
+=======
         TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber}")
 
         # Define the First column range
         FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber}")
+>>>>>>> Develop
 
         # Format the table
         sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
@@ -1217,6 +1233,8 @@ def ExportSettings_XL(Silent=False):
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = DRAW_NO_FIELD
+<<<<<<< HEAD
+=======
         RowNumber = RowNumber + 1
 
         # endregion
@@ -1239,6 +1257,7 @@ def ExportSettings_XL(Silent=False):
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = DRAW_NO_FIELD_PAGE
+>>>>>>> Develop
         RowNumber = RowNumber + 1
 
         # endregion

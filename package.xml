@@ -5,7 +5,11 @@
 
   <description>An extension for the TechDraw workbench to fill a TitleBlock with the aid of the Spreadsheet workbench.</description>
 
+<<<<<<< HEAD
+  <version>0.2.4.2</version>
+=======
   <version>0.3.0</version>
+>>>>>>> Develop
 
   <date>2023-10-08</date>
 

@@ -1015,9 +1015,10 @@ def ImportDataFreeCAD():
                 # Define the start row. This is the Header row +1 + i as counter
                 RowNumber = int(StartRow) + i + 1
 
-                # # check if you reached the end of the data.
-                # if ExtSheet.getContents(str(StartColumnExt) + str(RowNumber)) is None:
-                #     break
+                # check if you reached the end of the data.
+                test = ExtSheet.getContents(str(StartColumnExt) + str(RowNumber))
+                if test == "" or test is None:
+                    break
 
                 # Get the number of row difference between the start row in the excelsheet
                 # and the first row in the spreadsheet.

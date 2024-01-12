@@ -29,6 +29,10 @@ Please see the [wiki page](https://github.com/APEbbers/TechDrawTitleBlockUtility
 ## Extra software needed:
 - Software that can open and edit '*.xlsx files'. For example Microsoft Excel or LibreOffice Calc.
 
+## Extra python packages needed:
+- openpyxl
+- matplotlib
+
 ## License:
 LGPL2.+
 

@@ -455,8 +455,6 @@ def ExportSettings_FreeCAD(Silent=False):
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         sheet.set(SettingValue, str(DRAW_NO_FIELD))
-<<<<<<< HEAD
-=======
         RowNumber = RowNumber + 1
 
         # endregion
@@ -475,7 +473,6 @@ def ExportSettings_FreeCAD(Silent=False):
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         sheet.set(SettingValue, str(DRAW_NO_FIELD_PAGE))
->>>>>>> Develop
         RowNumber = RowNumber + 1
 
         # endregion
@@ -633,17 +630,10 @@ def ExportSettings_FreeCAD(Silent=False):
         LastColumn = Standard_Functions.RemoveNumbersFromString(ValueCell)
 
         # Define the table range
-<<<<<<< HEAD
-        TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber + 1}")
-
-        # Define the First column range
-        FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber + 1}")
-=======
         TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber}")
 
         # Define the First column range
         FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber}")
->>>>>>> Develop
 
         # Format the table
         sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
@@ -1227,8 +1217,6 @@ def ExportSettings_XL(Silent=False):
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = DRAW_NO_FIELD
-<<<<<<< HEAD
-=======
         RowNumber = RowNumber + 1
 
         # endregion
@@ -1251,7 +1239,6 @@ def ExportSettings_XL(Silent=False):
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = DRAW_NO_FIELD_PAGE
->>>>>>> Develop
         RowNumber = RowNumber + 1
 
         # endregion

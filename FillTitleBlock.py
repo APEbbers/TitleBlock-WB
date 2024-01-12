@@ -56,6 +56,9 @@ def FillTitleBlock():
 
         # Get the spreadsheet.
         sheet = App.ActiveDocument.getObject("TitleBlock")
+        if sheet is None:
+            Standard_Functions.Mbox("No titleblock spreadsheet present!", "TitleBlock Workbench", 0)
+            return
 
         for page in pages:
             # Get the editable texts

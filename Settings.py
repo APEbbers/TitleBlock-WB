@@ -1449,7 +1449,7 @@ def ExportSettings_XL(Silent=False):
                 f"TitleBlock Workbench: Table range is: {StartCell}:{EndCell}",
             )
             Standard_Functions.Print(Text, "Log")
-        for row in ws[1: ws.max_row]:
+        for row in ws[1 : ws.max_row]:
             Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
             Column_2 = row[Standard_Functions.GetNumberFromLetter(EndCell[:1]) - 1]
             Column_1.alignment = Alignment(
@@ -1521,9 +1521,10 @@ def ImportSettings_XL():
             if os.path.exists(EXTERNAL_SOURCE_PATH) is False:
                 Text = translate(
                     "TitleBlock Workbench",
-                    "There is no excel workbook available, while import from external source is enabled!\n" +
-                    "Please create an excel workbook to export your settings to or disable import from external source.",
-                    "TitleBlock Workbench",)
+                    "There is no excel workbook available, while import from external source is enabled!\n"
+                    + "Please create an excel workbook to export your settings to or disable import from external source.",
+                    "TitleBlock Workbench",
+                )
                 Standard_Functions.Mbox(
                     text=Text, title="TitleBlock Workbench", style=0
                 )

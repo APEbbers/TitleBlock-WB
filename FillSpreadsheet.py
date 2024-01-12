@@ -981,14 +981,6 @@ def ImportDataFreeCAD():
                     ),
                     "Log",
                 )
-                Standard_Functions.Print(
-                    translate(
-                        "TitleBlock Workbench",
-                        "StartCell is: "
-                        + str(StartColumnExt),
-                    ),
-                    "Log",
-                )
             Column2 = Standard_Functions.GetLetterFromNumber(
                 int(Standard_Functions.GetNumberFromLetter(StartColumnExt) + 1), True
             )
@@ -1070,8 +1062,8 @@ def ImportDataFreeCAD():
                 except Exception:
                     break
 
-            # Finally recompute the document
-            App.ActiveDocument.recompute(None, True, True)
+            # # Finally recompute the document
+            # App.ActiveDocument.recompute(None, True, True)
 
             # Run the def to add extra system data.
             MapData(sheet=sheet, doc=doc)

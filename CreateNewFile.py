@@ -179,17 +179,6 @@ def CreateFreeCAD():
     ]
     FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=True)
     if FileName != "":
-        # # Check if the file is already open. If so, close it.
-        # # Get the keys from the dictionary
-        # OpenDocumentsKeys = list(App.listDocuments().keys())
-        # # Go through the keys
-        # for i in range(len(OpenDocumentsKeys)):
-        #     # get the filename without extension
-        #     DocumentName = str(os.path.basename(FileName)).replace(".FCStd", "")
-        #     print(DocumentName + ", " + OpenDocumentsKeys[i])
-        #     # If the filename is the same ad the created name, close it.
-        #     if OpenDocumentsKeys[i] == DocumentName:
-        #         App.closeDocument(App.listDocuments()[DocumentName].Name)
         # Create a new FreeCAD file
         ff = App.newDocument()
         # Save the workbook
@@ -203,6 +192,11 @@ def CreateFreeCAD():
     ff = App.openDocument(FileName, True)
     ff.recompute(None, True, True)
     ff.save
+
+    # If there already are objects, clean the document
+    Objects = ff.Objects
+    for i in range(len(Objects)):
+        ff.removeObject(Objects[i])
 
     # Create a spreadsheet for the titleblock data.
     TitleBlockData = ff.addObject("Spreadsheet::Sheet", "TitleBlockData")

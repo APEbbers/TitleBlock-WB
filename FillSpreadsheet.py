@@ -977,7 +977,7 @@ def ImportDataFreeCAD():
                     translate(
                         "TitleBlock Workbench",
                         "Column number is: "
-                        + str(Standard_Functions.GetNumberFromLetter(StartColumnExt)),
+                        + str(Standard_Functions.GetNumberFromLetter(StartColumnExt) - 1),
                     ),
                     "Log",
                 )
@@ -995,7 +995,7 @@ def ImportDataFreeCAD():
             )
 
             # Get the start row
-            StartRow = EXTERNAL_SOURCE_STARTCELL[1:2]
+            StartRow = Standard_Functions.RemoveLettersFromString(EXTERNAL_SOURCE_STARTCELL)
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
                 Text = translate(

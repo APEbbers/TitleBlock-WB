@@ -728,11 +728,12 @@ def ImportSettings_FreeCAD():
         # Get the columns
         FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
         SecondColumn = Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(FirstColumn) + 1)
+        FirstTableRow = int(Standard_Functions.RemoveLettersFromString(StartCell)) + 1
         print(FirstColumn + ", " + SecondColumn)
 
         # go through the excel until all settings are imported.
         counter = 0
-        for i in range(1, 1000):
+        for i in range(FirstTableRow, 1000):
             Cell_Name = ExtSheet.getContents(str(FirstColumn) + str(i))
             if Cell_Name.startswith("'"):
                 Cell_Name = Cell_Name[1:]

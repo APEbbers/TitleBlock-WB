@@ -25,6 +25,7 @@ import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
 from openpyxl import Workbook
 from openpyxl.worksheet.table import Table, TableStyleInfo
+import os
 
 # Get the settings
 import Settings
@@ -51,7 +52,7 @@ from Settings import AUTOFIT_FACTOR
 translate = App.Qt.translate
 
 
-def createExcel():
+def CcreateExcel():
     # Create a workbook and activate the first sheet
     wb = Workbook()
     ws = wb.active
@@ -140,13 +141,15 @@ def createExcel():
         ("Excel", "*.xlsx"),
     ]
     FileName = Standard_Functions.GetFileDialog(Filter)
-    if FileName is not None:
+    if FileName != "":
         # Save the workbook
         wb.save(str(FileName))
         # Close the workbook
         wb.close()
         # Update the preferences
-        preferences.SetString("ExternalFile", FileName)
+        preferences.SetString("ExternalFile", rf"{FileName}")
+    if FileName == "":
+        return
 
     # If import settings from excel is enabled, export settings to the new excel file.
     if IMPORT_SETTINGS_XL is True:
@@ -168,25 +171,32 @@ def CreateFreeCAD():
     # Save the name of the active document to reactivate it at the end of this function.
     LastActiveDoc = doc.Name
 
-    # Create a new FreeCAD file
-    ff = App.newDocument()
+    # Create a placeholder for the new document
+    ff = ""
     # Save the FreeCAD file in a folder of your choosing
     Filter = [
         ("FreeCAD", "*.FCStd"),
     ]
-    FileName = Standard_Functions.GetFileDialog(Filter)
-    if FileName is not None:
+    FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=True)
+    if FileName != "":
+        # Create a new FreeCAD file
+        ff = App.newDocument()
         # Save the workbook
         ff.saveAs(FileName)
-        # Close the document before reopening to be sure it exists
+        # Close the document before reopening
         App.closeDocument(ff.Name)
-    if FileName is None:
+    if FileName == "":
         return
 
     # Open the document hidden, recompute and save it
     ff = App.openDocument(FileName, True)
     ff.recompute(None, True, True)
     ff.save
+
+    # If there already are objects, clean the document
+    Objects = ff.Objects
+    for i in range(len(Objects)):
+        ff.removeObject(Objects[i].Name)
 
     # Create a spreadsheet for the titleblock data.
     TitleBlockData = ff.addObject("Spreadsheet::Sheet", "TitleBlockData")
@@ -239,10 +249,6 @@ def CreateFreeCAD():
     ff.recompute(None, True, True)
     # Save the workbook
     ff.save()
-    # Close the FreeCAD file
-    App.closeDocument(ff.Name)
-    # Activate the document which was active when this command started.
-    App.setActiveDocument(LastActiveDoc)
 
     # If import settings from excel is enabled, export settings to the new excel file.
     if IMPORT_SETTINGS_XL is True:
@@ -251,9 +257,17 @@ def CreateFreeCAD():
     # print a message if you succeded.
     message = translate(
         "TitleBlock Workbench",
-        f"The titleblock data is exported to the workbook {FileName} in the worksheet {TitleBlockData.Name}",
+        f"The titleblock data is exported to the workbook {FileName} in the worksheet {TitleBlockData}",
     )
     Standard_Functions.Mbox(text=message, title="TitleBlock Workbench", style=0)
+
+    # Close the FreeCAD file
+    App.closeDocument(ff.Name)
+    # Activate the document which was active when this command started.
+    try:
+        App.setActiveDocument(LastActiveDoc)
+    except Exception:
+        pass
 
     return
 

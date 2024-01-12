@@ -1587,6 +1587,932 @@ c 0.536143,0.214\
    id=\x22path20\x22 /\
 ></g></g></svg>\x0a\
 \
+\x00\x009\xb2\
+<\
+?xml version=\x221.\
+0\x22 encoding=\x22UTF\
+-8\x22 standalone=\x22\
+no\x22?>\x0a<!-- Creat\
+ed with Inkscape\
+ (http://www.ink\
+scape.org/) -->\x0a\
+\x0a<svg\x0a   width=\x22\
+64\x22\x0a   height=\x226\
+4\x22\x0a   viewBox=\x220\
+ 0 16.933333 16.\
+933333\x22\x0a   versi\
+on=\x221.1\x22\x0a   id=\x22\
+svg1\x22\x0a   xml:spa\
+ce=\x22preserve\x22\x0a  \
+ inkscape:versio\
+n=\x221.3 (0e150ed6\
+c4, 2023-07-21)\x22\
+\x0a   sodipodi:doc\
+name=\x22ImportSett\
+ings_FreeCAD.svg\
+\x22\x0a   xmlns:inksc\
+ape=\x22http://www.\
+inkscape.org/nam\
+espaces/inkscape\
+\x22\x0a   xmlns:sodip\
+odi=\x22http://sodi\
+podi.sourceforge\
+.net/DTD/sodipod\
+i-0.dtd\x22\x0a   xmln\
+s:xlink=\x22http://\
+www.w3.org/1999/\
+xlink\x22\x0a   xmlns=\
+\x22http://www.w3.o\
+rg/2000/svg\x22\x0a   \
+xmlns:svg=\x22http:\
+//www.w3.org/200\
+0/svg\x22><sodipodi\
+:namedview\x0a     \
+id=\x22namedview1\x22\x0a\
+     pagecolor=\x22\
+#505050\x22\x0a     bo\
+rdercolor=\x22#eeee\
+ee\x22\x0a     bordero\
+pacity=\x221\x22\x0a     \
+inkscape:showpag\
+eshadow=\x220\x22\x0a    \
+ inkscape:pageop\
+acity=\x220\x22\x0a     i\
+nkscape:pagechec\
+kerboard=\x220\x22\x0a   \
+  inkscape:deskc\
+olor=\x22#505050\x22\x0a \
+    inkscape:doc\
+ument-units=\x22px\x22\
+\x0a     inkscape:z\
+oom=\x228\x22\x0a     ink\
+scape:cx=\x2236.625\
+\x22\x0a     inkscape:\
+cy=\x2237.9375\x22\x0a   \
+  inkscape:windo\
+w-width=\x221920\x22\x0a \
+    inkscape:win\
+dow-height=\x221009\
+\x22\x0a     inkscape:\
+window-x=\x22-8\x22\x0a  \
+   inkscape:wind\
+ow-y=\x22-8\x22\x0a     i\
+nkscape:window-m\
+aximized=\x221\x22\x0a   \
+  inkscape:curre\
+nt-layer=\x22layer2\
+\x22\x0a     showguide\
+s=\x22true\x22><inksca\
+pe:page\x0a       x\
+=\x220\x22\x0a       y=\x220\
+\x22\x0a       width=\x22\
+16.933332\x22\x0a     \
+  height=\x2216.933\
+332\x22\x0a       id=\x22\
+page2\x22\x0a       ma\
+rgin=\x220 838.3011\
+5 0 0\x22\x0a       bl\
+eed=\x220\x22 /></sodi\
+podi:namedview><\
+defs\x0a     id=\x22de\
+fs1\x22><linearGrad\
+ient\x0a       grad\
+ientTransform=\x22t\
+ranslate(-48)\x22\x0a \
+      gradientUn\
+its=\x22userSpaceOn\
+Use\x22\x0a       y2=\x22\
+25.999996\x22\x0a     \
+  x2=\x2253\x22\x0a      \
+ y1=\x2239.999996\x22\x0a\
+       x1=\x2210\x22\x0a \
+      id=\x22linear\
+Gradient3781\x22\x0a  \
+     xlink:href=\
+\x22#linearGradient\
+3775\x22 /><linearG\
+radient\x0a       i\
+d=\x22linearGradien\
+t3775\x22><stop\x0a   \
+      id=\x22stop37\
+77\x22\x0a         off\
+set=\x220\x22\x0a        \
+ style=\x22stop-col\
+or:#d3d7cf;stop-\
+opacity:1;\x22 /><s\
+top\x0a         id=\
+\x22stop3779\x22\x0a     \
+    offset=\x221\x22\x0a \
+        style=\x22s\
+top-color:#fffff\
+f;stop-opacity:1\
+\x22 /></linearGrad\
+ient><linearGrad\
+ient\x0a       grad\
+ientTransform=\x22m\
+atrix(1,0,0,0.77\
+777777,0,5.11111\
+14)\x22\x0a       grad\
+ientUnits=\x22userS\
+paceOnUse\x22\x0a     \
+  y2=\x225\x22\x0a       \
+x2=\x2221\x22\x0a       y\
+1=\x2258\x22\x0a       x1\
+=\x2238\x22\x0a       id=\
+\x22linearGradient3\
+789\x22\x0a       xlin\
+k:href=\x22#linearG\
+radient3775\x22 /><\
+linearGradient\x0a \
+      id=\x22linear\
+Gradient3319\x22><s\
+top\x0a         id=\
+\x22stop3315\x22\x0a     \
+    offset=\x220\x22\x0a \
+        style=\x22s\
+top-color:#729fc\
+f;stop-opacity:1\
+\x22 /><stop\x0a      \
+   id=\x22stop3317\x22\
+\x0a         offset\
+=\x221\x22\x0a         st\
+yle=\x22stop-color:\
+#204a87;stop-opa\
+city:1\x22 /></line\
+arGradient><line\
+arGradient\x0a     \
+  id=\x22linearGrad\
+ient4387\x22><stop\x0a\
+         id=\x22sto\
+p4389\x22\x0a         \
+offset=\x220\x22\x0a     \
+    style=\x22stop-\
+color:#71b2f8;st\
+op-opacity:1;\x22 /\
+><stop\x0a         \
+id=\x22stop4391\x22\x0a  \
+       offset=\x221\
+\x22\x0a         style\
+=\x22stop-color:#00\
+2795;stop-opacit\
+y:1;\x22 /></linear\
+Gradient><radial\
+Gradient\x0a       \
+gradientTransfor\
+m=\x22translate(-0.\
+23443224,0.23443\
+198)\x22\x0a       gra\
+dientUnits=\x22user\
+SpaceOnUse\x22\x0a    \
+   r=\x2219.467436\x22\
+\x0a       fy=\x2228.8\
+69568\x22\x0a       fx\
+=\x2245.883327\x22\x0a   \
+    cy=\x2228.86956\
+8\x22\x0a       cx=\x2245\
+.883327\x22\x0a       \
+id=\x22radialGradie\
+nt3692\x22\x0a       x\
+link:href=\x22#line\
+arGradient3377\x22 \
+/><linearGradien\
+t\x0a       id=\x22lin\
+earGradient3377\x22\
+><stop\x0a         \
+style=\x22stop-colo\
+r:#faff2b;stop-o\
+pacity:1;\x22\x0a     \
+    offset=\x220\x22\x0a \
+        id=\x22stop\
+3379\x22 /><stop\x0a  \
+       style=\x22st\
+op-color:#ffaa00\
+;stop-opacity:1;\
+\x22\x0a         offse\
+t=\x221\x22\x0a         i\
+d=\x22stop3381\x22 /><\
+/linearGradient>\
+<radialGradient\x0a\
+       r=\x2219.467\
+436\x22\x0a       fy=\x22\
+28.869568\x22\x0a     \
+  fx=\x2245.883327\x22\
+\x0a       cy=\x2228.8\
+69568\x22\x0a       cx\
+=\x2245.883327\x22\x0a   \
+    gradientTran\
+sform=\x22matrix(0.\
+67067175,0,0,0.6\
+4145918,-63.3807\
+92,0.83845403)\x22\x0a\
+       gradientU\
+nits=\x22userSpaceO\
+nUse\x22\x0a       id=\
+\x22radialGradient6\
+412\x22\x0a       xlin\
+k:href=\x22#linearG\
+radient3377\x22 /><\
+linearGradient\x0a \
+      xlink:href\
+=\x22#linearGradien\
+t3036\x22\x0a       id\
+=\x22linearGradient\
+3049\x22\x0a       gra\
+dientUnits=\x22user\
+SpaceOnUse\x22\x0a    \
+   gradientTrans\
+form=\x22rotate(33.\
+834399,20.280412\
+,56.143946)\x22\x0a   \
+    x1=\x2214.82419\
+3\x22\x0a       y1=\x2250\
+.468616\x22\x0a       \
+x2=\x2220.93985\x22\x0a  \
+     y2=\x2256.0002\
+33\x22 /><linearGra\
+dient\x0a       id=\
+\x22linearGradient3\
+036\x22><stop\x0a     \
+    style=\x22stop-\
+color:#ef2929;st\
+op-opacity:1\x22\x0a  \
+       offset=\x220\
+\x22\x0a         id=\x22s\
+top3038\x22 /><stop\
+\x0a         style=\
+\x22stop-color:#a40\
+000;stop-opacity\
+:1\x22\x0a         off\
+set=\x221\x22\x0a        \
+ id=\x22stop3040\x22 /\
+></linearGradien\
+t><linearGradien\
+t\x0a       y2=\x2256.\
+000233\x22\x0a       x\
+2=\x2220.93985\x22\x0a   \
+    y1=\x2250.46861\
+6\x22\x0a       x1=\x2214\
+.824193\x22\x0a       \
+gradientTransfor\
+m=\x22rotate(33.834\
+399,-6.8783909,9\
+0.878388)\x22\x0a     \
+  gradientUnits=\
+\x22userSpaceOnUse\x22\
+\x0a       id=\x22line\
+arGradient3307\x22\x0a\
+       xlink:hre\
+f=\x22#linearGradie\
+nt3319\x22 /><linea\
+rGradient\x0a      \
+ xlink:href=\x22#li\
+nearGradient3864\
+-9\x22\x0a       id=\x22l\
+inearGradient380\
+8\x22\x0a       x1=\x22-1\
+46.74467\x22\x0a      \
+ y1=\x2258.261547\x22\x0a\
+       x2=\x22-157.\
+32494\x22\x0a       y2\
+=\x2226.520763\x22\x0a   \
+    gradientUnit\
+s=\x22userSpaceOnUs\
+e\x22\x0a       gradie\
+ntTransform=\x22mat\
+rix(0.97668521,0\
+.0547655,-0.0547\
+655,0.97668512,1\
+82.70859,-2.2305\
+154)\x22 /><linearG\
+radient\x0a       i\
+d=\x22linearGradien\
+t3864-9\x22><stop\x0a \
+        style=\x22s\
+top-color:#204a8\
+7;stop-opacity:1\
+\x22\x0a         offse\
+t=\x220\x22\x0a         i\
+d=\x22stop3866-1\x22 /\
+><stop\x0a         \
+style=\x22stop-colo\
+r:#729fcf;stop-o\
+pacity:1\x22\x0a      \
+   offset=\x221\x22\x0a  \
+       id=\x22stop3\
+868-1\x22 /></linea\
+rGradient><linea\
+rGradient\x0a      \
+ y2=\x22609.50507\x22\x0a\
+       x2=\x22302.8\
+5715\x22\x0a       y1=\
+\x22366.64789\x22\x0a    \
+   x1=\x22302.85715\
+\x22\x0a       gradien\
+tTransform=\x22matr\
+ix(2.774389,0,0,\
+1.969706,-1892.1\
+79,-872.8854)\x22\x0a \
+      gradientUn\
+its=\x22userSpaceOn\
+Use\x22\x0a       id=\x22\
+linearGradient67\
+15-5\x22\x0a       xli\
+nk:href=\x22#linear\
+Gradient5048\x22 />\
+<linearGradient\x0a\
+       id=\x22linea\
+rGradient5048\x22><\
+stop\x0a         st\
+yle=\x22stop-color:\
+black;stop-opaci\
+ty:0;\x22\x0a         \
+offset=\x220\x22\x0a     \
+    id=\x22stop5050\
+\x22 /><stop\x0a      \
+   id=\x22stop5056\x22\
+\x0a         offset\
+=\x220.5\x22\x0a         \
+style=\x22stop-colo\
+r:black;stop-opa\
+city:1;\x22 /><stop\
+\x0a         style=\
+\x22stop-color:blac\
+k;stop-opacity:0\
+;\x22\x0a         offs\
+et=\x221\x22\x0a         \
+id=\x22stop5052\x22 />\
+</linearGradient\
+><linearGradient\
+\x0a       inkscape\
+:collect=\x22always\
+\x22\x0a       xlink:h\
+ref=\x22#linearGrad\
+ient3864-9\x22\x0a    \
+   id=\x22linearGra\
+dient3808-4\x22\x0a   \
+    x1=\x22-146.744\
+67\x22\x0a       y1=\x225\
+8.261547\x22\x0a      \
+ x2=\x22-157.32494\x22\
+\x0a       y2=\x2226.5\
+20763\x22\x0a       gr\
+adientUnits=\x22use\
+rSpaceOnUse\x22\x0a   \
+    gradientTran\
+sform=\x22matrix(1.\
+0094494,0,0,1.00\
+94493,-20.307973\
+,3.7260081)\x22 /><\
+linearGradient\x0a \
+      inkscape:c\
+ollect=\x22always\x22\x0a\
+       xlink:hre\
+f=\x22#linearGradie\
+nt3682-0\x22\x0a      \
+ id=\x22linearGradi\
+ent3806\x22\x0a       \
+x1=\x22-206.69949\x22\x0a\
+       y1=\x2268.84\
+1812\x22\x0a       x2=\
+\x22-211.40184\x22\x0a   \
+    y2=\x227.711409\
+6\x22\x0a       gradie\
+ntUnits=\x22userSpa\
+ceOnUse\x22 /><line\
+arGradient\x0a     \
+  id=\x22linearGrad\
+ient3682-0\x22><sto\
+p\x0a         id=\x22s\
+top3684-0\x22\x0a     \
+    offset=\x220\x22\x0a \
+        style=\x22s\
+top-color:#a4000\
+0;stop-opacity:1\
+\x22 /><stop\x0a      \
+   id=\x22stop3686-\
+0\x22\x0a         offs\
+et=\x221\x22\x0a         \
+style=\x22stop-colo\
+r:#ef2929;stop-o\
+pacity:1\x22 /></li\
+nearGradient></d\
+efs><g\x0a     inks\
+cape:groupmode=\x22\
+layer\x22\x0a     id=\x22\
+layer2\x22\x0a     ink\
+scape:label=\x22Lay\
+er 2\x22\x0a     trans\
+form=\x22scale(0.08\
+466667)\x22><g\x0a    \
+   inkscape:labe\
+l=\x22Layer 1\x22\x0a    \
+   inkscape:grou\
+pmode=\x22layer\x22\x0a  \
+     id=\x22layer1\x22\
+\x0a       transfor\
+m=\x22translate(-87\
+.773068,-6.27041\
+49)\x22 /><g\x0a      \
+ id=\x22g1\x22><rect\x0a \
+        style=\x22d\
+isplay:inline;fi\
+ll:#ffffff;strok\
+e-width:0.264583\
+\x22\x0a         id=\x22r\
+ect3\x22\x0a         w\
+idth=\x22199.99998\x22\
+\x0a         height\
+=\x22200\x22\x0a         \
+x=\x220\x22\x0a         y\
+=\x220\x22 /><g\x0a      \
+   transform=\x22ma\
+trix(4.0258026,0\
+,0,4.0258026,-28\
+.196064,-28.6995\
+1)\x22\x0a         id=\
+\x22g3353\x22\x0a        \
+ inkscape:transf\
+orm-center-x=\x22-1\
+27.87508\x22\x0a      \
+   inkscape:tran\
+sform-center-y=\x22\
+142.17689\x22\x0a     \
+    inkscape:lab\
+el=\x22g3353\x22><path\
+\x0a           id=\x22\
+path3659-5\x22\x0a    \
+       d=\x22m 47.0\
+72047,13.49348 -\
+7.25661,3.639384\
+ -3.044172,-1.25\
+1456 -2.537552,-\
+7.7361038 -4.673\
+163,-0.016413 -2\
+.564225,7.708696\
+8 -3.054328,1.25\
+7622 -7.236841,-\
+3.661338 -3.3287\
+62,3.30636 3.639\
+401,7.256608 -1.\
+275845,3.033674 \
+-7.7361133,2.537\
+561 0.00796,4.68\
+3643 7.7087123,2\
+.564218 1.257621\
+,3.054327 -3.685\
+711,7.226363 3.3\
+06355,3.328755 7\
+.256601,-3.63938\
+9 3.058066,1.286\
+323 2.513177,7.7\
+25622 4.708019,0\
+.0025 2.53984,-7\
+.719179 3.054339\
+,-1.257622 7.250\
+725,3.696204 3.3\
+28762,-3.306361 \
+-3.639392,-7.256\
+605 1.261932,-3.\
+068543 7.725633,\
+-2.513183 0.0269\
+1,-4.697535 -7.7\
+19194,-2.539837 \
+-1.25763,-3.0543\
+27 3.671825,-7.2\
+61229 z m -11.17\
+5912,10.938628 1\
+.396243,0.918293\
+ 1.186806,1.2037\
+84 0.925177,1.40\
+9058 0.635757,1.\
+544598 0.332462,\
+1.645274 -0.0230\
+4,1.665726 -0.33\
+3176,1.647904 -0\
+.636201,1.546466\
+ -0.95316,1.4101\
+45 -1.168915,1.1\
+72904 -1.409065,\
+0.925174 -1.5445\
+97,0.635755 -1.6\
+45274,0.332453 -\
+1.676208,0.0014 \
+-1.647918,-0.333\
+161 -1.546458,-0\
+.636213 -1.41013\
+7,-0.953159 -1.1\
+62439,-1.193302 \
+-0.935639,-1.384\
+673 -0.635777,-1\
+.544598 -0.32196\
+2,-1.669654 -0.0\
+013,-1.67621 0.3\
+33167,-1.647908 \
+0.636221,-1.5464\
+6 0.942669,-1.38\
+5767 1.179415,-1\
+.197283 1.409046\
+,-0.925175 1.544\
+597,-0.635759 1.\
+66965,-0.321966 \
+1.665725,0.02304\
+ 1.64791,0.33315\
+9 1.546466,0.636\
+214 z\x22\x0a         \
+  style=\x22display\
+:inline;overflow\
+:visible;visibil\
+ity:visible;fill\
+:url(#linearGrad\
+ient3808);fill-o\
+pacity:1;fill-ru\
+le:evenodd;strok\
+e:#000137;stroke\
+-width:2;stroke-\
+linecap:round;st\
+roke-linejoin:ro\
+und;stroke-miter\
+limit:4;stroke-d\
+asharray:none;st\
+roke-dashoffset:\
+0;stroke-opacity\
+:1;marker:none;e\
+nable-background\
+:accumulate\x22 /><\
+path\x0a           \
+id=\x22path3659-5-6\
+\x22\x0a           d=\x22\
+m 46.665932,16.2\
+28758 -6.772715,\
+3.391179 -4.8478\
+22,-2.056474 -2.\
+489782,-7.138562\
+ -1.396661,-0.00\
+28 -2.415722,7.2\
+25884 -4.953349,\
+1.931885 -6.6735\
+22,-3.356372 -0.\
+974551,0.996986 \
+3.405375,6.84686\
+7 -2.164816,4.74\
+1796 -7.058271,2\
+.365929 -0.0036,\
+1.486481 7.17151\
+6,2.4044 1.98673\
+5,4.956424 -3.39\
+6705,6.663018 0.\
+96246,0.935939 6\
+.696534,-3.34044\
+4 5.115268,2.120\
+649 2.1773,7.076\
+12 1.395792,0.06\
+172 2.43718,-7.1\
+77917 4.87118,-2\
+.101523 6.975472\
+,3.459155 0.9125\
+47,-0.872108 -3.\
+41459,-6.68235 1\
+.907599,-4.98876\
+3 7.254984,-2.42\
+3995 0.03309,-1.\
+462493 -7.096784\
+,-2.249261 -2.11\
+1617,-5.018436 3\
+.409598,-6.82149\
+2 z\x22\x0a           \
+style=\x22display:i\
+nline;overflow:v\
+isible;visibilit\
+y:visible;fill:n\
+one;stroke:#729f\
+cf;stroke-width:\
+2;stroke-linecap\
+:round;stroke-li\
+nejoin:round;str\
+oke-miterlimit:4\
+;stroke-dasharra\
+y:none;stroke-da\
+shoffset:0;strok\
+e-opacity:1;mark\
+er:none;enable-b\
+ackground:accumu\
+late\x22 /><circle\x0a\
+           r=\x2210\
+.932387\x22\x0a       \
+    cy=\x2230.08660\
+9\x22\x0a           cx\
+=\x2233.553997\x22\x0a   \
+        id=\x22path\
+3898\x22\x0a          \
+ style=\x22fill:non\
+e;stroke:#729fcf\
+;stroke-width:2;\
+stroke-linecap:r\
+ound;stroke-line\
+join:round;strok\
+e-miterlimit:4;s\
+troke-dasharray:\
+none;stroke-dash\
+offset:6;stroke-\
+opacity:1\x22\x0a     \
+      transform=\
+\x22rotate(3.209375\
+6)\x22 /></g></g><g\
+\x0a       transfor\
+m=\x22matrix(1.7278\
+634,0,0,1.727863\
+5,455.58599,72.8\
+93584)\x22\x0a       i\
+d=\x22g3813-3\x22><pat\
+h\x0a         style\
+=\x22display:inline\
+;overflow:visibl\
+e;visibility:vis\
+ible;fill:url(#l\
+inearGradient380\
+8-4);fill-opacit\
+y:1;fill-rule:ev\
+enodd;stroke:#00\
+0137;stroke-widt\
+h:2.35117;stroke\
+-linecap:round;s\
+troke-linejoin:r\
+ound;stroke-mite\
+rlimit:4;stroke-\
+dasharray:none;s\
+troke-dashoffset\
+:0;stroke-opacit\
+y:1;marker:none;\
+enable-backgroun\
+d:accumulate\x22\x0a  \
+       d=\x22m -159\
+.14682,27.762572\
+ -7.26628,4.1689\
+14 -3.20873,-1.1\
+13515 -3.06139,-\
+7.823962 -4.8157\
+4,0.253068 -2.19\
+659,8.090466 -3.\
+07424,1.472191 -\
+7.66769,-3.35421\
+3 -3.23863,3.598\
+875 4.16893,7.26\
+6276 -1.13925,3.\
+199324 -7.82397,\
+3.061399 0.27879\
+,4.825129 8.0904\
+8,2.196583 1.472\
+19,3.074238 -3.3\
+7993,7.658303 3.\
+59887,3.238623 7\
+.26627,-4.168916\
+ 3.22506,1.14863\
+5 3.03567,7.8145\
+7 4.85085,-0.269\
+405 2.17086,-8.0\
+99855 3.07425,-1\
+.472193 7.68401,\
+3.389334 3.23863\
+,-3.598876 -4.16\
+892,-7.266274 1.\
+1229,-3.234445 7\
+.81458,-3.035677\
+ -0.24366,-4.841\
+457 -8.09987,-2.\
+170857 -1.4722,-\
+3.074238 3.36361\
+,-7.693423 z m -\
+10.88267,11.9158\
+01 1.49161,0.865\
+459 1.29232,1.17\
+1703 1.03462,1.3\
+98312 0.74426,1.\
+554681 0.43759,1\
+.67593 0.0725,1.\
+71754 -0.24807,1\
+.717095 -0.56614\
+,1.630089 -0.900\
+58,1.507949 -1.1\
+3658,1.275982 -1\
+.39832,1.034618 \
+-1.55468,0.74425\
+7 -1.67593,0.437\
+58 -1.72693,0.09\
+823 -1.71711,-0.\
+248055 -1.63008,\
+-0.566152 -1.507\
+94,-0.900579 -1.\
+26661,-1.162311 \
+-1.04399,-1.3725\
+84 -0.74428,-1.5\
+54679 -0.42818,-\
+1.701656 -0.0982\
+,-1.726934 0.248\
+06,-1.717099 0.5\
+6616,-1.630085 0\
+.89118,-1.482225\
+ 1.14599,-1.3017\
+06 1.3983,-1.034\
+618 1.55468,-0.7\
+44261 1.70165,-0\
+.428183 1.71754,\
+-0.0725 1.7171,0\
+.248053 1.63009,\
+0.566153 z\x22\x0a    \
+     id=\x22path365\
+9-5-4\x22\x0a         \
+inkscape:connect\
+or-curvature=\x220\x22\
+ /><path\x0a       \
+  style=\x22display\
+:inline;overflow\
+:visible;visibil\
+ity:visible;fill\
+:none;stroke:#72\
+9fcf;stroke-widt\
+h:2.35117;stroke\
+-linecap:round;s\
+troke-linejoin:r\
+ound;stroke-mite\
+rlimit:4;stroke-\
+dasharray:none;s\
+troke-dashoffset\
+:0;stroke-opacit\
+y:1;marker:none;\
+enable-backgroun\
+d:accumulate\x22\x0a  \
+       d=\x22m -159\
+.40722,30.604211\
+ -6.78206,3.8852\
+29 -5.11355,-1.8\
+3873 -2.97765,-7\
+.211069 -1.43915\
+,0.07782 -2.0714\
+8,7.584439 -4.99\
+186,2.2766 -7.06\
+968,-3.072549 -0\
+.94649,1.083504 \
+3.90414,6.857637\
+ -1.95648,5.0105\
+71 -7.1355,2.845\
+405 0.0822,1.531\
+739 7.52777,2.06\
+2954 2.33329,4.9\
+91861 -3.11471,7\
+.061187 1.0457,0\
+.908702 6.7065,-\
+3.828556 5.39281\
+,1.889398 2.6520\
+9,7.164787 1.441\
+66,-0.01704 2.09\
+636,-7.536257 4.\
+8974,-2.446633 7\
+.38672,3.161002 \
+0.88982,-0.95125\
+8 -3.90413,-6.68\
+7603 1.6772,-5.2\
+50163 7.33482,-2\
+.916596 -0.0504,\
+-1.508727 -7.441\
+81,-1.907432 -2.\
+46554,-5.048537 \
+3.11884,-7.22521\
+ z\x22\x0a         id=\
+\x22path3659-5-6-4\x22\
+\x0a         inksca\
+pe:connector-cur\
+vature=\x220\x22\x0a     \
+    sodipodi:nod\
+etypes=\x22cccccccc\
+cccccccccccccccc\
+ccccccccc\x22 /><ci\
+rcle\x0a         st\
+yle=\x22fill:none;s\
+troke:#729fcf;st\
+roke-width:1.811\
+97;stroke-lineca\
+p:round;stroke-l\
+inejoin:round;st\
+roke-miterlimit:\
+4;stroke-dasharr\
+ay:none;stroke-d\
+ashoffset:6;stro\
+ke-opacity:1\x22\x0a  \
+       id=\x22path3\
+898-7\x22\x0a         \
+transform=\x22matri\
+x(1.2975787,0,0,\
+1.2975787,-227.2\
+0403,-4.4100648)\
+\x22\x0a         cx=\x224\
+1.15683\x22\x0a       \
+  cy=\x2240.103004\x22\
+\x0a         r=\x228.6\
+941996\x22 /><path\x0a\
+         style=\x22\
+display:inline;o\
+verflow:visible;\
+visibility:visib\
+le;fill:url(#lin\
+earGradient3806)\
+;fill-opacity:1;\
+fill-rule:evenod\
+d;stroke:#280000\
+;stroke-width:2.\
+35117;stroke-lin\
+ecap:butt;stroke\
+-linejoin:miter;\
+stroke-miterlimi\
+t:4;stroke-dasha\
+rray:none;stroke\
+-dashoffset:0;st\
+roke-opacity:1;m\
+arker:none;enabl\
+e-background:acc\
+umulate\x22\x0a       \
+  d=\x22m -217.2797\
+6,4.1846558 1e-5\
+,68.1839092 14.1\
+0701,-2e-6 v -28\
+.21403 h 14.1070\
+1 V 30.047518 h \
+-14.10701 V 18.2\
+91671 h 23.51169\
+ V 4.1846558 Z\x22\x0a\
+         id=\x22rec\
+t3663-8\x22\x0a       \
+  sodipodi:nodet\
+ypes=\x22cccccccccc\
+c\x22\x0a         inks\
+cape:connector-c\
+urvature=\x220\x22 /><\
+path\x0a         st\
+yle=\x22display:inl\
+ine;overflow:vis\
+ible;visibility:\
+visible;fill:non\
+e;stroke:#ef2929\
+;stroke-width:2.\
+35117;stroke-lin\
+ecap:butt;stroke\
+-linejoin:miter;\
+stroke-miterlimi\
+t:4;stroke-dasha\
+rray:none;stroke\
+-dashoffset:0;st\
+roke-opacity:1;m\
+arker:none;enabl\
+e-background:acc\
+umulate\x22\x0a       \
+  d=\x22m -214.9285\
+9,6.535825 v 63.\
+481569 h 9.40468\
+ v -28.21403 h 1\
+4.10701 v -9.404\
+677 h -14.10701 \
+V 15.940502 h 23\
+.51169 V 6.53582\
+5 Z\x22\x0a         id\
+=\x22rect3663-8-3\x22\x0a\
+         sodipod\
+i:nodetypes=\x22ccc\
+cccccccc\x22\x0a      \
+   inkscape:conn\
+ector-curvature=\
+\x220\x22 /></g><path\x0a\
+       style=\x22fi\
+ll:#ffcc00;strok\
+e-width:0.741281\
+\x22\x0a       d=\x22M 33\
+.589752,68.09936\
+1 C 18.989141,97\
+.304001 7.481848\
+1,121.02292 8.01\
+80014,120.80807 \
+8.5541448,120.59\
+322 19.986067,11\
+5.70148 33.42227\
+,109.93754 46.85\
+8473,104.1736 58\
+.533643,99.28984\
+1 59.367089,99.0\
+84761 c 0.940465\
+,-0.23141 11.358\
+165,3.830929 27.\
+460157,10.707979\
+ 14.269644,6.094\
+47 26.047054,10.\
+97995 26.171994,\
+10.85663 C 113.2\
+2961,120.42202 6\
+0.666756,15 60.3\
+23036,15 60.2203\
+46,15 48.190362,\
+38.894711 33.589\
+752,68.099361 Z\x22\
+\x0a       id=\x22path\
+20\x22 /></g></svg>\
+\x0a\
 \x00\x00O\xe3\
 <\
 ?xml version=\x221.\
@@ -2868,6 +3794,166 @@ th:0.741281\x22\x0a   \
 \x22\x0a       id=\x22pat\
 h20\x22 /></g></svg\
 >\x0a\
+\x00\x00\x09\xd9\
+<\
+?xml version=\x221.\
+0\x22 encoding=\x22UTF\
+-8\x22 standalone=\x22\
+no\x22?>\x0a<!-- Creat\
+ed with Inkscape\
+ (http://www.ink\
+scape.org/) -->\x0a\
+\x0a<svg\x0a   width=\x22\
+64\x22\x0a   height=\x226\
+4\x22\x0a   viewBox=\x220\
+ 0 16.933333 16.\
+933333\x22\x0a   versi\
+on=\x221.1\x22\x0a   id=\x22\
+svg1\x22\x0a   inkscap\
+e:version=\x221.3 (\
+0e150ed6c4, 2023\
+-07-21)\x22\x0a   sodi\
+podi:docname=\x22Ex\
+pand arrow - #2.\
+svg\x22\x0a   xmlns:in\
+kscape=\x22http://w\
+ww.inkscape.org/\
+namespaces/inksc\
+ape\x22\x0a   xmlns:so\
+dipodi=\x22http://s\
+odipodi.sourcefo\
+rge.net/DTD/sodi\
+podi-0.dtd\x22\x0a   x\
+mlns=\x22http://www\
+.w3.org/2000/svg\
+\x22\x0a   xmlns:svg=\x22\
+http://www.w3.or\
+g/2000/svg\x22>\x0a  <\
+sodipodi:namedvi\
+ew\x0a     id=\x22name\
+dview1\x22\x0a     pag\
+ecolor=\x22#505050\x22\
+\x0a     bordercolo\
+r=\x22#eeeeee\x22\x0a    \
+ borderopacity=\x22\
+1\x22\x0a     inkscape\
+:showpageshadow=\
+\x220\x22\x0a     inkscap\
+e:pageopacity=\x220\
+\x22\x0a     inkscape:\
+pagecheckerboard\
+=\x22false\x22\x0a     in\
+kscape:deskcolor\
+=\x22#505050\x22\x0a     \
+inkscape:documen\
+t-units=\x22px\x22\x0a   \
+  showgrid=\x22true\
+\x22\x0a     inkscape:\
+zoom=\x2216.265625\x22\
+\x0a     inkscape:c\
+x=\x2232.092219\x22\x0a  \
+   inkscape:cy=\x22\
+31.907781\x22\x0a     \
+inkscape:window-\
+width=\x222292\x22\x0a   \
+  inkscape:windo\
+w-height=\x221360\x22\x0a\
+     inkscape:wi\
+ndow-x=\x221132\x22\x0a  \
+   inkscape:wind\
+ow-y=\x220\x22\x0a     in\
+kscape:window-ma\
+ximized=\x220\x22\x0a    \
+ inkscape:curren\
+t-layer=\x22layer1\x22\
+>\x0a    <inkscape:\
+grid\x0a       id=\x22\
+grid1\x22\x0a       un\
+its=\x22px\x22\x0a       \
+originx=\x220\x22\x0a    \
+   originy=\x220\x22\x0a \
+      spacingx=\x22\
+0.26458333\x22\x0a    \
+   spacingy=\x220.2\
+6458333\x22\x0a       \
+empcolor=\x22#0099e\
+5\x22\x0a       empopa\
+city=\x220.30196078\
+\x22\x0a       color=\x22\
+#0099e5\x22\x0a       \
+opacity=\x220.14901\
+961\x22\x0a       emps\
+pacing=\x225\x22\x0a     \
+  dotted=\x22false\x22\
+\x0a       gridangl\
+ex=\x2230\x22\x0a       g\
+ridanglez=\x2230\x22\x0a \
+      visible=\x22t\
+rue\x22 />\x0a  </sodi\
+podi:namedview>\x0a\
+  <defs\x0a     id=\
+\x22defs1\x22>\x0a    <li\
+nearGradient\x0a   \
+    id=\x22swatch1\x22\
+\x0a       inkscape\
+:swatch=\x22solid\x22>\
+\x0a      <stop\x0a   \
+      style=\x22sto\
+p-color:#000000;\
+stop-opacity:1;\x22\
+\x0a         offset\
+=\x220\x22\x0a         id\
+=\x22stop1\x22 />\x0a    \
+</linearGradient\
+>\x0a  </defs>\x0a  <g\
+\x0a     inkscape:l\
+abel=\x22Layer 1\x22\x0a \
+    inkscape:gro\
+upmode=\x22layer\x22\x0a \
+    id=\x22layer1\x22>\
+\x0a    <g\x0a       i\
+d=\x22g1\x22\x0a       tr\
+ansform=\x22rotate(\
+179.74254,8.7149\
+695,8.5856779)\x22>\
+\x0a      <path\x0a   \
+      style=\x22mix\
+-blend-mode:diff\
+erence;fill:none\
+;fill-rule:eveno\
+dd;stroke:#00000\
+0;stroke-width:0\
+.79375;stroke-da\
+sharray:none;str\
+oke-opacity:1;pa\
+int-order:marker\
+s fill stroke\x22\x0a \
+        d=\x22m 1.3\
+229166,1.3229166\
+ 6.614583,6.6145\
+83 -6.614583,7.9\
+374994\x22\x0a        \
+ id=\x22path1\x22 />\x0a \
+     <path\x0a     \
+    style=\x22mix-b\
+lend-mode:differ\
+ence;fill:none;f\
+ill-rule:evenodd\
+;stroke:#000000;\
+stroke-width:0.7\
+9375;stroke-dash\
+array:none;strok\
+e-opacity:1;pain\
+t-order:markers \
+fill stroke\x22\x0a   \
+      d=\x22M 9.260\
+4165,1.3229166 1\
+5.874999,7.93749\
+96 9.2604165,15.\
+874999\x22\x0a        \
+ id=\x22path1-6\x22 />\
+\x0a    </g>\x0a  </g>\
+\x0a</svg>\x0a\
 \x00\x00\x8e\xca\
 <\
 ?xml version=\x221.\
@@ -5155,6 +6241,423 @@ tyle=\x22display:in\
 line;mix-blend-m\
 ode:normal\x22 /></\
 g></svg>\x0a\
+\x00\x00\x19\xe6\
+\x00\
+\x00\x8f\xbcx\xda\xed]Ks\xdbH\x92\xbe\xfbW`\
+\xd5\x97v\x04\x00Uf\xbd\xd5\xb6'v{\xa2w6\
+\xa2'\xe6\xb03s\x98\xcb\x06MB\x12\xc7\x14\xa9 \
+)\xbf~\xfd~Y\x00I\x80\x04iR\x92\xd5n\xb7\
+\xc8P\x88H\x14\xaa\xb2\xb2\xf2]\x0f\xbc\xfa\xd3\xc7\x9b\
+I\xf6\xbe\x9a/\xc6\xb3\xe9\xeb3*\xd5YVM\x87\
+\xb3\xd1xz\xf5\xfa\xec\x1f\x7f\xff\xa5\x08g\xd9b9\
+\x98\x8e\x06\x93\xd9\xb4z}6\x9d\x9d\xfd\xe9\xcd\x8bW\
+\xffQ\x14\xd9\xcf\xf3j\xb0\xacF\xd9\x87\xf1\xf2:\xfb\
+\x9f\xe9\xbb\xc5pp[e?^/\x97\xb7\x17\xe7\xe7\
+\x1f>|(\xc7\x0d\xb0\x9c\xcd\xaf\xce_fE\xf1\xe6\
+\xc5\x8bW\x8b\xf7W/\xb2\x0cO\x8d\x96\xd7\xaf\xcf\x9c\
+9\x93\xab\xebj|u\xbd\x5c_\xbe\x1fW\x1f\xfek\
+\xf6\xf1\xf5\x99\xcaTF\xae\x8cZ>\x9b_u\xa1\x0d\
+\xd6\x94\x00\xe3\xd1\xeb3\xd4^_\xa0_\x17\x8b\xdb\xc1\
+\x108\xdf\xce\xabE5\x7f_\xd5\x85\x1a\x9c.Z\x8f\
+\xeb\xecGU\x91U\xd5\xc8\x0dM\x9e\xb1b](_\
+0\xbdL\x8f,@\x8e[\xfc]\x8cf\xc3\xe9\xe0\x06\
+5\xfe\xed\xb6\x9a\xfe2\xaf\xaa\x9f\xff\xf3\xcf%Z\x5c\
+58]\x5c\xac\xaa\x7f}\xb6\x8f\x0eRCBlq\
+\xbe\x82\xb7\x9e_\xb5\xb5~~\x05(\x17\xb3\xbb\xf9\xb0\
+\xbaD\x15U9\xad\x96\xe7\x7f\xfe\xfb\x9f\xd77\x0bU\
+\x8e\x96\xa3V5\x1f'\xa8\xbb\x83\xc3\x07\x9dZ\xa7\x18\
+\xe3y\xba\xbb)\xddW\x8e\x95R\xe7\xdd\xae\xe1\xea`\
+\xc97\xaf\xd6\x84\x92>\x8ed\x10\xe5\xe9z`\xd6\xa0\
+zx\xb2\xecvpU\x0dg\x93\xd9\xfc\xf5\xd9\x0fV\
+\xc9\xb7\xb9\xf1v6\x1fU\xf3\xd5\xad*}:\xb7f\
+\xa0\xdex\xf9\x09#\xd7\x80\xd7c\xba\xb8\x9e}\x90z\
+\x17\xd7\x83\xd1\xec\x03\xd8g\xbb\x80\xdc\x5c?\xde{w\
+x]\x0d\xdfU\xf3\xb7\xb3\xc1|\xd4SdT-\xde\
+\xf5b\xbd)1\x1b\xde\xddT\xd3eq7\x1d/A\
+\xdb\xdb\x8f\xdb%>\xcff7\xaf\xcf\xcc6x\x08~\
+\xb7\xbad\xbbs\xe3S\xba\x11\xfc\xce\x9d\x0f\xe3)\xfa\
+Y4\xb2D\x91\xd5\x9e\x12+\xf9\x22\xa5\xe2\x9e\x22h\
+\x1d\xc2\xde\x7f\xef\xd3\x81{7\x83\x8f\xe3\x9b\xf1\xe7j\
+\xd43\x1e\xc3\xbb\xf9\x5cH1\x19|\xaa@\xb1\xf4\x8f\
+\x9bB2VWwc\x10\xf4\xf5\xd9r~W\xb5\xc1\
+s\xe1\x98\x04|\xf3\xaa3:u\x19p\xe4fh\xb2\
+\xecS\xfbbE\x8bFU\xf0\xfa\xc6\x9a\x04;w\xa4\
+1\xa9|\x03\xb9\x19\xcc\xaf\xc6SQ?A\x87R+\
+\x22\x0bE\xb4i\xe4\xed\xa4\xaa\x12wd\xe7-\x04\x05\
+\xedv\x9drM\xebg\xb6\xd9!\xcbf\xf31Z\xe9\
+t\xa5\x06u:$\xba\x02\xdaX\x8a\x95\xec\x8c\x0d+\
+\xfd\xd7\xba\xf9\xa9\xf7fus\xbbbU\x0c{\xacl\
+\xfb\xceF\x0a\xa4\x7f\xd1)\x1f\xd6\xb7\xf7<\xd5z\x84\
+L\x94\x87\xa8]c\x83\x0bxu\x0d\x1d\xcd\x96K!\
+\xd4\xe5`\xb2\xa8\xd6P\xa1\xcb`z5\xa9\xd0'\xad\
+v\xc1\x9f;\xe0\xf7\xe3\xc5\x18\xf4n\xf8A\x08~\xbe\
+\xabg\xde\xbc\x1aU\x97\x8b\x8d\xb6\x91+\x02\xf3@\xd1\
+U\x83\xf9\x7f\xcf\x07\xa31\xf8p\xd3R}\xfd\xf7\xf9\
+`\xba\x80F\xbd\x91\xca\xf1s\x02{\xf6ca\xc2\xcb\
+\xb3\xed\x92\xff\xa8\x07\xef\x0ev\xe4\x7fEw\xffm\xfa\
+\x8fV\x87>\xf1\xeb3\xb6e\x94\x8f[C?\xb2\x88\
+\xed\xa6\x10\xa1[q\xa7\x10\x89PvX\xb1\x8b\xb3\xf6\
+aC\xe5\xa4\xb8/\xae\xe7\xd5%Fg\xbb\x1c\xd4\x83\
+P\xa7\xbf\xcb}\x15\xe3\x01\xe8\xec\xe5\xecvU\xa81\
+\xa1\x80\xe0\xa6?\xdb\x80g\x97\x97\x8bj\xd9\xe6J\xb0\
+\xde\xf2\x93\x8c\x8a\x94.\x12\xc3\x5c\xfc0\xd2#?\xbc\
+\xfc)\x81\x1af\xb9\xa0\x9f\x12V{\x9b\x89=\xcd\xd0\
+\xe1f.\xd3g\xab\x99\x9a3\xba]<a\xfco\x06\
+\xcb\xf9\xf8\xe3\x8f\x94+\xf9\x96\xbe\xf9\xe0\xc2\x96\x94>\
+\xe6>\x5ca;\xdc\xc0\xd4\xe1\x06\x1b:l\xa0\xc3a\
+6\x88_\x87\x0d4\xc5\xfdl\xa0\xc9\x9e\xce\x06\x9e\xe3\
+\xe5\xb0w|\xf6\xb6\xe2O\xe7\x02Vf\x10\xfc\x03\xb8\
+`\x97\x16F\x07\xbf\x97\x16\xb8\x19\xefA\x0bz\xcb\x97\
+\xe1\x04\x910:\xd2\xe9\xc4P\x8a}\xb4\xbd\xcd\xecP\
+C~\x0c&\xa7\xe9DX\x17m\x8cf6y\xf3\x93\
+\xe2\xc9jr..Ji\x9c7z\xa3\x00/aO\
+8\x94\xc1E\xeb6\x02p\x09\xd3`l\x19`\xcfx\
+\xc3\x1b\xc3\xde\xb2\xc3\xde\xb2B\xcfnO\xb5\x8b|\x94\
+\x08A\x86N\x14!\xbf\xcb6}zkpy\xc9o\
+w\x06\xe90Om\x84\x04\xaar\x97mz\xd5\xe3`\
+\xa0\xd4\x11\xcdPo3\x81Na\x9b'\x1d\xd3\xfdz\
+[\x95\xce+\xe7\xc9\xdbF\x81;C\xc6F\x0ay\xe1\
+t\xa9\x83\xf2\x91\x01\x857g\xacQ\xfaT\xce\xdde\
+&\xd4\xff\x18\xcct\xe8I\xd5\xa2h\x0f\xd3)\x13O\
+\xecE\x0f\xf9\xe6\xb3\xa5\xc8\xb7Ft\xa1\xa1yb\xce\
+\x10\xef\xa0\xd0\xb9\xdc:xy:\x1a\xf7\xb2\xeb\xac\x98\
+2\xb0\xa1\xd8ul\xac\x02\x0f\x04G]\xef\x07\x95E\
+\x1d\x83\xed\x9aDW\x22bd\xf8\xa9'\xc9\x98P\xe3\
+\x08\xe6\xaf.9r\xdc\xb6\x0aG\x8a\x98\x82\x09>J\
+\xc4\x06\x06]P_n\xa5W\xc2\x94Q\xa7\x98\xa9.\
+\xcd\x0e\x93\xb7\x7f$zG\xed\x18f(\x1c\x82\xce\xa0\
+\xa3\x8ayT\xe9g\x08\xf7\x11\x9dm\x91P\xfe8\xd1\
+\xa1xO\xd1\x09\xce\x14\xf1\x10\x0aAu}\xaf\x82\x8c\
++\xbd\x81\x1e\xdb\xf2\xd0\x10U\x915\xbeC\xf7\x82\xac\
+/5\x9bh\xba\x11\x80+-+\xef\xf4\xc3\xc5r\xad\
+\xd5\xa2w.X\x86[Z*\xa0\xe1\xac\xcd\x8b\xcd\xcf\
+\xd5}H+\x05.\xbd\x0a\x16\x83\xc60\xd0\xca\x02\xeb\
+\x97\xa7IXM\xb4#\xb8\xbf\xdf\xf3:R\xc6\x82s\
+\x05\x1d'e\xfd~\xe4\x91R\x16\x5c(\xe8T9s\
+*\x96\x92\xd3\xe9\x8e\xb7V\x5c\x06\xeb\xa9+h\xda9\
+X\x99\x8e[N}e\xf7\x0f/F\xcc\x8bW\x99L\
+\x16\x95\xd1E\xd8\xb0\xbc\xa0\x10\xb9$\x8f\x91\x0c\x1e\x95\
+\x05k\x1e.s0\x8d\xb6\xb0\xc7H\x9dU&\x9c\xc4\
+7\xe9\x81/\x8f\xe6\xdb\xc9`\xf8\xae;\x96\xeaX\xdf\
+'\xa5\xd9\xf6\xbb\xcc\xb8\xed\xfaj*\xed\xd9\x89\x18\xf5\
+z\xe6\xf7\xef\x0b\xf5\xf7\x85Oq\xb06\xb9\xb4\xd9d\
+R\x0dQ\xeb`\xf2a\xf0iq\xdcX:u\xc0\x87\
+\xb1J\xd3\xa3\xe9\xaa\xa2\x9f\x9b\x89\x00w\xac\xfb\x98Y\
+\x9c<\xa7l\xe9\xc9p\xec8\x84&l\xcb\xd6eo\
+\xd9\xcb\xde\xb2\xe2\x93\x92\x87\xf7\xc2\xc1\x1db\xe5/Q\
+\xb6\x8f\xd7A\xd0{\xf1\x07\x1d\xcf\xeb\x8e\x9f\x80\x09\x9d\
+\xf9f\x98\x90\xe3\xa31\xe1~\x8dJ\xa5\xd3\xdf$\x13\
+\xee\xf0\x18\xbb\xfd\xf9\x18\xf6\xaaW\xd1\xa9\xfas8G\
+0\xd0\xf2\xddb\xcb\xd5\xa3\x87R\x12\xec{\xad\xeeq\
+\xad\x9a\xa1|\x0f\xb6\xfa\x04L(D\xdd\xcf\x83\x81\xb5\
+yL\xa7\xcd\x05\xf6\xba\xe1Ae\xe0\xa1\xb9\xdc\x98R\
+;c\xc1\x82`\x0a\xa5\x10\xa9vY0\x88\x7f\x0e\x07\
+]uXP\x97\xde:\xe2\x96\x8b\x7f\xd9[\xf6\xb2\xb7\
+,XP{@\xc9\xd3i\xc1\x16\xdb\x03,\xe8\x1e\xc0\
+\x82\x97\x03\xf9\x9e\xc0\x82}l\x1c\xe4{\x8cv\xed\xd8\
+\xff\x15\xfe\x18\xebp\x88\xd7\xdd=\xb2o\xc3\x91|\x8f\
+\xcb\xbe\xdd\xd3\x16\x1d\xe2m{(\xd4A\x7f\xbb\xa1 \
+\xdb\xd6Lb\xed\xca\x92*\x1do\xa5\xaam\xc9\xdd\xb8\
+]\xab\xces\x0f\x15\x13j\xe4\x03\xc3\x11\xa0\xa3U^\
+xhfe\xa3?-l\x91\x08\xe8\x98\xa0\xc5Q4\
+\xc3\xfb&\xdf\xd0Hx@\xccr\xacY\x8e\xde\xab\x87\
+e\xb0\xe9(_\xbcw\x06E\x95\xa4\x8db\xe5\xf6\x08\
+\xd3\xae\x80\xaf\xd0&stf\xb2\xaf\xd9\x14\xab:\x1d\
+\xfb\xc9t\xa8]\xfb@jim\xefK\xad\x96\xd6:\
+\x8dXZ\xbb\x07\x11k\x7f\xabt\xb0U\xff@\xc6\x12\
+\xdf\xe6\x18\xed\xac\xe4{O1C\xd0\xab\x1e\xd9\x08P\
+\x7f3\x0f\x9c(\x22\xed\xef/f^A\xcb\x05\x1fN\
+\x16\xb3c\xb3\x93\x8f\xca9\xa4\xe3S\x192\x11\xc7\x03\
+4\xb7\x8f`|\x80\xdb\xa4\xfa\x91J\xc3d\xb5\x97\x89\
+^\xa5\x8d3[)\xeeX\x129j\xa5P\xc5Hr\
+(\xa3q\xcaP\xc7N\xca\xe4\x07\x9cK\xee\xa6\x02-\
+b\x0f\x02X?$\xfc<@)Q\xf3\x87(\xe5\x1e\
+\xcfL\x97V[\x8eq5\xadbI\xeb\x98\xeb\xd2X\
+2\x14r.M{\xb9\xc4*\xd5\x1c\xa3nM\xec'\
+\xea\xc1\xeb\xb5\xd1\x99\xad\x0c6\x026(\x7f\xe3:\xd4\
+3T\x06\xedB\xb4_\x8bz\xda\x1f\xa4^xD\xea\
+\x19\x076p\x89v\xcaE\x05\x05\x17\x84\x8c\xe8\x9fK\
+4\xed\xd2\x0eN\x97\xb3\xd0N\xa6\xeb\x9e\x85\xd2\xb3\x0d\
+\xaeK\xbbP21\xb3Q]\xcecq\xe5\x82\xad\x15\
+\xdc\xe3\x07R\xd4\x8eqw#)\xb2\xf1\x11\x89\xa7\xc0\
+\xc9:\xcd\xe8\x95\xa44)\x9b'M%\xf9n\x95\xf2\
+\xe0 c46tC)v(\xed\xda\x0bXR(\
+\x15J\x8a\x96Z\xa4\xbd\xec-{\xd9[VB)\x86\
+G\x0cG0~%\xaeL\x8e\xec!\x93C\x8e\x1f\xdd\
+\xfbV\xcc\x041\x06\xd7(\x0bR\x22:-5k\xc5\
+[\x93~,\x09i\xe9\xfcV\x06\xbc\x84\x1d\x8b1n\
+\xcb\xb4rV\xb7R\x8b)z\x90\x16\x94\x89_\x8bz\
+;Y\xa6m\xea\x05\x13\xb6\xbb\xc4[\x09}\xbf\x13\x05\
+A\xbb\xfbn\x14$\xda\xed\xe8(\xe8\xebt\xf5\xa8\xd9\
+\xad\xc2\xfc\x0e\xe6\xb7D\x9a\xa3A;+nLW:\
+/X\x16%\xfa\xe85,\x8dg\xa7T\xa0\x97_\x8b\
+\x9a.p\xa1\x0eS\xb3\x1b@\x03;W\xba\x18M\xd7\
+\xc2\xb9P\x06\x98\xc4\xf6\xb2\x00\xa1%\xe4\xab4\x8aB\
+\x97\x96\x1ev\x8f\x8c\x8a\xee\xe1\x9c\xb4\x8bp\xdd\xa3\xbd\
+\xab\xad\x5c0\x85:}%S\xff\x9c\xf7\x81U].\
+\xb8\xdev\xbe\x90L\xe9\x9f\xc1\xefuA\xcfe\x99\xe7\
+\x9bWW[\xab\x8e\xaf\xe6\xb3\xbb\xdb\x9b\xd9\xa8jV\
+\x1c\x9fm\xd6\x85vV \xaf\x1f\x98\x0c\xdeV\x93\xd7\
+g\xbf\xca\xcdluw\xd9\x93\xd9S\xc1\x083r\xe3\
+\x0dm.a\xaa\xa0\x9f\x83\x11\x83\xbeF\xa8Y\x05\xbc\
+\xe9\xefn\x95\xba\xb4\xd6\x90R>\xd5\xb8\xb9*t\x19\
+\xbda\xe3\x83\xe4E \x0a\xb8\x8a\x9d\xaa[\xfd\xe9\xc4\
+8[}\xfae6\x19\x81\x02B\xbe\xab\xfd\xa5d?\
+\xc3YO\xcd\x1a-\xde\x0e\x96\xd7\x9b[\xad\xdd\x10S\
+Px\xf9\xe9V\xd6o\x0f\xd3g\x81\x0f\xfe\x9duJ\
+\xd7\x03\xbc^\xa6\x96xh4^\xdc\xa2\xfe\x8b\xf1T\
+F\xf4\xa7\xd9\xfbj~9\x99}\xb8h\x96\xfa\xfe\x94\
+\xfe\x8f'2\xf2+\xd0\xe5x2\xb9\xb8\x9bO~\xfc\
+a\xc7\xe1x\x99n\xb6\xc2\xc0t9\xbf\x9bT@q\
+\xfa\xb9\x9a\xcf\xc0L\xf3\xd9\xbb\xea\xe2\x07;\x90os\
+Y/\x9bG\xf9\xe6Rp\x01Q.\xc0=\xd3Q\x1b\
+\xf8\xef\xd9x\xda\x85\xde\x8c\x97\xd5|2\xc6\xbf\x0b\xb3\
+\x82\x8d\x06\x8b\xeb\x9a\xc5/\xd4\x0a\xb6\xc1\xe9f0\x7f\
+W\xcd\x05\xa1\xaa\xf9],\x96\x83\xf9\xb2\x03\xb9\x19\x8f\
+:\xd7\xd5\xb4\xbe\xeeP\xb4^\xad\xbe\xbcf\xedm\xe7\
+\x06\xe07\x99\x81\x0dS\x8a\x83\xcd\xe1\xc4\xc0[\x87\x0b\
+\x95\x0d3\xf0'TSr=\x0d+c- \x06\xea\
+5X'\xab\xa2\xa0\x88T\x04(\x12!\xca\xd2\x1b\xd0\
+_2\xd8x\xe7<b\xa4T\x8b\x81\xeb\x0cV\xc5/\
+\x1f\xac\xd7,NX\xaa\xd0\x08\xc8h\xc4A\x02j\x9e\
+\xfe5\xd3F\xe6J\xe0\x0d\xe4$\x81\x04y\x0e\xd9\xcf\
+\x02u\xf8e\xac@\xd1${#0\xc6m\xe7sI\
+F\xc2K\xe6L\xd6\xa1 :\x8ba\x03\xfaK\xc6\xb0\
+\x12Ad\x0e\xf8\xa0%\x1b\x955\xe8C\x06\xc7\x85\xd1\
+h\xd0\xd2>\x82\x0fkY`\x06\xa4p$\xb0\xe8\x14\
+\xe2K\x02Rp\xa7-d\x8bb\xee\x80<$8X\
+ \x05\xa8\x81\x7f\x02\x04,\xe8\xe0\xb5VA`\x8a=\
+\xfcv\xc0\x5c\x08\x01^DF>\xb9\x81ht\x03\x03\
+Z\xa5\xac\x8d\xa4\x10j\xb4\x84N\xc9\xed\x97\x8bD*\
+qY\x1bRq\x02\x0a\xb14\xafH\x8d\xfe|NB\
+\xba#m\x8f$?\xad,\x1fi\xa7]-P\xabt\
+\xe5\xd1\x02\xd4 \xf0\xd5\x04h0\x9f\xa3_I\x06\x9e\
+X\xac =\x7f\xcdt\xa9\xe1])\xb0\x06\x86\x19>\
+\xac\x09^d\xc0\x94&@\xd5S\xaf\x1cB\xf1\x93>\
+\xfb\xb2\x86|\x1e\xde\xdf|x-\x86\x17\x0a\x91\xa1\x1c\
+\xdb\xc3\x0b\xb0d\x1e\xfd\xbe\xe1\xed\xccx\x9d6\xbc\xfd\
+E\xf7\xb4\xa3\xe3A\x94\xed\x97P~f\xa6\xaf\xc8L\
+[\x1e\xd4\x9a\xda]\xfa\xee\x0c\xed\x95E\x88\xdd\x81\xf6\
+\xfa\x95L\xb0\xd5v\xedWRT\x08X)7\x0cS\
+bu\xc8u\xda\xb4\xe6Y\x5c\xc09\x22\x9cv\x85i\
+\x03\x1cb61\x92.t}\x82\xb4S\x0e\xf7l\x84\
+\xd5b\xbduo\xb5%\x0enf\xa9\xad\xa7\xb0u\x7f\
+\xb5\x97N\xeb(\xcb'\xb6\xabN\xe9\x1f c`.\
+\xb7n=>+\xa6\xa9)n\xf9\x81}\x0b\xdc\x8ew\
+\x05\xdbls\x12k&n\xfc\xf6Xs[\xf3\xec\xf7\
+\xd3{\x06Q\x1e\xb6\xcan\x0f\x7fr(\x11\xc0b\xf0\
+)xYG#<\x06\x9fL\xbc\x1c%n`\x9e8\
+GB\xf5\xceo\x02\xdf\x06o\xc8\x89w\x19\x15\x9c\x1e\
+\xd8P\x8b!\x84,\xa0\x16\xe5K\x02\xab\xba\x15\x90\xe0\
+42XL6\x14z\xb8\xa6(\x22\xe9\x22\x86\xdf\xe8\
+\xe1\xc4\x81w\x0d\x82IrM)<\x15mVl?\
+\x0c\x1f\x15\xbe\xee\xe7\xa7g\xc4\xdd\xf5L\xcfl\xf8\x9b\
+\x0e\x80\xa6?\xe6\x00\xf4I\xefZ\xf5\x1f/\xbdE#\
+\xbe\xbc\x16\xde\x95\xacu\x84\xb7\x05\xdc+\xbc+\xd9\xed\
+H\xee\xd6s\xfdr\xbbQK;Vi\xafbK9\
+\xa2\xab\xd32\x16\xc3\x94\xb2\x18\xee\x89\xb0\x83\xda\x8d\xb0\
+]I\xb2\xcf\x88\x82D\xd8\x08\xf9\x1c\xa2\xd7\x14a\xc3\
+\x81K\xe1\xb4&\xa5\xd9K\x90'\xeb\x1a\xd8H\xd4m\
+\x11\xdbR\x0a\xfc\x8c\xb7\x883\xf3U\x8c\x98\xbd\xcf\x14\
+\xa2O\xf8s\xdeZY(\xa6e\xb2\x07d'\xc0\xc8\
+x\xefcj\xc8J\xa2\xde\x09\x8c\x9ca\x9d`\x80\xf8\
+ a6\xe8\x1d`\xf9=#\xa2\x0d\x06DF\x8c\xf9\
+\xb3@\xad\x05\xfd\x04j\xb5Al\x0d\x10\x1b\x90?\x81\
+@\xf7\xe0\x89\x00C\xc8\xef}0-\xd8\xaf\x12\xe6j\
+\xa5\x11\xb2\x03\xca\x16A+Bg\xe9% \x88\xdc\xd3\
+\xe4\x0bz)I\x03\xaf\xd1\x5cL\x1b\x14\xc0?.\x93\
+eB\xd1\xcb\x8c\xe1\xaa\xd7\xc2l\x12\xb6\xa3\x19\x93\xeb\
+R\x02\xfe(V\x02\xc88\xd6\x02r1\x10\x82\xef\xba\
+\xdd\x80\x1a\xc12>\xe1\xa5\x1cIp\xeeK\x84\xe9>\
+\x08TYg\xd0\x89\x14\x88{+;\x12\xc1\x91:F\
+\xedl: D\x09UZ0x\xcb\xa5\xc7\x88yo\
+\xeb\xe0\xbc\x1e\x1f\xae\x83sD\xfc:\xe5E\xa0S\x10\
+\xe3\x85\x04s&\x8a/\xb6\xc2\xffW\x8c9\x074\xeb\
+\xb85\x14\xff:\xde\xf7~;\x99\x0d\xdf\x9d\x98\xe6\xda\
+\x99\x94|\x90N\x03\xcfj\xb3\xa3\xd9\xde\xde-\x97\xf7\
+SlOiCN\x0b\xa2\x8c\xdd\x0d\xa2\x18\xbc\x0c\x15\
+\xa8u\xde\x0a\xfbd\x1df\x08\xd1=\xc7P\xbf\xa9\x87\
+p\xda\xe8R\xef\xe8z\xeb\xe5D\x8f:\xc9\xb8\x0a\x91\
+\xb5\xc86\xb7\xe6p\x9f\x87\xf7\xa9C\xe4\xf54C\xf5\
+\xf1v6_\x16\x9fF\xb7\xe3\xd7g\xde\x94A\xba\xdd\
+\x8d\x19\xb7\xcb~<\xa1,\x08\x5c\xd5\x073\x9d_\xcf\
+n\xaa\xf3\x7f\x8fon\x06\xc3s9\x97f0\xfd?\
+\xe0\x7f>\x1e\xce\xa6\x8b\xf3\xe9\xe0n9\x9e\xdc-\xce\
+\x17w\x8b*\xea\xf3\xab)J\x17\x97\x8bb4\x968\
+v6\xffT\xdeN\xaf\xbe\x10\xad\xc3\x92ic\xd84\
+\xcb\x12\x0c,\xc5\x1a\x04\xf7\x08?\xc5\xe43\x02f\x8a\
+\xedC#\xd6\x19\x01\xd6\x81\xce\x0ed\x12jkQ3\
+T\xb3\x94\xab\xc3P\xb0K\xf0\xe2\xe8x\xbejs\xc7\
+\xd9\xd1\xa1\xe2B\xbe{\xbc2t\x81\xfb\xdcMC)\
+\xdbmt\x1eA\x07\xa7\x83\xe3\xda7R\xd1\xa5\xb9\x02\
+ol\xe0 \x10\xb2\x14\x05\xe4\xd9\xc8\xfe\xaddw\xa1\
+\xa2\xa3n\x80\x0c:f\x138\xa3\xe2\x9f\xd8z\x8e\x0d\
+^\x8eklxm\xbdAjG\xc9\x1b!\xa3e\xe9\
+j\xed\xd8\xae\xe0\x1b\xb0\xf8\x1a^\xc5\xb4\xf6\x06\x95y\
+Xu.)\xb0\x8b\xf5\x220\x15\xa3\xf1\xb5\xa3\x82\xcb\
+\xe8\x8cLs\x00I\xd8|\xdd\x80,\xb9\x042\x16\xae\
+\xd0\x9e0\xb3e\x80O\xf4F\xf7)\xbc\xad\x9cM\x93\
+\xa5&\xc7!Z\x93\x93\xed(<8<`\xc7g\x85\
+\xf7\x9b\xda\xb3g\x82?iF\x1f!\xa6\xf1\x10M\xb0\
+\x7f;=\x8e\xd0\x89\xd9\xed\x95*z\x9a\x8c>\xf5d\
+\xf4a\xd1\xa0\x82\x94\x84z\xd4\x99c\x8aP\x8eZ?\
+K\xef\xb3\xf4\xfeQ\xa4\xd7\xc8\xac\x02\xa8\xe3s\x8e\x1d\
+Q\x08\x8a\x83\xd9;\x1f\xb75\x11\xf1\xf5\xe6\xe3|\x1f\
+\xca\xc6q\xb4\x16(wg\x88\x9dfr\xeeYz\x9f\
+\xa5\xf7\x8f#\xbdl\xad\xf3\xb2\x0b\xc0v\x17K8\xe5\
+\xa3\xde\x9b\xa0\xd1O$\xbd\xba\x0fe\xc5\x1a\x81\x07P\
+\xd6\x1d\x94\xe1N\x93\xa2g\xe9}\x96\xde?\xceR\xa7\
+`9\xc8Y\x09\xdcuC\x89\x82\xe1\xbd\x0e\xad?V\
+x\x9f\x13A_L\x04Q\xb0\xfaw\x9e\x08B\x17\xec\
+s\x22\xe8\x9e\x89\xa0g}\xf7\x84\xfa\x8e\xcb(\x13\xa7\
+\xa4s\xd2[I3\xe5\xb7\x22\x8av\xa6\xc0?\x8d\xb7\
+\xc2\xb6OE\xbb\xb4\xcb2\xe6\x14\xbb(\x1b\xcf[3\
+!\xcf\xcc\xf4\xec\xad|\xd7\xd2ka\x09d\x85\xc3J\
+\x12\xa8\x9e\xc2\x0drZ\xdf\xfeX\xc3\x7f\x95\x85\xd9\xc7\
+\xcf\xe7oFWGY\xfc\xbf\x7f\x82_6(>\xea\
+\xb2\xa5\xde\xc9\xfd\xdf\x85gjd1LNpE\xd9\
+f\xda\xa7%16KKcBZ\xc4\xa1\xea\x0d\x1f\
+\xb8\xc8\x0b6r\xb3{%\xf7\xb5J\xb5\xa4\x1f,\xff\
+?\xefa\x92`\x8eY\xde\x0d\x1f\xe8)\xf8\x84\xf62\
+\x88\x9c\xe3s<\x7f\xf4\xac\x8b\x93C\xae^\xde\x87g\
+\xbe\xf1\x95n\xb5\xbf\xa9\xd3hsi\xa21J\xebz\
+\xadRN\xe9\x00[\xaf\xc9g\x05\x1cQo\x95\x83\xfd\
+\x97%<\xc1x\x0b\xa0\x83\x1f\xc7\x16@\x8e\xe9\x84]\
+\xebk\xe7\xaf\xd0TB\xc9\x98tFD\x086\xcaJ\
+\xd4\x1e\xd8\xcf\x99I\xc6\x99}\x0c.#I\x89\xa4M\
+M\xce\xc9\xba9\xfcbA\xca\x99\xc8\xd6l\xad\x18Z\
+q \xc6\xe5(\x06\x1c>%\x03&\xaa\x1fm|\x06\
+$\xdf\xef\x93\xb7\xfe\x9a\x91-\x8d0\x97+\xadc\x13\
+c\xda\x16\x17\xf7\x8c\xa5\xbf\xb7\xc5\xf9\x0eb\xe4}\xaa\
+s\x91\xf4\xe7\x9eE\x96f+\xef\x96\xe4\xd9\x96\x1e\xf1\
+\xa3\xb3&\xd7Q\x8e\x13\x88\xd1'\x91\xa6\x14_\xcbr\
+=\x22\xe3d\xf9aZ\xcd\xe7\xd2\xe6:\x8e)\xa2t\
+\x08\xf4$\xa6\x5c\x83d\xb8\x10\xdayW\xd7!+\xfd\
+\xe44x\xd1\x10\xb2\x92\xaf\x0e\x1b\xd9i%\xdb\x22\xbd\
+\x0a\xe4\x13\x88\x9d\x91\x0d\x83\xb2\xe6Q\x19\x95\xf6:\xea\
+HVK)`\x16R \xeb\x88u\x10\x08\xaa\xf4!\
+\x15\x8a\xb2]R\xd6Z\x1a\x13P\xad\xec\xe5\x95CN\
+d\xf1&\xbc\x158\xf4y\x01\x95\xc1\x1eX\xe8^\xd8\
+\xba\x9bE\xd3\xcf\xb4\x96T@To\xb8D\xaf\xd6\xbb\
+\x0c\xfd\x06\xf4\x17Q8\xde;mCk\xa5c\xb3;\
+\xd2Y\x8b\xd0U4\x22\xc1a\xd2Y!\xf3\x90\x1cc\
+\x08\xa2\xc08x\xc5:\x85\xd9r\x22\x1bk\xeb\xe5l\
+6Ah\xcbp>\x99\xc1K\x07^\x9c\xb0\xb7\x17D\
+\xb7\x03\xf3\x9d8E\x0f\x0c(\xa1\x87b\xaf\x22\xd3\xd6\
+a\xf4\xf3\xd0Ve\xb6\x04\xcb\x1b>{\xb6*O<\
+\xa0\xab\xd1\xd2\xbb\x8b|n2\xd2\xb24\xdex'\xaf\
+d 9\xf3\x83j\xa1\xf6\x9e\xbd\xf1\xb9I\x89\x0b\xf1\
+a\xa8\xb4\x8a\xb4\x22I\xb5\xa9\xc8\x06\xb2\x9d\x8eU\x8a\
+1\xa5:\xd2\xb3\xb2\x04\x16\xffB:>\x1e\xaa\x10:\
+ \xf3\xcd)W\xa2\xa0$6\x81\xfa\xa3>XJ\x86\
+\xb9\xd2\x8bR\xd09\xfc(\x86\xee\x03\xeb\xc8\xa2l+\
+\xfb\xd6R\xb6SC1Z\xdd\xaf,\xf6\xafj>\xe4\
+\xd2V\xef+p\xfa\xe8@\xc8s\xfb\xf1tv\xe8;\
+H\xfe\xd9\xe7\xfa\x06}.2ZN\xc2\x00kAW\
+\xd9\xda\x88\x1b\xeb\x83\xa6=*/\xd0\xb7\xb3\x0b\xdb\xc2\
+t\xb2?f\x5c\xb7\xb8\xbcWJ\xec\xcb/2\xfe\x03\
+6)=\xdd\x841\x9c\x1dVrF\x83l)\x94P\
+\x1e\x1e\x0b\xa2#\x07\x95\xc3\xab\xb0\x9e\xd3\xae\x17\x13\xc4\
+S\xa9\xdfK(\xae\x8ag!\xa8\xbc\xe6\x02\xdaG\x81\
+\x0b\xb2\x00\x97\x0dZ,\xed\xe3\x90\x85T\x9e\xc8Sr\
+\x99\x94\x11\x85'\xb0\xa8\xa0#[0\x92\xc3\x90\xe1L\
+\xe2\x11\xa8O8\x84\xc9\xef\x92\x19\x1a9\x1d6\xed\xf2\
+\x88>\x9d\xd1,\x07\x80\x91l\xa3\xe9\xcf\x1ah6\x0f\
+\xc9\x19\x9cb\xc8C\xcf46\xe2L\x1d\x83\xf8~2\
+)\xd2HG\x90m^\xed\xf3\xd7\x9e5\xd5\xb7\x90\x0a\
+~&\xf2c\x98\x03\x8d\xa8\x0e\xa2\x1c$+\xb8bx\
+W\x8a\xb0\xee7\x07O\xb1J\x0c\xcd\xf4,\x12\x13\xa9\
+D\x94\xe9\xa3(\xb1\x15\xba)+\x14\xcc\xb3x~\x1f\
+\xe2\xd9;#\xff\x152\xf6\xbf\x07\xf1t)\xf9\xaa\xc5\
+\xbc\xa6\xbd\xac$\xab:M\x9d\x19%\xd9\x18,\x02,\
+r \xf6*\x19~Xj\xae_\x85\x8b@\xe2:\xab\
+\xcf\x96\x97\xf4\x83N\xa7\xccr:\x91)M\x00H\x0c\
+Cr\xd3\x95\xce\xcb{\xcdlr\x02<!6\xea4\
+\xbc/\xbb\x1a\xe2\x09\x9e\xbe\xcc\xd3\xf7\x1d\xb1\xc6\x05\x1f\
+8d\x0d\x0da\x5c\xa6\xbb5\xf4-\x1a\xf1\x1cY\x85\
+\xd5\x91\x87\xf5\x95\xcd\x8d\xb5\xa5\x0f&\xba\xdc\x830\x01\
+!Vk\xc5HZ-\xa2\x03\xe9b\xf7@\xb6\xdec\
+H\x1e\xb4\xd7\xb4>>\xf2\xf8\xc0LD\x8a\xb4\xef2\
+7\xe2M\x0c\xbd\xffFf \xab\xe9\x00=.\xde\x0e\
+\x86\xef\xaeRc\x17\x83\xe1\xf0\xee\xe6N^n\xda\x1a\
+\xd7\xd5\x96\xf9\x08\x1f\xd4\x05\x96%\xbe\xde\xc9\xaccV\
+\xf8\x92\x9d\x83\xfd\x01O\xba\x10\xc9d)@\x0e\x12\x10\
+\xcb\x19f\xe8\xacl\x93/\x95#\x1d\xd3\xab\x0cXG\
+\xc7)\xcbF\xd6\xa7\xb7\xa6Z\xad\x5cH\x0en\x14\x1f\
+4\x94*\xca\xcbA\xd2cr\xd6\x1f\xb8A\xe6\xf5#\
+Ik\xcey\x17%\x0a\xd7\xd60\xe9\xd4\x1c\x22x9\
+\x10\xd3\xc6 \xf2Pc\x22[Z\x053\xef$\x11\x80\
+\xc6\xe5\xa4 \xb4\x10\xe1\xa2f\x0d\x1e>o\x10\x93|\
+)\xfb\x00\xbb$\xaf\x03\xb4\xc41\xab\xb1\x90eJ\x82\
+U\xd0Y\x83D^#\xa5\x83\xb4\xac}L\x0dI\x01\
+\xa5\xb3\x06\x85\xbcF\x89u\xd6\xa0\x90\x17\x0du\x1c\x8a\
+0[y\xfd\x13(\x09\xac-\x00J[8\xac\xc0\x88\
+\x10\xc5\xc9.\x08\xab\xeat\x04\xbb\x08\x97^\x96\xe1x\
+\xd9\x15Q\x08J1\xd8\xf4\x0cP\xb0B\xe1\x84\x934\
+\x04\x0b\xaa(\x97WzF\xadM\xb6\xa2J\xd1\xe0\xe4\
+\xb2\x06\x07\xce\x9b!\xf3\xe2\xf6\x13s\x22\xa6\xbc\xb9\xd6\
+\xd8\xacF\x22\x08$a\x956\xeb\xb3\xd1\xceI\x17\x82\
+I\x186xxy\xa1\x9e`V\xa7Zd[I^\
+\xac\x89\x03D$x\x90\xc6\x5c\xd4\x00e\x9f3a!\
+\x99 J\x87\xd9\xc9A\xe06(Yxd@\x18y\
+\x91_p\xd6\xd8\xb4\xfd=\x9d\x00G\xe9<\x01%\x94\
+\x97\xb3\xc8\x05\x00\xe7^\xcb\xbey9\xb1\x95\x85\x88\xd6\
+\x82\x1f%\x15-\x13\x11\xf0*\xa0\x0amJ\x14+/\
+\x1a\xb2\x94\x03\x09L\xdd\x89 1\xb3\x00\x94\x1c\x92\x22\
+\xc1\xb3,\x80\x92\xd7\x1f!\xf2\x8a\x02\x89J\xa1\xef\x92\
+5\xf2\xd1\xc4\x9am\x5c\x820j\x0d\xe9\xdc<\xc1\xa0\
+Y\xce\xe6(\xa4\x1c\x93\xa0\x90\xd7(\xd5\xa4H8\xe4\
+5N\xa9\x88\x97\x13\xcfei\x14*\xd1\x09\x80\x9e\xa5\
+\x94\xb5\xa0e\xd3,mB#o\xf0\xaa\xcf\xe8Kx\
+\xe4\x0db\xe9\xfc\x09\x198!\xaa\xb8L\xac\x89\x04\xa4\
+\xea7R\x0259\x0b\xdb\xd4g\xe8\x19Hd\x83\x9b\
+\x8f\xf5\xca\xb1@\x09\xe4\x15,EJ\x9c\x0b6\xf9\x0a\
+;9\xa7P\x90qy\xd1\x10IdBpI\x90\x84\
+]\x9d\xcd\xa7\xba\x1e\x13\x10yZa!c\x9b\xf6\x15\
+\x1esYM#\x0144Z\x91\xa8A,\xad5K\
+X\xe4+\xbcd\x88\xd3H\xa5\x88\xd4\xa7j\x85Dy\
+C \xb9/\x18\xa4\xa3\x13\x84<\xddt\xda:\xf8\x84\
+\xf6(la\xfa\x0c\xd2p6\x9d\xa6\xc9\x99bx7\
+\x7f?X\xde\xcd+9\xd8u\xd7-z\xa0\xd9h\xa9\
+\xe1\xd6;O\xbe\x1f\xfdo\x94\xc89\xdc\x12\xa7\xa0~\
+I&\x8a}\x80K\x0f\xcd\x13\x82\x856\xc9\x0a\x9b\xd4\
+~\xd2NA\xc3\x10\x88f\x8f\xde\xcbx{\x99\xb6Q\
+.\xb1\xb2\xbc\xcf[\xde\xd4\xa9\xbc\x17\xd1b\xfc\x80J\
+\x94\x83\x08\x82\xc1=\xd1W1\x12\xf4\x1e\xcb\xf4\x8f\x13\
+\x9d\xad\xe4\x1c\xafZ\xc9\xb05\xb5\xcc\xca\x99\x14\x22\x8f\
+A[%j\x0fJ\x9b\xe4\xc4\x0e\xa8%\x97NI*\
+\xa3u\xa8\xd7\x96\x8a E\xc9\x86$\xf4\xb8L\xaf<\
+\x16\xa6VA2(\xe9\x1cN4\xece\xd6\xda\xfb\x5c\
+\x8e\xeb\xe6hS\x8aXk\x8ey\x83\x10\x89\xe6'2\
+\xe0OA\x09\xf2\xe0EEA5\xa6sad\xc2\x08\
+\xfe\x17D\xc1\x0a\xaa\x12oY\x99\xe2\x82\x05\x0a\x84V\
+B\x90w\xd3\xa2R\x87P(\xcay\x1c\xf2~4\xa9\
+\xc2\xa4\x83\xa1D\x04 H\xd2\xac\x8a\xd0\xa1B5\xab\
+\xc5\xda\x8am\x882\x05'3h\xceiQ\xfbP\xf2\
+\x9e\xc5\xb09RJ4#\xaaof\xdb`\xc6l\xb2\
+RB\x12-\xef\xac\x85\x87\xe9\x92>u\x92\x1e*\xe4\
+MF\x90\xc3T\x8d6\xf2\x14\x06J\xd2@\xb5z\x00\
+=\x93\x0eA\x8f\xe4\xd4\x16/\xf8\x85\xa4|\x22\x94\xbc\
+Ncf\x9c\x15\xa9\xb5\x92G\x92sm\x840A\x8e\
+A\xf1b\xe7\x98\x0e\xc9\xa9;IR_\x1cqj\xcd\
+\x81O\x92\xf4\xe1x>\x9cT/z\xb3\xf0_\x14\x5c\
+\x8c\x1c\x5c\xf6'\x13\x5cw(/\xbf\xa6$\x06\xbbh\
+\xc7\xd9}~5Go\xc1`\xab\xd7J5W\x05\xc3\
+\x89ce\x94\x16\xd3.\x87+\xbb\xf6\x0b+\x9a7\x8d\
+C\xbd[\xd7\xc9\xb4\xa5\x17\x00\xa6YW\xa5\xda\xe37\
+\x97\x17/\xc0a\x81\x87\xe5\x1e_\xad\xf6{\xe3'L\
+\x92\xfc\xc0aw\x1d\xe0\x1e]\xfc\xdb\x84\x9b'\xa9b\
+N\x87\xfcD\xef\xc4\xef\x0e\x22\x85\xb0\xb3Uas\x17\
+p-/\xa6\xe6\x14&*\x18Z\x0cuU\xb8\xec=\
+\x9e\x92\xa3\x910\xe2\x08,W7\xb3\x7fJ\x8c\xa9\x8c\
+\x9c\xdb\x04p\xd1\x82K4\x09u\x00\x95y\x9d\xc9\xae\
+ \x22(\xee\x7ff\x9b\x06\xff\xb5\xc5\x91\xb2\xfa\x01\xae\
+\xa2.\xc2\xf1\xd2\xfa\xcd\xd8\xea\xf5\xe9\xea\xdf\x09\x7f\xc0\
+X\xb1\xbc\xf5Z\x8e\xb8\xb2\x88i0\xfeN\xc3k\x83\
+<KbA,9\x9c\xb2}\x5c\xf1^\x96\x85I\x09\
+\x84\x00[\x5caK\x89J`k:\x5c\xb1nf?\
+S\x14\xfa\xab\xb1\x85\xe4\x16\xd2\xdf\xe2\xfd\xd5\x9b\x17\xff\
+\x0f\xe7\xe8\xd0(\
 \x00\x00Q\x16\
 <\
 ?xml version=\x221.\
@@ -6455,6 +7958,182 @@ th:0.741281\x22\x0a   \
         id=\x22path\
 20\x22 /></g></g></\
 svg>\x0a\
+\x00\x00\x0a\xd2\
+<\
+?xml version=\x221.\
+0\x22 encoding=\x22UTF\
+-8\x22 standalone=\x22\
+no\x22?>\x0a<!-- Creat\
+ed with Inkscape\
+ (http://www.ink\
+scape.org/) -->\x0a\
+\x0a<svg\x0a   width=\x22\
+64\x22\x0a   height=\x226\
+4\x22\x0a   viewBox=\x220\
+ 0 16.933333 16.\
+933333\x22\x0a   versi\
+on=\x221.1\x22\x0a   id=\x22\
+svg1\x22\x0a   inkscap\
+e:version=\x221.3 (\
+0e150ed6c4, 2023\
+-07-21)\x22\x0a   sodi\
+podi:docname=\x22Ex\
+pand Dots - #1.s\
+vg\x22\x0a   xmlns:ink\
+scape=\x22http://ww\
+w.inkscape.org/n\
+amespaces/inksca\
+pe\x22\x0a   xmlns:sod\
+ipodi=\x22http://so\
+dipodi.sourcefor\
+ge.net/DTD/sodip\
+odi-0.dtd\x22\x0a   xm\
+lns=\x22http://www.\
+w3.org/2000/svg\x22\
+\x0a   xmlns:svg=\x22h\
+ttp://www.w3.org\
+/2000/svg\x22>\x0a  <s\
+odipodi:namedvie\
+w\x0a     id=\x22named\
+view1\x22\x0a     page\
+color=\x22#505050\x22\x0a\
+     bordercolor\
+=\x22#eeeeee\x22\x0a     \
+borderopacity=\x221\
+\x22\x0a     inkscape:\
+showpageshadow=\x22\
+0\x22\x0a     inkscape\
+:pageopacity=\x220\x22\
+\x0a     inkscape:p\
+agecheckerboard=\
+\x22false\x22\x0a     ink\
+scape:deskcolor=\
+\x22#505050\x22\x0a     i\
+nkscape:document\
+-units=\x22px\x22\x0a    \
+ showgrid=\x22true\x22\
+\x0a     inkscape:z\
+oom=\x2211.313709\x22\x0a\
+     inkscape:cx\
+=\x2238.979261\x22\x0a   \
+  inkscape:cy=\x222\
+2.98097\x22\x0a     in\
+kscape:window-wi\
+dth=\x222292\x22\x0a     \
+inkscape:window-\
+height=\x221360\x22\x0a  \
+   inkscape:wind\
+ow-x=\x221132\x22\x0a    \
+ inkscape:window\
+-y=\x220\x22\x0a     inks\
+cape:window-maxi\
+mized=\x220\x22\x0a     i\
+nkscape:current-\
+layer=\x22layer1\x22>\x0a\
+    <inkscape:gr\
+id\x0a       id=\x22gr\
+id1\x22\x0a       unit\
+s=\x22px\x22\x0a       or\
+iginx=\x220\x22\x0a      \
+ originy=\x220\x22\x0a   \
+    spacingx=\x220.\
+26458333\x22\x0a      \
+ spacingy=\x220.264\
+58333\x22\x0a       em\
+pcolor=\x22#0099e5\x22\
+\x0a       empopaci\
+ty=\x220.30196078\x22\x0a\
+       color=\x22#0\
+099e5\x22\x0a       op\
+acity=\x220.1490196\
+1\x22\x0a       empspa\
+cing=\x225\x22\x0a       \
+dotted=\x22false\x22\x0a \
+      gridanglex\
+=\x2230\x22\x0a       gri\
+danglez=\x2230\x22\x0a   \
+    visible=\x22tru\
+e\x22 />\x0a  </sodipo\
+di:namedview>\x0a  \
+<defs\x0a     id=\x22d\
+efs1\x22>\x0a    <line\
+arGradient\x0a     \
+  id=\x22swatch1\x22\x0a \
+      inkscape:s\
+watch=\x22solid\x22>\x0a \
+     <stop\x0a     \
+    style=\x22stop-\
+color:#000000;st\
+op-opacity:1;\x22\x0a \
+        offset=\x22\
+0\x22\x0a         id=\x22\
+stop1\x22 />\x0a    </\
+linearGradient>\x0a\
+  </defs>\x0a  <g\x0a \
+    inkscape:lab\
+el=\x22Layer 1\x22\x0a   \
+  inkscape:group\
+mode=\x22layer\x22\x0a   \
+  id=\x22layer1\x22>\x0a \
+   <g\x0a       id=\
+\x22g1\x22\x0a       tran\
+sform=\x22rotate(90\
+,8.2682284,8.268\
+2287)\x22>\x0a      <c\
+ircle\x0a         s\
+tyle=\x22fill:#ff00\
+00;fill-opacity:\
+1;fill-rule:even\
+odd;stroke:#ff00\
+00;stroke-width:\
+0.79375;stroke-d\
+asharray:none;st\
+roke-opacity:1;p\
+aint-order:marke\
+rs fill stroke\x22\x0a\
+         id=\x22pat\
+h1\x22\x0a         cx=\
+\x222.6458333\x22\x0a    \
+     cy=\x227.93749\
+95\x22\x0a         r=\x22\
+1.190625\x22 />\x0a   \
+   <circle\x0a     \
+    style=\x22fill:\
+#ff0000;fill-opa\
+city:1;fill-rule\
+:evenodd;stroke:\
+#ff0000;stroke-w\
+idth:0.79375;str\
+oke-dasharray:no\
+ne;stroke-opacit\
+y:1;paint-order:\
+markers fill str\
+oke\x22\x0a         id\
+=\x22path1-0\x22\x0a     \
+    cx=\x2214.55208\
+2\x22\x0a         cy=\x22\
+7.9374995\x22\x0a     \
+    r=\x221.190625\x22\
+ />\x0a      <circl\
+e\x0a         style\
+=\x22fill:#ff0000;f\
+ill-opacity:1;fi\
+ll-rule:evenodd;\
+stroke:#ff0000;s\
+troke-width:0.79\
+375;stroke-dasha\
+rray:none;stroke\
+-opacity:1;paint\
+-order:markers f\
+ill stroke\x22\x0a    \
+     id=\x22path1-5\
+\x22\x0a         cx=\x228\
+.598958\x22\x0a       \
+  cy=\x227.9374995\x22\
+\x0a         r=\x221.1\
+90625\x22 />\x0a    </\
+g>\x0a  </g>\x0a</svg>\
+\x0a\
 \x00\x00\xb92\
 <\
 ?xml version=\x221.\
@@ -11010,6 +12689,972 @@ e-width:0.741281\
 Z\x22\x0a         id=\x22\
 path20\x22 /></g></\
 g></svg>\x0a\
+\x00\x00'\x85\
+<\
+?xml version=\x221.\
+0\x22 encoding=\x22UTF\
+-8\x22 standalone=\x22\
+no\x22?>\x0a<!-- Creat\
+ed with Inkscape\
+ (http://www.ink\
+scape.org/) -->\x0a\
+\x0a<svg\x0a   width=\x22\
+64\x22\x0a   height=\x226\
+4\x22\x0a   viewBox=\x220\
+ 0 16.933333 16.\
+933333\x22\x0a   versi\
+on=\x221.1\x22\x0a   id=\x22\
+svg1\x22\x0a   xml:spa\
+ce=\x22preserve\x22\x0a  \
+ inkscape:versio\
+n=\x221.3 (0e150ed6\
+c4, 2023-07-21)\x22\
+\x0a   sodipodi:doc\
+name=\x22ImportFree\
+CAD.svg\x22\x0a   xmln\
+s:inkscape=\x22http\
+://www.inkscape.\
+org/namespaces/i\
+nkscape\x22\x0a   xmln\
+s:sodipodi=\x22http\
+://sodipodi.sour\
+ceforge.net/DTD/\
+sodipodi-0.dtd\x22\x0a\
+   xmlns:xlink=\x22\
+http://www.w3.or\
+g/1999/xlink\x22\x0a  \
+ xmlns=\x22http://w\
+ww.w3.org/2000/s\
+vg\x22\x0a   xmlns:svg\
+=\x22http://www.w3.\
+org/2000/svg\x22><s\
+odipodi:namedvie\
+w\x0a     id=\x22named\
+view1\x22\x0a     page\
+color=\x22#505050\x22\x0a\
+     bordercolor\
+=\x22#eeeeee\x22\x0a     \
+borderopacity=\x221\
+\x22\x0a     inkscape:\
+showpageshadow=\x22\
+0\x22\x0a     inkscape\
+:pageopacity=\x220\x22\
+\x0a     inkscape:p\
+agecheckerboard=\
+\x220\x22\x0a     inkscap\
+e:deskcolor=\x22#50\
+5050\x22\x0a     inksc\
+ape:document-uni\
+ts=\x22px\x22\x0a     ink\
+scape:zoom=\x228.35\
+9764\x22\x0a     inksc\
+ape:cx=\x2245.45582\
+9\x22\x0a     inkscape\
+:cy=\x2239.175747\x22\x0a\
+     inkscape:wi\
+ndow-width=\x221920\
+\x22\x0a     inkscape:\
+window-height=\x221\
+009\x22\x0a     inksca\
+pe:window-x=\x22-8\x22\
+\x0a     inkscape:w\
+indow-y=\x22-8\x22\x0a   \
+  inkscape:windo\
+w-maximized=\x221\x22\x0a\
+     inkscape:cu\
+rrent-layer=\x22lay\
+er1\x22\x0a     showgu\
+ides=\x22false\x22><in\
+kscape:page\x0a    \
+   x=\x220\x22\x0a       \
+y=\x220\x22\x0a       wid\
+th=\x2216.933332\x22\x0a \
+      height=\x2216\
+.933332\x22\x0a       \
+id=\x22page1\x22\x0a     \
+  margin=\x220\x22\x0a   \
+    bleed=\x220\x22 />\
+</sodipodi:named\
+view><defs\x0a     \
+id=\x22defs1\x22><line\
+arGradient\x0a     \
+  gradientTransf\
+orm=\x22translate(-\
+48)\x22\x0a       grad\
+ientUnits=\x22userS\
+paceOnUse\x22\x0a     \
+  y2=\x2225.999996\x22\
+\x0a       x2=\x2253\x22\x0a\
+       y1=\x2239.99\
+9996\x22\x0a       x1=\
+\x2210\x22\x0a       id=\x22\
+linearGradient37\
+81\x22\x0a       xlink\
+:href=\x22#linearGr\
+adient3775\x22 /><l\
+inearGradient\x0a  \
+     id=\x22linearG\
+radient3775\x22><st\
+op\x0a         id=\x22\
+stop3777\x22\x0a      \
+   offset=\x220\x22\x0a  \
+       style=\x22st\
+op-color:#d3d7cf\
+;stop-opacity:1;\
+\x22 /><stop\x0a      \
+   id=\x22stop3779\x22\
+\x0a         offset\
+=\x221\x22\x0a         st\
+yle=\x22stop-color:\
+#ffffff;stop-opa\
+city:1\x22 /></line\
+arGradient><line\
+arGradient\x0a     \
+  gradientTransf\
+orm=\x22matrix(1,0,\
+0,0.77777777,0,5\
+.1111114)\x22\x0a     \
+  gradientUnits=\
+\x22userSpaceOnUse\x22\
+\x0a       y2=\x225\x22\x0a \
+      x2=\x2221\x22\x0a  \
+     y1=\x2258\x22\x0a   \
+    x1=\x2238\x22\x0a    \
+   id=\x22linearGra\
+dient3789\x22\x0a     \
+  xlink:href=\x22#l\
+inearGradient377\
+5\x22 /><symbol\x0a   \
+    id=\x22DownArro\
+w\x22><title\x0a      \
+   id=\x22title284\x22\
+>Down Arrow</tit\
+le><path\x0a       \
+  d=\x22M 36,63 14,\
+41 V 26 L 30,42 \
+V 10 H 42 V 42 L\
+ 58,26 v 15 z\x22\x0a \
+        style=\x22s\
+troke:none\x22\x0a    \
+     id=\x22path284\
+\x22 /></symbol><li\
+nearGradient\x0a   \
+    inkscape:col\
+lect=\x22always\x22\x0a  \
+     xlink:href=\
+\x22#linearGradient\
+3864-9\x22\x0a       i\
+d=\x22linearGradien\
+t3808\x22\x0a       x1\
+=\x22-146.74467\x22\x0a  \
+     y1=\x2258.2615\
+47\x22\x0a       x2=\x22-\
+157.32494\x22\x0a     \
+  y2=\x2226.520763\x22\
+\x0a       gradient\
+Units=\x22userSpace\
+OnUse\x22\x0a       gr\
+adientTransform=\
+\x22matrix(1.009449\
+4,0,0,1.0094493,\
+-20.307973,3.726\
+0081)\x22 /><linear\
+Gradient\x0a       \
+id=\x22linearGradie\
+nt3864-9\x22><stop\x0a\
+         style=\x22\
+stop-color:#204a\
+87;stop-opacity:\
+1\x22\x0a         offs\
+et=\x220\x22\x0a         \
+id=\x22stop3866-1\x22 \
+/><stop\x0a        \
+ style=\x22stop-col\
+or:#729fcf;stop-\
+opacity:1\x22\x0a     \
+    offset=\x221\x22\x0a \
+        id=\x22stop\
+3868-1\x22 /></line\
+arGradient><line\
+arGradient\x0a     \
+  inkscape:colle\
+ct=\x22always\x22\x0a    \
+   xlink:href=\x22#\
+linearGradient36\
+82-0\x22\x0a       id=\
+\x22linearGradient3\
+806\x22\x0a       x1=\x22\
+-206.69949\x22\x0a    \
+   y1=\x2268.841812\
+\x22\x0a       x2=\x22-21\
+1.40184\x22\x0a       \
+y2=\x227.7114096\x22\x0a \
+      gradientUn\
+its=\x22userSpaceOn\
+Use\x22 /><linearGr\
+adient\x0a       id\
+=\x22linearGradient\
+3682-0\x22><stop\x0a  \
+       id=\x22stop3\
+684-0\x22\x0a         \
+offset=\x220\x22\x0a     \
+    style=\x22stop-\
+color:#a40000;st\
+op-opacity:1\x22 />\
+<stop\x0a         i\
+d=\x22stop3686-0\x22\x0a \
+        offset=\x22\
+1\x22\x0a         styl\
+e=\x22stop-color:#e\
+f2929;stop-opaci\
+ty:1\x22 /></linear\
+Gradient></defs>\
+<g\x0a     inkscape\
+:label=\x22Layer 1\x22\
+\x0a     inkscape:g\
+roupmode=\x22layer\x22\
+\x0a     id=\x22layer1\
+\x22\x0a     transform\
+=\x22matrix(0.08466\
+666,0,0,0.083140\
+89,-0.43629,-3.2\
+853863)\x22><g\x0a    \
+   id=\x22layer1-3\x22\
+\x0a       transfor\
+m=\x22matrix(3.3333\
+333,0,0,3.333333\
+3,-1.513642,19.5\
+1596)\x22><rect\x0a   \
+      y=\x228\x22\x0a    \
+     x=\x224\x22\x0a     \
+    height=\x2244\x22\x0a\
+         width=\x22\
+56\x22\x0a         id=\
+\x22rect3002-9\x22\x0a   \
+      style=\x22col\
+or:#000000;displ\
+ay:inline;overfl\
+ow:visible;visib\
+ility:visible;fi\
+ll:#ffffff;strok\
+e:#2e3436;stroke\
+-width:4;stroke-\
+linecap:butt;str\
+oke-linejoin:rou\
+nd;stroke-miterl\
+imit:4;stroke-da\
+sharray:none;str\
+oke-dashoffset:0\
+;stroke-opacity:\
+1;marker:none;en\
+able-background:\
+accumulate\x22 /><r\
+ect\x0a         y=\x22\
+9\x22\x0a         x=\x225\
+\x22\x0a         heigh\
+t=\x2242\x22\x0a         \
+width=\x2254\x22\x0a     \
+    id=\x22rect3002\
+-9-3\x22\x0a         s\
+tyle=\x22color:#000\
+000;display:inli\
+ne;overflow:visi\
+ble;visibility:v\
+isible;fill:url(\
+#linearGradient3\
+789);fill-opacit\
+y:1;stroke:#ffff\
+ff;stroke-width:\
+2;stroke-linecap\
+:butt;stroke-lin\
+ejoin:round;stro\
+ke-miterlimit:4;\
+stroke-dasharray\
+:none;stroke-das\
+hoffset:0;stroke\
+-opacity:1;marke\
+r:none;enable-ba\
+ckground:accumul\
+ate\x22 /><path\x0a   \
+      id=\x22path37\
+90\x22\x0a         d=\x22\
+M 3,18 H 61\x22\x0a   \
+      style=\x22fil\
+l:none;stroke:#2\
+e3436;stroke-wid\
+th:4;stroke-line\
+cap:butt;stroke-\
+linejoin:miter;s\
+troke-miterlimit\
+:4;stroke-dashar\
+ray:none;stroke-\
+opacity:1\x22 /><pa\
+th\x0a         id=\x22\
+path3792\x22\x0a      \
+   d=\x22M 22,6 V 5\
+4\x22\x0a         styl\
+e=\x22fill:none;str\
+oke:#2e3436;stro\
+ke-width:4;strok\
+e-linecap:butt;s\
+troke-linejoin:m\
+iter;stroke-mite\
+rlimit:4;stroke-\
+dasharray:none;s\
+troke-opacity:1\x22\
+ /><path\x0a       \
+  id=\x22path3794\x22\x0a\
+         d=\x22M 3,\
+30 H 61\x22\x0a       \
+  style=\x22fill:no\
+ne;stroke:#2e343\
+6;stroke-width:4\
+;stroke-linecap:\
+butt;stroke-line\
+join:miter;strok\
+e-miterlimit:4;s\
+troke-dasharray:\
+none;stroke-opac\
+ity:1\x22 /><path\x0a \
+        id=\x22path\
+3796\x22\x0a         d\
+=\x22M 3,42 H 61\x22\x0a \
+        style=\x22f\
+ill:none;stroke:\
+#2e3436;stroke-w\
+idth:4;stroke-li\
+necap:butt;strok\
+e-linejoin:miter\
+;stroke-miterlim\
+it:4;stroke-dash\
+array:none;strok\
+e-opacity:1\x22 /><\
+/g><path\x0a       \
+style=\x22fill:#ffc\
+c00;stroke-width\
+:0.741281\x22\x0a     \
+  d=\x22m 38.742777\
+,107.61531 c -14\
+.600611,29.20464\
+ -26.107904,52.9\
+2356 -25.57175,5\
+2.70871 0.536143\
+,-0.21485 11.968\
+065,-5.10659 25.\
+404268,-10.87053\
+ 13.436203,-5.76\
+394 25.111373,-1\
+0.6477 25.944819\
+,-10.85278 0.940\
+465,-0.23141 11.\
+358165,3.83093 2\
+7.460157,10.7079\
+8 14.269649,6.09\
+447 26.047059,10\
+.97995 26.171999\
+,10.85663 0.2303\
+7,-0.22735 -52.3\
+32489,-105.64936\
+6 -52.676209,-10\
+5.649366 -0.1026\
+9,0 -12.132674,2\
+3.89471 -26.7332\
+84,53.099356 z\x22\x0a\
+       id=\x22path2\
+0\x22 /><g\x0a       t\
+ransform=\x22matrix\
+(1.7278636,0,0,1\
+.7595728,460.739\
+07,113.77993)\x22\x0a \
+      id=\x22g3813-\
+3\x22><path\x0a       \
+  style=\x22display\
+:inline;overflow\
+:visible;visibil\
+ity:visible;fill\
+:url(#linearGrad\
+ient3808);fill-o\
+pacity:1;fill-ru\
+le:evenodd;strok\
+e:#000137;stroke\
+-width:2.35117;s\
+troke-linecap:ro\
+und;stroke-linej\
+oin:round;stroke\
+-miterlimit:4;st\
+roke-dasharray:n\
+one;stroke-dasho\
+ffset:0;stroke-o\
+pacity:1;marker:\
+none;enable-back\
+ground:accumulat\
+e\x22\x0a         d=\x22m\
+ -159.14682,27.7\
+62572 -7.26628,4\
+.168914 -3.20873\
+,-1.113515 -3.06\
+139,-7.823962 -4\
+.81574,0.253068 \
+-2.19659,8.09046\
+6 -3.07424,1.472\
+191 -7.66769,-3.\
+354213 -3.23863,\
+3.598875 4.16893\
+,7.266276 -1.139\
+25,3.199324 -7.8\
+2397,3.061399 0.\
+27879,4.825129 8\
+.09048,2.196583 \
+1.47219,3.074238\
+ -3.37993,7.6583\
+03 3.59887,3.238\
+623 7.26627,-4.1\
+68916 3.22506,1.\
+148635 3.03567,7\
+.81457 4.85085,-\
+0.269405 2.17086\
+,-8.099855 3.074\
+25,-1.472193 7.6\
+8401,3.389334 3.\
+23863,-3.598876 \
+-4.16892,-7.2662\
+74 1.1229,-3.234\
+445 7.81458,-3.0\
+35677 -0.24366,-\
+4.841457 -8.0998\
+7,-2.170857 -1.4\
+722,-3.074238 3.\
+36361,-7.693423 \
+z m -10.88267,11\
+.915801 1.49161,\
+0.865459 1.29232\
+,1.171703 1.0346\
+2,1.398312 0.744\
+26,1.554681 0.43\
+759,1.67593 0.07\
+25,1.71754 -0.24\
+807,1.717095 -0.\
+56614,1.630089 -\
+0.90058,1.507949\
+ -1.13658,1.2759\
+82 -1.39832,1.03\
+4618 -1.55468,0.\
+744257 -1.67593,\
+0.43758 -1.72693\
+,0.09823 -1.7171\
+1,-0.248055 -1.6\
+3008,-0.566152 -\
+1.50794,-0.90057\
+9 -1.26661,-1.16\
+2311 -1.04399,-1\
+.372584 -0.74428\
+,-1.554679 -0.42\
+818,-1.701656 -0\
+.0982,-1.726934 \
+0.24806,-1.71709\
+9 0.56616,-1.630\
+085 0.89118,-1.4\
+82225 1.14599,-1\
+.301706 1.3983,-\
+1.034618 1.55468\
+,-0.744261 1.701\
+65,-0.428183 1.7\
+1754,-0.0725 1.7\
+171,0.248053 1.6\
+3009,0.566153 z\x22\
+\x0a         id=\x22pa\
+th3659-5\x22\x0a      \
+   inkscape:conn\
+ector-curvature=\
+\x220\x22 /><path\x0a    \
+     style=\x22disp\
+lay:inline;overf\
+low:visible;visi\
+bility:visible;f\
+ill:none;stroke:\
+#729fcf;stroke-w\
+idth:2.35117;str\
+oke-linecap:roun\
+d;stroke-linejoi\
+n:round;stroke-m\
+iterlimit:4;stro\
+ke-dasharray:non\
+e;stroke-dashoff\
+set:0;stroke-opa\
+city:1;marker:no\
+ne;enable-backgr\
+ound:accumulate\x22\
+\x0a         d=\x22m -\
+159.40722,30.604\
+211 -6.78206,3.8\
+85229 -5.11355,-\
+1.83873 -2.97765\
+,-7.211069 -1.43\
+915,0.07782 -2.0\
+7148,7.584439 -4\
+.99186,2.2766 -7\
+.06968,-3.072549\
+ -0.94649,1.0835\
+04 3.90414,6.857\
+637 -1.95648,5.0\
+10571 -7.1355,2.\
+845405 0.0822,1.\
+531739 7.52777,2\
+.062954 2.33329,\
+4.991861 -3.1147\
+1,7.061187 1.045\
+7,0.908702 6.706\
+5,-3.828556 5.39\
+281,1.889398 2.6\
+5209,7.164787 1.\
+44166,-0.01704 2\
+.09636,-7.536257\
+ 4.8974,-2.44663\
+3 7.38672,3.1610\
+02 0.88982,-0.95\
+1258 -3.90413,-6\
+.687603 1.6772,-\
+5.250163 7.33482\
+,-2.916596 -0.05\
+04,-1.508727 -7.\
+44181,-1.907432 \
+-2.46554,-5.0485\
+37 3.11884,-7.22\
+521 z\x22\x0a         \
+id=\x22path3659-5-6\
+\x22\x0a         inksc\
+ape:connector-cu\
+rvature=\x220\x22\x0a    \
+     sodipodi:no\
+detypes=\x22ccccccc\
+cccccccccccccccc\
+cccccccccc\x22 /><c\
+ircle\x0a         s\
+tyle=\x22fill:none;\
+stroke:#729fcf;s\
+troke-width:1.81\
+197;stroke-linec\
+ap:round;stroke-\
+linejoin:round;s\
+troke-miterlimit\
+:4;stroke-dashar\
+ray:none;stroke-\
+dashoffset:6;str\
+oke-opacity:1\x22\x0a \
+        id=\x22path\
+3898\x22\x0a         t\
+ransform=\x22matrix\
+(1.2975787,0,0,1\
+.2975787,-227.20\
+403,-4.4100648)\x22\
+\x0a         cx=\x2241\
+.15683\x22\x0a        \
+ cy=\x2240.103004\x22\x0a\
+         r=\x228.69\
+41996\x22 /><path\x0a \
+        style=\x22d\
+isplay:inline;ov\
+erflow:visible;v\
+isibility:visibl\
+e;fill:url(#line\
+arGradient3806);\
+fill-opacity:1;f\
+ill-rule:evenodd\
+;stroke:#280000;\
+stroke-width:2.3\
+5117;stroke-line\
+cap:butt;stroke-\
+linejoin:miter;s\
+troke-miterlimit\
+:4;stroke-dashar\
+ray:none;stroke-\
+dashoffset:0;str\
+oke-opacity:1;ma\
+rker:none;enable\
+-background:accu\
+mulate\x22\x0a        \
+ d=\x22m -217.27976\
+,4.1846558 1e-5,\
+68.1839092 14.10\
+701,-2e-6 v -28.\
+21403 h 14.10701\
+ V 30.047518 h -\
+14.10701 V 18.29\
+1671 h 23.51169 \
+V 4.1846558 Z\x22\x0a \
+        id=\x22rect\
+3663-8\x22\x0a        \
+ sodipodi:nodety\
+pes=\x22ccccccccccc\
+\x22\x0a         inksc\
+ape:connector-cu\
+rvature=\x220\x22 /><p\
+ath\x0a         sty\
+le=\x22display:inli\
+ne;overflow:visi\
+ble;visibility:v\
+isible;fill:none\
+;stroke:#ef2929;\
+stroke-width:2.3\
+5117;stroke-line\
+cap:butt;stroke-\
+linejoin:miter;s\
+troke-miterlimit\
+:4;stroke-dashar\
+ray:none;stroke-\
+dashoffset:0;str\
+oke-opacity:1;ma\
+rker:none;enable\
+-background:accu\
+mulate\x22\x0a        \
+ d=\x22m -214.92859\
+,6.535825 v 63.4\
+81569 h 9.40468 \
+v -28.21403 h 14\
+.10701 v -9.4046\
+77 h -14.10701 V\
+ 15.940502 h 23.\
+51169 V 6.535825\
+ Z\x22\x0a         id=\
+\x22rect3663-8-3\x22\x0a \
+        sodipodi\
+:nodetypes=\x22cccc\
+ccccccc\x22\x0a       \
+  inkscape:conne\
+ctor-curvature=\x22\
+0\x22 /></g></g></s\
+vg>\x0a\
+\x00\x00\x14\x84\
+\x00\
+\x00egx\xda\xed][o\xdbH\x96~\xcf\xaf\xe0\
+\xaa_b\x80\xa4\xeb~q\xe2\x0cv\xa6\xd1\x8b\x05\xf6\
+\xf20\xdd\xfd\xb0/\x03Y\xa2mMd\xc9\xa0\xe4\xd8\
+\xce\xaf\xdf\xef\x14I\x89\x94J4e9I\xcf\xecJ\
+\x08,\xd6\xf5\xd4\xb9\x9fSU\xcc\xc7?=\xdd\xcd\x93\
+/E\xb9\x9a-\x17\x97#\x9e\xb3QR,&\xcb\xe9\
+lqs9\xfa\xed\xd7_27JV\xeb\xf1b:\
+\x9e/\x17\xc5\xe5h\xb1\x1c\xfd\xe9\xd3\xbb\x8f\xff\x92e\
+\xc9_\xcab\xbc.\xa6\xc9\xe3l}\x9b\xfc\xfb\xe2\xf3\
+j2\xbe/\x92\xf7\xb7\xeb\xf5\xfd\xc5\xf9\xf9\xe3\xe3c\
+>\xab\x0b\xf3eys~\x96d\xd9\xa7w\xef>\xae\
+\xbe\xdc\xbcK\x12\xf4\x9a\xaeo/GF\x8d\xe8\xe9\xb6\
+\x98\xdd\xdc\xae7\x8f_f\xc5\xe3\x9f\x97O\x97#\x96\
+\xb0\x84\x9b\xdcK\xfal\x7fU\x8d\xb6P\xf3P0\x9b\
+^\x8e0z\xf5\x80u]\xac\xee\xc7\x13\xc0|_\x16\
+\xab\xa2\xfcRT\x8dj\x98.Z\xdde\xf2\x9e\x15\x5c\
+\xb3bj&*M\x04\x132c6\x13\xfc,tY\
+\x01\x1d\xf7\xf8w1]N\x16\xe3;\x8c\xf8_\xc5\xe3\
+/eQ\xfc\xe5_\x7f\xce1a3\xdfbu\xd1\x8c\
+~9:\x84\x06\x1a \xc0\xb5:o\xca[\xfd\x9b\xa9\
+6\xfd\x9b\x82|\xb5|('\xc55\x86(\xf2E\xb1\
+>\xff\xf9\xd7\x9f7\x95\x19\xcb\xa7\xebik\x98\xa79\
+\xc6\xee\xc0\xf0(\xc3\xec\xdc{\x7f\x1ej\xb7\xadc\xed\
+\x04c\xec\xbc\xbb4<\xf5\xb6\xfc\xf4q\x83'Z\xe3\
+\x94hH\xbd+\xbal\x8a*\xea$\xc9\xfd\xf8\xa6\x98\
+,\xe7\xcb\xf2r\xf4\x93f\xf4\xad+\xae\x96\xe5\xb4(\
+\x9b\xaa\x22|:UK`o\xb6~\x06\xe1\xea\xe2\x0d\
+IW\xb7\xcbG\x1awu;\x9e.\x1f\xc1=\xbb\x0d\
+\xa8r\xd3=Z;\xb9-&\x9f\x8b\xf2j9.\xa7\
+\x91&\xd3b\xf59\x0a\xf5\xb6\xc5r\xf2pW,\xd6\
+\xd9\xc3b\xb6\x06n\xef\x9fv[|].\xef\x00<\
+\xd8\x8eK\xcb\xdcn\xf5\x04l\xafd.\xbd3\xd6\xef\
+U\x02n-r\xe1x\xa4\xe7\xe3l\x81eg\xb5d\
+q/\xd8\x81\x16\x8d\xb4q\xc6\xfc\x81&\x00\x22;4\
+\xc1sO\xdd\xdd\xf8iv7\xfbZL#\xe4\x99<\
+\x94%af>~.\x80\xc0\xf0G\xd4\x8d\x88t7\
+\x0f3\xe0\xf7r\xb4.\x1f\x8avqI\x0c\x14\x0a?\
+}\xec\x10\xabj\x03\x06\xddR*I\x9e\xdb\x0f\x0d.\
+j\xc5!6\x15\x1b\x14\xec\xd5\xd0d4\xf8\xb6\xe4n\
+\x5c\xde\xcc\x16\xa4\x8c\x9ct\xb9d\x9ck\xa8\xa5\xed$\
+W\xf3\xa2\x08\xcc\x92\x9c\xb7\x00$\xb0\xdbc\xd23\xdf\
+\xf4\xd9\xe5\x8e$Y\x963\xcc\xd2YJU\xd4Y\x10\
+\xa9\x0e\xe8fj\x96\x0b\xa3\xb4k\xb4a\xab\xf29Z\
+Y\xdc\xdd7\x9c\x0b\xb2\xfbB\xb7k\xb6BA\xeb\xf3\
+\x86Y\xb7\xa9>\xd0\xab\xd5\x85+O\x9dx{\xc4\x1a\
+\x16\xb0\xeb\xa6t\xba\x5c\xaf\x09Q\xd7\xe3\xf9\xaa\xd8\x94\
+\x12^\xc6\x8b\x9by\x815I\xb6_\xfc\xb5S\xfce\
+\xb6\x9a\x01\xdf5?\x10\xc2\xcf\xf7\xd5\xce\xa7\x8f\xd3\xe2\
+z\xb5U>\xf4\xc4\xc1<\xd0{\xc5\xb8\xfc\xb7r<\
+\x9d\x81\x0f\xb73U\xcf\xbf\x96\xe3\xc5\x0a\x0a\xf6\x8e\x06\
+\xc7\xcf9\xac\xdb\xfbL\xb9\xb3\xd1n\xcb\xdf*\xe2=\
+\xc0\xaa\xfc\x95T\xf9\x7f/~k-\xe8Y\x5c\x8e\x84\
+\xce=}\xcc\xa6\xf4\x09\xa5zK\x8dg\x8ee\xf9\xbd\
+F\x9c\x84\xb2\xc3\x8a]\x98\xa5u[,\x07=~q\
+[\x16\xd7\xa0\xcen;\xab\x03v\xe2K\x8e\x0d\x8c\x0e\
+P\xe1\xeb\xe5}\xd3\xa86\xa8(A\xa5\x1dm\x8b\x97\
+\xd7\xd7\xabb\xdd\xe6J\xb0\xde\xfa\x99\xa8B\xad\xb3\xc0\
+0\x17?M\xe5\xd4N\xae?\x84\xa2\x9aY.\xf8\x87\
+\x00\xd5\xc1i|d\x1a\xde?\xcdu\xf8\xecLSq\
+Fw\x89G\xd0\xffn\xbc.gO\xefy\xca\xe8\x9b\
+\xdb\xfa\x83\x07\x9d\xf3\xf0Q\xaf\xe1\x0a\xdd\xe1\x06\xc1;\
+\xdc\xa0]\x87\x0d\xa4\xebg\x03\xffm\xd8@r\x7f\x98\
+\x0d$\xd7\xc7\xb3\x81\x15\xfez\x12\xa5\xcf\xc1Y\xec\xf1\
+\x5c \x98\x1a;{\x02\x17\xec\xe3BIg\x0f\xe2\x02\
+\x95\xfe\x15\xb8\xe0W\xe2\xda\x1d!\x12Jz~<2\
+\x18\x13\xd6\xeb\xe84{\xd8\xa0\x1f\xe3\xf9q:\x11\xd6\
+E*%\x85Pi\xfd\x93\xfb\xa3\xd5dI.J\xae\
+\x8cUr\xab\x00\xafaO\x84\xcb\x9d\xf1\xdal\x05\xe0\
+\x9a\x5c\x22\x9d;\xd83\xb1\xe5\x8dI\xb4\xed$\xda\x96\
+\xf0\xd9]\xa94^\x0c\x12!\xc8\xd0\x91\x22d\xf7\xd9\
+&\xa6\xb7\xc6\xd7\xd7\xe2j\x8fH\xfd<\xb5\x15\x12\xa8\
+\xca}\xb6\x89\xaa\xc7\xf1\x98\xb1\x01\xd3\xf0\xe84\x8e\x1f\
+\xc36\xdf\x95\xa6\x87\xf56\xcb\x8de\xc6r\xabk\x05\
+n\x14W\xdas\x97f\x06\x9e\xb5c\xd6\x0b\x94\xc2\x9b\
+SZ1y,\xe7\xee3\x13\xc6\x7f\x0bf\xea\xeb\xc9\
+Z\x18\x8d0\x1dS\xfe\xc8UD\xd0W.\xd7$\xdf\
+R\x025\xd0<>\x15\x10o\xc7\xb0\xb8T\x1bxy\
+\xd2+s\xd6uVT\xee\x84\xe2\xbe\xeb\xd8h\x06\x1e\
+p\x86w\xbd\x1f\x0c\xe6\x11\xd5\xe8\xaeI49\x02H\
+\x01?\xf5(\x19#l\x0c`\xfe\xe2Zx\xe1w\xad\
+\xc2@\x11c0\xc1\x83Dl\xac\xb0\x04\xf6\xf2,Q\
+\x09c\x8a\x1dc\xa6\xba8\xebGo\x9c\x12Q\xaa\x0d\
+a\x86\xcc\xe4\xce:\xe9\x99O=\x0b?\x9d{\x8d\xe8\
+\xec\x8a\x04\xb3\xc3D\x87\xfbW\x8a\x8e3*\xf3} \
+8\xd6\xf5\xbd2\xaeLn\x15\xf4\xd8\x8e\x87\x86\xa8\x8a\
+ke;x\xcf\xb8\xb6\xb9\x14\xca\xabn\x04`r-\
+\x985\xf2t\xb1\xdch5o\x8dqZ\xc0-\xcd\x19\
+\xc00Z\xa7\xd9\xf6gS\x0fi\xe5N\xe4\x969\x0d\
+\xa2\x09\x18h\xa6\x01\xf5\xd9q\x12V!m\x00\xf7\xc7\
+=\xaf\x812\xe6\x8c\xc9\xf80)\x8b\xfb\x91\x03\xa5\xcc\
+\x19\x97\xf1c\xe5\xcc0\x9fS\x8a\xa7Ko\xc9D\xee\
+\xb4\xe5]A\x93\xc6\xc0\xcat\xdcr\x1ek{\x98\xbc\
+\xa0\x98%\xaf2\x98,\x9e{\xe3a\xc3\xd2\x8c;/\
+rnAIg1\x98\xd3\xeat\x99\x83i\xd4\x99\x1e\
+\x22u\x9a)w\x14\xdf\x84\x0e/S\xf3j>\x9e|\
+\xee\xd2\x92\x0d\xf5}B\xd6\xed\xb0\xcb\x8cj\x13\x1b)\
+\xd7\xa3#!\x8az\xe6\xaf_\x0b\x8f\xafE\x1c\x15\xa5\
+lri\xcb\xf9\xbc\x98`\xd4\xf1\xfcq\xfc\xbc\x1a\xf5\
+Q\xc4\xb0\xd7Q\x84\x0f\xa7\x88\x11\xdf\x01UF\x9d\x16\
+\xd0\x09s8\xb6\x15\x96E\x99\x86U\x9f\xfexk,\
+\xe9\xbb\x83\xbc\xa6k_x'lT\x83\x0d\x9bUM\
+\xe8\xdb;\xeb\xebQ\xa5{PeN@\x15\xa2\x1e|\
+\x8f@U\x0c\xdd\x8e\xbeCx\xb5#\xf3\x0d\xfcND\
+\x1d\xbb\xed\xf2^\x11qO\xa6\xf4\x1d\x16q\x0f\xa5\x01\
+Y\xf3!\x06\xd8p\xaf&\xaf\x0d$1\x89;\xc1\xfe\
+\x0e\x15^o-;\x0d\x1b|\x90]\x89f\x03Y\xce\
+\xa5b\x82\x99\x03L\xb2\xcf\xb8\x0d\xd8\x5c\x0d\x8e\xb2c\
+\xd3\x06\xbf\xcbH\x1fGS\xdf\xbc\xfaDlI\xa9_\
+\x8b\xad\x964\x1e\x87,\x89\x98\xec\x14d\x1d\x9e\x95\xf7\
+\xcejOd,r\xda\x86h\x1dF\xdfW\x8a\x19\x1c\
+8\xf6\xc6\xca\x8d\xc7\xa791\xe9\xc9\xa5}\xbd\x98Y\
+\xc6\xb4G`x\xb4\x98\x0d\x8d\xb4\xdf\x94s\xb8\xf4\xc7\
+\xe4\xb6^t\xbdz\xddh\xc3z\xd2G\x9aI\x9e\xb9\
+7\x0b\x14\xb3x(\xc19\xca\x8d\x90\xb1H\x822l\
+\x86\xe9\xdcr%|'\x1b\xa7\xdcn`s\x1dm{\
+\x1dmK\x09Ans\xb4t\x95r\xf8\x01\xb8\x15>\
+\x13o\x86\xdb\xc3Q\x1a\xcf\x8d\xfc\xb1\xb8}e\xc8\xf0\
+R\xf8\xd7\x17ZD\xd2\xb1o\x8f\xd9\x83\xf1o<\xc4\
+>\x10\x8e\xc7C\xf7N\x98\xffC\x18Ti\xd5\xcdt\
+\x0b\x95Kf\xac\xd7]^\x119\xb3\xd6w\x13\xe8\xfb\
+M\xafcM\x89St\xee\x04\xd7\x5c\x0d\xa0D\xa34\
+S\x16\xf9!\x9c\xf2\xdcP2Pr\xa8{Sdx\
+\x92h\x00:\x0dN\x07\x1e\x93Q\xe0\xda \xba\xfc\xde\
+\xce\x0c\xcd\xaa\x06\x1a%G\xdf#\xe6\xe5/\xcck^\
+\xb3S\xd7/v\xc4\x16F\xe5\xda\xd8\xae\xae\x11,\x07\
+\xddx\x9bSt.twCf\xb7\xe3$\xd2\x91\xe0\
+\x1f\xcfn\xca\xa9<\x187r\xad\xad\xec\x0f\xa3~a\
+\xf4\x8d\xfaT\x87\x036\x1a\xb7?\xb7\xf3\x93\x1f\xd3\xf7\
+U$\x0a\xa4\xe8\xa2\xfetRpN(uj\x08-\
+L\x87\x16{={\x89!\xfa\x88a\xcc\xb7!Fk\
+\xe3\xee\xbb\x10\xe3\x88\x9cFf\x06\xee\xcc\xf6\xe5(\x8e\
+S$\xc2\xb0L\x0fS$W\xe1\xf3F\x8aD\x18\x9e\
+\x9d\x98/\xe3B\xf3\x1f\xa0y1\xab\x1c\x1c\x0eh\xc1\
+v\xc3\x01\xb8b0F\xec@\x14\xa2\xfbg\xb6\x83g\
+\x96\x8c\xbdU \x22\xc8.\x7f\xa7P\xa4\x22\xeaaw\
+D\xd8c\x03\x11\xd2@Z\xe7;\xcb\x0b\xcaJ\xd4\xc5\
+\x1d=\xb7\xdf\xf6:\xda\xb6\x0c\x1b\x95\xd2\xeaF\xf2\x0f\
+\x9e9\x906\xb7 \x1d\x97\x9d\x11%\x0a\x0d\x17\xad\x1d\
+Q\x9a\xdd\xd1\xd6\xa7\xe2\xbe\x0b\xe9~\xdbI\xb4m\xef\
+\xee\x9cq\xc2\xca\xda}eRXcS\x99K-\xb5\
+\x96\xe1\x0c\x82Q\xca\x9e~\xd6\x00\x1eB\xcb&\xf4P\
+\x9a\xd2\xdd/rL/^\x11rX\xe6\x94\xeeRJ\
+\x22<\x91\xc6\xb7\xf6\x94\x09\xafR\x02\x01\xa6\xe3&D\
+\xdbN\xa2m#x\x05\xbc\xf3\x22\xa0\x95)/\x09\xa5\
+\x8as)\xde\x06\x81n\x10\x02\x83\xc18\x0d\x85\xd2\xe5\
+\x5c\xd3q\x96\x0e\x0am.\x0c\x82\x93\xd6\xfer\xc5\x9a\
+\x5c\xc9\x8e]\x9eD\xdbN\xa2m\xff\x18\xaci\x06a\
+\xb6\xf2\xe9O\xc0\xecq\x1a\xb0\xf6\x85z\x94\x9epo\
+\xb9O/\x04bWY\x9f=\xaa\x1fTn\xb8\xd4\xc2\
+\x03\xef\x1e\xb1\x19sg\xbd.\xdcd\xa8\x97\x18u'\
+7\xae\xe3\x9bbP\xf6cP\xff\xf108$\xe4\x89\
+\x85F\x9b0\xe8\xdb\xa4U\x06\x9dH\xc9\xd4?\xc0\x99\
+\x14rk\xbc\xc2<\x8dn\x09O2\xcd\x04]$\xb0\
+\x1eJ\x07\xa6\x15>0s\xfc\xec[a\x13\xca-c\
+\xfd\xd8\xec\x9e\x7f\x02t&7\xde\xb7\xce\xcc\x11.\x0d\
+\xec\xbd\xe2\xae}\x94\x8fp)8\xcf\x15\xe3\xae\x8bK\
+\xb8\x1c\x10;\xe6\xcd7Hy\xd4+:xB\x1a\xa2\
+\x9e\xb1\xe3O\x1f\xc7\xcf\xa9\xf5\x9c\xc46\xceD\xe7y\
+a34~\xea.\xea\xdf\x9e\xd3\xd5\x8cO\x1fov\
+n\x0a\xdd\x94\xcb\x87\xfb\xbb\xe5\xb4\xa8o\x09\x8d\xb6w\
+9:\xb7\x866\x1d\xe6\xe3\xabb~9\xfa\x0f\xaaL\
+\x9a\xdauD\xb1\xc0\x9d!f\x14\xb5j\xd9>\xe6\x8c\
+K\x0e\xc4\xa6\xecl\xb4\x01\xa8\xbe\xb9\xb3e\x88\xfd!\
+e\xce\x85\xa5\xb3\xd0a\xc4\xedS\xa6s\xe3\x1c\x06\xdd\
+\x19p\x1f\xe8\xbf\x86\xdbj;qAX\xa6\xe9v\xdc\
+ {:[\xdd\xa3\xc1\xc5lA\xf8\x1c\xb5[\x04x\
+5\x13\xa2\xa5>\x0e\xe2Bp\xa3\xb9\xde\xe0\x82+\xa7\
+\x01|\xaa$\xe4\xd8\x9aT\x09,AKO\xf0\x97\x10\
+\xca\xf6x\xe1\x9e\x15\xd4\x0c\x9c\x078\x17z\xd4\xad{\
+\x0au\xdaC\x87\x0a\xb9S\xd7\xdc\xbcR\xd6\xc1\x03\xb1\
+\xdc\xed\xd47W\xb6\xa4\xf4\x94Q\xdf\x1d:\x98\x1e\x00\
+\xa3\xb8\x95\xd9\xee\xd85~6\xc7\xe0\x03\xbfw\xb1\xf5\
+a\xf9\xa5(\xaf\xe7\xcb\xc7\x8b\xfa*\xd1\x87\xf0w6\
+'.m\x8a\xb6!]\xd87\x16\x1f\xaeg\xf3\xf9\xc5\
+C9\x7f\xff\xd3~\x06\xfc,\xd4\xb66\xeb\xc2c\xf9\
+0/.\x16\xcb\xc5\xd7\xa2\x5cB\x14\xca\xe5\xe7\xf0X\
+\xd4\xbf\xab[zh\x5c?\xd2\xb0`\x8a\x0b0\xfeb\
+\xda.\xfc\xfbr\xb6\xb8\xb8\x9b\xad\x8b\xb2)\x0d\x0f\xf3\
+\x19\xfe\x5c\xa8\xa6l:^\xdd\x8e\xcb\x12\xabl\xcfA\
+\xa5\x95\xcc^\xb0\xa6l\x0b\xe6\xdd\xb8\xfc\x5c\x94U\x87\
+\xeaw\xb6Z\x8f\xcbu\xa7\xe4n6\xed<\x17\x8b\xea\
+9\x88\xf3\xfdx}\xbbC\x80\xcd],\x08\xef\xfa\xf9\
+\x9e\xae\xf3M\xf0\x89\x10\x91:k\xa6\xe9\x5c^\xb7\x12\
+uw\x09\xb4.\xc8\xcf\x9d\xa5-\x00\xe22\xc7\xa4K\
+&\x09\x18\x15\xff\x02\xef\x90}\xe9\xfc\xe6`Xg\x15\
+7\x86\xceB2\xa6t\x22\x95\x06\x09\x19\xc9#g6\
+\xe7`V\xd3\x14r\x053\x05&\xa3\x9bkVc\xa4\
+\x0c\xe1\x05\x84\xc2hi\x13L\xeas\x05\x0dH\xb9\xee\
+\xd0\x0a\xbd\xbcN\xb2\xdd\xceR\xc1\xfc&_\xbf?#\
+\xc6\xb6\xb9\xfe\x9f\x15\x7f(\x09h\x17\xf7\xff&\x09b\
+\x12\xbc1\x00\xc3%8\xabEXl\x04\xb8\x91\xb7\x8e\
+\x00\xb7\x0a\x0f\x0ap#\xbf\x1d\xe9\xdd\xe9\x17\x97\xdd\xad\
+r\xe2.\xf3\xa3\x81\x0a.\xb877\xd5\xbf\x9b\x88-\
+\xe7\x1dc\xb5\xeb\x03\xfcy\xbc*\xf6\x9d\xaa\x1d;\xbf\
+o\x85\xcb\xe7\xf0\xf6\x03\xe5\x99r\xa6\x03i\xc8i\x85\
+\xb8\xbe\x15h\xd7\xa6\x19\xbe/C\xe4/\xba\x96wc\
+\x97\x81z\xc1\xda\xa1C\xcb*K\x05\xf2\xe8=\x8f\x83\
+\xe0\xe2\xba{W\xed\x05\x09\xbc\x9a/'\x9f\x07\x09\xe0\
+!y\x0by\x9c\xe1\xe2v`\x04s\xf6*\x19\xec\x94\
+\x1e\x92\xc1o\xa9\xf0\xf6X\xe1\xa9\xb9\x89M^\xdch\
+\x97K\x0eT\xd1nq\xae\x1d]\xec\xd9c\x13\x9b\x1b\
+c\x98\x96q6\x91.G'\xe9\xe2lB\x9b\xf9\xda\
+9{\x80SL\xe7\x08\xe9\xdbrJ\xc0\xd8iLa\
+\xdc?(S\xdc\xec\x85\x02\xa2{\xb0\xb9\x13\x08lo\
+t6)\xc0p\x9dDZ\xef\xbc\x94g\xbb\xc1G<\
+\x88\x88gj\xbc\xb1\x88\xf8\xf1C(\xe5m+i\xdb\
+\xa1w\xa0W\xb3{4\x94d\x0d{D\xd0\x1cQ\xe4\
+7\x5c)\x8a\xa4\xe3I\xb0\xe4\xa84H\xd2\x97rK\
+\xf6RL\xcc\xfb\xbd\xda\xbd=\xdd\xa4/\xdf\x97\xec\xa5\
+\xb7bcF\xf2\xb0J\xed\xef\xdb\xed\x9fmU\xfb3\
+\x0d\xdb\x08\x1e\xb2!\x1c\x99\xce\x0c\x9bNY\xfa\xf6L\
+\xc7\xe3\xfb\xc0\xfb.\xe0\xd6\x96cv\xb77bpS\
+\x84\xcc\x95p)\xe7\x08zmpOx\xee\xad\x84+\
+\x92\x1b\x84\xf3\xda\x0a\xb8\x1b\xf8#\x9b\x07\xaaV\xf0a\
+\xeaRj\xb7\xf9]5!G\x84\x1a%4DU\x95\
+\xb4\x1a\xc8$\xcc\x80!\xaaB\x1a`;\x83\xdc\xf3G\
+ZH\xda\xf8\x8d=\x89\xdd\xd7\xf3t\x9d\x05e\xe2u\
+Lm\xa3L}x\xd0\xe3\xb9Z\xb3\x01\x5c\xad\xc5w\
+\xe5j\xad~$WG4I\x9b\xab\xcd!\xa6\x96m\
+\xa6\x96/3\xb5\xfcnLM\xfe\xf3\xfe\x9a7+\xd6\
+\xda\xb2X\xb4A\xafR\x81\xc3\xce|*\xf0\x13A\x87\
+0U\xac\x91+-\xe1\xce&\xb0l\xd2X-\x94\xa3\
+\x9b\xdf\xe4\xe0z*\xc3/+\x5c\xb7\x0c=\x94\x94\x8e\
+\xd0\xd14\xf0\xe9\xa6\xffNa\xdd\x8d\xa5MG\x95l\
+gj\x9a\xa2~\xa7OUV\xc1F\x01Q\x0b\x90\xd0\
+Y';\xb0Q\x87\xaf=f4\xe2\xc9\xd0\xae\xd6\xd9\
+\xb0\xf8\xb3cE\xe3\xf1t\x9b\x04\xb6\x9f\x04\xdc\xd1;\
+\x00\xb8}\x81\x04\xb4\xa4,\xb2\xcc\x97H\xa0\xf7I\x10\
+\xd0\xf9\xc7$\x81~-\x09b\x92\x10\x0f?\xf7\xbc\xec\
+\x8aN\xc6vU!*\xfe3\xe1\x9c\x0e\xbbZD\xe5\
+\x08\x85\xbd\x12\x16\xf1\xf4\xef\x89\x92\x14\x17;\xe3cn\
+\xf9\x01\xb7\x9a\xe5V\xb7\x96V|)\x00\xd4\xf4\x80\x9b\
+V\xf9\xd1\x08-\x9d\xd3Z\xee\xba\xd3W\x0f\xeb\xf5\xf1\
+i\x8e\xd6\xc1\x1b\xc4\xff\xaa\xbeDp\x22\xcaT\x04e\
+\x22\xd7\xc0\x16\x13\xe1>O\x85-&\x9d\xd8\x09\xa0O\
+\xc2\xd6\xe6\x08U_\xd4q*\x9a\xc0\xe8\xc6\xba\x0ds\
+\xc5\xd2\x14\xaa'I\xb1(\x1e\x07\xe4(&\xb3r2\
+/\x8e\x8c\xee\x8e\x08\xfb\x85=-\xc7\x06Oe\x10^\
+\x7fh0\x17\xe5N\xa19\x7fqS\xc7:)|\xb3\
+\xa5S?\xd0am\xc5\x9c\xa3\xeb\x09&7\x9a\x1b\xd7\
+\x8d\xc86\x94.\x9e\xee\x97\xe5:\x03>\x8b\xeaM\x97\
+\xe7\xb7\xcb\xbb\xe2\xfc\xef\xb3\xbb\xbb\xf1\xe4\x9c^\xed7\
+^\xfc\x0d\xab8\x9fM\x96\x8b\xd5\xf9b\xfc\xb0\x9e\xcd\
+\x1fV\xe7+\xb8\x97^\x9e\xc3\xe1\x99|\xfe\x1b\xf8$\
+\xe3&\xbf_\xdc\xf4N\xf24\xbd\x9f\x85\xb3@N\x0b\
+\xc1do\xdb\xe7\x9e\xb6\xd5\xf9\xb3nQu\xa0\xac\x9b\
+\x05i\x8e\x93\xc5Su\xeb\xc8\xde6\x14\xbe`\xae\xd9\
+\xdb\xae\x9et\xaa4\x1djrJ\xa5\x96\xdc+\xa6,\
+?\xeb\xec>\xdfH\xc7iojW\x17E%\xe6\xc8\
+\x14X\xec\x9c@\x8f8D\x942\x97\xb6+\x11\x22\x97\
+`,\xfb\x86)\x8eSr\xcf\xe0;\xac8\xbb\x1aO\
+>\xdf\x84\xc9.\xc6\x93\xc9\xc3\xdd\x03\xe5)Z\xf4l\
+R\xcc>\xe7\xca8\x91\x0aKw\x9bB\x80F\x07\xa6\
+\x0c\x9c_\x95\x83\xcf=W\xe4\xc8\x82p\x95[\x8b8\
+\x0fJ\x9c\x8a\x98\xe1\x12\xae\x80\x85e\x97\xde\xa0\x9f\xca\
+\x1d\xd76\xbc\xd2JKf\x5c\x92\x09J-k\x9f\xba\
+\x9cy\xa8\xce\xe0\x123\xab\x84\x027(+\xb8\xe74\
+\x9b1\xd6x\xf2\x82\xa5V\x82\x07\xcfZHg\x82\xe7\
+\x0bsguRA\x22\xd3\x0a2\xb8E\x04\x88\xf4B\
+\xd3~\xb1\xf7\x92\x9c\xca\x0a\x0e:\x96\x15\x00#\xd7\x04\
+\x9a\xce\xfa\x94\xde\xd5\xa29\x5c\x8f\x0a\x0a\x97VP9\
+\xf2\xb8\x03\x10i\x05\x94t4\xb3\xb4>LD\x0dX\
+\xf0\xd0\x09\x84\xb4\x02I\xc8\xa4\x06!\xcdj\xec\x90\x97\
+.\x84\xa6\xeba\xc0$\xa0\xd6\x09\x197\x18B\x0c\xe2\
+\x10`X@\xef4\xf1=\xbd\xf6\xcbx\xc5tB\x17\
+r\xe0,@\x9b\x00$\x0f\x83\x9eT h\xc2p\x80\
+\x89&2N1N\xc7\xcc(\x9b\xa4\x92\x06+Y\x0d\
+\x93Ij\x18DZ\x93,\x04\x17\x5c\x88\x80Lz\xad\
+\x98\xd2I\x05\x84\xa3\x92\x00\x95%\xdfO(i\x0c-\
+\xc1\xa9\x00a\x0d\x87\xa5\xb7\x9d\x10dT\x14\x00\x11i\
+\xb6A\x0e\x001\xd2p\x9a\xccx\x89\xa2\xe4kB,\
+\x04\xd7\xce\x09,\x17\x8e\x91\xe7\xda1Nx\x05b\xe8\
+-+\xceh\xa5=\x0a \xfaR\x10\x8a\xe0\xd52\xc2\
+<\x93\xcaP\x81\xf4Nr\x84\xfct4G\x10\x12\xb5\
+\x06?rr,\xa1j<\xc5A\xf8\x83\xf0\x09`\x00\
+?\xd0\x22\xe4\xaaT\x8bp\xccV\x05\xcc\x07\x97V\x1b\
+\xc3\x89\xb5\x8c\x84+\x16\xdc`\xcf\x18\xd6N\x1e\x9b\xf5\
+\xcaWlcB\x89\xc0\xa8.d#\x08\x02\x91V\x10\
+qG%\x01\x84\xb4\x02\xa9BE\x80!\xad`\x0aM\
+,(I\x05\x0c\x83\x84\xf0\x0fPp\x9e\xd6`\x81\xa0\
+Y\x0dFZ\xc3\xa5\xc3\x5c\x01\x8e\xb4\x06,\xec\xd7\x10\
+\xe1\x08\xa9\x80\x0c\xec\xc59\x15\xb1\xeauA\x00\x0dK\
+va\xb1\x04\x8aKk\xd8l\xe5\xe2\x0b\xc7C\x91e\
+\xdchCE\x04M\xda@GN<\x01c\xd2\xacF\
+\x12\xc9\x04\xc1\x12J\x02t\xc1E\xf7\xbc\x1aG\xc1#\
+\x83\xd3N|\xac\xeb\xf9\xe1\x172\x93T8\xa2\x82\x1a\
+G\x0d\x8aj\xc0\x0c\x91<@\x916p\x11\x89\x03\xa5\
+BF\xd4\x86a\x09Ei\x8d \xaa'\x08|Z\xa3\
+\xa7\x1b\xe16&\x1b\xc4\xf2\x99\xce\xa2N\x15\x0c(\x14\
+\xedzYf\x93\x87\xf2\xcbx\xfdP\x16M\xce\xe1M\
+\xcdFK\x0d\xb7.\xf1\xff\xf3\xe8\x7f\xc5H\xce%\xcb\
+\x0d\x83\xfa\x05\x03\x1a\xb8=\x82Q\x9e\xc3\x91\xb7\x00f\
+\xd3A\xed\x07\xed\xe4\xa4\xa3|\x87\xc8\xbd\xb5Doh\
+\x1e\xce\x99\x09\xacL/[\xa4\xd7(1kI\xb4\xe8\
+\x16\x1dT\x22\xf4 \x98\x18u\xa4\xaf\xbc\xe7\xd0{\x22\
+\x0fa\x13:3:\xfdR)\x19\xa1U%\xb3\xca(\
+\x92{\xe6\xa4f\xa4\xf6\xa0\xb4!\xd6\x86n\x1e\x9ap\
+\xb2 \xf7\xda`\x5cD\x14\x1cR\x14lH\x00O\xe4\
+\xe1}t\xc4\xd4\x0c\xbcLr/\xb9\xc5\xc4\x80@\xd0\
+\xebG\x01\x91\x11\x1e\xea\x03$\x93\xf0\xec\xd2\x1a N\
+\x9a\x9fs8\x22)\x81\x04y\xb0\xa4\xa2\xa0\x1a\xc3>\
+\xaa\xb3L$t\x94\x9b\x16\x0c\xac &\x85\xbciH\
+\x05X\x1d\xb38G/\x0e\xc3\xa0F\x0bp4\xed\xb2\
+*\x1b\x86P\xe10E\x16\x02,F\xd32\x0f\x1dJ\
+X\xd3\x92\xac-\xd9\x06J\x1c\x01W\x0a\xf6Q\x92\xda\
+\x87\x92\xb7\x82\x0c\x9b\xe1\x8c\x91f\xc4\xf0$\xd6\x80\x04\
+fL\x07+E(\x91\xe4\x96\x1a\xd8\x81\xa0O\xa1\xd9\
+\xc3\x99)\x98\x22n\xc20RQ/\x10\x0ar\xe9+\
+\xf5\x00|\x06\x1d\x82\x15\x09KhSt\x5c/$\xa6\
+\x18\x9d\xba\x22\x9a)\xa3Ij\x81\x5c\xe5h\x1f\x98\x10\
+\xe3\xe0\xc3\x11\xa5\x85\x16\xbcON\xcdQ\x92\xfa\xee\xc5\
+M\xe1\xdeO\x90\xf4\xdd`i/\x86\xec\x13\x5cP\x8e\
+s\xff\xdd\x04\xd7\xec\x09n\x0c\x93 v\xd6N\x0f\xc5\
+\xfcj\xe1\xad\x06\x83\xd5~u\xf3\x94\x098q\x08Q\
+\x99$\xd3\xae\xc0=Fu\xe2\x94\xf0\x1aH\xa8wm\
+\x5c;\x02\x08\xb7cY\xce\x19\xf4q\x9b~t\x81\x01\
+\xa6^qz\xc3\xf2\x9b\xab\xd5\xb87n\x8e\xf0\xc5\x85\
+\xdbO\x90\x1c\xd0\xc5\xaf\x0b\xfc\xbf\xab*\x16\x1c\xc4\xb3\
+\x9e\x8e\x0d\xe6\xdc\x91\x14\xc2\xce\x16\x99N\x8d\xc33\xbd\
+5P$\x88\xbf8\x02&H\xac(2\x93|A/\
+\x07\xfd\x0b\x8a'\xb7\x9b\xca\xe4\xf7\x84\xae\x13+\xaba\
+\xa9o\xe9H\xc8\xa6\x9c\xa35\xd4\x01T\xe6-e\xb8\
+\x81)(\xee\xdf\x93\xed\x84\xff\xb3\xc3\x91\xb4\xdb\x0cW\
+Qfn\xb8\xb4\xfeal\xf5\xe6\x18\xed?\x09\x7f\xc0\
+X\x09z%\xa1\x81\xf1\xd0\x88i@\x7f#\xe1\xb5A\
+\x9e=\x08J\x96\x1cN\xd9!\xae@q\xd5\x02!\xc0\
+\x0eW\xe8\x9c\xa2\x12\xd8\x9a\x0eWl\xa69\xcc\x14\x9d\
+#9o\xcb\x16M~\x81\xfek\x8cO\xef\xfe\x176\
+rv\xcc\
 \x00\x00\x14j\
 \x00\
 \x00b-x\xda\xed\x5cks\x1b\xc7r\xfd\xae_\xb1\
@@ -11339,6 +13984,655 @@ s+o\xc9\x0d=C\xe6F\xe26\x1b[[\xe6m\
 ~\xf5\x0a\xfe}\x8e7\xb9\xa3\xc7\x9b\xcc=\x8e7=\
 ;H\xfc[GtN\x9e_8:\xbf\xf5Q\xeb\x0f\
 \x97\xaf\x9f\xfd\x1f\xdd\xbc\x95I\
+\x00\x00(p\
+<\
+?xml version=\x221.\
+0\x22 encoding=\x22UTF\
+-8\x22 standalone=\x22\
+no\x22?>\x0a<!-- Creat\
+ed with Inkscape\
+ (http://www.ink\
+scape.org/) -->\x0a\
+\x0a<svg\x0a   width=\x22\
+64\x22\x0a   height=\x226\
+4\x22\x0a   viewBox=\x220\
+ 0 16.933333 16.\
+933333\x22\x0a   versi\
+on=\x221.1\x22\x0a   id=\x22\
+svg1\x22\x0a   xml:spa\
+ce=\x22preserve\x22\x0a  \
+ sodipodi:docnam\
+e=\x22ExportFreeCAD\
+.svg\x22\x0a   inkscap\
+e:version=\x221.3 (\
+0e150ed6c4, 2023\
+-07-21)\x22\x0a   xmln\
+s:inkscape=\x22http\
+://www.inkscape.\
+org/namespaces/i\
+nkscape\x22\x0a   xmln\
+s:sodipodi=\x22http\
+://sodipodi.sour\
+ceforge.net/DTD/\
+sodipodi-0.dtd\x22\x0a\
+   xmlns:xlink=\x22\
+http://www.w3.or\
+g/1999/xlink\x22\x0a  \
+ xmlns=\x22http://w\
+ww.w3.org/2000/s\
+vg\x22\x0a   xmlns:svg\
+=\x22http://www.w3.\
+org/2000/svg\x22><s\
+odipodi:namedvie\
+w\x0a     id=\x22named\
+view1\x22\x0a     page\
+color=\x22#505050\x22\x0a\
+     bordercolor\
+=\x22#eeeeee\x22\x0a     \
+borderopacity=\x221\
+\x22\x0a     inkscape:\
+showpageshadow=\x22\
+0\x22\x0a     inkscape\
+:pageopacity=\x220\x22\
+\x0a     inkscape:p\
+agecheckerboard=\
+\x220\x22\x0a     inkscap\
+e:deskcolor=\x22#50\
+5050\x22\x0a     inksc\
+ape:document-uni\
+ts=\x22px\x22\x0a     ink\
+scape:zoom=\x2212.1\
+90169\x22\x0a     inks\
+cape:cx=\x2234.7411\
+1\x22\x0a     inkscape\
+:cy=\x2232.52621\x22\x0a \
+    inkscape:win\
+dow-width=\x221920\x22\
+\x0a     inkscape:w\
+indow-height=\x2210\
+09\x22\x0a     inkscap\
+e:window-x=\x22-8\x22\x0a\
+     inkscape:wi\
+ndow-y=\x22-8\x22\x0a    \
+ inkscape:window\
+-maximized=\x221\x22\x0a \
+    inkscape:cur\
+rent-layer=\x22svg1\
+\x22\x0a     showgrid=\
+\x22true\x22\x0a     inks\
+cape:lockguides=\
+\x22false\x22><inkscap\
+e:grid\x0a       id\
+=\x22grid1\x22\x0a       \
+units=\x22px\x22\x0a     \
+  originx=\x220\x22\x0a  \
+     originy=\x220\x22\
+\x0a       spacingx\
+=\x220.26458333\x22\x0a  \
+     spacingy=\x220\
+.26458333\x22\x0a     \
+  empcolor=\x22#009\
+9e5\x22\x0a       empo\
+pacity=\x220.301960\
+78\x22\x0a       color\
+=\x22#0099e5\x22\x0a     \
+  opacity=\x220.149\
+01961\x22\x0a       em\
+pspacing=\x225\x22\x0a   \
+    dotted=\x22fals\
+e\x22\x0a       gridan\
+glex=\x2230\x22\x0a      \
+ gridanglez=\x2230\x22\
+\x0a       visible=\
+\x22true\x22 /></sodip\
+odi:namedview><d\
+efs\x0a     id=\x22def\
+s1\x22><linearGradi\
+ent\x0a       gradi\
+entTransform=\x22tr\
+anslate(-48)\x22\x0a  \
+     gradientUni\
+ts=\x22userSpaceOnU\
+se\x22\x0a       y2=\x222\
+5.999996\x22\x0a      \
+ x2=\x2253\x22\x0a       \
+y1=\x2239.999996\x22\x0a \
+      x1=\x2210\x22\x0a  \
+     id=\x22linearG\
+radient3781\x22\x0a   \
+    xlink:href=\x22\
+#linearGradient3\
+775\x22 /><linearGr\
+adient\x0a       id\
+=\x22linearGradient\
+3775\x22><stop\x0a    \
+     id=\x22stop377\
+7\x22\x0a         offs\
+et=\x220\x22\x0a         \
+style=\x22stop-colo\
+r:#d3d7cf;stop-o\
+pacity:1;\x22 /><st\
+op\x0a         id=\x22\
+stop3779\x22\x0a      \
+   offset=\x221\x22\x0a  \
+       style=\x22st\
+op-color:#ffffff\
+;stop-opacity:1\x22\
+ /></linearGradi\
+ent><linearGradi\
+ent\x0a       gradi\
+entTransform=\x22ma\
+trix(1,0,0,0.777\
+77777,0,5.111111\
+4)\x22\x0a       gradi\
+entUnits=\x22userSp\
+aceOnUse\x22\x0a      \
+ y2=\x225\x22\x0a       x\
+2=\x2221\x22\x0a       y1\
+=\x2258\x22\x0a       x1=\
+\x2238\x22\x0a       id=\x22\
+linearGradient37\
+89\x22\x0a       xlink\
+:href=\x22#linearGr\
+adient3775\x22 /><s\
+ymbol\x0a       id=\
+\x22DownArrow\x22><tit\
+le\x0a         id=\x22\
+title284\x22>Down A\
+rrow</title><pat\
+h\x0a         d=\x22M \
+36,63 14,41 V 26\
+ L 30,42 V 10 H \
+42 V 42 L 58,26 \
+v 15 z\x22\x0a        \
+ style=\x22stroke:n\
+one\x22\x0a         id\
+=\x22path284\x22 /></s\
+ymbol><linearGra\
+dient\x0a       ink\
+scape:collect=\x22a\
+lways\x22\x0a       xl\
+ink:href=\x22#linea\
+rGradient3864-9\x22\
+\x0a       id=\x22line\
+arGradient3808\x22\x0a\
+       x1=\x22-146.\
+74467\x22\x0a       y1\
+=\x2258.261547\x22\x0a   \
+    x2=\x22-157.324\
+94\x22\x0a       y2=\x222\
+6.520763\x22\x0a      \
+ gradientUnits=\x22\
+userSpaceOnUse\x22\x0a\
+       gradientT\
+ransform=\x22matrix\
+(1.0094494,0,0,1\
+.0094493,-20.307\
+973,3.7260081)\x22 \
+/><linearGradien\
+t\x0a       id=\x22lin\
+earGradient3864-\
+9\x22><stop\x0a       \
+  style=\x22stop-co\
+lor:#204a87;stop\
+-opacity:1\x22\x0a    \
+     offset=\x220\x22\x0a\
+         id=\x22sto\
+p3866-1\x22 /><stop\
+\x0a         style=\
+\x22stop-color:#729\
+fcf;stop-opacity\
+:1\x22\x0a         off\
+set=\x221\x22\x0a        \
+ id=\x22stop3868-1\x22\
+ /></linearGradi\
+ent><linearGradi\
+ent\x0a       inksc\
+ape:collect=\x22alw\
+ays\x22\x0a       xlin\
+k:href=\x22#linearG\
+radient3682-0\x22\x0a \
+      id=\x22linear\
+Gradient3806\x22\x0a  \
+     x1=\x22-206.69\
+949\x22\x0a       y1=\x22\
+68.841812\x22\x0a     \
+  x2=\x22-211.40184\
+\x22\x0a       y2=\x227.7\
+114096\x22\x0a       g\
+radientUnits=\x22us\
+erSpaceOnUse\x22 />\
+<linearGradient\x0a\
+       id=\x22linea\
+rGradient3682-0\x22\
+><stop\x0a         \
+id=\x22stop3684-0\x22\x0a\
+         offset=\
+\x220\x22\x0a         sty\
+le=\x22stop-color:#\
+a40000;stop-opac\
+ity:1\x22 /><stop\x0a \
+        id=\x22stop\
+3686-0\x22\x0a        \
+ offset=\x221\x22\x0a    \
+     style=\x22stop\
+-color:#ef2929;s\
+top-opacity:1\x22 /\
+></linearGradien\
+t></defs><g\x0a    \
+ id=\x22g1\x22\x0a     tr\
+ansform=\x22matrix(\
+0.08466667,0,0,0\
+.08313838,-4.576\
+6667e-7,5.317797\
+4e-6)\x22><g\x0a      \
+ id=\x22layer1-3\x22\x0a \
+      transform=\
+\x22matrix(3.333333\
+3,0,0,3.3333333,\
+-6.6666671,-19.9\
+99994)\x22><rect\x0a  \
+       y=\x228\x22\x0a   \
+      x=\x224\x22\x0a    \
+     height=\x2244\x22\
+\x0a         width=\
+\x2256\x22\x0a         id\
+=\x22rect3002-9\x22\x0a  \
+       style=\x22co\
+lor:#000000;disp\
+lay:inline;overf\
+low:visible;visi\
+bility:visible;f\
+ill:#ffffff;stro\
+ke:#2e3436;strok\
+e-width:4;stroke\
+-linecap:butt;st\
+roke-linejoin:ro\
+und;stroke-miter\
+limit:4;stroke-d\
+asharray:none;st\
+roke-dashoffset:\
+0;stroke-opacity\
+:1;marker:none;e\
+nable-background\
+:accumulate\x22 /><\
+rect\x0a         y=\
+\x229\x22\x0a         x=\x22\
+5\x22\x0a         heig\
+ht=\x2242\x22\x0a        \
+ width=\x2254\x22\x0a    \
+     id=\x22rect300\
+2-9-3\x22\x0a         \
+style=\x22color:#00\
+0000;display:inl\
+ine;overflow:vis\
+ible;visibility:\
+visible;fill:url\
+(#linearGradient\
+3789);fill-opaci\
+ty:1;stroke:#fff\
+fff;stroke-width\
+:2;stroke-lineca\
+p:butt;stroke-li\
+nejoin:round;str\
+oke-miterlimit:4\
+;stroke-dasharra\
+y:none;stroke-da\
+shoffset:0;strok\
+e-opacity:1;mark\
+er:none;enable-b\
+ackground:accumu\
+late\x22 /><path\x0a  \
+       id=\x22path3\
+790\x22\x0a         d=\
+\x22M 3,18 H 61\x22\x0a  \
+       style=\x22fi\
+ll:none;stroke:#\
+2e3436;stroke-wi\
+dth:4;stroke-lin\
+ecap:butt;stroke\
+-linejoin:miter;\
+stroke-miterlimi\
+t:4;stroke-dasha\
+rray:none;stroke\
+-opacity:1\x22 /><p\
+ath\x0a         id=\
+\x22path3792\x22\x0a     \
+    d=\x22M 22,6 V \
+54\x22\x0a         sty\
+le=\x22fill:none;st\
+roke:#2e3436;str\
+oke-width:4;stro\
+ke-linecap:butt;\
+stroke-linejoin:\
+miter;stroke-mit\
+erlimit:4;stroke\
+-dasharray:none;\
+stroke-opacity:1\
+\x22 /><path\x0a      \
+   id=\x22path3794\x22\
+\x0a         d=\x22M 3\
+,30 H 61\x22\x0a      \
+   style=\x22fill:n\
+one;stroke:#2e34\
+36;stroke-width:\
+4;stroke-linecap\
+:butt;stroke-lin\
+ejoin:miter;stro\
+ke-miterlimit:4;\
+stroke-dasharray\
+:none;stroke-opa\
+city:1\x22 /><path\x0a\
+         id=\x22pat\
+h3796\x22\x0a         \
+d=\x22M 3,42 H 61\x22\x0a\
+         style=\x22\
+fill:none;stroke\
+:#2e3436;stroke-\
+width:4;stroke-l\
+inecap:butt;stro\
+ke-linejoin:mite\
+r;stroke-miterli\
+mit:4;stroke-das\
+harray:none;stro\
+ke-opacity:1\x22 />\
+</g><g\x0a       id\
+=\x22layer1\x22\x0a      \
+ transform=\x22tran\
+slate(-5.1530252\
+,-39.515954)\x22><p\
+ath\x0a         sty\
+le=\x22fill:#ff0000\
+;stroke-width:0.\
+741281\x22\x0a        \
+ d=\x22M 38.742777,\
+107.22612 C 24.1\
+42166,78.021475 \
+12.634873,54.302\
+553 13.171027,54\
+.517402 c 0.5361\
+43,0.214849 11.9\
+68065,5.106589 2\
+5.404268,10.8705\
+35 13.436203,5.7\
+63938 25.111373,\
+10.647698 25.944\
+819,10.852778 0.\
+940465,0.23141 1\
+1.358165,-3.8309\
+3 27.460157,-10.\
+707981 14.269649\
+,-6.094466 26.04\
+7059,-10.979951 \
+26.171999,-10.85\
+6633 0.23037,0.2\
+27349 -52.332489\
+,105.649379 -52.\
+676209,105.64937\
+9 -0.10269,0 -12\
+.132674,-23.8947\
+1 -26.733284,-53\
+.09936 z\x22\x0a      \
+   id=\x22path20\x22 /\
+></g></g><g\x0a    \
+ transform=\x22matr\
+ix(0.14629245,0,\
+0,0.14629245,38.\
+57295,6.1743791)\
+\x22\x0a     id=\x22g3813\
+-3\x22><path\x0a      \
+ style=\x22display:\
+inline;overflow:\
+visible;visibili\
+ty:visible;fill:\
+url(#linearGradi\
+ent3808);fill-op\
+acity:1;fill-rul\
+e:evenodd;stroke\
+:#000137;stroke-\
+width:2.35117;st\
+roke-linecap:rou\
+nd;stroke-linejo\
+in:round;stroke-\
+miterlimit:4;str\
+oke-dasharray:no\
+ne;stroke-dashof\
+fset:0;stroke-op\
+acity:1;marker:n\
+one;enable-backg\
+round:accumulate\
+\x22\x0a       d=\x22m -1\
+59.14682,27.7625\
+72 -7.26628,4.16\
+8914 -3.20873,-1\
+.113515 -3.06139\
+,-7.823962 -4.81\
+574,0.253068 -2.\
+19659,8.090466 -\
+3.07424,1.472191\
+ -7.66769,-3.354\
+213 -3.23863,3.5\
+98875 4.16893,7.\
+266276 -1.13925,\
+3.199324 -7.8239\
+7,3.061399 0.278\
+79,4.825129 8.09\
+048,2.196583 1.4\
+7219,3.074238 -3\
+.37993,7.658303 \
+3.59887,3.238623\
+ 7.26627,-4.1689\
+16 3.22506,1.148\
+635 3.03567,7.81\
+457 4.85085,-0.2\
+69405 2.17086,-8\
+.099855 3.07425,\
+-1.472193 7.6840\
+1,3.389334 3.238\
+63,-3.598876 -4.\
+16892,-7.266274 \
+1.1229,-3.234445\
+ 7.81458,-3.0356\
+77 -0.24366,-4.8\
+41457 -8.09987,-\
+2.170857 -1.4722\
+,-3.074238 3.363\
+61,-7.693423 z m\
+ -10.88267,11.91\
+5801 1.49161,0.8\
+65459 1.29232,1.\
+171703 1.03462,1\
+.398312 0.74426,\
+1.554681 0.43759\
+,1.67593 0.0725,\
+1.71754 -0.24807\
+,1.717095 -0.566\
+14,1.630089 -0.9\
+0058,1.507949 -1\
+.13658,1.275982 \
+-1.39832,1.03461\
+8 -1.55468,0.744\
+257 -1.67593,0.4\
+3758 -1.72693,0.\
+09823 -1.71711,-\
+0.248055 -1.6300\
+8,-0.566152 -1.5\
+0794,-0.900579 -\
+1.26661,-1.16231\
+1 -1.04399,-1.37\
+2584 -0.74428,-1\
+.554679 -0.42818\
+,-1.701656 -0.09\
+82,-1.726934 0.2\
+4806,-1.717099 0\
+.56616,-1.630085\
+ 0.89118,-1.4822\
+25 1.14599,-1.30\
+1706 1.3983,-1.0\
+34618 1.55468,-0\
+.744261 1.70165,\
+-0.428183 1.7175\
+4,-0.0725 1.7171\
+,0.248053 1.6300\
+9,0.566153 z\x22\x0a  \
+     id=\x22path365\
+9-5\x22\x0a       inks\
+cape:connector-c\
+urvature=\x220\x22 /><\
+path\x0a       styl\
+e=\x22display:inlin\
+e;overflow:visib\
+le;visibility:vi\
+sible;fill:none;\
+stroke:#729fcf;s\
+troke-width:2.35\
+117;stroke-linec\
+ap:round;stroke-\
+linejoin:round;s\
+troke-miterlimit\
+:4;stroke-dashar\
+ray:none;stroke-\
+dashoffset:0;str\
+oke-opacity:1;ma\
+rker:none;enable\
+-background:accu\
+mulate\x22\x0a       d\
+=\x22m -159.40722,3\
+0.604211 -6.7820\
+6,3.885229 -5.11\
+355,-1.83873 -2.\
+97765,-7.211069 \
+-1.43915,0.07782\
+ -2.07148,7.5844\
+39 -4.99186,2.27\
+66 -7.06968,-3.0\
+72549 -0.94649,1\
+.083504 3.90414,\
+6.857637 -1.9564\
+8,5.010571 -7.13\
+55,2.845405 0.08\
+22,1.531739 7.52\
+777,2.062954 2.3\
+3329,4.991861 -3\
+.11471,7.061187 \
+1.0457,0.908702 \
+6.7065,-3.828556\
+ 5.39281,1.88939\
+8 2.65209,7.1647\
+87 1.44166,-0.01\
+704 2.09636,-7.5\
+36257 4.8974,-2.\
+446633 7.38672,3\
+.161002 0.88982,\
+-0.951258 -3.904\
+13,-6.687603 1.6\
+772,-5.250163 7.\
+33482,-2.916596 \
+-0.0504,-1.50872\
+7 -7.44181,-1.90\
+7432 -2.46554,-5\
+.048537 3.11884,\
+-7.22521 z\x22\x0a    \
+   id=\x22path3659-\
+5-6\x22\x0a       inks\
+cape:connector-c\
+urvature=\x220\x22\x0a   \
+    sodipodi:nod\
+etypes=\x22cccccccc\
+cccccccccccccccc\
+ccccccccc\x22 /><ci\
+rcle\x0a       styl\
+e=\x22fill:none;str\
+oke:#729fcf;stro\
+ke-width:1.81197\
+;stroke-linecap:\
+round;stroke-lin\
+ejoin:round;stro\
+ke-miterlimit:4;\
+stroke-dasharray\
+:none;stroke-das\
+hoffset:6;stroke\
+-opacity:1\x22\x0a    \
+   id=\x22path3898\x22\
+\x0a       transfor\
+m=\x22matrix(1.2975\
+787,0,0,1.297578\
+7,-227.20403,-4.\
+4100648)\x22\x0a      \
+ cx=\x2241.15683\x22\x0a \
+      cy=\x2240.103\
+004\x22\x0a       r=\x228\
+.6941996\x22 /><pat\
+h\x0a       style=\x22\
+display:inline;o\
+verflow:visible;\
+visibility:visib\
+le;fill:url(#lin\
+earGradient3806)\
+;fill-opacity:1;\
+fill-rule:evenod\
+d;stroke:#280000\
+;stroke-width:2.\
+35117;stroke-lin\
+ecap:butt;stroke\
+-linejoin:miter;\
+stroke-miterlimi\
+t:4;stroke-dasha\
+rray:none;stroke\
+-dashoffset:0;st\
+roke-opacity:1;m\
+arker:none;enabl\
+e-background:acc\
+umulate\x22\x0a       \
+d=\x22m -217.27976,\
+4.1846558 1e-5,6\
+8.1839092 14.107\
+01,-2e-6 v -28.2\
+1403 h 14.10701 \
+V 30.047518 h -1\
+4.10701 V 18.291\
+671 h 23.51169 V\
+ 4.1846558 Z\x22\x0a  \
+     id=\x22rect366\
+3-8\x22\x0a       sodi\
+podi:nodetypes=\x22\
+ccccccccccc\x22\x0a   \
+    inkscape:con\
+nector-curvature\
+=\x220\x22 /><path\x0a   \
+    style=\x22displ\
+ay:inline;overfl\
+ow:visible;visib\
+ility:visible;fi\
+ll:none;stroke:#\
+ef2929;stroke-wi\
+dth:2.35117;stro\
+ke-linecap:butt;\
+stroke-linejoin:\
+miter;stroke-mit\
+erlimit:4;stroke\
+-dasharray:none;\
+stroke-dashoffse\
+t:0;stroke-opaci\
+ty:1;marker:none\
+;enable-backgrou\
+nd:accumulate\x22\x0a \
+      d=\x22m -214.\
+92859,6.535825 v\
+ 63.481569 h 9.4\
+0468 v -28.21403\
+ h 14.10701 v -9\
+.404677 h -14.10\
+701 V 15.940502 \
+h 23.51169 V 6.5\
+35825 Z\x22\x0a       \
+id=\x22rect3663-8-3\
+\x22\x0a       sodipod\
+i:nodetypes=\x22ccc\
+cccccccc\x22\x0a      \
+ inkscape:connec\
+tor-curvature=\x220\
+\x22 /></g></svg>\x0a\
 \x00\x00\x14q\
 \x00\
 \x00a\xdbx\xda\xed\x5cks\x1a\xc9\x92\xfd>\xbf\xa2\
@@ -11669,6 +14963,1119 @@ UN\xa8\xb7e\xedr\x02\xd5\x14w~\x17.K\x5c\
 R\xfay\x9be-\x7f\xdf]\xc9\xdf\xcb\x01\x05X}\
 \x0d\xc0z\xe3\x8e_\xc6\xff\xe6\x87\xff\x07\xd7wP\xc9\
 \
+\x00\x00:\xb5\
+<\
+?xml version=\x221.\
+0\x22 encoding=\x22UTF\
+-8\x22 standalone=\x22\
+no\x22?>\x0a<!-- Creat\
+ed with Inkscape\
+ (http://www.ink\
+scape.org/) -->\x0a\
+\x0a<svg\x0a   width=\x22\
+64\x22\x0a   height=\x226\
+4\x22\x0a   viewBox=\x220\
+ 0 16.933333 16.\
+933333\x22\x0a   versi\
+on=\x221.1\x22\x0a   id=\x22\
+svg1\x22\x0a   xml:spa\
+ce=\x22preserve\x22\x0a  \
+ inkscape:versio\
+n=\x221.3 (0e150ed6\
+c4, 2023-07-21)\x22\
+\x0a   sodipodi:doc\
+name=\x22ExportSett\
+ings_FreeCAD.svg\
+\x22\x0a   xmlns:inksc\
+ape=\x22http://www.\
+inkscape.org/nam\
+espaces/inkscape\
+\x22\x0a   xmlns:sodip\
+odi=\x22http://sodi\
+podi.sourceforge\
+.net/DTD/sodipod\
+i-0.dtd\x22\x0a   xmln\
+s:xlink=\x22http://\
+www.w3.org/1999/\
+xlink\x22\x0a   xmlns=\
+\x22http://www.w3.o\
+rg/2000/svg\x22\x0a   \
+xmlns:svg=\x22http:\
+//www.w3.org/200\
+0/svg\x22><sodipodi\
+:namedview\x0a     \
+id=\x22namedview1\x22\x0a\
+     pagecolor=\x22\
+#505050\x22\x0a     bo\
+rdercolor=\x22#eeee\
+ee\x22\x0a     bordero\
+pacity=\x221\x22\x0a     \
+inkscape:showpag\
+eshadow=\x220\x22\x0a    \
+ inkscape:pageop\
+acity=\x220\x22\x0a     i\
+nkscape:pagechec\
+kerboard=\x220\x22\x0a   \
+  inkscape:deskc\
+olor=\x22#505050\x22\x0a \
+    inkscape:doc\
+ument-units=\x22px\x22\
+\x0a     inkscape:z\
+oom=\x2211.313708\x22\x0a\
+     inkscape:cx\
+=\x2242.779962\x22\x0a   \
+  inkscape:cy=\x223\
+5.13437\x22\x0a     in\
+kscape:window-wi\
+dth=\x221920\x22\x0a     \
+inkscape:window-\
+height=\x221009\x22\x0a  \
+   inkscape:wind\
+ow-x=\x22-8\x22\x0a     i\
+nkscape:window-y\
+=\x22-8\x22\x0a     inksc\
+ape:window-maxim\
+ized=\x221\x22\x0a     in\
+kscape:current-l\
+ayer=\x22layer2\x22\x0a  \
+   showguides=\x22t\
+rue\x22\x0a     showgr\
+id=\x22true\x22><inksc\
+ape:page\x0a       \
+x=\x220\x22\x0a       y=\x22\
+0\x22\x0a       width=\
+\x2216.933332\x22\x0a    \
+   height=\x2216.93\
+3332\x22\x0a       id=\
+\x22page2\x22\x0a       m\
+argin=\x220 838.301\
+15 0 0\x22\x0a       b\
+leed=\x220\x22 /><inks\
+cape:grid\x0a      \
+ id=\x22grid1\x22\x0a    \
+   units=\x22px\x22\x0a  \
+     originx=\x220\x22\
+\x0a       originy=\
+\x220\x22\x0a       spaci\
+ngx=\x220.26458333\x22\
+\x0a       spacingy\
+=\x220.26458333\x22\x0a  \
+     empcolor=\x22#\
+0099e5\x22\x0a       e\
+mpopacity=\x220.301\
+96078\x22\x0a       co\
+lor=\x22#0099e5\x22\x0a  \
+     opacity=\x220.\
+14901961\x22\x0a      \
+ empspacing=\x225\x22\x0a\
+       dotted=\x22f\
+alse\x22\x0a       gri\
+danglex=\x2230\x22\x0a   \
+    gridanglez=\x22\
+30\x22\x0a       visib\
+le=\x22true\x22 /></so\
+dipodi:namedview\
+><defs\x0a     id=\x22\
+defs1\x22><linearGr\
+adient\x0a       gr\
+adientTransform=\
+\x22translate(-48)\x22\
+\x0a       gradient\
+Units=\x22userSpace\
+OnUse\x22\x0a       y2\
+=\x2225.999996\x22\x0a   \
+    x2=\x2253\x22\x0a    \
+   y1=\x2239.999996\
+\x22\x0a       x1=\x2210\x22\
+\x0a       id=\x22line\
+arGradient3781\x22\x0a\
+       xlink:hre\
+f=\x22#linearGradie\
+nt3775\x22 /><linea\
+rGradient\x0a      \
+ id=\x22linearGradi\
+ent3775\x22><stop\x0a \
+        id=\x22stop\
+3777\x22\x0a         o\
+ffset=\x220\x22\x0a      \
+   style=\x22stop-c\
+olor:#d3d7cf;sto\
+p-opacity:1;\x22 />\
+<stop\x0a         i\
+d=\x22stop3779\x22\x0a   \
+      offset=\x221\x22\
+\x0a         style=\
+\x22stop-color:#fff\
+fff;stop-opacity\
+:1\x22 /></linearGr\
+adient><linearGr\
+adient\x0a       gr\
+adientTransform=\
+\x22matrix(1,0,0,0.\
+77777777,0,5.111\
+1114)\x22\x0a       gr\
+adientUnits=\x22use\
+rSpaceOnUse\x22\x0a   \
+    y2=\x225\x22\x0a     \
+  x2=\x2221\x22\x0a      \
+ y1=\x2258\x22\x0a       \
+x1=\x2238\x22\x0a       i\
+d=\x22linearGradien\
+t3789\x22\x0a       xl\
+ink:href=\x22#linea\
+rGradient3775\x22 /\
+><linearGradient\
+\x0a       id=\x22line\
+arGradient3319\x22>\
+<stop\x0a         i\
+d=\x22stop3315\x22\x0a   \
+      offset=\x220\x22\
+\x0a         style=\
+\x22stop-color:#729\
+fcf;stop-opacity\
+:1\x22 /><stop\x0a    \
+     id=\x22stop331\
+7\x22\x0a         offs\
+et=\x221\x22\x0a         \
+style=\x22stop-colo\
+r:#204a87;stop-o\
+pacity:1\x22 /></li\
+nearGradient><li\
+nearGradient\x0a   \
+    id=\x22linearGr\
+adient4387\x22><sto\
+p\x0a         id=\x22s\
+top4389\x22\x0a       \
+  offset=\x220\x22\x0a   \
+      style=\x22sto\
+p-color:#71b2f8;\
+stop-opacity:1;\x22\
+ /><stop\x0a       \
+  id=\x22stop4391\x22\x0a\
+         offset=\
+\x221\x22\x0a         sty\
+le=\x22stop-color:#\
+002795;stop-opac\
+ity:1;\x22 /></line\
+arGradient><radi\
+alGradient\x0a     \
+  gradientTransf\
+orm=\x22translate(-\
+0.23443224,0.234\
+43198)\x22\x0a       g\
+radientUnits=\x22us\
+erSpaceOnUse\x22\x0a  \
+     r=\x2219.46743\
+6\x22\x0a       fy=\x2228\
+.869568\x22\x0a       \
+fx=\x2245.883327\x22\x0a \
+      cy=\x2228.869\
+568\x22\x0a       cx=\x22\
+45.883327\x22\x0a     \
+  id=\x22radialGrad\
+ient3692\x22\x0a      \
+ xlink:href=\x22#li\
+nearGradient3377\
+\x22 /><linearGradi\
+ent\x0a       id=\x22l\
+inearGradient337\
+7\x22><stop\x0a       \
+  style=\x22stop-co\
+lor:#faff2b;stop\
+-opacity:1;\x22\x0a   \
+      offset=\x220\x22\
+\x0a         id=\x22st\
+op3379\x22 /><stop\x0a\
+         style=\x22\
+stop-color:#ffaa\
+00;stop-opacity:\
+1;\x22\x0a         off\
+set=\x221\x22\x0a        \
+ id=\x22stop3381\x22 /\
+></linearGradien\
+t><radialGradien\
+t\x0a       r=\x2219.4\
+67436\x22\x0a       fy\
+=\x2228.869568\x22\x0a   \
+    fx=\x2245.88332\
+7\x22\x0a       cy=\x2228\
+.869568\x22\x0a       \
+cx=\x2245.883327\x22\x0a \
+      gradientTr\
+ansform=\x22matrix(\
+0.67067175,0,0,0\
+.64145918,-63.38\
+0792,0.83845403)\
+\x22\x0a       gradien\
+tUnits=\x22userSpac\
+eOnUse\x22\x0a       i\
+d=\x22radialGradien\
+t6412\x22\x0a       xl\
+ink:href=\x22#linea\
+rGradient3377\x22 /\
+><linearGradient\
+\x0a       xlink:hr\
+ef=\x22#linearGradi\
+ent3036\x22\x0a       \
+id=\x22linearGradie\
+nt3049\x22\x0a       g\
+radientUnits=\x22us\
+erSpaceOnUse\x22\x0a  \
+     gradientTra\
+nsform=\x22rotate(3\
+3.834399,20.2804\
+12,56.143946)\x22\x0a \
+      x1=\x2214.824\
+193\x22\x0a       y1=\x22\
+50.468616\x22\x0a     \
+  x2=\x2220.93985\x22\x0a\
+       y2=\x2256.00\
+0233\x22 /><linearG\
+radient\x0a       i\
+d=\x22linearGradien\
+t3036\x22><stop\x0a   \
+      style=\x22sto\
+p-color:#ef2929;\
+stop-opacity:1\x22\x0a\
+         offset=\
+\x220\x22\x0a         id=\
+\x22stop3038\x22 /><st\
+op\x0a         styl\
+e=\x22stop-color:#a\
+40000;stop-opaci\
+ty:1\x22\x0a         o\
+ffset=\x221\x22\x0a      \
+   id=\x22stop3040\x22\
+ /></linearGradi\
+ent><linearGradi\
+ent\x0a       y2=\x225\
+6.000233\x22\x0a      \
+ x2=\x2220.93985\x22\x0a \
+      y1=\x2250.468\
+616\x22\x0a       x1=\x22\
+14.824193\x22\x0a     \
+  gradientTransf\
+orm=\x22rotate(33.8\
+34399,-6.8783909\
+,90.878388)\x22\x0a   \
+    gradientUnit\
+s=\x22userSpaceOnUs\
+e\x22\x0a       id=\x22li\
+nearGradient3307\
+\x22\x0a       xlink:h\
+ref=\x22#linearGrad\
+ient3319\x22 /><lin\
+earGradient\x0a    \
+   xlink:href=\x22#\
+linearGradient38\
+64-9\x22\x0a       id=\
+\x22linearGradient3\
+808\x22\x0a       x1=\x22\
+-146.74467\x22\x0a    \
+   y1=\x2258.261547\
+\x22\x0a       x2=\x22-15\
+7.32494\x22\x0a       \
+y2=\x2226.520763\x22\x0a \
+      gradientUn\
+its=\x22userSpaceOn\
+Use\x22\x0a       grad\
+ientTransform=\x22m\
+atrix(0.97668521\
+,0.0547655,-0.05\
+47655,0.97668512\
+,182.70859,-2.23\
+05154)\x22 /><linea\
+rGradient\x0a      \
+ id=\x22linearGradi\
+ent3864-9\x22><stop\
+\x0a         style=\
+\x22stop-color:#204\
+a87;stop-opacity\
+:1\x22\x0a         off\
+set=\x220\x22\x0a        \
+ id=\x22stop3866-1\x22\
+ /><stop\x0a       \
+  style=\x22stop-co\
+lor:#729fcf;stop\
+-opacity:1\x22\x0a    \
+     offset=\x221\x22\x0a\
+         id=\x22sto\
+p3868-1\x22 /></lin\
+earGradient><lin\
+earGradient\x0a    \
+   y2=\x22609.50507\
+\x22\x0a       x2=\x22302\
+.85715\x22\x0a       y\
+1=\x22366.64789\x22\x0a  \
+     x1=\x22302.857\
+15\x22\x0a       gradi\
+entTransform=\x22ma\
+trix(2.774389,0,\
+0,1.969706,-1892\
+.179,-872.8854)\x22\
+\x0a       gradient\
+Units=\x22userSpace\
+OnUse\x22\x0a       id\
+=\x22linearGradient\
+6715-5\x22\x0a       x\
+link:href=\x22#line\
+arGradient5048\x22 \
+/><linearGradien\
+t\x0a       id=\x22lin\
+earGradient5048\x22\
+><stop\x0a         \
+style=\x22stop-colo\
+r:black;stop-opa\
+city:0;\x22\x0a       \
+  offset=\x220\x22\x0a   \
+      id=\x22stop50\
+50\x22 /><stop\x0a    \
+     id=\x22stop505\
+6\x22\x0a         offs\
+et=\x220.5\x22\x0a       \
+  style=\x22stop-co\
+lor:black;stop-o\
+pacity:1;\x22 /><st\
+op\x0a         styl\
+e=\x22stop-color:bl\
+ack;stop-opacity\
+:0;\x22\x0a         of\
+fset=\x221\x22\x0a       \
+  id=\x22stop5052\x22 \
+/></linearGradie\
+nt><linearGradie\
+nt\x0a       inksca\
+pe:collect=\x22alwa\
+ys\x22\x0a       xlink\
+:href=\x22#linearGr\
+adient3864-9\x22\x0a  \
+     id=\x22linearG\
+radient3808-4\x22\x0a \
+      x1=\x22-146.7\
+4467\x22\x0a       y1=\
+\x2258.261547\x22\x0a    \
+   x2=\x22-157.3249\
+4\x22\x0a       y2=\x2226\
+.520763\x22\x0a       \
+gradientUnits=\x22u\
+serSpaceOnUse\x22\x0a \
+      gradientTr\
+ansform=\x22matrix(\
+1.0094494,0,0,1.\
+0094493,-20.3079\
+73,3.7260081)\x22 /\
+><linearGradient\
+\x0a       inkscape\
+:collect=\x22always\
+\x22\x0a       xlink:h\
+ref=\x22#linearGrad\
+ient3682-0\x22\x0a    \
+   id=\x22linearGra\
+dient3806\x22\x0a     \
+  x1=\x22-206.69949\
+\x22\x0a       y1=\x2268.\
+841812\x22\x0a       x\
+2=\x22-211.40184\x22\x0a \
+      y2=\x227.7114\
+096\x22\x0a       grad\
+ientUnits=\x22userS\
+paceOnUse\x22 /><li\
+nearGradient\x0a   \
+    id=\x22linearGr\
+adient3682-0\x22><s\
+top\x0a         id=\
+\x22stop3684-0\x22\x0a   \
+      offset=\x220\x22\
+\x0a         style=\
+\x22stop-color:#a40\
+000;stop-opacity\
+:1\x22 /><stop\x0a    \
+     id=\x22stop368\
+6-0\x22\x0a         of\
+fset=\x221\x22\x0a       \
+  style=\x22stop-co\
+lor:#ef2929;stop\
+-opacity:1\x22 /></\
+linearGradient><\
+/defs><g\x0a     in\
+kscape:groupmode\
+=\x22layer\x22\x0a     id\
+=\x22layer2\x22\x0a     i\
+nkscape:label=\x22L\
+ayer 2\x22\x0a     tra\
+nsform=\x22scale(0.\
+08466667)\x22><g\x0a  \
+     id=\x22g1\x22><re\
+ct\x0a         styl\
+e=\x22fill:#ffffff;\
+stroke-width:0.2\
+64583\x22\x0a         \
+id=\x22rect3\x22\x0a     \
+    width=\x22199.9\
+9998\x22\x0a         h\
+eight=\x22200\x22\x0a    \
+     x=\x220\x22\x0a     \
+    y=\x220\x22 /><g\x0a \
+        transfor\
+m=\x22matrix(4.0258\
+026,0,0,4.025802\
+6,-28.196064,-28\
+.69951)\x22\x0a       \
+  id=\x22g3353\x22\x0a   \
+      inkscape:t\
+ransform-center-\
+x=\x22-127.87508\x22\x0a \
+        inkscape\
+:transform-cente\
+r-y=\x22142.17689\x22\x0a\
+         inkscap\
+e:label=\x22g3353\x22>\
+<path\x0a          \
+ id=\x22path3659-5\x22\
+\x0a           d=\x22m\
+ 47.072047,13.49\
+348 -7.25661,3.6\
+39384 -3.044172,\
+-1.251456 -2.537\
+552,-7.7361038 -\
+4.673163,-0.0164\
+13 -2.564225,7.7\
+086968 -3.054328\
+,1.257622 -7.236\
+841,-3.661338 -3\
+.328762,3.30636 \
+3.639401,7.25660\
+8 -1.275845,3.03\
+3674 -7.7361133,\
+2.537561 0.00796\
+,4.683643 7.7087\
+123,2.564218 1.2\
+57621,3.054327 -\
+3.685711,7.22636\
+3 3.306355,3.328\
+755 7.256601,-3.\
+639389 3.058066,\
+1.286323 2.51317\
+7,7.725622 4.708\
+019,0.0025 2.539\
+84,-7.719179 3.0\
+54339,-1.257622 \
+7.250725,3.69620\
+4 3.328762,-3.30\
+6361 -3.639392,-\
+7.256605 1.26193\
+2,-3.068543 7.72\
+5633,-2.513183 0\
+.02691,-4.697535\
+ -7.719194,-2.53\
+9837 -1.25763,-3\
+.054327 3.671825\
+,-7.261229 z m -\
+11.175912,10.938\
+628 1.396243,0.9\
+18293 1.186806,1\
+.203784 0.925177\
+,1.409058 0.6357\
+57,1.544598 0.33\
+2462,1.645274 -0\
+.02304,1.665726 \
+-0.333176,1.6479\
+04 -0.636201,1.5\
+46466 -0.95316,1\
+.410145 -1.16891\
+5,1.172904 -1.40\
+9065,0.925174 -1\
+.544597,0.635755\
+ -1.645274,0.332\
+453 -1.676208,0.\
+0014 -1.647918,-\
+0.333161 -1.5464\
+58,-0.636213 -1.\
+410137,-0.953159\
+ -1.162439,-1.19\
+3302 -0.935639,-\
+1.384673 -0.6357\
+77,-1.544598 -0.\
+321962,-1.669654\
+ -0.0013,-1.6762\
+1 0.333167,-1.64\
+7908 0.636221,-1\
+.54646 0.942669,\
+-1.385767 1.1794\
+15,-1.197283 1.4\
+09046,-0.925175 \
+1.544597,-0.6357\
+59 1.66965,-0.32\
+1966 1.665725,0.\
+02304 1.64791,0.\
+333159 1.546466,\
+0.636214 z\x22\x0a    \
+       style=\x22di\
+splay:inline;ove\
+rflow:visible;vi\
+sibility:visible\
+;fill:url(#linea\
+rGradient3808);f\
+ill-opacity:1;fi\
+ll-rule:evenodd;\
+stroke:#000137;s\
+troke-width:2;st\
+roke-linecap:rou\
+nd;stroke-linejo\
+in:round;stroke-\
+miterlimit:4;str\
+oke-dasharray:no\
+ne;stroke-dashof\
+fset:0;stroke-op\
+acity:1;marker:n\
+one;enable-backg\
+round:accumulate\
+\x22 /><path\x0a      \
+     id=\x22path365\
+9-5-6\x22\x0a         \
+  d=\x22m 46.665932\
+,16.228758 -6.77\
+2715,3.391179 -4\
+.847822,-2.05647\
+4 -2.489782,-7.1\
+38562 -1.396661,\
+-0.0028 -2.41572\
+2,7.225884 -4.95\
+3349,1.931885 -6\
+.673522,-3.35637\
+2 -0.974551,0.99\
+6986 3.405375,6.\
+846867 -2.164816\
+,4.741796 -7.058\
+271,2.365929 -0.\
+0036,1.486481 7.\
+171516,2.4044 1.\
+986735,4.956424 \
+-3.396705,6.6630\
+18 0.96246,0.935\
+939 6.696534,-3.\
+340444 5.115268,\
+2.120649 2.1773,\
+7.07612 1.395792\
+,0.06172 2.43718\
+,-7.177917 4.871\
+18,-2.101523 6.9\
+75472,3.459155 0\
+.912547,-0.87210\
+8 -3.41459,-6.68\
+235 1.907599,-4.\
+988763 7.254984,\
+-2.423995 0.0330\
+9,-1.462493 -7.0\
+96784,-2.249261 \
+-2.111617,-5.018\
+436 3.409598,-6.\
+821492 z\x22\x0a      \
+     style=\x22disp\
+lay:inline;overf\
+low:visible;visi\
+bility:visible;f\
+ill:none;stroke:\
+#729fcf;stroke-w\
+idth:2;stroke-li\
+necap:round;stro\
+ke-linejoin:roun\
+d;stroke-miterli\
+mit:4;stroke-das\
+harray:none;stro\
+ke-dashoffset:0;\
+stroke-opacity:1\
+;marker:none;ena\
+ble-background:a\
+ccumulate\x22 /><ci\
+rcle\x0a           \
+r=\x2210.932387\x22\x0a  \
+         cy=\x2230.\
+086609\x22\x0a        \
+   cx=\x2233.553997\
+\x22\x0a           id=\
+\x22path3898\x22\x0a     \
+      style=\x22fil\
+l:none;stroke:#7\
+29fcf;stroke-wid\
+th:2;stroke-line\
+cap:round;stroke\
+-linejoin:round;\
+stroke-miterlimi\
+t:4;stroke-dasha\
+rray:none;stroke\
+-dashoffset:6;st\
+roke-opacity:1\x22\x0a\
+           trans\
+form=\x22rotate(3.2\
+093756)\x22 /></g><\
+path\x0a         st\
+yle=\x22fill:#ff000\
+0;stroke-width:0\
+.741281\x22\x0a       \
+  d=\x22M 33.589751\
+,67.710161 C 18.\
+98914,38.505521 \
+7.4818475,14.786\
+598 8.0180015,15\
+.001448 c 0.5361\
+43,0.21485 11.96\
+80645,5.10659 25\
+.4042675,10.8705\
+3 13.436203,5.76\
+394 25.111373,10\
+.6477 25.944819,\
+10.85278 0.94046\
+5,0.23141 11.358\
+165,-3.83093 27.\
+460157,-10.70798\
+ 14.269645,-6.09\
+447 26.047055,-1\
+0.97995 26.17199\
+5,-10.85663 0.23\
+037,0.22735 -52.\
+332485,105.64937\
+2 -52.676205,105\
+.649372 -0.10269\
+,0 -12.132674,-2\
+3.894711 -26.733\
+284,-53.099359 z\
+\x22\x0a         id=\x22p\
+ath20\x22 /></g><g\x0a\
+       transform\
+=\x22matrix(1.72786\
+35,0,0,1.7278635\
+,455.53952,73.01\
+3645)\x22\x0a       id\
+=\x22g3813-3\x22><path\
+\x0a         style=\
+\x22display:inline;\
+overflow:visible\
+;visibility:visi\
+ble;fill:url(#li\
+nearGradient3808\
+-4);fill-opacity\
+:1;fill-rule:eve\
+nodd;stroke:#000\
+137;stroke-width\
+:2.35117;stroke-\
+linecap:round;st\
+roke-linejoin:ro\
+und;stroke-miter\
+limit:4;stroke-d\
+asharray:none;st\
+roke-dashoffset:\
+0;stroke-opacity\
+:1;marker:none;e\
+nable-background\
+:accumulate\x22\x0a   \
+      d=\x22m -159.\
+14682,27.762572 \
+-7.26628,4.16891\
+4 -3.20873,-1.11\
+3515 -3.06139,-7\
+.823962 -4.81574\
+,0.253068 -2.196\
+59,8.090466 -3.0\
+7424,1.472191 -7\
+.66769,-3.354213\
+ -3.23863,3.5988\
+75 4.16893,7.266\
+276 -1.13925,3.1\
+99324 -7.82397,3\
+.061399 0.27879,\
+4.825129 8.09048\
+,2.196583 1.4721\
+9,3.074238 -3.37\
+993,7.658303 3.5\
+9887,3.238623 7.\
+26627,-4.168916 \
+3.22506,1.148635\
+ 3.03567,7.81457\
+ 4.85085,-0.2694\
+05 2.17086,-8.09\
+9855 3.07425,-1.\
+472193 7.68401,3\
+.389334 3.23863,\
+-3.598876 -4.168\
+92,-7.266274 1.1\
+229,-3.234445 7.\
+81458,-3.035677 \
+-0.24366,-4.8414\
+57 -8.09987,-2.1\
+70857 -1.4722,-3\
+.074238 3.36361,\
+-7.693423 z m -1\
+0.88267,11.91580\
+1 1.49161,0.8654\
+59 1.29232,1.171\
+703 1.03462,1.39\
+8312 0.74426,1.5\
+54681 0.43759,1.\
+67593 0.0725,1.7\
+1754 -0.24807,1.\
+717095 -0.56614,\
+1.630089 -0.9005\
+8,1.507949 -1.13\
+658,1.275982 -1.\
+39832,1.034618 -\
+1.55468,0.744257\
+ -1.67593,0.4375\
+8 -1.72693,0.098\
+23 -1.71711,-0.2\
+48055 -1.63008,-\
+0.566152 -1.5079\
+4,-0.900579 -1.2\
+6661,-1.162311 -\
+1.04399,-1.37258\
+4 -0.74428,-1.55\
+4679 -0.42818,-1\
+.701656 -0.0982,\
+-1.726934 0.2480\
+6,-1.717099 0.56\
+616,-1.630085 0.\
+89118,-1.482225 \
+1.14599,-1.30170\
+6 1.3983,-1.0346\
+18 1.55468,-0.74\
+4261 1.70165,-0.\
+428183 1.71754,-\
+0.0725 1.7171,0.\
+248053 1.63009,0\
+.566153 z\x22\x0a     \
+    id=\x22path3659\
+-5-5\x22\x0a         i\
+nkscape:connecto\
+r-curvature=\x220\x22 \
+/><path\x0a        \
+ style=\x22display:\
+inline;overflow:\
+visible;visibili\
+ty:visible;fill:\
+none;stroke:#729\
+fcf;stroke-width\
+:2.35117;stroke-\
+linecap:round;st\
+roke-linejoin:ro\
+und;stroke-miter\
+limit:4;stroke-d\
+asharray:none;st\
+roke-dashoffset:\
+0;stroke-opacity\
+:1;marker:none;e\
+nable-background\
+:accumulate\x22\x0a   \
+      d=\x22m -159.\
+40722,30.604211 \
+-6.78206,3.88522\
+9 -5.11355,-1.83\
+873 -2.97765,-7.\
+211069 -1.43915,\
+0.07782 -2.07148\
+,7.584439 -4.991\
+86,2.2766 -7.069\
+68,-3.072549 -0.\
+94649,1.083504 3\
+.90414,6.857637 \
+-1.95648,5.01057\
+1 -7.1355,2.8454\
+05 0.0822,1.5317\
+39 7.52777,2.062\
+954 2.33329,4.99\
+1861 -3.11471,7.\
+061187 1.0457,0.\
+908702 6.7065,-3\
+.828556 5.39281,\
+1.889398 2.65209\
+,7.164787 1.4416\
+6,-0.01704 2.096\
+36,-7.536257 4.8\
+974,-2.446633 7.\
+38672,3.161002 0\
+.88982,-0.951258\
+ -3.90413,-6.687\
+603 1.6772,-5.25\
+0163 7.33482,-2.\
+916596 -0.0504,-\
+1.508727 -7.4418\
+1,-1.907432 -2.4\
+6554,-5.048537 3\
+.11884,-7.22521 \
+z\x22\x0a         id=\x22\
+path3659-5-6-1\x22\x0a\
+         inkscap\
+e:connector-curv\
+ature=\x220\x22\x0a      \
+   sodipodi:node\
+types=\x22ccccccccc\
+cccccccccccccccc\
+cccccccc\x22 /><cir\
+cle\x0a         sty\
+le=\x22fill:none;st\
+roke:#729fcf;str\
+oke-width:1.8119\
+7;stroke-linecap\
+:round;stroke-li\
+nejoin:round;str\
+oke-miterlimit:4\
+;stroke-dasharra\
+y:none;stroke-da\
+shoffset:6;strok\
+e-opacity:1\x22\x0a   \
+      id=\x22path38\
+98-0\x22\x0a         t\
+ransform=\x22matrix\
+(1.2975787,0,0,1\
+.2975787,-227.20\
+403,-4.4100648)\x22\
+\x0a         cx=\x2241\
+.15683\x22\x0a        \
+ cy=\x2240.103004\x22\x0a\
+         r=\x228.69\
+41996\x22 /><path\x0a \
+        style=\x22d\
+isplay:inline;ov\
+erflow:visible;v\
+isibility:visibl\
+e;fill:url(#line\
+arGradient3806);\
+fill-opacity:1;f\
+ill-rule:evenodd\
+;stroke:#280000;\
+stroke-width:2.3\
+5117;stroke-line\
+cap:butt;stroke-\
+linejoin:miter;s\
+troke-miterlimit\
+:4;stroke-dashar\
+ray:none;stroke-\
+dashoffset:0;str\
+oke-opacity:1;ma\
+rker:none;enable\
+-background:accu\
+mulate\x22\x0a        \
+ d=\x22m -217.27976\
+,4.1846558 1e-5,\
+68.1839092 14.10\
+701,-2e-6 v -28.\
+21403 h 14.10701\
+ V 30.047518 h -\
+14.10701 V 18.29\
+1671 h 23.51169 \
+V 4.1846558 Z\x22\x0a \
+        id=\x22rect\
+3663-8\x22\x0a        \
+ sodipodi:nodety\
+pes=\x22ccccccccccc\
+\x22\x0a         inksc\
+ape:connector-cu\
+rvature=\x220\x22 /><p\
+ath\x0a         sty\
+le=\x22display:inli\
+ne;overflow:visi\
+ble;visibility:v\
+isible;fill:none\
+;stroke:#ef2929;\
+stroke-width:2.3\
+5117;stroke-line\
+cap:butt;stroke-\
+linejoin:miter;s\
+troke-miterlimit\
+:4;stroke-dashar\
+ray:none;stroke-\
+dashoffset:0;str\
+oke-opacity:1;ma\
+rker:none;enable\
+-background:accu\
+mulate\x22\x0a        \
+ d=\x22m -214.92859\
+,6.535825 v 63.4\
+81569 h 9.40468 \
+v -28.21403 h 14\
+.10701 v -9.4046\
+77 h -14.10701 V\
+ 15.940502 h 23.\
+51169 V 6.535825\
+ Z\x22\x0a         id=\
+\x22rect3663-8-3\x22\x0a \
+        sodipodi\
+:nodetypes=\x22cccc\
+ccccccc\x22\x0a       \
+  inkscape:conne\
+ctor-curvature=\x22\
+0\x22 /></g></g></s\
+vg>\x0a\
+\x00\x00\x0a\x88\
+<\
+?xml version=\x221.\
+0\x22 encoding=\x22UTF\
+-8\x22 standalone=\x22\
+no\x22?>\x0a<!-- Creat\
+ed with Inkscape\
+ (http://www.ink\
+scape.org/) -->\x0a\
+\x0a<svg\x0a   width=\x22\
+64\x22\x0a   height=\x226\
+4\x22\x0a   viewBox=\x220\
+ 0 16.933333 16.\
+933333\x22\x0a   versi\
+on=\x221.1\x22\x0a   id=\x22\
+svg1\x22\x0a   inkscap\
+e:version=\x221.3 (\
+0e150ed6c4, 2023\
+-07-21)\x22\x0a   sodi\
+podi:docname=\x22Ex\
+pand arrow - #1.\
+svg\x22\x0a   xmlns:in\
+kscape=\x22http://w\
+ww.inkscape.org/\
+namespaces/inksc\
+ape\x22\x0a   xmlns:so\
+dipodi=\x22http://s\
+odipodi.sourcefo\
+rge.net/DTD/sodi\
+podi-0.dtd\x22\x0a   x\
+mlns=\x22http://www\
+.w3.org/2000/svg\
+\x22\x0a   xmlns:svg=\x22\
+http://www.w3.or\
+g/2000/svg\x22>\x0a  <\
+sodipodi:namedvi\
+ew\x0a     id=\x22name\
+dview1\x22\x0a     pag\
+ecolor=\x22#505050\x22\
+\x0a     bordercolo\
+r=\x22#eeeeee\x22\x0a    \
+ borderopacity=\x22\
+1\x22\x0a     inkscape\
+:showpageshadow=\
+\x220\x22\x0a     inkscap\
+e:pageopacity=\x220\
+\x22\x0a     inkscape:\
+pagecheckerboard\
+=\x22false\x22\x0a     in\
+kscape:deskcolor\
+=\x22#505050\x22\x0a     \
+inkscape:documen\
+t-units=\x22px\x22\x0a   \
+  showgrid=\x22true\
+\x22\x0a     inkscape:\
+zoom=\x2216.265625\x22\
+\x0a     inkscape:c\
+x=\x2232.092219\x22\x0a  \
+   inkscape:cy=\x22\
+31.907781\x22\x0a     \
+inkscape:window-\
+width=\x222292\x22\x0a   \
+  inkscape:windo\
+w-height=\x221360\x22\x0a\
+     inkscape:wi\
+ndow-x=\x221132\x22\x0a  \
+   inkscape:wind\
+ow-y=\x220\x22\x0a     in\
+kscape:window-ma\
+ximized=\x220\x22\x0a    \
+ inkscape:curren\
+t-layer=\x22layer1\x22\
+>\x0a    <inkscape:\
+grid\x0a       id=\x22\
+grid1\x22\x0a       un\
+its=\x22px\x22\x0a       \
+originx=\x220\x22\x0a    \
+   originy=\x220\x22\x0a \
+      spacingx=\x22\
+0.26458333\x22\x0a    \
+   spacingy=\x220.2\
+6458333\x22\x0a       \
+empcolor=\x22#0099e\
+5\x22\x0a       empopa\
+city=\x220.30196078\
+\x22\x0a       color=\x22\
+#0099e5\x22\x0a       \
+opacity=\x220.14901\
+961\x22\x0a       emps\
+pacing=\x225\x22\x0a     \
+  dotted=\x22false\x22\
+\x0a       gridangl\
+ex=\x2230\x22\x0a       g\
+ridanglez=\x2230\x22\x0a \
+      visible=\x22t\
+rue\x22 />\x0a  </sodi\
+podi:namedview>\x0a\
+  <defs\x0a     id=\
+\x22defs1\x22>\x0a    <li\
+nearGradient\x0a   \
+    id=\x22swatch1\x22\
+\x0a       inkscape\
+:swatch=\x22solid\x22>\
+\x0a      <stop\x0a   \
+      style=\x22sto\
+p-color:#000000;\
+stop-opacity:1;\x22\
+\x0a         offset\
+=\x220\x22\x0a         id\
+=\x22stop1\x22 />\x0a    \
+</linearGradient\
+>\x0a  </defs>\x0a  <g\
+\x0a     inkscape:l\
+abel=\x22Layer 1\x22\x0a \
+    inkscape:gro\
+upmode=\x22layer\x22\x0a \
+    id=\x22layer1\x22>\
+\x0a    <path\x0a     \
+  style=\x22mix-ble\
+nd-mode:differen\
+ce;fill:none;fil\
+l-rule:evenodd;s\
+troke:#000000;st\
+roke-width:0.793\
+75;stroke-dashar\
+ray:none;stroke-\
+opacity:1;paint-\
+order:markers fi\
+ll stroke;.text:\
+after {&#10;    \
+/* This value is\
+ the OPPOSITE co\
+lor of our backg\
+round */&#10;   \
+ color:rgb(255, \
+255, 255);mix-bl\
+end-mode:differe\
+nce;}\x22\x0a       d=\
+\x22m 1.3229166,1.3\
+229166 6.614583,\
+6.614583 -6.6145\
+83,7.9374994\x22\x0a  \
+     id=\x22path1\x22 \
+/>\x0a    <path\x0a   \
+    style=\x22mix-b\
+lend-mode:differ\
+ence;fill:none;f\
+ill-rule:evenodd\
+;stroke:#000000;\
+stroke-width:0.7\
+9375;stroke-dash\
+array:none;paint\
+-order:markers f\
+ill stroke;strok\
+e-opacity:1;.tex\
+t:after {&#10;  \
+  /* This value \
+is the OPPOSITE \
+color of our bac\
+kground */&#10; \
+   color:rgb(255\
+, 255, 255);mix-\
+blend-mode:diffe\
+rence;}\x22\x0a       \
+d=\x22M 9.2604165,1\
+.3229166 15.8749\
+99,7.9374996 9.2\
+604165,15.874999\
+\x22\x0a       id=\x22pat\
+h1-6\x22 />\x0a  </g>\x0a\
+</svg>\x0a\
 \x00\x00\x14\x8c\
 \x00\
 \x00c\x04x\xda\xed\x5c\xd9r\xdbH\x96}\xf7W`\
@@ -12348,18 +16755,37 @@ qt_resource_name = b"\
 \x00E\
 \x00x\x00p\x00o\x00r\x00t\x00S\x00e\x00t\x00t\x00i\x00n\x00g\x00s\x00.\x00s\x00v\
 \x00g\
+\x00\x1a\
+\x04s\xc2\xe7\
+\x00I\
+\x00m\x00p\x00o\x00r\x00t\x00S\x00e\x00t\x00t\x00i\x00n\x00g\x00s\x00_\x00F\x00r\
+\x00e\x00e\x00C\x00A\x00D\x00.\x00s\x00v\x00g\
 \x00\x0f\
 \x07m\x02\x07\
 \x00I\
 \x00m\x00p\x00o\x00r\x00t\x00E\x00x\x00c\x00e\x00l\x00.\x00s\x00v\x00g\
+\x00\x15\
+\x0b[\x82\xa7\
+\x00E\
+\x00x\x00p\x00a\x00n\x00d\x00 \x00a\x00r\x00r\x00o\x00w\x00 \x00-\x00 \x00#\x002\
+\x00.\x00s\x00v\x00g\
 \x00\x0c\
 \x03&#\x07\
 \x00N\
 \x00e\x00w\x00E\x00x\x00c\x00e\x00l\x00.\x00s\x00v\x00g\
 \x00\x0f\
+\x0f\x0d\x14G\
+\x00O\
+\x00p\x00e\x00n\x00F\x00r\x00e\x00e\x00C\x00A\x00D\x00.\x00s\x00v\x00g\
+\x00\x0f\
 \x07mp\xc7\
 \x00E\
 \x00x\x00p\x00o\x00r\x00t\x00E\x00x\x00c\x00e\x00l\x00.\x00s\x00v\x00g\
+\x00\x14\
+\x09\x17\xc0g\
+\x00E\
+\x00x\x00p\x00a\x00n\x00d\x00 \x00D\x00o\x00t\x00s\x00 \x00-\x00 \x00#\x001\x00.\
+\x00s\x00v\x00g\
 \x00\x0d\
 \x05g\x02G\
 \x00O\
@@ -12369,16 +16795,40 @@ qt_resource_name = b"\
 \x00I\
 \x00m\x00p\x00o\x00r\x00t\x00S\x00e\x00t\x00t\x00i\x00n\x00g\x00s\x00.\x00s\x00v\
 \x00g\
+\x00\x11\
+\x05\x0dPG\
+\x00I\
+\x00m\x00p\x00o\x00r\x00t\x00F\x00r\x00e\x00e\x00C\x00A\x00D\x00.\x00s\x00v\x00g\
+\
+\x00\x0e\
+\x0e,X\xc7\
+\x00N\
+\x00e\x00w\x00F\x00r\x00e\x00e\x00C\x00A\x00D\x00.\x00s\x00v\x00g\
 \x00$\
 \x06G$G\
 \x00p\
 \x00r\x00e\x00f\x00e\x00r\x00e\x00n\x00c\x00e\x00s\x00-\x00t\x00i\x00t\x00l\x00e\
 \x00b\x00l\x00o\x00c\x00k\x00_\x00w\x00o\x00r\x00k\x00b\x00e\x00n\x00c\x00h\x00.\
 \x00s\x00v\x00g\
+\x00\x11\
+\x05\x7f\x90G\
+\x00E\
+\x00x\x00p\x00o\x00r\x00t\x00F\x00r\x00e\x00e\x00C\x00A\x00D\x00.\x00s\x00v\x00g\
+\
 \x00\x10\
 \x05\x91\xf0\xc7\
 \x00T\
 \x00i\x00t\x00l\x00e\x00B\x00l\x00o\x00c\x00k\x00W\x00B\x00.\x00s\x00v\x00g\
+\x00\x1a\
+\x0cs\xdeG\
+\x00E\
+\x00x\x00p\x00o\x00r\x00t\x00S\x00e\x00t\x00t\x00i\x00n\x00g\x00s\x00_\x00F\x00r\
+\x00e\x00e\x00C\x00A\x00D\x00.\x00s\x00v\x00g\
+\x00\x15\
+\x0b^\x82\xa7\
+\x00E\
+\x00x\x00p\x00a\x00n\x00d\x00 \x00a\x00r\x00r\x00o\x00w\x00 \x00-\x00 \x00#\x001\
+\x00.\x00s\x00v\x00g\
 \x00\x13\
 \x0e\xa4B\x87\
 \x00F\
@@ -12396,28 +16846,46 @@ qt_resource_struct = b"\
 \x00\x00\x00\x00\x00\x00\x00\x00\
 \x00\x00\x00\x00\x00\x02\x00\x00\x00\x01\x00\x00\x00\x02\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x00\x18\x00\x02\x00\x00\x00\x0a\x00\x00\x00\x03\
+\x00\x00\x00\x18\x00\x02\x00\x00\x00\x13\x00\x00\x00\x03\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x00v\x00\x00\x00\x00\x00\x01\x00\x00\xb2\x8c\
-\x00\x00\x01\x8c\xea\xf6\x84\x92\
-\x00\x00\x00\xd8\x00\x00\x00\x00\x00\x01\x00\x02K\xaa\
-\x00\x00\x01\x8c\xea\xf6\x84h\
-\x00\x00\x00(\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\
-\x00\x00\x01\x8c\xea\xf6\x83\xa3\
-\x00\x00\x00\xb8\x00\x00\x00\x00\x00\x01\x00\x01\x92t\
-\x00\x00\x01\x8c\xea\xf6\x84\xb9\
-\x00\x00\x01P\x00\x01\x00\x00\x00\x01\x00\x02\xc3F\
-\x00\x00\x01\x8c\xea\xf6\x84\xe6\
-\x00\x00\x01\x02\x00\x01\x00\x00\x00\x01\x00\x02\xae\xd8\
-\x00\x00\x01\x8c\xea\xf6\x85\x0e\
+\x00\x00\x00\xe0\x00\x00\x00\x00\x00\x01\x00\x00\xf6\x1f\
+\x00\x00\x01\x8c\xeb\x08Z\xcc\
+\x00\x00\x01\x94\x00\x00\x00\x00\x00\x01\x00\x02\xb3\xfd\
+\x00\x00\x01\x8c\xeb\x08Zq\
 \x00\x00\x00R\x00\x00\x00\x00\x00\x01\x00\x00b\xa5\
-\x00\x00\x01\x8c\xea\xf6\x84:\
-\x00\x00\x00\x94\x00\x00\x00\x00\x00\x01\x00\x01AZ\
-\x00\x00\x01\x8c\xea\xf6\x83z\
-\x00\x00\x01\xa2\x00\x01\x00\x00\x00\x01\x00\x02\xecK\
-\x00\x00\x01\x8c\xea\xf6\x84\x0d\
-\x00\x00\x01v\x00\x01\x00\x00\x00\x01\x00\x02\xd7\xbb\
-\x00\x00\x01\x8c\xea\xf6\x83\xd3\
+\x00\x00\x01\x8c\xeb\x08Z\xa1\
+\x00\x00\x00(\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\
+\x00\x00\x01\x8c\xeb\x08Yj\
+\x00\x00\x01\xbe\x00\x00\x00\x00\x00\x01\x00\x03\x17+\
+\x00\x00\x01\x8c\xeb\x08ZH\
+\x00\x00\x01t\x00\x00\x00\x00\x00\x01\x00\x01\xfa\xc7\
+\x00\x00\x01\x8c\xeb\x08[!\
+\x00\x00\x02V\x00\x00\x00\x00\x00\x01\x00\x03g\xaa\
+\x00\x00\x01\x8c\xeb\x08Y6\
+\x00\x00\x02~\x00\x01\x00\x00\x00\x01\x00\x03\x90\x1e\
+\x00\x00\x01\x8c\xeb\x08[\x7f\
+\x00\x00\x02\x08\x00\x01\x00\x00\x00\x01\x00\x03S<\
+\x00\x00\x01\x8c\xeb\x08[\xb2\
+\x00\x00\x00\x8c\x00\x00\x00\x00\x00\x01\x00\x00\x9c[\
+\x00\x00\x01\x8c\xeb\x08Z!\
+\x00\x00\x01\x22\x00\x00\x00\x00\x00\x01\x00\x01\x9e\xd7\
+\x00\x00\x01\x8c\xeb\x08Y\x0e\
+\x00\x00\x03:\x00\x01\x00\x00\x00\x01\x00\x03\xfeh\
+\x00\x00\x01\x8c\xeb\x08Y\xf5\
+\x00\x00\x01F\x00\x00\x00\x00\x00\x01\x00\x01\xef\xf1\
+\x00\x00\x01\x8c\xeb\x08X\xa4\
+\x00\x00\x00\xb0\x00\x00\x00\x00\x00\x01\x00\x00\xecB\
+\x00\x00\x01\x8c\xeb\x08X\xef\
+\x00\x00\x02\xde\x00\x00\x00\x00\x00\x01\x00\x03\xdfL\
+\x00\x00\x01\x8c\xeb\x08X\xcc\
+\x00\x00\x02\xa4\x00\x00\x00\x00\x00\x01\x00\x03\xa4\x93\
+\x00\x00\x01\x8c\xeb\x08Y\x9a\
+\x00\x00\x01\xe6\x00\x01\x00\x00\x00\x01\x00\x03>\xb4\
+\x00\x00\x01\x8c\xeb\x08Z\xf8\
+\x00\x00\x03\x0e\x00\x01\x00\x00\x00\x01\x00\x03\xe9\xd8\
+\x00\x00\x01\x8c\xeb\x08Y\xc8\
+\x00\x00\x00\xfe\x00\x01\x00\x00\x00\x01\x00\x01\x84\xed\
+\x00\x00\x01\x8c\xeb\x08[P\
 "
 
 def qInitResources():

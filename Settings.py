@@ -728,8 +728,9 @@ def ImportSettings_FreeCAD():
         # Get the columns
         FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
         SecondColumn = Standard_Functions.GetLetterFromNumber(Standard_Functions.GetNumberFromLetter(FirstColumn) + 1)
+
+        # Get the first table row
         FirstTableRow = int(Standard_Functions.RemoveLettersFromString(StartCell)) + 1
-        print(FirstColumn + ", " + SecondColumn)
 
         # go through the excel until all settings are imported.
         counter = 0
@@ -740,8 +741,6 @@ def ImportSettings_FreeCAD():
             Cell_Value = ExtSheet.getContents(str(SecondColumn) + str(i))
             if Cell_Value.startswith("'"):
                 Cell_Value = Cell_Value[1:]
-
-            print(Cell_Name + ", " + Cell_Value + "," + StartCell)
 
             # region -- Import the external source settings
             #

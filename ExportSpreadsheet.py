@@ -275,12 +275,17 @@ def ExportSpreadSheet_FreeCAD():
         ]
         FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=True)
         if FileName != "":
-            # Create a new FreeCAD file
-            ff = App.newDocument()
-            # Save the workbook
-            ff.saveAs(FileName)
-            # Close the document before reopening
-            App.closeDocument(ff.Name)
+            FileNameOnly = os.path.basename(FileName)
+            if Standard_Functions.CheckIfDocumentIsOpen(FileNameOnly) is False:
+                # Create a new FreeCAD file
+                ff = App.newDocument()
+                # Save the workbook
+                ff.saveAs(FileName)
+                # Close the document before reopening
+                App.closeDocument(ff.Name)
+
+            if Standard_Functions.CheckIfDocumentIsOpen(FileNameOnly) is True:
+                App.closeDocument(FileNameOnly)
         if FileName == "":
             return
 

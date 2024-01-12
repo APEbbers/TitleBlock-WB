@@ -371,3 +371,16 @@ def Print(Input: str, Type: str = ""):
         App.Console.PrintLog(Input + "\n")
     else:
         App.Console.PrintMessage(Input + "\n")
+
+
+def CheckIfDocumentIsOpen(filename) -> bool:
+    import FreeCAD as App
+
+    result = False
+    try:
+        App.getDocument(filename)
+        result = True
+        return result
+    except NameError:
+        result = False
+        return result

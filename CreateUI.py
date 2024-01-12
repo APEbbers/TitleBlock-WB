@@ -165,13 +165,6 @@ def CreateTechDrawToolbar() -> object:
         while True:
             if get_toolbar_with_name(ToolBarName, TechDrawToolBarsParamPath):
                 ReplaceButtons()
-                # Get the main window
-                mainWindow = Gui.getMainWindow()
-                # Get the toolbar
-                ToolBar = mainWindow.findChild(QToolBar, ToolBarName)
-                # If the toolbar is hidden, show it.
-                ToolBar.setVisible(True)
-
                 return
             i = i + 1
     # endregion
@@ -207,14 +200,6 @@ def CreateTechDrawToolbar() -> object:
     wb = Gui.activeWorkbench()
     if int(App.Version()[0]) == 0 and int(App.Version()[1]) > 19:
         wb.reloadActive()
-
-    # Get the main window
-    mainWindow = Gui.getMainWindow()
-    # Get the toolbar
-    ToolBar = mainWindow.findChild(QToolBar, ToolBarName)
-    # If the toolbar is hidden, show it.
-    ToolBar.setVisible(True)
-
     return
 
 

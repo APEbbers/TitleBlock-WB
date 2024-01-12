@@ -977,7 +977,15 @@ def ImportDataFreeCAD():
                     translate(
                         "TitleBlock Workbench",
                         "Column number is: "
-                        + str(Standard_Functions.GetNumberFromLetter(StartColumnExt) - 1),
+                        + str(Standard_Functions.GetNumberFromLetter(StartColumnExt)),
+                    ),
+                    "Log",
+                )
+                Standard_Functions.Print(
+                    translate(
+                        "TitleBlock Workbench",
+                        "StartCell is: "
+                        + str(StartColumnExt),
                     ),
                     "Log",
                 )

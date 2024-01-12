@@ -497,6 +497,8 @@ def FillSheet():
         texts = page.Template.EditableTexts
         # get the spreadsheet "TitleBlock"
         sheet = App.ActiveDocument.getObject("TitleBlock")
+        # Clear the sheet
+        sheet.clearAll()
 
         # Debug mode is active, show all editable text in the page
         if ENABLE_DEBUG is True:
@@ -605,9 +607,6 @@ def FillSheet():
 def ImportDataExcel():
     from openpyxl import load_workbook
 
-    # Set ExcelError to False as default
-    ExcelError = False
-
     # if debug mode is enabled, show the external file including path.
     if ENABLE_DEBUG is True:
         Text = translate("TitleBlock Workbench", str(EXTERNAL_SOURCE_PATH))
@@ -624,7 +623,6 @@ def ImportDataExcel():
                 if FileName != "":
                     wb = load_workbook(FileName, read_only=True, data_only=True)
                 if FileName == "":
-                    ExcelError = True
                     return
             else:
                 wb = load_workbook(str(EXTERNAL_SOURCE_PATH), read_only=True, data_only=True)
@@ -645,7 +643,6 @@ def ImportDataExcel():
                 )
                 # if the user canceled, exit this function.
                 if not Input_SheetName.strip():
-                    ExcelError = True
                     return
                 ws = wb[str(Input_SheetName)]
             if EXTERNAL_SOURCE_SHEET_NAME != "":
@@ -653,7 +650,6 @@ def ImportDataExcel():
         except IOError:
             Standard_Functions.Mbox("Permission error!!\nDo you have the file open?",
                                     "Titleblock Workbench", 0, IconType="Critical")
-            ExcelError = True
             return
         except Exception as e:
             if ENABLE_DEBUG is True:
@@ -665,192 +661,192 @@ def ImportDataExcel():
             Standard_Functions.Mbox(
                 text=Text, title="TitleBlock Workbench", style=0
             )
-            ExcelError = True
             return
 
         try:
-            if ExcelError is False:
-                # get the spreadsheet "TitleBlock"
-                sheet = App.ActiveDocument.getObject("TitleBlock")
+            # get the spreadsheet "TitleBlock"
+            sheet = App.ActiveDocument.getObject("TitleBlock")
+            # Clear the sheet
+            sheet.clearAll()
 
-                # Get the startcolumn and the other three columns from there
-                StartCell = EXTERNAL_SOURCE_STARTCELL
-                if EXTERNAL_SOURCE_SHEET_NAME == "":
-                    # Set EXTERNAL_SOURCE_SHEET_NAME to the chosen sheetname
-                    preferences.SetString("SheetName", Input_SheetName)
-                    ws = wb[Input_SheetName]
+            # Get the startcolumn and the other three columns from there
+            StartCell = EXTERNAL_SOURCE_STARTCELL
+            if EXTERNAL_SOURCE_SHEET_NAME == "":
+                # Set EXTERNAL_SOURCE_SHEET_NAME to the chosen sheetname
+                preferences.SetString("SheetName", Input_SheetName)
+                ws = wb[Input_SheetName]
 
-                    # Set the startcell with an inputbox
-                    Text = translate(
+                # Set the startcell with an inputbox
+                Text = translate(
+                    "TitleBlock Workbench",
+                    "Please enter the name of the cell.\n"
+                    + "Enter a single cell like 'A1', 'B2', etc. Other notations will be ignored!",
+                )
+                StartCell = str(
+                    Standard_Functions.Mbox(
+                        text=Text,
+                        title="TitleBlock Workbench",
+                        style=20,
+                        default="A1",
+                    )
+                )
+                if not StartCell.strip():
+                    StartCell = "A1"
+
+                # Set SHEETNAME_STARTCELL to the chosen sheetname
+                preferences.SetString("StartCell", StartCell)
+
+            if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
+                StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
+            StartColumn = StartCell[:1]
+            # If debug mode is on, show the start colum and its number
+            if ENABLE_DEBUG is True:
+                Standard_Functions.Print(
+                    translate(
                         "TitleBlock Workbench",
-                        "Please enter the name of the cell.\n"
-                        + "Enter a single cell like 'A1', 'B2', etc. Other notations will be ignored!",
-                    )
-                    StartCell = str(
-                        Standard_Functions.Mbox(
-                            text=Text,
-                            title="TitleBlock Workbench",
-                            style=20,
-                            default="A1",
-                        )
-                    )
-                    if not StartCell.strip():
-                        StartCell = "A1"
-
-                    # Set SHEETNAME_STARTCELL to the chosen sheetname
-                    preferences.SetString("StartCell", StartCell)
-
-                if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
-                    StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
-                StartColumn = StartCell[:1]
-                # If debug mode is on, show the start colum and its number
-                if ENABLE_DEBUG is True:
-                    Standard_Functions.Print(
-                        translate(
-                            "TitleBlock Workbench",
-                            "Start column is: " + str(StartColumn),
-                            "Log",
-                        )
-                    )
-                    Standard_Functions.Print(
-                        translate(
-                            "TitleBlock Workbench",
-                            "Column number is: "
-                            + str(Standard_Functions.GetNumberFromLetter(StartColumn)),
-                        ),
+                        "Start column is: " + str(StartColumn),
                         "Log",
                     )
-                Column2 = Standard_Functions.GetLetterFromNumber(
-                    int(Standard_Functions.GetNumberFromLetter(StartColumn) + 1), True
                 )
-                Column3 = Standard_Functions.GetLetterFromNumber(
-                    int(Standard_Functions.GetNumberFromLetter(StartColumn) + 2), True
+                Standard_Functions.Print(
+                    translate(
+                        "TitleBlock Workbench",
+                        "Column number is: "
+                        + str(Standard_Functions.GetNumberFromLetter(StartColumn)),
+                    ),
+                    "Log",
                 )
-                Column4 = Standard_Functions.GetLetterFromNumber(
-                    int(Standard_Functions.GetNumberFromLetter(StartColumn) + 3), True
+            Column2 = Standard_Functions.GetLetterFromNumber(
+                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 1), True
+            )
+            Column3 = Standard_Functions.GetLetterFromNumber(
+                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 2), True
+            )
+            Column4 = Standard_Functions.GetLetterFromNumber(
+                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 3), True
+            )
+            Column5 = Standard_Functions.GetLetterFromNumber(
+                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 4), True
+            )
+
+            # Get the start row
+            StartRow = EXTERNAL_SOURCE_STARTCELL[1:2]
+            # if debug mode is on, show your start row
+            if ENABLE_DEBUG is True:
+                Text = translate(
+                    "TitleBlock Workbench", "the start row is: " + str(StartRow)
                 )
-                Column5 = Standard_Functions.GetLetterFromNumber(
-                    int(Standard_Functions.GetNumberFromLetter(StartColumn) + 4), True
+                Standard_Functions.Print(Text, "Log")
+
+            # import the headers from the excelsheet into the spreadsheet
+            sheet.set("A1", str(ws[str(StartColumn) + str(StartRow)].value))
+            sheet.set("B1", str(ws[str(Column2) + str(StartRow)].value))
+            sheet.set("C1", str(ws[str(Column3) + str(StartRow)].value))
+            sheet.set("D1", str(ws[str(Column4) + str(StartRow)].value))
+            sheet.set("E1", str(ws[str(Column5) + str(StartRow)].value))
+
+            # Go through the excel until the cell in the first column is empty.
+            for i in range(1000):
+                # Define the start row. This is the Header row +1 + i as counter
+                RowNumber = int(StartRow) + i + 1
+
+                # check if you reached the end of the data.
+                if ws[str(StartColumn) + str(RowNumber)].value is None:
+                    break
+
+                # Get the number of row difference between the start row in the excelsheet
+                # and the first row in the spreadsheet.
+                # This to start at second row in the spreadsheet. (under the headers)
+                Delta = int(StartRow) - 1
+
+                # Fill the property name
+                sheet.set(
+                    str("A" + str(RowNumber - Delta)),
+                    str(ws[str(StartColumn) + str(RowNumber)].value),
                 )
-
-                # Get the start row
-                StartRow = EXTERNAL_SOURCE_STARTCELL[1:2]
-                # if debug mode is on, show your start row
-                if ENABLE_DEBUG is True:
-                    Text = translate(
-                        "TitleBlock Workbench", "the start row is: " + str(StartRow)
-                    )
-                    Standard_Functions.Print(Text, "Log")
-
-                # import the headers from the excelsheet into the spreadsheet
-                sheet.set("A1", str(ws[str(StartColumn) + str(StartRow)].value))
-                sheet.set("B1", str(ws[str(Column2) + str(StartRow)].value))
-                sheet.set("C1", str(ws[str(Column3) + str(StartRow)].value))
-                sheet.set("D1", str(ws[str(Column4) + str(StartRow)].value))
-                sheet.set("E1", str(ws[str(Column5) + str(StartRow)].value))
-
-                # Go through the excel until the cell in the first column is empty.
-                for i in range(1000):
-                    # Define the start row. This is the Header row +1 + i as counter
-                    RowNumber = int(StartRow) + i + 1
-
-                    # check if you reached the end of the data.
-                    if ws[str(StartColumn) + str(RowNumber)].value is None:
-                        break
-
-                    # Get the number of row difference between the start row in the excelsheet
-                    # and the first row in the spreadsheet.
-                    # This to start at second row in the spreadsheet. (under the headers)
-                    Delta = int(StartRow) - 1
-
-                    # Fill the property name
+                # Fill the property value
+                if ws[Column2 + str(RowNumber)].value is not None:
                     sheet.set(
-                        str("A" + str(RowNumber - Delta)),
-                        str(ws[str(StartColumn) + str(RowNumber)].value),
+                        str("B" + str(RowNumber - Delta)),
+                        str(ws[Column2 + str(RowNumber)].value),
                     )
-                    # Fill the property value
-                    if ws[Column2 + str(RowNumber)].value is not None:
-                        sheet.set(
-                            str("B" + str(RowNumber - Delta)),
-                            str(ws[Column2 + str(RowNumber)].value),
-                        )
-                    # Fill the value for auto increasement(yes or no)
-                    if ws[Column3 + str(RowNumber)].value is not None:
-                        sheet.set(
-                            str("C" + str(RowNumber - Delta)),
-                            str(ws[Column3 + str(RowNumber)].value),
-                        )
-                    # Fill the multipliers
-                    if ws[Column4 + str(RowNumber)].value is not None:
-                        sheet.set(
-                            str("D" + str(RowNumber - Delta)),
-                            str(ws[Column4 + str(RowNumber)].value),
-                        )
-                    # Fill the remarks
-                    if ws[Column5 + str(RowNumber)].value is not None:
-                        sheet.set(
-                            str("E" + str(RowNumber - Delta)),
-                            str(ws[Column4 + str(RowNumber)].value),
-                        )
+                # Fill the value for auto increasement(yes or no)
+                if ws[Column3 + str(RowNumber)].value is not None:
+                    sheet.set(
+                        str("C" + str(RowNumber - Delta)),
+                        str(ws[Column3 + str(RowNumber)].value),
+                    )
+                # Fill the multipliers
+                if ws[Column4 + str(RowNumber)].value is not None:
+                    sheet.set(
+                        str("D" + str(RowNumber - Delta)),
+                        str(ws[Column4 + str(RowNumber)].value),
+                    )
+                # Fill the remarks
+                if ws[Column5 + str(RowNumber)].value is not None:
+                    sheet.set(
+                        str("E" + str(RowNumber - Delta)),
+                        str(ws[Column4 + str(RowNumber)].value),
+                    )
 
-                # Finally recompute the spreadsheet
-                sheet.recompute()
+            # Finally recompute the spreadsheet
+            sheet.recompute()
 
-                # Run the def to add extra system data.
-                MapData(sheet=sheet)
+            # Run the def to add extra system data.
+            MapData(sheet=sheet)
 
-                # Run the def to add document information
-                MapDocInfo(sheet=sheet)
+            # Run the def to add document information
+            MapDocInfo(sheet=sheet)
 
-                # Run the def to add extra system data. This is the final value of "RowNumber" minus the "StartRow".
-                AddExtraData(sheet, RowNumber - int(StartRow))
+            # Run the def to add extra system data. This is the final value of "RowNumber" minus the "StartRow".
+            AddExtraData(sheet, RowNumber - int(StartRow))
 
-                # Format the spreadsheet
-                extraRows = 0
-                if INCLUDE_LENGTH is True:
-                    extraRows = extraRows + 1
-                if INCLUDE_ANGLE is True:
-                    extraRows = extraRows + 1
-                if INCLUDE_MASS is True:
-                    extraRows = extraRows + 1
-                if INCLUDE_NO_SHEETS is True:
-                    extraRows = extraRows + 1
+            # Format the spreadsheet
+            extraRows = 0
+            if INCLUDE_LENGTH is True:
+                extraRows = extraRows + 1
+            if INCLUDE_ANGLE is True:
+                extraRows = extraRows + 1
+            if INCLUDE_MASS is True:
+                extraRows = extraRows + 1
+            if INCLUDE_NO_SHEETS is True:
+                extraRows = extraRows + 1
 
-                # region Format the data with the values as a Table
-                #
-                # Define the header range
-                StartCell = "A1"
-                RemarkCell = "E1"
-                HeaderRange = str(f"{StartCell}:{RemarkCell}")
+            # region Format the data with the values as a Table
+            #
+            # Define the header range
+            StartCell = "A1"
+            RemarkCell = "E1"
+            HeaderRange = str(f"{StartCell}:{RemarkCell}")
 
-                # Get the first row below the header
-                FirstTableRow = ""
-                for i in range(len(StartCell)):
-                    if StartCell[i].isdigit():
-                        FirstTableRow = FirstTableRow + str(StartCell[i])
-                FirstTableRow = int(FirstTableRow) + 1
+            # Get the first row below the header
+            FirstTableRow = ""
+            for i in range(len(StartCell)):
+                if StartCell[i].isdigit():
+                    FirstTableRow = FirstTableRow + str(StartCell[i])
+            FirstTableRow = int(FirstTableRow) + 1
 
-                # Get the first column
-                FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
+            # Get the first column
+            FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
 
-                # Get the last column
-                LastColumn = Standard_Functions.RemoveNumbersFromString(RemarkCell)
+            # Get the last column
+            LastColumn = Standard_Functions.RemoveNumbersFromString(RemarkCell)
 
-                # Define the table range
-                TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{int(RowNumber) + extraRows}")
+            # Define the table range
+            TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{int(RowNumber) + extraRows}")
 
-                # Define the First column range
-                FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{int(RowNumber) + extraRows}")
+            # Define the First column range
+            FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{int(RowNumber) + extraRows}")
 
-                # Format the table
-                sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
-                                                          TableRange=TableRange, FirstColumnRange=FirstColumnRange)
+            # Format the table
+            sheet = TableFormat_Functions.FormatTable(sheet=sheet, HeaderRange=HeaderRange,
+                                                      TableRange=TableRange, FirstColumnRange=FirstColumnRange)
 
-                # endregion
+            # endregion
 
-                # Finally recompute the spreadsheet
-                sheet.recompute()
-                App.ActiveDocument.recompute()
+            # Finally recompute the spreadsheet
+            sheet.recompute()
+            App.ActiveDocument.recompute()
 
         except Exception as e:
             Text = translate(
@@ -863,11 +859,10 @@ def ImportDataExcel():
                     + "See the report view for details",
                 )
                 raise e
-        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-
-    else:
-        Text = translate("TitleBlock Workbench", "External source is not enabled!")
-        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+            Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+        else:
+            Text = translate("TitleBlock Workbench", "External source is not enabled!")
+            Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
     return
 
 
@@ -887,6 +882,8 @@ def ImportDataFreeCAD():
             Input_SheetName = EXTERNAL_SOURCE_SHEET_NAME
             # get the spreadsheet "TitleBlock"
             sheet = doc.getObject("TitleBlock")
+            # Clear the sheet
+            sheet.clearAll()
             # Save the name of the active document to reactivate it at the end of this function.
             LastActiveDoc = doc.Name
             # Define the External sheet and document
@@ -1152,8 +1149,6 @@ def ImportDataFreeCAD():
 def Start(command):
     try:
         sheet = App.ActiveDocument.getObject("TitleBlock")
-        # Clear the sheet
-        sheet.clearAll()
         # check if the result is not empty
         if sheet is not None:
             # Proceed with the macro.

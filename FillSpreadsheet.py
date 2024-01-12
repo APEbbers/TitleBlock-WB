@@ -860,9 +860,9 @@ def ImportDataExcel():
                 )
                 raise e
             Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-        else:
-            Text = translate("TitleBlock Workbench", "External source is not enabled!")
-            Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+    else:
+        Text = translate("TitleBlock Workbench", "External source is not enabled!")
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
     return
 
 

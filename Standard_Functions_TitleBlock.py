@@ -29,7 +29,7 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
     1 : Yes | No                    (text, title, style)\n
     20 : Inputbox                   (text, title, style, default)\n
     21 : Inputbox with dropdown     (text, title, style, default, stringlist)\n
-    Icontype:                       string: NoIcon, Question, Warning, Critical. Default Information 
+    Icontype:                       string: NoIcon, Question, Warning, Critical. Default Information
     """
     from PySide2.QtWidgets import QMessageBox, QInputDialog
 
@@ -130,11 +130,21 @@ def GetFileDialog(files, SaveAs: bool = True) -> str:
             else:
                 file = ""
         except IOError:
-            Mbox("Permission error!!\nDo you have the file open?", "Titleblock Workbench", 0, IconType="Critical")
+            Mbox(
+                "Permission error!!\nDo you have the file open?",
+                "Titleblock Workbench",
+                0,
+                IconType="Critical",
+            )
             file = ""
             return file
         except Exception as e:
-            Mbox("Unknown error!!'nSee the report view for details!", "Titleblock Workbench", 0, IconType="Critical")
+            Mbox(
+                "Unknown error!!'nSee the report view for details!",
+                "Titleblock Workbench",
+                0,
+                IconType="Critical",
+            )
             raise e
     if SaveAs is False:
         if file:
@@ -171,7 +181,7 @@ def GetA1fromR1C1(input: str) -> str:
         input = input.upper()
         ColumnPosition = input.find("C")
         RowNumber = int(input[1:(ColumnPosition)])
-        ColumnNumber = int(input[(ColumnPosition + 1):])
+        ColumnNumber = int(input[(ColumnPosition + 1) :])
 
         ColumnLetter = GetLetterFromNumber(ColumnNumber)
 

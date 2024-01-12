@@ -281,8 +281,8 @@ def ExportSpreadSheet_FreeCAD():
             ff.saveAs(FileName)
             # Close the document before reopening
             App.closeDocument(ff.Name)
-            if FileName == "":
-                return
+        if FileName == "":
+            return
 
         # Open the document hidden, recompute and save it
         ff = App.openDocument(FileName, True)

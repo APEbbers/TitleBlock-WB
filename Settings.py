@@ -726,9 +726,9 @@ def ImportSettings_FreeCAD():
                 Standard_Functions.Print(Text, "Log")
 
         # Get the columns
-        FirstColumn = int(Standard_Functions.GetNumberFromLetter(StartCell[:1]))
-        SecondColumn = Standard_Functions.GetLetterFromNumber(FirstColumn + 1)
-        FirstColumn = StartCell[:1]
+        FirstColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
+        SecondColumn = Standard_Functions.GetLetterFromNumber(
+            int(Standard_Functions.RemoveNumbersFromString(StartCell) + 1))
 
         # go through the excel until all settings are imported.
         counter = 0
@@ -938,6 +938,15 @@ def ImportSettings_FreeCAD():
                 "TitleBlock Workbench: Settings are not imported",
             )
             Standard_Functions.Print(Text, "Log")
+
+        # recompute the document
+        ff.recompute(None, True, True)
+        # Save the workbook
+        ff.save()
+        # Close the FreeCAD file
+        App.closeDocument(ff.Name)
+        # Activate the document which was active when this command started.
+        App.setActiveDocument(LastActiveDoc)
     # If there is an IO Error continue:
     except IOError as e:
         # If there is an read/write error, print an error in the report view
@@ -950,10 +959,15 @@ def ImportSettings_FreeCAD():
                     "TitleBlock Workbench",
                     f"No permision to open {EXTERNAL_SOURCE_PATH}!\nSee the report view for details",
                 )
+
+            # Close the FreeCAD file
+            App.closeDocument(ff.Name)
             return Standard_Functions.Mbox(
                 text=Text, title="TitleBlock Workbench", style=0
             )
         # For all other IO errors, raise e.
+        # Close the FreeCAD file
+        App.closeDocument(ff.Name)
         raise (e)
     except Exception as e:
         Text = translate(
@@ -967,17 +981,12 @@ def ImportSettings_FreeCAD():
             )
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         if ENABLE_DEBUG is True:
+            # Close the FreeCAD file
+            App.closeDocument(ff.Name)
             raise (e)
+        # Close the FreeCAD file
+        App.closeDocument(ff.Name)
         return
-
-    # recompute the document
-    ff.recompute(None, True, True)
-    # Save the workbook
-    ff.save()
-    # Close the FreeCAD file
-    App.closeDocument(ff.Name)
-    # Activate the document which was active when this command started.
-    App.setActiveDocument(LastActiveDoc)
 
 
 def ExportSettings_XL(Silent=False):

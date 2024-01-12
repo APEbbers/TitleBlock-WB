@@ -700,8 +700,8 @@ def ImportSettings_FreeCAD():
 
     try:
         # Get the sheetname
-        sheet = ff.getObject(SHEETNAME_SETTINGS_XL)
-        if sheet is None:
+        ExtSheet = ff.getObject(SHEETNAME_SETTINGS_XL)
+        if ExtSheet is None:
             Text = translate(
                 "TitleBlock Workbench", f"No spreadsheet named '{SHEETNAME_SETTINGS_XL}'!!!"
             )
@@ -732,14 +732,14 @@ def ImportSettings_FreeCAD():
         # go through the excel until all settings are imported.
         counter = 0
         for i in range(1, 1000):
-            Cell_Name = sheet.getContents(str(FirstColumn) + str(i))
+            Cell_Name = ExtSheet.getContents(str(FirstColumn) + str(i))
             if Cell_Name.startswith("'"):
                 Cell_Name = Cell_Name[1:]
-            Cell_Value = sheet.getContents(str(SecondColumn) + str(i))
+            Cell_Value = ExtSheet.getContents(str(SecondColumn) + str(i))
             if Cell_Value.startswith("'"):
                 Cell_Value = Cell_Value[1:]
 
-            print(Cell_Name + ", " + Cell_Value)
+            print(Cell_Name + ", " + Cell_Value + "," + StartCell)
 
             # region -- Import the external source settings
             #

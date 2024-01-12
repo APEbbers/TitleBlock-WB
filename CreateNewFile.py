@@ -147,7 +147,7 @@ def CcreateExcel():
         # Close the workbook
         wb.close()
         # Update the preferences
-        preferences.SetString("ExternalFile", FileName)
+        preferences.SetString("ExternalFile", rf"{FileName}")
     if FileName == "":
         return
 

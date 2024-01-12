@@ -899,8 +899,8 @@ def ImportDataFreeCAD():
                         ff = App.openDocument(FileName, True)
                     if FileName == "":
                         return
-                else:
-                    ff = App.openDocument(EXTERNAL_SOURCE_PATH, True)
+
+                ff = App.openDocument(EXTERNAL_SOURCE_PATH, True)
                 if EXTERNAL_SOURCE_SHEET_NAME == "":
                     # Set the sheetname with a inputbox
                     Spreadsheet_List = ff.findObjects('Spreadsheet::Sheet')

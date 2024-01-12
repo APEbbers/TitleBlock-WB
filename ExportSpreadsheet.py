@@ -87,7 +87,7 @@ def ExportSpreadSheet_Excel():
 
         if ENABLE_DEBUG is True:
             Text = translate("TitleBlock Workbench", f"the startcell is: {StartCell}")
-            print(Text)
+            Standard_Functions.Print(Input=Text, Type="Log")
 
         # Set the headers
         ws[StartCell].value = str(sheet.getContents("A1"))
@@ -333,7 +333,7 @@ def ExportSpreadSheet_FreeCAD():
 
         if ENABLE_DEBUG is True:
             Text = translate("TitleBlock Workbench", f"the startcell is: {StartCell}")
-            print(Text)
+            Standard_Functions.Print(Input=Text, Type="Log")
 
         # Set the headers
         TitleBlockData.set(StartCell, str(sheet.getContents("A1")))

@@ -28,7 +28,6 @@
 # https://github.com/FreeCAD/FreeCAD/blob/main/src/Mod/AddonManager/install_to_toolbar.py
 
 import FreeCAD as App
-import FreeCADGui as Gui
 from Settings import USE_EXTERNAL_SOURCE
 from Settings import EXTERNAL_SOURCE_PATH
 import Standard_Functions_TitleBlock as Standard_Functions
@@ -143,6 +142,8 @@ def QT_TRANSLATE_NOOP(context, text):
 
 def CreateTechDrawToolbar() -> object:
     """Creates a toolbar in the standard TechDraw WorkBench with the most importand commands"""
+    import FreeCADGui as Gui
+    from PySide2.QtWidgets import QToolBar
 
     # region -- define the names and folders
 
@@ -164,6 +165,13 @@ def CreateTechDrawToolbar() -> object:
         while True:
             if get_toolbar_with_name(ToolBarName, TechDrawToolBarsParamPath):
                 ReplaceButtons()
+                # Get the main window
+                mainWindow = Gui.getMainWindow()
+                # Get the toolbar
+                ToolBar = mainWindow.findChild(QToolBar, ToolBarName)
+                # If the toolbar is hidden, show it.
+                ToolBar.setVisible(True)
+
                 return
             i = i + 1
     # endregion
@@ -199,6 +207,15 @@ def CreateTechDrawToolbar() -> object:
     wb = Gui.activeWorkbench()
     if int(App.Version()[0]) == 0 and int(App.Version()[1]) > 19:
         wb.reloadActive()
+
+    # Get the main window
+    mainWindow = Gui.getMainWindow()
+    # Get the toolbar
+    ToolBar = mainWindow.findChild(QToolBar, ToolBarName)
+    # If the toolbar is hidden, show it.
+    ToolBar.setVisible(True)
+
+    return
 
 
 def RemoveTechDrawToolbar() -> None:
@@ -262,7 +279,7 @@ def toggleToolbars(ToolbarName: str, WorkBench: str = ""):
     if WorkBench != "":
         WB = Gui.getWorkbench(WorkBench)
 
-    # Cet the list of toolbars present.
+    # Get the list of toolbars present.
     ListToolbars = WB.listToolbars()
     # Go through the list. If the toolbar exists set ToolbarExists to True
     ToolbarExists = False

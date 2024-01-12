@@ -34,7 +34,6 @@ import os
 import Settings
 from Settings import preferences
 from Settings import EXTERNAL_SOURCE_STARTCELL
-
 # from Settings import EXTERNAL_SOURCE_SHEET_NAME
 # from Settings import EXTERNAL_SOURCE_PATH
 from Settings import IMPORT_SETTINGS_XL
@@ -175,7 +174,7 @@ def ExportSpreadSheet_Excel():
         ws.add_table(tab)
 
         # Align the columns
-        for row in ws[1 : ws.max_row]:
+        for row in ws[1: ws.max_row]:
             Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
             Column_2 = row[Standard_Functions.GetNumberFromLetter(PropCell[:1]) - 1]
             Column_3 = row[Standard_Functions.GetNumberFromLetter(IncreaseCell[:1]) - 1]
@@ -350,66 +349,43 @@ def ExportSpreadSheet_FreeCAD():
 
             try:
                 TitleBlockData.set(
-                    Standard_Functions.RemoveNumbersFromString(StartCell)
-                    + str(RowNumber),
-                    str(sheet.getContents("A" + str(RowNumber - TopRow + 1))),
+                    Standard_Functions.RemoveNumbersFromString(StartCell) + str(RowNumber),
+                    str(sheet.getContents("A" + str(RowNumber - TopRow + 1)))
                 )
             except Exception:
-                TitleBlockData.set(
-                    Standard_Functions.RemoveNumbersFromString(StartCell)
-                    + str(RowNumber),
-                    "",
-                )
+                TitleBlockData.set(Standard_Functions.RemoveNumbersFromString(StartCell) + str(RowNumber), "")
 
             try:
                 TitleBlockData.set(
-                    Standard_Functions.RemoveNumbersFromString(PropCell)
-                    + str(RowNumber),
-                    str(sheet.getContents("B" + str(RowNumber - TopRow + 1))),
+                    Standard_Functions.RemoveNumbersFromString(PropCell) + str(RowNumber),
+                    str(sheet.getContents("B" + str(RowNumber - TopRow + 1)))
                 )
             except Exception:
-                TitleBlockData.set(
-                    Standard_Functions.RemoveNumbersFromString(PropCell), ""
-                )
+                TitleBlockData.set(Standard_Functions.RemoveNumbersFromString(PropCell), "")
 
             try:
                 TitleBlockData.set(
-                    Standard_Functions.RemoveNumbersFromString(IncreaseCell)
-                    + str(RowNumber),
-                    str(sheet.getContents("C" + str(RowNumber - TopRow + 1))),
+                    Standard_Functions.RemoveNumbersFromString(IncreaseCell) + str(RowNumber),
+                    str(sheet.getContents("C" + str(RowNumber - TopRow + 1)))
                 )
             except Exception:
-                TitleBlockData.set(
-                    Standard_Functions.RemoveNumbersFromString(IncreaseCell)
-                    + str(RowNumber),
-                    "",
-                )
+                TitleBlockData.set(Standard_Functions.RemoveNumbersFromString(IncreaseCell) + str(RowNumber), "")
 
             try:
                 TitleBlockData.set(
-                    Standard_Functions.RemoveNumbersFromString(MultiplierCell)
-                    + str(RowNumber),
-                    str(sheet.getContents("D" + str(RowNumber - TopRow + 1))),
+                    Standard_Functions.RemoveNumbersFromString(MultiplierCell) + str(RowNumber),
+                    str(sheet.getContents("D" + str(RowNumber - TopRow + 1)))
                 )
             except Exception:
-                TitleBlockData.set(
-                    Standard_Functions.RemoveNumbersFromString(MultiplierCell)
-                    + str(RowNumber),
-                    "",
-                )
+                TitleBlockData.set(Standard_Functions.RemoveNumbersFromString(MultiplierCell) + str(RowNumber), "")
 
             try:
                 TitleBlockData.set(
-                    Standard_Functions.RemoveNumbersFromString(RemarkCell)
-                    + str(RowNumber),
-                    str(sheet.getContents("E" + str(RowNumber - TopRow + 1))),
+                    Standard_Functions.RemoveNumbersFromString(RemarkCell) + str(RowNumber),
+                    str(sheet.getContents("E" + str(RowNumber - TopRow + 1)))
                 )
             except Exception:
-                TitleBlockData.set(
-                    Standard_Functions.RemoveNumbersFromString(RemarkCell)
-                    + str(RowNumber),
-                    "",
-                )
+                TitleBlockData.set(Standard_Functions.RemoveNumbersFromString(RemarkCell) + str(RowNumber), "")
 
             # Check if the next row of the spreadsheet has data. If not this is the end of all the available values.
             try:
@@ -441,17 +417,11 @@ def ExportSpreadSheet_FreeCAD():
         TableRange = str(f"{FirstColumn}{FirstTableRow}:{LastColumn}{RowNumber - 1}")
 
         # Define the First column range
-        FirstColumnRange = str(
-            f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber - 1}"
-        )
+        FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber - 1}")
 
         # Format the table
-        sheet = TableFormat_Functions.FormatTable(
-            sheet=TitleBlockData,
-            HeaderRange=HeaderRange,
-            TableRange=TableRange,
-            FirstColumnRange=FirstColumnRange,
-        )
+        sheet = TableFormat_Functions.FormatTable(sheet=TitleBlockData, HeaderRange=HeaderRange,
+                                                  TableRange=TableRange, FirstColumnRange=FirstColumnRange)
 
         # endregion
 
@@ -460,11 +430,12 @@ def ExportSpreadSheet_FreeCAD():
             Settings.ExportSettings_FreeCAD(Silent=True)
 
         # recompute the document
-        ff.recompute(None, True, True)
-        # Save the workbook
-        ff.save()
-        # Close the FreeCAD file
-        App.closeDocument(ff.Name)
+        if Standard_Functions.CheckIfDocumentIsOpen(ff.Name):
+            ff.recompute(None, True, True)
+            # Save the workbook
+            ff.save()
+            # Close the FreeCAD file
+            App.closeDocument(ff.Name)
         # Activate the document which was active when this command started.
         try:
             doc = App.setActiveDocument(LastActiveDoc)

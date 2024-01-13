@@ -178,6 +178,25 @@ SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE = GetBoolSetting(
 )
 AUTOFIT_FACTOR = GetFloatSetting("AutoFitFactor")
 
+# Drawing list settings - Simple
+USE_SIMPLE_LIST = GetBoolSetting("UseSimpleList")
+USE_EXTERNAL_SOURCE_SIMPLE_LIST = GetBoolSetting("UseExternalSource_SimpleList")
+EXTERNAL_FILE_SIMPLE_LIST = GetStringSetting("ExternalFile_SimpleList")
+SHEETNAME_SIMPLE_LIST = GetStringSetting("SheetName_SimpleList")
+STARTCELL_SIMPLE_LIST = GetStringSetting("StartCell_SimpleList")
+PROPERTY_NAME_SIMPLE_LIST = GetStringSetting("PropertyName_SimpleList")
+AUTOFILL_TITLEBLOCK_SIMPLE_LIST = GetBoolSetting("AutoFillTitleBlock_SimpleList")
+
+# Drawing list settings - Advanced
+USE_ADVANCED_LIST = GetBoolSetting("UseAdvancedList")
+USE_EXTERNAL_SOURCE_ADVANCED_LIST = GetBoolSetting("UseExternalSource_AdvancedList")
+EXTERNAL_FILE_ADVANCED_LIST = GetStringSetting("ExternalFile_AdvancedList")
+SHEETNAME_ADVANCED_LIST = GetStringSetting("SheetName_AdvancedList")
+STARTCELL_ADVANCED_LIST = GetStringSetting("StartCell_AdvancedList")
+PROPERTY_NAME_ADVANCED_LIST = GetStringSetting("PropertyName_AdvancedList")
+SORTING_PREFIX_ADVANCED_LIST = GetStringSetting("SortingPrefix_AdvancedList")
+AUTOFILL_TITLEBLOCK_ADVANCED_LIST = GetBoolSetting("AutoFillTitleBlock_AdvancedList")
+
 # Enable debug mode. This will enable additional report messages
 ENABLE_DEBUG = GetBoolSetting("EnableDebug")
 
@@ -226,6 +245,18 @@ SettingsList = [
     SPREADSHEET_COLUMNFONTSTYLE_BOLD,
     SPREADSHEET_COLUMNFONTSTYLE_ITALIC,
     SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE,
+    USE_SIMPLE_LIST,
+    EXTERNAL_FILE_SIMPLE_LIST,
+    SHEETNAME_SIMPLE_LIST,
+    STARTCELL_SIMPLE_LIST,
+    PROPERTY_NAME_SIMPLE_LIST,
+    AUTOFILL_TITLEBLOCK_SIMPLE_LIST,
+    USE_ADVANCED_LIST,
+    EXTERNAL_FILE_ADVANCED_LIST,
+    SHEETNAME_ADVANCED_LIST,
+    STARTCELL_ADVANCED_LIST,
+    PROPERTY_NAME_ADVANCED_LIST,
+    SORTING_PREFIX_ADVANCED_LIST,
     ENABLE_DEBUG,
 ]
 
@@ -1449,7 +1480,7 @@ def ExportSettings_XL(Silent=False):
                 f"TitleBlock Workbench: Table range is: {StartCell}:{EndCell}",
             )
             Standard_Functions.Print(Text, "Log")
-        for row in ws[1 : ws.max_row]:
+        for row in ws[1: ws.max_row]:
             Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
             Column_2 = row[Standard_Functions.GetNumberFromLetter(EndCell[:1]) - 1]
             Column_1.alignment = Alignment(
@@ -1521,10 +1552,9 @@ def ImportSettings_XL():
             if os.path.exists(EXTERNAL_SOURCE_PATH) is False:
                 Text = translate(
                     "TitleBlock Workbench",
-                    "There is no excel workbook available, while import from external source is enabled!\n"
-                    + "Please create an excel workbook to export your settings to or disable import from external source.",
-                    "TitleBlock Workbench",
-                )
+                    "There is no excel workbook available, while import from external source is enabled!\n" +
+                    "Please create an excel workbook to export your settings to or disable import from external source.",
+                    "TitleBlock Workbench",)
                 Standard_Functions.Mbox(
                     text=Text, title="TitleBlock Workbench", style=0
                 )

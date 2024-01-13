@@ -175,7 +175,7 @@ def ExportSpreadSheet_Excel():
         ws.add_table(tab)
 
         # Align the columns
-        for row in ws[1 : ws.max_row]:
+        for row in ws[1: ws.max_row]:
             Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
             Column_2 = row[Standard_Functions.GetNumberFromLetter(PropCell[:1]) - 1]
             Column_3 = row[Standard_Functions.GetNumberFromLetter(IncreaseCell[:1]) - 1]
@@ -249,6 +249,9 @@ def ExportSpreadSheet_Excel():
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         if ENABLE_DEBUG is True:
             raise (e)
+    finally:
+        # Close the excel workbook
+        wb.close()
 
 
 def ExportSpreadSheet_FreeCAD():

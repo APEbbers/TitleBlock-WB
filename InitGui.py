@@ -74,7 +74,7 @@ class TitleBlockWB(Gui.Workbench):
         from Settings import IMPORT_SETTINGS_XL
         from Settings import ADD_TOOLBAR_TECHDRAW
         import CreateUI
-        import TechDrawFunctions
+        import TechDraw_Functions
 
         def QT_TRANSLATE_NOOP(context, text):
             return text
@@ -128,8 +128,8 @@ class TitleBlockWB(Gui.Workbench):
         # endregion
 
         # region set the templates for the TechDraw workbench
-        TechDrawFunctions.ImportTemplates()
-        TechDrawFunctions.SetDefaultTemplate()
+        TechDraw_Functions.ImportTemplates()
+        TechDraw_Functions.SetDefaultTemplate()
         # endregion
 
         return
@@ -137,10 +137,10 @@ class TitleBlockWB(Gui.Workbench):
     def Activated(self):
         """This function is executed whenever the workbench is activated"""
 
-        import TechDrawFunctions
+        import TechDraw_Functions
 
-        TechDrawFunctions.ImportTemplates()
-        TechDrawFunctions.SetDefaultTemplate()
+        TechDraw_Functions.ImportTemplates()
+        TechDraw_Functions.SetDefaultTemplate()
         return
 
     def Deactivated(self):

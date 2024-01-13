@@ -41,6 +41,7 @@ import os
 import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
 import TableFormat_Functions
+import DrawingList_Functions
 
 # Get the settings
 from Settings import DRAW_NO_FIELD
@@ -70,6 +71,10 @@ from Settings import INCLUDE_MASS
 from Settings import INCLUDE_ANGLE
 from Settings import INCLUDE_LENGTH
 from Settings import preferences
+from Settings import USE_SIMPLE_LIST
+from Settings import USE_EXTERNAL_SOURCE_SIMPLE_LIST
+from Settings import USE_ADVANCED_LIST
+from Settings import EXTERNAL_FILE_ADVANCED_LIST
 
 # endregion
 
@@ -620,13 +625,13 @@ def FillSheet():
 def ImportDataExcel():
     from openpyxl import load_workbook
 
-    # if debug mode is enabled, show the external file including path.
-    if ENABLE_DEBUG is True:
-        Text = translate("TitleBlock Workbench", str(EXTERNAL_SOURCE_PATH))
-        Standard_Functions.Print(Text, "Log")
-
     # Check if it is allowed to use an external source and if so, continue
     if USE_EXTERNAL_SOURCE is True:
+        # if debug mode is enabled, show the external file including path.
+        if ENABLE_DEBUG is True:
+            Text = translate("TitleBlock Workbench", str(EXTERNAL_SOURCE_PATH))
+            Standard_Functions.Print(Text, "Log")
+
         # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
         try:
             wb = ""
@@ -820,6 +825,12 @@ def ImportDataExcel():
             # Run the def to add extra system data. This is the final value of "RowNumber" minus the "StartRow".
             AddExtraData(sheet, RowNumber - int(StartRow))
 
+            # Map the drawing list
+            if USE_SIMPLE_LIST is True and USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
+                DrawingList_Functions.MapSimpleDrawingList_Excel(sheet=sheet)
+            if USE_SIMPLE_LIST is True and USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
+                DrawingList_Functions.MapSimpleDrawingList(sheet=sheet)
+
             # Format the spreadsheet
             extraRows = 0
             if INCLUDE_LENGTH is True:
@@ -898,12 +909,12 @@ def ImportDataExcel():
 
 # Import data from an central FreeCAD file
 def ImportDataFreeCAD():
-    # if debug mode is enabled, show the external file including path.
-    if ENABLE_DEBUG is True:
-        Text = translate("TitleBlock Workbench", str(EXTERNAL_SOURCE_PATH))
-        Standard_Functions.Print(Text, "Log")
-
     try:
+        # if debug mode is enabled, show the external file including path.
+        if ENABLE_DEBUG is True:
+            Text = translate("TitleBlock Workbench", str(EXTERNAL_SOURCE_PATH))
+            Standard_Functions.Print(Text, "Log")
+
         # Check if it is allowed to use an external source and if so, continue
         if USE_EXTERNAL_SOURCE is True:
             # Get the active document
@@ -1106,6 +1117,10 @@ def ImportDataFreeCAD():
 
             # Run the def to add extra system data. This is the final value of "RowNumber" minus the "StartRow".
             AddExtraData(sheet, RowNumber - int(StartRow), doc)
+
+            # map the drawing list
+            if USE_SIMPLE_LIST is True and USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
+                DrawingList_Functions.MapSimpleDrawingList_FreeCAD(sheet=sheet)
 
             extraRows = 0
             if INCLUDE_LENGTH is True:

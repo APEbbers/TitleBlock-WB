@@ -52,16 +52,120 @@ translate = App.Qt.translate
 # endregion
 
 
-def MapSimpleDrawingList_Excel():
-    from openpyxl import load_workbook
+def MapSimpleDrawingList(sheet):
+    # Check if it is allowed to use an external source and if so, continue
+    if USE_SIMPLE_LIST is True and USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
+        try:
+            # get the spreadsheet "TitleBlock"
+            if sheet is None:
+                sheet = App.ActiveDocument.getObject("TitleBlock")
+            # Get the Drawing list.
+            DrawingSheet = App.ActiveDocument.getObject(SHEETNAME_SIMPLE_LIST)
+            if DrawingSheet is None:
+                SheetName = Standard_Functions.Mbox(text="DrawingList", title="Title block workbench", style=20)
+                if SheetName != "":
+                    DrawingSheet = SheetName
+                if SheetName == "":
+                    return
 
-    # if debug mode is enabled, show the external file including path.
-    if ENABLE_DEBUG is True:
-        Text = translate("TitleBlock Workbench", f"The drawing list is: {EXTERNAL_FILE_SIMPLE_LIST}")
-        Standard_Functions.Print(Text, "Log")
+            # Get the startcolumn and the other three columns from there
+            StartCellExt = EXTERNAL_FILE_SIMPLE_LIST
+
+            if (Standard_Functions.GetA1fromR1C1(StartCellExt)).strip():
+                StartCellExt = Standard_Functions.GetA1fromR1C1(StartCellExt)
+            StartColumnExt = Standard_Functions.RemoveNumbersFromString(StartCellExt)
+            # If debug mode is on, show the start colum and its number
+            if ENABLE_DEBUG is True:
+                Standard_Functions.Print(
+                    translate(
+                        "TitleBlock Workbench",
+                        "Start column for the drawing list is: " + str(StartColumnExt),
+                    ),
+                    "Log",
+                )
+                Standard_Functions.Print(
+                    translate(
+                        "TitleBlock Workbench",
+                        "Column number for the drawing list is: "
+                        + str(Standard_Functions.GetNumberFromLetter(StartColumnExt)),
+                    ),
+                    "Log",
+                )
+            Column2 = Standard_Functions.GetLetterFromNumber(
+                int(Standard_Functions.GetNumberFromLetter(StartColumnExt) + 1), True
+            )
+
+            # Get the start row
+            StartRow = Standard_Functions.RemoveLettersFromString(
+                EXTERNAL_FILE_ADVANCED_LIST
+            )
+            # if debug mode is on, show your start row
+            if ENABLE_DEBUG is True:
+                Text = translate(
+                    "TitleBlock Workbench", "the start row for the drawing list is: " + str(StartRow)
+                )
+                Standard_Functions.Print(Text, "Log")
+
+            # Define place holders for the property name and value in the excel list.
+            PropertyNameExt = ""
+            PropertyValueExt = ""
+
+            # Go through the excel list and collect the property value based on the property name searched for.
+            for i in range(1000):
+                # Define the start row. This is the Header row + 1 + i as counter
+                RowNumber = int(StartRow) + i + 1
+
+                # Get the property name in the excel list. If it starts with "'", remove it
+                PropertyNameExt = str(DrawingSheet.getContents(f"{StartColumnExt}{RowNumber}"))
+                if PropertyNameExt[:1] == "'":
+                    PropertyNameExt = PropertyNameExt[1:]
+
+                # Get the property value in the excel list. If it starts with "'", remove it
+                PropertyValueExt = str(DrawingSheet.getContents(f"{Column2}{RowNumber}"))
+                if PropertyNameExt[:1] == "'":
+                    PropertyNameExt = PropertyNameExt[1:]
+
+                # If the Property name is equal to the property name wanted, break.
+                # If the property name is empty, you reached the end of the list.
+                if PropertyNameExt == PROPERTY_NAME_SIMPLE_LIST or PropertyNameExt == "":
+                    break
+
+            # Go through the titleblock spreadsheet and search for the property name.
+            # Replace the correspinding property value with the value from the excel list.
+            for j in range(1, 1000):
+                # Get the property name in the titleblock spreadsheet
+                PropertyName = sheet.getContents(f"A{j}")
+
+                # If the property name is equal to the property name wanted,
+                # replace the value in the spreadsheet with the property value from excel.
+                if PropertyName == PROPERTY_NAME_SIMPLE_LIST or PropertyName == "":
+                    sheet.set(f"B{j}", PropertyValueExt)
+                    break
+
+        except Exception as e:
+            Text = translate(
+                "TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!\n"
+            )
+            if ENABLE_DEBUG is True:
+                Text = translate(
+                    "TitleBlock Workbench",
+                    "TitleBlock Workbench: an error occurred!!\n"
+                    + "See the report view for details",
+                )
+                raise e
+            Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+
+
+def MapSimpleDrawingList_Excel(sheet):
+    from openpyxl import load_workbook
 
     # Check if it is allowed to use an external source and if so, continue
     if USE_SIMPLE_LIST is True and USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
+        # if debug mode is enabled, show the external file including path.
+        if ENABLE_DEBUG is True:
+            Text = translate("TitleBlock Workbench", f"The drawing list is: {EXTERNAL_FILE_SIMPLE_LIST}")
+            Standard_Functions.Print(Text, "Log")
+
         # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
         try:
             wb = ""
@@ -119,7 +223,8 @@ def MapSimpleDrawingList_Excel():
 
         try:
             # get the spreadsheet "TitleBlock"
-            sheet = App.ActiveDocument.getObject("TitleBlock")
+            if sheet is None:
+                sheet = App.ActiveDocument.getObject("TitleBlock")
 
             # Get the startcolumn and the other three columns from there
             StartCell = STARTCELL_SIMPLE_LIST
@@ -242,31 +347,28 @@ def MapSimpleDrawingList_Excel():
     return
 
 
-def MapSimpleDrawingList_FreeCAD():
-    # if debug mode is enabled, show the external file including path.
-    if ENABLE_DEBUG is True:
-        Text = translate("TitleBlock Workbench", f"The drawing list is: {EXTERNAL_FILE_SIMPLE_LIST}")
-        Standard_Functions.Print(Text, "Log")
-
+def MapSimpleDrawingList_FreeCAD(sheet):
     # Check if it is allowed to use an external source and if so, continue
     if USE_SIMPLE_LIST is True and USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
-        # Get the active document
-        doc = App.ActiveDocument
+        # if debug mode is enabled, show the external file including path.
+        if ENABLE_DEBUG is True:
+            Text = translate("TitleBlock Workbench", f"The drawing list is: {EXTERNAL_FILE_SIMPLE_LIST}")
+            Standard_Functions.Print(Text, "Log")
+
         # Get the name of the external source
-        Input_SheetName = SHEETNAME_ADVANCED_LIST
+        Input_SheetName = SHEETNAME_SIMPLE_LIST
         # get the spreadsheet "TitleBlock"
-        sheet = doc.getObject("TitleBlock")
+        if sheet is None:
+            sheet = App.ActiveDocument.getObject("TitleBlock")
         # Clear the sheet
         sheet.clearAll()
-        # Save the name of the active document to reactivate it at the end of this function.
-        LastActiveDoc = doc.Name
         # Define the External sheet and document
         ExtSheet = None
         # ff = None
 
         # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
         try:
-            if EXTERNAL_FILE_ADVANCED_LIST.lower().endswith(".xlsx"):
+            if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith(".xlsx"):
                 Filter = [
                     ("FreeCAD", "*.FCStd"),
                 ]
@@ -278,8 +380,8 @@ def MapSimpleDrawingList_FreeCAD():
                 if FileName == "":
                     return
             else:
-                ff = App.openDocument(EXTERNAL_FILE_ADVANCED_LIST, True)
-            if EXTERNAL_FILE_ADVANCED_LIST == "":
+                ff = App.openDocument(EXTERNAL_FILE_SIMPLE_LIST, True)
+            if EXTERNAL_FILE_SIMPLE_LIST == "":
                 # Set the sheetname with a inputbox
                 Spreadsheet_List = ff.findObjects("Spreadsheet::Sheet")
                 Text = translate(
@@ -300,7 +402,7 @@ def MapSimpleDrawingList_FreeCAD():
                     return
 
                 ExtSheet = ff.getObject(Input_SheetName)
-            if SHEETNAME_ADVANCED_LIST != "":
+            if SHEETNAME_SIMPLE_LIST != "":
                 ExtSheet = ff.getObject(Input_SheetName)
         except Exception as e:
             if ENABLE_DEBUG is True:
@@ -319,8 +421,8 @@ def MapSimpleDrawingList_FreeCAD():
             sheet = App.ActiveDocument.getObject("TitleBlock")
 
             # Get the startcolumn and the other three columns from there
-            StartCellExt = EXTERNAL_FILE_ADVANCED_LIST
-            if EXTERNAL_FILE_ADVANCED_LIST == "":
+            StartCellExt = EXTERNAL_FILE_SIMPLE_LIST
+            if EXTERNAL_FILE_SIMPLE_LIST == "":
                 # Set EXTERNAL_SOURCE_SHEET_NAME to the chosen sheetname
                 preferences.SetString("SheetName", Input_SheetName)
                 ExtSheet = ff.getObject(Input_SheetName)
@@ -370,7 +472,7 @@ def MapSimpleDrawingList_FreeCAD():
 
             # Get the start row
             StartRow = Standard_Functions.RemoveLettersFromString(
-                EXTERNAL_FILE_ADVANCED_LIST
+                EXTERNAL_FILE_SIMPLE_LIST
             )
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
@@ -414,20 +516,6 @@ def MapSimpleDrawingList_FreeCAD():
                 if PropertyName == PROPERTY_NAME_SIMPLE_LIST or PropertyName == "":
                     sheet.set(f"B{j}", PropertyValueExt)
                     break
-
-            # recompute the document
-            if Standard_Functions.CheckIfDocumentIsOpen(EXTERNAL_FILE_SIMPLE_LIST):
-                ff.recompute(None, True, True)
-                # Save the workbook
-                ff.save()
-                # Close the FreeCAD file
-                App.closeDocument(ff.Name)
-            # Activate the document which was active when this command started.
-            try:
-                doc = App.setActiveDocument(LastActiveDoc)
-                doc.recompute(None, True, True)
-            except Exception:
-                pass
 
         except Exception as e:
             Text = translate(

@@ -103,7 +103,7 @@ class Ui_Form(object):
         self.scrollArea.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 437, 1097))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, -92, 437, 1097))
         sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Minimum)
         sizePolicy2.setHorizontalStretch(0)
         sizePolicy2.setVerticalStretch(0)
@@ -1085,7 +1085,7 @@ class Ui_Form(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 442, 773))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 442, 798))
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_2.setSpacing(5())
         self.verticalLayout_2.setMargin(0())
@@ -1102,12 +1102,12 @@ class Ui_Form(object):
         self.frame_3.setObjectName(u"frame_3")
         sizePolicy5.setHeightForWidth(self.frame_3.sizePolicy().hasHeightForWidth())
         self.frame_3.setSizePolicy(sizePolicy5)
-        self.frame_3.setMinimumSize(QSize(0, 265))
+        self.frame_3.setMinimumSize(QSize(0, 290))
         self.frame_3.setFrameShape(QFrame.NoFrame)
         self.frame_3.setFrameShadow(QFrame.Raised)
         self.layoutWidget9 = QWidget(self.frame_3)
         self.layoutWidget9.setObjectName(u"layoutWidget9")
-        self.layoutWidget9.setGeometry(QRect(5, 5, 416, 256))
+        self.layoutWidget9.setGeometry(QRect(5, 5, 416, 281))
         self.formLayout_5 = QFormLayout(self.layoutWidget9)
         self.formLayout_5.setSpacing(5())
         self.formLayout_5.setMargin(0())
@@ -1117,6 +1117,15 @@ class Ui_Form(object):
         self.gridLayout_8 = QGridLayout()
         self.gridLayout_8.setSpacing(5())
         self.gridLayout_8.setObjectName(u"gridLayout_8")
+        self.ExternalFileChooser_SimpleList = Gui_PrefFileChooser(self.layoutWidget9)
+        self.ExternalFileChooser_SimpleList.setObjectName(u"ExternalFileChooser_SimpleList")
+        self.ExternalFileChooser_SimpleList.setEnabled(True)
+        self.ExternalFileChooser_SimpleList.setFont(font2)
+        self.ExternalFileChooser_SimpleList.setProperty("prefEntry", u"ExternalFile_SimpleList")
+        self.ExternalFileChooser_SimpleList.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+
+        self.gridLayout_8.addWidget(self.ExternalFileChooser_SimpleList, 2, 0, 1, 1)
+
         self.UseESimpleList = Gui_PrefCheckBox(self.layoutWidget9)
         self.UseESimpleList.setObjectName(u"UseESimpleList")
         self.UseESimpleList.setFont(font2)
@@ -1125,14 +1134,12 @@ class Ui_Form(object):
 
         self.gridLayout_8.addWidget(self.UseESimpleList, 0, 0, 1, 1)
 
-        self.ExternalFileChooser_SimpleList = Gui_PrefFileChooser(self.layoutWidget9)
-        self.ExternalFileChooser_SimpleList.setObjectName(u"ExternalFileChooser_SimpleList")
-        self.ExternalFileChooser_SimpleList.setEnabled(True)
-        self.ExternalFileChooser_SimpleList.setFont(font2)
-        self.ExternalFileChooser_SimpleList.setProperty("prefEntry", u"ExternalFile_SimpleList")
-        self.ExternalFileChooser_SimpleList.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.UseExternalSource_SimpleList = Gui_PrefCheckBox(self.layoutWidget9)
+        self.UseExternalSource_SimpleList.setObjectName(u"UseExternalSource_SimpleList")
+        self.UseExternalSource_SimpleList.setProperty("prefEntry", u"\"UseExternalSource_SimpleList\"")
+        self.UseExternalSource_SimpleList.setProperty("prefPath", u"Mod/TitleBlock Workbench")
 
-        self.gridLayout_8.addWidget(self.ExternalFileChooser_SimpleList, 1, 0, 1, 1)
+        self.gridLayout_8.addWidget(self.UseExternalSource_SimpleList, 1, 0, 1, 1)
 
 
         self.formLayout_5.setLayout(0, QFormLayout.SpanningRole, self.gridLayout_8)
@@ -1248,7 +1255,7 @@ class Ui_Form(object):
         self.frame_4.setFrameShadow(QFrame.Raised)
         self.layoutWidget10 = QWidget(self.frame_4)
         self.layoutWidget10.setObjectName(u"layoutWidget10")
-        self.layoutWidget10.setGeometry(QRect(5, 5, 416, 326))
+        self.layoutWidget10.setGeometry(QRect(5, 5, 416, 623))
         self.formLayout_8 = QFormLayout(self.layoutWidget10)
         self.formLayout_8.setSpacing(5())
         self.formLayout_8.setMargin(0())
@@ -1265,7 +1272,7 @@ class Ui_Form(object):
         self.ExternalFileChooser_AdvancedList.setProperty("prefEntry", u"ExternalFile_AdvancedList")
         self.ExternalFileChooser_AdvancedList.setProperty("prefPath", u"Mod/TitleBlock Workbench")
 
-        self.formLayout_7.setWidget(1, QFormLayout.SpanningRole, self.ExternalFileChooser_AdvancedList)
+        self.formLayout_7.setWidget(2, QFormLayout.SpanningRole, self.ExternalFileChooser_AdvancedList)
 
         self.UseAdvancedList = Gui_PrefCheckBox(self.layoutWidget10)
         self.UseAdvancedList.setObjectName(u"UseAdvancedList")
@@ -1275,45 +1282,41 @@ class Ui_Form(object):
 
         self.formLayout_7.setWidget(0, QFormLayout.SpanningRole, self.UseAdvancedList)
 
+        self.UseExternalSource_AdvancedList = Gui_PrefCheckBox(self.layoutWidget10)
+        self.UseExternalSource_AdvancedList.setObjectName(u"UseExternalSource_AdvancedList")
+        self.UseExternalSource_AdvancedList.setProperty("prefEntry", u"UseExternalSource_AdvancedList")
+        self.UseExternalSource_AdvancedList.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+
+        self.formLayout_7.setWidget(1, QFormLayout.SpanningRole, self.UseExternalSource_AdvancedList)
+
 
         self.formLayout_8.setLayout(0, QFormLayout.SpanningRole, self.formLayout_7)
 
-        self.formLayout_4 = QFormLayout()
-        self.formLayout_4.setSpacing(5())
-        self.formLayout_4.setObjectName(u"formLayout_4")
-        self.PropertyName_AdvancedList = Gui_PrefLineEdit(self.layoutWidget10)
-        self.PropertyName_AdvancedList.setObjectName(u"PropertyName_AdvancedList")
-        self.PropertyName_AdvancedList.setProperty("prefEntry", u"PropertyName_AdvancedList")
-        self.PropertyName_AdvancedList.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.formLayout_6 = QFormLayout()
+        self.formLayout_6.setSpacing(5())
+        self.formLayout_6.setObjectName(u"formLayout_6")
+        self.formLayout_6.setSizeConstraint(QLayout.SetNoConstraint)
+        self.formLayout_6.setFieldGrowthPolicy(QFormLayout.ExpandingFieldsGrow)
+        self.label_41 = QLabel(self.layoutWidget10)
+        self.label_41.setObjectName(u"label_41")
+        self.label_41.setEnabled(True)
+        self.label_41.setFont(font2)
+        self.label_41.setFrameShadow(QFrame.Plain)
+        self.label_41.setWordWrap(True)
 
-        self.formLayout_4.setWidget(1, QFormLayout.SpanningRole, self.PropertyName_AdvancedList)
+        self.formLayout_6.setWidget(0, QFormLayout.SpanningRole, self.label_41)
 
-        self.label_44 = QLabel(self.layoutWidget10)
-        self.label_44.setObjectName(u"label_44")
+        self.SheetName_AdvancedList = Gui_PrefLineEdit(self.layoutWidget10)
+        self.SheetName_AdvancedList.setObjectName(u"SheetName_AdvancedList")
+        self.SheetName_AdvancedList.setEnabled(True)
+        self.SheetName_AdvancedList.setFont(font2)
+        self.SheetName_AdvancedList.setProperty("prefEntry", u"SheetName_AdvancedList")
+        self.SheetName_AdvancedList.setProperty("prefPath", u"Mod/TitleBlock Workbench")
 
-        self.formLayout_4.setWidget(0, QFormLayout.SpanningRole, self.label_44)
-
-
-        self.formLayout_8.setLayout(3, QFormLayout.SpanningRole, self.formLayout_4)
-
-        self.formLayout_3 = QFormLayout()
-        self.formLayout_3.setSpacing(5())
-        self.formLayout_3.setObjectName(u"formLayout_3")
-        self.label_45 = QLabel(self.layoutWidget10)
-        self.label_45.setObjectName(u"label_45")
-        self.label_45.setWordWrap(True)
-
-        self.formLayout_3.setWidget(0, QFormLayout.SpanningRole, self.label_45)
-
-        self.SortingPrefix_AdvancedList = Gui_PrefLineEdit(self.layoutWidget10)
-        self.SortingPrefix_AdvancedList.setObjectName(u"SortingPrefix_AdvancedList")
-        self.SortingPrefix_AdvancedList.setProperty("prefEntry", u"SortingPrefix_AdvancedList")
-        self.SortingPrefix_AdvancedList.setProperty("prefPath", u"Mod/TitleBlock Workbench")
-
-        self.formLayout_3.setWidget(1, QFormLayout.SpanningRole, self.SortingPrefix_AdvancedList)
+        self.formLayout_6.setWidget(1, QFormLayout.SpanningRole, self.SheetName_AdvancedList)
 
 
-        self.formLayout_8.setLayout(4, QFormLayout.SpanningRole, self.formLayout_3)
+        self.formLayout_8.setLayout(1, QFormLayout.SpanningRole, self.formLayout_6)
 
         self.gridLayout_12 = QGridLayout()
         self.gridLayout_12.setSpacing(5())
@@ -1354,31 +1357,42 @@ class Ui_Form(object):
 
         self.formLayout_8.setLayout(2, QFormLayout.SpanningRole, self.gridLayout_12)
 
-        self.formLayout_6 = QFormLayout()
-        self.formLayout_6.setSpacing(5())
-        self.formLayout_6.setObjectName(u"formLayout_6")
-        self.formLayout_6.setSizeConstraint(QLayout.SetNoConstraint)
-        self.formLayout_6.setFieldGrowthPolicy(QFormLayout.ExpandingFieldsGrow)
-        self.label_41 = QLabel(self.layoutWidget10)
-        self.label_41.setObjectName(u"label_41")
-        self.label_41.setEnabled(True)
-        self.label_41.setFont(font2)
-        self.label_41.setFrameShadow(QFrame.Plain)
-        self.label_41.setWordWrap(True)
+        self.formLayout_4 = QFormLayout()
+        self.formLayout_4.setSpacing(5())
+        self.formLayout_4.setObjectName(u"formLayout_4")
+        self.PropertyName_AdvancedList = Gui_PrefLineEdit(self.layoutWidget10)
+        self.PropertyName_AdvancedList.setObjectName(u"PropertyName_AdvancedList")
+        self.PropertyName_AdvancedList.setProperty("prefEntry", u"PropertyName_AdvancedList")
+        self.PropertyName_AdvancedList.setProperty("prefPath", u"Mod/TitleBlock Workbench")
 
-        self.formLayout_6.setWidget(0, QFormLayout.SpanningRole, self.label_41)
+        self.formLayout_4.setWidget(1, QFormLayout.SpanningRole, self.PropertyName_AdvancedList)
 
-        self.SheetName_AdvancedList = Gui_PrefLineEdit(self.layoutWidget10)
-        self.SheetName_AdvancedList.setObjectName(u"SheetName_AdvancedList")
-        self.SheetName_AdvancedList.setEnabled(True)
-        self.SheetName_AdvancedList.setFont(font2)
-        self.SheetName_AdvancedList.setProperty("prefEntry", u"SheetName_AdvancedList")
-        self.SheetName_AdvancedList.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+        self.label_44 = QLabel(self.layoutWidget10)
+        self.label_44.setObjectName(u"label_44")
 
-        self.formLayout_6.setWidget(1, QFormLayout.SpanningRole, self.SheetName_AdvancedList)
+        self.formLayout_4.setWidget(0, QFormLayout.SpanningRole, self.label_44)
 
 
-        self.formLayout_8.setLayout(1, QFormLayout.SpanningRole, self.formLayout_6)
+        self.formLayout_8.setLayout(3, QFormLayout.SpanningRole, self.formLayout_4)
+
+        self.formLayout_3 = QFormLayout()
+        self.formLayout_3.setSpacing(5())
+        self.formLayout_3.setObjectName(u"formLayout_3")
+        self.label_45 = QLabel(self.layoutWidget10)
+        self.label_45.setObjectName(u"label_45")
+        self.label_45.setWordWrap(True)
+
+        self.formLayout_3.setWidget(0, QFormLayout.SpanningRole, self.label_45)
+
+        self.SortingPrefix_AdvancedList = Gui_PrefLineEdit(self.layoutWidget10)
+        self.SortingPrefix_AdvancedList.setObjectName(u"SortingPrefix_AdvancedList")
+        self.SortingPrefix_AdvancedList.setProperty("prefEntry", u"SortingPrefix_AdvancedList")
+        self.SortingPrefix_AdvancedList.setProperty("prefPath", u"Mod/TitleBlock Workbench")
+
+        self.formLayout_3.setWidget(1, QFormLayout.SpanningRole, self.SortingPrefix_AdvancedList)
+
+
+        self.formLayout_8.setLayout(4, QFormLayout.SpanningRole, self.formLayout_3)
 
         self.AutoFillTitleBlock_AdvancedList = Gui_PrefCheckBox(self.layoutWidget10)
         self.AutoFillTitleBlock_AdvancedList.setObjectName(u"AutoFillTitleBlock_AdvancedList")
@@ -1607,10 +1621,11 @@ class Ui_Form(object):
         self.label_35.setText(QCoreApplication.translate("Form", u"Width factor for AutoFit", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.UIsettings), QCoreApplication.translate("Form", u"UI Settings", None))
         self.toolButton_6.setText(QCoreApplication.translate("Form", u"Simple drawing list", None))
-        self.UseESimpleList.setText(QCoreApplication.translate("Form", u"Use simple drawing list", None))
         self.ExternalFileChooser_SimpleList.setFileName("")
         self.ExternalFileChooser_SimpleList.setFilter(QCoreApplication.translate("Form", u"*.xlsx; *.FCStd", None))
-        self.label_37.setText(QCoreApplication.translate("Form", u"<html><head/><body><p>The name of the worksheet that contains the date for the titleblock:</p></body></html>", None))
+        self.UseESimpleList.setText(QCoreApplication.translate("Form", u"Use simple drawing list", None))
+        self.UseExternalSource_SimpleList.setText(QCoreApplication.translate("Form", u"Use external source", None))
+        self.label_37.setText(QCoreApplication.translate("Form", u"<html><head/><body><p>The name of the worksheet that contains the drawing list:</p></body></html>", None))
 #if QT_CONFIG(tooltip)
         self.SheetName_SimpleList.setToolTip(QCoreApplication.translate("Form", u"Enter the name of the sheet for the titleblock data", None))
 #endif // QT_CONFIG(tooltip)
@@ -1628,7 +1643,7 @@ class Ui_Form(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The startcell of the table which contains to the data for the titleblock:     	<span style=\" font-style:italic;\">(This must be the top left cell.)</span></p></body></html>", None))
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The startcell of the table which contains the drawing list:	     	<span style=\" font-style:italic;\">(This must be the top left cell.)</span></p></body></html>", None))
         self.PropertyName_SimpleList.setPlaceholderText(QCoreApplication.translate("Form", u"Enter the property name...", None))
         self.label_40.setText(QCoreApplication.translate("Form", u"The property name to look for:", None))
         self.AutoFillTitleBlock_SimpleList.setText(QCoreApplication.translate("Form", u"Populate titleblock on import", None))
@@ -1636,24 +1651,8 @@ class Ui_Form(object):
         self.ExternalFileChooser_AdvancedList.setFileName("")
         self.ExternalFileChooser_AdvancedList.setFilter(QCoreApplication.translate("Form", u"*.xlsx; *.FCStd", None))
         self.UseAdvancedList.setText(QCoreApplication.translate("Form", u"Use advanced drawing list", None))
-        self.PropertyName_AdvancedList.setPlaceholderText(QCoreApplication.translate("Form", u"Enter the property name...", None))
-        self.label_44.setText(QCoreApplication.translate("Form", u"The property name to look for:", None))
-        self.label_45.setText(QCoreApplication.translate("Form", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">If an prefix is used to sort the pages, enter it here. 			It will be ignored when filling in the titleblock. For example: &quot;01_&quot;</p></body></html>", None))
-        self.SortingPrefix_AdvancedList.setPlaceholderText(QCoreApplication.translate("Form", u"Enter the prefix...", None))
-        self.StartCell_AdvancedList.setInputMask("")
-        self.StartCell_AdvancedList.setText("")
-        self.StartCell_AdvancedList.setPlaceholderText(QCoreApplication.translate("Form", u"Enter the start cell...", None))
-        self.label_42.setText(QCoreApplication.translate("Form", u"<html><head/><body><p>Cell adress must be like &quot;B1&quot; or like &quot;R1C1&quot;. If empty, A1 will be used.</p></body></html>", None))
-        self.label_43.setText(QCoreApplication.translate("Form", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The startcell of the table which contains to the data for the titleblock:     	<span style=\" font-style:italic;\">(This must be the top left cell.)</span></p></body></html>", None))
-        self.label_41.setText(QCoreApplication.translate("Form", u"<html><head/><body><p>The name of the worksheet that contains the date for the titleblock:</p></body></html>", None))
+        self.UseExternalSource_AdvancedList.setText(QCoreApplication.translate("Form", u"Use external source", None))
+        self.label_41.setText(QCoreApplication.translate("Form", u"<html><head/><body><p>The name of the worksheet that contains the drawing list:</p></body></html>", None))
 #if QT_CONFIG(tooltip)
         self.SheetName_AdvancedList.setToolTip(QCoreApplication.translate("Form", u"Enter the name of the sheet for the titleblock data", None))
 #endif // QT_CONFIG(tooltip)
@@ -1663,6 +1662,23 @@ class Ui_Form(object):
         self.SheetName_AdvancedList.setInputMask("")
         self.SheetName_AdvancedList.setText("")
         self.SheetName_AdvancedList.setPlaceholderText(QCoreApplication.translate("Form", u"Enter the name of sheet...", None))
+        self.StartCell_AdvancedList.setInputMask("")
+        self.StartCell_AdvancedList.setText("")
+        self.StartCell_AdvancedList.setPlaceholderText(QCoreApplication.translate("Form", u"Enter the start cell...", None))
+        self.label_42.setText(QCoreApplication.translate("Form", u"<html><head/><body><p>Cell adress must be like &quot;B1&quot; or like &quot;R1C1&quot;. If empty, A1 will be used.</p></body></html>", None))
+        self.label_43.setText(QCoreApplication.translate("Form", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The startcell of the table which contains the drawing list:     		<span style=\" font-style:italic;\">(This must be the top left cell.)</span></p></body></html>", None))
+        self.PropertyName_AdvancedList.setPlaceholderText(QCoreApplication.translate("Form", u"Enter the property name...", None))
+        self.label_44.setText(QCoreApplication.translate("Form", u"The property name to look for:", None))
+        self.label_45.setText(QCoreApplication.translate("Form", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">If an prefix is used to sort the pages, enter it here. 			It will be ignored when filling in the titleblock. For example: &quot;01_&quot;</p></body></html>", None))
+        self.SortingPrefix_AdvancedList.setPlaceholderText(QCoreApplication.translate("Form", u"Enter the prefix...", None))
         self.AutoFillTitleBlock_AdvancedList.setText(QCoreApplication.translate("Form", u"Populate titleblock on import", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("Form", u"Drawing list", None))
         pass

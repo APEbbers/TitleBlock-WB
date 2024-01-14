@@ -71,6 +71,16 @@ def FillTitleBlock():
             )
             return
 
+         # If the use of a drawing list is enabled, update the titleblock
+        if USE_SIMPLE_LIST is True:
+            if USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
+                DrawingList_Functions.MapSimpleDrawingList()
+            if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
+                if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("fcstd"):
+                    DrawingList_Functions.MapSimpleDrawingList_FreeCAD()
+                if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("xlsx"):
+                    DrawingList_Functions.MapSimpleDrawingList_Excel()
+
         for page in pages:
             # Get the editable texts
             texts = page.Template.EditableTexts
@@ -233,15 +243,15 @@ def FillTitleBlock():
                 if ENABLE_DEBUG is True:
                     raise e
 
-        # If the use of a drawing list is enabled, update the titleblock
-        if USE_SIMPLE_LIST is True:
-            if USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
-                DrawingList_Functions.MapSimpleDrawingList()
-            if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
-                if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("fcstd"):
-                    DrawingList_Functions.MapSimpleDrawingList_FreeCAD()
-                if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("xlsx"):
-                    DrawingList_Functions.MapSimpleDrawingList_Excel()
+        # # If the use of a drawing list is enabled, update the titleblock
+        # if USE_SIMPLE_LIST is True:
+        #     if USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
+        #         DrawingList_Functions.MapSimpleDrawingList()
+        #     if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
+        #         if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("fcstd"):
+        #             DrawingList_Functions.MapSimpleDrawingList_FreeCAD()
+        #         if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("xlsx"):
+        #             DrawingList_Functions.MapSimpleDrawingList_Excel()
 
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"

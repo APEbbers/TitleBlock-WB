@@ -237,7 +237,7 @@ def FillTitleBlock():
             if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
                 if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("fcstd"):
                     DrawingList_Functions.MapSimpleDrawingList_FreeCAD()
-                if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("fcstd"):
+                if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("xlsx"):
                     DrawingList_Functions.MapSimpleDrawingList_Excel()
 
     except Exception as e:

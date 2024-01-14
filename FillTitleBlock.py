@@ -49,9 +49,11 @@ def FillTitleBlock():
     from Settings import USE_SIMPLE_LIST
     from Settings import USE_EXTERNAL_SOURCE_SIMPLE_LIST
     from Settings import EXTERNAL_FILE_SIMPLE_LIST
+    from Settings import PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST
     from Settings import USE_ADVANCED_LIST
     from Settings import USE_EXTERNAL_SOURCE_ADVANCED_LIST
     from Settings import EXTERNAL_FILE_ADVANCED_LIST
+    from Settings import PROPERTY_NAME_TITLEBLOCK_ADVANCED_LIST
 
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1
@@ -96,6 +98,10 @@ def FillTitleBlock():
                         textValue = ""
 
                         # if the value in B is not a number, just fill in
+                        if (USE_SIMPLE_LIST is True and PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST == textField):
+                            continue
+                        if (USE_ADVANCED_LIST is True and PROPERTY_NAME_TITLEBLOCK_ADVANCED_LIST == textField):
+                            continue
                         if (
                             str(sheet.getContents("B" + str(RowNum))).isnumeric()
                             is False
@@ -109,7 +115,7 @@ def FillTitleBlock():
                                 USE_PAGENAME_DRAW_NO is True
                                 and DRAW_NO_FIELD == textField
                             ):
-                                pass
+                                continue
                             else:
                                 # write the editable text
                                 textValue = str(sheet.getContents("B" + str(RowNum)))

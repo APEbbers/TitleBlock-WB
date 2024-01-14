@@ -219,7 +219,7 @@ def FillTitleBlock():
                 page.Template.EditableTexts = texts
 
                 # Recompute the page
-                page.recompute(None, True, True)
+                App.ActiveDocument.recompute(None, True, True)
 
             except Exception as e:
                 # raise an exeception if there is no spreadsheet.

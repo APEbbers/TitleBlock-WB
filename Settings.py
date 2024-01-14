@@ -187,7 +187,6 @@ STARTCELL_SIMPLE_LIST = GetStringSetting("StartCell_SimpleList")
 PROPERTY_NAME_SIMPLE_LIST = GetStringSetting("PropertyName_SimpleList")
 PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST = GetStringSetting("PropertyName_TitleBlock_SimpleList")
 USE_PAGE_NAMES_SIMPLE_LIST = GetBoolSetting("UsePageNames_SimpleList")
-AUTOFILL_TITLEBLOCK_SIMPLE_LIST = GetBoolSetting("AutoFillTitleBlock_SimpleList")
 
 # Drawing list settings - Advanced
 USE_ADVANCED_LIST = GetBoolSetting("UseAdvancedList")
@@ -199,7 +198,6 @@ PROPERTY_NAME_ADVANCED_LIST = GetStringSetting("PropertyName_AdvancedList")
 PROPERTY_NAME_TITLEBLOCK_ADVANCED_LIST = GetStringSetting("PropertyName_TitleBlock_AdvancedList")
 SORTING_PREFIX_ADVANCED_LIST = GetStringSetting("SortingPrefix_AdvancedList")
 USE_PAGE_NAMES_ADVANCED_LIST = GetBoolSetting("UsePageNames_AdvancesList")
-AUTOFILL_TITLEBLOCK_ADVANCED_LIST = GetBoolSetting("AutoFillTitleBlock_AdvancedList")
 
 # Enable debug mode. This will enable additional report messages
 ENABLE_DEBUG = GetBoolSetting("EnableDebug")

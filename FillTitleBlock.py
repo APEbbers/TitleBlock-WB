@@ -49,11 +49,11 @@ def FillTitleBlock():
     from Settings import USE_SIMPLE_LIST
     from Settings import USE_EXTERNAL_SOURCE_SIMPLE_LIST
     from Settings import EXTERNAL_FILE_SIMPLE_LIST
-    from Settings import PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST
+    from Settings import PROPERTY_NAME_SIMPLE_LIST
     from Settings import USE_ADVANCED_LIST
     from Settings import USE_EXTERNAL_SOURCE_ADVANCED_LIST
     from Settings import EXTERNAL_FILE_ADVANCED_LIST
-    from Settings import PROPERTY_NAME_TITLEBLOCK_ADVANCED_LIST
+    from Settings import PROPERTY_NAME_ADVANCED_LIST
 
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1
@@ -70,17 +70,6 @@ def FillTitleBlock():
                 "No titleblock spreadsheet present!", "TitleBlock Workbench", 0
             )
             return
-
-        # If the use of a drawing list is enabled, update the titleblock
-        if USE_SIMPLE_LIST is True:
-            if USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
-                DrawingList_Functions.MapSimpleDrawingList()
-            if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
-                if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("fcstd"):
-                    DrawingList_Functions.MapSimpleDrawingList_FreeCAD()
-                if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("xlsx"):
-                    print(EXTERNAL_FILE_SIMPLE_LIST)
-                    DrawingList_Functions.MapSimpleDrawingList_Excel()
 
         for page in pages:
             # Get the editable texts
@@ -104,14 +93,15 @@ def FillTitleBlock():
 
                     # If the use of a drawing list is enabled and the property name is equal to the textfield
                     # Skip this text
-                    if (USE_SIMPLE_LIST is True and PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST == textField):
-                        continue
-                    if (USE_ADVANCED_LIST is True and PROPERTY_NAME_TITLEBLOCK_ADVANCED_LIST == textField):
-                        continue
+                    MustSkip = False
+                    if (USE_SIMPLE_LIST is True and PROPERTY_NAME_SIMPLE_LIST == textField):
+                        MustSkip = True
+                    if (USE_ADVANCED_LIST is True and PROPERTY_NAME_ADVANCED_LIST == textField):
+                        MustSkip = True
 
                     # fill in the editable text based on the text name in column A and the value in column B.
                     # check if there is a value. If there is an value, continue.
-                    if str(sheet.getContents("B" + str(RowNum))).strip():
+                    if str(sheet.getContents("B" + str(RowNum))).strip() and MustSkip is False:
                         # define the string for the text value
                         textValue = ""
 
@@ -244,15 +234,15 @@ def FillTitleBlock():
                 if ENABLE_DEBUG is True:
                     raise e
 
-        # # If the use of a drawing list is enabled, update the titleblock
-        # if USE_SIMPLE_LIST is True:
-        #     if USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
-        #         DrawingList_Functions.MapSimpleDrawingList()
-        #     if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
-        #         if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("fcstd"):
-        #             DrawingList_Functions.MapSimpleDrawingList_FreeCAD()
-        #         if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("xlsx"):
-        #             DrawingList_Functions.MapSimpleDrawingList_Excel()
+        # If the use of a drawing list is enabled, update the titleblock
+        if USE_SIMPLE_LIST is True:
+            if USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
+                DrawingList_Functions.MapSimpleDrawingList()
+            if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
+                if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("fcstd"):
+                    DrawingList_Functions.MapSimpleDrawingList_FreeCAD()
+                if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("xlsx"):
+                    DrawingList_Functions.MapSimpleDrawingList_Excel()
 
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"

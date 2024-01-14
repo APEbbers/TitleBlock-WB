@@ -86,22 +86,25 @@ def FillTitleBlock():
                     # Start with x+1 first, to make sure that x is at least 1.
                     RowNum = RowNum + 1
 
+                    # Get the name of the editable field. if it starts with ', remove it.
+                    textField = str(sheet.getContents("A" + str(RowNum)))
+                    if textField[:1] == "'":
+                        textField = textField[1:]
+
+                    # If the use of a drawing list is enabled and the property name is equal to the textfield
+                    # Skip this text
+                    if (USE_SIMPLE_LIST is True and PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST == textField):
+                        continue
+                    if (USE_ADVANCED_LIST is True and PROPERTY_NAME_TITLEBLOCK_ADVANCED_LIST == textField):
+                        continue
+
                     # fill in the editable text based on the text name in column A and the value in column B.
                     # check if there is a value. If there is an value, continue.
                     if str(sheet.getContents("B" + str(RowNum))).strip():
-                        # Get the name of the editable field. if it starts with ', remove it.
-                        textField = str(sheet.getContents("A" + str(RowNum)))
-                        if textField[:1] == "'":
-                            textField = textField[1:]
-
                         # define the string for the text value
                         textValue = ""
 
                         # if the value in B is not a number, just fill in
-                        if (USE_SIMPLE_LIST is True and PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST == textField):
-                            continue
-                        if (USE_ADVANCED_LIST is True and PROPERTY_NAME_TITLEBLOCK_ADVANCED_LIST == textField):
-                            continue
                         if (
                             str(sheet.getContents("B" + str(RowNum))).isnumeric()
                             is False
@@ -216,7 +219,7 @@ def FillTitleBlock():
                 page.Template.EditableTexts = texts
 
                 # Recompute the page
-                page.recompute()
+                page.recompute(None, True, True)
 
             except Exception as e:
                 # raise an exeception if there is no spreadsheet.

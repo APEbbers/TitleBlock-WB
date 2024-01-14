@@ -161,6 +161,9 @@ def MapSimpleDrawingList():
                 if PropertyValueExt == "":
                     break
 
+            # Write all the updated text to the page.
+            page.Template.EditableTexts = texts
+
             # Recomute the document
             App.ActiveDocument.recompute(None, True, True)
         except Exception as e:

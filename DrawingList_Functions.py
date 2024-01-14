@@ -109,8 +109,8 @@ def MapSimpleDrawingList():
                 Standard_Functions.Print(Text, "Log")
 
             # Define place holders for the property name and value in the excel list.
-            PropertyNameExt = ""
             PropertyValueExt = ""
+            ReturnValueExt = ""
 
             # Get the pages in the document
             pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
@@ -121,27 +121,29 @@ def MapSimpleDrawingList():
                 RowNumber = int(StartRow) + i + 1
 
                 # Get the property name in the excel list. If it starts with "'", remove it
-                PropertyNameExt = str(DrawingSheet.getContents(f"{StartColumnExt}{RowNumber}"))
-                if PropertyNameExt[:1] == "'":
-                    PropertyNameExt = PropertyNameExt[1:]
-
-                # Get the property value in the excel list. If it starts with "'", remove it
-                PropertyValueExt = str(DrawingSheet.getContents(f"{Column2}{RowNumber}"))
+                PropertyValueExt = str(DrawingSheet.getContents(f"{StartColumnExt}{RowNumber}"))
                 if PropertyValueExt[:1] == "'":
                     PropertyValueExt = PropertyValueExt[1:]
+
+                # Get the property value in the excel list. If it starts with "'", remove it
+                ReturnValueExt = str(DrawingSheet.getContents(f"{Column2}{RowNumber}"))
+                if ReturnValueExt[:1] == "'":
+                    ReturnValueExt = ReturnValueExt[1:]
 
                 # If page names are not to be mapped, go here
                 if USE_PAGE_NAMES_SIMPLE_LIST is False:
                     # If the property name in the drawing list matches the property name that
                     # must be search for in the title block, continue.
-                    if PropertyNameExt == PROPERTY_NAME_SIMPLE_LIST:
-                        # Go through all the pages
-                        for page in pages:
-                            # Get the editable texts
-                            texts = page.Template.EditableTexts
-                            # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
-                            texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = PropertyValueExt
-                        return
+
+                    # Go through all the pages
+                    for page in pages:
+                        # Get the editable texts
+                        texts = page.Template.EditableTexts
+                        for text in texts:
+                            if text[PROPERTY_NAME_SIMPLE_LIST] == PropertyValueExt:
+                                # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
+                                texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = ReturnValueExt
+                            return
 
                 # If page names are to be mapped, go here
                 if USE_PAGE_NAMES_SIMPLE_LIST is True:
@@ -149,15 +151,15 @@ def MapSimpleDrawingList():
                     for page in pages:
                         # If the Property name in the drawing list matches the page label:
                         # Fill in the desired editable text with the property value from the drawing list
-                        if PropertyNameExt == page.Label:
+                        if PropertyValueExt == page.Label:
                             # Get the editable texts
                             texts = page.Template.EditableTexts
-                            texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = PropertyValueExt
+                            texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = ReturnValueExt
                             return
 
                 # If the property name in the drawing list is empty, it is the end of the list.
                 # Exit the function
-                if PropertyNameExt == "":
+                if PropertyValueExt == "":
                     break
 
             # Recomute the document
@@ -303,8 +305,8 @@ def MapSimpleDrawingList_Excel():
                 Standard_Functions.Print(Text, "Log")
 
             # Define place holders for the property name and value in the excel list.
-            PropertyNameExcel = ""
             PropertyValueExcel = ""
+            ReturnValueExcel = ""
 
             # Get the pages in the document
             pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
@@ -315,27 +317,29 @@ def MapSimpleDrawingList_Excel():
                 RowNumber = int(StartRow) + i + 1
 
                 # Get the property name in the excel list. If it starts with "'", remove it
-                PropertyNameExcel = ws[f"{StartColumn}{RowNumber}"].value
-                if PropertyNameExcel[:1] == "'":
-                    PropertyNameExcel = PropertyNameExcel[1:]
-
-                # Get the property value in the excel list. If it starts with "'", remove it
-                PropertyValueExcel = ws[f"{Column2}{RowNumber}"].value
+                PropertyValueExcel = ws[f"{StartColumn}{RowNumber}"].value
                 if PropertyValueExcel[:1] == "'":
                     PropertyValueExcel = PropertyValueExcel[1:]
+
+                # Get the property value in the excel list. If it starts with "'", remove it
+                ReturnValueExcel = ws[f"{Column2}{RowNumber}"].value
+                if ReturnValueExcel[:1] == "'":
+                    ReturnValueExcel = ReturnValueExcel[1:]
 
                 # If page names are not to be mapped, go here
                 if USE_PAGE_NAMES_SIMPLE_LIST is False:
                     # If the property name in the drawing list matches the property name that
                     # must be search for in the title block, continue.
-                    if PropertyNameExcel == PROPERTY_NAME_SIMPLE_LIST:
-                        # Go through all the pages
-                        for page in pages:
-                            # Get the editable texts
-                            texts = page.Template.EditableTexts
-                            # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
-                            texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = PropertyValueExcel
-                        return
+
+                    # Go through all the pages
+                    for page in pages:
+                        # Get the editable texts
+                        texts = page.Template.EditableTexts
+                        for text in texts:
+                            if text[PROPERTY_NAME_SIMPLE_LIST] == PropertyValueExcel:
+                                # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
+                                texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = ReturnValueExcel
+                            return
 
                 # If page names are to be mapped, go here
                 if USE_PAGE_NAMES_SIMPLE_LIST is True:
@@ -343,15 +347,15 @@ def MapSimpleDrawingList_Excel():
                     for page in pages:
                         # If the Property name in the drawing list matches the page label:
                         # Fill in the desired editable text with the property value from the drawing list
-                        if PropertyNameExcel == page.Label:
+                        if PropertyValueExcel == page.Label:
                             # Get the editable texts
                             texts = page.Template.EditableTexts
-                            texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = PropertyValueExcel
+                            texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = ReturnValueExcel
                             return
 
                 # If the property name in the drawing list is empty, it is the end of the list.
                 # Exit the function
-                if PropertyNameExcel == "":
+                if PropertyValueExcel == "":
                     break
 
             # Recomute the document
@@ -442,9 +446,6 @@ def MapSimpleDrawingList_FreeCAD():
             return
 
         try:
-            # get the spreadsheet "TitleBlock"
-            sheet = App.ActiveDocument.getObject("TitleBlock")
-
             # Get the startcolumn and the other three columns from there
             StartCellExt = EXTERNAL_FILE_SIMPLE_LIST
             if EXTERNAL_FILE_SIMPLE_LIST == "":
@@ -507,8 +508,8 @@ def MapSimpleDrawingList_FreeCAD():
                 Standard_Functions.Print(Text, "Log")
 
             # Define place holders for the property name and value in the excel list.
-            PropertyNameExt = ""
             PropertyValueExt = ""
+            ReturnValueExt = ""
 
             # Get the pages in the document
             pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
@@ -519,27 +520,29 @@ def MapSimpleDrawingList_FreeCAD():
                 RowNumber = int(StartRow) + i + 1
 
                 # Get the property name in the excel list. If it starts with "'", remove it
-                PropertyNameExt = str(ExtSheet.getContents(f"{StartColumnExt}{RowNumber}"))
-                if PropertyNameExt[:1] == "'":
-                    PropertyNameExt = PropertyNameExt[1:]
+                PropertyValueExt = str(ExtSheet.getContents(f"{StartColumnExt}{RowNumber}"))
+                if PropertyValueExt[:1] == "'":
+                    PropertyValueExt = PropertyValueExt[1:]
 
                 # Get the property value in the excel list. If it starts with "'", remove it
-                PropertyValueExt = str(ExtSheet.getContents(f"{Column2}{RowNumber}"))
-                if PropertyNameExt[:1] == "'":
-                    PropertyNameExt = PropertyNameExt[1:]
+                ReturnValueExt = str(ExtSheet.getContents(f"{Column2}{RowNumber}"))
+                if PropertyValueExt[:1] == "'":
+                    PropertyValueExt = PropertyValueExt[1:]
 
                 # If page names are not to be mapped, go here
                 if USE_PAGE_NAMES_SIMPLE_LIST is False:
                     # If the property name in the drawing list matches the property name that
                     # must be search for in the title block, continue.
-                    if PropertyNameExt == PROPERTY_NAME_SIMPLE_LIST:
-                        # Go through all the pages
-                        for page in pages:
-                            # Get the editable texts
-                            texts = page.Template.EditableTexts
-                            # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
-                            texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = PropertyValueExt
-                        return
+
+                    # Go through all the pages
+                    for page in pages:
+                        # Get the editable texts
+                        texts = page.Template.EditableTexts
+                        for text in texts:
+                            if text[PROPERTY_NAME_SIMPLE_LIST] == PropertyValueExt:
+                                # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
+                                texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = ReturnValueExt
+                            return
 
                 # If page names are to be mapped, go here
                 if USE_PAGE_NAMES_SIMPLE_LIST is True:
@@ -547,15 +550,15 @@ def MapSimpleDrawingList_FreeCAD():
                     for page in pages:
                         # If the Property name in the drawing list matches the page label:
                         # Fill in the desired editable text with the property value from the drawing list
-                        if PropertyNameExt == page.Label:
+                        if PropertyValueExt == page.Label:
                             # Get the editable texts
                             texts = page.Template.EditableTexts
-                            texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = PropertyValueExt
+                            texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = ReturnValueExt
                             return
 
                 # If the property name in the drawing list is empty, it is the end of the list.
                 # Exit the function
-                if PropertyNameExt == "":
+                if PropertyValueExt == "":
                     break
 
             # Recomute the document

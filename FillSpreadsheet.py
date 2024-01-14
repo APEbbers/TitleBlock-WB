@@ -825,13 +825,7 @@ def ImportDataExcel():
             # Run the def to add extra system data. This is the final value of "RowNumber" minus the "StartRow".
             AddExtraData(sheet, RowNumber - int(StartRow))
 
-            # Map the drawing list
-            if USE_SIMPLE_LIST is True and USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
-                DrawingList_Functions.MapSimpleDrawingList_Excel(sheet=sheet)
-            if USE_SIMPLE_LIST is True and USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
-                DrawingList_Functions.MapSimpleDrawingList(sheet=sheet)
-
-            # Format the spreadsheet
+            # Include extra data
             extraRows = 0
             if INCLUDE_LENGTH is True:
                 extraRows = extraRows + 1
@@ -1118,10 +1112,7 @@ def ImportDataFreeCAD():
             # Run the def to add extra system data. This is the final value of "RowNumber" minus the "StartRow".
             AddExtraData(sheet, RowNumber - int(StartRow), doc)
 
-            # map the drawing list
-            if USE_SIMPLE_LIST is True and USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
-                DrawingList_Functions.MapSimpleDrawingList_FreeCAD(sheet=sheet)
-
+            # Include extra data
             extraRows = 0
             if INCLUDE_LENGTH is True:
                 extraRows = extraRows + 1

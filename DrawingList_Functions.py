@@ -57,13 +57,10 @@ translate = App.Qt.translate
 # endregion
 
 
-def MapSimpleDrawingList(sheet):
+def MapSimpleDrawingList():
     # Check if it is allowed to use an external source and if so, continue
     if USE_SIMPLE_LIST is True and USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
         try:
-            # get the spreadsheet "TitleBlock"
-            if sheet is None:
-                sheet = App.ActiveDocument.getObject("TitleBlock")
             # Get the Drawing list.
             DrawingSheet = App.ActiveDocument.getObject(SHEETNAME_SIMPLE_LIST)
             if DrawingSheet is None:
@@ -102,7 +99,7 @@ def MapSimpleDrawingList(sheet):
 
             # Get the start row
             StartRow = Standard_Functions.RemoveLettersFromString(
-                EXTERNAL_FILE_ADVANCED_LIST
+                EXTERNAL_FILE_SIMPLE_LIST
             )
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
@@ -179,7 +176,7 @@ def MapSimpleDrawingList(sheet):
             Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
 
 
-def MapSimpleDrawingList_Excel(sheet):
+def MapSimpleDrawingList_Excel():
     from openpyxl import load_workbook
 
     # Check if it is allowed to use an external source and if so, continue
@@ -245,10 +242,6 @@ def MapSimpleDrawingList_Excel(sheet):
             return
 
         try:
-            # get the spreadsheet "TitleBlock"
-            if sheet is None:
-                sheet = App.ActiveDocument.getObject("TitleBlock")
-
             # Get the startcolumn and the other three columns from there
             StartCell = STARTCELL_SIMPLE_LIST
             if SHEETNAME_SIMPLE_LIST == "":
@@ -385,21 +378,15 @@ def MapSimpleDrawingList_Excel(sheet):
     return
 
 
-def MapSimpleDrawingList_FreeCAD(sheet):
+def MapSimpleDrawingList_FreeCAD():
     # Check if it is allowed to use an external source and if so, continue
     if USE_SIMPLE_LIST is True and USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
         # if debug mode is enabled, show the external file including path.
         if ENABLE_DEBUG is True:
             Text = translate("TitleBlock Workbench", f"The drawing list is: {EXTERNAL_FILE_SIMPLE_LIST}")
             Standard_Functions.Print(Text, "Log")
-
         # Get the name of the external source
         Input_SheetName = SHEETNAME_SIMPLE_LIST
-        # get the spreadsheet "TitleBlock"
-        if sheet is None:
-            sheet = App.ActiveDocument.getObject("TitleBlock")
-        # Clear the sheet
-        sheet.clearAll()
         # Define the External sheet and document
         ExtSheet = None
         # ff = None

@@ -34,6 +34,7 @@
 
 import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
+import DrawingList_Functions
 
 # Define the translation
 translate = App.Qt.translate
@@ -45,6 +46,12 @@ def FillTitleBlock():
     from Settings import USE_PAGENAME_DRAW_NO
     from Settings import DRAW_NO_FIELD_PAGE
     from Settings import DRAW_NO_FIELD
+    from Settings import USE_SIMPLE_LIST
+    from Settings import USE_EXTERNAL_SOURCE_SIMPLE_LIST
+    from Settings import EXTERNAL_FILE_SIMPLE_LIST
+    from Settings import USE_ADVANCED_LIST
+    from Settings import USE_EXTERNAL_SOURCE_ADVANCED_LIST
+    from Settings import EXTERNAL_FILE_ADVANCED_LIST
 
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1
@@ -216,6 +223,16 @@ def FillTitleBlock():
                 # if degbug mode is enabeled, print the exception
                 if ENABLE_DEBUG is True:
                     raise e
+
+        # If the use of a drawing list is enabled, update the titleblock
+        if USE_SIMPLE_LIST is True:
+            if USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
+                DrawingList_Functions.MapSimpleDrawingList()
+            if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
+                if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("fcstd"):
+                    DrawingList_Functions.MapSimpleDrawingList_FreeCAD()
+                if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("fcstd"):
+                    DrawingList_Functions.MapSimpleDrawingList_Excel()
 
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"

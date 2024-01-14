@@ -1093,7 +1093,7 @@ class Ui_Form(object):
         self.scrollArea_2.setAlignment(Qt.AlignHCenter|Qt.AlignTop)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 445, 1000))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, -161, 445, 1000))
         sizePolicy2.setHeightForWidth(self.scrollAreaWidgetContents_2.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContents_2.setSizePolicy(sizePolicy2)
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents_2)
@@ -1161,7 +1161,7 @@ class Ui_Form(object):
 
         self.UseExternalSource_SimpleList = Gui_PrefCheckBox(self.layoutWidget9)
         self.UseExternalSource_SimpleList.setObjectName(u"UseExternalSource_SimpleList")
-        self.UseExternalSource_SimpleList.setProperty("prefEntry", u"\"UseExternalSource_SimpleList\"")
+        self.UseExternalSource_SimpleList.setProperty("prefEntry", u"UseExternalSource_SimpleList")
         self.UseExternalSource_SimpleList.setProperty("prefPath", u"Mod/TitleBlock Workbench")
 
         self.gridLayout_8.addWidget(self.UseExternalSource_SimpleList, 2, 0, 1, 1)
@@ -1731,8 +1731,8 @@ class Ui_Form(object):
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The startcell of the table which contains the drawing list:	     	<span style=\" font-style:italic;\">(This must be the top left cell.)</span></p></body></html>", None))
         self.PropertyName_SimpleList.setPlaceholderText(QCoreApplication.translate("Form", u"Enter the property name...", None))
-        self.label_40.setText(QCoreApplication.translate("Form", u"<html><head/><body><p>The property name to look for in the drawing list:</p></body></html>", None))
-        self.label_46.setText(QCoreApplication.translate("Form", u"<html><head/><body><p>The property name to look for in the titleblock:</p></body></html>", None))
+        self.label_40.setText(QCoreApplication.translate("Form", u"<html><head/><body><p>The property value to look for in the drawing list:</p></body></html>", None))
+        self.label_46.setText(QCoreApplication.translate("Form", u"<html><head/><body><p>The property name to update in the titleblock:</p></body></html>", None))
         self.PropertyNameTitleBlock_SimpleList.setPlaceholderText(QCoreApplication.translate("Form", u"Enter the property name...", None))
         self.UsePageNames_SimpleList.setText(QCoreApplication.translate("Form", u"Use page names instead of property names", None))
         self.toolButton_7.setText(QCoreApplication.translate("Form", u"Advanced drawing list", None))

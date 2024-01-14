@@ -317,12 +317,12 @@ def MapSimpleDrawingList_Excel():
                 RowNumber = int(StartRow) + i + 1
 
                 # Get the property name in the excel list. If it starts with "'", remove it
-                PropertyValueExcel = ws[f"{StartColumn}{RowNumber}"].value
+                PropertyValueExcel = str(ws[f"{StartColumn}{RowNumber}"].value)
                 if PropertyValueExcel[:1] == "'":
                     PropertyValueExcel = PropertyValueExcel[1:]
 
                 # Get the property value in the excel list. If it starts with "'", remove it
-                ReturnValueExcel = ws[f"{Column2}{RowNumber}"].value
+                ReturnValueExcel = str(ws[f"{Column2}{RowNumber}"].value)
                 if ReturnValueExcel[:1] == "'":
                     ReturnValueExcel = ReturnValueExcel[1:]
 

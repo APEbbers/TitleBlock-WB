@@ -91,13 +91,15 @@ def FillTitleBlock():
                     if textField[:1] == "'":
                         textField = textField[1:]
 
-                    # If the use of a drawing list is enabled and the property name is equal to the textfield
-                    # Skip this text
+                    # Option??? -------------------------------------------------------------------------------
+                    # # If the use of a drawing list is enabled and the property name is equal to the textfield
+                    # # Skip this text
                     MustSkip = False
-                    if (USE_SIMPLE_LIST is True and PROPERTY_NAME_SIMPLE_LIST == textField):
-                        MustSkip = True
-                    if (USE_ADVANCED_LIST is True and PROPERTY_NAME_ADVANCED_LIST == textField):
-                        MustSkip = True
+                    # if (USE_SIMPLE_LIST is True and PROPERTY_NAME_SIMPLE_LIST == textField):
+                    #     MustSkip = True
+                    # if (USE_ADVANCED_LIST is True and PROPERTY_NAME_ADVANCED_LIST == textField):
+                    #     MustSkip = True
+                    # -----------------------------------------------------------------------------------------
 
                     # fill in the editable text based on the text name in column A and the value in column B.
                     # check if there is a value. If there is an value, continue.

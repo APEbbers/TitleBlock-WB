@@ -139,11 +139,10 @@ def MapSimpleDrawingList():
                     for page in pages:
                         # Get the editable texts
                         texts = page.Template.EditableTexts
-                        for text in texts:
-                            if text[PROPERTY_NAME_SIMPLE_LIST] == PropertyValueExt:
-                                # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
-                                texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = ReturnValueExt
-                            return
+                        if texts[PROPERTY_NAME_SIMPLE_LIST] == PropertyValueExt:
+                            # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
+                            texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = ReturnValueExt
+                        return
 
                 # If page names are to be mapped, go here
                 if USE_PAGE_NAMES_SIMPLE_LIST is True:
@@ -335,11 +334,10 @@ def MapSimpleDrawingList_Excel():
                     for page in pages:
                         # Get the editable texts
                         texts = page.Template.EditableTexts
-                        for text in texts:
-                            if text[PROPERTY_NAME_SIMPLE_LIST] == PropertyValueExcel:
-                                # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
-                                texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = ReturnValueExcel
-                            return
+                        if texts[PROPERTY_NAME_SIMPLE_LIST] == PropertyValueExcel:
+                            # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
+                            texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = ReturnValueExcel
+                        return
 
                 # If page names are to be mapped, go here
                 if USE_PAGE_NAMES_SIMPLE_LIST is True:
@@ -538,11 +536,10 @@ def MapSimpleDrawingList_FreeCAD():
                     for page in pages:
                         # Get the editable texts
                         texts = page.Template.EditableTexts
-                        for text in texts:
-                            if text[PROPERTY_NAME_SIMPLE_LIST] == PropertyValueExt:
-                                # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
-                                texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = ReturnValueExt
-                            return
+                        if texts[PROPERTY_NAME_SIMPLE_LIST] == PropertyValueExt:
+                            # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
+                            texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = ReturnValueExt
+                        return
 
                 # If page names are to be mapped, go here
                 if USE_PAGE_NAMES_SIMPLE_LIST is True:

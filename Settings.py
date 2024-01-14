@@ -185,6 +185,8 @@ EXTERNAL_FILE_SIMPLE_LIST = GetStringSetting("ExternalFile_SimpleList")
 SHEETNAME_SIMPLE_LIST = GetStringSetting("SheetName_SimpleList")
 STARTCELL_SIMPLE_LIST = GetStringSetting("StartCell_SimpleList")
 PROPERTY_NAME_SIMPLE_LIST = GetStringSetting("PropertyName_SimpleList")
+PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST = GetStringSetting("PropertyName_TitleBlock_SimpleList")
+USE_PAGE_NAMES_SIMPLE_LIST = GetBoolSetting("UsePageNames_SimpleList")
 AUTOFILL_TITLEBLOCK_SIMPLE_LIST = GetBoolSetting("AutoFillTitleBlock_SimpleList")
 
 # Drawing list settings - Advanced
@@ -194,7 +196,9 @@ EXTERNAL_FILE_ADVANCED_LIST = GetStringSetting("ExternalFile_AdvancedList")
 SHEETNAME_ADVANCED_LIST = GetStringSetting("SheetName_AdvancedList")
 STARTCELL_ADVANCED_LIST = GetStringSetting("StartCell_AdvancedList")
 PROPERTY_NAME_ADVANCED_LIST = GetStringSetting("PropertyName_AdvancedList")
+PROPERTY_NAME_TITLEBLOCK_ADVANCED_LIST = GetStringSetting("PropertyName_TitleBlock_AdvancedList")
 SORTING_PREFIX_ADVANCED_LIST = GetStringSetting("SortingPrefix_AdvancedList")
+USE_PAGE_NAMES_ADVANCED_LIST = GetBoolSetting("UsePageNames_AdvancesList")
 AUTOFILL_TITLEBLOCK_ADVANCED_LIST = GetBoolSetting("AutoFillTitleBlock_AdvancedList")
 
 # Enable debug mode. This will enable additional report messages
@@ -250,6 +254,7 @@ SettingsList = [
     SHEETNAME_SIMPLE_LIST,
     STARTCELL_SIMPLE_LIST,
     PROPERTY_NAME_SIMPLE_LIST,
+    USE_PAGE_NAMES_SIMPLE_LIST,
     AUTOFILL_TITLEBLOCK_SIMPLE_LIST,
     USE_ADVANCED_LIST,
     EXTERNAL_FILE_ADVANCED_LIST,

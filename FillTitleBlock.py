@@ -71,7 +71,7 @@ def FillTitleBlock():
             )
             return
 
-         # If the use of a drawing list is enabled, update the titleblock
+        # If the use of a drawing list is enabled, update the titleblock
         if USE_SIMPLE_LIST is True:
             if USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
                 DrawingList_Functions.MapSimpleDrawingList()
@@ -79,6 +79,7 @@ def FillTitleBlock():
                 if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("fcstd"):
                     DrawingList_Functions.MapSimpleDrawingList_FreeCAD()
                 if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("xlsx"):
+                    print(EXTERNAL_FILE_SIMPLE_LIST)
                     DrawingList_Functions.MapSimpleDrawingList_Excel()
 
         for page in pages:

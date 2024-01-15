@@ -345,7 +345,6 @@ def MapSimpleDrawingList_Excel(sheet):
                 # If the cell is empty, you are on the end. Break the loop.
                 if ws[f"{Column}{StartRow}"].value is None:
                     break
-            print(StartCell)
 
             # Get the pages in the document
             pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
@@ -405,7 +404,6 @@ def MapSimpleDrawingList_Excel(sheet):
                                     # Get the editable texts
                                     texts = page.Template.EditableTexts
                                     texts[ReturnNamesExcel[j]] = ReturnValueExcel
-                                    print(ReturnValueExcel)
 
                                     # Write all the updated text to the page.
                                     page.Template.EditableTexts = texts

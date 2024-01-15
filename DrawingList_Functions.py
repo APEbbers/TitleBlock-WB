@@ -346,7 +346,8 @@ def MapSimpleDrawingList_Excel():
                 # Go through the columns starting from the column right from the column with the property value
                 for j in range(1000):
                     # Get the column letter
-                    Column = Standard_Functions.GetLetterFromNumber(j + StartColumn + 1)
+                    Column = Standard_Functions.GetLetterFromNumber(
+                        j + Standard_Functions.GetNumberFromLetter(StartColumn) + 1)
 
                     # If the cell is not empty and j is lower then NoColumns, continue.
                     if ws[f"{Column}{RowNumber}"] is not None and j < NoColumns:

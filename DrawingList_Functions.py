@@ -30,6 +30,7 @@ import Standard_Functions_TitleBlock as Standard_Functions
 import TableFormat_Functions
 
 # Get the settings
+from Settings import EXTERNAL_SOURCE_SHEET_NAME
 from Settings import ENABLE_DEBUG
 from Settings import USE_SIMPLE_LIST
 from Settings import USE_EXTERNAL_SOURCE_SIMPLE_LIST
@@ -55,7 +56,7 @@ translate = App.Qt.translate
 # endregion
 
 
-def MapSimpleDrawingList():
+def MapSimpleDrawingList(sheet):
     # Check if it is allowed to use an external source and if so, continue
     if USE_SIMPLE_LIST is True and USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
         try:
@@ -180,7 +181,7 @@ def MapSimpleDrawingList():
         return
 
 
-def MapSimpleDrawingList_Excel():
+def MapSimpleDrawingList_Excel(sheet):
     from openpyxl import load_workbook
 
     # Check if it is allowed to use an external source and if so, continue
@@ -192,7 +193,14 @@ def MapSimpleDrawingList_Excel():
 
         # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
         try:
+            # Get the spreadsheet.
+            if sheet is None:
+                sheet = App.ActiveDocument.getObject("TitleBlock")
+
+            # Define a placeholder for the workbook
             wb = ""
+            # If the drawinglist is an FreeCAD document instead of an Excel workbook,
+            # Let the user select the correct workbook. Otherwise just load the workbook.
             if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith(".fcstd"):
                 Filter = [
                     ("Excel", "*.xlsx"),
@@ -206,6 +214,7 @@ def MapSimpleDrawingList_Excel():
                 wb = load_workbook(
                     str(EXTERNAL_FILE_SIMPLE_LIST), read_only=True, data_only=True
                 )
+            # If the sheetname not set, let the user set the correct name.
             if SHEETNAME_SIMPLE_LIST == "":
                 # Set the sheetname with a inputbox
                 Worksheets_List = [i for i in wb.sheetnames if i != "Settings"]
@@ -249,7 +258,8 @@ def MapSimpleDrawingList_Excel():
             # Get the startcolumn and the other three columns from there
             StartCell = STARTCELL_SIMPLE_LIST
             if SHEETNAME_SIMPLE_LIST == "":
-                # Set EXTERNAL_SOURCE_SHEET_NAME to the chosen sheetname
+                # Save drawinglist and sheetname to the preferences
+                preferences.SetString("ExternalFile", FileName)
                 preferences.SetString("SheetName_SimpleList", Input_SheetName)
                 ws = wb[Input_SheetName]
 
@@ -321,6 +331,17 @@ def MapSimpleDrawingList_Excel():
                 # If the cell is not empty, add the contents to the list
                 if ws[f"{Column}{StartRow}"].value is not None:
                     ReturnNamesExcel.append(str(ws[f"{Column}{StartRow}"].value))
+
+                    for j in range(1, 1000):
+                        # check if you reached the end of the data.
+                        test = sheet.getContents(f"{A}{str(j)}")
+                        if test == "" or test is None:
+                            break
+
+                        if sheet.getContents(f"{A}{str(j)}") == str(ws[f"{Column}{StartRow}"].value):
+                            sheet.set(f"B{j}", "-")
+                            sheet.set(f"E{j}", "Value retrieved by drawing list")
+
                 # If the cell is empty, you are on the end. Break the loop.
                 if ws[f"{Column}{StartRow}"].value is None:
                     break
@@ -418,7 +439,7 @@ def MapSimpleDrawingList_Excel():
     return
 
 
-def MapSimpleDrawingList_FreeCAD():
+def MapSimpleDrawingList_FreeCAD(sheet):
     # Check if it is allowed to use an external source and if so, continue
     if USE_SIMPLE_LIST is True and USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
         # if debug mode is enabled, show the external file including path.

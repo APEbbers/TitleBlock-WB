@@ -239,12 +239,12 @@ def FillTitleBlock():
         # If the use of a drawing list is enabled, update the titleblock
         if USE_SIMPLE_LIST is True:
             if USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
-                DrawingList_Functions.MapSimpleDrawingList()
+                DrawingList_Functions.MapSimpleDrawingList(sheet=sheet)
             if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
                 if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("fcstd"):
-                    DrawingList_Functions.MapSimpleDrawingList_FreeCAD()
+                    DrawingList_Functions.MapSimpleDrawingList_FreeCAD(sheet=sheet)
                 if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("xlsx"):
-                    DrawingList_Functions.MapSimpleDrawingList_Excel()
+                    DrawingList_Functions.MapSimpleDrawingList_Excel(sheet=sheet)
 
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"

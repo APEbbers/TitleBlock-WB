@@ -306,9 +306,24 @@ def MapSimpleDrawingList_Excel():
                 )
                 Standard_Functions.Print(Text, "Log")
 
-            # Define place holders for the property name and value in the excel list.
+            # Define placeholder for the property value in the excel list.
             PropertyValueExcel = ""
-            ReturnValueExcel = ""
+            # Define a placeholder for the qty of columns with return values
+            NoColumns = 0
+            # Create a list with return values
+            ReturnValuesExcel = []
+            for i in range(1000):
+                # Get the colum letter. For example: i = 0, StartColumn = A->1 + 1 results in column B
+                Column = Standard_Functions.GetLetterFromNumber(
+                    i + Standard_Functions.GetNumberFromLetter(StartColumn) + 1)
+                NoColumns = NoColumns + i
+
+                # If the cell is not empty, add the contents to the list
+                if ws[f"{Column}{StartRow}"] is not None:
+                    ReturnValuesExcel.append(str(ws[f"{Column}{StartRow}"]))
+                # If the cell is empty, you are on the end. Break the loop.
+                if ws[f"{Column}{StartRow}"] is None:
+                    break
 
             # Get the pages in the document
             pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
@@ -328,42 +343,49 @@ def MapSimpleDrawingList_Excel():
                 if PropertyValueExcel[:1] == "'":
                     PropertyValueExcel = PropertyValueExcel[1:]
 
-                # Get the property value in the excel list. If it starts with "'", remove it
-                ReturnValueExcel = str(ws[f"{Column2}{RowNumber}"].value)
-                if ReturnValueExcel[:1] == "'":
-                    ReturnValueExcel = ReturnValueExcel[1:]
+                # Go through the columns starting from the column right from the column with the property value
+                for j in range(1000):
+                    # Get the column letter
+                    Column = Standard_Functions.GetLetterFromNumber(j + StartColumn + 1)
 
-                    # If page names are not to be mapped, go here
-                if USE_PAGE_NAMES_SIMPLE_LIST is False:
-                    # Go through all the pages
-                    for page in pages:
-                        # Get the editable texts
-                        texts = page.Template.EditableTexts
-                        # If the value editable text in the titleblock to search for
-                        # matches the property value in the drawing list,
-                        # fill in the editable text that needs to be updated.
-                        if texts[PROPERTY_NAME_SIMPLE_LIST] == PropertyValueExcel:
-                            # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
-                            texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = ReturnValueExcel
+                    # If the cell is not empty and j is lower then NoColumns, continue.
+                    if ws[f"{Column}{RowNumber}"] is not None and j < NoColumns:
+                        # Get the property value in the excel list. If it starts with "'", remove it
+                        ReturnValuesExcel = str(ws[f"{Column}{RowNumber}"].value)
+                        if ReturnValuesExcel[:1] == "'":
+                            ReturnValuesExcel = ReturnValuesExcel[1:]
 
-                            # Write all the updated text to the page.
-                            page.Template.EditableTexts = texts
-                            # Recompute the page
-                            page.recompute()
+                        # If page names are not to be mapped, go here
+                        if USE_PAGE_NAMES_SIMPLE_LIST is False:
+                            # Go through all the pages
+                            for page in pages:
+                                # Get the editable texts
+                                texts = page.Template.EditableTexts
+                                # If the value editable text in the titleblock to search for
+                                # matches the property value in the drawing list,
+                                # fill in the editable text that needs to be updated.
+                                if texts[PROPERTY_NAME_SIMPLE_LIST] == PropertyValueExcel:
+                                    # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
+                                    texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = ReturnValuesExcel
 
-                # If page names are to be mapped, go here
-                if USE_PAGE_NAMES_SIMPLE_LIST is True:
-                    # Go through the pages
-                    for page in pages:
-                        # If the Property name in the drawing list matches the page label:
-                        # Fill in the desired editable text with the property value from the drawing list
-                        if PropertyValueExcel == page.Label:
-                            # Get the editable texts
-                            texts = page.Template.EditableTexts
-                            texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = ReturnValueExcel
-                            # Write all the updated text to the page.
-                            page.Template.EditableTexts = texts
-                            page.recompute()
+                        # If page names are to be mapped, go here
+                        if USE_PAGE_NAMES_SIMPLE_LIST is True:
+                            # Go through the pages
+                            for page in pages:
+                                # If the Property name in the drawing list matches the page label:
+                                # Fill in the desired editable text with the property value from the drawing list
+                                if PropertyValueExcel == page.Label:
+                                    # Get the editable texts
+                                    texts = page.Template.EditableTexts
+                                    texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = ReturnValuesExcel
+
+                    # If j = NoColumns, break the loop
+                    if j == NoColumns:
+                        break
+
+            # Write all the updated text to the page.
+            page.Template.EditableTexts = texts
+            page.recompute()
 
             # Recomute the document
             App.ActiveDocument.recompute(None, True, True)

@@ -273,8 +273,11 @@ def MapSimpleDrawingList_Excel():
                 # Set SHEETNAME_STARTCELL to the chosen sheetname
                 preferences.SetString("StartCell_SimpleList", StartCell)
 
+            # If the StartCell is R1C1 style, change it
             if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
                 StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
+
+            # Get the start column
             StartColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
             # If debug mode is on, show the start colum and its number
             if ENABLE_DEBUG is True:
@@ -293,12 +296,9 @@ def MapSimpleDrawingList_Excel():
                     ),
                     "Log",
                 )
-            Column2 = Standard_Functions.GetLetterFromNumber(
-                int(Standard_Functions.GetNumberFromLetter(StartColumn) + 1), True
-            )
 
             # Get the start row
-            StartRow = Standard_Functions.RemoveLettersFromString(STARTCELL_SIMPLE_LIST)
+            StartRow = Standard_Functions.RemoveLettersFromString(StartCell)
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
                 Text = translate(
@@ -311,7 +311,7 @@ def MapSimpleDrawingList_Excel():
             # Define a placeholder for the qty of columns with return values
             NoColumns = 0
             # Create a list with return values
-            ReturnValuesExcel = []
+            ReturnNamesExcel = []
             for i in range(1000):
                 # Get the colum letter. For example: i = 0, StartColumn = A->1 + 1 results in column B
                 Column = Standard_Functions.GetLetterFromNumber(
@@ -319,11 +319,12 @@ def MapSimpleDrawingList_Excel():
                 NoColumns = NoColumns + i
 
                 # If the cell is not empty, add the contents to the list
-                if ws[f"{Column}{StartRow}"] is not None:
-                    ReturnValuesExcel.append(str(ws[f"{Column}{StartRow}"]))
+                if ws[f"{Column}{StartRow}"].value is not None:
+                    ReturnNamesExcel.append(str(ws[f"{Column}{StartRow}"].value))
                 # If the cell is empty, you are on the end. Break the loop.
-                if ws[f"{Column}{StartRow}"] is None:
+                if ws[f"{Column}{StartRow}"].value is None:
                     break
+            print(StartCell)
 
             # Get the pages in the document
             pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
@@ -344,17 +345,17 @@ def MapSimpleDrawingList_Excel():
                     PropertyValueExcel = PropertyValueExcel[1:]
 
                 # Go through the columns starting from the column right from the column with the property value
-                for j in range(1000):
+                for j in range(len(ReturnNamesExcel)):
                     # Get the column letter
                     Column = Standard_Functions.GetLetterFromNumber(
                         j + Standard_Functions.GetNumberFromLetter(StartColumn) + 1)
 
                     # If the cell is not empty and j is lower then NoColumns, continue.
-                    if ws[f"{Column}{RowNumber}"] is not None and j < NoColumns:
+                    if ws[f"{Column}{RowNumber}"].value is not None:
                         # Get the property value in the excel list. If it starts with "'", remove it
-                        ReturnValuesExcel = str(ws[f"{Column}{RowNumber}"].value)
-                        if ReturnValuesExcel[:1] == "'":
-                            ReturnValuesExcel = ReturnValuesExcel[1:]
+                        ReturnValueExcel = str(ws[f"{Column}{RowNumber}"].value)
+                        if ReturnValueExcel[:1] == "'":
+                            ReturnValueExcel = ReturnValueExcel[1:]
 
                         # If page names are not to be mapped, go here
                         if USE_PAGE_NAMES_SIMPLE_LIST is False:
@@ -367,7 +368,11 @@ def MapSimpleDrawingList_Excel():
                                 # fill in the editable text that needs to be updated.
                                 if texts[PROPERTY_NAME_SIMPLE_LIST] == PropertyValueExcel:
                                     # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
-                                    texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = ReturnValuesExcel
+                                    texts[ReturnNamesExcel[j]] = ReturnValueExcel
+
+                                    # Write all the updated text to the page.
+                                    page.Template.EditableTexts = texts
+                                    page.recompute()
 
                         # If page names are to be mapped, go here
                         if USE_PAGE_NAMES_SIMPLE_LIST is True:
@@ -378,15 +383,16 @@ def MapSimpleDrawingList_Excel():
                                 if PropertyValueExcel == page.Label:
                                     # Get the editable texts
                                     texts = page.Template.EditableTexts
-                                    texts[PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST] = ReturnValuesExcel
+                                    texts[ReturnNamesExcel[j]] = ReturnValueExcel
+                                    print(ReturnValueExcel)
+
+                                    # Write all the updated text to the page.
+                                    page.Template.EditableTexts = texts
+                                    page.recompute()
 
                     # If j = NoColumns, break the loop
                     if j == NoColumns:
                         break
-
-            # Write all the updated text to the page.
-            page.Template.EditableTexts = texts
-            page.recompute()
 
             # Recomute the document
             App.ActiveDocument.recompute(None, True, True)

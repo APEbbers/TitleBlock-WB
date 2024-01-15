@@ -334,11 +334,11 @@ def MapSimpleDrawingList_Excel(sheet):
 
                     for j in range(1, 1000):
                         # check if you reached the end of the data.
-                        test = sheet.getContents(f"{A}{str(j)}")
+                        test = sheet.getContents(f"A{str(j)}")
                         if test == "" or test is None:
                             break
 
-                        if sheet.getContents(f"{A}{str(j)}") == str(ws[f"{Column}{StartRow}"].value):
+                        if sheet.getContents(f"A{str(j)}") == str(ws[f"{Column}{StartRow}"].value):
                             sheet.set(f"B{j}", "-")
                             sheet.set(f"E{j}", "Value retrieved by drawing list")
 

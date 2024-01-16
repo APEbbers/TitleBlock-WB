@@ -729,8 +729,8 @@ def ImportDataExcel():
                     translate(
                         "TitleBlock Workbench",
                         "Start column for the external source is: " + str(StartColumn),
-                        "Log",
-                    )
+                    ),
+                    "Log",
                 )
                 Standard_Functions.Print(
                     translate(

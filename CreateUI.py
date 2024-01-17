@@ -32,6 +32,7 @@ from Settings import USE_EXTERNAL_SOURCE
 from Settings import EXTERNAL_SOURCE_PATH
 from Settings import USE_SIMPLE_LIST
 from Settings import USE_EXTERNAL_SOURCE_SIMPLE_LIST
+from Settings import EXTERNAL_FILE_SIMPLE_LIST
 import Standard_Functions_TitleBlock as Standard_Functions
 
 
@@ -105,14 +106,14 @@ def DefineToolbars():
                     "NewSimpleList_Internal",
                 ]
             )
-        if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True and USE_EXTERNAL_SOURCE_SIMPLE_LIST.lower().endswith(".fcstd") is False:
+        if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True and EXTERNAL_FILE_SIMPLE_LIST.lower().endswith(".fcstd") is False:
             ToolbarListExtra.append(
                 [
                     "Separator",
                     "NewSimpleList_Excel",
                 ]
             )
-        if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True and USE_EXTERNAL_SOURCE_SIMPLE_LIST.lower().endswith(".fcstd") is True:
+        if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True and EXTERNAL_FILE_SIMPLE_LIST.lower().endswith(".fcstd") is True:
             ToolbarListExtra.append(
                 [
                     "Separator",

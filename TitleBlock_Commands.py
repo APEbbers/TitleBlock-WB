@@ -461,7 +461,7 @@ class NewExcel_class:
     def Activated(self):
         import CreateNewFile
 
-        CreateNewFile.CcreateExcel()
+        CreateNewFile.CreateTitleBlockData_Excel()
         return
 
     # def IsActive(self):
@@ -492,7 +492,98 @@ class NewFreeCAD_class:
     def Activated(self):
         import CreateNewFile
 
-        CreateNewFile.CreateFreeCAD()
+        CreateNewFile.CreateTitleBlockData_FreeCAD()
+        return
+
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+    #     from Settings import USE_EXTERNAL_SOURCE
+
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True:
+    #         result = True
+
+    #     return result
+
+
+class NewDrawingList_Excel_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "CreateDrawingList_Excel.svg",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("NewExcel", "Create a drawing list in Excel"),
+            "ToolTip": QT_TRANSLATE_NOOP("NewExcel", "Create an new drawing list in an excel workbook"),
+        }
+
+    def Activated(self):
+        import CreateNewFile
+
+        CreateNewFile.CreateSimpleDrawingList_Excel()
+        return
+
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+    #     from Settings import USE_EXTERNAL_SOURCE
+
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True:
+    #         result = True
+
+    #     return result
+
+
+class NewDrawingList_FreeCAD_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "CreateDrawingList_FreeCAD.svg",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("NewFreeCAD", "Create a new FreeCAD drawing list"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "NewFreeCAD",
+                "Create an new empty drawing list in a FreeCAD file",
+            ),
+        }
+
+    def Activated(self):
+        import CreateNewFile
+
+        CreateNewFile.CreateSimpleDrawingList_FreeCAD()
+        return
+
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+    #     from Settings import USE_EXTERNAL_SOURCE
+
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True:
+    #         result = True
+
+    #     return result
+
+
+class NewDrawingList_Internal_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "CreateDrawingList_Internal.svg",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("NewFreeCAD", "Create a new FreeCAD drawing list"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "NewFreeCAD",
+                "Create an new empty drawing list in a FreeCAD file",
+            ),
+        }
+
+    def Activated(self):
+        import CreateNewFile
+
+        CreateNewFile.CreateInternalDrawingList_Simple()
+
         return
 
     # def IsActive(self):
@@ -546,3 +637,5 @@ Gui.addCommand("ImportSettings_FreeCAD", ImportSettings_FreeCAD_class())
 Gui.addCommand("OpenFreeCAD", OpenFreeCAD_class())
 Gui.addCommand("NewFreeCAD", NewFreeCAD_class())
 Gui.addCommand("ExpandToolbar", ExpandToolbar_class())
+Gui.addCommand("NewSimpleList_Excel", NewDrawingList_Excel_class())
+Gui.addCommand("NewSimpleList_FreeCAD", NewDrawingList_FreeCAD_class())

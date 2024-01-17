@@ -19,5 +19,8 @@
         <file>Resources/Icons/Expand arrow - #1.svg</file>
         <file>Resources/Icons/Expand arrow - #2.svg</file>
         <file>Resources/Icons/Expand Dots - #1.svg</file>
+        <file>Resources/Icons/CreateDrawingList_Excel.svg</file>
+        <file>Resources/Icons/CreateDrawingList_Internal.svg</file>
+        <file>Resources/Icons/CreateDrawingList_FreeCAD.svg</file>
     </qresource>
 </RCC>

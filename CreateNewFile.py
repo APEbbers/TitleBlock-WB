@@ -26,6 +26,7 @@ import Standard_Functions_TitleBlock as Standard_Functions
 from openpyxl import Workbook
 from openpyxl.worksheet.table import Table, TableStyleInfo
 import os
+import TableFormat_Functions
 
 # Get the settings
 import Settings
@@ -52,7 +53,7 @@ from Settings import AUTOFIT_FACTOR
 translate = App.Qt.translate
 
 
-def CcreateExcel():
+def CreateTitleBlockData_Excel():
     # Create a workbook and activate the first sheet
     wb = Workbook()
     ws = wb.active
@@ -165,7 +166,120 @@ def CcreateExcel():
     return
 
 
-def CreateFreeCAD():
+def CreateSimpleDrawingList_Excel():
+    # Create a workbook and activate the first sheet
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "DrawingList"
+    preferences.SetString("SheetName", "DrawingList")
+    preferences.SetString("StartCell", "A1")
+
+    # Get the startcell and the next cells
+    StartCell = str("A1")
+    TopRow = int(StartCell[1:])
+    EditableText_1 = str(
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
+        )
+    ) + str(TopRow)
+    EditableText_2 = str(
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 2
+        )
+    ) + str(TopRow)
+    EditableText_3 = str(
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 3
+        )
+    ) + str(TopRow)
+    EditableText_4 = str(
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
+        )
+    ) + str(TopRow)
+
+    if ENABLE_DEBUG is True:
+        message = translate("TitleBlock Workbench", f"the startcell is: {StartCell}")
+        print(message)
+
+    # Set the headers
+    ws[StartCell].value = "Property Value"
+    ws[EditableText_1].value = "<Editable text - Name>(1)"
+    ws[EditableText_2].value = "<Editable text - Name>(2)"
+    ws[EditableText_3].value = "<Editable text - Name>(3)"
+    ws[EditableText_4].value = "<Editable text - Name>(4)"
+
+    # region Format the settings with the values as a Table
+    #
+    # Define the the last cell
+    EndCell = "E10"
+
+    # Define the table
+    NumberOfSheets = str(len(wb.sheetnames))
+    tab = Table(
+        displayName="DrawingList_" + NumberOfSheets,
+        ref=f"{StartCell}:{EndCell}",
+    )
+
+    # Add a default style with striped rows and banded columns
+    style = TableStyleInfo(
+        name="TableStyleMedium9",
+        showFirstColumn=False,
+        showLastColumn=False,
+        showRowStripes=True,
+        showColumnStripes=True,
+    )
+
+    # add the style to the table
+    tab.tableStyleInfo = style
+
+    # add the table to the worksheet
+    ws.add_table(tab)
+    # endregion
+
+    # Make the columns to autofit the date
+    for col in ws.columns:
+        SetLen = 0
+        column = col[0].column_letter  # Get the column name
+
+        for cell in col:
+            if len(str(cell.value)) > SetLen:
+                SetLen = len(str(cell.value))
+
+        set_col_width = SetLen + 5
+        # Setting the column width
+        ws.column_dimensions[column].width = set_col_width
+
+    # Save the excel file in a folder of your choosing
+    Filter = [
+        ("Excel", "*.xlsx"),
+    ]
+    FileName = Standard_Functions.GetFileDialog(Filter)
+    if FileName != "":
+        # Save the workbook
+        wb.save(str(FileName))
+        # Close the workbook
+        wb.close()
+        # Update the preferences
+        preferences.SetString("ExternalFile_SimpleList", rf"{FileName}")
+    if FileName == "":
+        return
+
+    # If import settings from excel is enabled, export settings to the new excel file.
+    if IMPORT_SETTINGS_XL is True:
+        Settings.ExportSettings_XL(Silent=True)
+
+    # print a message if you succeded.
+    message = translate(
+        "TitleBlock Workbench",
+        f"The titleblock data is exported to the workbook {FileName} in the worksheet {ws.title}",
+    )
+    Standard_Functions.Mbox(text=message, title="TitleBlock Workbench", style=0)
+
+    return
+
+
+def CreateTitleBlockData_FreeCAD():
     # Get the active document
     doc = App.ActiveDocument
     # Save the name of the active document to reactivate it at the end of this function.
@@ -239,10 +353,8 @@ def CreateFreeCAD():
 
     # region Format the settings with the values as a Table
     #
-    # Define the the last cell
-    EndRow = 10
-
-    FormatTable(sheet=TitleBlockData, Endrow=EndRow)
+    TableFormat_Functions.FormatTable(sheet=TitleBlockData, HeaderRange="A1:E1",
+                                      TableRange="A2:E10", FirstColumnRange="A2:A10")
     # endregion
 
     # recompute the document
@@ -272,121 +384,194 @@ def CreateFreeCAD():
     return
 
 
-# region - supporting functions
+def CreateSimpleDrawingList_FreeCAD():
+    # Get the active document
+    doc = App.ActiveDocument
+    # Save the name of the active document to reactivate it at the end of this function.
+    LastActiveDoc = doc.Name
 
+    # Create a placeholder for the new document
+    ff = ""
+    # Save the FreeCAD file in a folder of your choosing
+    Filter = [
+        ("FreeCAD", "*.FCStd"),
+    ]
+    FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=True)
+    if FileName != "":
+        # Create a new FreeCAD file
+        ff = App.newDocument()
+        # Save the workbook
+        ff.saveAs(FileName)
+        # Close the document before reopening
+        App.closeDocument(ff.Name)
+    if FileName == "":
+        return
 
-# Function the return the correct string to use in the FormatTable function
-def FontStyle(Bold: bool, Italic: bool, UnderLine: bool) -> str:
-    result = ""
-    if Bold is True:
-        if result == "":
-            result = "bold"
-        if result != "":
-            result = result + "|bold"
-    if Italic is True:
-        if result == "":
-            result = "italic"
-        if result != "":
-            result = result + "|italic"
-    if UnderLine is True:
-        if result == "":
-            result = "underline"
-        if result != "":
-            result = result + "|underline"
-    return result
+    # Open the document hidden, recompute and save it
+    ff = App.openDocument(FileName, True)
+    ff.recompute(None, True, True)
+    ff.save
 
+    # If there already are objects, clean the document
+    Objects = ff.Objects
+    for i in range(len(Objects)):
+        ff.removeObject(Objects[i].Name)
 
-# Format the table based on the preferences
-def FormatTable(sheet, Endrow):
-    # HeaderRange
-    RangeAlign1 = "A1:A" + str(Endrow)
-    RangeStyle1 = "A1:E1"
+    # Create a spreadsheet for the titleblock data.
+    DrawingList = ff.addObject("Spreadsheet::Sheet", "DrawingList")
+    preferences.SetString("SheetName_SimpleList", "DrawingList")
 
-    # TableRange
-    RangeAlign2 = "B1:E" + str(Endrow)
-    RangeStyle2 = "B2:E" + str(Endrow)
-    # First column
-    RangeStyle3 = "A2:A" + str(Endrow)
+    # Get the startcell and the next cells
+    StartCell = "A1"
+    TopRow = int(StartCell[1:])
+    EditableText_1 = str(
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
+        )
+    ) + str(TopRow)
+    EditableText_2 = str(
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 2
+        )
+    ) + str(TopRow)
+    EditableText_3 = str(
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 3
+        )
+    ) + str(TopRow)
+    EditableText_4 = str(
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
+        )
+    ) + str(TopRow)
 
-    # Font style for the top row
-    sheet.setStyle(
-        RangeStyle1,
-        FontStyle(
-            SPREADSHEET_HEADERFONTSTYLE_BOLD,
-            SPREADSHEET_HEADERFONTSTYLE_ITALIC,
-            SPREADSHEET_HEADERFONTSTYLE_UNDERLINE,
-        ),
+    if ENABLE_DEBUG is True:
+        Text = translate("TitleBlock Workbench", f"the startcell is: {StartCell}")
+        print(Text)
+
+    # Set the headers
+    DrawingList.set(StartCell, "Property Value")
+    DrawingList.set(EditableText_1, "<Editable text - Name>(1)")
+    DrawingList.set(EditableText_2, "<Editable text - Name>(2)")
+    DrawingList.set(EditableText_3, "<Editable text - Name>(3)")
+    DrawingList.set(EditableText_4, "<Editable text - Name>(4)")
+
+    # region Format the settings with the values as a Table
+    #
+    TableFormat_Functions.FormatTable(sheet=DrawingList, HeaderRange="A1:E1",
+                                      TableRange="A2:E10", FirstColumnRange="A2:A10")
+    # endregion
+
+    # recompute the document
+    ff.recompute(None, True, True)
+    # Save the workbook
+    ff.save()
+
+    # If import settings from excel is enabled, export settings to the new excel file.
+    if IMPORT_SETTINGS_XL is True:
+        Settings.ExportSettings_XL(Silent=True)
+
+    # print a message if you succeded.
+    message = translate(
+        "TitleBlock Workbench",
+        f"The titleblock data is exported to the workbook {FileName} in the worksheet {DrawingList}",
     )
+    Standard_Functions.Mbox(text=message, title="TitleBlock Workbench", style=0)
 
-    # Font style for the first column
-    sheet.setStyle(
-        RangeStyle3,
-        FontStyle(
-            SPREADSHEET_COLUMNFONTSTYLE_BOLD,
-            SPREADSHEET_COLUMNFONTSTYLE_ITALIC,
-            SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE,
-        ),
-    )
+    # Close the FreeCAD file
+    App.closeDocument(ff.Name)
+    # Activate the document which was active when this command started.
+    try:
+        App.setActiveDocument(LastActiveDoc)
+    except Exception:
+        pass
 
-    # Font style for the rest of the table
-    sheet.setStyle(
-        RangeStyle2,
-        FontStyle(
-            SPREADSHEET_TABLEFONTSTYLE_BOLD,
-            SPREADSHEET_TABLEFONTSTYLE_ITALIC,
-            SPREADSHEET_TABLEFONTSTYLE_UNDERLINE,
-        ),
-    )
-
-    sheet.setBackground(RangeStyle1, SPREADSHEET_HEADERBACKGROUND)
-    sheet.setForeground(RangeStyle1, SPREADSHEET_HEADERFOREGROUND)
-
-    # Style the rest of the table
-    for i in range(2, int(Endrow) + 1, 2):
-        RangeStyle3 = f"A{i}:E{i}"
-        RangeStyle4 = f"A{i+1}:E{i+1}"
-        sheet.setBackground(RangeStyle3, SPREADSHEET_TABLEBACKGROUND_1)
-        sheet.setBackground(RangeStyle4, SPREADSHEET_TABLEBACKGROUND_2)
-        sheet.setForeground(RangeStyle3, SPREADSHEET_TABLEFOREGROUND)
-        sheet.setForeground(RangeStyle4, SPREADSHEET_TABLEFOREGROUND)
-
-    # align the columns
-    sheet.setAlignment(RangeAlign1, "left|vcenter")
-    sheet.setAlignment(RangeAlign2, "center|vcenter")
-
-    # Set the column width
-    for i in range(1, Endrow):
-        Standard_Functions.SetColumnWidth_SpreadSheet(
-            sheet=sheet,
-            column=f"A{i}",
-            cellValue=sheet.getContents(f"A{i}"),
-            factor=AUTOFIT_FACTOR,
-        )
-        Standard_Functions.SetColumnWidth_SpreadSheet(
-            sheet=sheet,
-            column=f"B{i}",
-            cellValue=sheet.getContents(f"B{i}"),
-            factor=AUTOFIT_FACTOR,
-        )
-        Standard_Functions.SetColumnWidth_SpreadSheet(
-            sheet=sheet,
-            column=f"C{i}",
-            cellValue=sheet.getContents(f"C{i}"),
-            factor=AUTOFIT_FACTOR,
-        )
-        Standard_Functions.SetColumnWidth_SpreadSheet(
-            sheet=sheet,
-            column=f"D{i}",
-            cellValue=sheet.getContents(f"D{i}"),
-            factor=AUTOFIT_FACTOR,
-        )
-        Standard_Functions.SetColumnWidth_SpreadSheet(
-            sheet=sheet,
-            column=f"E{i}",
-            cellValue=sheet.getContents(f"E{i}"),
-            factor=AUTOFIT_FACTOR,
-        )
     return
 
 
-# endregion
+def CreateInternalDrawingList_Simple():
+    from Settings import SHEETNAME_SIMPLE_LIST
+    import Standard_Functions_TitleBlock
+
+    # Get the active document
+    doc = App.ActiveDocument
+
+    DrawingList = doc.getObject(SHEETNAME_SIMPLE_LIST)
+    if DrawingList is None:
+        DrawingList = doc.addObject("Spreadsheet::Sheet", "DrawingList")
+    if DrawingList is not None:
+        Text = translate(
+            "TitleBlock Workbench",
+            "Do you want to replace the drawing list with a new one?",
+        )
+        reply = Standard_Functions_TitleBlock.Mbox(
+            text=Text, title="TitleBlock Workbench", style=1, IconType="Question")
+
+        if reply == "yes":
+            doc.removeObject(SHEETNAME_SIMPLE_LIST)
+
+            Text = translate(
+                "TitleBlock Workbench",
+                "Please enter the name of the drawing list.\n",
+            )
+            DrawingListName = Standard_Functions.Mbox(
+                text=Text,
+                title="TitleBlock Workbench",
+                style=20,
+                default="DrawingList"
+            )
+
+            if DrawingListName != "":
+                DrawingList = doc.addObject("Spreadsheet::Sheet", DrawingListName)
+
+                # Set SHEETNAME_STARTCELL to the chosen sheetname
+                preferences.SetString("SheetName_SimpleList", DrawingListName)
+                SHEETNAME_SIMPLE_LIST = DrawingList
+
+                # Get the startcell and the next cells
+                StartCell = "A1"
+                TopRow = int(StartCell[1:])
+                EditableText_1 = str(
+                    Standard_Functions.GetLetterFromNumber(
+                        Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
+                    )
+                ) + str(TopRow)
+                EditableText_2 = str(
+                    Standard_Functions.GetLetterFromNumber(
+                        Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 2
+                    )
+                ) + str(TopRow)
+                EditableText_3 = str(
+                    Standard_Functions.GetLetterFromNumber(
+                        Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 3
+                    )
+                ) + str(TopRow)
+                EditableText_4 = str(
+                    Standard_Functions.GetLetterFromNumber(
+                        Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
+                    )
+                ) + str(TopRow)
+
+                if ENABLE_DEBUG is True:
+                    Text = translate("TitleBlock Workbench", f"the startcell is: {StartCell}")
+                    print(Text)
+
+                # Set the headers
+                DrawingList.set(StartCell, "Property Value")
+                DrawingList.set(EditableText_1, "<Editable text - Name>(1)")
+                DrawingList.set(EditableText_2, "<Editable text - Name>(2)")
+                DrawingList.set(EditableText_3, "<Editable text - Name>(3)")
+                DrawingList.set(EditableText_4, "<Editable text - Name>(4)")
+
+                # region Format the settings with the values as a Table
+                #
+                TableFormat_Functions.FormatTable(sheet=DrawingList, HeaderRange="A1:E1",
+                                                  TableRange="A2:E10", FirstColumnRange="A2:A10")
+                # endregion
+
+                # recompute the document
+                doc.recompute(None, True, True)
+                # Save the workbook
+                doc.save()
+
+    return

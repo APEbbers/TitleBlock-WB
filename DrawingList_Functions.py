@@ -30,7 +30,6 @@ import Standard_Functions_TitleBlock as Standard_Functions
 import TableFormat_Functions
 
 # Get the settings
-from Settings import EXTERNAL_SOURCE_SHEET_NAME
 from Settings import ENABLE_DEBUG
 from Settings import USE_SIMPLE_LIST
 from Settings import USE_EXTERNAL_SOURCE_SIMPLE_LIST
@@ -65,12 +64,13 @@ def MapSimpleDrawingList(sheet):
             if DrawingList is None:
                 SheetName = Standard_Functions.Mbox(text="DrawingList", title="Title block workbench", style=20)
                 if SheetName != "":
-                    DrawingList = SheetName
+                    App.ActiveDocument.addObject("Spreadsheet::Sheet", SheetName)
+                    DrawingList = App.ActiveDocument.getObject(SheetName)
                 if SheetName == "":
                     return
 
             # Get the startcolumn and the other three columns from there
-            StartCell = EXTERNAL_FILE_SIMPLE_LIST
+            StartCell = STARTCELL_SIMPLE_LIST
 
             if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
                 StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
@@ -95,7 +95,7 @@ def MapSimpleDrawingList(sheet):
 
             # Get the start row
             StartRow = Standard_Functions.RemoveLettersFromString(
-                EXTERNAL_FILE_SIMPLE_LIST
+                StartCell
             )
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
@@ -106,32 +106,34 @@ def MapSimpleDrawingList(sheet):
 
             # Define placeholder for the property value in the drawing list.
             PropertyValue_DrawingList = ""
-            # Define a placeholder for the qty of columns with return values
-            NoColumns = 0
             # Create a list with return values
             ReturnNames_DrawingList = []
             for i in range(1000):
                 # Get the colum letter. For example: i = 0, StartColumn = A->1 + 1 results in column B
                 Column = Standard_Functions.GetLetterFromNumber(
                     i + Standard_Functions.GetNumberFromLetter(StartColumn) + 1)
-                NoColumns = NoColumns + i
 
                 # If the cell is not empty, add the contents to the list
-                if str(DrawingList.GetContent(f"{Column}{StartRow}")) != "":
-                    ReturnNames_DrawingList.append(str(DrawingList.GetContent(f"{Column}{StartRow}")))
+                if str(DrawingList.getContents(f"{Column}{StartRow}")) != "":
+                    ReturnName = str(DrawingList.getContents(f"{Column}{StartRow}"))
+                    if ReturnName[:1] == "'":
+                        ReturnName = ReturnName[1:]
+                    ReturnNames_DrawingList.append(ReturnName)
 
                     for j in range(1, 1000):
                         # check if you reached the end of the data.
-                        test = sheet.getContents(f"A{str(j)}")
-                        if test == "" or test is None:
+                        TitleBlockPropName = sheet.getContents(f"A{str(j)}")
+                        if TitleBlockPropName[:1] == "'":
+                            TitleBlockPropName = TitleBlockPropName[1:]
+                        if TitleBlockPropName == "" or TitleBlockPropName is None:
                             break
 
-                        if str(sheet.getContents(f"A{str(j)}")) == str(DrawingList.GetContent(f"{Column}{StartRow}")):
+                        if TitleBlockPropName == ReturnName:
                             sheet.set(f"B{j}", "-")
                             sheet.set(f"E{j}", "Property value retrieved from drawing list")
 
                 # If the cell is empty, you are on the end. Break the loop.
-                if str(DrawingList.GetContent(f"{Column}{StartRow}")) == "":
+                if str(DrawingList.getContents(f"{Column}{StartRow}")) == "":
                     break
 
             # Get the pages in the document
@@ -144,11 +146,11 @@ def MapSimpleDrawingList(sheet):
 
                 # If the property name in the drawing list is empty, it is the end of the list.
                 # Exit the function
-                if str(DrawingList.GetContent(f"{StartColumn}{RowNumber}")) == "":
+                if str(DrawingList.getContents(f"{StartColumn}{RowNumber}")) == "":
                     break
 
-                # Get the property name in the excel list. If it starts with "'", remove it
-                PropertyValue_DrawingList = str(DrawingList.GetContent(f"{StartColumn}{RowNumber}"))
+                # Get the property name in the drawing list. If it starts with "'", remove it
+                PropertyValue_DrawingList = str(DrawingList.getContents(f"{StartColumn}{RowNumber}"))
                 if PropertyValue_DrawingList[:1] == "'":
                     PropertyValue_DrawingList = PropertyValue_DrawingList[1:]
 
@@ -159,9 +161,9 @@ def MapSimpleDrawingList(sheet):
                         j + Standard_Functions.GetNumberFromLetter(StartColumn) + 1)
 
                     # If the cell is not empty and j is lower then NoColumns, continue.
-                    if str(DrawingList.GetContent(f"{Column}{RowNumber}")) != "":
+                    if str(DrawingList.getContents(f"{Column}{RowNumber}")) != "":
                         # Get the property value in the excel list. If it starts with "'", remove it
-                        ReturnValue_DrawingList = str(DrawingList.GetContent(f"{Column}{RowNumber}"))
+                        ReturnValue_DrawingList = str(DrawingList.getContents(f"{Column}{RowNumber}"))
                         if ReturnValue_DrawingList[:1] == "'":
                             ReturnValue_DrawingList = ReturnValue_DrawingList[1:]
 
@@ -197,9 +199,6 @@ def MapSimpleDrawingList(sheet):
                                     page.Template.EditableTexts = texts
                                     page.recompute()
 
-                    # If j = NoColumns, break the loop
-                    if j == NoColumns:
-                        break
             # Recomute the document
             App.ActiveDocument.recompute(None, True, True)
 
@@ -481,6 +480,10 @@ def MapSimpleDrawingList_FreeCAD(sheet):
         if ENABLE_DEBUG is True:
             Text = translate("TitleBlock Workbench", f"The drawing list is: {EXTERNAL_FILE_SIMPLE_LIST}")
             Standard_Functions.Print(Text, "Log")
+        # Get the active document
+        doc = App.ActiveDocument
+        # Save the name of the active document to reactivate it at the end of this function.
+        LastActiveDoc = doc.Name
         # Get the name of the external source
         Input_SheetName = SHEETNAME_SIMPLE_LIST
         # Define the External sheet and document
@@ -539,8 +542,8 @@ def MapSimpleDrawingList_FreeCAD(sheet):
 
         try:
             # Get the startcolumn and the other three columns from there
-            StartCell = EXTERNAL_FILE_SIMPLE_LIST
-            if EXTERNAL_FILE_SIMPLE_LIST == "":
+            StartCell = STARTCELL_SIMPLE_LIST
+            if STARTCELL_SIMPLE_LIST == "":
                 # Set EXTERNAL_SOURCE_SHEET_NAME to the chosen sheetname
                 preferences.SetString("SheetName", Input_SheetName)
                 DrawingList = ff.getObject(Input_SheetName)
@@ -567,6 +570,7 @@ def MapSimpleDrawingList_FreeCAD(sheet):
             if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
                 StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
             StartColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
+
             # If debug mode is on, show the start colum and its number
             if ENABLE_DEBUG is True:
                 Standard_Functions.Print(
@@ -587,7 +591,7 @@ def MapSimpleDrawingList_FreeCAD(sheet):
 
             # Get the start row
             StartRow = Standard_Functions.RemoveLettersFromString(
-                EXTERNAL_FILE_SIMPLE_LIST
+                StartCell
             )
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
@@ -609,25 +613,30 @@ def MapSimpleDrawingList_FreeCAD(sheet):
                 NoColumns = NoColumns + i
 
                 # If the cell is not empty, add the contents to the list
-                if str(DrawingList.GetContent(f"{Column}{StartRow}")) != "":
-                    ReturnNames_DrawingList.append(str(DrawingList.GetContent(f"{Column}{StartRow}")))
+                if str(DrawingList.getContents(f"{Column}{StartRow}")) != "":
+                    ReturnName = str(DrawingList.getContents(f"{Column}{StartRow}"))
+                    if ReturnName[:1] == "'":
+                        ReturnName = ReturnName[1:]
+                    ReturnNames_DrawingList.append(ReturnName)
 
                     for j in range(1, 1000):
                         # check if you reached the end of the data.
-                        test = sheet.getContents(f"A{str(j)}")
-                        if test == "" or test is None:
+                        TitleBlockPropName = sheet.getContents(f"A{str(j)}")
+                        if TitleBlockPropName[:1] == "'":
+                            TitleBlockPropName = TitleBlockPropName[1:]
+                        if TitleBlockPropName == "" or TitleBlockPropName is None:
                             break
 
-                        if str(sheet.getContents(f"A{str(j)}")) == str(DrawingList.GetContent(f"{Column}{StartRow}")):
+                        if TitleBlockPropName == ReturnName:
                             sheet.set(f"B{j}", "-")
                             sheet.set(f"E{j}", "Property value retrieved from drawing list")
 
                 # If the cell is empty, you are on the end. Break the loop.
-                if str(DrawingList.GetContent(f"{Column}{StartRow}")) == "":
+                if str(DrawingList.getContents(f"{Column}{StartRow}")) == "":
                     break
 
             # Get the pages in the document
-            pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+            pages = doc.findObjects("TechDraw::DrawPage")
 
             # Go through the drawing list and collect the property value based on the property name searched for.
             for i in range(1000):
@@ -636,11 +645,11 @@ def MapSimpleDrawingList_FreeCAD(sheet):
 
                 # If the property name in the drawing list is empty, it is the end of the list.
                 # Exit the function
-                if str(DrawingList.GetContent(f"{StartColumn}{RowNumber}")) == "":
+                if str(DrawingList.getContents(f"{StartColumn}{RowNumber}")) == "":
                     break
 
                 # Get the property name in the excel list. If it starts with "'", remove it
-                PropertyValue_DrawingList = str(DrawingList.GetContent(f"{StartColumn}{RowNumber}"))
+                PropertyValue_DrawingList = str(DrawingList.getContents(f"{StartColumn}{RowNumber}"))
                 if PropertyValue_DrawingList[:1] == "'":
                     PropertyValue_DrawingList = PropertyValue_DrawingList[1:]
 
@@ -651,11 +660,12 @@ def MapSimpleDrawingList_FreeCAD(sheet):
                         j + Standard_Functions.GetNumberFromLetter(StartColumn) + 1)
 
                     # If the cell is not empty and j is lower then NoColumns, continue.
-                    if str(DrawingList.GetContent(f"{Column}{RowNumber}")) != "":
+                    if str(DrawingList.getContents(f"{Column}{RowNumber}")) != "":
                         # Get the property value in the excel list. If it starts with "'", remove it
-                        ReturnValue_DrawingList = str(DrawingList.GetContent(f"{Column}{RowNumber}"))
+                        ReturnValue_DrawingList = str(DrawingList.getContents(f"{Column}{RowNumber}"))
                         if ReturnValue_DrawingList[:1] == "'":
                             ReturnValue_DrawingList = ReturnValue_DrawingList[1:]
+                        print(ReturnValue_DrawingList)
 
                         # If page names are not to be mapped, go here
                         if USE_PAGE_NAMES_SIMPLE_LIST is False:
@@ -683,17 +693,24 @@ def MapSimpleDrawingList_FreeCAD(sheet):
                                 if PropertyValue_DrawingList == page.Label:
                                     # Get the editable texts
                                     texts = page.Template.EditableTexts
+                                    # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
                                     texts[ReturnNames_DrawingList[j]] = ReturnValue_DrawingList
 
                                     # Write all the updated text to the page.
                                     page.Template.EditableTexts = texts
                                     page.recompute()
 
-                    # If j = NoColumns, break the loop
-                    if j == NoColumns:
-                        break
-            # Recomute the document
-            App.ActiveDocument.recompute(None, True, True)
+            # recompute the document
+            doc.recompute(None, True, True)
+            # Save the workbook
+            doc.save()
+            # Close the FreeCAD file
+            App.closeDocument(ff.Name)
+            # Activate the document which was active when this command started.
+            try:
+                App.setActiveDocument(LastActiveDoc)
+            except Exception:
+                pass
 
         except Exception as e:
             Text = translate(

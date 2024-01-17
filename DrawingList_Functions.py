@@ -665,7 +665,6 @@ def MapSimpleDrawingList_FreeCAD(sheet):
                         ReturnValue_DrawingList = str(DrawingList.getContents(f"{Column}{RowNumber}"))
                         if ReturnValue_DrawingList[:1] == "'":
                             ReturnValue_DrawingList = ReturnValue_DrawingList[1:]
-                        print(ReturnValue_DrawingList)
 
                         # If page names are not to be mapped, go here
                         if USE_PAGE_NAMES_SIMPLE_LIST is False:

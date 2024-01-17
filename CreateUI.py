@@ -30,6 +30,8 @@
 import FreeCAD as App
 from Settings import USE_EXTERNAL_SOURCE
 from Settings import EXTERNAL_SOURCE_PATH
+from Settings import USE_SIMPLE_LIST
+from Settings import USE_EXTERNAL_SOURCE_SIMPLE_LIST
 import Standard_Functions_TitleBlock as Standard_Functions
 
 
@@ -95,6 +97,28 @@ def DefineToolbars():
             "ImportSettings_FreeCAD",
             "OpenFreeCAD",
         ]
+    if USE_SIMPLE_LIST is True:
+        if USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
+            ToolbarListExtra.append(
+                [
+                    "Separator",
+                    "NewSimpleList_Internal",
+                ]
+            )
+        if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True and USE_EXTERNAL_SOURCE_SIMPLE_LIST.lower().endswith(".fcstd") is False:
+            ToolbarListExtra.append(
+                [
+                    "Separator",
+                    "NewSimpleList_Excel",
+                ]
+            )
+        if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True and USE_EXTERNAL_SOURCE_SIMPLE_LIST.lower().endswith(".fcstd") is True:
+            ToolbarListExtra.append(
+                [
+                    "Separator",
+                    "NewSimpleList_FreeCAD",
+                ]
+            )
 
     result = {"ToolbarListMain": ToolbarListMain, "ToolbarListExtra": ToolbarListExtra}
 
@@ -126,10 +150,16 @@ def DefineMenus():
         "ExportSettings_FreeCAD",
         "ImportSettings_FreeCAD",
     ]
+    DrawingList_List = [
+        "NewSimpleList_Excel",
+        "NewSimpleList_FreeCAD",
+        "NewSimpleList_Internal",
+    ]
     result = {
         "StandardList": StandardList,
         "ExcelList": ExcelList,
         "FreeCADList": FreeCADList,
+        "DrawingList": DrawingList_List,
         "SettingsList": SettingsList,
     }
 

@@ -104,6 +104,7 @@ class TitleBlockWB(Gui.Workbench):
         ExcelList = CreateUI.DefineMenus()["ExcelList"]
         FreeCADList = CreateUI.DefineMenus()["FreeCADList"]
         SettingsList = CreateUI.DefineMenus()["SettingsList"]
+        DrawingList = CreateUI.DefineMenus()["DrawingList"]
         self.appendMenu(
             QT_TRANSLATE_NOOP("Workbench", "TitleBlock"),
             StandardList,
@@ -114,6 +115,9 @@ class TitleBlockWB(Gui.Workbench):
         self.appendMenu(
             QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "External source"]),
             FreeCADList,
+        )
+        self.appendMenu(
+            QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "Drawing list"]), DrawingList
         )
         self.appendMenu(
             QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "Settings"]), SettingsList

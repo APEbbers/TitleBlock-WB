@@ -185,7 +185,6 @@ EXTERNAL_FILE_SIMPLE_LIST = GetStringSetting("ExternalFile_SimpleList")
 SHEETNAME_SIMPLE_LIST = GetStringSetting("SheetName_SimpleList")
 STARTCELL_SIMPLE_LIST = GetStringSetting("StartCell_SimpleList")
 PROPERTY_NAME_SIMPLE_LIST = GetStringSetting("PropertyName_SimpleList")
-PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST = GetStringSetting("PropertyName_TitleBlock_SimpleList")
 USE_PAGE_NAMES_SIMPLE_LIST = GetBoolSetting("UsePageNames_SimpleList")
 
 # Drawing list settings - Advanced
@@ -195,7 +194,6 @@ EXTERNAL_FILE_ADVANCED_LIST = GetStringSetting("ExternalFile_AdvancedList")
 SHEETNAME_ADVANCED_LIST = GetStringSetting("SheetName_AdvancedList")
 STARTCELL_ADVANCED_LIST = GetStringSetting("StartCell_AdvancedList")
 PROPERTY_NAME_ADVANCED_LIST = GetStringSetting("PropertyName_AdvancedList")
-PROPERTY_NAME_TITLEBLOCK_ADVANCED_LIST = GetStringSetting("PropertyName_TitleBlock_AdvancedList")
 SORTING_PREFIX_ADVANCED_LIST = GetStringSetting("SortingPrefix_AdvancedList")
 USE_PAGE_NAMES_ADVANCED_LIST = GetBoolSetting("UsePageNames_AdvancesList")
 
@@ -648,6 +646,123 @@ def ExportSettings_FreeCAD(Silent=False):
         RowNumber = RowNumber + 1
         # endregion
 
+        # region -- Simple drawing list
+        #
+        # USE_SIMPLE_LIST
+        RowNumber = 1
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UseSimpleList")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(USE_SIMPLE_LIST).upper())
+        RowNumber = RowNumber + 1
+
+        # USE_SIMPLE_LIST
+        RowNumber = 1
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UseExternalSource_SimpleList")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(USE_EXTERNAL_SOURCE_SIMPLE_LIST).upper())
+        RowNumber = RowNumber + 1
+
+        # EXTERNAL_FILE_SIMPLE_LIST
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "ExternalFile_SimpleList")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(EXTERNAL_FILE_SIMPLE_LIST).upper())
+        RowNumber = RowNumber + 1
+
+        # EXTERNAL_FILE_SIMPLE_LIST
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "SheetName_SimpleList")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(SHEETNAME_SIMPLE_LIST).upper())
+        RowNumber = RowNumber + 1
+
+        # STARTCELL_SIMPLE_LIST
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "StartCell_SimpleList")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(STARTCELL_SIMPLE_LIST).upper())
+        RowNumber = RowNumber + 1
+
+        # PROPERTY_NAME_SIMPLE_LIST
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "PropertyName_SimpleList")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(PROPERTY_NAME_SIMPLE_LIST).upper())
+        RowNumber = RowNumber + 1
+
+        # USE_PAGE_NAMES_SIMPLE_LIST
+        RowNumber = 1
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UsePageNames_SimpleList")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(USE_PAGE_NAMES_SIMPLE_LIST).upper())
+        RowNumber = RowNumber + 1
+        # endregion
+
+        # region -- Advanced drawing list
+        #
+        # USE_ADVANCED_LIST
+        RowNumber = 1
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UseAdvancedList")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(USE_ADVANCED_LIST).upper())
+        RowNumber = RowNumber + 1
+
+        # USE_ADVANCED_LIST
+        RowNumber = 1
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UseExternalSource_AdvancedList")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(USE_EXTERNAL_SOURCE_ADVANCED_LIST).upper())
+        RowNumber = RowNumber + 1
+
+        # EXTERNAL_FILE_ADVANCED_LIST
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "ExternalFile_AdvancedList")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(EXTERNAL_FILE_ADVANCED_LIST).upper())
+        RowNumber = RowNumber + 1
+
+        # EXTERNAL_FILE_ADVANCED_LIST
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "SheetName_AdvancedList")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(SHEETNAME_ADVANCED_LIST).upper())
+        RowNumber = RowNumber + 1
+
+        # STARTCELL_ADVANCED_LIST
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "StartCell_AdvancedList")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(STARTCELL_ADVANCED_LIST).upper())
+        RowNumber = RowNumber + 1
+
+        # PROPERTY_NAME_ADVANCED_LIST
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "PropertyName_AdvancedList")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(PROPERTY_NAME_ADVANCED_LIST).upper())
+        RowNumber = RowNumber + 1
+
+        # SORTING_PREFIX_ADVANCED_LIST
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "SortingPrefix_AdvancedList")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(SORTING_PREFIX_ADVANCED_LIST).upper())
+        RowNumber = RowNumber + 1
+
+        # USE_PAGE_NAMES_ADVANCED_LIST
+        RowNumber = 1
+        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UsePageNames_AdvancedList")
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        sheet.set(SettingValue, str(USE_PAGE_NAMES_ADVANCED_LIST).upper())
+        RowNumber = RowNumber + 1
+        # endregion
+
         # Notes:
         # - ENABLE_DEBUG is excluded from export.
         #   This is a setting only needed for debuggin and thus a per user setting.
@@ -963,6 +1078,87 @@ def ImportSettings_FreeCAD():
                 SetBoolSetting("IncludeNoOfSheets", Cell_Value)
                 counter = counter + 1
 
+            # endregion
+
+            # region -- Simple drawing list
+            #
+            # Import USE_SIMPLE_LIST
+            if Cell_Name == "UseSimpleList":
+                SetBoolSetting("UseSimpleList", Cell_Value)
+                counter = counter + 1
+
+            # Import USE_EXTERNAL_SOURCE_SIMPLE_LIST
+            if Cell_Name == "UseExternalSource_SimpleList":
+                SetBoolSetting("UseExternalSource_SimpleList", Cell_Value)
+                counter = counter + 1
+
+            # EXTERNAL_FILE_SIMPLE_LIST
+            if Cell_Name == "ExternalFile_SimpleList":
+                SetStringSetting("ExternalFile_SimpleList", str(Cell_Value))
+                counter = counter + 1
+
+            # SHEETNAME_SIMPLE_LIST
+            if Cell_Name == "SheetName_SimpleList":
+                SetStringSetting("SheetName_SimpleList", str(Cell_Value))
+                counter = counter + 1
+
+            # STARTCELL_SIMPLE_LIST
+            if Cell_Name == "StartCell_SimpleList":
+                SetStringSetting("StartCell_SimpleList", str(Cell_Value))
+                counter = counter + 1
+
+            # PROPERTY_NAME_SIMPLE_LIST
+            if Cell_Name == "PropertyName_SimpleList":
+                SetStringSetting("PropertyName_SimpleList", str(Cell_Value))
+                counter = counter + 1
+
+            # Import USE_PAGE_NAMES_SIMPLE_LIST
+            if Cell_Name == "UsePageNames_SimpleList":
+                SetBoolSetting("UsePageNames_SimpleList", Cell_Value)
+                counter = counter + 1
+            # endregion
+
+            # region -- Advanced drawing list
+            #
+            # Import USE_ADVANCED_LIST
+            if Cell_Name == "UseAdvancedList":
+                SetBoolSetting("UseAdvancedList", Cell_Value)
+                counter = counter + 1
+
+            # Import USE_EXTERNAL_SOURCE_ADVANCED_LIST
+            if Cell_Name == "UseExternalSource_AdvancedList":
+                SetBoolSetting("UseExternalSource_AdvancedList", Cell_Value)
+                counter = counter + 1
+
+            # EXTERNAL_FILE_ADVANCED_LIST
+            if Cell_Name == "ExternalFile_AdvancedList":
+                SetStringSetting("ExternalFile_AdvancedList", str(Cell_Value))
+                counter = counter + 1
+
+            # SHEETNAME_ADVANCED_LIST
+            if Cell_Name == "SheetName_AdvancedList":
+                SetStringSetting("SheetName_AdvancedList", str(Cell_Value))
+                counter = counter + 1
+
+            # STARTCELL_ADVANCED_LIST
+            if Cell_Name == "StartCell_AdvancedList":
+                SetStringSetting("StartCell_AdvancedList", str(Cell_Value))
+                counter = counter + 1
+
+            # PROPERTY_NAME_ADVANCED_LIST
+            if Cell_Name == "PropertyName_AdvancedList":
+                SetStringSetting("PropertyName_AdvancedList", str(Cell_Value))
+                counter = counter + 1
+
+             # SORTING_PREFIX_ADVANCED_LIST
+            if Cell_Name == "SortingPrefix_AdvancedList":
+                SetStringSetting("SortingPrefix_AdvancedList", str(Cell_Value))
+                counter = counter + 1
+
+            # Import USE_PAGE_NAMES_ADVANCED_LIST
+            if Cell_Name == "UsePageNames_AdvancedList":
+                SetBoolSetting("UsePageNames_AdvancedList", Cell_Value)
+                counter = counter + 1
             # endregion
 
             # Notes:
@@ -1441,6 +1637,141 @@ def ExportSettings_XL(Silent=False):
         RowNumber = RowNumber + 1
         # endregion
 
+        # region -- Simple drawing list
+        #
+        # USE_SIMPLE_LIST
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "UseSimpleList"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        # Create a dropdown for the boolan
+        dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
+        ws.add_data_validation(dv)
+        dv.add(ws[SettingValue])
+        ws[SettingValue].value = str(USE_SIMPLE_LIST).upper()
+        RowNumber = RowNumber + 1
+
+        # USE_EXTERNAL_SOURCE_SIMPLE_LIST
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "UseExternalSource_SimpleList"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        # Create a dropdown for the boolan
+        dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
+        ws.add_data_validation(dv)
+        dv.add(ws[SettingValue])
+        ws[SettingValue].value = str(USE_EXTERNAL_SOURCE_SIMPLE_LIST).upper()
+        RowNumber = RowNumber + 1
+
+        # EXTERNAL_FILE_SIMPLE_LIST
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "ExternalFile_SimpleList"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = EXTERNAL_FILE_SIMPLE_LIST
+        RowNumber = RowNumber + 1
+
+        # SHEETNAME_SIMPLE_LIST
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "SheetName_SimpleList"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = SHEETNAME_SIMPLE_LIST
+        RowNumber = RowNumber + 1
+
+        # STARTCELL_SIMPLE_LIST
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "StartCell_SimpleList"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = STARTCELL_SIMPLE_LIST
+        RowNumber = RowNumber + 1
+
+        # PROPERTY_NAME_SIMPLE_LIST
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "PropertyName_SimpleList"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = PROPERTY_NAME_SIMPLE_LIST
+        RowNumber = RowNumber + 1
+
+        # USE_PAGE_NAMES_SIMPLE_LIST
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "UsePageNames_SimpleList"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        # Create a dropdown for the boolan
+        dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
+        ws.add_data_validation(dv)
+        dv.add(ws[SettingValue])
+        ws[SettingValue].value = str(USE_PAGE_NAMES_SIMPLE_LIST).upper()
+        RowNumber = RowNumber + 1
+        # endregion
+
+        # region -- Advanced drawing list
+        #
+        # USE_ADVANCED_LIST
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "UseAdvancedList"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        # Create a dropdown for the boolan
+        dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
+        ws.add_data_validation(dv)
+        dv.add(ws[SettingValue])
+        ws[SettingValue].value = str(USE_ADVANCED_LIST).upper()
+        RowNumber = RowNumber + 1
+
+        # USE_EXTERNAL_SOURCE_ADVANCED_LIST
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "UseExternalSource_AdvancedList"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        # Create a dropdown for the boolan
+        dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
+        ws.add_data_validation(dv)
+        dv.add(ws[SettingValue])
+        ws[SettingValue].value = str(USE_EXTERNAL_SOURCE_ADVANCED_LIST).upper()
+        RowNumber = RowNumber + 1
+
+        # EXTERNAL_FILE_ADVANCED_LIST
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "ExternalFile_AdvancedList"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = EXTERNAL_FILE_ADVANCED_LIST
+        RowNumber = RowNumber + 1
+
+        # SHEETNAME_ADVANCED_LIST
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "SheetName_AdvancedList"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = SHEETNAME_ADVANCED_LIST
+        RowNumber = RowNumber + 1
+
+        # STARTCELL_ADVANCED_LIST
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "StartCell_AdvancedList"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = STARTCELL_ADVANCED_LIST
+        RowNumber = RowNumber + 1
+
+        # PROPERTY_NAME_ADVANCED_LIST
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "PropertyName_AdvancedList"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = PROPERTY_NAME_ADVANCED_LIST
+        RowNumber = RowNumber + 1
+
+        # SORTING_PREFIX_ADVANCED_LIST
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "SortingPrefix_AdvancedList"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        ws[SettingValue].value = SORTING_PREFIX_ADVANCED_LIST
+        RowNumber = RowNumber + 1
+
+        # USE_PAGE_NAMES_ADVANCED_LIST
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "UsePageNames_AdvancedList"
+        # Write the value
+        SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
+        # Create a dropdown for the boolan
+        dv = DataValidation(type="list", formula1='"TRUE,FALSE"', allow_blank=False)
+        ws.add_data_validation(dv)
+        dv.add(ws[SettingValue])
+        ws[SettingValue].value = str(USE_PAGE_NAMES_ADVANCED_LIST).upper()
+        RowNumber = RowNumber + 1
+        # endregion
+
         # Note: ENABLE_DEBUG is excluded from export.
         # This is a setting only needed for debuggin and thus a per user setting.
 
@@ -1778,6 +2109,87 @@ def ImportSettings_XL():
                 SetBoolSetting("IncludeNoOfSheets", Cell_Value.value)
                 counter = counter + 1
 
+            # endregion
+
+            # region -- Simple drawing list
+            #
+            # Import USE_SIMPLE_LIST
+            if Cell_Name == "UseSimpleList":
+                SetBoolSetting("UseSimpleList", Cell_Value.value)
+                counter = counter + 1
+
+            # Import USE_EXTERNAL_SOURCE_SIMPLE_LIST
+            if Cell_Name == "UseExternalSource_SimpleList":
+                SetBoolSetting("UseExternalSource_SimpleList", Cell_Value.value)
+                counter = counter + 1
+
+            # EXTERNAL_FILE_SIMPLE_LIST
+            if Cell_Name == "ExternalFile_SimpleList":
+                SetStringSetting("ExternalFile_SimpleList", str(Cell_Value.value))
+                counter = counter + 1
+
+            # SHEETNAME_SIMPLE_LIST
+            if Cell_Name == "SheetName_SimpleList":
+                SetStringSetting("SheetName_SimpleList", str(Cell_Value.value))
+                counter = counter + 1
+
+            # STARTCELL_SIMPLE_LIST
+            if Cell_Name == "StartCell_SimpleList":
+                SetStringSetting("StartCell_SimpleList", str(Cell_Value.value))
+                counter = counter + 1
+
+            # PROPERTY_NAME_SIMPLE_LIST
+            if Cell_Name == "PropertyName_SimpleList":
+                SetStringSetting("PropertyName_SimpleList", str(Cell_Value.value))
+                counter = counter + 1
+
+            # Import USE_PAGE_NAMES_SIMPLE_LIST
+            if Cell_Name == "UsePageNames_SimpleList":
+                SetBoolSetting("UsePageNames_SimpleList", Cell_Value.value)
+                counter = counter + 1
+            # endregion
+
+            # region -- Advanced drawing list
+            #
+            # Import USE_ADVANCED_LIST
+            if Cell_Name == "UseAdvancedList":
+                SetBoolSetting("UseAdvancedList", Cell_Value.value)
+                counter = counter + 1
+
+            # Import USE_EXTERNAL_SOURCE_ADVANCED_LIST
+            if Cell_Name == "UseExternalSource_AdvancedList":
+                SetBoolSetting("UseExternalSource_AdvancedList", Cell_Value.value)
+                counter = counter + 1
+
+            # EXTERNAL_FILE_ADVANCED_LIST
+            if Cell_Name == "ExternalFile_AdvancedList":
+                SetStringSetting("ExternalFile_AdvancedList", str(Cell_Value.value))
+                counter = counter + 1
+
+            # SHEETNAME_ADVANCED_LIST
+            if Cell_Name == "SheetName_AdvancedList":
+                SetStringSetting("SheetName_AdvancedList", str(Cell_Value.value))
+                counter = counter + 1
+
+            # STARTCELL_ADVANCED_LIST
+            if Cell_Name == "StartCell_AdvancedList":
+                SetStringSetting("StartCell_AdvancedList", str(Cell_Value.value))
+                counter = counter + 1
+
+            # PROPERTY_NAME_ADVANCED_LIST
+            if Cell_Name == "PropertyName_AdvancedList":
+                SetStringSetting("PropertyName_AdvancedList", str(Cell_Value.value))
+                counter = counter + 1
+
+            # SORTING_PREFIX_ADVANCED_LIST
+            if Cell_Name == "SortingPrefix_AdvancedList":
+                SetStringSetting("SortingPrefix_AdvancedList", str(Cell_Value.value))
+                counter = counter + 1
+
+            # Import USE_PAGE_NAMES_ADVANCED_LIST
+            if Cell_Name == "UsePageNames_AdvancedList":
+                SetBoolSetting("UsePageNames_AdvancedList", Cell_Value.value)
+                counter = counter + 1
             # endregion
 
             # Note: ENABLE_DEBUG is excluded from import.

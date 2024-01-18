@@ -2414,7 +2414,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-161</y>
+        <y>-384</y>
         <width>445</width>
         <height>1000</height>
        </rect>
@@ -2471,7 +2471,7 @@ p, li { white-space: pre-wrap; }
          <property name="minimumSize">
           <size>
            <width>419</width>
-           <height>360</height>
+           <height>300</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -2526,7 +2526,7 @@ p, li { white-space: pre-wrap; }
             <x>-1</x>
             <y>35</y>
             <width>421</width>
-            <height>321</height>
+            <height>266</height>
            </rect>
           </property>
           <property name="frameShape">
@@ -2541,7 +2541,7 @@ p, li { white-space: pre-wrap; }
              <x>10</x>
              <y>10</y>
              <width>401</width>
-             <height>306</height>
+             <height>251</height>
             </rect>
            </property>
            <layout class="QFormLayout" name="formLayout_5">
@@ -2822,36 +2822,6 @@ p, li { white-space: pre-wrap; }
              </layout>
             </item>
             <item row="4" column="0" colspan="2">
-             <layout class="QGridLayout" name="gridLayout_15">
-              <item row="0" column="0">
-               <widget class="QLabel" name="label_46">
-                <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The property name to update in the titleblock:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="Gui::PrefLineEdit" name="PropertyNameTitleBlock_SimpleList">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="placeholderText">
-                 <string>Enter the property name...</string>
-                </property>
-                <property name="prefEntry" stdset="0">
-                 <cstring>PropertyName_TitleBlock_SimpleList</cstring>
-                </property>
-                <property name="prefPath" stdset="0">
-                 <cstring>Mod/TitleBlock Workbench</cstring>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item row="5" column="0" colspan="2">
              <widget class="Gui::PrefCheckBox" name="UsePageNames_SimpleList">
               <property name="text">
                <string>Use page names instead of property names</string>
@@ -2895,8 +2865,8 @@ p, li { white-space: pre-wrap; }
          </property>
          <property name="minimumSize">
           <size>
-           <width>324</width>
-           <height>415</height>
+           <width>280</width>
+           <height>360</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -2926,7 +2896,7 @@ p, li { white-space: pre-wrap; }
             <x>0</x>
             <y>29</y>
             <width>421</width>
-            <height>386</height>
+            <height>331</height>
            </rect>
           </property>
           <property name="frameShape">
@@ -2941,7 +2911,7 @@ p, li { white-space: pre-wrap; }
              <x>10</x>
              <y>10</y>
              <width>396</width>
-             <height>366</height>
+             <height>316</height>
             </rect>
            </property>
            <layout class="QFormLayout" name="formLayout_8">
@@ -3176,67 +3146,7 @@ p, li { white-space: pre-wrap; }
               </item>
              </layout>
             </item>
-            <item row="3" column="0" colspan="2">
-             <layout class="QFormLayout" name="formLayout_4">
-              <item row="1" column="0" colspan="2">
-               <widget class="Gui::PrefLineEdit" name="PropertyName_AdvancedList">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="placeholderText">
-                 <string>Enter the property name...</string>
-                </property>
-                <property name="prefEntry" stdset="0">
-                 <cstring>PropertyName_AdvancedList</cstring>
-                </property>
-                <property name="prefPath" stdset="0">
-                 <cstring>Mod/TitleBlock Workbench</cstring>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0" colspan="2">
-               <widget class="QLabel" name="label_44">
-                <property name="text">
-                 <string>The property name to look for in the external source:</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
             <item row="4" column="0" colspan="2">
-             <layout class="QGridLayout" name="gridLayout_16">
-              <item row="0" column="0">
-               <widget class="QLabel" name="label_47">
-                <property name="text">
-                 <string>The property name to look for in the tree view:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="Gui::PrefLineEdit" name="PropertyNameTitleBlock_AdvancedList">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="placeholderText">
-                 <string>Enter the property name...</string>
-                </property>
-                <property name="prefEntry" stdset="0">
-                 <cstring>PropertyName_TitleBlock_AdvancedList</cstring>
-                </property>
-                <property name="prefPath" stdset="0">
-                 <cstring>Mod/TitleBlock Workbench</cstring>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item row="5" column="0" colspan="2">
              <layout class="QFormLayout" name="formLayout_3">
               <item row="0" column="0" colspan="2">
                <widget class="QLabel" name="label_45">
@@ -3279,7 +3189,7 @@ p, li { white-space: pre-wrap; }
               </item>
              </layout>
             </item>
-            <item row="6" column="0" colspan="2">
+            <item row="5" column="0" colspan="2">
              <widget class="Gui::PrefCheckBox" name="UsePageNames_AdvancesList">
               <property name="text">
                <string>Use page names instead of property names</string>
@@ -3291,6 +3201,36 @@ p, li { white-space: pre-wrap; }
                <cstring>Mod/TitleBlock Workbench</cstring>
               </property>
              </widget>
+            </item>
+            <item row="3" column="0" colspan="2">
+             <layout class="QFormLayout" name="formLayout_4">
+              <item row="0" column="0" colspan="2">
+               <widget class="QLabel" name="label_44">
+                <property name="text">
+                 <string>The property name to look for in the external source:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="Gui::PrefLineEdit" name="PropertyName_AdvancedList">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="placeholderText">
+                 <string>Enter the property name...</string>
+                </property>
+                <property name="prefEntry" stdset="0">
+                 <cstring>PropertyName_AdvancedList</cstring>
+                </property>
+                <property name="prefPath" stdset="0">
+                 <cstring>Mod/TitleBlock Workbench</cstring>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </item>
            </layout>
           </widget>
@@ -3996,22 +3936,6 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>UsePageNames_AdvancesList</sender>
    <signal>toggled(bool)</signal>
-   <receiver>PropertyName_AdvancedList</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>232</x>
-     <y>457</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>316</x>
-     <y>314</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UsePageNames_AdvancesList</sender>
-   <signal>toggled(bool)</signal>
    <receiver>label_44</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
@@ -4022,6 +3946,22 @@ p, li { white-space: pre-wrap; }
     <hint type="destinationlabel">
      <x>261</x>
      <y>289</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UsePageNames_AdvancesList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>PropertyName_AdvancedList</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>232</x>
+     <y>457</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>316</x>
+     <y>314</y>
     </hint>
    </hints>
   </connection>

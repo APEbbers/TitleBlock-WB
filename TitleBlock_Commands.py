@@ -568,6 +568,76 @@ class NewDrawingList_FreeCAD_class:
     #     return result
 
 
+class OpenDrawingList_Excel_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "OpenDrawingList_Excel.svg",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("OpenDrawingList_Excel", "Open the excel drawing list"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "OpenDrawingList_Excel", "Open the excel drawing list in it's default application"
+            ),
+        }
+
+    def Activated(self):
+        import Standard_Functions_TitleBlock as Standard_Functions
+        from Settings import EXTERNAL_FILE_SIMPLE_LIST
+
+        if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith(
+            "xlsx"
+        ) or EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("xlsm"):
+            Standard_Functions.OpenFile(EXTERNAL_FILE_SIMPLE_LIST)
+        else:
+            Standard_Functions.Print("Not an excel file!!", "Error")
+        return
+
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+    #     from Settings import USE_EXTERNAL_SOURCE
+
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True:
+    #         result = True
+
+    # return result
+
+
+class OpenDrawingList_FreeCAD_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "OpenDrawingList_FreeCAD.svg",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("OpenDrawingList_FreeCAD", "Open the FreeCAD drawing list"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "OpenDrawingList_FreeCAD", "Open the FreeCAD drawing list."
+            ),
+        }
+
+    def Activated(self):
+        import Standard_Functions_TitleBlock as Standard_Functions
+        from Settings import EXTERNAL_FILE_SIMPLE_LIST
+
+        if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("fcstd"):
+            Standard_Functions.OpenFreeCADFile(EXTERNAL_FILE_SIMPLE_LIST)
+        else:
+            Standard_Functions.Print("Not an FreeCAD file!!", "Error")
+        return
+
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+    #     from Settings import USE_EXTERNAL_SOURCE
+
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True:
+    #         result = True
+
+    #     return result
+
+
 class NewDrawingList_Internal_class:
     def GetResources(self):
         return {
@@ -640,3 +710,5 @@ Gui.addCommand("ExpandToolbar", ExpandToolbar_class())
 Gui.addCommand("NewSimpleList_Excel", NewDrawingList_Excel_class())
 Gui.addCommand("NewSimpleList_FreeCAD", NewDrawingList_FreeCAD_class())
 Gui.addCommand("NewSimpleList_Internal", NewDrawingList_Internal_class())
+Gui.addCommand("OpenSimpleList_Excel", OpenDrawingList_Excel_class())
+Gui.addCommand("OpenSimpleList_FreeCAD", OpenDrawingList_FreeCAD_class())

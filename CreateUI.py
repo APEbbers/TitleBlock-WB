@@ -100,24 +100,26 @@ def DefineToolbars():
         ]
     if USE_SIMPLE_LIST is True:
         if USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
-            ToolbarListExtra.append(
+            ToolbarListExtra.extend(
                 [
                     "Separator",
                     "NewSimpleList_Internal",
                 ]
             )
         if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True and EXTERNAL_FILE_SIMPLE_LIST.lower().endswith(".fcstd") is False:
-            ToolbarListExtra.append(
+            ToolbarListExtra.extend(
                 [
                     "Separator",
                     "NewSimpleList_Excel",
+                    "OpenSimpleList_Excel",
                 ]
             )
         if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True and EXTERNAL_FILE_SIMPLE_LIST.lower().endswith(".fcstd") is True:
-            ToolbarListExtra.append(
+            ToolbarListExtra.extend(
                 [
                     "Separator",
                     "NewSimpleList_FreeCAD",
+                    "OpenSimpleList_FreeCAD",
                 ]
             )
 
@@ -155,6 +157,9 @@ def DefineMenus():
         "NewSimpleList_Excel",
         "NewSimpleList_FreeCAD",
         "NewSimpleList_Internal",
+        "Separator",
+        "OpenSimpleList_Excel",
+        "OpenSimpleList_FreeCAD",
     ]
     result = {
         "StandardList": StandardList,

@@ -351,6 +351,14 @@ def CreateTitleBlockData_FreeCAD():
     TitleBlockData.set(MultiplierCell, "Factor")
     TitleBlockData.set(RemarkCell, "Remarks")
 
+    # Add data, otherwise formatting doesn't work.
+    for i in range(9):
+        TitleBlockData.set(f"A{i+2}", "-")
+        TitleBlockData.set(f"B{i+2}", "-")
+        TitleBlockData.set(f"C{i+2}", "-")
+        TitleBlockData.set(f"D{i+2}", "-")
+        TitleBlockData.set(f"E{i+2}", "-")
+
     # region Format the settings with the values as a Table
     #
     TableFormat_Functions.FormatTable(sheet=TitleBlockData, HeaderRange="A1:E1",

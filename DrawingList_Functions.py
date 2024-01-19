@@ -37,14 +37,12 @@ from Settings import EXTERNAL_FILE_SIMPLE_LIST
 from Settings import SHEETNAME_SIMPLE_LIST
 from Settings import STARTCELL_SIMPLE_LIST
 from Settings import PROPERTY_NAME_SIMPLE_LIST
-from Settings import PROPERTY_NAME_TITLEBLOCK_SIMPLE_LIST
 from Settings import USE_PAGE_NAMES_SIMPLE_LIST
 from Settings import USE_ADVANCED_LIST
 from Settings import EXTERNAL_FILE_ADVANCED_LIST
 from Settings import SHEETNAME_ADVANCED_LIST
 from Settings import STARTCELL_ADVANCED_LIST
 from Settings import PROPERTY_NAME_ADVANCED_LIST
-from Settings import PROPERTY_NAME_TITLEBLOCK_ADVANCED_LIST
 from Settings import SORTING_PREFIX_ADVANCED_LIST
 from Settings import USE_EXTERNAL_SOURCE_ADVANCED_LIST
 from Settings import preferences
@@ -59,13 +57,17 @@ def MapSimpleDrawingList(sheet):
     # Check if it is allowed to use an external source and if so, continue
     if USE_SIMPLE_LIST is True and USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
         try:
+            # Get the active document
+            doc = App.ActiveDocument
+            # Save the name of the active document to reactivate it at the end of this function.
+            LastActiveDoc = doc.Name
             # Get the Drawing list.
-            DrawingList = App.ActiveDocument.getObject(SHEETNAME_SIMPLE_LIST)
+            DrawingList = doc.getObject(SHEETNAME_SIMPLE_LIST)
             if DrawingList is None:
                 SheetName = Standard_Functions.Mbox(text="DrawingList", title="Title block workbench", style=20)
                 if SheetName != "":
-                    App.ActiveDocument.addObject("Spreadsheet::Sheet", SheetName)
-                    DrawingList = App.ActiveDocument.getObject(SheetName)
+                    doc.addObject("Spreadsheet::Sheet", SheetName)
+                    DrawingList = doc.getObject(SheetName)
                 if SheetName == "":
                     return
 
@@ -137,7 +139,7 @@ def MapSimpleDrawingList(sheet):
                     break
 
             # Get the pages in the document
-            pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+            pages = doc.findObjects("TechDraw::DrawPage")
 
             # Go through the drawing list and collect the property value based on the property name searched for.
             for i in range(1000):
@@ -198,6 +200,16 @@ def MapSimpleDrawingList(sheet):
                                     # Write all the updated text to the page.
                                     page.Template.EditableTexts = texts
                                     page.recompute()
+
+            # recompute the document
+            doc.recompute(None, True, True)
+            # Save the workbook
+            doc.save()
+            # Activate the document which was active when this command started.
+            try:
+                App.setActiveDocument(LastActiveDoc)
+            except Exception:
+                pass
 
             # Recomute the document
             App.ActiveDocument.recompute(None, True, True)

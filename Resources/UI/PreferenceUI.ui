@@ -172,7 +172,7 @@
     <rect>
      <x>20</x>
      <y>10</y>
-     <width>456</width>
+     <width>491</width>
      <height>516</height>
     </rect>
    </property>
@@ -180,7 +180,7 @@
     <bool>true</bool>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="TitleBlock">
     <attribute name="title">
@@ -2376,7 +2376,7 @@ p, li { white-space: pre-wrap; }
       <rect>
        <x>-5</x>
        <y>0</y>
-       <width>456</width>
+       <width>491</width>
        <height>486</height>
       </rect>
      </property>
@@ -2413,8 +2413,8 @@ p, li { white-space: pre-wrap; }
      <widget class="QWidget" name="scrollAreaWidgetContents_2">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>-384</y>
+        <x>15</x>
+        <y>0</y>
         <width>445</width>
         <height>1000</height>
        </rect>

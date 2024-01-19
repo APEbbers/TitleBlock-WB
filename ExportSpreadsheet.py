@@ -449,7 +449,7 @@ def ExportSpreadSheet_FreeCAD():
         )
 
         # Format the table
-        sheet = TableFormat_Functions.FormatTable(
+        TableFormat_Functions.FormatTable(
             sheet=TitleBlockData,
             HeaderRange=HeaderRange,
             TableRange=TableRange,

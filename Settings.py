@@ -649,7 +649,6 @@ def ExportSettings_FreeCAD(Silent=False):
         # region -- Simple drawing list
         #
         # USE_SIMPLE_LIST
-        RowNumber = 1
         sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UseSimpleList")
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
@@ -657,7 +656,6 @@ def ExportSettings_FreeCAD(Silent=False):
         RowNumber = RowNumber + 1
 
         # USE_SIMPLE_LIST
-        RowNumber = 1
         sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UseExternalSource_SimpleList")
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
@@ -693,7 +691,6 @@ def ExportSettings_FreeCAD(Silent=False):
         RowNumber = RowNumber + 1
 
         # USE_PAGE_NAMES_SIMPLE_LIST
-        RowNumber = 1
         sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UsePageNames_SimpleList")
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
@@ -704,7 +701,6 @@ def ExportSettings_FreeCAD(Silent=False):
         # region -- Advanced drawing list
         #
         # USE_ADVANCED_LIST
-        RowNumber = 1
         sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UseAdvancedList")
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
@@ -712,7 +708,6 @@ def ExportSettings_FreeCAD(Silent=False):
         RowNumber = RowNumber + 1
 
         # USE_ADVANCED_LIST
-        RowNumber = 1
         sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UseExternalSource_AdvancedList")
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
@@ -755,7 +750,6 @@ def ExportSettings_FreeCAD(Silent=False):
         RowNumber = RowNumber + 1
 
         # USE_PAGE_NAMES_ADVANCED_LIST
-        RowNumber = 1
         sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UsePageNames_AdvancedList")
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
@@ -1150,7 +1144,7 @@ def ImportSettings_FreeCAD():
                 SetStringSetting("PropertyName_AdvancedList", str(Cell_Value))
                 counter = counter + 1
 
-             # SORTING_PREFIX_ADVANCED_LIST
+            # SORTING_PREFIX_ADVANCED_LIST
             if Cell_Name == "SortingPrefix_AdvancedList":
                 SetStringSetting("SortingPrefix_AdvancedList", str(Cell_Value))
                 counter = counter + 1

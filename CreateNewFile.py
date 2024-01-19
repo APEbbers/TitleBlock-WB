@@ -447,7 +447,7 @@ def CreateSimpleDrawingList_FreeCAD():
 
     if ENABLE_DEBUG is True:
         Text = translate("TitleBlock Workbench", f"the startcell is: {StartCell}")
-        print(Text)
+        Standard_Functions.Print(Text, "Log")
 
     # Set the headers
     DrawingList.set(StartCell, "Property Value")
@@ -456,10 +456,18 @@ def CreateSimpleDrawingList_FreeCAD():
     DrawingList.set(EditableText_3, "<Editable text - Name>(3)")
     DrawingList.set(EditableText_4, "<Editable text - Name>(4)")
 
+    # Add data, otherwise formatting doesn't work.
+    for i in range(9):
+        DrawingList.set(f"A{i+2}", "Value")
+        DrawingList.set(f"B{i+2}", "<Editable text - Value>(1)")
+        DrawingList.set(f"C{i+2}", "<Editable text - Value>(2)")
+        DrawingList.set(f"D{i+2}", "<Editable text - Value>(3)")
+        DrawingList.set(f"E{i+2}", "<Editable text - Value>(4)")
+
     # region Format the settings with the values as a Table
     #
-    TableFormat_Functions.FormatTable(sheet=DrawingList, HeaderRange="A1:E1",
-                                      TableRange="A2:E10", FirstColumnRange="A2:A10")
+    DrawingList = TableFormat_Functions.FormatTable(sheet=DrawingList, HeaderRange="A1:E1",
+                                                    TableRange="A2:E10", FirstColumnRange="A2:A10")
     # endregion
 
     # recompute the document
@@ -476,7 +484,7 @@ def CreateSimpleDrawingList_FreeCAD():
         "TitleBlock Workbench",
         f"The titleblock data is exported to the workbook {FileName} in the worksheet {DrawingList}",
     )
-    Standard_Functions.Mbox(text=message, title="TitleBlock Workbench", style=0)
+    DrawingList = Standard_Functions.Mbox(text=message, title="TitleBlock Workbench", style=0)
 
     # Close the FreeCAD file
     App.closeDocument(ff.Name)
@@ -497,8 +505,6 @@ def CreateInternalDrawingList_Simple():
     doc = App.ActiveDocument
 
     DrawingList = doc.getObject(SHEETNAME_SIMPLE_LIST)
-    if DrawingList is None:
-        DrawingList = doc.addObject("Spreadsheet::Sheet", "DrawingList")
     if DrawingList is not None:
         Text = translate(
             "TitleBlock Workbench",
@@ -528,50 +534,64 @@ def CreateInternalDrawingList_Simple():
                 preferences.SetString("SheetName_SimpleList", DrawingListName)
                 SHEETNAME_SIMPLE_LIST = DrawingList
 
-                # Get the startcell and the next cells
-                StartCell = "A1"
-                TopRow = int(StartCell[1:])
-                EditableText_1 = str(
-                    Standard_Functions.GetLetterFromNumber(
-                        Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
-                    )
-                ) + str(TopRow)
-                EditableText_2 = str(
-                    Standard_Functions.GetLetterFromNumber(
-                        Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 2
-                    )
-                ) + str(TopRow)
-                EditableText_3 = str(
-                    Standard_Functions.GetLetterFromNumber(
-                        Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 3
-                    )
-                ) + str(TopRow)
-                EditableText_4 = str(
-                    Standard_Functions.GetLetterFromNumber(
-                        Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
-                    )
-                ) + str(TopRow)
+        if reply == "no":
+            return
 
-                if ENABLE_DEBUG is True:
-                    Text = translate("TitleBlock Workbench", f"the startcell is: {StartCell}")
-                    print(Text)
+    if DrawingList is None:
+        DrawingList = doc.addObject("Spreadsheet::Sheet", "DrawingList")
 
-                # Set the headers
-                DrawingList.set(StartCell, "Property Value")
-                DrawingList.set(EditableText_1, "<Editable text - Name>(1)")
-                DrawingList.set(EditableText_2, "<Editable text - Name>(2)")
-                DrawingList.set(EditableText_3, "<Editable text - Name>(3)")
-                DrawingList.set(EditableText_4, "<Editable text - Name>(4)")
+    # Get the startcell and the next cells
+    StartCell = "A1"
+    TopRow = int(StartCell[1:])
+    EditableText_1 = str(
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
+        )
+    ) + str(TopRow)
+    EditableText_2 = str(
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 2
+        )
+    ) + str(TopRow)
+    EditableText_3 = str(
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 3
+        )
+    ) + str(TopRow)
+    EditableText_4 = str(
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
+        )
+    ) + str(TopRow)
 
-                # region Format the settings with the values as a Table
-                #
-                TableFormat_Functions.FormatTable(sheet=DrawingList, HeaderRange="A1:E1",
-                                                  TableRange="A2:E10", FirstColumnRange="A2:A10")
-                # endregion
+    if ENABLE_DEBUG is True:
+        Text = translate("TitleBlock Workbench", f"the startcell is: {StartCell}")
+        print(Text)
 
-                # recompute the document
-                doc.recompute(None, True, True)
-                # Save the workbook
-                doc.save()
+    # Set the headers
+    DrawingList.set(StartCell, "Property")
+    DrawingList.set(EditableText_1, "<Editable text - Name>(1)")
+    DrawingList.set(EditableText_2, "<Editable text - Name>(2)")
+    DrawingList.set(EditableText_3, "<Editable text - Name>(3)")
+    DrawingList.set(EditableText_4, "<Editable text - Name>(4)")
+
+    # Add data, otherwise formatting doesn't work.
+    for i in range(9):
+        DrawingList.set(f"A{i+2}", "Value")
+        DrawingList.set(f"B{i+2}", "<Editable text - Value>(1)")
+        DrawingList.set(f"C{i+2}", "<Editable text - Value>(2)")
+        DrawingList.set(f"D{i+2}", "<Editable text - Value>(3)")
+        DrawingList.set(f"E{i+2}", "<Editable text - Value>(4)")
+
+    # region Format the settings with the values as a Table
+    #
+    TableFormat_Functions.FormatTable(sheet=DrawingList, HeaderRange="A1:E1",
+                                      TableRange="A2:E10", FirstColumnRange="A2:A10")
+    # endregion
+
+    # recompute the document
+    doc.recompute(None, True, True)
+    # Save the workbook
+    doc.save()
 
     return

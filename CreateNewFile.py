@@ -465,17 +465,22 @@ def CreateSimpleDrawingList_FreeCAD():
     DrawingList.set(EditableText_4, "<Editable text - Name>(4)")
 
     # Add data, otherwise formatting doesn't work.
+    i = 0
     for i in range(9):
         DrawingList.set(f"A{i+2}", "Value")
         DrawingList.set(f"B{i+2}", "<Editable text - Value>(1)")
         DrawingList.set(f"C{i+2}", "<Editable text - Value>(2)")
         DrawingList.set(f"D{i+2}", "<Editable text - Value>(3)")
         DrawingList.set(f"E{i+2}", "<Editable text - Value>(4)")
+    # Set instruction text
+    DrawingList.set(f"A{i+3}", "Value to search for")
+    DrawingList.mergeCells(f"B{i+3}:E{i+3}")
+    DrawingList.set(f"B{i+3}", "Value to search for")
 
     # region Format the settings with the values as a Table
     #
     DrawingList = TableFormat_Functions.FormatTable(sheet=DrawingList, HeaderRange="A1:E1",
-                                                    TableRange="A2:E10", FirstColumnRange="A2:A10")
+                                                    TableRange="A2:E11", FirstColumnRange="A2:A11")
     # endregion
 
     # recompute the document
@@ -584,17 +589,22 @@ def CreateInternalDrawingList_Simple():
     DrawingList.set(EditableText_4, "<Editable text - Name>(4)")
 
     # Add data, otherwise formatting doesn't work.
+    i = 0
     for i in range(9):
         DrawingList.set(f"A{i+2}", "Value")
         DrawingList.set(f"B{i+2}", "<Editable text - Value>(1)")
         DrawingList.set(f"C{i+2}", "<Editable text - Value>(2)")
         DrawingList.set(f"D{i+2}", "<Editable text - Value>(3)")
         DrawingList.set(f"E{i+2}", "<Editable text - Value>(4)")
+    # Set instruction text
+    DrawingList.set(f"A{i+3}", "Value to search for")
+    DrawingList.mergeCells(f"B{i+3}:E{i+3}")
+    DrawingList.set(f"B{i+3}", "Value to search for")
 
     # region Format the settings with the values as a Table
     #
-    TableFormat_Functions.FormatTable(sheet=DrawingList, HeaderRange="A1:E1",
-                                      TableRange="A2:E10", FirstColumnRange="A2:A10")
+    DrawingList = TableFormat_Functions.FormatTable(sheet=DrawingList, HeaderRange="A1:E1",
+                                                    TableRange="A2:E11", FirstColumnRange="A2:A11")
     # endregion
 
     # recompute the document

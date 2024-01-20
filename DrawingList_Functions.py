@@ -45,6 +45,7 @@ from Settings import STARTCELL_ADVANCED_LIST
 from Settings import PROPERTY_NAME_ADVANCED_LIST
 from Settings import SORTING_PREFIX_ADVANCED_LIST
 from Settings import USE_EXTERNAL_SOURCE_ADVANCED_LIST
+from Settings import USE_PAGE_NAMES_ADVANCED_LIST
 from Settings import preferences
 
 # Define the translation
@@ -868,31 +869,31 @@ def MapAdvancedDrawingList_Excel(doc, sheet):
                 StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
 
             # Get the start column
-            StartColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
+            StartColumn_DrawingList = Standard_Functions.RemoveNumbersFromString(StartCell)
             # If debug mode is on, show the start colum and its number
             if ENABLE_DEBUG is True:
                 Standard_Functions.Print(
                     translate(
                         "TitleBlock Workbench",
-                        "Start column for the drawing list is: " + str(StartColumn),
-                        "Log",
-                    )
+                        "Start column for the drawing list is: " + str(StartColumn_DrawingList),
+                    ),
+                    "Log",
                 )
                 Standard_Functions.Print(
                     translate(
                         "TitleBlock Workbench",
                         "Column number for the drawing list is: "
-                        + str(Standard_Functions.GetNumberFromLetter(StartColumn)),
+                        + str(Standard_Functions.GetNumberFromLetter(StartColumn_DrawingList)),
                     ),
                     "Log",
                 )
 
             # Get the start row
-            StartRow = Standard_Functions.RemoveLettersFromString(StartCell)
+            StartRow_DrawingList = int(Standard_Functions.RemoveLettersFromString(StartCell))
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
                 Text = translate(
-                    "TitleBlock Workbench", "the start row for the drawing list is: " + str(StartRow)
+                    "TitleBlock Workbench", "the start row for the drawing list is: " + str(StartRow_DrawingList)
                 )
                 Standard_Functions.Print(Text, "Log")
 
@@ -900,53 +901,61 @@ def MapAdvancedDrawingList_Excel(doc, sheet):
             # Define a dict for the adresses
             ExtSourceGroupAdress = []
             # Go through the group list
+            i = 0
+            j = 0
             for i in range(len(GroupList)):
                 # Go through the first column in the drawing list.
                 for j in range(1, 1000):
                     # Get the cell value
-                    CellValue = str(ws[f"{StartColumn}{StartRow + j}"].value)
+                    CellValue = str(ws[f"{StartColumn_DrawingList}{StartRow_DrawingList + j}"].value)
 
                     # If the cell value is equal to the group label, this is the cell with a group name.
                     # Add it to the adress dict.
                     if GroupList[i].Label == CellValue:
-                        ExtSourceGroupAdress.append([GroupList[i].Label, f"{StartColumn}{StartRow+j}"])
+                        ExtSourceGroupAdress.append(
+                            [GroupList[i].Label, f"{StartColumn_DrawingList}{StartRow_DrawingList+j}"])
 
                     # If the cell value is empty, you are at the end of the drawing list.
-                    if CellValue == "":
-                        ExtSourceGroupAdress.append(["EndRow", f"{StartColumn}{StartRow+j}"])
+                    if ws[f"{StartColumn_DrawingList}{StartRow_DrawingList + j}"].value is None:
                         break
+            # Add an endrow, so you can determine the last range in the next function
+            ExtSourceGroupAdress.append(["EndRow", f"{StartColumn_DrawingList}{StartRow_DrawingList+j}"])
 
             # Create ranges for the different groups, where the function must search.
+            NewList = []
             for i in range(len(ExtSourceGroupAdress) - 1):
-                # Get the start cell
-                StartCell = ExtSourceGroupAdress[i][1]
-                # Get the end cell. This is one cell above the next group cell
-                EndCell = ExtSourceGroupAdress[i + 1][1]
-                EndCell = f"{Standard_Functions.RemoveNumbersFromString(EndCell)}{str(int(Standard_Functions.RemoveLettersFromString(EndCell))-1)}"
+                # Get the start cell. This is one row below the group cell
+                StartCell_Range = ExtSourceGroupAdress[i][1]
+                StartCell_Range = f"{Standard_Functions.RemoveNumbersFromString(StartCell_Range)}" + \
+                    f"{str(int(Standard_Functions.RemoveLettersFromString(StartCell_Range)) + 1)}"
+                # Get the end cell.
+                EndCell_Range = ExtSourceGroupAdress[i + 1][1]
 
                 # Add the end cell to the corresponding list item.
-                ExtSourceGroupAdress[i].append(EndCell)
+                NewList.append([ExtSourceGroupAdress[i][0], StartCell_Range, EndCell_Range])
+            ExtSourceGroupAdress = NewList
 
             # Go through the grouplist
-            for i in range(len(GroupList)):
+            for Group in GroupList:
                 # Go through the list with adresses fro each group
                 for j in range(len(ExtSourceGroupAdress)):
-                    if GroupList[i].Label == ExtSourceGroupAdress[j][0]:
+                    if Group.Label == ExtSourceGroupAdress[j][0]:
                         # Define the start, end and column
-                        StartRow = int(Standard_Functions.RemoveLettersFromString(ExtSourceGroupAdress[j][1]))
-                        EndRow = int(Standard_Functions.RemoveLettersFromString(ExtSourceGroupAdress[j][2]))
-                        StartColumn = Standard_Functions.RemoveNumbersFromString(ExtSourceGroupAdress[j][1])
+                        StartRow_Range = int(Standard_Functions.RemoveLettersFromString(ExtSourceGroupAdress[j][1]))
+                        EndRow_Range = int(Standard_Functions.RemoveLettersFromString(ExtSourceGroupAdress[j][2]))
+                        StartRow_DrawingList = int(Standard_Functions.RemoveLettersFromString(StartCell))
+                        StartColumn_DrawingList = Standard_Functions.RemoveNumbersFromString(StartCell)
 
                         # Get the pages in the group
                         pages = []
-                        for k in range(len(GroupList[i].Group)):
-                            if GroupList[i].Group[k].TypeId == "TechDraw::DrawPage":
-                                pages.append(GroupList[i].Group[k])
+                        for k in range(len(Group.Group)):
+                            if Group.Group[k].TypeId == "TechDraw::DrawPage":
+                                pages.append(Group.Group[k])
 
                         # Go through the range of the group
-                        for k in range(StartRow, EndRow):
+                        for k in range(StartRow_Range, EndRow_Range):
                             # Define the rownumber. This is the Header row + 1 + i as counter
-                            RowNumber = int(StartRow) + k - 1
+                            RowNumber = k
                             # Define placeholder for the property value in the drawing list.
                             PropertyValueExcel = ""
                             # Define a placeholder for the qty of columns with return values
@@ -956,12 +965,12 @@ def MapAdvancedDrawingList_Excel(doc, sheet):
                             for i in range(1000):
                                 # Get the colum letter. For example: i = 0, StartColumn = A->1 + 1 results in column B
                                 Column = Standard_Functions.GetLetterFromNumber(
-                                    i + Standard_Functions.GetNumberFromLetter(StartColumn) + 1)
+                                    i + Standard_Functions.GetNumberFromLetter(StartColumn_DrawingList) + 1)
                                 NoColumns = NoColumns + i
 
                                 # If the cell is not empty, add the contents to the list
-                                if ws[f"{Column}{StartRow}"].value is not None:
-                                    ReturnNamesExcel.append(str(ws[f"{Column}{StartRow}"].value))
+                                if ws[f"{Column}{StartRow_DrawingList}"].value is not None:
+                                    ReturnNamesExcel.append(str(ws[f"{Column}{StartRow_DrawingList}"].value))
 
                                     for j in range(1, 1000):
                                         # check if you reached the end of the data.
@@ -969,24 +978,29 @@ def MapAdvancedDrawingList_Excel(doc, sheet):
                                         if test == "" or test is None:
                                             break
 
-                                        if sheet.getContents(f"A{str(j)}") == str(ws[f"{Column}{StartRow}"].value):
+                                        if sheet.getContents(f"A{str(j)}") == str(
+                                                ws[f"{Column}{StartRow_DrawingList}"].value):
                                             sheet.set(f"B{j}", "-")
                                             sheet.set(f"E{j}", "Property value retrieved from drawing list")
 
                                 # If the cell is empty, you are on the end. Break the loop.
-                                if ws[f"{Column}{StartRow}"].value is None:
+                                if ws[f"{Column}{StartRow_DrawingList}"].value is None:
                                     break
 
                             # Get the property name in the drawing list. If it starts with "'", remove it
-                            PropertyValueExcel = str(ws[f"{StartColumn}{RowNumber}"].value)
+                            PropertyValueExcel = str(ws[f"{StartColumn_DrawingList}{RowNumber}"].value)
                             if PropertyValueExcel[:1] == "'":
                                 PropertyValueExcel = PropertyValueExcel[1:]
+                            # If a prefix is used for sorting the groups in the tree, remove it from the Property
+                            if SORTING_PREFIX_ADVANCED_LIST != "" or SORTING_PREFIX_ADVANCED_LIST is not None:
+                                lengthPrefix = len(SORTING_PREFIX_ADVANCED_LIST)
+                                PropertyValueExcel = PropertyValueExcel[lengthPrefix:]
 
                             # Go through the columns starting from the column right from the column with the property value
                             for j in range(len(ReturnNamesExcel)):
                                 # Get the column letter
                                 Column = Standard_Functions.GetLetterFromNumber(
-                                    j + Standard_Functions.GetNumberFromLetter(StartColumn) + 1)
+                                    j + Standard_Functions.GetNumberFromLetter(StartColumn_DrawingList) + 1)
 
                                 # If the cell is not empty and j is lower then NoColumns, continue.
                                 if ws[f"{Column}{RowNumber}"].value is not None:
@@ -996,7 +1010,7 @@ def MapAdvancedDrawingList_Excel(doc, sheet):
                                         ReturnValueExcel = ReturnValueExcel[1:]
 
                                     # If page names are not to be mapped, go here
-                                    if USE_PAGE_NAMES_SIMPLE_LIST is False:
+                                    if USE_PAGE_NAMES_ADVANCED_LIST is False:
                                         # Go through all the pages
                                         for page in pages:
                                             # Get the editable texts
@@ -1004,7 +1018,7 @@ def MapAdvancedDrawingList_Excel(doc, sheet):
                                             # If the value editable text in the titleblock to search for
                                             # matches the property value in the drawing list,
                                             # fill in the editable text that needs to be updated.
-                                            if texts[PROPERTY_NAME_SIMPLE_LIST] == PropertyValueExcel:
+                                            if texts[PROPERTY_NAME_ADVANCED_LIST] == PropertyValueExcel:
                                                 # Get the property name in the titleblock spreadsheet
                                                 # and fill it with the property value from the drawing list
                                                 texts[ReturnNamesExcel[j]] = ReturnValueExcel
@@ -1014,7 +1028,7 @@ def MapAdvancedDrawingList_Excel(doc, sheet):
                                                 page.recompute()
 
                                     # If page names are to be mapped, go here
-                                    if USE_PAGE_NAMES_SIMPLE_LIST is True:
+                                    if USE_PAGE_NAMES_ADVANCED_LIST is True:
                                         # Go through the pages
                                         for page in pages:
                                             # If the Property name in the drawing list matches the page label:

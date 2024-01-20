@@ -34,8 +34,10 @@ translate = App.Qt.translate
 def QT_TRANSLATE_NOOP(context, text):
     return text
 
-
+# region - Core functions
 # Export data from the titleblock to the spreadsheet
+
+
 class FillSpreadsheet_Class:
     def GetResources(self):
         return {
@@ -104,8 +106,11 @@ class FillTitleBlock_Class:
                 result = True
 
         return result
+# endregion
 
 
+# region - External source commands
+# Import data from the excel source to all pages
 class ImportExcel_Class:
     def GetResources(self):
         return {
@@ -144,6 +149,7 @@ class ImportExcel_Class:
         return result
 
 
+# Import data from the FreeCAD source to all pages
 class ImportFreeCAD_Class:
     def GetResources(self):
         return {
@@ -182,6 +188,7 @@ class ImportFreeCAD_Class:
         return result
 
 
+# Export data to an excel source file
 class ExportSpreadsheet_Excel_class:
     def GetResources(self):
         return {
@@ -217,6 +224,7 @@ class ExportSpreadsheet_Excel_class:
         return result
 
 
+# Export data to an FreeCAD source file
 class ExportSpreadsheet_FreeCAD_class:
     def GetResources(self):
         return {
@@ -252,6 +260,7 @@ class ExportSpreadsheet_FreeCAD_class:
         return result
 
 
+# Export settings to an excel source file
 class ExportSettings_Excel_class:
     def GetResources(self):
         return {
@@ -284,6 +293,7 @@ class ExportSettings_Excel_class:
     #     return result
 
 
+# Export settings to an FreeCAD source file
 class ExportSettings_FreeCAD_class:
     def GetResources(self):
         return {
@@ -316,6 +326,7 @@ class ExportSettings_FreeCAD_class:
     #     return result
 
 
+# Import the settings from an excel source file
 class ImportSettings_Excel_class:
     def GetResources(self):
         return {
@@ -348,6 +359,7 @@ class ImportSettings_Excel_class:
     #     return result
 
 
+# Import the settings from an FreeCAD source file
 class ImportSettings_FreeCAD_class:
     def GetResources(self):
         return {
@@ -380,6 +392,7 @@ class ImportSettings_FreeCAD_class:
     #     return result
 
 
+# Open the excel source file
 class OpenExcel_class:
     def GetResources(self):
         return {
@@ -416,6 +429,7 @@ class OpenExcel_class:
     # return result
 
 
+# Open the FreeCAD source file
 class OpenFreeCAD_class:
     def GetResources(self):
         return {
@@ -450,6 +464,7 @@ class OpenFreeCAD_class:
     #     return result
 
 
+# Create a new empty excel source file
 class NewExcel_class:
     def GetResources(self):
         return {
@@ -478,6 +493,7 @@ class NewExcel_class:
     #     return result
 
 
+# Create a new empty FreeCAD source file
 class NewFreeCAD_class:
     def GetResources(self):
         return {
@@ -507,8 +523,10 @@ class NewFreeCAD_class:
     #         result = True
 
     #     return result
+# endregion
 
 
+# region - Drawing list commands
 class NewDrawingList_Excel_class:
     def GetResources(self):
         return {
@@ -668,6 +686,9 @@ class OpenDrawingList_FreeCAD_class:
     #         result = True
 
     #     return result
+# endregion
+
+# region - additional commands
 
 
 class ExpandToolbar_class:
@@ -689,9 +710,10 @@ class ExpandToolbar_class:
     #     are met or not. This function is optional."""
 
     #     return result
+# endregion
 
 
-# Add the commands to the Gui
+# region - Add the commands to the Gui
 Gui.addCommand("FillSpreadsheet", FillSpreadsheet_Class())
 Gui.addCommand("FillTitleBlock", FillTitleBlock_Class())
 Gui.addCommand("ImportExcel", ImportExcel_Class())
@@ -712,3 +734,4 @@ Gui.addCommand("NewSimpleList_FreeCAD", NewDrawingList_FreeCAD_class())
 Gui.addCommand("NewSimpleList_Internal", NewDrawingList_Internal_class())
 Gui.addCommand("OpenSimpleList_Excel", OpenDrawingList_Excel_class())
 Gui.addCommand("OpenSimpleList_FreeCAD", OpenDrawingList_FreeCAD_class())
+# endregion

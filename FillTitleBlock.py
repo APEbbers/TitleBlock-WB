@@ -245,6 +245,14 @@ def FillTitleBlock():
                     DrawingList_Functions.MapSimpleDrawingList_FreeCAD(sheet=sheet)
                 if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("xlsx"):
                     DrawingList_Functions.MapSimpleDrawingList_Excel(sheet=sheet)
+        if USE_ADVANCED_LIST is True:
+            if USE_EXTERNAL_SOURCE_ADVANCED_LIST is False:
+                DrawingList_Functions.MapAdvancedDrawingList(doc=App.ActiveDocument, sheet=sheet)
+            if USE_EXTERNAL_SOURCE_ADVANCED_LIST is True:
+                if EXTERNAL_FILE_ADVANCED_LIST.lower().endswith("fcstd"):
+                    DrawingList_Functions.MapSimpleDrawingList_FreeCAD(doc=App.ActiveDocument, sheet=sheet)
+                if EXTERNAL_FILE_ADVANCED_LIST.lower().endswith("xlsx"):
+                    DrawingList_Functions.MapAdvancedDrawingList_Excel(doc=App.ActiveDocument, sheet=sheet)
 
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"

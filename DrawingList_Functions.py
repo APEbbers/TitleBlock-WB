@@ -737,6 +737,10 @@ def MapSimpleDrawingList_FreeCAD(sheet):
     return
 
 
+def MapAdvancedDrawingList(doc, sheet):
+    Standard_Functions.Mbox(text="Not implemented yet!", title="TitleBlock Workbench", style=0)
+
+
 def MapAdvancedDrawingList_Excel(doc, sheet):
     from openpyxl import load_workbook
 
@@ -1049,4 +1053,5 @@ def MapAdvancedDrawingList_Excel(doc, sheet):
     return
 
 
-# def MapAdvancedDrawingList_FreeCAD():
+def MapAdvancedDrawingList_FreeCAD(doc, sheet):
+    Standard_Functions.Mbox(text="Not implemented yet!", title="TitleBlock Workbench", style=0)

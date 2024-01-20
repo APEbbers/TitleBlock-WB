@@ -241,10 +241,6 @@ def MapSimpleDrawingList_Excel(sheet):
 
         # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
         try:
-            # Get the spreadsheet.
-            if sheet is None:
-                sheet = App.ActiveDocument.getObject("TitleBlock")
-
             # Define a placeholder for the workbook
             wb = ""
             # If the drawinglist is an FreeCAD document instead of an Excel workbook,
@@ -303,6 +299,10 @@ def MapSimpleDrawingList_Excel(sheet):
             return
 
         try:
+            # Get the spreadsheet.
+            if sheet is None:
+                sheet = App.ActiveDocument.getObject("TitleBlock")
+
             # Get the startcolumn and the other three columns from there
             StartCell = STARTCELL_SIMPLE_LIST
             if SHEETNAME_SIMPLE_LIST == "":
@@ -456,10 +456,6 @@ def MapSimpleDrawingList_Excel(sheet):
                                     # Write all the updated text to the page.
                                     page.Template.EditableTexts = texts
                                     page.recompute()
-
-                    # If j = NoColumns, break the loop
-                    if j == NoColumns:
-                        break
 
             # Recomute the document
             App.ActiveDocument.recompute(None, True, True)
@@ -741,7 +737,316 @@ def MapSimpleDrawingList_FreeCAD(sheet):
     return
 
 
-# def MapAdvancedDrawingList_Excel():
+def MapAdvancedDrawingList_Excel(doc, sheet):
+    from openpyxl import load_workbook
+
+    # Check if it is allowed to use an external source and if so, continue
+    if USE_ADVANCED_LIST is True and USE_EXTERNAL_SOURCE_ADVANCED_LIST is True:
+        # if debug mode is enabled, show the external file including path.
+        if ENABLE_DEBUG is True:
+            Text = translate("TitleBlock Workbench", f"The drawing list is: {EXTERNAL_FILE_ADVANCED_LIST}")
+            Standard_Functions.Print(Text, "Log")
+
+        # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
+        try:
+            # Define a placeholder for the workbook
+            wb = ""
+            # If the drawinglist is an FreeCAD document instead of an Excel workbook,
+            # Let the user select the correct workbook. Otherwise just load the workbook.
+            if EXTERNAL_FILE_ADVANCED_LIST.lower().endswith(".fcstd"):
+                Filter = [
+                    ("Excel", "*.xlsx"),
+                ]
+                FileName = Standard_Functions.GetFileDialog(files=Filter, SaveAs=False)
+                if FileName != "":
+                    wb = load_workbook(FileName, read_only=True, data_only=True)
+                if FileName == "":
+                    return
+            else:
+                wb = load_workbook(
+                    str(EXTERNAL_FILE_ADVANCED_LIST), read_only=True, data_only=True
+                )
+            # If the sheetname not set, let the user set the correct name.
+            if SHEETNAME_ADVANCED_LIST == "":
+                # Set the sheetname with a inputbox
+                Worksheets_List = [i for i in wb.sheetnames if i != "Settings"]
+                Text = translate(
+                    "TitleBlock Workbench", "Please enter the name of the worksheet"
+                )
+                Input_SheetName = str(
+                    Standard_Functions.Mbox(
+                        text=Text,
+                        title="TitleBlock Workbench",
+                        style=3,
+                        default="TitleBlockData",
+                        stringList=Worksheets_List,
+                    )
+                )
+                # if the user canceled, exit this function.
+                if not Input_SheetName.strip():
+                    return
+                ws = wb[str(Input_SheetName)]
+            if SHEETNAME_ADVANCED_LIST != "":
+                ws = wb[str(SHEETNAME_ADVANCED_LIST)]
+        except IOError:
+            Standard_Functions.Mbox(
+                "Permission error!!\nDo you have the file open?",
+                "Titleblock Workbench",
+                0,
+                IconType="Critical",
+            )
+            return
+        except Exception as e:
+            if ENABLE_DEBUG is True:
+                raise (e)
+            Text = translate(
+                "TitleBlock Workbench",
+                "an problem occured while openening the excel file!\nDo you have it open in an another application",
+            )
+            Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+            return
+
+        try:
+            # Get the spreadsheet.
+            if sheet is None:
+                sheet = doc.getObject("TitleBlock")
+
+            # Get folders with spreadsheets and add them to a list
+            # Define a list for the groups
+            GroupList = []
+            # Get all the objects in the documents
+            docObjects = doc.Objects
+            # Go through the objects
+            for i in range(len(docObjects)):
+                # Create a bool for detecting if a folder has a page.
+                HasPage = False
+                # If the object is a group, continue
+                if docObjects[i].TypeId == "App::DocumentObjectGroup":
+                    # Go through the objects in the group
+                    for j in range(len(docObjects[i].Group)):
+                        # If the object is a page, set HasPage to True
+                        if docObjects[i].Group[j].TypeId == "TechDraw::DrawPage":
+                            HasPage = True
+                # If HasPage is true, this is a group with page(s). Add it to the group list.
+                if HasPage is True:
+                    GroupList.append(docObjects[i])
+
+            # Get the startcolumn and the other three columns from there
+            StartCell = STARTCELL_ADVANCED_LIST
+            if SHEETNAME_ADVANCED_LIST == "":
+                # Save drawinglist and sheetname to the preferences
+                preferences.SetString("ExternalFile", FileName)
+                preferences.SetString("SheetName_AdvancedList", Input_SheetName)
+                ws = wb[Input_SheetName]
+
+                # Set the startcell with an inputbox
+                Text = translate(
+                    "TitleBlock Workbench",
+                    "Please enter the name of the cell.\n"
+                    + "Enter a single cell like 'A1', 'B2', etc. Other notations will be ignored!",
+                )
+                StartCell = str(
+                    Standard_Functions.Mbox(
+                        text=Text,
+                        title="TitleBlock Workbench",
+                        style=20,
+                        default="A1",
+                    )
+                )
+                if not StartCell.strip():
+                    StartCell = "A1"
+
+                # Set SHEETNAME_STARTCELL to the chosen sheetname
+                preferences.SetString("StartCell_AdvancedList", StartCell)
+
+            # If the StartCell is R1C1 style, change it
+            if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
+                StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
+
+            # Get the start column
+            StartColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
+            # If debug mode is on, show the start colum and its number
+            if ENABLE_DEBUG is True:
+                Standard_Functions.Print(
+                    translate(
+                        "TitleBlock Workbench",
+                        "Start column for the drawing list is: " + str(StartColumn),
+                        "Log",
+                    )
+                )
+                Standard_Functions.Print(
+                    translate(
+                        "TitleBlock Workbench",
+                        "Column number for the drawing list is: "
+                        + str(Standard_Functions.GetNumberFromLetter(StartColumn)),
+                    ),
+                    "Log",
+                )
+
+            # Get the start row
+            StartRow = Standard_Functions.RemoveLettersFromString(StartCell)
+            # if debug mode is on, show your start row
+            if ENABLE_DEBUG is True:
+                Text = translate(
+                    "TitleBlock Workbench", "the start row for the drawing list is: " + str(StartRow)
+                )
+                Standard_Functions.Print(Text, "Log")
+
+            # Get the cell adresses for the cell with the group names
+            # Define a dict for the adresses
+            ExtSourceGroupAdress = []
+            # Go through the group list
+            for i in range(len(GroupList)):
+                # Go through the first column in the drawing list.
+                for j in range(1, 1000):
+                    # Get the cell value
+                    CellValue = str(ws[f"{StartColumn}{StartRow + j}"].value)
+
+                    # If the cell value is equal to the group label, this is the cell with a group name.
+                    # Add it to the adress dict.
+                    if GroupList[i].Label == CellValue:
+                        ExtSourceGroupAdress.append([GroupList[i].Label, f"{StartColumn}{StartRow+j}"])
+
+                    # If the cell value is empty, you are at the end of the drawing list.
+                    if CellValue == "":
+                        ExtSourceGroupAdress.append(["EndRow", f"{StartColumn}{StartRow+j}"])
+                        break
+
+            # Create ranges for the different groups, where the function must search.
+            for i in range(len(ExtSourceGroupAdress) - 1):
+                # Get the start cell
+                StartCell = ExtSourceGroupAdress[i][1]
+                # Get the end cell. This is one cell above the next group cell
+                EndCell = ExtSourceGroupAdress[i + 1][1]
+                EndCell = f"{Standard_Functions.RemoveNumbersFromString(EndCell)}{str(int(Standard_Functions.RemoveLettersFromString(EndCell))-1)}"
+
+                # Add the end cell to the corresponding list item.
+                ExtSourceGroupAdress[i].append(EndCell)
+
+            # Go through the grouplist
+            for i in range(len(GroupList)):
+                # Go through the list with adresses fro each group
+                for j in range(len(ExtSourceGroupAdress)):
+                    if GroupList[i].Label == ExtSourceGroupAdress[j][0]:
+                        # Define the start, end and column
+                        StartRow = int(Standard_Functions.RemoveLettersFromString(ExtSourceGroupAdress[j][1]))
+                        EndRow = int(Standard_Functions.RemoveLettersFromString(ExtSourceGroupAdress[j][2]))
+                        StartColumn = Standard_Functions.RemoveNumbersFromString(ExtSourceGroupAdress[j][1])
+
+                        # Get the pages in the group
+                        pages = []
+                        for k in range(len(GroupList[i].Group)):
+                            if GroupList[i].Group[k].TypeId == "TechDraw::DrawPage":
+                                pages.append(GroupList[i].Group[k])
+
+                        # Go through the range of the group
+                        for k in range(StartRow, EndRow):
+                            # Define the rownumber. This is the Header row + 1 + i as counter
+                            RowNumber = int(StartRow) + k - 1
+                            # Define placeholder for the property value in the drawing list.
+                            PropertyValueExcel = ""
+                            # Define a placeholder for the qty of columns with return values
+                            NoColumns = 0
+                            # Create a list with return values
+                            ReturnNamesExcel = []
+                            for i in range(1000):
+                                # Get the colum letter. For example: i = 0, StartColumn = A->1 + 1 results in column B
+                                Column = Standard_Functions.GetLetterFromNumber(
+                                    i + Standard_Functions.GetNumberFromLetter(StartColumn) + 1)
+                                NoColumns = NoColumns + i
+
+                                # If the cell is not empty, add the contents to the list
+                                if ws[f"{Column}{StartRow}"].value is not None:
+                                    ReturnNamesExcel.append(str(ws[f"{Column}{StartRow}"].value))
+
+                                    for j in range(1, 1000):
+                                        # check if you reached the end of the data.
+                                        test = sheet.getContents(f"A{str(j)}")
+                                        if test == "" or test is None:
+                                            break
+
+                                        if sheet.getContents(f"A{str(j)}") == str(ws[f"{Column}{StartRow}"].value):
+                                            sheet.set(f"B{j}", "-")
+                                            sheet.set(f"E{j}", "Property value retrieved from drawing list")
+
+                                # If the cell is empty, you are on the end. Break the loop.
+                                if ws[f"{Column}{StartRow}"].value is None:
+                                    break
+
+                            # Get the property name in the drawing list. If it starts with "'", remove it
+                            PropertyValueExcel = str(ws[f"{StartColumn}{RowNumber}"].value)
+                            if PropertyValueExcel[:1] == "'":
+                                PropertyValueExcel = PropertyValueExcel[1:]
+
+                            # Go through the columns starting from the column right from the column with the property value
+                            for j in range(len(ReturnNamesExcel)):
+                                # Get the column letter
+                                Column = Standard_Functions.GetLetterFromNumber(
+                                    j + Standard_Functions.GetNumberFromLetter(StartColumn) + 1)
+
+                                # If the cell is not empty and j is lower then NoColumns, continue.
+                                if ws[f"{Column}{RowNumber}"].value is not None:
+                                    # Get the property value in the excel list. If it starts with "'", remove it
+                                    ReturnValueExcel = str(ws[f"{Column}{RowNumber}"].value)
+                                    if ReturnValueExcel[:1] == "'":
+                                        ReturnValueExcel = ReturnValueExcel[1:]
+
+                                    # If page names are not to be mapped, go here
+                                    if USE_PAGE_NAMES_SIMPLE_LIST is False:
+                                        # Go through all the pages
+                                        for page in pages:
+                                            # Get the editable texts
+                                            texts = page.Template.EditableTexts
+                                            # If the value editable text in the titleblock to search for
+                                            # matches the property value in the drawing list,
+                                            # fill in the editable text that needs to be updated.
+                                            if texts[PROPERTY_NAME_SIMPLE_LIST] == PropertyValueExcel:
+                                                # Get the property name in the titleblock spreadsheet
+                                                # and fill it with the property value from the drawing list
+                                                texts[ReturnNamesExcel[j]] = ReturnValueExcel
+
+                                                # Write all the updated text to the page.
+                                                page.Template.EditableTexts = texts
+                                                page.recompute()
+
+                                    # If page names are to be mapped, go here
+                                    if USE_PAGE_NAMES_SIMPLE_LIST is True:
+                                        # Go through the pages
+                                        for page in pages:
+                                            # If the Property name in the drawing list matches the page label:
+                                            # Fill in the desired editable text with the property value from the drawing list
+                                            if PropertyValueExcel == page.Label:
+                                                # Get the editable texts
+                                                texts = page.Template.EditableTexts
+                                                texts[ReturnNamesExcel[j]] = ReturnValueExcel
+
+                                                # Write all the updated text to the page.
+                                                page.Template.EditableTexts = texts
+                                                page.recompute()
+
+            # ----------------------------------------------------------------------------------------------
+            # Recomute the document
+            App.ActiveDocument.recompute(None, True, True)
+
+        except Exception as e:
+            Text = translate(
+                "TitleBlock Workbench", "TitleBlock Workbench: an error occurred!!\n"
+            )
+            if ENABLE_DEBUG is True:
+                Text = translate(
+                    "TitleBlock Workbench",
+                    "TitleBlock Workbench: an error occurred!!\n"
+                    + "See the report view for details",
+                )
+                raise e
+            Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+        finally:
+            # Close the excel workbook
+            wb.close()
+    else:
+        Text = translate("TitleBlock Workbench", "Use of a simple drawing list is not enabled!")
+        Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+    return
 
 
 # def MapAdvancedDrawingList_FreeCAD():

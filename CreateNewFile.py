@@ -25,7 +25,6 @@ import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
 from openpyxl import Workbook
 from openpyxl.worksheet.table import Table, TableStyleInfo
-import os
 import TableFormat_Functions
 
 # Get the settings
@@ -33,21 +32,6 @@ import Settings
 from Settings import preferences
 from Settings import IMPORT_SETTINGS_XL
 from Settings import ENABLE_DEBUG
-from Settings import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
-from Settings import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
-from Settings import SPREADSHEET_COLUMNFONTSTYLE_BOLD
-from Settings import SPREADSHEET_TABLEFONTSTYLE_UNDERLINE
-from Settings import SPREADSHEET_TABLEFONTSTYLE_ITALIC
-from Settings import SPREADSHEET_TABLEFONTSTYLE_BOLD
-from Settings import SPREADSHEET_TABLEFOREGROUND
-from Settings import SPREADSHEET_TABLEBACKGROUND_2
-from Settings import SPREADSHEET_TABLEBACKGROUND_1
-from Settings import SPREADSHEET_HEADERFONTSTYLE_UNDERLINE
-from Settings import SPREADSHEET_HEADERFONTSTYLE_ITALIC
-from Settings import SPREADSHEET_HEADERFONTSTYLE_BOLD
-from Settings import SPREADSHEET_HEADERFOREGROUND
-from Settings import SPREADSHEET_HEADERBACKGROUND
-from Settings import AUTOFIT_FACTOR
 
 # Define the translation
 translate = App.Qt.translate

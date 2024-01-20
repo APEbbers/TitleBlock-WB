@@ -411,3 +411,36 @@ def CheckIfDocumentIsOpen(filename) -> bool:
     except NameError:
         result = False
         return result
+
+
+def sortGroup(group) -> object:
+    # define the result list
+    result = []
+    # Get the list with the current items
+    GroupList = group.Group
+
+    # Define the list for the names
+    GroupListNames = []
+    # Go through the group and add the names of the objects to the groupListNames list.
+    for i in range(len(GroupList)):
+        GroupListNames.append(GroupList[i].Label)
+
+    # sort groupListNames list.
+    GroupListNames.sort()
+
+    # Go through the list with names
+    for i in range(len(GroupListNames)):
+        # For each name, go through the items in the group.
+        # If the name is on the name list, add it to the result list.
+        for j in range(len(GroupList)):
+            if GroupListNames[i] == GroupList[j].Label:
+                result.append(GroupList[j])
+
+    # remove the current items from the group
+    group.removeObjects(GroupList)
+
+    # Add the sorted result list.
+    group.addObjects(result)
+
+    # Return the group
+    return group

@@ -30,7 +30,7 @@
 import FreeCAD as App
 from Settings import USE_EXTERNAL_SOURCE
 from Settings import EXTERNAL_SOURCE_PATH
-from Settings import USE_ADVANCED_LIST
+from Settings import USE_SIMPLE_LIST
 from Settings import USE_EXTERNAL_SOURCE_SIMPLE_LIST
 from Settings import EXTERNAL_FILE_SIMPLE_LIST
 from Settings import USE_ADVANCED_LIST
@@ -189,7 +189,7 @@ def DefineMenus():
         "ExportSettings_FreeCAD",
         "ImportSettings_FreeCAD",
     ]
-    DrawingList_List = [
+    DrawingList_Simple = [
         "NewSimpleList_Excel",
         "NewSimpleList_FreeCAD",
         "NewSimpleList_Internal",
@@ -197,11 +197,20 @@ def DefineMenus():
         "OpenSimpleList_Excel",
         "OpenSimpleList_FreeCAD",
     ]
+    DrawingList_Advanced = [
+        "NewAdvancedList_Excel",
+        "NewAdvancedList_FreeCAD",
+        "NewAdvancedList_Internal",
+        "Separator",
+        "OpenAdvancedList_Excel",
+        "OpenAdvancedList_FreeCAD",
+    ]
     result = {
         "StandardList": StandardList,
         "ExcelList": ExcelList,
         "FreeCADList": FreeCADList,
-        "DrawingList": DrawingList_List,
+        "DrawingList_Simple": DrawingList_Simple,
+        "DrawingList_Advanced": DrawingList_Advanced,
         "SettingsList": SettingsList,
     }
 

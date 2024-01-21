@@ -25,7 +25,7 @@ import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
 from openpyxl import Workbook
 from openpyxl.worksheet.table import Table, TableStyleInfo
-from openpyxl.styles import Fill
+from openpyxl.styles import PatternFill, Alignment
 import TableFormat_Functions
 
 # Get the settings
@@ -156,8 +156,8 @@ def CreateSimpleDrawingList_Excel():
     wb = Workbook()
     ws = wb.active
     ws.title = "DrawingList"
-    preferences.SetString("SheetName", "DrawingList")
-    preferences.SetString("StartCell", "A1")
+    preferences.SetString("SheetName_SimpleList", "DrawingList")
+    preferences.SetString("StartCell_SimpleList", "A1")
 
     # Get the startcell and the next cells
     StartCell = str("A1")
@@ -416,6 +416,7 @@ def CreateSimpleDrawingList_FreeCAD():
 
     # Get the startcell and the next cells
     StartCell = "A1"
+    preferences.SetString("StartCell_SimpleList", StartCell)
     TopRow = int(StartCell[1:])
     EditableText_1 = str(
         Standard_Functions.GetLetterFromNumber(
@@ -460,7 +461,7 @@ def CreateSimpleDrawingList_FreeCAD():
     # Set instruction text
     DrawingList.set(f"A{i+3}", "Value to look up")
     DrawingList.mergeCells(f"B{i+3}:E{i+3}")
-    DrawingList.set(f"B{i+3}", "Value to search for")
+    DrawingList.set(f"B{i+3}", "Values to fill in titleblock")
 
     # region Format the settings with the values as a Table
     #
@@ -543,6 +544,7 @@ def CreateInternalDrawingList_Simple():
 
     if DrawingList is None:
         DrawingList = doc.addObject("Spreadsheet::Sheet", "DrawingList")
+        preferences.SetString("SheetName_SimpleList", "DrawingList")
 
     # Get the startcell and the next cells
     StartCell = "A1"
@@ -590,7 +592,7 @@ def CreateInternalDrawingList_Simple():
     # Set instruction text
     DrawingList.set(f"A{i+3}", "Value to look up")
     DrawingList.mergeCells(f"B{i+3}:E{i+3}")
-    DrawingList.set(f"B{i+3}", "Value to search for")
+    DrawingList.set(f"B{i+3}", "Values to fill in titleblock")
 
     # region Format the settings with the values as a Table
     #
@@ -617,8 +619,8 @@ def CreateAdvancedDrawingList_Excel():
     wb = Workbook()
     ws = wb.active
     ws.title = "DrawingList"
-    preferences.SetString("SheetName", "DrawingList")
-    preferences.SetString("StartCell", "A1")
+    preferences.SetString("SheetName_AdvancedList", "DrawingList")
+    preferences.SetString("StartCell_AdvancedList", "A1")
 
     # Get the startcell and the next cells
     StartCell = str("A1")
@@ -658,7 +660,7 @@ def CreateAdvancedDrawingList_Excel():
     # region Format the settings with the values as a Table
     #
     # Define the the last cell
-    EndCell_G1 = "E10"
+    EndCell_G1 = "E9"
 
     # Define the table
     NumberOfSheets = str(len(wb.sheetnames))
@@ -682,36 +684,38 @@ def CreateAdvancedDrawingList_Excel():
     # add the table to the worksheet
     ws.add_table(tab)
 
-    # Convert the table to normal range
-    del ws.tables["DrawingList_" + NumberOfSheets]
-
     # Create group 1 and 2. Aplly a fill to Group 1 and 2.
-    Cell1 = ws["A2"]
-    Cell1.fill = Fill(color="#CC99FF")
+    for i in range(1, 6):
+        Cell1 = ws[f"{Standard_Functions.GetLetterFromNumber(i)}2"]
+        Cell1.fill = PatternFill("solid", fgColor="CC99FF")
 
-    Cell2 = ws["A6"]
-    Cell2.fill = Fill(color="#CC99FF")
+        Cell2 = ws[f"{Standard_Functions.GetLetterFromNumber(i)}6"]
+        Cell2.fill = PatternFill("solid", fgColor="CC99FF")
     # endregion
 
     # Fill the values
     # Groups
-    ws.merge_cells("A2:E2")
     ws["A2"].value = "Group 1"
-    ws.merge_cells("A6:E6")
     ws["A6"].value = "Group 2"
     # Content
-    for i in range(3, 5):
+    for i in range(3, 6):
         ws[f"A{i}"].value = "Value"
         ws[f"B{i}"].value = "<Editable text - Value>(1)"
         ws[f"C{i}"].value = "<Editable text - Value>(2)"
         ws[f"D{i}"].value = "<Editable text - Value>(3)"
         ws[f"E{i}"].value = "<Editable text - Value>(4)"
-    for i in range(7, 9):
+    for i in range(7, 10):
         ws[f"A{i}"].value = "Value"
         ws[f"B{i}"].value = "<Editable text - Value>(1)"
         ws[f"C{i}"].value = "<Editable text - Value>(2)"
         ws[f"D{i}"].value = "<Editable text - Value>(3)"
         ws[f"E{i}"].value = "<Editable text - Value>(4)"
+    ws[f"A{i+1}"].value = "Value to look up"
+    ws[f"A{i+1}"].fill = PatternFill("solid", fgColor="FFE699")
+    ws.merge_cells(f"B{i+1}:E{i+1}")
+    ws[f"B{i+1}"].fill = PatternFill("solid", fgColor="C6E0B4")
+    ws[f"B{i+1}"].alignment = Alignment(horizontal="center", vertical="center")
+    ws[f"B{i+1}"].value = "Values to fill in titleblock"
 
     # Make the columns to autofit the date
     for col in ws.columns:
@@ -790,10 +794,11 @@ def CreateAdvancedDrawingList_FreeCAD():
 
     # Create a spreadsheet for the titleblock data.
     DrawingList = ff.addObject("Spreadsheet::Sheet", "DrawingList")
-    preferences.SetString("SheetName_SimpleList", "DrawingList")
+    preferences.SetString("SheetName_AdvancedList", "DrawingList")
 
     # Get the startcell and the next cells
     StartCell = "A1"
+    preferences.SetString("StartCell_AdvancedList", StartCell)
     TopRow = int(StartCell[1:])
     EditableText_1 = str(
         Standard_Functions.GetLetterFromNumber(
@@ -829,7 +834,7 @@ def CreateAdvancedDrawingList_FreeCAD():
 
     # Add data, otherwise formatting doesn't work.
     i = 0
-    for i in range(9):
+    for i in range(8):
         DrawingList.set(f"A{i+2}", "Value")
         DrawingList.set(f"B{i+2}", "<Editable text - Value>(1)")
         DrawingList.set(f"C{i+2}", "<Editable text - Value>(2)")
@@ -838,18 +843,18 @@ def CreateAdvancedDrawingList_FreeCAD():
     # Set instruction text
     DrawingList.set(f"A{i+3}", "Value to look up")
     DrawingList.mergeCells(f"B{i+3}:E{i+3}")
-    DrawingList.set(f"B{i+3}", "Value to search for")
+    DrawingList.set(f"B{i+3}", "Values to fill in titleblock")
 
     # region Format the settings with the values as a Table
     #
     DrawingList = TableFormat_Functions.FormatTable(sheet=DrawingList, HeaderRange="A1:E1",
-                                                    TableRange="A2:E10", FirstColumnRange="A2:A10")
+                                                    TableRange="A2:E9", FirstColumnRange="A2:A9")
 
-    DrawingList.setBackground("A11", Standard_Functions.ColorConvertor([255, 230, 153]))
-    DrawingList.setAlignment("A11", "left|vcenter")
-    DrawingList.mergeCells("B11:E11")
-    DrawingList.setBackground("B11:E11", Standard_Functions.ColorConvertor([198, 224, 180]))
-    DrawingList.setAlignment("B11:E11", "center|vcenter")
+    DrawingList.setBackground("A10", Standard_Functions.ColorConvertor([255, 230, 153]))
+    DrawingList.setAlignment("A10", "left|vcenter")
+    DrawingList.mergeCells("B10:E10")
+    DrawingList.setBackground("B10:E10", Standard_Functions.ColorConvertor([198, 224, 180]))
+    DrawingList.setAlignment("B10:E10", "center|vcenter")
     # endregion
 
     # Set the groups
@@ -921,7 +926,7 @@ def CreateInternalDrawingList_Advanced():
                 DrawingList = doc.addObject("Spreadsheet::Sheet", DrawingListName)
 
                 # Set SHEETNAME_STARTCELL to the chosen sheetname
-                preferences.SetString("SheetName_SimpleList", DrawingListName)
+                preferences.SetString("SheetName_AdvancedList", DrawingListName)
                 SHEETNAME_SIMPLE_LIST = DrawingList
 
         if reply == "no":
@@ -929,6 +934,7 @@ def CreateInternalDrawingList_Advanced():
 
     if DrawingList is None:
         DrawingList = doc.addObject("Spreadsheet::Sheet", "DrawingList")
+        preferences.SetString("SheetName_AdvancedList", "DrawingList")
 
     # Get the startcell and the next cells
     StartCell = "A1"
@@ -967,7 +973,7 @@ def CreateInternalDrawingList_Advanced():
 
     # Add data, otherwise formatting doesn't work.
     i = 0
-    for i in range(9):
+    for i in range(8):
         DrawingList.set(f"A{i+2}", "Value")
         DrawingList.set(f"B{i+2}", "<Editable text - Value>(1)")
         DrawingList.set(f"C{i+2}", "<Editable text - Value>(2)")
@@ -976,27 +982,27 @@ def CreateInternalDrawingList_Advanced():
     # Set instruction text
     DrawingList.set(f"A{i+3}", "Value to look up")
     DrawingList.mergeCells(f"B{i+3}:E{i+3}")
-    DrawingList.set(f"B{i+3}", "Value to search for")
+    DrawingList.set(f"B{i+3}", "Values to fill in titleblock")
 
     # region Format the settings with the values as a Table
     #
     DrawingList = TableFormat_Functions.FormatTable(sheet=DrawingList, HeaderRange="A1:E1",
-                                                    TableRange="A2:E10", FirstColumnRange="A2:A10")
+                                                    TableRange="A2:E9", FirstColumnRange="A2:A9")
 
-    DrawingList.setBackground("A11", Standard_Functions.ColorConvertor([255, 230, 153]))
-    DrawingList.setAlignment("A11", "left|vcenter")
-    DrawingList.mergeCells("B11:E11")
-    DrawingList.setBackground("B11:E11", Standard_Functions.ColorConvertor([198, 224, 180]))
-    DrawingList.setAlignment("B11:E11", "center|vcenter")
+    DrawingList.setBackground("A10", Standard_Functions.ColorConvertor([255, 230, 153]))
+    DrawingList.setAlignment("A10", "left|vcenter")
+    DrawingList.mergeCells("B10:E10")
+    DrawingList.setBackground("B10:E10", Standard_Functions.ColorConvertor([198, 224, 180]))
+    DrawingList.setAlignment("B10:E10", "center|vcenter")
     # endregion
 
     # Set the groups
     DrawingList.mergeCells("A2:E2")
     DrawingList.set("A2", "Group 1")
-    DrawingList.setBackground("A2", Standard_Functions.ColorConvertor([0, 170, 255]))
+    DrawingList.setBackground("A2", Standard_Functions.ColorConvertor([204, 153, 255]))
     DrawingList.mergeCells("A6:E6")
     DrawingList.set("A6", "Group 2")
-    DrawingList.setBackground("A6", Standard_Functions.ColorConvertor([0, 170, 255]))
+    DrawingList.setBackground("A6", Standard_Functions.ColorConvertor([204, 153, 255]))
 
     # recompute the document
     doc.recompute(None, True, True)

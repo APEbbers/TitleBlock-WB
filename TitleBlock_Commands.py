@@ -903,7 +903,7 @@ class SortFolder_ZA_class:
     def Activated(self):
         import DrawingList_Functions
 
-        DrawingList_Functions.SortGroups(False)
+        DrawingList_Functions.SortGroups(True)
         return
 
     # def IsActive(self):

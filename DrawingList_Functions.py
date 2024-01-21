@@ -1705,3 +1705,6 @@ def SortGroups(Reverse: bool = False):
     # Sort each group in the group list
     for Group in GroupList:
         Standard_Functions.sortGroup(group=Group, reverse=Reverse)
+
+    # Recompute the document
+    doc.recompute(None, True, True)

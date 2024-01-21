@@ -250,7 +250,7 @@ def FillTitleBlock():
                 DrawingList_Functions.MapAdvancedDrawingList(doc=App.ActiveDocument, sheet=sheet)
             if USE_EXTERNAL_SOURCE_ADVANCED_LIST is True:
                 if EXTERNAL_FILE_ADVANCED_LIST.lower().endswith("fcstd"):
-                    DrawingList_Functions.MapSimpleDrawingList_FreeCAD(doc=App.ActiveDocument, sheet=sheet)
+                    DrawingList_Functions.MapAdvancedDrawingList_FreeCAD(doc=App.ActiveDocument, sheet=sheet)
                 if EXTERNAL_FILE_ADVANCED_LIST.lower().endswith("xlsx"):
                     DrawingList_Functions.MapAdvancedDrawingList_Excel(doc=App.ActiveDocument, sheet=sheet)
 

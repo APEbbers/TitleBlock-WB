@@ -413,7 +413,7 @@ def CheckIfDocumentIsOpen(filename) -> bool:
         return result
 
 
-def sortGroup(group) -> object:
+def sortGroup(group, reverse: bool = False) -> object:
     # define the result list
     result = []
     # Get the list with the current items
@@ -435,6 +435,8 @@ def sortGroup(group) -> object:
         for j in range(len(GroupList)):
             if GroupListNames[i] == GroupList[j].Label:
                 result.append(GroupList[j])
+    if reverse is True:
+        result.reverse()
 
     # remove the current items from the group
     group.removeObjects(GroupList)

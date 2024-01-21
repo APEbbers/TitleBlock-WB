@@ -34,10 +34,9 @@ translate = App.Qt.translate
 def QT_TRANSLATE_NOOP(context, text):
     return text
 
+
 # region - Core functions
 # Export data from the titleblock to the spreadsheet
-
-
 class FillSpreadsheet_Class:
     def GetResources(self):
         return {
@@ -686,11 +685,171 @@ class OpenDrawingList_FreeCAD_class:
     #         result = True
 
     #     return result
+
+
+class NewDrawingList_Advanced_Excel_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "CreateDrawingList_Excel.svg",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("NewExcel", "Create a drawing list in Excel"),
+            "ToolTip": QT_TRANSLATE_NOOP("NewExcel", "Create an new drawing list in an excel workbook"),
+        }
+
+    def Activated(self):
+        import CreateNewFile
+
+        CreateNewFile.CreateAdvancedDrawingList_Excel()
+        return
+
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+    #     from Settings import USE_EXTERNAL_SOURCE
+
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True:
+    #         result = True
+
+    #     return result
+
+
+class NewDrawingList_Advanced_FreeCAD_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "CreateDrawingList_Advanced_FreeCAD.svg",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("NewFreeCAD", "Create a new drawing list in FreeCAD"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "NewFreeCAD",
+                "Create an new empty drawing list in a FreeCAD file",
+            ),
+        }
+
+    def Activated(self):
+        import CreateNewFile
+
+        CreateNewFile.CreateAdvancedDrawingList_FreeCAD()
+        return
+
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+    #     from Settings import USE_EXTERNAL_SOURCE
+
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True:
+    #         result = True
+
+    #     return result
+
+
+class NewDrawingList_Advanced_Internal_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "CreateDrawingList_Advanced_Internal.svg",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("NewFreeCAD", "Create a new drawing list spreadsheet"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "NewFreeCAD",
+                "Create an new empty drawing list in a FreeCAD file",
+            ),
+        }
+
+    def Activated(self):
+        import CreateNewFile
+
+        CreateNewFile.CreateInternalDrawingList_Advanced()
+
+        return
+
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+    #     from Settings import USE_EXTERNAL_SOURCE
+
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True:
+    #         result = True
+
+    #     return result
+
+
+class OpenDrawingList_Advanced_Excel_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "OpenDrawingList_Advanced_Excel.svg",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("OpenDrawingList_Excel", "Open the excel drawing list"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "OpenDrawingList_Excel", "Open the excel drawing list in it's default application"
+            ),
+        }
+
+    def Activated(self):
+        import Standard_Functions_TitleBlock as Standard_Functions
+        from Settings import EXTERNAL_FILE_ADVANCED_LIST
+
+        if EXTERNAL_FILE_ADVANCED_LIST.lower().endswith(
+            "xlsx"
+        ) or EXTERNAL_FILE_ADVANCED_LIST.lower().endswith("xlsm"):
+            Standard_Functions.OpenFile(EXTERNAL_FILE_ADVANCED_LIST)
+        else:
+            Standard_Functions.Print("Not an excel file!!", "Error")
+        return
+
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+    #     from Settings import USE_EXTERNAL_SOURCE
+
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True:
+    #         result = True
+
+    # return result
+
+
+class OpenDrawingList_Advanced_FreeCAD_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "OpenDrawingList_Advanced_FreeCAD.svg",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("OpenDrawingList_FreeCAD", "Open the FreeCAD drawing list"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "OpenDrawingList_FreeCAD", "Open the FreeCAD drawing list."
+            ),
+        }
+
+    def Activated(self):
+        import Standard_Functions_TitleBlock as Standard_Functions
+        from Settings import EXTERNAL_FILE_ADVANCED_LIST
+
+        if EXTERNAL_FILE_ADVANCED_LIST.lower().endswith("fcstd"):
+            Standard_Functions.OpenFreeCADFile(EXTERNAL_FILE_ADVANCED_LIST)
+        else:
+            Standard_Functions.Print("Not an FreeCAD file!!", "Error")
+        return
+
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+    #     from Settings import USE_EXTERNAL_SOURCE
+
+    #     # Set the default state
+    #     result = False
+    #     # Check if the use of an external source is enabeled and if it is used for importing the settings
+    #     if USE_EXTERNAL_SOURCE is True:
+    #         result = True
+
+    #     return result
 # endregion
 
+
 # region - additional commands
-
-
 class ExpandToolbar_class:
     def GetResources(self):
         return {
@@ -703,6 +862,48 @@ class ExpandToolbar_class:
         import CreateUI
 
         CreateUI.toggleToolbars(ToolbarName="TitleBlock extra")
+        return
+
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+
+    #     return result
+
+
+class SortFolder_AZ_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "SortGroup_AZ.svg",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("SortFoldersAZ", "Sort the foldders ascending"),
+            "ToolTip": QT_TRANSLATE_NOOP("SortFoldersAZ", "Sort the foldders ascending"),
+        }
+
+    def Activated(self):
+        import DrawingList_Functions
+
+        DrawingList_Functions.SortGroups(False)
+        return
+
+    # def IsActive(self):
+    #     """Here you can define if the command must be active or not (greyed) if certain conditions
+    #     are met or not. This function is optional."""
+
+    #     return result
+
+
+class SortFolder_ZA_class:
+    def GetResources(self):
+        return {
+            "Pixmap": "SortGroup_ZA.svg",  # the name of a svg file available in the resources
+            "MenuText": QT_TRANSLATE_NOOP("SortFoldersZA", "Sort the foldders descending"),
+            "ToolTip": QT_TRANSLATE_NOOP("SortFoldersZA", "Sort the foldders descending"),
+        }
+
+    def Activated(self):
+        import DrawingList_Functions
+
+        DrawingList_Functions.SortGroups(False)
         return
 
     # def IsActive(self):
@@ -734,4 +935,11 @@ Gui.addCommand("NewSimpleList_FreeCAD", NewDrawingList_FreeCAD_class())
 Gui.addCommand("NewSimpleList_Internal", NewDrawingList_Internal_class())
 Gui.addCommand("OpenSimpleList_Excel", OpenDrawingList_Excel_class())
 Gui.addCommand("OpenSimpleList_FreeCAD", OpenDrawingList_FreeCAD_class())
+Gui.addCommand("NewAdvancedList_Excel", NewDrawingList_Advanced_Excel_class())
+Gui.addCommand("NewAdvancedList_FreeCAD", NewDrawingList_Advanced_FreeCAD_class())
+Gui.addCommand("NewAdvancedList_Internal", NewDrawingList_Advanced_Internal_class())
+Gui.addCommand("OpenAdvancedList_Excel", OpenDrawingList_Advanced_Excel_class())
+Gui.addCommand("OpenAdvancedList_FreeCAD", OpenDrawingList_Advanced_FreeCAD_class())
+Gui.addCommand("SortGroup_AZ", SortFolder_AZ_class())
+Gui.addCommand("SortGroup_ZA", SortFolder_ZA_class())
 # endregion

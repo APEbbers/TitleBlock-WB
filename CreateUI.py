@@ -30,9 +30,12 @@
 import FreeCAD as App
 from Settings import USE_EXTERNAL_SOURCE
 from Settings import EXTERNAL_SOURCE_PATH
-from Settings import USE_SIMPLE_LIST
+from Settings import USE_ADVANCED_LIST
 from Settings import USE_EXTERNAL_SOURCE_SIMPLE_LIST
 from Settings import EXTERNAL_FILE_SIMPLE_LIST
+from Settings import USE_ADVANCED_LIST
+from Settings import USE_EXTERNAL_SOURCE_ADVANCED_LIST
+from Settings import EXTERNAL_FILE_ADVANCED_LIST
 import Standard_Functions_TitleBlock as Standard_Functions
 
 
@@ -120,6 +123,39 @@ def DefineToolbars():
                     "Separator",
                     "NewSimpleList_FreeCAD",
                     "OpenSimpleList_FreeCAD",
+                ]
+            )
+    if USE_ADVANCED_LIST is True:
+        if USE_EXTERNAL_SOURCE_ADVANCED_LIST is False:
+            ToolbarListExtra.extend(
+                [
+                    "Separator",
+                    "NewAdvancedList_Internal",
+                    "Separator",
+                    "SortGroup_AZ",
+                    "SortGroup_ZA",
+                ]
+            )
+        if USE_EXTERNAL_SOURCE_ADVANCED_LIST is True and EXTERNAL_FILE_ADVANCED_LIST.lower().endswith(".fcstd") is False:
+            ToolbarListExtra.extend(
+                [
+                    "Separator",
+                    "NewAdvancedList_Excel",
+                    "OpenAdvancedList_Excel",
+                    "Separator",
+                    "SortGroup_AZ",
+                    "SortGroup_ZA",
+                ]
+            )
+        if USE_EXTERNAL_SOURCE_ADVANCED_LIST is True and EXTERNAL_FILE_ADVANCED_LIST.lower().endswith(".fcstd") is True:
+            ToolbarListExtra.extend(
+                [
+                    "Separator",
+                    "NewAdvancedList_FreeCAD",
+                    "OpenAdvancedList_FreeCAD",
+                    "Separator",
+                    "SortGroup_AZ",
+                    "SortGroup_ZA",
                 ]
             )
 

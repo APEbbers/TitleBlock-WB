@@ -860,10 +860,10 @@ def CreateAdvancedDrawingList_FreeCAD():
     # Set the groups
     DrawingList.mergeCells("A2:E2")
     DrawingList.set("A2", "Group 1")
-    DrawingList.setBackground("A2", Standard_Functions.ColorConvertor([0, 170, 255]))
+    DrawingList.setBackground("A2", Standard_Functions.ColorConvertor([204, 153, 255]))
     DrawingList.mergeCells("A6:E6")
     DrawingList.set("A6", "Group 2")
-    DrawingList.setBackground("A6", Standard_Functions.ColorConvertor([0, 170, 255]))
+    DrawingList.setBackground("A6", Standard_Functions.ColorConvertor([204, 153, 255]))
 
     # recompute the document
     ff.recompute(None, True, True)

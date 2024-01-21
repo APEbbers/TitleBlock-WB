@@ -690,7 +690,7 @@ class OpenDrawingList_FreeCAD_class:
 class NewDrawingList_Advanced_Excel_class:
     def GetResources(self):
         return {
-            "Pixmap": "CreateDrawingList_Excel.svg",  # the name of a svg file available in the resources
+            "Pixmap": "CreateDrawingList_Advanced_Excel.svg",  # the name of a svg file available in the resources
             "MenuText": QT_TRANSLATE_NOOP("NewExcel", "Create a drawing list in Excel"),
             "ToolTip": QT_TRANSLATE_NOOP("NewExcel", "Create an new drawing list in an excel workbook"),
         }

@@ -856,6 +856,8 @@ def MapAdvancedDrawingList(doc, sheet):
                     CellValue = str(
                         DrawingList.getContents(f"{StartColumn_DrawingList}{StartRow_DrawingList + j}")
                     )
+                    if CellValue[:1] == "'":
+                        CellValue = CellValue[1:]
 
                     # If the cell value is equal to the group label, this is the cell with a group name.
                     # Add it to the adress dict.
@@ -864,7 +866,7 @@ def MapAdvancedDrawingList(doc, sheet):
                             [GroupList[i].Label, f"{StartColumn_DrawingList}{StartRow_DrawingList+j}"])
 
                     # If the cell value is empty, you are at the end of the drawing list.
-                    if DrawingList.getContents(f"{StartColumn_DrawingList}{StartRow_DrawingList + j}") is None:
+                    if DrawingList.getContents(f"{StartColumn_DrawingList}{StartRow_DrawingList + j}") != "":
                         break
             # Add an endrow, so you can determine the last range in the next function
             ExtSourceGroupAdress.append(["EndRow", f"{StartColumn_DrawingList}{StartRow_DrawingList+j}"])
@@ -905,11 +907,11 @@ def MapAdvancedDrawingList(doc, sheet):
                             # Define the rownumber. This is the Header row + 1 + i as counter
                             RowNumber = k
                             # Define placeholder for the property value in the drawing list.
-                            PropertyValueExcel = ""
+                            PropertyValueExt = ""
                             # Define a placeholder for the qty of columns with return values
                             NoColumns = 0
                             # Create a list with return values
-                            ReturnNamesExcel = []
+                            ReturnNamesExt = []
                             for i in range(1000):
                                 # Get the colum letter. For example: i = 0, StartColumn = A->1 + 1 results in column B
                                 Column = Standard_Functions.GetLetterFromNumber(
@@ -917,10 +919,11 @@ def MapAdvancedDrawingList(doc, sheet):
                                 NoColumns = NoColumns + i
 
                                 # If the cell is not empty, add the contents to the list
-                                if DrawingList.getContents(f"{Column}{StartRow_DrawingList}") is not None:
-                                    ReturnNamesExcel.append(
-                                        str(DrawingList.getContents(f"{Column}{StartRow_DrawingList}"))
-                                    )
+                                if DrawingList.getContents(f"{Column}{StartRow_DrawingList}") != "":
+                                    CellValue = str(DrawingList.getContents(f"{Column}{StartRow_DrawingList}"))
+                                    if CellValue[:1] == "'":
+                                        CellValue = CellValue[1:]
+                                    ReturnNamesExt.append(CellValue)
 
                                     for j in range(1, 1000):
                                         # check if you reached the end of the data.
@@ -934,20 +937,20 @@ def MapAdvancedDrawingList(doc, sheet):
                                             sheet.set(f"E{j}", "Property value retrieved from drawing list")
 
                                 # If the cell is empty, you are on the end. Break the loop.
-                                if DrawingList.getContents(f"{Column}{StartRow_DrawingList}") is None:
+                                if DrawingList.getContents(f"{Column}{StartRow_DrawingList}") != "":
                                     break
 
                             # Get the property name in the drawing list. If it starts with "'", remove it
-                            PropertyValueExcel = str(DrawingList.getContents(f"{StartColumn_DrawingList}{RowNumber}"))
-                            if PropertyValueExcel[:1] == "'":
-                                PropertyValueExcel = PropertyValueExcel[1:]
+                            PropertyValueExt = str(DrawingList.getContents(f"{StartColumn_DrawingList}{RowNumber}"))
+                            if PropertyValueExt[:1] == "'":
+                                PropertyValueExt = PropertyValueExt[1:]
                             # If a prefix is used for sorting the groups in the tree, remove it from the Property
                             if SORTING_PREFIX_ADVANCED_LIST != "" or SORTING_PREFIX_ADVANCED_LIST is not None:
                                 lengthPrefix = len(SORTING_PREFIX_ADVANCED_LIST)
-                                PropertyValueExcel = PropertyValueExcel[lengthPrefix:]
+                                PropertyValueExt = PropertyValueExt[lengthPrefix:]
 
                             # Go through the columns starting from the column right from the column with the property value
-                            for j in range(len(ReturnNamesExcel)):
+                            for j in range(len(ReturnNamesExt)):
                                 # Get the column letter
                                 Column = Standard_Functions.GetLetterFromNumber(
                                     j + Standard_Functions.GetNumberFromLetter(StartColumn_DrawingList) + 1)
@@ -968,10 +971,10 @@ def MapAdvancedDrawingList(doc, sheet):
                                             # If the value editable text in the titleblock to search for
                                             # matches the property value in the drawing list,
                                             # fill in the editable text that needs to be updated.
-                                            if texts[PROPERTY_NAME_ADVANCED_LIST] == PropertyValueExcel:
+                                            if texts[PROPERTY_NAME_ADVANCED_LIST] == PropertyValueExt:
                                                 # Get the property name in the titleblock spreadsheet
                                                 # and fill it with the property value from the drawing list
-                                                texts[ReturnNamesExcel[j]] = ReturnValueExcel
+                                                texts[ReturnNamesExt[j]] = ReturnValueExcel
 
                                                 # Write all the updated text to the page.
                                                 page.Template.EditableTexts = texts
@@ -983,10 +986,10 @@ def MapAdvancedDrawingList(doc, sheet):
                                         for page in pages:
                                             # If the Property name in the drawing list matches the page label:
                                             # Fill in the desired editable text with the property value from the drawing list
-                                            if PropertyValueExcel == page.Label:
+                                            if PropertyValueExt == page.Label:
                                                 # Get the editable texts
                                                 texts = page.Template.EditableTexts
-                                                texts[ReturnNamesExcel[j]] = ReturnValueExcel
+                                                texts[ReturnNamesExt[j]] = ReturnValueExcel
 
                                                 # Write all the updated text to the page.
                                                 page.Template.EditableTexts = texts
@@ -1511,6 +1514,8 @@ def MapAdvancedDrawingList_FreeCAD(doc, sheet):
                     CellValue = str(
                         DrawingList.getContents(f"{StartColumn_DrawingList}{StartRow_DrawingList + j}")
                     )
+                    if CellValue[:1] == "'":
+                        CellValue = CellValue[1:]
 
                     # If the cell value is equal to the group label, this is the cell with a group name.
                     # Add it to the adress dict.
@@ -1519,7 +1524,7 @@ def MapAdvancedDrawingList_FreeCAD(doc, sheet):
                             [GroupList[i].Label, f"{StartColumn_DrawingList}{StartRow_DrawingList+j}"])
 
                     # If the cell value is empty, you are at the end of the drawing list.
-                    if DrawingList.getContents(f"{StartColumn_DrawingList}{StartRow_DrawingList + j}") is None:
+                    if DrawingList.getContents(f"{StartColumn_DrawingList}{StartRow_DrawingList + j}") == "":
                         break
             # Add an endrow, so you can determine the last range in the next function
             ExtSourceGroupAdress.append(["EndRow", f"{StartColumn_DrawingList}{StartRow_DrawingList+j}"])
@@ -1560,11 +1565,11 @@ def MapAdvancedDrawingList_FreeCAD(doc, sheet):
                             # Define the rownumber. This is the Header row + 1 + i as counter
                             RowNumber = k
                             # Define placeholder for the property value in the drawing list.
-                            PropertyValueExcel = ""
+                            PropertyValueExt = ""
                             # Define a placeholder for the qty of columns with return values
                             NoColumns = 0
                             # Create a list with return values
-                            ReturnNamesExcel = []
+                            ReturnNamesExt = []
                             for i in range(1000):
                                 # Get the colum letter. For example: i = 0, StartColumn = A->1 + 1 results in column B
                                 Column = Standard_Functions.GetLetterFromNumber(
@@ -1572,10 +1577,11 @@ def MapAdvancedDrawingList_FreeCAD(doc, sheet):
                                 NoColumns = NoColumns + i
 
                                 # If the cell is not empty, add the contents to the list
-                                if DrawingList.getContents(f"{Column}{StartRow_DrawingList}") is not None:
-                                    ReturnNamesExcel.append(
-                                        str(DrawingList.getContents(f"{Column}{StartRow_DrawingList}"))
-                                    )
+                                if DrawingList.getContents(f"{Column}{StartRow_DrawingList}") != "":
+                                    CellValue = str(DrawingList.getContents(f"{Column}{StartRow_DrawingList}"))
+                                    if CellValue[:1] == "'":
+                                        CellValue = CellValue[1:]
+                                    ReturnNamesExt.append(CellValue)
 
                                     for j in range(1, 1000):
                                         # check if you reached the end of the data.
@@ -1589,30 +1595,30 @@ def MapAdvancedDrawingList_FreeCAD(doc, sheet):
                                             sheet.set(f"E{j}", "Property value retrieved from drawing list")
 
                                 # If the cell is empty, you are on the end. Break the loop.
-                                if DrawingList.getContents(f"{Column}{StartRow_DrawingList}") is None:
+                                if DrawingList.getContents(f"{Column}{StartRow_DrawingList}") == "":
                                     break
 
                             # Get the property name in the drawing list. If it starts with "'", remove it
-                            PropertyValueExcel = str(DrawingList.getContents(f"{StartColumn_DrawingList}{RowNumber}"))
-                            if PropertyValueExcel[:1] == "'":
-                                PropertyValueExcel = PropertyValueExcel[1:]
+                            PropertyValueExt = str(DrawingList.getContents(f"{StartColumn_DrawingList}{RowNumber}"))
+                            if PropertyValueExt[:1] == "'":
+                                PropertyValueExt = PropertyValueExt[1:]
                             # If a prefix is used for sorting the groups in the tree, remove it from the Property
                             if SORTING_PREFIX_ADVANCED_LIST != "" or SORTING_PREFIX_ADVANCED_LIST is not None:
                                 lengthPrefix = len(SORTING_PREFIX_ADVANCED_LIST)
-                                PropertyValueExcel = PropertyValueExcel[lengthPrefix:]
+                                PropertyValueExt = PropertyValueExt[lengthPrefix:]
 
                             # Go through the columns starting from the column right from the column with the property value
-                            for j in range(len(ReturnNamesExcel)):
+                            for j in range(len(ReturnNamesExt)):
                                 # Get the column letter
                                 Column = Standard_Functions.GetLetterFromNumber(
                                     j + Standard_Functions.GetNumberFromLetter(StartColumn_DrawingList) + 1)
 
                                 # If the cell is not empty and j is lower then NoColumns, continue.
-                                if DrawingList.getContents(f"{Column}{RowNumber}") is not None:
+                                if DrawingList.getContents(f"{Column}{RowNumber}") != "":
                                     # Get the property value in the excel list. If it starts with "'", remove it
-                                    ReturnValueExcel = str(DrawingList.getContents(f"{Column}{RowNumber}"))
-                                    if ReturnValueExcel[:1] == "'":
-                                        ReturnValueExcel = ReturnValueExcel[1:]
+                                    ReturnValueExt = str(DrawingList.getContents(f"{Column}{RowNumber}"))
+                                    if ReturnValueExt[:1] == "'":
+                                        ReturnValueExt = ReturnValueExt[1:]
 
                                     # If page names are not to be mapped, go here
                                     if USE_PAGE_NAMES_ADVANCED_LIST is False:
@@ -1623,10 +1629,10 @@ def MapAdvancedDrawingList_FreeCAD(doc, sheet):
                                             # If the value editable text in the titleblock to search for
                                             # matches the property value in the drawing list,
                                             # fill in the editable text that needs to be updated.
-                                            if texts[PROPERTY_NAME_ADVANCED_LIST] == PropertyValueExcel:
+                                            if texts[PROPERTY_NAME_ADVANCED_LIST] == PropertyValueExt:
                                                 # Get the property name in the titleblock spreadsheet
                                                 # and fill it with the property value from the drawing list
-                                                texts[ReturnNamesExcel[j]] = ReturnValueExcel
+                                                texts[ReturnNamesExt[j]] = ReturnValueExt
 
                                                 # Write all the updated text to the page.
                                                 page.Template.EditableTexts = texts
@@ -1638,10 +1644,10 @@ def MapAdvancedDrawingList_FreeCAD(doc, sheet):
                                         for page in pages:
                                             # If the Property name in the drawing list matches the page label:
                                             # Fill in the desired editable text with the property value from the drawing list
-                                            if PropertyValueExcel == page.Label:
+                                            if PropertyValueExt == page.Label:
                                                 # Get the editable texts
                                                 texts = page.Template.EditableTexts
-                                                texts[ReturnNamesExcel[j]] = ReturnValueExcel
+                                                texts[ReturnNamesExt[j]] = ReturnValueExt
 
                                                 # Write all the updated text to the page.
                                                 page.Template.EditableTexts = texts

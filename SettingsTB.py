@@ -24,7 +24,6 @@
 import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
 import TableFormat_Functions
-import os
 
 # region defenitions
 # Define the translation

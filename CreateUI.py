@@ -28,15 +28,14 @@
 # https://github.com/FreeCAD/FreeCAD/blob/main/src/Mod/AddonManager/install_to_toolbar.py
 
 import FreeCAD as App
-from Settings import USE_EXTERNAL_SOURCE
-from Settings import EXTERNAL_SOURCE_PATH
-from Settings import USE_SIMPLE_LIST
-from Settings import USE_EXTERNAL_SOURCE_SIMPLE_LIST
-from Settings import EXTERNAL_FILE_SIMPLE_LIST
-from Settings import USE_ADVANCED_LIST
-from Settings import USE_EXTERNAL_SOURCE_ADVANCED_LIST
-from Settings import EXTERNAL_FILE_ADVANCED_LIST
-import Standard_Functions_TitleBlock as Standard_Functions
+from SettingsTB import USE_EXTERNAL_SOURCE
+from SettingsTB import EXTERNAL_SOURCE_PATH
+from SettingsTB import USE_SIMPLE_LIST
+from SettingsTB import USE_EXTERNAL_SOURCE_SIMPLE_LIST
+from SettingsTB import EXTERNAL_FILE_SIMPLE_LIST
+from SettingsTB import USE_ADVANCED_LIST
+from SettingsTB import USE_EXTERNAL_SOURCE_ADVANCED_LIST
+from SettingsTB import EXTERNAL_FILE_ADVANCED_LIST
 
 
 # Define the translation
@@ -224,7 +223,6 @@ def QT_TRANSLATE_NOOP(context, text):
 def CreateTechDrawToolbar() -> object:
     """Creates a toolbar in the standard TechDraw WorkBench with the most importand commands"""
     import FreeCADGui as Gui
-    from PySide2.QtWidgets import QToolBar
 
     # region -- define the names and folders
 

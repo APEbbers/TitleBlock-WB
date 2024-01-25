@@ -41,19 +41,17 @@ translate = App.Qt.translate
 
 
 def FillTitleBlock():
-    from Settings import ENABLE_DEBUG
-    from Settings import MAP_NOSHEETS
-    from Settings import USE_PAGENAME_DRAW_NO
-    from Settings import DRAW_NO_FIELD_PAGE
-    from Settings import DRAW_NO_FIELD
-    from Settings import USE_SIMPLE_LIST
-    from Settings import USE_EXTERNAL_SOURCE_SIMPLE_LIST
-    from Settings import EXTERNAL_FILE_SIMPLE_LIST
-    from Settings import PROPERTY_NAME_SIMPLE_LIST
-    from Settings import USE_ADVANCED_LIST
-    from Settings import USE_EXTERNAL_SOURCE_ADVANCED_LIST
-    from Settings import EXTERNAL_FILE_ADVANCED_LIST
-    from Settings import PROPERTY_NAME_ADVANCED_LIST
+    from SettingsTB import ENABLE_DEBUG
+    from SettingsTB import MAP_NOSHEETS
+    from SettingsTB import USE_PAGENAME_DRAW_NO
+    from SettingsTB import DRAW_NO_FIELD_PAGE
+    from SettingsTB import DRAW_NO_FIELD
+    from SettingsTB import USE_SIMPLE_LIST
+    from SettingsTB import USE_EXTERNAL_SOURCE_SIMPLE_LIST
+    from SettingsTB import EXTERNAL_FILE_SIMPLE_LIST
+    from SettingsTB import USE_ADVANCED_LIST
+    from SettingsTB import USE_EXTERNAL_SOURCE_ADVANCED_LIST
+    from SettingsTB import EXTERNAL_FILE_ADVANCED_LIST
 
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1
@@ -245,6 +243,7 @@ def FillTitleBlock():
                     DrawingList_Functions.MapSimpleDrawingList_FreeCAD(sheet=sheet)
                 if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("xlsx"):
                     DrawingList_Functions.MapSimpleDrawingList_Excel(sheet=sheet)
+        # If the use of an advanced drawing list is enabled, update the titleblock
         if USE_ADVANCED_LIST is True:
             if USE_EXTERNAL_SOURCE_ADVANCED_LIST is False:
                 DrawingList_Functions.MapAdvancedDrawingList(doc=App.ActiveDocument, sheet=sheet)

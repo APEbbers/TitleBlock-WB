@@ -29,10 +29,10 @@ from openpyxl.styles import PatternFill, Alignment
 import TableFormat_Functions
 
 # Get the settings
-import Settings
-from Settings import preferences
-from Settings import IMPORT_SETTINGS_XL
-from Settings import ENABLE_DEBUG
+import SettingsTB
+from SettingsTB import preferences
+from SettingsTB import IMPORT_SETTINGS_XL
+from SettingsTB import ENABLE_DEBUG
 
 # Define the translation
 translate = App.Qt.translate
@@ -139,7 +139,7 @@ def CreateTitleBlockData_Excel():
 
     # If import settings from excel is enabled, export settings to the new excel file.
     if IMPORT_SETTINGS_XL is True:
-        Settings.ExportSettings_XL(Silent=True)
+        SettingsTB.ExportSettings_XL(Silent=True)
 
     # print a message if you succeded.
     message = translate(
@@ -252,7 +252,7 @@ def CreateSimpleDrawingList_Excel():
 
     # If import settings from excel is enabled, export settings to the new excel file.
     if IMPORT_SETTINGS_XL is True:
-        Settings.ExportSettings_XL(Silent=True)
+        SettingsTB.ExportSettings_XL(Silent=True)
 
     # print a message if you succeded.
     message = translate(
@@ -357,7 +357,7 @@ def CreateTitleBlockData_FreeCAD():
 
     # If import settings from excel is enabled, export settings to the new excel file.
     if IMPORT_SETTINGS_XL is True:
-        Settings.ExportSettings_XL(Silent=True)
+        SettingsTB.ExportSettings_XL(Silent=True)
 
     # print a message if you succeded.
     message = translate(
@@ -482,7 +482,7 @@ def CreateSimpleDrawingList_FreeCAD():
 
     # If import settings from excel is enabled, export settings to the new excel file.
     if IMPORT_SETTINGS_XL is True:
-        Settings.ExportSettings_XL(Silent=True)
+        SettingsTB.ExportSettings_XL(Silent=True)
 
     # print a message if you succeded.
     message = translate(
@@ -503,7 +503,7 @@ def CreateSimpleDrawingList_FreeCAD():
 
 
 def CreateInternalDrawingList_Simple():
-    from Settings import SHEETNAME_SIMPLE_LIST
+    from SettingsTB import SHEETNAME_SIMPLE_LIST
     import Standard_Functions_TitleBlock
 
     # Get the active document
@@ -747,7 +747,7 @@ def CreateAdvancedDrawingList_Excel():
 
     # If import settings from excel is enabled, export settings to the new excel file.
     if IMPORT_SETTINGS_XL is True:
-        Settings.ExportSettings_XL(Silent=True)
+        SettingsTB.ExportSettings_XL(Silent=True)
 
     # print a message if you succeded.
     message = translate(
@@ -872,7 +872,7 @@ def CreateAdvancedDrawingList_FreeCAD():
 
     # If import settings from excel is enabled, export settings to the new excel file.
     if IMPORT_SETTINGS_XL is True:
-        Settings.ExportSettings_XL(Silent=True)
+        SettingsTB.ExportSettings_XL(Silent=True)
 
     # print a message if you succeded.
     message = translate(
@@ -893,7 +893,7 @@ def CreateAdvancedDrawingList_FreeCAD():
 
 
 def CreateInternalDrawingList_Advanced():
-    from Settings import SHEETNAME_SIMPLE_LIST
+    from SettingsTB import SHEETNAME_SIMPLE_LIST
     import Standard_Functions_TitleBlock
 
     # Get the active document

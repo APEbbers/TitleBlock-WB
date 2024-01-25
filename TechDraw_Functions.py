@@ -53,7 +53,7 @@ def GetDefaultTemplate(selectedItem: int) -> str:
 
 
 def ImportTemplates():
-    from Settings import IMPORT_EXAMPLE_TEMPLATES
+    from SettingsTB import IMPORT_EXAMPLE_TEMPLATES
 
     if IMPORT_EXAMPLE_TEMPLATES is True:
         # Define the parameter path
@@ -69,9 +69,9 @@ def ImportTemplates():
 
 
 def SetDefaultTemplate():
-    from Settings import DEFAULT_TEMPLATE
-    from Settings import IMPORT_EXAMPLE_TEMPLATES
-    from Settings import ENABLE_DEBUG
+    from SettingsTB import DEFAULT_TEMPLATE
+    from SettingsTB import IMPORT_EXAMPLE_TEMPLATES
+    from SettingsTB import ENABLE_DEBUG
 
     ChosenTemplate = os.path.join(
         TEMPLATE_DIR, GetDefaultTemplate(DEFAULT_TEMPLATE).replace("\\", "/")

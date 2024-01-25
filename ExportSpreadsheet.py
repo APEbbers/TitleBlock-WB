@@ -31,14 +31,14 @@ import TableFormat_Functions
 import os
 
 # Get the settings
-import Settings
-from Settings import preferences
-from Settings import EXTERNAL_SOURCE_STARTCELL
+import SettingsTB
+from SettingsTB import preferences
+from SettingsTB import EXTERNAL_SOURCE_STARTCELL
 
 # from Settings import EXTERNAL_SOURCE_SHEET_NAME
 # from Settings import EXTERNAL_SOURCE_PATH
-from Settings import IMPORT_SETTINGS_XL
-from Settings import ENABLE_DEBUG
+from SettingsTB import IMPORT_SETTINGS_XL
+from SettingsTB import ENABLE_DEBUG
 
 # Define the translation
 translate = App.Qt.translate
@@ -228,7 +228,7 @@ def ExportSpreadSheet_Excel():
 
         # If import settings from excel is enabled, export settings to the new excel file.
         if IMPORT_SETTINGS_XL is True:
-            Settings.ExportSettings_XL(Silent=True)
+            SettingsTB.ExportSettings_XL(Silent=True)
 
         # print a message if you succeded.
         Text = translate(
@@ -463,7 +463,7 @@ def ExportSpreadSheet_FreeCAD():
 
         # If import settings from external source is enabled, export settings to the new excel file.
         if IMPORT_SETTINGS_XL is True:
-            Settings.ExportSettings_FreeCAD(Silent=True)
+            SettingsTB.ExportSettings_FreeCAD(Silent=True)
 
         # recompute the document
         if Standard_Functions.CheckIfDocumentIsOpen(ExternalFileName):

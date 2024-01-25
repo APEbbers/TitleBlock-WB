@@ -28,23 +28,23 @@ import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
 
 # Get the settings
-from Settings import ENABLE_DEBUG
-from Settings import USE_SIMPLE_LIST
-from Settings import USE_EXTERNAL_SOURCE_SIMPLE_LIST
-from Settings import EXTERNAL_FILE_SIMPLE_LIST
-from Settings import SHEETNAME_SIMPLE_LIST
-from Settings import STARTCELL_SIMPLE_LIST
-from Settings import PROPERTY_NAME_SIMPLE_LIST
-from Settings import USE_PAGE_NAMES_SIMPLE_LIST
-from Settings import USE_ADVANCED_LIST
-from Settings import EXTERNAL_FILE_ADVANCED_LIST
-from Settings import SHEETNAME_ADVANCED_LIST
-from Settings import STARTCELL_ADVANCED_LIST
-from Settings import PROPERTY_NAME_ADVANCED_LIST
-from Settings import SORTING_PREFIX_ADVANCED_LIST
-from Settings import USE_EXTERNAL_SOURCE_ADVANCED_LIST
-from Settings import USE_PAGE_NAMES_ADVANCED_LIST
-from Settings import preferences
+from SettingsTB import ENABLE_DEBUG
+from SettingsTB import USE_SIMPLE_LIST
+from SettingsTB import USE_EXTERNAL_SOURCE_SIMPLE_LIST
+from SettingsTB import EXTERNAL_FILE_SIMPLE_LIST
+from SettingsTB import SHEETNAME_SIMPLE_LIST
+from SettingsTB import STARTCELL_SIMPLE_LIST
+from SettingsTB import PROPERTY_NAME_SIMPLE_LIST
+from SettingsTB import USE_PAGE_NAMES_SIMPLE_LIST
+from SettingsTB import USE_ADVANCED_LIST
+from SettingsTB import EXTERNAL_FILE_ADVANCED_LIST
+from SettingsTB import SHEETNAME_ADVANCED_LIST
+from SettingsTB import STARTCELL_ADVANCED_LIST
+from SettingsTB import PROPERTY_NAME_ADVANCED_LIST
+from SettingsTB import SORTING_PREFIX_ADVANCED_LIST
+from SettingsTB import USE_EXTERNAL_SOURCE_ADVANCED_LIST
+from SettingsTB import USE_PAGE_NAMES_ADVANCED_LIST
+from SettingsTB import preferences
 
 # Define the translation
 translate = App.Qt.translate

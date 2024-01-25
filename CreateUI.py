@@ -28,8 +28,8 @@
 # https://github.com/FreeCAD/FreeCAD/blob/main/src/Mod/AddonManager/install_to_toolbar.py
 
 import FreeCAD as App
-from Settings import USE_EXTERNAL_SOURCE
-from Settings import EXTERNAL_SOURCE_PATH
+from SettingsTB import USE_EXTERNAL_SOURCE
+from SettingsTB import EXTERNAL_SOURCE_PATH
 import Standard_Functions_TitleBlock as Standard_Functions
 
 

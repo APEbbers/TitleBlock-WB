@@ -58,21 +58,21 @@ def FormatTable(
         FirstColumnRange (string): Range for the first column
     """
     import Standard_Functions_TitleBlock as Standard_Functions
-    from Settings import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
-    from Settings import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
-    from Settings import SPREADSHEET_COLUMNFONTSTYLE_BOLD
-    from Settings import SPREADSHEET_TABLEFONTSTYLE_UNDERLINE
-    from Settings import SPREADSHEET_TABLEFONTSTYLE_ITALIC
-    from Settings import SPREADSHEET_TABLEFONTSTYLE_BOLD
-    from Settings import SPREADSHEET_TABLEFOREGROUND
-    from Settings import SPREADSHEET_TABLEBACKGROUND_2
-    from Settings import SPREADSHEET_TABLEBACKGROUND_1
-    from Settings import SPREADSHEET_HEADERFONTSTYLE_UNDERLINE
-    from Settings import SPREADSHEET_HEADERFONTSTYLE_ITALIC
-    from Settings import SPREADSHEET_HEADERFONTSTYLE_BOLD
-    from Settings import SPREADSHEET_HEADERFOREGROUND
-    from Settings import SPREADSHEET_HEADERBACKGROUND
-    from Settings import AUTOFIT_FACTOR
+    from SettingsTB import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
+    from SettingsTB import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
+    from SettingsTB import SPREADSHEET_COLUMNFONTSTYLE_BOLD
+    from SettingsTB import SPREADSHEET_TABLEFONTSTYLE_UNDERLINE
+    from SettingsTB import SPREADSHEET_TABLEFONTSTYLE_ITALIC
+    from SettingsTB import SPREADSHEET_TABLEFONTSTYLE_BOLD
+    from SettingsTB import SPREADSHEET_TABLEFOREGROUND
+    from SettingsTB import SPREADSHEET_TABLEBACKGROUND_2
+    from SettingsTB import SPREADSHEET_TABLEBACKGROUND_1
+    from SettingsTB import SPREADSHEET_HEADERFONTSTYLE_UNDERLINE
+    from SettingsTB import SPREADSHEET_HEADERFONTSTYLE_ITALIC
+    from SettingsTB import SPREADSHEET_HEADERFONTSTYLE_BOLD
+    from SettingsTB import SPREADSHEET_HEADERFOREGROUND
+    from SettingsTB import SPREADSHEET_HEADERBACKGROUND
+    from SettingsTB import AUTOFIT_FACTOR
 
     # Format the header ------------------------------------------------------------------------------------------------
     # Set the font style for the header

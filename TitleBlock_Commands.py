@@ -24,8 +24,8 @@
 # FreeCAD init script of the Work Features module
 import FreeCAD as App
 import FreeCADGui as Gui
-import Settings
-from Settings import AUTOFILL_TITLEBLOCK
+import SettingsTB
+from SettingsTB import AUTOFILL_TITLEBLOCK
 
 # Define the translation
 translate = App.Qt.translate
@@ -264,7 +264,7 @@ class ExportSettings_Excel_class:
 
     def Activated(self):
 
-        Settings.ExportSettings_XL()
+        SettingsTB.ExportSettings_XL()
         return
 
     # def IsActive(self):
@@ -294,7 +294,7 @@ class ExportSettings_FreeCAD_class:
         }
 
     def Activated(self):
-        Settings.ExportSettings_FreeCAD()
+        SettingsTB.ExportSettings_FreeCAD()
         return
 
     # def IsActive(self):
@@ -324,7 +324,7 @@ class ImportSettings_Excel_class:
         }
 
     def Activated(self):
-        Settings.ImportSettings_XL()
+        SettingsTB.ImportSettings_XL()
         return
 
     # def IsActive(self):
@@ -354,7 +354,7 @@ class ImportSettings_FreeCAD_class:
         }
 
     def Activated(self):
-        Settings.ImportSettings_FreeCAD()
+        SettingsTB.ImportSettings_FreeCAD()
         return
 
     # def IsActive(self):
@@ -384,7 +384,7 @@ class OpenExcel_class:
 
     def Activated(self):
         import Standard_Functions_TitleBlock as Standard_Functions
-        from Settings import EXTERNAL_SOURCE_PATH
+        from SettingsTB import EXTERNAL_SOURCE_PATH
 
         if EXTERNAL_SOURCE_PATH.lower().endswith("xlsx") or EXTERNAL_SOURCE_PATH.lower().endswith("xlsm"):
             Standard_Functions.OpenFile(EXTERNAL_SOURCE_PATH)
@@ -418,7 +418,7 @@ class OpenFreeCAD_class:
 
     def Activated(self):
         import Standard_Functions_TitleBlock as Standard_Functions
-        from Settings import EXTERNAL_SOURCE_PATH
+        from SettingsTB import EXTERNAL_SOURCE_PATH
 
         if EXTERNAL_SOURCE_PATH.lower().endswith("fcstd"):
             Standard_Functions.OpenFreeCADFile(EXTERNAL_SOURCE_PATH)

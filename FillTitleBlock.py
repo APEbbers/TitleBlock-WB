@@ -40,11 +40,11 @@ translate = App.Qt.translate
 
 
 def FillTitleBlock():
-    from Settings import ENABLE_DEBUG
-    from Settings import MAP_NOSHEETS
-    from Settings import USE_PAGENAME_DRAW_NO
-    from Settings import DRAW_NO_FIELD_PAGE
-    from Settings import DRAW_NO_FIELD
+    from SettingsTB import ENABLE_DEBUG
+    from SettingsTB import MAP_NOSHEETS
+    from SettingsTB import USE_PAGENAME_DRAW_NO
+    from SettingsTB import DRAW_NO_FIELD_PAGE
+    from SettingsTB import DRAW_NO_FIELD
 
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1

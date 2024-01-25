@@ -28,25 +28,25 @@ from openpyxl.worksheet.table import Table, TableStyleInfo
 import os
 
 # Get the settings
-import Settings
-from Settings import preferences
-from Settings import IMPORT_SETTINGS_XL
-from Settings import ENABLE_DEBUG
-from Settings import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
-from Settings import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
-from Settings import SPREADSHEET_COLUMNFONTSTYLE_BOLD
-from Settings import SPREADSHEET_TABLEFONTSTYLE_UNDERLINE
-from Settings import SPREADSHEET_TABLEFONTSTYLE_ITALIC
-from Settings import SPREADSHEET_TABLEFONTSTYLE_BOLD
-from Settings import SPREADSHEET_TABLEFOREGROUND
-from Settings import SPREADSHEET_TABLEBACKGROUND_2
-from Settings import SPREADSHEET_TABLEBACKGROUND_1
-from Settings import SPREADSHEET_HEADERFONTSTYLE_UNDERLINE
-from Settings import SPREADSHEET_HEADERFONTSTYLE_ITALIC
-from Settings import SPREADSHEET_HEADERFONTSTYLE_BOLD
-from Settings import SPREADSHEET_HEADERFOREGROUND
-from Settings import SPREADSHEET_HEADERBACKGROUND
-from Settings import AUTOFIT_FACTOR
+import SettingsTB
+from SettingsTB import preferences
+from SettingsTB import IMPORT_SETTINGS_XL
+from SettingsTB import ENABLE_DEBUG
+from SettingsTB import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
+from SettingsTB import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
+from SettingsTB import SPREADSHEET_COLUMNFONTSTYLE_BOLD
+from SettingsTB import SPREADSHEET_TABLEFONTSTYLE_UNDERLINE
+from SettingsTB import SPREADSHEET_TABLEFONTSTYLE_ITALIC
+from SettingsTB import SPREADSHEET_TABLEFONTSTYLE_BOLD
+from SettingsTB import SPREADSHEET_TABLEFOREGROUND
+from SettingsTB import SPREADSHEET_TABLEBACKGROUND_2
+from SettingsTB import SPREADSHEET_TABLEBACKGROUND_1
+from SettingsTB import SPREADSHEET_HEADERFONTSTYLE_UNDERLINE
+from SettingsTB import SPREADSHEET_HEADERFONTSTYLE_ITALIC
+from SettingsTB import SPREADSHEET_HEADERFONTSTYLE_BOLD
+from SettingsTB import SPREADSHEET_HEADERFOREGROUND
+from SettingsTB import SPREADSHEET_HEADERBACKGROUND
+from SettingsTB import AUTOFIT_FACTOR
 
 # Define the translation
 translate = App.Qt.translate
@@ -153,7 +153,7 @@ def CcreateExcel():
 
     # If import settings from excel is enabled, export settings to the new excel file.
     if IMPORT_SETTINGS_XL is True:
-        Settings.ExportSettings_XL(Silent=True)
+        SettingsTB.ExportSettings_XL(Silent=True)
 
     # print a message if you succeded.
     message = translate(
@@ -252,7 +252,7 @@ def CreateFreeCAD():
 
     # If import settings from excel is enabled, export settings to the new excel file.
     if IMPORT_SETTINGS_XL is True:
-        Settings.ExportSettings_XL(Silent=True)
+        SettingsTB.ExportSettings_XL(Silent=True)
 
     # print a message if you succeded.
     message = translate(

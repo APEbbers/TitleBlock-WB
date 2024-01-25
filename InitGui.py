@@ -23,7 +23,7 @@
 import os
 import FreeCAD as App
 import FreeCADGui as Gui
-import Settings
+import SettingsTB
 
 # Define the translation
 translate = App.Qt.translate
@@ -34,7 +34,7 @@ __url__ = "https://github.com/APEbbers/TechDrawTitleBlockUtility.git"
 
 # get the path of the current python script
 # PATH_TB = file_path = os.path.dirname(getsourcefile(lambda: 0))
-PATH_TB = os.path.dirname(os.path.abspath(Settings.__file__))
+PATH_TB = os.path.dirname(os.path.abspath(SettingsTB.__file__))
 
 global PATH_TB_ICONS
 global PATH_TB_RESOURCES
@@ -68,11 +68,11 @@ class TitleBlockWB(Gui.Workbench):
         It is executed once in a FreeCAD session followed by the Activated function.
         """
         import TitleBlock_Commands  # import here all the needed files that create your FreeCAD commands
-        import Settings
-        from Settings import USE_EXTERNAL_SOURCE
-        from Settings import EXTERNAL_SOURCE_PATH
-        from Settings import IMPORT_SETTINGS_XL
-        from Settings import ADD_TOOLBAR_TECHDRAW
+        import SettingsTB
+        from SettingsTB import USE_EXTERNAL_SOURCE
+        from SettingsTB import EXTERNAL_SOURCE_PATH
+        from SettingsTB import IMPORT_SETTINGS_XL
+        from SettingsTB import ADD_TOOLBAR_TECHDRAW
         import CreateUI
         import TechDrawFunctions
 
@@ -83,9 +83,9 @@ class TitleBlockWB(Gui.Workbench):
 
         # import the settings with the correct function based on the extension
         if IMPORT_SETTINGS_XL is True and EXTERNAL_SOURCE_PATH.lower() == ".xlsx":
-            Settings.ImportSettings_XL()
+            SettingsTB.ImportSettings_XL()
         if IMPORT_SETTINGS_XL is True and EXTERNAL_SOURCE_PATH.lower() == ".fcstd":
-            Settings.ImportSettings_FreeCAD()
+            SettingsTB.ImportSettings_FreeCAD()
 
         # region - Create toolbars
         ToolbarListMain = CreateUI.DefineToolbars()["ToolbarListMain"]

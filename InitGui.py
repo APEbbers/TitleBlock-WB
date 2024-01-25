@@ -112,7 +112,8 @@ class TitleBlockWB(Gui.Workbench):
             QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "External source"]), ExcelList
         )
         self.appendMenu(
-            QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "External source"]), FreeCADList
+            QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "External source"]),
+            FreeCADList,
         )
         self.appendMenu(
             QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "Settings"]), SettingsList

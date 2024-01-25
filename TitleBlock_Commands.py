@@ -255,7 +255,9 @@ class ExportSettings_Excel_class:
     def GetResources(self):
         return {
             "Pixmap": "ExportSettings.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("ExportSettings_Excel", "Export settings excel"),
+            "MenuText": QT_TRANSLATE_NOOP(
+                "ExportSettings_Excel", "Export settings excel"
+            ),
             "ToolTip": QT_TRANSLATE_NOOP(
                 "ExportSettings_Excel",
                 "Exports all settings to the external excel workbook in its own sheet",
@@ -286,7 +288,9 @@ class ExportSettings_FreeCAD_class:
     def GetResources(self):
         return {
             "Pixmap": "ExportSettings_FreeCAD.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("ExportSettings_FreeCAD", "Export settings FreeCAD"),
+            "MenuText": QT_TRANSLATE_NOOP(
+                "ExportSettings_FreeCAD", "Export settings FreeCAD"
+            ),
             "ToolTip": QT_TRANSLATE_NOOP(
                 "ExportSettings_FreeCAD",
                 "Exports all settings to the external FreeCAD file in its own sheet",
@@ -316,7 +320,9 @@ class ImportSettings_Excel_class:
     def GetResources(self):
         return {
             "Pixmap": "ImportSettings.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("ImportSettings_Excel", "Import settings excel"),
+            "MenuText": QT_TRANSLATE_NOOP(
+                "ImportSettings_Excel", "Import settings excel"
+            ),
             "ToolTip": QT_TRANSLATE_NOOP(
                 "ImportSettings_Excel",
                 "Imports all settings from the external excel workbook",
@@ -346,7 +352,9 @@ class ImportSettings_FreeCAD_class:
     def GetResources(self):
         return {
             "Pixmap": "ImportSettings_FreeCAD.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("ImportSettings_FreeCAD", "Import settings_FreeCAD"),
+            "MenuText": QT_TRANSLATE_NOOP(
+                "ImportSettings_FreeCAD", "Import settings_FreeCAD"
+            ),
             "ToolTip": QT_TRANSLATE_NOOP(
                 "ImportSettings_FreeCAD",
                 "Imports all settings from the external FreeCAD file",
@@ -386,7 +394,9 @@ class OpenExcel_class:
         import Standard_Functions_TitleBlock as Standard_Functions
         from SettingsTB import EXTERNAL_SOURCE_PATH
 
-        if EXTERNAL_SOURCE_PATH.lower().endswith("xlsx") or EXTERNAL_SOURCE_PATH.lower().endswith("xlsm"):
+        if EXTERNAL_SOURCE_PATH.lower().endswith(
+            "xlsx"
+        ) or EXTERNAL_SOURCE_PATH.lower().endswith("xlsm"):
             Standard_Functions.OpenFile(EXTERNAL_SOURCE_PATH)
         else:
             Standard_Functions.Print("Not an excel file!!", "Error")
@@ -403,7 +413,7 @@ class OpenExcel_class:
     #     if USE_EXTERNAL_SOURCE is True:
     #         result = True
 
-        # return result
+    # return result
 
 
 class OpenFreeCAD_class:
@@ -473,7 +483,10 @@ class NewFreeCAD_class:
         return {
             "Pixmap": "NewFreeCAD.svg",  # the name of a svg file available in the resources
             "MenuText": QT_TRANSLATE_NOOP("NewFreeCAD", "Create a new FreeCAD file"),
-            "ToolTip": QT_TRANSLATE_NOOP("NewFreeCAD", "Create an new FreeCAD file with an empty spreadsheet for the titleblock data"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "NewFreeCAD",
+                "Create an new FreeCAD file with an empty spreadsheet for the titleblock data",
+            ),
         }
 
     def Activated(self):

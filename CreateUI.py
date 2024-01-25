@@ -130,7 +130,7 @@ def DefineMenus():
         "StandardList": StandardList,
         "ExcelList": ExcelList,
         "FreeCADList": FreeCADList,
-        "SettingsList": SettingsList
+        "SettingsList": SettingsList,
     }
 
     return result

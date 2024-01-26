@@ -34,6 +34,7 @@ import os
 import SettingsTB
 from SettingsTB import preferences
 from SettingsTB import EXTERNAL_SOURCE_STARTCELL
+
 # from Settings import EXTERNAL_SOURCE_SHEET_NAME
 # from Settings import EXTERNAL_SOURCE_PATH
 from SettingsTB import IMPORT_SETTINGS_XL
@@ -248,6 +249,9 @@ def ExportSpreadSheet_Excel():
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
         if ENABLE_DEBUG is True:
             raise (e)
+    finally:
+        # Close the excel workbook
+        wb.close()
 
 
 def ExportSpreadSheet_FreeCAD():
@@ -445,7 +449,7 @@ def ExportSpreadSheet_FreeCAD():
         )
 
         # Format the table
-        sheet = TableFormat_Functions.FormatTable(
+        TableFormat_Functions.FormatTable(
             sheet=TitleBlockData,
             HeaderRange=HeaderRange,
             TableRange=TableRange,

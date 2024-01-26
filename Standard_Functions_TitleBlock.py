@@ -27,6 +27,7 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
     Message Styles:\n
     0 : OK                          (text, title, style)\n
     1 : Yes | No                    (text, title, style)\n
+    2 : Ok | Cancel                 (text, title, style)\n
     20 : Inputbox                   (text, title, style, default)\n
     21 : Inputbox with dropdown     (text, title, style, default, stringlist)\n
     Icontype:                       string: NoIcon, Question, Warning, Critical. Default Information
@@ -51,7 +52,8 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
         msgBox.setWindowTitle(title)
 
         reply = msgBox.exec_()
-        return reply
+        if reply == QMessageBox.Ok:
+            return "ok"
     if style == 1:
         # Set the messagebox
         msgBox = QMessageBox()
@@ -67,6 +69,21 @@ def Mbox(text, title="", style=0, IconType="Information", default="", stringList
             return "yes"
         if reply == QMessageBox.No:
             return "no"
+    if style == 2:
+        # Set the messagebox
+        msgBox = QMessageBox()
+        msgBox.setIcon(Icon)
+        msgBox.setText(text)
+        msgBox.setWindowTitle(title)
+        # Set the buttons and default button
+        msgBox.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+        msgBox.setDefaultButton(QMessageBox.Ok)
+
+        reply = msgBox.exec_()
+        if reply == QMessageBox.Ok:
+            return "ok"
+        if reply == QMessageBox.Cancel:
+            return "cancel"
     if style == 20:
         reply = QInputDialog.getText(
             None,
@@ -181,7 +198,7 @@ def GetA1fromR1C1(input: str) -> str:
         input = input.upper()
         ColumnPosition = input.find("C")
         RowNumber = int(input[1:(ColumnPosition)])
-        ColumnNumber = int(input[(ColumnPosition + 1) :])
+        ColumnNumber = int(input[(ColumnPosition + 1):])
 
         ColumnLetter = GetLetterFromNumber(ColumnNumber)
 
@@ -394,3 +411,38 @@ def CheckIfDocumentIsOpen(filename) -> bool:
     except NameError:
         result = False
         return result
+
+
+def sortGroup(group, reverse: bool = False) -> object:
+    # define the result list
+    result = []
+    # Get the list with the current items
+    GroupList = group.Group
+
+    # Define the list for the names
+    GroupListNames = []
+    # Go through the group and add the names of the objects to the groupListNames list.
+    for i in range(len(GroupList)):
+        GroupListNames.append(GroupList[i].Label)
+
+    # sort groupListNames list.
+    GroupListNames.sort()
+
+    # Go through the list with names
+    for i in range(len(GroupListNames)):
+        # For each name, go through the items in the group.
+        # If the name is on the name list, add it to the result list.
+        for j in range(len(GroupList)):
+            if GroupListNames[i] == GroupList[j].Label:
+                result.append(GroupList[j])
+    if reverse is True:
+        result.reverse()
+
+    # remove the current items from the group
+    group.removeObjects(GroupList)
+
+    # Add the sorted result list.
+    group.addObjects(result)
+
+    # Return the group
+    return group

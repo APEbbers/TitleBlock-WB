@@ -34,6 +34,7 @@
 
 import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
+import DrawingList_Functions
 
 # Define the translation
 translate = App.Qt.translate
@@ -45,6 +46,12 @@ def FillTitleBlock():
     from SettingsTB import USE_PAGENAME_DRAW_NO
     from SettingsTB import DRAW_NO_FIELD_PAGE
     from SettingsTB import DRAW_NO_FIELD
+    from SettingsTB import USE_SIMPLE_LIST
+    from SettingsTB import USE_EXTERNAL_SOURCE_SIMPLE_LIST
+    from SettingsTB import EXTERNAL_FILE_SIMPLE_LIST
+    from SettingsTB import USE_ADVANCED_LIST
+    from SettingsTB import USE_EXTERNAL_SOURCE_ADVANCED_LIST
+    from SettingsTB import EXTERNAL_FILE_ADVANCED_LIST
 
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1
@@ -77,14 +84,24 @@ def FillTitleBlock():
                     # Start with x+1 first, to make sure that x is at least 1.
                     RowNum = RowNum + 1
 
+                    # Get the name of the editable field. if it starts with ', remove it.
+                    textField = str(sheet.getContents("A" + str(RowNum)))
+                    if textField[:1] == "'":
+                        textField = textField[1:]
+
+                    # Option??? -------------------------------------------------------------------------------
+                    # # If the use of a drawing list is enabled and the property name is equal to the textfield
+                    # # Skip this text
+                    MustSkip = False
+                    # if (USE_SIMPLE_LIST is True and PROPERTY_NAME_SIMPLE_LIST == textField):
+                    #     MustSkip = True
+                    # if (USE_ADVANCED_LIST is True and PROPERTY_NAME_ADVANCED_LIST == textField):
+                    #     MustSkip = True
+                    # -----------------------------------------------------------------------------------------
+
                     # fill in the editable text based on the text name in column A and the value in column B.
                     # check if there is a value. If there is an value, continue.
-                    if str(sheet.getContents("B" + str(RowNum))).strip():
-                        # Get the name of the editable field. if it starts with ', remove it.
-                        textField = str(sheet.getContents("A" + str(RowNum)))
-                        if textField[:1] == "'":
-                            textField = textField[1:]
-
+                    if str(sheet.getContents("B" + str(RowNum))).strip() and MustSkip is False:
                         # define the string for the text value
                         textValue = ""
 
@@ -102,7 +119,7 @@ def FillTitleBlock():
                                 USE_PAGENAME_DRAW_NO is True
                                 and DRAW_NO_FIELD == textField
                             ):
-                                pass
+                                continue
                             else:
                                 # write the editable text
                                 textValue = str(sheet.getContents("B" + str(RowNum)))
@@ -203,7 +220,7 @@ def FillTitleBlock():
                 page.Template.EditableTexts = texts
 
                 # Recompute the page
-                page.recompute()
+                App.ActiveDocument.recompute(None, True, True)
 
             except Exception as e:
                 # raise an exeception if there is no spreadsheet.
@@ -216,6 +233,25 @@ def FillTitleBlock():
                 # if degbug mode is enabeled, print the exception
                 if ENABLE_DEBUG is True:
                     raise e
+
+        # If the use of a drawing list is enabled, update the titleblock
+        if USE_SIMPLE_LIST is True:
+            if USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
+                DrawingList_Functions.MapSimpleDrawingList(sheet=sheet)
+            if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
+                if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("fcstd"):
+                    DrawingList_Functions.MapSimpleDrawingList_FreeCAD(sheet=sheet)
+                if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("xlsx"):
+                    DrawingList_Functions.MapSimpleDrawingList_Excel(sheet=sheet)
+        # If the use of an advanced drawing list is enabled, update the titleblock
+        if USE_ADVANCED_LIST is True:
+            if USE_EXTERNAL_SOURCE_ADVANCED_LIST is False:
+                DrawingList_Functions.MapAdvancedDrawingList(doc=App.ActiveDocument, sheet=sheet)
+            if USE_EXTERNAL_SOURCE_ADVANCED_LIST is True:
+                if EXTERNAL_FILE_ADVANCED_LIST.lower().endswith("fcstd"):
+                    DrawingList_Functions.MapAdvancedDrawingList_FreeCAD(doc=App.ActiveDocument, sheet=sheet)
+                if EXTERNAL_FILE_ADVANCED_LIST.lower().endswith("xlsx"):
+                    DrawingList_Functions.MapAdvancedDrawingList_Excel(doc=App.ActiveDocument, sheet=sheet)
 
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"

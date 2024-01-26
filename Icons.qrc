@@ -19,5 +19,19 @@
         <file>Resources/Icons/Expand arrow - #1.svg</file>
         <file>Resources/Icons/Expand arrow - #2.svg</file>
         <file>Resources/Icons/Expand Dots - #1.svg</file>
+        <file>Resources/Icons/CreateDrawingList_Excel.svg</file>
+        <file>Resources/Icons/CreateDrawingList_Internal.svg</file>
+        <file>Resources/Icons/CreateDrawingList_FreeCAD.svg</file>
+        <file>Resources/Icons/OpenDrawingList_Excel.svg</file>
+        <file>Resources/Icons/OpenDrawingList_Internal.svg</file>
+        <file>Resources/Icons/OpenDrawingList_FreeCAD.svg</file>
+        <file>Resources/Icons/CreateDrawingList_Advanced_Excel.svg</file>
+        <file>Resources/Icons/CreateDrawingList_Advanced_Internal.svg</file>
+        <file>Resources/Icons/CreateDrawingList_Advanced_FreeCAD.svg</file>
+        <file>Resources/Icons/OpenDrawingList_Advanced_Excel.svg</file>
+        <file>Resources/Icons/OpenDrawingList_Advanced_Internal.svg</file>
+        <file>Resources/Icons/OpenDrawingList_Advanced_FreeCAD.svg</file>
+        <file>Resources/Icons/SortGroup_AZ.svg</file>
+        <file>Resources/Icons/SortGroup_ZA.svg</file>
     </qresource>
 </RCC>

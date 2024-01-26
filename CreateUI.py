@@ -30,7 +30,12 @@
 import FreeCAD as App
 from SettingsTB import USE_EXTERNAL_SOURCE
 from SettingsTB import EXTERNAL_SOURCE_PATH
-import Standard_Functions_TitleBlock as Standard_Functions
+from SettingsTB import USE_SIMPLE_LIST
+from SettingsTB import USE_EXTERNAL_SOURCE_SIMPLE_LIST
+from SettingsTB import EXTERNAL_FILE_SIMPLE_LIST
+from SettingsTB import USE_ADVANCED_LIST
+from SettingsTB import USE_EXTERNAL_SOURCE_ADVANCED_LIST
+from SettingsTB import EXTERNAL_FILE_ADVANCED_LIST
 
 
 # Define the translation
@@ -95,6 +100,63 @@ def DefineToolbars():
             "ImportSettings_FreeCAD",
             "OpenFreeCAD",
         ]
+    if USE_SIMPLE_LIST is True:
+        if USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
+            ToolbarListExtra.extend(
+                [
+                    "Separator",
+                    "NewSimpleList_Internal",
+                ]
+            )
+        if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True and EXTERNAL_FILE_SIMPLE_LIST.lower().endswith(".fcstd") is False:
+            ToolbarListExtra.extend(
+                [
+                    "Separator",
+                    "NewSimpleList_Excel",
+                    "OpenSimpleList_Excel",
+                ]
+            )
+        if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True and EXTERNAL_FILE_SIMPLE_LIST.lower().endswith(".fcstd") is True:
+            ToolbarListExtra.extend(
+                [
+                    "Separator",
+                    "NewSimpleList_FreeCAD",
+                    "OpenSimpleList_FreeCAD",
+                ]
+            )
+    if USE_ADVANCED_LIST is True:
+        if USE_EXTERNAL_SOURCE_ADVANCED_LIST is False:
+            ToolbarListExtra.extend(
+                [
+                    "Separator",
+                    "NewAdvancedList_Internal",
+                    "Separator",
+                    "SortGroup_AZ",
+                    "SortGroup_ZA",
+                ]
+            )
+        if USE_EXTERNAL_SOURCE_ADVANCED_LIST is True and EXTERNAL_FILE_ADVANCED_LIST.lower().endswith(".fcstd") is False:
+            ToolbarListExtra.extend(
+                [
+                    "Separator",
+                    "NewAdvancedList_Excel",
+                    "OpenAdvancedList_Excel",
+                    "Separator",
+                    "SortGroup_AZ",
+                    "SortGroup_ZA",
+                ]
+            )
+        if USE_EXTERNAL_SOURCE_ADVANCED_LIST is True and EXTERNAL_FILE_ADVANCED_LIST.lower().endswith(".fcstd") is True:
+            ToolbarListExtra.extend(
+                [
+                    "Separator",
+                    "NewAdvancedList_FreeCAD",
+                    "OpenAdvancedList_FreeCAD",
+                    "Separator",
+                    "SortGroup_AZ",
+                    "SortGroup_ZA",
+                ]
+            )
 
     result = {"ToolbarListMain": ToolbarListMain, "ToolbarListExtra": ToolbarListExtra}
 
@@ -126,10 +188,28 @@ def DefineMenus():
         "ExportSettings_FreeCAD",
         "ImportSettings_FreeCAD",
     ]
+    DrawingList_Simple = [
+        "NewSimpleList_Excel",
+        "NewSimpleList_FreeCAD",
+        "NewSimpleList_Internal",
+        "Separator",
+        "OpenSimpleList_Excel",
+        "OpenSimpleList_FreeCAD",
+    ]
+    DrawingList_Advanced = [
+        "NewAdvancedList_Excel",
+        "NewAdvancedList_FreeCAD",
+        "NewAdvancedList_Internal",
+        "Separator",
+        "OpenAdvancedList_Excel",
+        "OpenAdvancedList_FreeCAD",
+    ]
     result = {
         "StandardList": StandardList,
         "ExcelList": ExcelList,
         "FreeCADList": FreeCADList,
+        "DrawingList_Simple": DrawingList_Simple,
+        "DrawingList_Advanced": DrawingList_Advanced,
         "SettingsList": SettingsList,
     }
 
@@ -143,7 +223,6 @@ def QT_TRANSLATE_NOOP(context, text):
 def CreateTechDrawToolbar() -> object:
     """Creates a toolbar in the standard TechDraw WorkBench with the most importand commands"""
     import FreeCADGui as Gui
-    from PySide2.QtWidgets import QToolBar
 
     # region -- define the names and folders
 

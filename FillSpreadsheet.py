@@ -37,11 +37,11 @@
 #  - Etc.
 
 # region imports
-
 import os
 import FreeCAD as App
 import Standard_Functions_TitleBlock as Standard_Functions
 import TableFormat_Functions
+import DrawingList_Functions
 
 # Get the settings
 from SettingsTB import DRAW_NO_FIELD
@@ -71,6 +71,11 @@ from SettingsTB import INCLUDE_MASS
 from SettingsTB import INCLUDE_ANGLE
 from SettingsTB import INCLUDE_LENGTH
 from SettingsTB import preferences
+from SettingsTB import USE_SIMPLE_LIST
+from SettingsTB import USE_EXTERNAL_SOURCE_SIMPLE_LIST
+from SettingsTB import USE_ADVANCED_LIST
+from SettingsTB import EXTERNAL_FILE_ADVANCED_LIST
+
 # endregion
 
 # Define the translation
@@ -620,13 +625,13 @@ def FillSheet():
 def ImportDataExcel():
     from openpyxl import load_workbook
 
-    # if debug mode is enabled, show the external file including path.
-    if ENABLE_DEBUG is True:
-        Text = translate("TitleBlock Workbench", str(EXTERNAL_SOURCE_PATH))
-        Standard_Functions.Print(Text, "Log")
-
     # Check if it is allowed to use an external source and if so, continue
     if USE_EXTERNAL_SOURCE is True:
+        # if debug mode is enabled, show the external file including path.
+        if ENABLE_DEBUG is True:
+            Text = translate("TitleBlock Workbench", str(EXTERNAL_SOURCE_PATH))
+            Standard_Functions.Print(Text, "Log")
+
         # try to open the source. if not show an messagebox and if debug mode is enabled, show the exeption as well
         try:
             wb = ""
@@ -717,20 +722,20 @@ def ImportDataExcel():
 
             if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
                 StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
-            StartColumn = StartCell[:1]
+            StartColumn = Standard_Functions.RemoveNumbersFromString(StartCell)
             # If debug mode is on, show the start colum and its number
             if ENABLE_DEBUG is True:
                 Standard_Functions.Print(
                     translate(
                         "TitleBlock Workbench",
-                        "Start column is: " + str(StartColumn),
-                        "Log",
-                    )
+                        "Start column for the external source is: " + str(StartColumn),
+                    ),
+                    "Log",
                 )
                 Standard_Functions.Print(
                     translate(
                         "TitleBlock Workbench",
-                        "Column number is: "
+                        "Column number for the external source is: "
                         + str(Standard_Functions.GetNumberFromLetter(StartColumn)),
                     ),
                     "Log",
@@ -749,11 +754,11 @@ def ImportDataExcel():
             )
 
             # Get the start row
-            StartRow = EXTERNAL_SOURCE_STARTCELL[1:2]
+            StartRow = Standard_Functions.RemoveLettersFromString(EXTERNAL_SOURCE_STARTCELL)
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
                 Text = translate(
-                    "TitleBlock Workbench", "the start row is: " + str(StartRow)
+                    "TitleBlock Workbench", "the start row for the external source is: " + str(StartRow)
                 )
                 Standard_Functions.Print(Text, "Log")
 
@@ -820,7 +825,7 @@ def ImportDataExcel():
             # Run the def to add extra system data. This is the final value of "RowNumber" minus the "StartRow".
             AddExtraData(sheet, RowNumber - int(StartRow))
 
-            # Format the spreadsheet
+            # Include extra data
             extraRows = 0
             if INCLUDE_LENGTH is True:
                 extraRows = extraRows + 1
@@ -873,7 +878,7 @@ def ImportDataExcel():
 
             # Finally recompute the spreadsheet
             sheet.recompute()
-            App.ActiveDocument.recompute()
+            App.ActiveDocument.recompute(None, True, True)
 
         except Exception as e:
             Text = translate(
@@ -887,6 +892,9 @@ def ImportDataExcel():
                 )
                 raise e
             Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+        finally:
+            # Close the excel workbook
+            wb.close()
     else:
         Text = translate("TitleBlock Workbench", "External source is not enabled!")
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
@@ -895,12 +903,12 @@ def ImportDataExcel():
 
 # Import data from an central FreeCAD file
 def ImportDataFreeCAD():
-    # if debug mode is enabled, show the external file including path.
-    if ENABLE_DEBUG is True:
-        Text = translate("TitleBlock Workbench", str(EXTERNAL_SOURCE_PATH))
-        Standard_Functions.Print(Text, "Log")
-
     try:
+        # if debug mode is enabled, show the external file including path.
+        if ENABLE_DEBUG is True:
+            Text = translate("TitleBlock Workbench", str(EXTERNAL_SOURCE_PATH))
+            Standard_Functions.Print(Text, "Log")
+
         # Check if it is allowed to use an external source and if so, continue
         if USE_EXTERNAL_SOURCE is True:
             # Get the active document
@@ -1001,14 +1009,14 @@ def ImportDataFreeCAD():
                 Standard_Functions.Print(
                     translate(
                         "TitleBlock Workbench",
-                        "Start column is: " + str(StartColumnExt),
+                        "Start column for the external source is: " + str(StartColumnExt),
                     ),
                     "Log",
                 )
                 Standard_Functions.Print(
                     translate(
                         "TitleBlock Workbench",
-                        "Column number is: "
+                        "Column number for the external source is: "
                         + str(Standard_Functions.GetNumberFromLetter(StartColumnExt)),
                     ),
                     "Log",
@@ -1033,7 +1041,7 @@ def ImportDataFreeCAD():
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
                 Text = translate(
-                    "TitleBlock Workbench", "the start row is: " + str(StartRow)
+                    "TitleBlock Workbench", "the start row for the external source is: " + str(StartRow)
                 )
                 Standard_Functions.Print(Text, "Log")
 
@@ -1104,6 +1112,7 @@ def ImportDataFreeCAD():
             # Run the def to add extra system data. This is the final value of "RowNumber" minus the "StartRow".
             AddExtraData(sheet, RowNumber - int(StartRow), doc)
 
+            # Include extra data
             extraRows = 0
             if INCLUDE_LENGTH is True:
                 extraRows = extraRows + 1

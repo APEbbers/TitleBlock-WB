@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui version="4.0">
+<ui version="4.0" connectslotsbyname="false">
  <class>Form</class>
  <widget class="QWidget" name="Form">
   <property name="windowModality">
@@ -12,12 +12,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1966</width>
-    <height>1330</height>
+    <width>1089</width>
+    <height>644</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -95,6 +95,9 @@
   <property name="windowTitle">
    <string notr="true">Preferences</string>
   </property>
+  <property name="windowFilePath">
+   <string notr="true"/>
+  </property>
   <property name="inputMethodHints">
    <set>Qt::ImhNone</set>
   </property>
@@ -167,17 +170,17 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>5</x>
-     <y>5</y>
-     <width>456</width>
+     <x>20</x>
+     <y>10</y>
+     <width>491</width>
      <height>516</height>
     </rect>
    </property>
    <property name="autoFillBackground">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="TitleBlock">
     <attribute name="title">
@@ -188,7 +191,7 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>451</width>
+       <width>491</width>
        <height>491</height>
       </rect>
      </property>
@@ -200,6 +203,9 @@
      </property>
      <property name="focusPolicy">
       <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
      </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
@@ -221,8 +227,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>434</width>
-        <height>1052</height>
+        <width>474</width>
+        <height>1092</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -258,7 +264,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QGroupBox" name="groupBox_DrawingNumber_2">
+        <widget class="QFrame" name="frame_DrawingNumber_2">
          <property name="enabled">
           <bool>true</bool>
          </property>
@@ -274,98 +280,96 @@
            <bold>true</bold>
           </font>
          </property>
-         <property name="title">
-          <string/>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
          </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         <property name="frameShadow">
+          <enum>QFrame::Sunken</enum>
          </property>
-         <property name="flat">
-          <bool>false</bool>
+         <property name="lineWidth">
+          <number>1</number>
          </property>
-         <property name="checkable">
-          <bool>false</bool>
-         </property>
-         <widget class="Gui::PrefCheckBox" name="UsePageName">
+         <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
            <rect>
-            <x>10</x>
-            <y>25</y>
-            <width>241</width>
-            <height>17</height>
+            <x>5</x>
+            <y>15</y>
+            <width>401</width>
+            <height>74</height>
            </rect>
           </property>
-          <property name="font">
-           <font>
-            <weight>50</weight>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Use page name as drawing number</string>
-          </property>
-          <property name="prefEntry" stdset="0">
-           <cstring>UsePageName</cstring>
-          </property>
-          <property name="prefPath" stdset="0">
-           <cstring>Mod/TitleBlock Workbench</cstring>
-          </property>
-         </widget>
-         <widget class="Gui::PrefLineEdit" name="DrawingNumber_Page">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>70</y>
-            <width>241</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <weight>50</weight>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="inputMask">
-           <string/>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="placeholderText">
-           <string>Enter the property name...</string>
-          </property>
-          <property name="prefEntry" stdset="0">
-           <cstring>DrwNrFieldName_Page</cstring>
-          </property>
-          <property name="prefPath" stdset="0">
-           <cstring>Mod/TitleBlock Workbench</cstring>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_36">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>50</y>
-            <width>256</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <weight>50</weight>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>The property name for drawing number:</string>
-          </property>
+          <layout class="QFormLayout" name="formLayout_17">
+           <property name="verticalSpacing">
+            <number>10</number>
+           </property>
+           <item row="0" column="0" colspan="2">
+            <widget class="Gui::PrefCheckBox" name="UsePageName">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Use page name as drawing number</string>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>UsePageName</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="2">
+            <layout class="QFormLayout" name="formLayout_16">
+             <item row="0" column="0" colspan="2">
+              <widget class="QLabel" name="label_36">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="font">
+                <font>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>The property name for drawing number:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0" colspan="2">
+              <widget class="Gui::PrefLineEdit" name="DrawingNumber_Page">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="font">
+                <font>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="inputMask">
+                <string/>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="placeholderText">
+                <string>Enter the property name...</string>
+               </property>
+               <property name="prefEntry" stdset="0">
+                <cstring>DrwNrFieldName_Page</cstring>
+               </property>
+               <property name="prefPath" stdset="0">
+                <cstring>Mod/TitleBlock Workbench</cstring>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
          </widget>
         </widget>
        </item>
@@ -386,7 +390,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QGroupBox" name="groupBox_DrawingNumber">
+        <widget class="QFrame" name="frame_DrawingNumber">
          <property name="enabled">
           <bool>true</bool>
          </property>
@@ -402,98 +406,93 @@
            <bold>true</bold>
           </font>
          </property>
-         <property name="title">
-          <string/>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
          </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-         </property>
-         <property name="flat">
-          <bool>false</bool>
-         </property>
-         <widget class="Gui::PrefCheckBox" name="UseFileName">
+         <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>25</y>
-            <width>241</width>
-            <height>17</height>
+            <y>15</y>
+            <width>396</width>
+            <height>74</height>
            </rect>
           </property>
-          <property name="font">
-           <font>
-            <weight>50</weight>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Use filename as drawing number</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-          <property name="prefEntry" stdset="0">
-           <cstring>UseFileName</cstring>
-          </property>
-          <property name="prefPath" stdset="0">
-           <cstring>Mod/TitleBlock Workbench</cstring>
-          </property>
-         </widget>
-         <widget class="Gui::PrefLineEdit" name="DrawingNumber">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>70</y>
-            <width>241</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <weight>50</weight>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="inputMask">
-           <string/>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="placeholderText">
-           <string>Enter the property name...</string>
-          </property>
-          <property name="prefEntry" stdset="0">
-           <cstring>DrwNrFieldName</cstring>
-          </property>
-          <property name="prefPath" stdset="0">
-           <cstring>Mod/TitleBlock Workbench</cstring>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_10">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>50</y>
-            <width>256</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <weight>50</weight>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>The property name for drawing number:</string>
-          </property>
+          <layout class="QFormLayout" name="formLayout_19">
+           <property name="verticalSpacing">
+            <number>10</number>
+           </property>
+           <item row="0" column="0" colspan="2">
+            <widget class="Gui::PrefCheckBox" name="UseFileName">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Use filename as drawing number</string>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <property name="prefEntry" stdset="0">
+              <cstring>UseFileName</cstring>
+             </property>
+             <property name="prefPath" stdset="0">
+              <cstring>Mod/TitleBlock Workbench</cstring>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="2">
+            <layout class="QFormLayout" name="formLayout_18">
+             <item row="0" column="0" colspan="2">
+              <widget class="QLabel" name="label_10">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="font">
+                <font>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>The property name for drawing number:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0" colspan="2">
+              <widget class="Gui::PrefLineEdit" name="DrawingNumber">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="font">
+                <font>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="inputMask">
+                <string/>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="placeholderText">
+                <string>Enter the property name...</string>
+               </property>
+               <property name="prefEntry" stdset="0">
+                <cstring>DrwNrFieldName</cstring>
+               </property>
+               <property name="prefPath" stdset="0">
+                <cstring>Mod/TitleBlock Workbench</cstring>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
          </widget>
         </widget>
        </item>
@@ -514,11 +513,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QGroupBox" name="groupBox_Map_Items">
+        <widget class="QFrame" name="frame_Map_Items">
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>176</height>
+           <height>186</height>
           </size>
          </property>
          <property name="font">
@@ -527,8 +526,8 @@
            <bold>true</bold>
           </font>
          </property>
-         <property name="title">
-          <string/>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
          </property>
          <widget class="QLabel" name="label_3">
           <property name="geometry">
@@ -561,7 +560,7 @@
             <x>10</x>
             <y>65</y>
             <width>371</width>
-            <height>100</height>
+            <height>108</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout">
@@ -723,11 +722,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QGroupBox" name="groupBox_Map_DocInfo">
+        <widget class="QFrame" name="frame_Map_DocInfo">
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>311</height>
+           <height>325</height>
           </size>
          </property>
          <property name="font">
@@ -736,8 +735,8 @@
            <bold>true</bold>
           </font>
          </property>
-         <property name="title">
-          <string/>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
          </property>
          <widget class="QLabel" name="label_17">
           <property name="geometry">
@@ -770,7 +769,7 @@
             <x>11</x>
             <y>66</y>
             <width>371</width>
-            <height>241</height>
+            <height>248</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
@@ -1119,7 +1118,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QGroupBox" name="groupBox_Included_Items">
+        <widget class="QFrame" name="frame_Included_Items">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1132,8 +1131,8 @@
            <bold>true</bold>
           </font>
          </property>
-         <property name="title">
-          <string/>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
          </property>
          <widget class="QLabel" name="label_4">
           <property name="geometry">
@@ -1262,6 +1261,16 @@
          </widget>
         </widget>
        </item>
+       <item>
+        <widget class="QFrame" name="frame">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
     </widget>
@@ -1270,13 +1279,13 @@
     <attribute name="title">
      <string>External Source</string>
     </attribute>
-    <widget class="QGroupBox" name="groupBox_2">
+    <widget class="QFrame" name="frame_2">
      <property name="geometry">
       <rect>
        <x>5</x>
        <y>10</y>
-       <width>421</width>
-       <height>246</height>
+       <width>456</width>
+       <height>241</height>
       </rect>
      </property>
      <property name="sizePolicy">
@@ -1285,479 +1294,490 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="title">
-      <string/>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
      </property>
-     <widget class="Gui::PrefCheckBox" name="UseExternalSource">
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>25</y>
-        <width>231</width>
-        <height>17</height>
+        <y>15</y>
+        <width>340</width>
+        <height>215</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Use external source</string>
-      </property>
-      <property name="prefEntry" stdset="0">
-       <cstring>UseExternalSource</cstring>
-      </property>
-      <property name="prefPath" stdset="0">
-       <cstring>Mod/TitleBlock Workbench</cstring>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_16">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>85</y>
-        <width>371</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Plain</enum>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The name of the worksheet that contains the date for the titleblock:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="Gui::PrefLineEdit" name="SheetName">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>105</y>
-        <width>361</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="toolTip">
-       <string>Enter the name of the sheet for the titleblock data</string>
-      </property>
-      <property name="whatsThis">
-       <string>Enter the name of the sheet for the titleblock data</string>
-      </property>
-      <property name="inputMask">
-       <string/>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="placeholderText">
-       <string>Enter the name of sheet...</string>
-      </property>
-      <property name="prefEntry" stdset="0">
-       <cstring>SheetName</cstring>
-      </property>
-      <property name="prefPath" stdset="0">
-       <cstring>Mod/TitleBlock Workbench</cstring>
-      </property>
-     </widget>
-     <widget class="Gui::PrefFileChooser" name="ExternalFileChooser">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>45</y>
-        <width>401</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="fileName">
-       <string/>
-      </property>
-      <property name="filter">
-       <string>*.xlsx; *.FCStd</string>
-      </property>
-      <property name="prefEntry" stdset="0">
-       <cstring>ExternalFile</cstring>
-      </property>
-      <property name="prefPath" stdset="0">
-       <cstring>Mod/TitleBlock Workbench</cstring>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_15">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>135</y>
-        <width>341</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Plain</enum>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The startcell of the table which contains to the data for the titleblock: &lt;span style=&quot; font-style:italic;&quot;&gt;(This must be the top left cell.)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_2">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>175</y>
-        <width>216</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <italic>true</italic>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cell adress must be like &amp;quot;B1&amp;quot; or like &amp;quot;R1C1&amp;quot;. If empty, A1 will be used.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="Gui::PrefLineEdit" name="StartCell">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>180</y>
-        <width>153</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="inputMask">
-       <string/>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="placeholderText">
-       <string>Enter the start cell...</string>
-      </property>
-      <property name="prefEntry" stdset="0">
-       <cstring>StartCell</cstring>
-      </property>
-      <property name="prefPath" stdset="0">
-       <cstring>Mod/TitleBlock Workbench</cstring>
-      </property>
-     </widget>
-     <widget class="Gui::PrefCheckBox" name="AutoFillTitleBlock">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>215</y>
-        <width>391</width>
-        <height>17</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Populate titleblock on import</string>
-      </property>
-      <property name="checked">
-       <bool>false</bool>
-      </property>
-      <property name="prefEntry" stdset="0">
-       <cstring>AutoFillTitleBlock</cstring>
-      </property>
-      <property name="prefPath" stdset="0">
-       <cstring>Mod/TitleBlock Workbench</cstring>
-      </property>
+      <layout class="QFormLayout" name="formLayout_13">
+       <property name="verticalSpacing">
+        <number>10</number>
+       </property>
+       <item row="0" column="0" colspan="2">
+        <layout class="QFormLayout" name="formLayout_11">
+         <item row="1" column="0" colspan="2">
+          <widget class="Gui::PrefFileChooser" name="ExternalFileChooser">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="font">
+            <font>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="fileName">
+            <string/>
+           </property>
+           <property name="filter">
+            <string>*.xlsx; *.FCStd</string>
+           </property>
+           <property name="prefEntry" stdset="0">
+            <cstring>ExternalFile</cstring>
+           </property>
+           <property name="prefPath" stdset="0">
+            <cstring>Mod/TitleBlock Workbench</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" colspan="2">
+          <widget class="Gui::PrefCheckBox" name="UseExternalSource">
+           <property name="font">
+            <font>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Use external source</string>
+           </property>
+           <property name="prefEntry" stdset="0">
+            <cstring>UseExternalSource</cstring>
+           </property>
+           <property name="prefPath" stdset="0">
+            <cstring>Mod/TitleBlock Workbench</cstring>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <layout class="QFormLayout" name="formLayout_12">
+         <item row="0" column="0" colspan="2">
+          <widget class="QLabel" name="label_16">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="font">
+            <font>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Plain</enum>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The name of the worksheet that contains the date for the titleblock:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="Gui::PrefLineEdit" name="SheetName">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="font">
+            <font>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string>Enter the name of the sheet for the titleblock data</string>
+           </property>
+           <property name="whatsThis">
+            <string>Enter the name of the sheet for the titleblock data</string>
+           </property>
+           <property name="inputMask">
+            <string/>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="placeholderText">
+            <string>Enter the name of sheet...</string>
+           </property>
+           <property name="prefEntry" stdset="0">
+            <cstring>SheetName</cstring>
+           </property>
+           <property name="prefPath" stdset="0">
+            <cstring>Mod/TitleBlock Workbench</cstring>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="2" column="0" colspan="2">
+        <layout class="QGridLayout" name="gridLayout_13">
+         <property name="horizontalSpacing">
+          <number>6</number>
+         </property>
+         <property name="verticalSpacing">
+          <number>0</number>
+         </property>
+         <item row="2" column="1">
+          <widget class="QLabel" name="label_2">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>210</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <weight>50</weight>
+             <italic>true</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cell adress must be like &amp;quot;B1&amp;quot; or like &amp;quot;R1C1&amp;quot;. If empty, A1 will be used.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="Gui::PrefLineEdit" name="StartCell">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="font">
+            <font>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="inputMask">
+            <string/>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="placeholderText">
+            <string>Enter the start cell...</string>
+           </property>
+           <property name="prefEntry" stdset="0">
+            <cstring>StartCell</cstring>
+           </property>
+           <property name="prefPath" stdset="0">
+            <cstring>Mod/TitleBlock Workbench</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" rowspan="2" colspan="3">
+          <widget class="QLabel" name="label_15">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Plain</enum>
+           </property>
+           <property name="text">
+            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The startcell of the table which contains to the data for the titleblock: 	&lt;span style=&quot; font-style:italic;&quot;&gt;(This must be the top left cell.)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="0" colspan="2">
+        <widget class="Gui::PrefCheckBox" name="AutoFillTitleBlock">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Populate titleblock on import</string>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+         <property name="prefEntry" stdset="0">
+          <cstring>AutoFillTitleBlock</cstring>
+         </property>
+         <property name="prefPath" stdset="0">
+          <cstring>Mod/TitleBlock Workbench</cstring>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
-    <widget class="QGroupBox" name="groupBox_3">
+    <widget class="QFrame" name="frame_3">
      <property name="geometry">
       <rect>
        <x>5</x>
-       <y>275</y>
-       <width>421</width>
-       <height>206</height>
+       <y>265</y>
+       <width>456</width>
+       <height>176</height>
       </rect>
      </property>
-     <property name="title">
-      <string/>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
      </property>
-     <widget class="QWidget" name="widget_ImportSettings" native="true">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>5</x>
-        <y>20</y>
-        <width>406</width>
-        <height>176</height>
+        <x>10</x>
+        <y>15</y>
+        <width>334</width>
+        <height>152</height>
        </rect>
       </property>
-      <widget class="Gui::PrefCheckBox" name="ImportSettingsXL">
-       <property name="enabled">
-        <bool>false</bool>
+      <layout class="QFormLayout" name="formLayout_15">
+       <property name="verticalSpacing">
+        <number>10</number>
        </property>
-       <property name="geometry">
-        <rect>
-         <x>5</x>
-         <y>10</y>
-         <width>381</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Import workbench settings from external source</string>
-       </property>
-       <property name="prefEntry" stdset="0">
-        <cstring>ImportSettingsXL</cstring>
-       </property>
-       <property name="prefPath" stdset="0">
-        <cstring>Mod/TitleBlock Workbench</cstring>
-       </property>
-      </widget>
-      <widget class="Gui::PrefLineEdit" name="SheetName_Settings">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>70</y>
-         <width>133</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="toolTip">
-        <string>Enter the name of sheet to import the settings from.</string>
-       </property>
-       <property name="statusTip">
-        <string>Enter the name of sheet to import the settings from.</string>
-       </property>
-       <property name="whatsThis">
-        <string>Enter the name of sheet...</string>
-       </property>
-       <property name="inputMask">
-        <string/>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="placeholderText">
-        <string>Enter the name of sheet...</string>
-       </property>
-       <property name="prefEntry" stdset="0">
-        <cstring>SheetName_Settings</cstring>
-       </property>
-       <property name="prefPath" stdset="0">
-        <cstring>Mod/TitleBlock Workbench</cstring>
-       </property>
-      </widget>
-      <widget class="Gui::PrefLineEdit" name="StartCell_Settings">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>7</x>
-         <y>140</y>
-         <width>151</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="toolTip">
-        <string>Enter the cell to import the settings from.</string>
-       </property>
-       <property name="whatsThis">
-        <string>Enter the cell to import the settings from.</string>
-       </property>
-       <property name="inputMask">
-        <string/>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="placeholderText">
-        <string>Enter the start cell...</string>
-       </property>
-       <property name="prefEntry" stdset="0">
-        <cstring>StartCell_Settings</cstring>
-       </property>
-       <property name="prefPath" stdset="0">
-        <cstring>Mod/TitleBlock Workbench</cstring>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_9">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>165</x>
-         <y>135</y>
-         <width>216</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <weight>50</weight>
-         <italic>true</italic>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cell adress must be like &amp;quot;B1&amp;quot; or like &amp;quot;R1C1&amp;quot;. If empty, A1 will be used.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_13">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>105</y>
-         <width>206</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="font">
-        <font>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Plain</enum>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The startcell of the table with settings: &lt;span style=&quot; font-style:italic;&quot;&gt;(This must be the top left cell.)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-       </property>
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_14">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>50</y>
-         <width>371</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Plain</enum>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The name of the worksheet that containts the table with settings:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-      </widget>
+       <item row="0" column="0" colspan="2">
+        <widget class="Gui::PrefCheckBox" name="ImportSettingsXL">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Import workbench settings from external source</string>
+         </property>
+         <property name="prefEntry" stdset="0">
+          <cstring>ImportSettingsXL</cstring>
+         </property>
+         <property name="prefPath" stdset="0">
+          <cstring>Mod/TitleBlock Workbench</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <layout class="QFormLayout" name="formLayout_14">
+         <item row="0" column="0" colspan="2">
+          <widget class="QLabel" name="label_14">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="font">
+            <font>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Plain</enum>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The name of the worksheet that containts the table with settings:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="Gui::PrefLineEdit" name="SheetName_Settings">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="font">
+            <font>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string>Enter the name of sheet to import the settings from.</string>
+           </property>
+           <property name="statusTip">
+            <string>Enter the name of sheet to import the settings from.</string>
+           </property>
+           <property name="whatsThis">
+            <string>Enter the name of sheet...</string>
+           </property>
+           <property name="inputMask">
+            <string/>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="placeholderText">
+            <string>Enter the name of sheet...</string>
+           </property>
+           <property name="prefEntry" stdset="0">
+            <cstring>SheetName_Settings</cstring>
+           </property>
+           <property name="prefPath" stdset="0">
+            <cstring>Mod/TitleBlock Workbench</cstring>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="2" column="0" colspan="2">
+        <layout class="QGridLayout" name="gridLayout_14">
+         <item row="1" column="0">
+          <widget class="Gui::PrefLineEdit" name="StartCell_Settings">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="font">
+            <font>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string>Enter the cell to import the settings from.</string>
+           </property>
+           <property name="whatsThis">
+            <string>Enter the cell to import the settings from.</string>
+           </property>
+           <property name="inputMask">
+            <string/>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="placeholderText">
+            <string>Enter the start cell...</string>
+           </property>
+           <property name="prefEntry" stdset="0">
+            <cstring>StartCell_Settings</cstring>
+           </property>
+           <property name="prefPath" stdset="0">
+            <cstring>Mod/TitleBlock Workbench</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLabel" name="label_9">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>210</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <weight>50</weight>
+             <italic>true</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cell adress must be like &amp;quot;B1&amp;quot; or like &amp;quot;R1C1&amp;quot;. If empty, A1 will be used.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" colspan="2">
+          <widget class="QLabel" name="label_13">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Plain</enum>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The startcell of the table with settings: &lt;span style=&quot; font-style:italic;&quot;&gt;(This must be the top left cell.)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>
@@ -1765,12 +1785,12 @@
     <attribute name="title">
      <string>TechDraw Workbench</string>
     </attribute>
-    <widget class="QGroupBox" name="groupBox">
+    <widget class="QFrame" name="frame">
      <property name="geometry">
       <rect>
        <x>5</x>
        <y>10</y>
-       <width>421</width>
+       <width>456</width>
        <height>121</height>
       </rect>
      </property>
@@ -1780,123 +1800,130 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="title">
-      <string/>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
      </property>
-     <widget class="Gui::PrefCheckBox" name="AddToolBarTechDraw">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>11</x>
-        <y>26</y>
-        <width>296</width>
-        <height>17</height>
+        <x>10</x>
+        <y>15</y>
+        <width>229</width>
+        <height>95</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Add toolbar to the TechDraw Workbench</string>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-      <property name="prefEntry" stdset="0">
-       <cstring>AddToolBarTechDraw</cstring>
-      </property>
-      <property name="prefPath" stdset="0">
-       <cstring>Mod/TitleBlock Workbench</cstring>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_12">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>11</x>
-        <y>72</y>
-        <width>211</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Set default template</string>
-      </property>
-     </widget>
-     <widget class="Gui::PrefCheckBox" name="Import_templates">
-      <property name="geometry">
-       <rect>
-        <x>11</x>
-        <y>49</y>
-        <width>148</width>
-        <height>17</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Import example templates</string>
-      </property>
-      <property name="prefEntry" stdset="0">
-       <cstring>Import_templates</cstring>
-      </property>
-      <property name="prefPath" stdset="0">
-       <cstring>Mod/TitleBlock Workbench</cstring>
-      </property>
-     </widget>
-     <widget class="Gui::PrefComboBox" name="Default_Template">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>11</x>
-        <y>91</y>
-        <width>211</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="prefEntry" stdset="0">
-       <cstring>Default_Template</cstring>
-      </property>
-      <property name="prefPath" stdset="0">
-       <cstring>Mod/TitleBlock Workbench</cstring>
-      </property>
-      <item>
-       <property name="text">
-        <string>A0_Landscape</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>A1_Landscape</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>A2_Landscape</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>A3_Landscape</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>A4_Landscape</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>A4_Portrait</string>
-       </property>
-      </item>
+      <layout class="QFormLayout" name="formLayout_10">
+       <item row="0" column="0">
+        <widget class="Gui::PrefCheckBox" name="AddToolBarTechDraw">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Add toolbar to the TechDraw Workbench</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+         <property name="prefEntry" stdset="0">
+          <cstring>AddToolBarTechDraw</cstring>
+         </property>
+         <property name="prefPath" stdset="0">
+          <cstring>Mod/TitleBlock Workbench</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="Gui::PrefCheckBox" name="Import_templates">
+         <property name="text">
+          <string>Import example templates</string>
+         </property>
+         <property name="prefEntry" stdset="0">
+          <cstring>Import_templates</cstring>
+         </property>
+         <property name="prefPath" stdset="0">
+          <cstring>Mod/TitleBlock Workbench</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <layout class="QFormLayout" name="formLayout_9">
+         <item row="1" column="0" colspan="2">
+          <widget class="Gui::PrefComboBox" name="Default_Template">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="prefEntry" stdset="0">
+            <cstring>Default_Template</cstring>
+           </property>
+           <property name="prefPath" stdset="0">
+            <cstring>Mod/TitleBlock Workbench</cstring>
+           </property>
+           <item>
+            <property name="text">
+             <string>A0_Landscape</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>A1_Landscape</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>A2_Landscape</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>A3_Landscape</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>A4_Landscape</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>A4_Portrait</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="0" column="0" colspan="2">
+          <widget class="QLabel" name="label_12">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>Set default template</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>
@@ -1904,17 +1931,20 @@
     <attribute name="title">
      <string>UI Settings</string>
     </attribute>
-    <widget class="QGroupBox" name="Spreadsheet_Layout">
+    <widget class="QFrame" name="Spreadsheet_Layout">
      <property name="geometry">
       <rect>
        <x>5</x>
        <y>10</y>
-       <width>426</width>
+       <width>456</width>
        <height>291</height>
       </rect>
      </property>
-     <property name="title">
-      <string>Spreadsheet</string>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
      </property>
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
@@ -2343,10 +2373,962 @@
      </widget>
     </widget>
    </widget>
+   <widget class="QWidget" name="tab">
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <attribute name="title">
+     <string>Drawing list</string>
+    </attribute>
+    <widget class="QScrollArea" name="scrollArea_2">
+     <property name="geometry">
+      <rect>
+       <x>-5</x>
+       <y>0</y>
+       <width>491</width>
+       <height>486</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustToContents</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>false</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignHCenter|Qt::AlignTop</set>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents_2">
+      <property name="geometry">
+       <rect>
+        <x>15</x>
+        <y>0</y>
+        <width>445</width>
+        <height>1000</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>9</number>
+       </property>
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+       <property name="leftMargin">
+        <number>14</number>
+       </property>
+       <property name="topMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>9</number>
+       </property>
+       <property name="bottomMargin">
+        <number>9</number>
+       </property>
+       <item>
+        <widget class="QToolButton" name="toolButton_6">
+         <property name="text">
+          <string>Simple drawing list</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextBesideIcon</enum>
+         </property>
+         <property name="arrowType">
+          <enum>Qt::DownArrow</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_3">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>419</width>
+           <height>300</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>419</width>
+           <height>375</height>
+          </size>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Sunken</enum>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
+         <widget class="Gui::PrefCheckBox" name="UseESimpleList">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>399</width>
+            <height>19</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Use simple drawing list</string>
+          </property>
+          <property name="prefEntry" stdset="0">
+           <cstring>UseSimpleList</cstring>
+          </property>
+          <property name="prefPath" stdset="0">
+           <cstring>Mod/TitleBlock Workbench</cstring>
+          </property>
+         </widget>
+         <widget class="QFrame" name="frame_5">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>-1</x>
+            <y>35</y>
+            <width>421</width>
+            <height>266</height>
+           </rect>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QWidget" name="layoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>401</width>
+             <height>251</height>
+            </rect>
+           </property>
+           <layout class="QFormLayout" name="formLayout_5">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetDefaultConstraint</enum>
+            </property>
+            <property name="fieldGrowthPolicy">
+             <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+            </property>
+            <property name="rowWrapPolicy">
+             <enum>QFormLayout::DontWrapRows</enum>
+            </property>
+            <property name="labelAlignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+            </property>
+            <property name="formAlignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+            </property>
+            <property name="verticalSpacing">
+             <number>10</number>
+            </property>
+            <item row="0" column="0" colspan="2">
+             <layout class="QGridLayout" name="gridLayout_8">
+              <item row="3" column="0">
+               <widget class="Gui::PrefFileChooser" name="ExternalFileChooser_SimpleList">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="fileName">
+                 <string/>
+                </property>
+                <property name="filter">
+                 <string>*.xlsx; *.FCStd</string>
+                </property>
+                <property name="prefEntry" stdset="0">
+                 <cstring>ExternalFile_SimpleList</cstring>
+                </property>
+                <property name="prefPath" stdset="0">
+                 <cstring>Mod/TitleBlock Workbench</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="Gui::PrefCheckBox" name="UseExternalSource_SimpleList">
+                <property name="text">
+                 <string>Use external source</string>
+                </property>
+                <property name="prefEntry" stdset="0">
+                 <cstring>UseExternalSource_SimpleList</cstring>
+                </property>
+                <property name="prefPath" stdset="0">
+                 <cstring>Mod/TitleBlock Workbench</cstring>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="0" colspan="2">
+             <layout class="QGridLayout" name="gridLayout_9">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_37">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="font">
+                 <font>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The name of the worksheet that contains the drawing list:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="Gui::PrefLineEdit" name="SheetName_SimpleList">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string>Enter the name of the sheet for the titleblock data</string>
+                </property>
+                <property name="whatsThis">
+                 <string>Enter the name of the sheet for the titleblock data</string>
+                </property>
+                <property name="inputMask">
+                 <string/>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="placeholderText">
+                 <string>Enter the name of sheet...</string>
+                </property>
+                <property name="prefEntry" stdset="0">
+                 <cstring>SheetName_SimpleList</cstring>
+                </property>
+                <property name="prefPath" stdset="0">
+                 <cstring>Mod/TitleBlock Workbench</cstring>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="2" column="0" colspan="2">
+             <layout class="QGridLayout" name="gridLayout_10">
+              <item row="2" column="1">
+               <widget class="QLabel" name="label_39">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>215</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <weight>50</weight>
+                  <italic>true</italic>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cell adress must be like &amp;quot;B1&amp;quot; or like &amp;quot;R1C1&amp;quot;. If empty, A1 will be used.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="Gui::PrefLineEdit" name="StartCell_SimpleList">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="inputMask">
+                 <string/>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="placeholderText">
+                 <string>Enter the start cell...</string>
+                </property>
+                <property name="prefEntry" stdset="0">
+                 <cstring>StartCell_SimpleList</cstring>
+                </property>
+                <property name="prefPath" stdset="0">
+                 <cstring>Mod/TitleBlock Workbench</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QLabel" name="label_38">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>5</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="text">
+                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The startcell of the table which contains the drawing list:	     	&lt;span style=&quot; font-style:italic;&quot;&gt;(This must be the top left cell.)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="3" column="0" colspan="2">
+             <layout class="QGridLayout" name="gridLayout_11">
+              <item row="2" column="0">
+               <widget class="Gui::PrefLineEdit" name="PropertyName_SimpleList">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="placeholderText">
+                 <string>Enter the property name...</string>
+                </property>
+                <property name="prefEntry" stdset="0">
+                 <cstring>PropertyName_SimpleList</cstring>
+                </property>
+                <property name="prefPath" stdset="0">
+                 <cstring>Mod/TitleBlock Workbench</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_40">
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The property value to look for in the drawing list:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="4" column="0" colspan="2">
+             <widget class="Gui::PrefCheckBox" name="UsePageNames_SimpleList">
+              <property name="text">
+               <string>Use page names instead of property names</string>
+              </property>
+              <property name="prefEntry" stdset="0">
+               <cstring>UsePageNames_SimpleList</cstring>
+              </property>
+              <property name="prefPath" stdset="0">
+               <cstring>Mod/TitleBlock Workbench</cstring>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_7">
+         <property name="text">
+          <string>Advanced drawing list</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonTextBesideIcon</enum>
+         </property>
+         <property name="arrowType">
+          <enum>Qt::DownArrow</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_4">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>280</width>
+           <height>360</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>419</width>
+           <height>455</height>
+          </size>
+         </property>
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Sunken</enum>
+         </property>
+         <property name="lineWidth">
+          <number>1</number>
+         </property>
+         <widget class="QFrame" name="frame_2">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>29</y>
+            <width>421</width>
+            <height>331</height>
+           </rect>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+          <widget class="QWidget" name="layoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>396</width>
+             <height>316</height>
+            </rect>
+           </property>
+           <layout class="QFormLayout" name="formLayout_8">
+            <property name="verticalSpacing">
+             <number>10</number>
+            </property>
+            <item row="0" column="0" colspan="2">
+             <layout class="QFormLayout" name="formLayout_7">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetDefaultConstraint</enum>
+              </property>
+              <property name="fieldGrowthPolicy">
+               <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+              </property>
+              <item row="0" column="0" colspan="2">
+               <widget class="Gui::PrefCheckBox" name="UseExternalSource_AdvancedList">
+                <property name="text">
+                 <string>Use external source</string>
+                </property>
+                <property name="prefEntry" stdset="0">
+                 <cstring>UseExternalSource_AdvancedList</cstring>
+                </property>
+                <property name="prefPath" stdset="0">
+                 <cstring>Mod/TitleBlock Workbench</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="Gui::PrefFileChooser" name="ExternalFileChooser_AdvancedList">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="font">
+                 <font>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="fileName">
+                 <string/>
+                </property>
+                <property name="filter">
+                 <string>*.xlsx; *.FCStd</string>
+                </property>
+                <property name="prefEntry" stdset="0">
+                 <cstring>ExternalFile_AdvancedList</cstring>
+                </property>
+                <property name="prefPath" stdset="0">
+                 <cstring>Mod/TitleBlock Workbench</cstring>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="0" colspan="2">
+             <layout class="QFormLayout" name="formLayout_6">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetNoConstraint</enum>
+              </property>
+              <property name="fieldGrowthPolicy">
+               <enum>QFormLayout::ExpandingFieldsGrow</enum>
+              </property>
+              <item row="0" column="0" colspan="2">
+               <widget class="QLabel" name="label_41">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="font">
+                 <font>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The name of the worksheet that contains the drawing list:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="Gui::PrefLineEdit" name="SheetName_AdvancedList">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string>Enter the name of the sheet for the titleblock data</string>
+                </property>
+                <property name="whatsThis">
+                 <string>Enter the name of the sheet for the titleblock data</string>
+                </property>
+                <property name="inputMask">
+                 <string/>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="placeholderText">
+                 <string>Enter the name of sheet...</string>
+                </property>
+                <property name="prefEntry" stdset="0">
+                 <cstring>SheetName_AdvancedList</cstring>
+                </property>
+                <property name="prefPath" stdset="0">
+                 <cstring>Mod/TitleBlock Workbench</cstring>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="2" column="0" colspan="2">
+             <layout class="QGridLayout" name="gridLayout_12">
+              <item row="1" column="0">
+               <widget class="Gui::PrefLineEdit" name="StartCell_AdvancedList">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="font">
+                 <font>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="inputMask">
+                 <string/>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="placeholderText">
+                 <string>Enter the start cell...</string>
+                </property>
+                <property name="prefEntry" stdset="0">
+                 <cstring>StartCell_AdvancedList</cstring>
+                </property>
+                <property name="prefPath" stdset="0">
+                 <cstring>Mod/TitleBlock Workbench</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLabel" name="label_42">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>215</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <weight>50</weight>
+                  <italic>true</italic>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cell adress must be like &amp;quot;B1&amp;quot; or like &amp;quot;R1C1&amp;quot;. If empty, A1 will be used.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="2">
+               <widget class="QLabel" name="label_43">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>5</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="text">
+                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The startcell of the table which contains the drawing list:     		&lt;span style=&quot; font-style:italic;&quot;&gt;(This must be the top left cell.)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="4" column="0" colspan="2">
+             <layout class="QFormLayout" name="formLayout_3">
+              <item row="0" column="0" colspan="2">
+               <widget class="QLabel" name="label_45">
+                <property name="text">
+                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If an prefix is used to sort the pages, enter it here. It will be ignored when filling in the titleblock. For example: &amp;quot;01_&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="Gui::PrefLineEdit" name="SortingPrefix_AdvancedList">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="placeholderText">
+                 <string>Enter the prefix...</string>
+                </property>
+                <property name="prefEntry" stdset="0">
+                 <cstring>SortingPrefix_AdvancedList</cstring>
+                </property>
+                <property name="prefPath" stdset="0">
+                 <cstring>Mod/TitleBlock Workbench</cstring>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="5" column="0" colspan="2">
+             <widget class="Gui::PrefCheckBox" name="UsePageNames_AdvancesList">
+              <property name="text">
+               <string>Use page names instead of property names</string>
+              </property>
+              <property name="prefEntry" stdset="0">
+               <cstring>UsePageNames_AdvancesList</cstring>
+              </property>
+              <property name="prefPath" stdset="0">
+               <cstring>Mod/TitleBlock Workbench</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0" colspan="2">
+             <layout class="QFormLayout" name="formLayout_4">
+              <item row="0" column="0" colspan="2">
+               <widget class="QLabel" name="label_44">
+                <property name="text">
+                 <string>The property name to look for in the external source:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="Gui::PrefLineEdit" name="PropertyName_AdvancedList">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="placeholderText">
+                 <string>Enter the property name...</string>
+                </property>
+                <property name="prefEntry" stdset="0">
+                 <cstring>PropertyName_AdvancedList</cstring>
+                </property>
+                <property name="prefPath" stdset="0">
+                 <cstring>Mod/TitleBlock Workbench</cstring>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="Gui::PrefCheckBox" name="UseAdvancedList">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>5</y>
+            <width>394</width>
+            <height>19</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Use advanced drawing list</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <property name="prefEntry" stdset="0">
+           <cstring>UseAdvancedList</cstring>
+          </property>
+          <property name="prefPath" stdset="0">
+           <cstring>Mod/TitleBlock Workbench</cstring>
+          </property>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="Gui::UrlLabel" name="urlLabel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>585</y>
+     <width>321</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;For information see:				&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://github.com/APEbbers/TitleBlock-WB/wiki&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="textInteractionFlags">
+    <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+   </property>
+   <property name="url">
+    <string>https://github.com/APEbbers/TitleBlock-WB/wiki</string>
+   </property>
   </widget>
  </widget>
- <layoutdefault spacing="6" margin="5"/>
+ <layoutdefault spacing="3" margin="9"/>
  <customwidgets>
+  <customwidget>
+   <class>Gui::UrlLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Widgets.h</header>
+  </customwidget>
   <customwidget>
    <class>Gui::FileChooser</class>
    <extends>QWidget</extends>
@@ -2420,226 +3402,146 @@
  <resources/>
  <connections>
   <connection>
-   <sender>Import_templates</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>Default_Template</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>142</x>
-     <y>97</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>100</x>
-     <y>136</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Import_templates</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_12</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>111</x>
-     <y>97</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>113</x>
-     <y>113</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseFileName</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>DrawingNumber</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>134</x>
-     <y>233</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>134</x>
-     <y>283</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseFileName</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_10</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>134</x>
-     <y>233</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>269</x>
-     <y>263</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>ImportSettingsXL</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>62</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>201</x>
-     <y>332</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>ImportSettingsXL</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>70</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>209</x>
-     <y>332</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>AutoFillTitleBlock</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>87</x>
-     <y>69</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>105</x>
-     <y>258</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>ImportSettingsXL</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>142</x>
-     <y>71</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>161</x>
-     <y>338</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>UseExternalSource</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>AutoFillTitleBlock</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>74</x>
-     <y>66</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>78</x>
-     <y>256</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>toolButton</sender>
+   <sender>toolButton_7</sender>
    <signal>clicked(bool)</signal>
-   <receiver>groupBox_DrawingNumber_2</receiver>
+   <receiver>frame_4</receiver>
    <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>20</x>
-     <y>42</y>
+     <x>138</x>
+     <y>36</y>
     </hint>
     <hint type="destinationlabel">
-     <x>45</x>
-     <y>71</y>
+     <x>232</x>
+     <y>90</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>toolButton_5</sender>
    <signal>clicked(bool)</signal>
-   <receiver>groupBox_Included_Items</receiver>
+   <receiver>frame_Included_Items</receiver>
    <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>153</x>
-     <y>871</y>
+     <x>165</x>
+     <y>904</y>
     </hint>
     <hint type="destinationlabel">
-     <x>187</x>
-     <y>890</y>
+     <x>269</x>
+     <y>931</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>toolButton_4</sender>
    <signal>clicked(bool)</signal>
-   <receiver>groupBox_Map_DocInfo</receiver>
+   <receiver>frame_Map_DocInfo</receiver>
    <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>138</x>
-     <y>518</y>
+     <x>149</x>
+     <y>545</y>
     </hint>
     <hint type="destinationlabel">
-     <x>216</x>
-     <y>549</y>
+     <x>252</x>
+     <y>578</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>toolButton_3</sender>
    <signal>clicked(bool)</signal>
-   <receiver>groupBox_Map_Items</receiver>
+   <receiver>frame_Map_Items</receiver>
    <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>80</x>
-     <y>318</y>
+     <x>154</x>
+     <y>326</y>
     </hint>
     <hint type="destinationlabel">
-     <x>205</x>
-     <y>346</y>
+     <x>214</x>
+     <y>351</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>toolButton_2</sender>
    <signal>clicked(bool)</signal>
-   <receiver>groupBox_DrawingNumber</receiver>
+   <receiver>frame_DrawingNumber</receiver>
    <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>57</x>
-     <y>174</y>
+     <x>85</x>
+     <y>183</y>
     </hint>
     <hint type="destinationlabel">
-     <x>209</x>
-     <y>211</y>
+     <x>282</x>
+     <y>215</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>frame_DrawingNumber_2</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>49</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>282</x>
+     <y>79</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_6</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>frame_3</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>128</x>
+     <y>-385</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>279</x>
+     <y>-351</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseAdvancedList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>frame_2</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>149</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>332</x>
+     <y>116</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseESimpleList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>frame_5</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>167</x>
+     <y>-341</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>204</x>
+     <y>-316</y>
     </hint>
    </hints>
   </connection>
@@ -2650,44 +3552,316 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>205</x>
-     <y>101</y>
+     <x>345</x>
+     <y>99</y>
     </hint>
     <hint type="destinationlabel">
-     <x>210</x>
-     <y>138</y>
+     <x>358</x>
+     <y>141</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>UsePageName</sender>
+   <sender>UseFileName</sender>
    <signal>toggled(bool)</signal>
-   <receiver>label_36</receiver>
+   <receiver>label_10</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>170</x>
-     <y>100</y>
+     <x>238</x>
+     <y>236</y>
     </hint>
     <hint type="destinationlabel">
-     <x>177</x>
-     <y>121</y>
+     <x>255</x>
+     <y>260</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>UsePageName</sender>
+   <sender>UseFileName</sender>
    <signal>toggled(bool)</signal>
-   <receiver>UseFileName</receiver>
-   <slot>toggle()</slot>
+   <receiver>DrawingNumber</receiver>
+   <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>141</x>
-     <y>93</y>
+     <x>183</x>
+     <y>232</y>
     </hint>
     <hint type="destinationlabel">
-     <x>164</x>
-     <y>228</y>
+     <x>216</x>
+     <y>281</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseESimpleList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_38</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>138</x>
+     <y>-340</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>149</x>
+     <y>-186</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseESimpleList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>StartCell_SimpleList</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>98</x>
+     <y>-328</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>122</x>
+     <y>-157</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseESimpleList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_39</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>364</x>
+     <y>-330</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>282</x>
+     <y>-150</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource_SimpleList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>ExternalFileChooser_SimpleList</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>93</x>
+     <y>-304</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>112</x>
+     <y>-272</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseESimpleList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_37</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>319</x>
+     <y>-334</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>315</x>
+     <y>-240</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseESimpleList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>SheetName_SimpleList</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>367</x>
+     <y>-334</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>387</x>
+     <y>-224</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_6</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_37</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>59</x>
+     <y>-376</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>262</x>
+     <y>-240</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UsePageNames_SimpleList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_40</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>189</x>
+     <y>-23</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>254</x>
+     <y>-120</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UsePageNames_SimpleList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>PropertyName_SimpleList</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>162</x>
+     <y>-25</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>212</x>
+     <y>-95</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseAdvancedList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_41</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>180</x>
+     <y>79</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>214</x>
+     <y>169</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseAdvancedList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>SheetName_AdvancedList</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>269</x>
+     <y>81</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>194</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseAdvancedList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_43</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>78</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>92</x>
+     <y>225</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseAdvancedList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>StartCell_AdvancedList</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>66</x>
+     <y>80</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>175</x>
+     <y>254</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseAdvancedList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_42</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>392</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>367</x>
+     <y>262</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UseExternalSource_AdvancedList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>ExternalFileChooser_AdvancedList</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>138</x>
+     <y>108</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>166</x>
+     <y>135</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UsePageNames_AdvancesList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_44</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>250</x>
+     <y>454</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>261</x>
+     <y>289</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>UsePageNames_AdvancesList</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>PropertyName_AdvancedList</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>232</x>
+     <y>457</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>316</x>
+     <y>314</y>
     </hint>
    </hints>
   </connection>

@@ -779,7 +779,7 @@ def MapAdvancedDrawingList(doc, sheet):
                     GroupList.append(docObjects[i])
 
             # Get the startcolumn and the other three columns from there
-            StartCell = STARTCELL_SIMPLE_LIST
+            StartCell = STARTCELL_ADVANCED_LIST
 
             if (Standard_Functions.GetA1fromR1C1(StartCell)).strip():
                 StartCell = Standard_Functions.GetA1fromR1C1(StartCell)
@@ -1344,7 +1344,7 @@ def MapAdvancedDrawingList_Excel(doc, sheet):
             # Close the excel workbook
             wb.close()
     else:
-        Text = translate("TitleBlock Workbench", "Use of a simple drawing list is not enabled!")
+        Text = translate("TitleBlock Workbench", "Use of a advanced drawing list is not enabled!")
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
     return
 

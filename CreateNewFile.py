@@ -856,7 +856,7 @@ def CreateAdvancedDrawingList_FreeCAD():
     # region Format the settings with the values as a Table
     #
     DrawingList = TableFormat_Functions.FormatTable(sheet=DrawingList, HeaderRange="A1:E1",
-                                                    TableRange="A2:E9", FirstColumnRange="A2:A9")
+                                                    TableRange="A2:E10", FirstColumnRange="A2:A10")
 
     DrawingList.setBackground("A10", Standard_Functions.ColorConvertor([255, 230, 153]))
     DrawingList.setAlignment("A10", "left|vcenter")
@@ -996,7 +996,7 @@ def CreateAdvancedDrawingList_Internal():
     # region Format the settings with the values as a Table
     #
     DrawingList = TableFormat_Functions.FormatTable(sheet=DrawingList, HeaderRange="A1:E1",
-                                                    TableRange="A2:E9", FirstColumnRange="A2:A9")
+                                                    TableRange="A2:E10", FirstColumnRange="A2:A10")
 
     DrawingList.setBackground("A10", Standard_Functions.ColorConvertor([255, 230, 153]))
     DrawingList.setAlignment("A10", "left|vcenter")

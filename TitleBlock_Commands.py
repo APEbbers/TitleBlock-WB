@@ -599,7 +599,7 @@ class NewDrawingList_Internal_class:
     def Activated(self):
         import CreateNewFile
 
-        CreateNewFile.CreateInternalDrawingList_Simple()
+        CreateNewFile.CreateSimpleDrawingList_Internal()
 
         return
 
@@ -760,7 +760,7 @@ class NewDrawingList_Advanced_Internal_class:
     def Activated(self):
         import CreateNewFile
 
-        CreateNewFile.CreateInternalDrawingList_Advanced()
+        CreateNewFile.CreateAdvancedDrawingList_Internal()
 
         return
 

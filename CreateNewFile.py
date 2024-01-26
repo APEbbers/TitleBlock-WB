@@ -37,6 +37,8 @@ from SettingsTB import ENABLE_DEBUG
 # Define the translation
 translate = App.Qt.translate
 
+# region - TitleBlockData
+
 
 def CreateTitleBlockData_Excel():
     # Create a workbook and activate the first sheet
@@ -134,119 +136,6 @@ def CreateTitleBlockData_Excel():
         wb.close()
         # Update the preferences
         preferences.SetString("ExternalFile", rf"{FileName}")
-    if FileName == "":
-        return
-
-    # If import settings from excel is enabled, export settings to the new excel file.
-    if IMPORT_SETTINGS_XL is True:
-        SettingsTB.ExportSettings_XL(Silent=True)
-
-    # print a message if you succeded.
-    message = translate(
-        "TitleBlock Workbench",
-        f"The titleblock data is exported to the workbook {FileName} in the worksheet {ws.title}",
-    )
-    Standard_Functions.Mbox(text=message, title="TitleBlock Workbench", style=0)
-
-    return
-
-
-def CreateSimpleDrawingList_Excel():
-    # Create a workbook and activate the first sheet
-    wb = Workbook()
-    ws = wb.active
-    ws.title = "DrawingList"
-    preferences.SetString("SheetName_SimpleList", "DrawingList")
-    preferences.SetString("StartCell_SimpleList", "A1")
-
-    # Get the startcell and the next cells
-    StartCell = str("A1")
-    TopRow = int(StartCell[1:])
-    EditableText_1 = str(
-        Standard_Functions.GetLetterFromNumber(
-            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
-        )
-    ) + str(TopRow)
-    EditableText_2 = str(
-        Standard_Functions.GetLetterFromNumber(
-            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 2
-        )
-    ) + str(TopRow)
-    EditableText_3 = str(
-        Standard_Functions.GetLetterFromNumber(
-            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 3
-        )
-    ) + str(TopRow)
-    EditableText_4 = str(
-        Standard_Functions.GetLetterFromNumber(
-            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
-        )
-    ) + str(TopRow)
-
-    if ENABLE_DEBUG is True:
-        message = translate("TitleBlock Workbench", f"the startcell is: {StartCell}")
-        print(message)
-
-    # Set the headers
-    ws[StartCell].value = "Property Value"
-    ws[EditableText_1].value = "<Editable text - Name>(1)"
-    ws[EditableText_2].value = "<Editable text - Name>(2)"
-    ws[EditableText_3].value = "<Editable text - Name>(3)"
-    ws[EditableText_4].value = "<Editable text - Name>(4)"
-
-    # region Format the settings with the values as a Table
-    #
-    # Define the the last cell
-    EndCell = "E10"
-
-    # Define the table
-    NumberOfSheets = str(len(wb.sheetnames))
-    tab = Table(
-        displayName="DrawingList_" + NumberOfSheets,
-        ref=f"{StartCell}:{EndCell}",
-    )
-
-    # Add a default style with striped rows and banded columns
-    style = TableStyleInfo(
-        name="TableStyleMedium9",
-        showFirstColumn=False,
-        showLastColumn=False,
-        showRowStripes=True,
-        showColumnStripes=True,
-    )
-
-    # add the style to the table
-    tab.tableStyleInfo = style
-
-    # add the table to the worksheet
-    ws.add_table(tab)
-    # endregion
-
-    # Make the columns to autofit the date
-    for col in ws.columns:
-        SetLen = 0
-        column = col[0].column_letter  # Get the column name
-
-        for cell in col:
-            if len(str(cell.value)) > SetLen:
-                SetLen = len(str(cell.value))
-
-        set_col_width = SetLen + 5
-        # Setting the column width
-        ws.column_dimensions[column].width = set_col_width
-
-    # Save the excel file in a folder of your choosing
-    Filter = [
-        ("Excel", "*.xlsx"),
-    ]
-    FileName = Standard_Functions.GetFileDialog(Filter)
-    if FileName != "":
-        # Save the workbook
-        wb.save(str(FileName))
-        # Close the workbook
-        wb.close()
-        # Update the preferences
-        preferences.SetString("ExternalFile_SimpleList", rf"{FileName}")
     if FileName == "":
         return
 
@@ -373,6 +262,121 @@ def CreateTitleBlockData_FreeCAD():
         App.setActiveDocument(LastActiveDoc)
     except Exception:
         pass
+
+    return
+# endregion
+
+
+# region - SimpleDrawingList
+def CreateSimpleDrawingList_Excel():
+    # Create a workbook and activate the first sheet
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "DrawingList"
+    preferences.SetString("SheetName_SimpleList", "DrawingList")
+    preferences.SetString("StartCell_SimpleList", "A1")
+
+    # Get the startcell and the next cells
+    StartCell = str("A1")
+    TopRow = int(StartCell[1:])
+    EditableText_1 = str(
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 1
+        )
+    ) + str(TopRow)
+    EditableText_2 = str(
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 2
+        )
+    ) + str(TopRow)
+    EditableText_3 = str(
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 3
+        )
+    ) + str(TopRow)
+    EditableText_4 = str(
+        Standard_Functions.GetLetterFromNumber(
+            Standard_Functions.GetNumberFromLetter(StartCell[:1]) + 4
+        )
+    ) + str(TopRow)
+
+    if ENABLE_DEBUG is True:
+        message = translate("TitleBlock Workbench", f"the startcell is: {StartCell}")
+        print(message)
+
+    # Set the headers
+    ws[StartCell].value = "Property Value"
+    ws[EditableText_1].value = "<Editable text - Name>(1)"
+    ws[EditableText_2].value = "<Editable text - Name>(2)"
+    ws[EditableText_3].value = "<Editable text - Name>(3)"
+    ws[EditableText_4].value = "<Editable text - Name>(4)"
+
+    # region Format the settings with the values as a Table
+    #
+    # Define the the last cell
+    EndCell = "E10"
+
+    # Define the table
+    NumberOfSheets = str(len(wb.sheetnames))
+    tab = Table(
+        displayName="DrawingList_" + NumberOfSheets,
+        ref=f"{StartCell}:{EndCell}",
+    )
+
+    # Add a default style with striped rows and banded columns
+    style = TableStyleInfo(
+        name="TableStyleMedium9",
+        showFirstColumn=False,
+        showLastColumn=False,
+        showRowStripes=True,
+        showColumnStripes=True,
+    )
+
+    # add the style to the table
+    tab.tableStyleInfo = style
+
+    # add the table to the worksheet
+    ws.add_table(tab)
+    # endregion
+
+    # Make the columns to autofit the date
+    for col in ws.columns:
+        SetLen = 0
+        column = col[0].column_letter  # Get the column name
+
+        for cell in col:
+            if len(str(cell.value)) > SetLen:
+                SetLen = len(str(cell.value))
+
+        set_col_width = SetLen + 5
+        # Setting the column width
+        ws.column_dimensions[column].width = set_col_width
+
+    # Save the excel file in a folder of your choosing
+    Filter = [
+        ("Excel", "*.xlsx"),
+    ]
+    FileName = Standard_Functions.GetFileDialog(Filter)
+    if FileName != "":
+        # Save the workbook
+        wb.save(str(FileName))
+        # Close the workbook
+        wb.close()
+        # Update the preferences
+        preferences.SetString("ExternalFile_SimpleList", rf"{FileName}")
+    if FileName == "":
+        return
+
+    # If import settings from excel is enabled, export settings to the new excel file.
+    if IMPORT_SETTINGS_XL is True:
+        SettingsTB.ExportSettings_XL(Silent=True)
+
+    # print a message if you succeded.
+    message = translate(
+        "TitleBlock Workbench",
+        f"The titleblock data is exported to the workbook {FileName} in the worksheet {ws.title}",
+    )
+    Standard_Functions.Mbox(text=message, title="TitleBlock Workbench", style=0)
 
     return
 
@@ -502,7 +506,7 @@ def CreateSimpleDrawingList_FreeCAD():
     return
 
 
-def CreateInternalDrawingList_Simple():
+def CreateSimpleDrawingList_Internal():
     from SettingsTB import SHEETNAME_SIMPLE_LIST
     import Standard_Functions_TitleBlock
 
@@ -612,8 +616,10 @@ def CreateInternalDrawingList_Simple():
     doc.save()
 
     return
+# endregion
 
 
+# region - AdvancedDrawingList
 def CreateAdvancedDrawingList_Excel():
     # Create a workbook and activate the first sheet
     wb = Workbook()
@@ -741,7 +747,7 @@ def CreateAdvancedDrawingList_Excel():
         # Close the workbook
         wb.close()
         # Update the preferences
-        preferences.SetString("ExternalFile_SimpleList", rf"{FileName}")
+        preferences.SetString("ExternalFile_AdvancedList", rf"{FileName}")
     if FileName == "":
         return
 
@@ -779,6 +785,8 @@ def CreateAdvancedDrawingList_FreeCAD():
         ff.saveAs(FileName)
         # Close the document before reopening
         App.closeDocument(ff.Name)
+        # Update the settings
+        preferences.SetString("ExternalFile_AdvancedList", rf"{FileName}")
     if FileName == "":
         return
 
@@ -882,7 +890,10 @@ def CreateAdvancedDrawingList_FreeCAD():
     DrawingList = Standard_Functions.Mbox(text=message, title="TitleBlock Workbench", style=0)
 
     # Close the FreeCAD file
+    ff.recompute(None, True, True)
+    ff.save
     App.closeDocument(ff.Name)
+
     # Activate the document which was active when this command started.
     try:
         App.setActiveDocument(LastActiveDoc)
@@ -892,14 +903,14 @@ def CreateAdvancedDrawingList_FreeCAD():
     return
 
 
-def CreateInternalDrawingList_Advanced():
-    from SettingsTB import SHEETNAME_SIMPLE_LIST
+def CreateAdvancedDrawingList_Internal():
+    from SettingsTB import SHEETNAME_ADVANCED_LIST
     import Standard_Functions_TitleBlock
 
     # Get the active document
     doc = App.ActiveDocument
 
-    DrawingList = doc.getObject(SHEETNAME_SIMPLE_LIST)
+    DrawingList = doc.getObject(SHEETNAME_ADVANCED_LIST)
     if DrawingList is not None:
         Text = translate(
             "TitleBlock Workbench",
@@ -909,7 +920,7 @@ def CreateInternalDrawingList_Advanced():
             text=Text, title="TitleBlock Workbench", style=1, IconType="Question")
 
         if reply == "yes":
-            doc.removeObject(SHEETNAME_SIMPLE_LIST)
+            doc.removeObject(SHEETNAME_ADVANCED_LIST)
 
             Text = translate(
                 "TitleBlock Workbench",
@@ -927,8 +938,6 @@ def CreateInternalDrawingList_Advanced():
 
                 # Set SHEETNAME_STARTCELL to the chosen sheetname
                 preferences.SetString("SheetName_AdvancedList", DrawingListName)
-                SHEETNAME_SIMPLE_LIST = DrawingList
-
         if reply == "no":
             return
 
@@ -1010,3 +1019,4 @@ def CreateInternalDrawingList_Advanced():
     doc.save()
 
     return
+# endregion

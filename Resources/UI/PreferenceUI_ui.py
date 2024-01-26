@@ -1496,7 +1496,7 @@ class Ui_Form(object):
         self.toolButton_3.clicked["bool"].connect(self.frame_Map_Items.setHidden)
         self.toolButton_2.clicked["bool"].connect(self.frame_DrawingNumber.setHidden)
         self.toolButton.clicked["bool"].connect(self.frame_DrawingNumber_2.setHidden)
-        self.toolButton_6.clicked["bool"].connect(self.frame_31.setHidden)
+        self.toolButton_6.clicked["bool"].connect(self.frame_3.setHidden)
         self.UseAdvancedList.toggled.connect(self.frame_2.setEnabled)
         self.UseESimpleList.toggled.connect(self.frame_5.setEnabled)
         self.UsePageName.toggled.connect(self.DrawingNumber_Page.setEnabled)

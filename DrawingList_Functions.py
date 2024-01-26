@@ -300,7 +300,7 @@ def MapSimpleDrawingList_Excel(sheet):
                         Standard_Functions.Mbox(
                             text=Text,
                             title="TitleBlock Workbench",
-                            style=3,
+                            style=21,
                             default="TitleBlockData",
                             stringList=Worksheets_List,
                         )
@@ -1127,7 +1127,7 @@ def MapAdvancedDrawingList_Excel(doc, sheet):
                         Standard_Functions.Mbox(
                             text=Text,
                             title="TitleBlock Workbench",
-                            style=3,
+                            style=21,
                             default="TitleBlockData",
                             stringList=Worksheets_List,
                         )

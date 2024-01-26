@@ -278,7 +278,38 @@ def MapSimpleDrawingList_Excel(sheet):
                     return
                 ws = wb[str(Input_SheetName)]
             if SHEETNAME_SIMPLE_LIST != "":
-                ws = wb[str(SHEETNAME_SIMPLE_LIST)]
+                # Get the list of worksheets
+                Worksheets_List = [i for i in wb.sheetnames if i != "Settings"]
+                # Assume that the worksheet doesn't exits
+                WorksheetExits = False
+                # Go through the names of the worksheets
+                for WorksheetName in Worksheets_List:
+                    # If a name matches the sheetname in preferences, set WorksheetsExits to True
+                    if WorksheetName == SHEETNAME_SIMPLE_LIST:
+                        WorksheetExits is True
+                # If WorksheetsExits is true, define the worksheet
+                if WorksheetExits is True:
+                    ws = wb[str(SHEETNAME_SIMPLE_LIST)]
+                # If WorksheetsExits is false, ask the user to enter the correct name.
+                if WorksheetExits is False:
+                    # Set the sheetname with a inputbox
+                    Text = translate(
+                        "TitleBlock Workbench", "The worksheet doesn't exits!\nPlease enter the name of the worksheet"
+                    )
+                    Input_SheetName = str(
+                        Standard_Functions.Mbox(
+                            text=Text,
+                            title="TitleBlock Workbench",
+                            style=3,
+                            default="TitleBlockData",
+                            stringList=Worksheets_List,
+                        )
+                    )
+                    # if the user canceled, exit this function.
+                    if not Input_SheetName.strip():
+                        return
+                    # Define the worksheets
+                    ws = wb[str(Input_SheetName)]
         except IOError:
             Standard_Functions.Mbox(
                 "Permission error!!\nDo you have the file open?",
@@ -1074,7 +1105,38 @@ def MapAdvancedDrawingList_Excel(doc, sheet):
                     return
                 ws = wb[str(Input_SheetName)]
             if SHEETNAME_ADVANCED_LIST != "":
-                ws = wb[str(SHEETNAME_ADVANCED_LIST)]
+                # Get the list of worksheets
+                Worksheets_List = [i for i in wb.sheetnames if i != "Settings"]
+                # Assume that the worksheet doesn't exits
+                WorksheetExits = False
+                # Go through the names of the worksheets
+                for WorksheetName in Worksheets_List:
+                    # If a name matches the sheetname in preferences, set WorksheetsExits to True
+                    if WorksheetName == SHEETNAME_ADVANCED_LIST:
+                        WorksheetExits is True
+                # If WorksheetsExits is true, define the worksheet
+                if WorksheetExits is True:
+                    ws = wb[str(SHEETNAME_ADVANCED_LIST)]
+                # If WorksheetsExits is false, ask the user to enter the correct name.
+                if WorksheetExits is False:
+                    # Set the sheetname with a inputbox
+                    Text = translate(
+                        "TitleBlock Workbench", "The worksheet doesn't exits!\nPlease enter the name of the worksheet"
+                    )
+                    Input_SheetName = str(
+                        Standard_Functions.Mbox(
+                            text=Text,
+                            title="TitleBlock Workbench",
+                            style=3,
+                            default="TitleBlockData",
+                            stringList=Worksheets_List,
+                        )
+                    )
+                    # if the user canceled, exit this function.
+                    if not Input_SheetName.strip():
+                        return
+                    # Define the worksheets
+                    ws = wb[str(Input_SheetName)]
         except IOError:
             Standard_Functions.Mbox(
                 "Permission error!!\nDo you have the file open?",

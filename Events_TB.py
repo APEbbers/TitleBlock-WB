@@ -66,6 +66,7 @@ class myObserver(object):
 
         if ENABLE_DEBUG is True:
             Standard_Functions.Print("%s has been recomputed\n" % doc.Label, "Log")
+        return
 
 # Add the observers
 

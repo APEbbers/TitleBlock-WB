@@ -492,7 +492,7 @@ def MapDocInfo(sheet, doc=None):
 
 
 # Fill the spreadsheet with all the date from the titleblock
-def FillSheet(doc=None) -> bool:
+def FillSheet(doc=None, recompute: bool = True) -> bool:
     result = False
     try:
         # get the fist page. If there is no page, return
@@ -546,7 +546,8 @@ def FillSheet(doc=None) -> bool:
                 sheet.set("C" + str(StartRow), "")
 
         # Finally recompute the document
-        doc.recompute(None, True, True)
+        if recompute is True:
+            doc.recompute(None, True, True)
 
         # Run the def to map system data
         MapData(sheet=sheet)
@@ -608,7 +609,8 @@ def FillSheet(doc=None) -> bool:
         # endregion
 
         # Finally recompute the document
-        doc.recompute(None, True, True)
+        if recompute is True:
+            doc.recompute(None, True, True)
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:
@@ -627,7 +629,7 @@ def FillSheet(doc=None) -> bool:
 
 
 # Import data from a (central) excel workbook
-def ImportDataExcel(doc=None) -> bool:
+def ImportDataExcel(doc=None, recompute: bool = True) -> bool:
     from openpyxl import load_workbook
 
     result = False
@@ -920,7 +922,8 @@ def ImportDataExcel(doc=None) -> bool:
 
             # Finally recompute the spreadsheet
             sheet.recompute()
-            doc.recompute(None, True, True)
+            if recompute is True:
+                doc.recompute(None, True, True)
 
         except Exception as e:
             Text = translate(
@@ -945,7 +948,7 @@ def ImportDataExcel(doc=None) -> bool:
 
 
 # Import data from an central FreeCAD file
-def ImportDataFreeCAD(doc=None):
+def ImportDataFreeCAD(doc=None, recompute: bool = True):
     result = False
     try:
         # if debug mode is enabled, show the external file including path.
@@ -1179,7 +1182,8 @@ def ImportDataFreeCAD(doc=None):
                     )
 
             # Finally recompute the document
-            doc.recompute(None, True, True)
+            if recompute is True:
+                doc.recompute(None, True, True)
 
             # Run the def to add extra system data.
             MapData(sheet=sheet, doc=doc)
@@ -1242,7 +1246,8 @@ def ImportDataFreeCAD(doc=None):
             # endregion
 
             # recompute the document
-            doc.recompute(None, True, True)
+            if recompute is True:
+                doc.recompute(None, True, True)
             # Save the workbook
             doc.save()
             # Close the FreeCAD file
@@ -1273,7 +1278,7 @@ def ImportDataFreeCAD(doc=None):
 
 
 # Use this function to run the function "Populate sheet"
-def Start(command, doc=None) -> bool:
+def Start(command, doc=None, recompute: bool = True) -> bool:
     result = False
     if doc is None:
         doc = App.ActiveDocument
@@ -1283,11 +1288,11 @@ def Start(command, doc=None) -> bool:
         if sheet is not None:
             # Proceed with the macro.
             if command == "FillSpreadsheet":
-                result = FillSheet(doc=doc)
+                result = FillSheet(doc=doc, recompute=recompute)
             if command == "ImportExcel":
-                result = ImportDataExcel(doc=doc)
+                result = ImportDataExcel(doc=doc, recompute=recompute)
             if command == "ImportFreeCAD":
-                result = ImportDataFreeCAD(doc=doc)
+                result = ImportDataFreeCAD(doc=doc, recompute=recompute)
 
             # if the debug mode is on, report presense of titleblock spreadsheet
             if ENABLE_DEBUG is True:
@@ -1301,11 +1306,11 @@ def Start(command, doc=None) -> bool:
 
             # Proceed with the macro.
             if command == "FillSpreadsheet":
-                result = FillSheet(doc=doc)
+                result = FillSheet(doc=doc, recompute=recompute)
             if command == "ImportExcel":
-                result = ImportDataExcel(doc=doc)
+                result = ImportDataExcel(doc=doc, recompute=recompute)
             if command == "ImportFreeCAD":
-                result = ImportDataFreeCAD(doc=doc)
+                result = ImportDataFreeCAD(doc=doc, recompute=recompute)
 
             # if the debug mode is on, report creation of titleblock spreadsheet
             if ENABLE_DEBUG is True:

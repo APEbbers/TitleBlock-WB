@@ -250,8 +250,12 @@ def CreateTitleBlockData_FreeCAD():
 
     # region Format the settings with the values as a Table
     #
-    TableFormat_Functions_TB.FormatTable(sheet=TitleBlockData, HeaderRange="A1:E1",
-                                         TableRange="A2:E10", FirstColumnRange="A2:A10")
+    TableFormat_Functions_TB.FormatTable(
+        sheet=TitleBlockData,
+        HeaderRange="A1:E1",
+        TableRange="A2:E10",
+        FirstColumnRange="A2:A10",
+    )
     # endregion
 
     # recompute the document
@@ -279,6 +283,8 @@ def CreateTitleBlockData_FreeCAD():
         pass
 
     return
+
+
 # endregion
 
 
@@ -484,13 +490,19 @@ def CreateSimpleDrawingList_FreeCAD():
 
     # region Format the settings with the values as a Table
     #
-    DrawingList = TableFormat_Functions_TB.FormatTable(sheet=DrawingList, HeaderRange="A1:E1",
-                                                       TableRange="A2:E10", FirstColumnRange="A2:A10")
+    DrawingList = TableFormat_Functions_TB.FormatTable(
+        sheet=DrawingList,
+        HeaderRange="A1:E1",
+        TableRange="A2:E10",
+        FirstColumnRange="A2:A10",
+    )
 
     DrawingList.setBackground("A11", Standard_Functions.ColorConvertor([255, 230, 153]))
     DrawingList.setAlignment("A11", "left|vcenter")
     DrawingList.mergeCells("B11:E11")
-    DrawingList.setBackground("B11:E11", Standard_Functions.ColorConvertor([198, 224, 180]))
+    DrawingList.setBackground(
+        "B11:E11", Standard_Functions.ColorConvertor([198, 224, 180])
+    )
     DrawingList.setAlignment("B11:E11", "center|vcenter")
     # endregion
 
@@ -508,7 +520,9 @@ def CreateSimpleDrawingList_FreeCAD():
         "TitleBlock Workbench",
         f"The titleblock data is exported to the workbook {FileName} in the worksheet {DrawingList}",
     )
-    DrawingList = Standard_Functions.Mbox(text=message, title="TitleBlock Workbench", style=0)
+    DrawingList = Standard_Functions.Mbox(
+        text=message, title="TitleBlock Workbench", style=0
+    )
 
     # Close the FreeCAD file
     App.closeDocument(ff.Name)
@@ -535,7 +549,8 @@ def CreateSimpleDrawingList_Internal():
             "Do you want to replace the drawing list with a new one?",
         )
         reply = Standard_Functions_TB.Mbox(
-            text=Text, title="TitleBlock Workbench", style=1, IconType="Question")
+            text=Text, title="TitleBlock Workbench", style=1, IconType="Question"
+        )
 
         if reply == "yes":
             doc.removeObject(SHEETNAME_SIMPLE_LIST)
@@ -545,10 +560,7 @@ def CreateSimpleDrawingList_Internal():
                 "Please enter the name of the drawing list.\n",
             )
             DrawingListName = Standard_Functions.Mbox(
-                text=Text,
-                title="TitleBlock Workbench",
-                style=20,
-                default="DrawingList"
+                text=Text, title="TitleBlock Workbench", style=20, default="DrawingList"
             )
 
             if DrawingListName != "":
@@ -615,13 +627,19 @@ def CreateSimpleDrawingList_Internal():
 
     # region Format the settings with the values as a Table
     #
-    DrawingList = TableFormat_Functions_TB.FormatTable(sheet=DrawingList, HeaderRange="A1:E1",
-                                                       TableRange="A2:E10", FirstColumnRange="A2:A10")
+    DrawingList = TableFormat_Functions_TB.FormatTable(
+        sheet=DrawingList,
+        HeaderRange="A1:E1",
+        TableRange="A2:E10",
+        FirstColumnRange="A2:A10",
+    )
 
     DrawingList.setBackground("A11", Standard_Functions.ColorConvertor([255, 230, 153]))
     DrawingList.setAlignment("A11", "left|vcenter")
     DrawingList.mergeCells("B11:E11")
-    DrawingList.setBackground("B11:E11", Standard_Functions.ColorConvertor([198, 224, 180]))
+    DrawingList.setBackground(
+        "B11:E11", Standard_Functions.ColorConvertor([198, 224, 180])
+    )
     DrawingList.setAlignment("B11:E11", "center|vcenter")
     # endregion
 
@@ -631,6 +649,8 @@ def CreateSimpleDrawingList_Internal():
     doc.save()
 
     return
+
+
 # endregion
 
 
@@ -870,13 +890,19 @@ def CreateAdvancedDrawingList_FreeCAD():
 
     # region Format the settings with the values as a Table
     #
-    DrawingList = TableFormat_Functions_TB.FormatTable(sheet=DrawingList, HeaderRange="A1:E1",
-                                                       TableRange="A2:E10", FirstColumnRange="A2:A10")
+    DrawingList = TableFormat_Functions_TB.FormatTable(
+        sheet=DrawingList,
+        HeaderRange="A1:E1",
+        TableRange="A2:E10",
+        FirstColumnRange="A2:A10",
+    )
 
     DrawingList.setBackground("A10", Standard_Functions.ColorConvertor([255, 230, 153]))
     DrawingList.setAlignment("A10", "left|vcenter")
     DrawingList.mergeCells("B10:E10")
-    DrawingList.setBackground("B10:E10", Standard_Functions.ColorConvertor([198, 224, 180]))
+    DrawingList.setBackground(
+        "B10:E10", Standard_Functions.ColorConvertor([198, 224, 180])
+    )
     DrawingList.setAlignment("B10:E10", "center|vcenter")
     # endregion
 
@@ -902,7 +928,9 @@ def CreateAdvancedDrawingList_FreeCAD():
         "TitleBlock Workbench",
         f"The titleblock data is exported to the workbook {FileName} in the worksheet {DrawingList}",
     )
-    DrawingList = Standard_Functions.Mbox(text=message, title="TitleBlock Workbench", style=0)
+    DrawingList = Standard_Functions.Mbox(
+        text=message, title="TitleBlock Workbench", style=0
+    )
 
     # Close the FreeCAD file
     ff.recompute(None, True, True)
@@ -932,7 +960,8 @@ def CreateAdvancedDrawingList_Internal():
             "Do you want to replace the drawing list with a new one?",
         )
         reply = Standard_Functions_TB.Mbox(
-            text=Text, title="TitleBlock Workbench", style=1, IconType="Question")
+            text=Text, title="TitleBlock Workbench", style=1, IconType="Question"
+        )
 
         if reply == "yes":
             doc.removeObject(SHEETNAME_ADVANCED_LIST)
@@ -942,10 +971,7 @@ def CreateAdvancedDrawingList_Internal():
                 "Please enter the name of the drawing list.\n",
             )
             DrawingListName = Standard_Functions.Mbox(
-                text=Text,
-                title="TitleBlock Workbench",
-                style=20,
-                default="DrawingList"
+                text=Text, title="TitleBlock Workbench", style=20, default="DrawingList"
             )
 
             if DrawingListName != "":
@@ -1010,13 +1036,19 @@ def CreateAdvancedDrawingList_Internal():
 
     # region Format the settings with the values as a Table
     #
-    DrawingList = TableFormat_Functions_TB.FormatTable(sheet=DrawingList, HeaderRange="A1:E1",
-                                                       TableRange="A2:E10", FirstColumnRange="A2:A10")
+    DrawingList = TableFormat_Functions_TB.FormatTable(
+        sheet=DrawingList,
+        HeaderRange="A1:E1",
+        TableRange="A2:E10",
+        FirstColumnRange="A2:A10",
+    )
 
     DrawingList.setBackground("A10", Standard_Functions.ColorConvertor([255, 230, 153]))
     DrawingList.setAlignment("A10", "left|vcenter")
     DrawingList.mergeCells("B10:E10")
-    DrawingList.setBackground("B10:E10", Standard_Functions.ColorConvertor([198, 224, 180]))
+    DrawingList.setBackground(
+        "B10:E10", Standard_Functions.ColorConvertor([198, 224, 180])
+    )
     DrawingList.setAlignment("B10:E10", "center|vcenter")
     # endregion
 
@@ -1034,4 +1066,6 @@ def CreateAdvancedDrawingList_Internal():
     doc.save()
 
     return
+
+
 # endregion

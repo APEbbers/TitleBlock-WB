@@ -108,7 +108,10 @@ def DefineToolbars():
                     "NewSimpleList_Internal",
                 ]
             )
-        if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True and EXTERNAL_FILE_SIMPLE_LIST.lower().endswith(".fcstd") is False:
+        if (
+            USE_EXTERNAL_SOURCE_SIMPLE_LIST is True
+            and EXTERNAL_FILE_SIMPLE_LIST.lower().endswith(".fcstd") is False
+        ):
             ToolbarListExtra.extend(
                 [
                     "Separator",
@@ -116,7 +119,10 @@ def DefineToolbars():
                     "OpenSimpleList_Excel",
                 ]
             )
-        if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True and EXTERNAL_FILE_SIMPLE_LIST.lower().endswith(".fcstd") is True:
+        if (
+            USE_EXTERNAL_SOURCE_SIMPLE_LIST is True
+            and EXTERNAL_FILE_SIMPLE_LIST.lower().endswith(".fcstd") is True
+        ):
             ToolbarListExtra.extend(
                 [
                     "Separator",
@@ -135,7 +141,10 @@ def DefineToolbars():
                     "SortGroup_ZA",
                 ]
             )
-        if USE_EXTERNAL_SOURCE_ADVANCED_LIST is True and EXTERNAL_FILE_ADVANCED_LIST.lower().endswith(".fcstd") is False:
+        if (
+            USE_EXTERNAL_SOURCE_ADVANCED_LIST is True
+            and EXTERNAL_FILE_ADVANCED_LIST.lower().endswith(".fcstd") is False
+        ):
             ToolbarListExtra.extend(
                 [
                     "Separator",
@@ -146,7 +155,10 @@ def DefineToolbars():
                     "SortGroup_ZA",
                 ]
             )
-        if USE_EXTERNAL_SOURCE_ADVANCED_LIST is True and EXTERNAL_FILE_ADVANCED_LIST.lower().endswith(".fcstd") is True:
+        if (
+            USE_EXTERNAL_SOURCE_ADVANCED_LIST is True
+            and EXTERNAL_FILE_ADVANCED_LIST.lower().endswith(".fcstd") is True
+        ):
             ToolbarListExtra.extend(
                 [
                     "Separator",

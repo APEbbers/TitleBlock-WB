@@ -693,7 +693,8 @@ def ImportDataExcel(doc=None, recompute: bool = True) -> bool:
                 if WorksheetExits is False:
                     # Set the sheetname with a inputbox
                     Text = translate(
-                        "TitleBlock Workbench", "The worksheet doesn't exits!\nPlease enter the name of the worksheet"
+                        "TitleBlock Workbench",
+                        "The worksheet doesn't exits!\nPlease enter the name of the worksheet",
                     )
                     Input_SheetName = str(
                         Standard_Functions.Mbox(
@@ -798,11 +799,14 @@ def ImportDataExcel(doc=None, recompute: bool = True) -> bool:
             )
 
             # Get the start row
-            StartRow = Standard_Functions.RemoveLettersFromString(EXTERNAL_SOURCE_STARTCELL)
+            StartRow = Standard_Functions.RemoveLettersFromString(
+                EXTERNAL_SOURCE_STARTCELL
+            )
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
                 Text = translate(
-                    "TitleBlock Workbench", "the start row for the external source is: " + str(StartRow)
+                    "TitleBlock Workbench",
+                    "the start row for the external source is: " + str(StartRow),
                 )
                 Standard_Functions.Print(Text, "Log")
 
@@ -1027,7 +1031,8 @@ def ImportDataFreeCAD(doc=None, recompute: bool = True):
                         # Set the sheetname with a inputbox
                         Text = translate(
                             "TitleBlock Workbench",
-                            "The spreadsheet doesn't exits!\nPlease enter the name of the spreadsheet")
+                            "The spreadsheet doesn't exits!\nPlease enter the name of the spreadsheet",
+                        )
                         Input_SheetName = str(
                             Standard_Functions.Mbox(
                                 text=Text,
@@ -1090,7 +1095,8 @@ def ImportDataFreeCAD(doc=None, recompute: bool = True):
                 Standard_Functions.Print(
                     translate(
                         "TitleBlock Workbench",
-                        "Start column for the external source is: " + str(StartColumnExt),
+                        "Start column for the external source is: "
+                        + str(StartColumnExt),
                     ),
                     "Log",
                 )
@@ -1122,7 +1128,8 @@ def ImportDataFreeCAD(doc=None, recompute: bool = True):
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
                 Text = translate(
-                    "TitleBlock Workbench", "the start row for the external source is: " + str(StartRow)
+                    "TitleBlock Workbench",
+                    "the start row for the external source is: " + str(StartRow),
                 )
                 Standard_Functions.Print(Text, "Log")
 

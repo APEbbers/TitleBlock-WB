@@ -37,7 +37,6 @@ from Settings_TB import ENABLE_RECOMPUTE_FILL_TITLEBLOCK
 
 # Class for a observer that observers recompute events
 class myObserver(object):
-
     # Observer for document recompute event ("CTRL+R")
     def slotRecomputedDocument(self, doc):
         ActiveWorkbench = Gui.activeWorkbench()
@@ -57,16 +56,23 @@ class myObserver(object):
                     if USE_EXTERNAL_SOURCE is False:
                         FillSpreadsheet_TB.Start("FillSpreadsheet", doc, False)
                     if ENABLE_DEBUG is True:
-                        Standard_Functions.Print("The titleblock spreadsheet has been updated!")
+                        Standard_Functions.Print(
+                            "The titleblock spreadsheet has been updated!"
+                        )
 
                 if ENABLE_RECOMPUTE_FILL_TITLEBLOCK is True:
                     FillTitleBlock_TB.FillTitleBlock(doc=doc, recompute=False)
                     if ENABLE_DEBUG is True:
-                        Standard_Functions.Print("The titleblock in all the pages has been updated!")
+                        Standard_Functions.Print(
+                            "The titleblock in all the pages has been updated!"
+                        )
 
                 if ENABLE_DEBUG is True:
-                    Standard_Functions.Print("%s has been recomputed\n" % doc.Label, "Log")
+                    Standard_Functions.Print(
+                        "%s has been recomputed\n" % doc.Label, "Log"
+                    )
         return
+
 
 # Add the observers
 

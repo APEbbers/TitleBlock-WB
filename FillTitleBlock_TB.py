@@ -33,41 +33,45 @@
 #  - Etc.
 
 import FreeCAD as App
-import Standard_Functions_TitleBlock as Standard_Functions
-import DrawingList_Functions
+import Standard_Functions_TB as Standard_Functions
+import DrawingList_Functions_TB
 
 # Define the translation
 translate = App.Qt.translate
 
 
-def FillTitleBlock():
-    from SettingsTB import ENABLE_DEBUG
-    from SettingsTB import MAP_NOSHEETS
-    from SettingsTB import USE_PAGENAME_DRAW_NO
-    from SettingsTB import DRAW_NO_FIELD_PAGE
-    from SettingsTB import DRAW_NO_FIELD
-    from SettingsTB import USE_SIMPLE_LIST
-    from SettingsTB import USE_EXTERNAL_SOURCE_SIMPLE_LIST
-    from SettingsTB import EXTERNAL_FILE_SIMPLE_LIST
-    from SettingsTB import USE_ADVANCED_LIST
-    from SettingsTB import USE_EXTERNAL_SOURCE_ADVANCED_LIST
-    from SettingsTB import EXTERNAL_FILE_ADVANCED_LIST
+def FillTitleBlock(doc=None, recompute: bool = True) -> bool:
+    from Settings_TB import ENABLE_DEBUG
+    from Settings_TB import MAP_NOSHEETS
+    from Settings_TB import USE_PAGENAME_DRAW_NO
+    from Settings_TB import DRAW_NO_FIELD_PAGE
+    from Settings_TB import DRAW_NO_FIELD
+    from Settings_TB import USE_SIMPLE_LIST
+    from Settings_TB import USE_EXTERNAL_SOURCE_SIMPLE_LIST
+    from Settings_TB import EXTERNAL_FILE_SIMPLE_LIST
+    from Settings_TB import USE_ADVANCED_LIST
+    from Settings_TB import USE_EXTERNAL_SOURCE_ADVANCED_LIST
+    from Settings_TB import EXTERNAL_FILE_ADVANCED_LIST
 
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1
     Multiplier = 1
+    result = False
+
+    if doc is None:
+        doc = App.ActiveDocument
 
     # Get the pages and go throug them one by one.
     try:
-        pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+        pages = doc.findObjects("TechDraw::DrawPage")
 
         # Get the spreadsheet.
-        sheet = App.ActiveDocument.getObject("TitleBlock")
+        sheet = doc.getObject("TitleBlock")
         if sheet is None:
             Standard_Functions.Mbox(
                 "No titleblock spreadsheet present!", "TitleBlock Workbench", 0
             )
-            return
+            return result
 
         for page in pages:
             # Get the editable texts
@@ -101,7 +105,10 @@ def FillTitleBlock():
 
                     # fill in the editable text based on the text name in column A and the value in column B.
                     # check if there is a value. If there is an value, continue.
-                    if str(sheet.getContents("B" + str(RowNum))).strip() and MustSkip is False:
+                    if (
+                        str(sheet.getContents("B" + str(RowNum))).strip()
+                        and MustSkip is False
+                    ):
                         # define the string for the text value
                         textValue = ""
 
@@ -220,7 +227,8 @@ def FillTitleBlock():
                 page.Template.EditableTexts = texts
 
                 # Recompute the page
-                App.ActiveDocument.recompute(None, True, True)
+                if recompute is True:
+                    doc.recompute(None, True, True)
 
             except Exception as e:
                 # raise an exeception if there is no spreadsheet.
@@ -237,21 +245,27 @@ def FillTitleBlock():
         # If the use of a drawing list is enabled, update the titleblock
         if USE_SIMPLE_LIST is True:
             if USE_EXTERNAL_SOURCE_SIMPLE_LIST is False:
-                DrawingList_Functions.MapSimpleDrawingList(sheet=sheet)
+                DrawingList_Functions_TB.MapSimpleDrawingList(sheet=sheet)
             if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True:
                 if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("fcstd"):
-                    DrawingList_Functions.MapSimpleDrawingList_FreeCAD(sheet=sheet)
+                    DrawingList_Functions_TB.MapSimpleDrawingList_FreeCAD(sheet=sheet)
                 if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("xlsx"):
-                    DrawingList_Functions.MapSimpleDrawingList_Excel(sheet=sheet)
+                    DrawingList_Functions_TB.MapSimpleDrawingList_Excel(sheet=sheet)
         # If the use of an advanced drawing list is enabled, update the titleblock
         if USE_ADVANCED_LIST is True:
             if USE_EXTERNAL_SOURCE_ADVANCED_LIST is False:
-                DrawingList_Functions.MapAdvancedDrawingList(doc=App.ActiveDocument, sheet=sheet)
+                DrawingList_Functions_TB.MapAdvancedDrawingList(
+                    doc=App.ActiveDocument, sheet=sheet
+                )
             if USE_EXTERNAL_SOURCE_ADVANCED_LIST is True:
                 if EXTERNAL_FILE_ADVANCED_LIST.lower().endswith("fcstd"):
-                    DrawingList_Functions.MapAdvancedDrawingList_FreeCAD(doc=App.ActiveDocument, sheet=sheet)
+                    DrawingList_Functions_TB.MapAdvancedDrawingList_FreeCAD(
+                        doc=App.ActiveDocument, sheet=sheet
+                    )
                 if EXTERNAL_FILE_ADVANCED_LIST.lower().endswith("xlsx"):
-                    DrawingList_Functions.MapAdvancedDrawingList_Excel(doc=App.ActiveDocument, sheet=sheet)
+                    DrawingList_Functions_TB.MapAdvancedDrawingList_Excel(
+                        doc=App.ActiveDocument, sheet=sheet
+                    )
 
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"
@@ -263,3 +277,6 @@ def FillTitleBlock():
             )
             raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+
+    result = True
+    return result

@@ -39,42 +39,42 @@
 # region imports
 import os
 import FreeCAD as App
-import Standard_Functions_TitleBlock as Standard_Functions
-import TableFormat_Functions
-import DrawingList_Functions
+import Standard_Functions_TB as Standard_Functions
+import TableFormat_Functions_TB
+import DrawingList_Functions_TB
 
 # Get the settings
-from SettingsTB import DRAW_NO_FIELD
-from SettingsTB import USE_FILENAME_DRAW_NO
-from SettingsTB import DRAW_NO_FIELD_PAGE
-from SettingsTB import USE_PAGENAME_DRAW_NO
-from SettingsTB import ENABLE_DEBUG
-from SettingsTB import DOCINFO_COMMENT
-from SettingsTB import DOCINFO_LICENSEURL
-from SettingsTB import DOCINFO_LICENSE
-from SettingsTB import DOCINFO_COMPANY
-from SettingsTB import DOCINFO_LASTMODIFIEDDATE
-from SettingsTB import DOCINFO_LASTMODIFIEDBY
-from SettingsTB import DOCINFO_CREATEDDATE
-from SettingsTB import DOCINFO_CREATEDBY
-from SettingsTB import DOCINFO_NAME
-from SettingsTB import MAP_NOSHEETS
-from SettingsTB import MAP_MASS
-from SettingsTB import MAP_ANGLE
-from SettingsTB import MAP_LENGTH
-from SettingsTB import EXTERNAL_SOURCE_STARTCELL
-from SettingsTB import EXTERNAL_SOURCE_SHEET_NAME
-from SettingsTB import EXTERNAL_SOURCE_PATH
-from SettingsTB import USE_EXTERNAL_SOURCE
-from SettingsTB import INCLUDE_NO_SHEETS
-from SettingsTB import INCLUDE_MASS
-from SettingsTB import INCLUDE_ANGLE
-from SettingsTB import INCLUDE_LENGTH
-from SettingsTB import preferences
-from SettingsTB import USE_SIMPLE_LIST
-from SettingsTB import USE_EXTERNAL_SOURCE_SIMPLE_LIST
-from SettingsTB import USE_ADVANCED_LIST
-from SettingsTB import EXTERNAL_FILE_ADVANCED_LIST
+from Settings_TB import DRAW_NO_FIELD
+from Settings_TB import USE_FILENAME_DRAW_NO
+from Settings_TB import DRAW_NO_FIELD_PAGE
+from Settings_TB import USE_PAGENAME_DRAW_NO
+from Settings_TB import ENABLE_DEBUG
+from Settings_TB import DOCINFO_COMMENT
+from Settings_TB import DOCINFO_LICENSEURL
+from Settings_TB import DOCINFO_LICENSE
+from Settings_TB import DOCINFO_COMPANY
+from Settings_TB import DOCINFO_LASTMODIFIEDDATE
+from Settings_TB import DOCINFO_LASTMODIFIEDBY
+from Settings_TB import DOCINFO_CREATEDDATE
+from Settings_TB import DOCINFO_CREATEDBY
+from Settings_TB import DOCINFO_NAME
+from Settings_TB import MAP_NOSHEETS
+from Settings_TB import MAP_MASS
+from Settings_TB import MAP_ANGLE
+from Settings_TB import MAP_LENGTH
+from Settings_TB import EXTERNAL_SOURCE_STARTCELL
+from Settings_TB import EXTERNAL_SOURCE_SHEET_NAME
+from Settings_TB import EXTERNAL_SOURCE_PATH
+from Settings_TB import USE_EXTERNAL_SOURCE
+from Settings_TB import INCLUDE_NO_SHEETS
+from Settings_TB import INCLUDE_MASS
+from Settings_TB import INCLUDE_ANGLE
+from Settings_TB import INCLUDE_LENGTH
+from Settings_TB import preferences
+from Settings_TB import USE_SIMPLE_LIST
+from Settings_TB import USE_EXTERNAL_SOURCE_SIMPLE_LIST
+from Settings_TB import USE_ADVANCED_LIST
+from Settings_TB import EXTERNAL_FILE_ADVANCED_LIST
 
 # endregion
 
@@ -492,10 +492,13 @@ def MapDocInfo(sheet, doc=None):
 
 
 # Fill the spreadsheet with all the date from the titleblock
-def FillSheet():
+def FillSheet(doc=None, recompute: bool = True) -> bool:
+    result = False
     try:
         # get the fist page. If there is no page, return
-        pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+        if doc is None:
+            doc = App.ActiveDocument
+        pages = doc.findObjects("TechDraw::DrawPage")
         if len(pages) > 0:
             page = pages[0]
         if len(pages) == 0:
@@ -504,7 +507,7 @@ def FillSheet():
         # get the editable texts
         texts = page.Template.EditableTexts
         # get the spreadsheet "TitleBlock"
-        sheet = App.ActiveDocument.getObject("TitleBlock")
+        sheet = doc.getObject("TitleBlock")
         # Clear the sheet
         sheet.clearAll()
 
@@ -543,7 +546,8 @@ def FillSheet():
                 sheet.set("C" + str(StartRow), "")
 
         # Finally recompute the document
-        App.ActiveDocument.recompute(None, True, True)
+        if recompute is True:
+            doc.recompute(None, True, True)
 
         # Run the def to map system data
         MapData(sheet=sheet)
@@ -595,7 +599,7 @@ def FillSheet():
         )
 
         # Format the table
-        sheet = TableFormat_Functions.FormatTable(
+        sheet = TableFormat_Functions_TB.FormatTable(
             sheet=sheet,
             HeaderRange=HeaderRange,
             TableRange=TableRange,
@@ -605,7 +609,8 @@ def FillSheet():
         # endregion
 
         # Finally recompute the document
-        App.ActiveDocument.recompute(None, True, True)
+        if recompute is True:
+            doc.recompute(None, True, True)
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:
@@ -618,13 +623,16 @@ def FillSheet():
         Standard_Functions.Mbox(
             text=Text, title="TitleBlock Workbench", style=0, IconType="Critical"
         )
-    return
+    finally:
+        result = True
+    return result
 
 
 # Import data from a (central) excel workbook
-def ImportDataExcel():
+def ImportDataExcel(doc=None, recompute: bool = True) -> bool:
     from openpyxl import load_workbook
 
+    result = False
     # Check if it is allowed to use an external source and if so, continue
     if USE_EXTERNAL_SOURCE is True:
         # if debug mode is enabled, show the external file including path.
@@ -685,7 +693,8 @@ def ImportDataExcel():
                 if WorksheetExits is False:
                     # Set the sheetname with a inputbox
                     Text = translate(
-                        "TitleBlock Workbench", "The worksheet doesn't exits!\nPlease enter the name of the worksheet"
+                        "TitleBlock Workbench",
+                        "The worksheet doesn't exits!\nPlease enter the name of the worksheet",
                     )
                     Input_SheetName = str(
                         Standard_Functions.Mbox(
@@ -722,8 +731,10 @@ def ImportDataExcel():
             return
 
         try:
+            if doc is None:
+                doc = App.ActiveDocument
             # get the spreadsheet "TitleBlock"
-            sheet = App.ActiveDocument.getObject("TitleBlock")
+            sheet = doc.getObject("TitleBlock")
             # Clear the sheet
             sheet.clearAll()
 
@@ -788,11 +799,14 @@ def ImportDataExcel():
             )
 
             # Get the start row
-            StartRow = Standard_Functions.RemoveLettersFromString(EXTERNAL_SOURCE_STARTCELL)
+            StartRow = Standard_Functions.RemoveLettersFromString(
+                EXTERNAL_SOURCE_STARTCELL
+            )
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
                 Text = translate(
-                    "TitleBlock Workbench", "the start row for the external source is: " + str(StartRow)
+                    "TitleBlock Workbench",
+                    "the start row for the external source is: " + str(StartRow),
                 )
                 Standard_Functions.Print(Text, "Log")
 
@@ -901,7 +915,7 @@ def ImportDataExcel():
             )
 
             # Format the table
-            sheet = TableFormat_Functions.FormatTable(
+            sheet = TableFormat_Functions_TB.FormatTable(
                 sheet=sheet,
                 HeaderRange=HeaderRange,
                 TableRange=TableRange,
@@ -912,7 +926,8 @@ def ImportDataExcel():
 
             # Finally recompute the spreadsheet
             sheet.recompute()
-            App.ActiveDocument.recompute(None, True, True)
+            if recompute is True:
+                doc.recompute(None, True, True)
 
         except Exception as e:
             Text = translate(
@@ -929,14 +944,16 @@ def ImportDataExcel():
         finally:
             # Close the excel workbook
             wb.close()
+            result = True
     else:
         Text = translate("TitleBlock Workbench", "External source is not enabled!")
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-    return
+    return result
 
 
 # Import data from an central FreeCAD file
-def ImportDataFreeCAD():
+def ImportDataFreeCAD(doc=None, recompute: bool = True):
+    result = False
     try:
         # if debug mode is enabled, show the external file including path.
         if ENABLE_DEBUG is True:
@@ -946,7 +963,8 @@ def ImportDataFreeCAD():
         # Check if it is allowed to use an external source and if so, continue
         if USE_EXTERNAL_SOURCE is True:
             # Get the active document
-            doc = App.ActiveDocument
+            if doc is None:
+                doc = App.ActiveDocument
             # Get the name of the external source
             Input_SheetName = EXTERNAL_SOURCE_SHEET_NAME
             # get the spreadsheet "TitleBlock"
@@ -1013,7 +1031,8 @@ def ImportDataFreeCAD():
                         # Set the sheetname with a inputbox
                         Text = translate(
                             "TitleBlock Workbench",
-                            "The spreadsheet doesn't exits!\nPlease enter the name of the spreadsheet")
+                            "The spreadsheet doesn't exits!\nPlease enter the name of the spreadsheet",
+                        )
                         Input_SheetName = str(
                             Standard_Functions.Mbox(
                                 text=Text,
@@ -1076,7 +1095,8 @@ def ImportDataFreeCAD():
                 Standard_Functions.Print(
                     translate(
                         "TitleBlock Workbench",
-                        "Start column for the external source is: " + str(StartColumnExt),
+                        "Start column for the external source is: "
+                        + str(StartColumnExt),
                     ),
                     "Log",
                 )
@@ -1108,7 +1128,8 @@ def ImportDataFreeCAD():
             # if debug mode is on, show your start row
             if ENABLE_DEBUG is True:
                 Text = translate(
-                    "TitleBlock Workbench", "the start row for the external source is: " + str(StartRow)
+                    "TitleBlock Workbench",
+                    "the start row for the external source is: " + str(StartRow),
                 )
                 Standard_Functions.Print(Text, "Log")
 
@@ -1168,7 +1189,8 @@ def ImportDataFreeCAD():
                     )
 
             # Finally recompute the document
-            App.ActiveDocument.recompute(None, True, True)
+            if recompute is True:
+                doc.recompute(None, True, True)
 
             # Run the def to add extra system data.
             MapData(sheet=sheet, doc=doc)
@@ -1221,7 +1243,7 @@ def ImportDataFreeCAD():
             )
 
             # Format the table
-            sheet = TableFormat_Functions.FormatTable(
+            sheet = TableFormat_Functions_TB.FormatTable(
                 sheet=sheet,
                 HeaderRange=HeaderRange,
                 TableRange=TableRange,
@@ -1231,7 +1253,8 @@ def ImportDataFreeCAD():
             # endregion
 
             # recompute the document
-            doc.recompute(None, True, True)
+            if recompute is True:
+                doc.recompute(None, True, True)
             # Save the workbook
             doc.save()
             # Close the FreeCAD file
@@ -1256,48 +1279,53 @@ def ImportDataFreeCAD():
             )
             raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-    return
+    finally:
+        result = True
+    return result
 
 
 # Use this function to run the function "Populate sheet"
-def Start(command):
+def Start(command, doc=None, recompute: bool = True) -> bool:
+    result = False
+    if doc is None:
+        doc = App.ActiveDocument
     try:
-        sheet = App.ActiveDocument.getObject("TitleBlock")
+        sheet = doc.getObject("TitleBlock")
         # check if the result is not empty
         if sheet is not None:
             # Proceed with the macro.
             if command == "FillSpreadsheet":
-                FillSheet()
+                result = FillSheet(doc=doc, recompute=recompute)
             if command == "ImportExcel":
-                ImportDataExcel()
+                result = ImportDataExcel(doc=doc, recompute=recompute)
             if command == "ImportFreeCAD":
-                ImportDataFreeCAD()
+                result = ImportDataFreeCAD(doc=doc, recompute=recompute)
 
             # if the debug mode is on, report presense of titleblock spreadsheet
             if ENABLE_DEBUG is True:
                 Text = translate("TitleBlock Workbench", "TitleBlock already present")
                 Standard_Functions.Print(Text, "Log")
 
-            return
+            return result
         # if the result is empty, create a new titleblock spreadsheet
         if sheet is None:
             sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
 
             # Proceed with the macro.
             if command == "FillSpreadsheet":
-                FillSheet()
+                result = FillSheet(doc=doc, recompute=recompute)
             if command == "ImportExcel":
-                ImportDataExcel()
+                result = ImportDataExcel(doc=doc, recompute=recompute)
             if command == "ImportFreeCAD":
-                ImportDataFreeCAD()
+                result = ImportDataFreeCAD(doc=doc, recompute=recompute)
 
             # if the debug mode is on, report creation of titleblock spreadsheet
             if ENABLE_DEBUG is True:
                 Text = translate("TitleBlock Workbench", "TitleBlock created")
                 Standard_Functions.Print(Text, "Log")
 
-            return
+            return result
     except Exception as e:
         if ENABLE_DEBUG is True:
             raise e
-    return
+    return result

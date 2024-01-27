@@ -198,7 +198,7 @@ def GetA1fromR1C1(input: str) -> str:
         input = input.upper()
         ColumnPosition = input.find("C")
         RowNumber = int(input[1:(ColumnPosition)])
-        ColumnNumber = int(input[(ColumnPosition + 1):])
+        ColumnNumber = int(input[(ColumnPosition + 1) :])
 
         ColumnLetter = GetLetterFromNumber(ColumnNumber)
 

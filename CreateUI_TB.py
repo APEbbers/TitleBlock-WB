@@ -28,14 +28,14 @@
 # https://github.com/FreeCAD/FreeCAD/blob/main/src/Mod/AddonManager/install_to_toolbar.py
 
 import FreeCAD as App
-from SettingsTB import USE_EXTERNAL_SOURCE
-from SettingsTB import EXTERNAL_SOURCE_PATH
-from SettingsTB import USE_SIMPLE_LIST
-from SettingsTB import USE_EXTERNAL_SOURCE_SIMPLE_LIST
-from SettingsTB import EXTERNAL_FILE_SIMPLE_LIST
-from SettingsTB import USE_ADVANCED_LIST
-from SettingsTB import USE_EXTERNAL_SOURCE_ADVANCED_LIST
-from SettingsTB import EXTERNAL_FILE_ADVANCED_LIST
+from Settings_TB import USE_EXTERNAL_SOURCE
+from Settings_TB import EXTERNAL_SOURCE_PATH
+from Settings_TB import USE_SIMPLE_LIST
+from Settings_TB import USE_EXTERNAL_SOURCE_SIMPLE_LIST
+from Settings_TB import EXTERNAL_FILE_SIMPLE_LIST
+from Settings_TB import USE_ADVANCED_LIST
+from Settings_TB import USE_EXTERNAL_SOURCE_ADVANCED_LIST
+from Settings_TB import EXTERNAL_FILE_ADVANCED_LIST
 
 
 # Define the translation
@@ -108,7 +108,10 @@ def DefineToolbars():
                     "NewSimpleList_Internal",
                 ]
             )
-        if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True and EXTERNAL_FILE_SIMPLE_LIST.lower().endswith(".fcstd") is False:
+        if (
+            USE_EXTERNAL_SOURCE_SIMPLE_LIST is True
+            and EXTERNAL_FILE_SIMPLE_LIST.lower().endswith(".fcstd") is False
+        ):
             ToolbarListExtra.extend(
                 [
                     "Separator",
@@ -116,7 +119,10 @@ def DefineToolbars():
                     "OpenSimpleList_Excel",
                 ]
             )
-        if USE_EXTERNAL_SOURCE_SIMPLE_LIST is True and EXTERNAL_FILE_SIMPLE_LIST.lower().endswith(".fcstd") is True:
+        if (
+            USE_EXTERNAL_SOURCE_SIMPLE_LIST is True
+            and EXTERNAL_FILE_SIMPLE_LIST.lower().endswith(".fcstd") is True
+        ):
             ToolbarListExtra.extend(
                 [
                     "Separator",
@@ -135,7 +141,10 @@ def DefineToolbars():
                     "SortGroup_ZA",
                 ]
             )
-        if USE_EXTERNAL_SOURCE_ADVANCED_LIST is True and EXTERNAL_FILE_ADVANCED_LIST.lower().endswith(".fcstd") is False:
+        if (
+            USE_EXTERNAL_SOURCE_ADVANCED_LIST is True
+            and EXTERNAL_FILE_ADVANCED_LIST.lower().endswith(".fcstd") is False
+        ):
             ToolbarListExtra.extend(
                 [
                     "Separator",
@@ -146,7 +155,10 @@ def DefineToolbars():
                     "SortGroup_ZA",
                 ]
             )
-        if USE_EXTERNAL_SOURCE_ADVANCED_LIST is True and EXTERNAL_FILE_ADVANCED_LIST.lower().endswith(".fcstd") is True:
+        if (
+            USE_EXTERNAL_SOURCE_ADVANCED_LIST is True
+            and EXTERNAL_FILE_ADVANCED_LIST.lower().endswith(".fcstd") is True
+        ):
             ToolbarListExtra.extend(
                 [
                     "Separator",

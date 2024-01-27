@@ -51,11 +51,11 @@ class myObserver(object):
                 if ENABLE_RECOMPUTE_FILL_SPREADSHEET is True:
                     if USE_EXTERNAL_SOURCE is True:
                         if EXTERNAL_SOURCE_PATH.lower().endswith(".xlsx") is True:
-                            FillSpreadsheet_TB.Start("ImportExcel")
+                            FillSpreadsheet_TB.Start("ImportExcel", doc, False)
                         if EXTERNAL_SOURCE_PATH.lower().endswith(".xlsx") is False:
-                            FillSpreadsheet_TB.Start("ImportFreeCAD")
+                            FillSpreadsheet_TB.Start("ImportFreeCAD", doc, False)
                     if USE_EXTERNAL_SOURCE is False:
-                        FillSpreadsheet_TB.Start("FillSpreadsheet")
+                        FillSpreadsheet_TB.Start("FillSpreadsheet", doc, False)
                     if ENABLE_DEBUG is True:
                         Standard_Functions.Print("The titleblock spreadsheet has been updated!")
 

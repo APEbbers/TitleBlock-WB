@@ -59,13 +59,13 @@ class myObserver(object):
                     if ENABLE_DEBUG is True:
                         Standard_Functions.Print("The titleblock spreadsheet has been updated!")
 
-            if ENABLE_RECOMPUTE_FILL_TITLEBLOCK is True:
-                FillTitleBlock_TB.FillTitleBlock(doc=doc, recompute=False)
-                if ENABLE_DEBUG is True:
-                    Standard_Functions.Print("The titleblock in all the pages has been updated!")
+                if ENABLE_RECOMPUTE_FILL_TITLEBLOCK is True:
+                    FillTitleBlock_TB.FillTitleBlock(doc=doc, recompute=False)
+                    if ENABLE_DEBUG is True:
+                        Standard_Functions.Print("The titleblock in all the pages has been updated!")
 
-        if ENABLE_DEBUG is True:
-            Standard_Functions.Print("%s has been recomputed\n" % doc.Label, "Log")
+                if ENABLE_DEBUG is True:
+                    Standard_Functions.Print("%s has been recomputed\n" % doc.Label, "Log")
         return
 
 # Add the observers

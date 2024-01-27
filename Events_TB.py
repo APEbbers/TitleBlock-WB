@@ -24,7 +24,7 @@
 # https://github.com/FreeCAD/FreeCAD/blob/main/src/App/DocumentObserverPython.h
 
 import FreeCAD as App
-import FreeCADGui
+import FreeCADGui as Gui
 import Standard_Functions_TB as Standard_Functions
 import FillSpreadsheet_TB
 import FillTitleBlock_TB
@@ -40,7 +40,7 @@ class myObserver(object):
 
     # Observer for document recompute event ("CTRL+R")
     def slotRecomputedDocument(self, doc):
-        ActiveWorkbench = FreeCADGui.activeWorkbench()
+        ActiveWorkbench = Gui.activeWorkbench()
         AllowedWorkbenches = [
             "TitleBlockWB",
             "TechDrawWorkbench",

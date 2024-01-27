@@ -24,6 +24,7 @@ import os
 import FreeCAD as App
 import FreeCADGui as Gui
 import Settings_TB
+from Events_TB import myObserver
 
 # Define the translation
 translate = App.Qt.translate
@@ -57,6 +58,12 @@ class TitleBlockWB(Gui.Workbench):
         os.path.join(PATH_TB_UI, "PreferenceUI.ui"),
         "TitleBlock Workbench",
     )
+
+    obs = myObserver()
+    App.addDocumentObserver(obs)
+
+    doc = Standard_Functions.Print("i_am_observed", "Log")
+    obs.target_doc = doc
 
     def GetClassName(self):
         # This function is mandatory if this is a full Python workbench

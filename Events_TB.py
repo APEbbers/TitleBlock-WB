@@ -26,19 +26,48 @@
 import FreeCAD as App
 import FreeCADGui
 import Standard_Functions_TB as Standard_Functions
+import FillSpreadsheet_TB
+import FillTitleBlock_TB
+from Settings_TB import EXTERNAL_SOURCE_PATH
+from Settings_TB import USE_EXTERNAL_SOURCE
+from Settings_TB import ENABLE_DEBUG
+from Settings_TB import ENABLE_RECOMPUTE_FILL_SPREADSHEET
+from Settings_TB import ENABLE_RECOMPUTE_FILL_TITLEBLOCK
+
+# Class for a observer that observers recompute events
 
 
-class myObserver(object):
-    def __init__(self):
-        self.target_doc = None
+class RecomputeObserver_TB(object):
 
-    def slotRecomputedObject(self, doc):
-        if doc == self.target_doc:
+    # Observer for document recompute event ("CTRL+R")
+    def slotRecomputedDocument(self, doc):
+
+        ActiveWorkbench = FreeCADGui.activeWorkbench()
+        AllowedWorkbenches = [
+            "TitleBlockWB",
+            "TechDrawWorkbench",
+            "SpreadsheetWorkbench",
+        ]
+        for AllowedWorkBench in AllowedWorkbenches:
+            if ActiveWorkbench == AllowedWorkBench:
+                if ENABLE_RECOMPUTE_FILL_SPREADSHEET is True:
+                    if USE_EXTERNAL_SOURCE is True:
+                        if EXTERNAL_SOURCE_PATH.lower().endswith(".xlsx") is True:
+                            FillSpreadsheet_TB.ImportDataExcel()
+                        if EXTERNAL_SOURCE_PATH.lower().endswith(".xlsx") is False:
+                            FillSpreadsheet_TB.ImportDataFreeCAD()
+                    if USE_EXTERNAL_SOURCE is False:
+                        FillSpreadsheet_TB.FillSheet()
+
+            if ENABLE_RECOMPUTE_FILL_TITLEBLOCK is True:
+                FillTitleBlock_TB.FillTitleBlock()
+
+        if ENABLE_DEBUG is True:
             Standard_Functions.Print("%s has been recomputed\n" % doc.Label, "Log")
+            Standard_Functions.Print("The titleblock in all the pages have been updated!")
 
 
-obs = myObserver()
-App.addDocumentObserver(obs)
-
-doc = Standard_Functions.Print("i_am_observed", "Log")
-obs.target_doc = doc
+# Add the observers
+def AddObservers():
+    obs = RecomputeObserver_TB()
+    App.addDocumentObserver(obs)

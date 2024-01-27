@@ -172,7 +172,7 @@
     <rect>
      <x>20</x>
      <y>10</y>
-     <width>491</width>
+     <width>521</width>
      <height>516</height>
     </rect>
    </property>
@@ -180,7 +180,7 @@
     <bool>true</bool>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>5</number>
    </property>
    <widget class="QWidget" name="TitleBlock">
     <attribute name="title">
@@ -191,7 +191,7 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>491</width>
+       <width>511</width>
        <height>491</height>
       </rect>
      </property>
@@ -227,7 +227,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>474</width>
+        <width>494</width>
         <height>1092</height>
        </rect>
       </property>
@@ -2386,9 +2386,9 @@ p, li { white-space: pre-wrap; }
     <widget class="QScrollArea" name="scrollArea_2">
      <property name="geometry">
       <rect>
-       <x>-5</x>
+       <x>5</x>
        <y>0</y>
-       <width>491</width>
+       <width>511</width>
        <height>486</height>
       </rect>
      </property>
@@ -2420,13 +2420,13 @@ p, li { white-space: pre-wrap; }
       <bool>false</bool>
      </property>
      <property name="alignment">
-      <set>Qt::AlignHCenter|Qt::AlignTop</set>
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
      </property>
      <widget class="QWidget" name="scrollAreaWidgetContents_2">
       <property name="geometry">
        <rect>
-        <x>15</x>
-        <y>0</y>
+        <x>0</x>
+        <y>-218</y>
         <width>445</width>
         <height>1000</height>
        </rect>
@@ -2475,7 +2475,7 @@ p, li { white-space: pre-wrap; }
        <item>
         <widget class="QFrame" name="frame_3">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -2504,7 +2504,7 @@ p, li { white-space: pre-wrap; }
          <property name="lineWidth">
           <number>0</number>
          </property>
-         <widget class="Gui::PrefCheckBox" name="UseESimpleList">
+         <widget class="Gui::PrefCheckBox" name="UseSimpleList">
           <property name="geometry">
            <rect>
             <x>10</x>
@@ -3294,6 +3294,92 @@ p, li { white-space: pre-wrap; }
      </widget>
     </widget>
    </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Events</string>
+    </attribute>
+    <widget class="QFrame" name="frame_6">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>100</y>
+       <width>456</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
+     <widget class="Gui::PrefCheckBox" name="EnableRecompute_FillTitleBlock">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>5</y>
+        <width>436</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Populate titleblock with recompute</string>
+      </property>
+      <property name="prefEntry" stdset="0">
+       <cstring>EnableRecompute_FillTitleBlock</cstring>
+      </property>
+      <property name="prefPath" stdset="0">
+       <cstring>Mod/TitleBlock Workbench</cstring>
+      </property>
+     </widget>
+     <widget class="Gui::PrefCheckBox" name="EnableRecompute_FillSpreadsheet">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>436</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Populate titleblock with recompute</string>
+      </property>
+      <property name="prefEntry" stdset="0">
+       <cstring>EnableRecompute_FillSpreadsheet</cstring>
+      </property>
+      <property name="prefPath" stdset="0">
+       <cstring>Mod/TitleBlock Workbench</cstring>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="label_46">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>5</y>
+       <width>491</width>
+       <height>96</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ff0000;&quot;&gt;Experimental features!&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Here you can set if the spreadsheet and/or titleblock must be updated when events happen.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;current supported events:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;- Recompute documents&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;- Recompute objects&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="Gui::UrlLabel" name="urlLabel">
    <property name="geometry">
@@ -3530,7 +3616,7 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>UseESimpleList</sender>
+   <sender>UseSimpleList</sender>
    <signal>toggled(bool)</signal>
    <receiver>frame_5</receiver>
    <slot>setEnabled(bool)</slot>
@@ -3594,7 +3680,7 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>UseESimpleList</sender>
+   <sender>UseSimpleList</sender>
    <signal>toggled(bool)</signal>
    <receiver>label_38</receiver>
    <slot>setEnabled(bool)</slot>
@@ -3610,7 +3696,7 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>UseESimpleList</sender>
+   <sender>UseSimpleList</sender>
    <signal>toggled(bool)</signal>
    <receiver>StartCell_SimpleList</receiver>
    <slot>setEnabled(bool)</slot>
@@ -3626,7 +3712,7 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>UseESimpleList</sender>
+   <sender>UseSimpleList</sender>
    <signal>toggled(bool)</signal>
    <receiver>label_39</receiver>
    <slot>setEnabled(bool)</slot>
@@ -3658,7 +3744,7 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>UseESimpleList</sender>
+   <sender>UseSimpleList</sender>
    <signal>toggled(bool)</signal>
    <receiver>label_37</receiver>
    <slot>setEnabled(bool)</slot>
@@ -3674,7 +3760,7 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>UseESimpleList</sender>
+   <sender>UseSimpleList</sender>
    <signal>toggled(bool)</signal>
    <receiver>SheetName_SimpleList</receiver>
    <slot>setEnabled(bool)</slot>

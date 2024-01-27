@@ -24,8 +24,7 @@ import os
 import FreeCAD as App
 import FreeCADGui as Gui
 import Settings_TB
-from Events_TB import myObserver
-import Standard_Functions_TB as Standard_Functions
+# import Standard_Functions_TB as Standard_Functions
 
 # Define the translation
 translate = App.Qt.translate
@@ -60,11 +59,8 @@ class TitleBlockWB(Gui.Workbench):
         "TitleBlock Workbench",
     )
 
-    obs = myObserver()
-    App.addDocumentObserver(obs)
-
-    doc = Standard_Functions.Print("i_am_observed", "Log")
-    obs.target_doc = doc
+    # Import the observers
+    from Events_TB import RecomputeObserver_TB
 
     def GetClassName(self):
         # This function is mandatory if this is a full Python workbench
@@ -82,10 +78,16 @@ class TitleBlockWB(Gui.Workbench):
         from Settings_TB import ADD_TOOLBAR_TECHDRAW
         import CreateUI_TB
         import TechDraw_Functions_TB
+        import Events_TB
 
+        # Add the observer(s)
+        Events_TB.AddObservers()
+
+        # Define the translation
         def QT_TRANSLATE_NOOP(context, text):
             return text
 
+        # Add the translation path
         Gui.addLanguagePath(PATH_TRANSLATION)
 
         # import the settings with the correct function based on the extension
@@ -151,9 +153,10 @@ class TitleBlockWB(Gui.Workbench):
 
     def Activated(self):
         """This function is executed whenever the workbench is activated"""
-
         import TechDraw_Functions_TB
+        import Events_TB
 
+        # set the techdraw templates
         TechDraw_Functions_TB.ImportTemplates()
         TechDraw_Functions_TB.SetDefaultTemplate()
         return

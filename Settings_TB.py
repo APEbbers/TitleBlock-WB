@@ -196,6 +196,10 @@ PROPERTY_NAME_ADVANCED_LIST = GetStringSetting("PropertyName_AdvancedList")
 SORTING_PREFIX_ADVANCED_LIST = GetStringSetting("SortingPrefix_AdvancedList")
 USE_PAGE_NAMES_ADVANCED_LIST = GetBoolSetting("UsePageNames_AdvancesList")
 
+# Events
+ENABLE_RECOMPUTE_FILL_SPREADSHEET = GetBoolSetting("EnableRecompute_FillSpreadsheet")
+ENABLE_RECOMPUTE_FILL_TITLEBLOCK = GetBoolSetting("EnableRecompute_FillTitleBlock")
+
 # Enable debug mode. This will enable additional report messages
 ENABLE_DEBUG = GetBoolSetting("EnableDebug")
 

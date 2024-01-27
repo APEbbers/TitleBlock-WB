@@ -284,9 +284,10 @@ def MapSimpleDrawingList_Excel(sheet):
                 WorksheetExits = False
                 # Go through the names of the worksheets
                 for WorksheetName in Worksheets_List:
+                    WorksheetName = WorksheetName.replace("'", "")
                     # If a name matches the sheetname in preferences, set WorksheetsExits to True
                     if WorksheetName == SHEETNAME_SIMPLE_LIST:
-                        WorksheetExits is True
+                        WorksheetExits = True
                 # If WorksheetsExits is true, define the worksheet
                 if WorksheetExits is True:
                     ws = wb[str(SHEETNAME_SIMPLE_LIST)]
@@ -1147,8 +1148,9 @@ def MapAdvancedDrawingList_Excel(doc, sheet):
                 # Go through the names of the worksheets
                 for WorksheetName in Worksheets_List:
                     # If a name matches the sheetname in preferences, set WorksheetsExits to True
+                    WorksheetName = WorksheetName.replace("'", "")
                     if WorksheetName == SHEETNAME_ADVANCED_LIST:
-                        WorksheetExits is True
+                        WorksheetExits = True
                 # If WorksheetsExits is true, define the worksheet
                 if WorksheetExits is True:
                     ws = wb[str(SHEETNAME_ADVANCED_LIST)]

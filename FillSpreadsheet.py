@@ -674,9 +674,10 @@ def ImportDataExcel():
                 WorksheetExits = False
                 # Go through the names of the worksheets
                 for WorksheetName in Worksheets_List:
+                    WorksheetName = WorksheetName.replace("'", "")
                     # If a name matches the sheetname in preferences, set WorksheetsExits to True
                     if WorksheetName == EXTERNAL_SOURCE_SHEET_NAME:
-                        WorksheetExits is True
+                        WorksheetExits = True
                 # If WorksheetsExits is true, define the worksheet
                 if WorksheetExits is True:
                     ws = wb[str(EXTERNAL_SOURCE_SHEET_NAME)]

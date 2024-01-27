@@ -492,7 +492,8 @@ def MapDocInfo(sheet, doc=None):
 
 
 # Fill the spreadsheet with all the date from the titleblock
-def FillSheet():
+def FillSheet() -> bool:
+    result = False
     try:
         # get the fist page. If there is no page, return
         pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
@@ -618,13 +619,16 @@ def FillSheet():
         Standard_Functions.Mbox(
             text=Text, title="TitleBlock Workbench", style=0, IconType="Critical"
         )
-    return
+    finally:
+        result = True
+    return result
 
 
 # Import data from a (central) excel workbook
-def ImportDataExcel():
+def ImportDataExcel() -> bool:
     from openpyxl import load_workbook
 
+    result = False
     # Check if it is allowed to use an external source and if so, continue
     if USE_EXTERNAL_SOURCE is True:
         # if debug mode is enabled, show the external file including path.
@@ -929,14 +933,16 @@ def ImportDataExcel():
         finally:
             # Close the excel workbook
             wb.close()
+            result = True
     else:
         Text = translate("TitleBlock Workbench", "External source is not enabled!")
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-    return
+    return result
 
 
 # Import data from an central FreeCAD file
 def ImportDataFreeCAD():
+    result = False
     try:
         # if debug mode is enabled, show the external file including path.
         if ENABLE_DEBUG is True:
@@ -1256,48 +1262,51 @@ def ImportDataFreeCAD():
             )
             raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
-    return
+    finally:
+        result = True
+    return result
 
 
 # Use this function to run the function "Populate sheet"
-def Start(command):
+def Start(command) -> bool:
+    result = False
     try:
         sheet = App.ActiveDocument.getObject("TitleBlock")
         # check if the result is not empty
         if sheet is not None:
             # Proceed with the macro.
             if command == "FillSpreadsheet":
-                FillSheet()
+                result = FillSheet()
             if command == "ImportExcel":
-                ImportDataExcel()
+                result = ImportDataExcel()
             if command == "ImportFreeCAD":
-                ImportDataFreeCAD()
+                result = ImportDataFreeCAD()
 
             # if the debug mode is on, report presense of titleblock spreadsheet
             if ENABLE_DEBUG is True:
                 Text = translate("TitleBlock Workbench", "TitleBlock already present")
                 Standard_Functions.Print(Text, "Log")
 
-            return
+            return result
         # if the result is empty, create a new titleblock spreadsheet
         if sheet is None:
             sheet = App.ActiveDocument.addObject("Spreadsheet::Sheet", "TitleBlock")
 
             # Proceed with the macro.
             if command == "FillSpreadsheet":
-                FillSheet()
+                result = FillSheet()
             if command == "ImportExcel":
-                ImportDataExcel()
+                result = ImportDataExcel()
             if command == "ImportFreeCAD":
-                ImportDataFreeCAD()
+                result = ImportDataFreeCAD()
 
             # if the debug mode is on, report creation of titleblock spreadsheet
             if ENABLE_DEBUG is True:
                 Text = translate("TitleBlock Workbench", "TitleBlock created")
                 Standard_Functions.Print(Text, "Log")
 
-            return
+            return result
     except Exception as e:
         if ENABLE_DEBUG is True:
             raise e
-    return
+    return result

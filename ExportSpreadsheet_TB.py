@@ -253,7 +253,7 @@ def ExportSpreadSheet_Excel() -> bool:
     finally:
         # Close the excel workbook
         wb.close()
-        return result
+        result = True
     return result
 
 

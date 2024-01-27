@@ -668,7 +668,6 @@ def ImportDataExcel():
                     return
                 ws = wb[str(Input_SheetName)]
             if EXTERNAL_SOURCE_SHEET_NAME != "":
-                ws = wb[str(EXTERNAL_SOURCE_SHEET_NAME)]
                 # Get the list of worksheets
                 Worksheets_List = [i for i in wb.sheetnames if i != "Settings"]
                 # Assume that the worksheet doesn't exits

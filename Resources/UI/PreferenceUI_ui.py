@@ -1468,6 +1468,7 @@ class Ui_Form(object):
         self.frame_6.setFrameShadow(QFrame.Sunken)
         self.EnableRecompute_FillTitleBlock = Gui_PrefCheckBox(self.frame_6)
         self.EnableRecompute_FillTitleBlock.setObjectName(u"EnableRecompute_FillTitleBlock")
+        self.EnableRecompute_FillTitleBlock.setEnabled(False)
         self.EnableRecompute_FillTitleBlock.setGeometry(QRect(10, 5, 436, 17))
         self.EnableRecompute_FillTitleBlock.setProperty("prefEntry", u"EnableRecompute_FillTitleBlock")
         self.EnableRecompute_FillTitleBlock.setProperty("prefPath", u"Mod/TitleBlock Workbench")

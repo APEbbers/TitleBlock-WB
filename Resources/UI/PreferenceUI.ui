@@ -3320,6 +3320,9 @@ p, li { white-space: pre-wrap; }
       <enum>QFrame::Sunken</enum>
      </property>
      <widget class="Gui::PrefCheckBox" name="EnableRecompute_FillTitleBlock">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>10</x>

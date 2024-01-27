@@ -180,7 +180,7 @@
     <bool>true</bool>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>5</number>
    </property>
    <widget class="QWidget" name="TitleBlock">
     <attribute name="title">
@@ -3335,7 +3335,7 @@ p, li { white-space: pre-wrap; }
        <string>update titleblock spreadsheet with recompute</string>
       </property>
       <property name="prefEntry" stdset="0">
-       <cstring>EnableRecompute_FillTitleBlock</cstring>
+       <cstring>EnableRecompute_FillSpreadsheet</cstring>
       </property>
       <property name="prefPath" stdset="0">
        <cstring>Mod/TitleBlock Workbench</cstring>
@@ -3354,7 +3354,7 @@ p, li { white-space: pre-wrap; }
        <string>Populate titleblock with recompute</string>
       </property>
       <property name="prefEntry" stdset="0">
-       <cstring>EnableRecompute_FillSpreadsheet</cstring>
+       <cstring>EnableRecompute_FillTitleBlock</cstring>
       </property>
       <property name="prefPath" stdset="0">
        <cstring>Mod/TitleBlock Workbench</cstring>

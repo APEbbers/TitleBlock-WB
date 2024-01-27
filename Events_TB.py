@@ -47,7 +47,7 @@ class myObserver(object):
             "SpreadsheetWorkbench",
         ]
         for AllowedWorkBench in AllowedWorkbenches:
-            if ActiveWorkbench == AllowedWorkBench:
+            if ActiveWorkbench.name() == AllowedWorkBench:
                 if ENABLE_RECOMPUTE_FILL_SPREADSHEET is True:
                     if USE_EXTERNAL_SOURCE is True:
                         if EXTERNAL_SOURCE_PATH.lower().endswith(".xlsx") is True:

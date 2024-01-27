@@ -3301,8 +3301,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QFrame" name="frame_6">
      <property name="geometry">
       <rect>
-       <x>5</x>
-       <y>100</y>
+       <x>10</x>
+       <y>170</y>
        <width>456</width>
        <height>241</height>
       </rect>
@@ -3325,7 +3325,7 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>5</x>
         <y>5</y>
         <width>436</width>
         <height>17</height>
@@ -3344,7 +3344,7 @@ p, li { white-space: pre-wrap; }
      <widget class="Gui::PrefCheckBox" name="EnableRecompute_FillSpreadsheet">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>5</x>
         <y>30</y>
         <width>436</width>
         <height>17</height>
@@ -3367,7 +3367,7 @@ p, li { white-space: pre-wrap; }
        <x>10</x>
        <y>5</y>
        <width>491</width>
-       <height>96</height>
+       <height>141</height>
       </rect>
      </property>
      <property name="text">
@@ -3379,7 +3379,12 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Here you can set if the spreadsheet and/or titleblock must be updated when events happen.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;current supported events:&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;- Recompute documents&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;- Recompute objects&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;- Recompute objects&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Currently these functions are working when the one of the following workbenches are activated:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;- TechDraw workbench&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;- Spreadsheet workbench&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;- TitleBlock workbench&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </widget>

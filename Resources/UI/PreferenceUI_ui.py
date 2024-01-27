@@ -1461,7 +1461,7 @@ class Ui_Form(object):
         self.tab_2.setObjectName(u"tab_2")
         self.frame_6 = QFrame(self.tab_2)
         self.frame_6.setObjectName(u"frame_6")
-        self.frame_6.setGeometry(QRect(5, 100, 456, 241))
+        self.frame_6.setGeometry(QRect(10, 170, 456, 241))
         sizePolicy4.setHeightForWidth(self.frame_6.sizePolicy().hasHeightForWidth())
         self.frame_6.setSizePolicy(sizePolicy4)
         self.frame_6.setFrameShape(QFrame.StyledPanel)
@@ -1469,17 +1469,17 @@ class Ui_Form(object):
         self.EnableRecompute_FillTitleBlock = Gui_PrefCheckBox(self.frame_6)
         self.EnableRecompute_FillTitleBlock.setObjectName(u"EnableRecompute_FillTitleBlock")
         self.EnableRecompute_FillTitleBlock.setEnabled(False)
-        self.EnableRecompute_FillTitleBlock.setGeometry(QRect(10, 5, 436, 17))
+        self.EnableRecompute_FillTitleBlock.setGeometry(QRect(5, 5, 436, 17))
         self.EnableRecompute_FillTitleBlock.setProperty("prefEntry", u"EnableRecompute_FillSpreadsheet")
         self.EnableRecompute_FillTitleBlock.setProperty("prefPath", u"Mod/TitleBlock Workbench")
         self.EnableRecompute_FillSpreadsheet = Gui_PrefCheckBox(self.frame_6)
         self.EnableRecompute_FillSpreadsheet.setObjectName(u"EnableRecompute_FillSpreadsheet")
-        self.EnableRecompute_FillSpreadsheet.setGeometry(QRect(10, 30, 436, 17))
+        self.EnableRecompute_FillSpreadsheet.setGeometry(QRect(5, 30, 436, 17))
         self.EnableRecompute_FillSpreadsheet.setProperty("prefEntry", u"EnableRecompute_FillTitleBlock")
         self.EnableRecompute_FillSpreadsheet.setProperty("prefPath", u"Mod/TitleBlock Workbench")
         self.label_46 = QLabel(self.tab_2)
         self.label_46.setObjectName(u"label_46")
-        self.label_46.setGeometry(QRect(10, 5, 491, 96))
+        self.label_46.setGeometry(QRect(10, 5, 491, 141))
         self.tabWidget.addTab(self.tab_2, "")
         self.urlLabel = Gui_UrlLabel(Form)
         self.urlLabel.setObjectName(u"urlLabel")
@@ -1761,7 +1761,13 @@ class Ui_Form(object):
 "<p style=\" margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#000000;\">current supported events:</span></p>\n"
 "<p style"
                         "=\" margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#000000;\">- Recompute documents</span></p>\n"
-"<p style=\" margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#000000;\">- Recompute objects</span></p></body></html>", None))
+"<p style=\" margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#000000;\">- Recompute objects</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;\"><br /></p>\n"
+"<p style=\" margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#000000;\">Currently these functions are working when the one of the following workbenches are activated:</span></p>\n"
+"<p style=\" margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#000000;\">- TechDraw workbench</span></p>\n"
+"<p style=\" margin-top:1px;"
+                        " margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#000000;\">- Spreadsheet workbench</span></p>\n"
+"<p style=\" margin-top:1px; margin-bottom:1px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#000000;\">- TitleBlock workbench</span></p></body></html>", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("Form", u"Events", None))
         self.urlLabel.setText(QCoreApplication.translate("Form", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"

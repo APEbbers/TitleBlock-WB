@@ -60,7 +60,7 @@ class myObserver(object):
                         Standard_Functions.Print("The titleblock spreadsheet has been updated!")
 
             if ENABLE_RECOMPUTE_FILL_TITLEBLOCK is True:
-                FillTitleBlock_TB.FillTitleBlock()
+                FillTitleBlock_TB.FillTitleBlock(doc=doc, recompute=False)
                 if ENABLE_DEBUG is True:
                     Standard_Functions.Print("The titleblock in all the pages has been updated!")
 

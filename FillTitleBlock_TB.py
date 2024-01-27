@@ -40,7 +40,7 @@ import DrawingList_Functions_TB
 translate = App.Qt.translate
 
 
-def FillTitleBlock() -> bool:
+def FillTitleBlock(doc=None, recompute: bool = True) -> bool:
     from Settings_TB import ENABLE_DEBUG
     from Settings_TB import MAP_NOSHEETS
     from Settings_TB import USE_PAGENAME_DRAW_NO
@@ -58,12 +58,15 @@ def FillTitleBlock() -> bool:
     Multiplier = 1
     result = False
 
+    if doc is None:
+        doc = App.ActiveDocument
+
     # Get the pages and go throug them one by one.
     try:
-        pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+        pages = doc.findObjects("TechDraw::DrawPage")
 
         # Get the spreadsheet.
-        sheet = App.ActiveDocument.getObject("TitleBlock")
+        sheet = doc.getObject("TitleBlock")
         if sheet is None:
             Standard_Functions.Mbox(
                 "No titleblock spreadsheet present!", "TitleBlock Workbench", 0
@@ -221,7 +224,8 @@ def FillTitleBlock() -> bool:
                 page.Template.EditableTexts = texts
 
                 # Recompute the page
-                App.ActiveDocument.recompute(None, True, True)
+                if recompute is True:
+                    doc.recompute(None, True, True)
 
             except Exception as e:
                 # raise an exeception if there is no spreadsheet.

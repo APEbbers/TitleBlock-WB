@@ -23,22 +23,22 @@
 
 
 import FreeCAD as App
-import Standard_Functions_TitleBlock as Standard_Functions
+import Standard_Functions_TB as Standard_Functions
 from openpyxl import Workbook
 from openpyxl.styles import Alignment
 from openpyxl.worksheet.table import Table, TableStyleInfo
-import TableFormat_Functions
+import TableFormat_Functions_TB
 import os
 
 # Get the settings
-import SettingsTB
-from SettingsTB import preferences
-from SettingsTB import EXTERNAL_SOURCE_STARTCELL
+import Settings_TB
+from Settings_TB import preferences
+from Settings_TB import EXTERNAL_SOURCE_STARTCELL
 
 # from Settings import EXTERNAL_SOURCE_SHEET_NAME
 # from Settings import EXTERNAL_SOURCE_PATH
-from SettingsTB import IMPORT_SETTINGS_XL
-from SettingsTB import ENABLE_DEBUG
+from Settings_TB import IMPORT_SETTINGS_XL
+from Settings_TB import ENABLE_DEBUG
 
 # Define the translation
 translate = App.Qt.translate
@@ -228,7 +228,7 @@ def ExportSpreadSheet_Excel():
 
         # If import settings from excel is enabled, export settings to the new excel file.
         if IMPORT_SETTINGS_XL is True:
-            SettingsTB.ExportSettings_XL(Silent=True)
+            Settings_TB.ExportSettings_XL(Silent=True)
 
         # print a message if you succeded.
         Text = translate(
@@ -449,7 +449,7 @@ def ExportSpreadSheet_FreeCAD():
         )
 
         # Format the table
-        TableFormat_Functions.FormatTable(
+        TableFormat_Functions_TB.FormatTable(
             sheet=TitleBlockData,
             HeaderRange=HeaderRange,
             TableRange=TableRange,
@@ -463,7 +463,7 @@ def ExportSpreadSheet_FreeCAD():
 
         # If import settings from external source is enabled, export settings to the new excel file.
         if IMPORT_SETTINGS_XL is True:
-            SettingsTB.ExportSettings_FreeCAD(Silent=True)
+            Settings_TB.ExportSettings_FreeCAD(Silent=True)
 
         # recompute the document
         if Standard_Functions.CheckIfDocumentIsOpen(ExternalFileName):

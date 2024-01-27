@@ -22,8 +22,8 @@
 # ***************************************************************************/
 
 import FreeCAD as App
-import Standard_Functions_TitleBlock as Standard_Functions
-import TableFormat_Functions
+import Standard_Functions_TB as Standard_Functions
+import TableFormat_Functions_TB
 
 # region defenitions
 # Define the translation
@@ -787,7 +787,7 @@ def ExportSettings_FreeCAD(Silent=False):
         FirstColumnRange = str(f"{FirstColumn}{FirstTableRow}:{FirstColumn}{RowNumber}")
 
         # Format the table
-        sheet = TableFormat_Functions.FormatTable(
+        sheet = TableFormat_Functions_TB.FormatTable(
             sheet=sheet,
             HeaderRange=HeaderRange,
             TableRange=TableRange,

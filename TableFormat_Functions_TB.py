@@ -57,22 +57,22 @@ def FormatTable(
         TableRange (string): Range for the table
         FirstColumnRange (string): Range for the first column
     """
-    import Standard_Functions_TitleBlock as Standard_Functions
-    from SettingsTB import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
-    from SettingsTB import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
-    from SettingsTB import SPREADSHEET_COLUMNFONTSTYLE_BOLD
-    from SettingsTB import SPREADSHEET_TABLEFONTSTYLE_UNDERLINE
-    from SettingsTB import SPREADSHEET_TABLEFONTSTYLE_ITALIC
-    from SettingsTB import SPREADSHEET_TABLEFONTSTYLE_BOLD
-    from SettingsTB import SPREADSHEET_TABLEFOREGROUND
-    from SettingsTB import SPREADSHEET_TABLEBACKGROUND_2
-    from SettingsTB import SPREADSHEET_TABLEBACKGROUND_1
-    from SettingsTB import SPREADSHEET_HEADERFONTSTYLE_UNDERLINE
-    from SettingsTB import SPREADSHEET_HEADERFONTSTYLE_ITALIC
-    from SettingsTB import SPREADSHEET_HEADERFONTSTYLE_BOLD
-    from SettingsTB import SPREADSHEET_HEADERFOREGROUND
-    from SettingsTB import SPREADSHEET_HEADERBACKGROUND
-    from SettingsTB import AUTOFIT_FACTOR
+    import Standard_Functions_TB as Standard_Functions
+    from Settings_TB import SPREADSHEET_COLUMNFONTSTYLE_UNDERLINE
+    from Settings_TB import SPREADSHEET_COLUMNFONTSTYLE_ITALIC
+    from Settings_TB import SPREADSHEET_COLUMNFONTSTYLE_BOLD
+    from Settings_TB import SPREADSHEET_TABLEFONTSTYLE_UNDERLINE
+    from Settings_TB import SPREADSHEET_TABLEFONTSTYLE_ITALIC
+    from Settings_TB import SPREADSHEET_TABLEFONTSTYLE_BOLD
+    from Settings_TB import SPREADSHEET_TABLEFOREGROUND
+    from Settings_TB import SPREADSHEET_TABLEBACKGROUND_2
+    from Settings_TB import SPREADSHEET_TABLEBACKGROUND_1
+    from Settings_TB import SPREADSHEET_HEADERFONTSTYLE_UNDERLINE
+    from Settings_TB import SPREADSHEET_HEADERFONTSTYLE_ITALIC
+    from Settings_TB import SPREADSHEET_HEADERFONTSTYLE_BOLD
+    from Settings_TB import SPREADSHEET_HEADERFOREGROUND
+    from Settings_TB import SPREADSHEET_HEADERBACKGROUND
+    from Settings_TB import AUTOFIT_FACTOR
 
     # Format the header ------------------------------------------------------------------------------------------------
     # Set the font style for the header

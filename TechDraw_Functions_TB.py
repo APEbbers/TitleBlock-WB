@@ -25,7 +25,7 @@
 import os
 from inspect import getsourcefile
 import FreeCAD as App
-import Standard_Functions_TitleBlock as Standard_Functions
+import Standard_Functions_TB as Standard_Functions
 
 # Define the translation
 translate = App.Qt.translate
@@ -53,7 +53,7 @@ def GetDefaultTemplate(selectedItem: int) -> str:
 
 
 def ImportTemplates():
-    from SettingsTB import IMPORT_EXAMPLE_TEMPLATES
+    from Settings_TB import IMPORT_EXAMPLE_TEMPLATES
 
     if IMPORT_EXAMPLE_TEMPLATES is True:
         # Define the parameter path
@@ -69,9 +69,9 @@ def ImportTemplates():
 
 
 def SetDefaultTemplate():
-    from SettingsTB import DEFAULT_TEMPLATE
-    from SettingsTB import IMPORT_EXAMPLE_TEMPLATES
-    from SettingsTB import ENABLE_DEBUG
+    from Settings_TB import DEFAULT_TEMPLATE
+    from Settings_TB import IMPORT_EXAMPLE_TEMPLATES
+    from Settings_TB import ENABLE_DEBUG
 
     ChosenTemplate = os.path.join(
         TEMPLATE_DIR, GetDefaultTemplate(DEFAULT_TEMPLATE).replace("\\", "/")

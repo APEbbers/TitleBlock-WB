@@ -39,42 +39,42 @@
 # region imports
 import os
 import FreeCAD as App
-import Standard_Functions_TitleBlock as Standard_Functions
-import TableFormat_Functions
-import DrawingList_Functions
+import Standard_Functions_TB as Standard_Functions
+import TableFormat_Functions_TB
+import DrawingList_Functions_TB
 
 # Get the settings
-from SettingsTB import DRAW_NO_FIELD
-from SettingsTB import USE_FILENAME_DRAW_NO
-from SettingsTB import DRAW_NO_FIELD_PAGE
-from SettingsTB import USE_PAGENAME_DRAW_NO
-from SettingsTB import ENABLE_DEBUG
-from SettingsTB import DOCINFO_COMMENT
-from SettingsTB import DOCINFO_LICENSEURL
-from SettingsTB import DOCINFO_LICENSE
-from SettingsTB import DOCINFO_COMPANY
-from SettingsTB import DOCINFO_LASTMODIFIEDDATE
-from SettingsTB import DOCINFO_LASTMODIFIEDBY
-from SettingsTB import DOCINFO_CREATEDDATE
-from SettingsTB import DOCINFO_CREATEDBY
-from SettingsTB import DOCINFO_NAME
-from SettingsTB import MAP_NOSHEETS
-from SettingsTB import MAP_MASS
-from SettingsTB import MAP_ANGLE
-from SettingsTB import MAP_LENGTH
-from SettingsTB import EXTERNAL_SOURCE_STARTCELL
-from SettingsTB import EXTERNAL_SOURCE_SHEET_NAME
-from SettingsTB import EXTERNAL_SOURCE_PATH
-from SettingsTB import USE_EXTERNAL_SOURCE
-from SettingsTB import INCLUDE_NO_SHEETS
-from SettingsTB import INCLUDE_MASS
-from SettingsTB import INCLUDE_ANGLE
-from SettingsTB import INCLUDE_LENGTH
-from SettingsTB import preferences
-from SettingsTB import USE_SIMPLE_LIST
-from SettingsTB import USE_EXTERNAL_SOURCE_SIMPLE_LIST
-from SettingsTB import USE_ADVANCED_LIST
-from SettingsTB import EXTERNAL_FILE_ADVANCED_LIST
+from Settings_TB import DRAW_NO_FIELD
+from Settings_TB import USE_FILENAME_DRAW_NO
+from Settings_TB import DRAW_NO_FIELD_PAGE
+from Settings_TB import USE_PAGENAME_DRAW_NO
+from Settings_TB import ENABLE_DEBUG
+from Settings_TB import DOCINFO_COMMENT
+from Settings_TB import DOCINFO_LICENSEURL
+from Settings_TB import DOCINFO_LICENSE
+from Settings_TB import DOCINFO_COMPANY
+from Settings_TB import DOCINFO_LASTMODIFIEDDATE
+from Settings_TB import DOCINFO_LASTMODIFIEDBY
+from Settings_TB import DOCINFO_CREATEDDATE
+from Settings_TB import DOCINFO_CREATEDBY
+from Settings_TB import DOCINFO_NAME
+from Settings_TB import MAP_NOSHEETS
+from Settings_TB import MAP_MASS
+from Settings_TB import MAP_ANGLE
+from Settings_TB import MAP_LENGTH
+from Settings_TB import EXTERNAL_SOURCE_STARTCELL
+from Settings_TB import EXTERNAL_SOURCE_SHEET_NAME
+from Settings_TB import EXTERNAL_SOURCE_PATH
+from Settings_TB import USE_EXTERNAL_SOURCE
+from Settings_TB import INCLUDE_NO_SHEETS
+from Settings_TB import INCLUDE_MASS
+from Settings_TB import INCLUDE_ANGLE
+from Settings_TB import INCLUDE_LENGTH
+from Settings_TB import preferences
+from Settings_TB import USE_SIMPLE_LIST
+from Settings_TB import USE_EXTERNAL_SOURCE_SIMPLE_LIST
+from Settings_TB import USE_ADVANCED_LIST
+from Settings_TB import EXTERNAL_FILE_ADVANCED_LIST
 
 # endregion
 
@@ -595,7 +595,7 @@ def FillSheet():
         )
 
         # Format the table
-        sheet = TableFormat_Functions.FormatTable(
+        sheet = TableFormat_Functions_TB.FormatTable(
             sheet=sheet,
             HeaderRange=HeaderRange,
             TableRange=TableRange,
@@ -901,7 +901,7 @@ def ImportDataExcel():
             )
 
             # Format the table
-            sheet = TableFormat_Functions.FormatTable(
+            sheet = TableFormat_Functions_TB.FormatTable(
                 sheet=sheet,
                 HeaderRange=HeaderRange,
                 TableRange=TableRange,
@@ -1221,7 +1221,7 @@ def ImportDataFreeCAD():
             )
 
             # Format the table
-            sheet = TableFormat_Functions.FormatTable(
+            sheet = TableFormat_Functions_TB.FormatTable(
                 sheet=sheet,
                 HeaderRange=HeaderRange,
                 TableRange=TableRange,

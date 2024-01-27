@@ -24,8 +24,8 @@
 # FreeCAD init script of the Work Features module
 import FreeCAD as App
 import FreeCADGui as Gui
-import SettingsTB
-from SettingsTB import AUTOFILL_TITLEBLOCK
+import Settings_TB
+from Settings_TB import AUTOFILL_TITLEBLOCK
 
 # Define the translation
 translate = App.Qt.translate
@@ -51,9 +51,9 @@ class FillSpreadsheet_Class:
         }
 
     def Activated(self):
-        import FillSpreadsheet
+        import FillSpreadsheet_TB
 
-        FillSpreadsheet.Start("FillSpreadsheet")
+        FillSpreadsheet_TB.Start("FillSpreadsheet")
         return
 
     def IsActive(self):
@@ -85,9 +85,9 @@ class FillTitleBlock_Class:
         }
 
     def Activated(self):
-        import FillTitleBlock
+        import FillTitleBlock_TB
 
-        FillTitleBlock.FillTitleBlock()
+        FillTitleBlock_TB.FillTitleBlock()
 
         return
 
@@ -124,12 +124,12 @@ class ImportExcel_Class:
         }
 
     def Activated(self):
-        import FillSpreadsheet
-        import FillTitleBlock
+        import FillSpreadsheet_TB
+        import FillTitleBlock_TB
 
-        FillSpreadsheet.Start("ImportExcel")
+        FillSpreadsheet_TB.Start("ImportExcel")
         if AUTOFILL_TITLEBLOCK is True:
-            FillTitleBlock.FillTitleBlock()
+            FillTitleBlock_TB.FillTitleBlock()
         return
 
     def IsActive(self):
@@ -163,12 +163,12 @@ class ImportFreeCAD_Class:
         }
 
     def Activated(self):
-        import FillSpreadsheet
-        import FillTitleBlock
+        import FillSpreadsheet_TB
+        import FillTitleBlock_TB
 
-        FillSpreadsheet.Start("ImportFreeCAD")
+        FillSpreadsheet_TB.Start("ImportFreeCAD")
         if AUTOFILL_TITLEBLOCK is True:
-            FillTitleBlock.FillTitleBlock()
+            FillTitleBlock_TB.FillTitleBlock()
         return
 
     def IsActive(self):
@@ -202,9 +202,9 @@ class ExportSpreadsheet_Excel_class:
         }
 
     def Activated(self):
-        import ExportSpreadsheet
+        import ExportSpreadsheet_TB
 
-        ExportSpreadsheet.ExportSpreadSheet_Excel()
+        ExportSpreadsheet_TB.ExportSpreadSheet_Excel()
         return
 
     def IsActive(self):
@@ -238,9 +238,9 @@ class ExportSpreadsheet_FreeCAD_class:
         }
 
     def Activated(self):
-        import ExportSpreadsheet
+        import ExportSpreadsheet_TB
 
-        ExportSpreadsheet.ExportSpreadSheet_FreeCAD()
+        ExportSpreadsheet_TB.ExportSpreadSheet_FreeCAD()
         return
 
     def IsActive(self):
@@ -274,7 +274,7 @@ class ExportSettings_Excel_class:
         }
 
     def Activated(self):
-        SettingsTB.ExportSettings_XL()
+        Settings_TB.ExportSettings_XL()
         return
 
     # def IsActive(self):
@@ -307,7 +307,7 @@ class ExportSettings_FreeCAD_class:
         }
 
     def Activated(self):
-        SettingsTB.ExportSettings_FreeCAD()
+        Settings_TB.ExportSettings_FreeCAD()
         return
 
     # def IsActive(self):
@@ -340,7 +340,7 @@ class ImportSettings_Excel_class:
         }
 
     def Activated(self):
-        SettingsTB.ImportSettings_XL()
+        Settings_TB.ImportSettings_XL()
         return
 
     # def IsActive(self):
@@ -373,7 +373,7 @@ class ImportSettings_FreeCAD_class:
         }
 
     def Activated(self):
-        SettingsTB.ImportSettings_FreeCAD()
+        Settings_TB.ImportSettings_FreeCAD()
         return
 
     # def IsActive(self):
@@ -403,8 +403,8 @@ class OpenExcel_class:
         }
 
     def Activated(self):
-        import Standard_Functions_TitleBlock as Standard_Functions
-        from SettingsTB import EXTERNAL_SOURCE_PATH
+        import Standard_Functions_TB as Standard_Functions
+        from Settings_TB import EXTERNAL_SOURCE_PATH
 
         if EXTERNAL_SOURCE_PATH.lower().endswith(
             "xlsx"
@@ -440,8 +440,8 @@ class OpenFreeCAD_class:
         }
 
     def Activated(self):
-        import Standard_Functions_TitleBlock as Standard_Functions
-        from SettingsTB import EXTERNAL_SOURCE_PATH
+        import Standard_Functions_TB as Standard_Functions
+        from Settings_TB import EXTERNAL_SOURCE_PATH
 
         if EXTERNAL_SOURCE_PATH.lower().endswith("fcstd"):
             Standard_Functions.OpenFreeCADFile(EXTERNAL_SOURCE_PATH)
@@ -473,9 +473,9 @@ class NewExcel_class:
         }
 
     def Activated(self):
-        import CreateNewFile
+        import CreateNewFile_TB
 
-        CreateNewFile.CreateTitleBlockData_Excel()
+        CreateNewFile_TB.CreateTitleBlockData_Excel()
         return
 
     # def IsActive(self):
@@ -505,9 +505,9 @@ class NewFreeCAD_class:
         }
 
     def Activated(self):
-        import CreateNewFile
+        import CreateNewFile_TB
 
-        CreateNewFile.CreateTitleBlockData_FreeCAD()
+        CreateNewFile_TB.CreateTitleBlockData_FreeCAD()
         return
 
     # def IsActive(self):
@@ -535,9 +535,9 @@ class NewDrawingList_Excel_class:
         }
 
     def Activated(self):
-        import CreateNewFile
+        import CreateNewFile_TB
 
-        CreateNewFile.CreateSimpleDrawingList_Excel()
+        CreateNewFile_TB.CreateSimpleDrawingList_Excel()
         return
 
     # def IsActive(self):
@@ -566,9 +566,9 @@ class NewDrawingList_FreeCAD_class:
         }
 
     def Activated(self):
-        import CreateNewFile
+        import CreateNewFile_TB
 
-        CreateNewFile.CreateSimpleDrawingList_FreeCAD()
+        CreateNewFile_TB.CreateSimpleDrawingList_FreeCAD()
         return
 
     # def IsActive(self):
@@ -597,9 +597,9 @@ class NewDrawingList_Internal_class:
         }
 
     def Activated(self):
-        import CreateNewFile
+        import CreateNewFile_TB
 
-        CreateNewFile.CreateSimpleDrawingList_Internal()
+        CreateNewFile_TB.CreateSimpleDrawingList_Internal()
 
         return
 
@@ -628,8 +628,8 @@ class OpenDrawingList_Excel_class:
         }
 
     def Activated(self):
-        import Standard_Functions_TitleBlock as Standard_Functions
-        from SettingsTB import EXTERNAL_FILE_SIMPLE_LIST
+        import Standard_Functions_TB as Standard_Functions
+        from Settings_TB import EXTERNAL_FILE_SIMPLE_LIST
 
         if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith(
             "xlsx"
@@ -664,8 +664,8 @@ class OpenDrawingList_FreeCAD_class:
         }
 
     def Activated(self):
-        import Standard_Functions_TitleBlock as Standard_Functions
-        from SettingsTB import EXTERNAL_FILE_SIMPLE_LIST
+        import Standard_Functions_TB as Standard_Functions
+        from Settings_TB import EXTERNAL_FILE_SIMPLE_LIST
 
         if EXTERNAL_FILE_SIMPLE_LIST.lower().endswith("fcstd"):
             Standard_Functions.OpenFreeCADFile(EXTERNAL_FILE_SIMPLE_LIST)
@@ -696,9 +696,9 @@ class NewDrawingList_Advanced_Excel_class:
         }
 
     def Activated(self):
-        import CreateNewFile
+        import CreateNewFile_TB
 
-        CreateNewFile.CreateAdvancedDrawingList_Excel()
+        CreateNewFile_TB.CreateAdvancedDrawingList_Excel()
         return
 
     # def IsActive(self):
@@ -727,9 +727,9 @@ class NewDrawingList_Advanced_FreeCAD_class:
         }
 
     def Activated(self):
-        import CreateNewFile
+        import CreateNewFile_TB
 
-        CreateNewFile.CreateAdvancedDrawingList_FreeCAD()
+        CreateNewFile_TB.CreateAdvancedDrawingList_FreeCAD()
         return
 
     # def IsActive(self):
@@ -758,9 +758,9 @@ class NewDrawingList_Advanced_Internal_class:
         }
 
     def Activated(self):
-        import CreateNewFile
+        import CreateNewFile_TB
 
-        CreateNewFile.CreateAdvancedDrawingList_Internal()
+        CreateNewFile_TB.CreateAdvancedDrawingList_Internal()
 
         return
 
@@ -789,8 +789,8 @@ class OpenDrawingList_Advanced_Excel_class:
         }
 
     def Activated(self):
-        import Standard_Functions_TitleBlock as Standard_Functions
-        from SettingsTB import EXTERNAL_FILE_ADVANCED_LIST
+        import Standard_Functions_TB as Standard_Functions
+        from Settings_TB import EXTERNAL_FILE_ADVANCED_LIST
 
         if EXTERNAL_FILE_ADVANCED_LIST.lower().endswith(
             "xlsx"
@@ -825,8 +825,8 @@ class OpenDrawingList_Advanced_FreeCAD_class:
         }
 
     def Activated(self):
-        import Standard_Functions_TitleBlock as Standard_Functions
-        from SettingsTB import EXTERNAL_FILE_ADVANCED_LIST
+        import Standard_Functions_TB as Standard_Functions
+        from Settings_TB import EXTERNAL_FILE_ADVANCED_LIST
 
         if EXTERNAL_FILE_ADVANCED_LIST.lower().endswith("fcstd"):
             Standard_Functions.OpenFreeCADFile(EXTERNAL_FILE_ADVANCED_LIST)
@@ -859,9 +859,9 @@ class ExpandToolbar_class:
         }
 
     def Activated(self):
-        import CreateUI
+        import CreateUI_TB
 
-        CreateUI.toggleToolbars(ToolbarName="TitleBlock extra")
+        CreateUI_TB.toggleToolbars(ToolbarName="TitleBlock extra")
         return
 
     # def IsActive(self):
@@ -880,9 +880,9 @@ class SortFolder_AZ_class:
         }
 
     def Activated(self):
-        import DrawingList_Functions
+        import DrawingList_Functions_TB
 
-        DrawingList_Functions.SortGroups(False)
+        DrawingList_Functions_TB.SortGroups(False)
         return
 
     # def IsActive(self):
@@ -901,9 +901,9 @@ class SortFolder_ZA_class:
         }
 
     def Activated(self):
-        import DrawingList_Functions
+        import DrawingList_Functions_TB
 
-        DrawingList_Functions.SortGroups(True)
+        DrawingList_Functions_TB.SortGroups(True)
         return
 
     # def IsActive(self):

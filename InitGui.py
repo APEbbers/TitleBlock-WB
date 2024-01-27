@@ -23,7 +23,7 @@
 import os
 import FreeCAD as App
 import FreeCADGui as Gui
-import SettingsTB
+import Settings_TB
 
 # Define the translation
 translate = App.Qt.translate
@@ -34,7 +34,7 @@ __url__ = "https://github.com/APEbbers/TechDrawTitleBlockUtility.git"
 
 # get the path of the current python script
 # PATH_TB = file_path = os.path.dirname(getsourcefile(lambda: 0))
-PATH_TB = os.path.dirname(os.path.abspath(SettingsTB.__file__))
+PATH_TB = os.path.dirname(os.path.abspath(Settings_TB.__file__))
 
 global PATH_TB_ICONS
 global PATH_TB_RESOURCES
@@ -67,13 +67,13 @@ class TitleBlockWB(Gui.Workbench):
         """This function is executed when the workbench is first activated.
         It is executed once in a FreeCAD session followed by the Activated function.
         """
-        import TitleBlock_Commands  # import here all the needed files that create your FreeCAD commands
-        import SettingsTB
-        from SettingsTB import EXTERNAL_SOURCE_PATH
-        from SettingsTB import IMPORT_SETTINGS_XL
-        from SettingsTB import ADD_TOOLBAR_TECHDRAW
-        import CreateUI
-        import TechDraw_Functions
+        import Commands_TB  # import here all the needed files that create your FreeCAD commands
+        import Settings_TB
+        from Settings_TB import EXTERNAL_SOURCE_PATH
+        from Settings_TB import IMPORT_SETTINGS_XL
+        from Settings_TB import ADD_TOOLBAR_TECHDRAW
+        import CreateUI_TB
+        import TechDraw_Functions_TB
 
         def QT_TRANSLATE_NOOP(context, text):
             return text
@@ -82,13 +82,13 @@ class TitleBlockWB(Gui.Workbench):
 
         # import the settings with the correct function based on the extension
         if IMPORT_SETTINGS_XL is True and EXTERNAL_SOURCE_PATH.lower() == ".xlsx":
-            SettingsTB.ImportSettings_XL()
+            Settings_TB.ImportSettings_XL()
         if IMPORT_SETTINGS_XL is True and EXTERNAL_SOURCE_PATH.lower() == ".fcstd":
-            SettingsTB.ImportSettings_FreeCAD()
+            Settings_TB.ImportSettings_FreeCAD()
 
         # region - Create toolbars
-        ToolbarListMain = CreateUI.DefineToolbars()["ToolbarListMain"]
-        ToolbarListExtra = CreateUI.DefineToolbars()["ToolbarListExtra"]
+        ToolbarListMain = CreateUI_TB.DefineToolbars()["ToolbarListMain"]
+        ToolbarListExtra = CreateUI_TB.DefineToolbars()["ToolbarListExtra"]
         self.appendToolbar(
             QT_TRANSLATE_NOOP("Workbench", "TitleBlock"), ToolbarListMain
         )  # creates a new toolbar with your commands
@@ -99,12 +99,12 @@ class TitleBlockWB(Gui.Workbench):
         # endregion
 
         # region - Create menus
-        StandardList = CreateUI.DefineMenus()["StandardList"]
-        ExcelList = CreateUI.DefineMenus()["ExcelList"]
-        FreeCADList = CreateUI.DefineMenus()["FreeCADList"]
-        SettingsList = CreateUI.DefineMenus()["SettingsList"]
-        DrawingList_Simple = CreateUI.DefineMenus()["DrawingList_Simple"]
-        DrawingList_Advanced = CreateUI.DefineMenus()["DrawingList_Advanced"]
+        StandardList = CreateUI_TB.DefineMenus()["StandardList"]
+        ExcelList = CreateUI_TB.DefineMenus()["ExcelList"]
+        FreeCADList = CreateUI_TB.DefineMenus()["FreeCADList"]
+        SettingsList = CreateUI_TB.DefineMenus()["SettingsList"]
+        DrawingList_Simple = CreateUI_TB.DefineMenus()["DrawingList_Simple"]
+        DrawingList_Advanced = CreateUI_TB.DefineMenus()["DrawingList_Advanced"]
         self.appendMenu(
             QT_TRANSLATE_NOOP("Workbench", "TitleBlock"),
             StandardList,
@@ -129,14 +129,14 @@ class TitleBlockWB(Gui.Workbench):
 
         # region - Create toolbar for TechDraw workbench
         if ADD_TOOLBAR_TECHDRAW is True:
-            CreateUI.CreateTechDrawToolbar()
+            CreateUI_TB.CreateTechDrawToolbar()
         if ADD_TOOLBAR_TECHDRAW is False:
-            CreateUI.RemoveTechDrawToolbar()
+            CreateUI_TB.RemoveTechDrawToolbar()
         # endregion
 
         # region set the templates for the TechDraw workbench
-        TechDraw_Functions.ImportTemplates()
-        TechDraw_Functions.SetDefaultTemplate()
+        TechDraw_Functions_TB.ImportTemplates()
+        TechDraw_Functions_TB.SetDefaultTemplate()
         # endregion
 
         return
@@ -144,10 +144,10 @@ class TitleBlockWB(Gui.Workbench):
     def Activated(self):
         """This function is executed whenever the workbench is activated"""
 
-        import TechDraw_Functions
+        import TechDraw_Functions_TB
 
-        TechDraw_Functions.ImportTemplates()
-        TechDraw_Functions.SetDefaultTemplate()
+        TechDraw_Functions_TB.ImportTemplates()
+        TechDraw_Functions_TB.SetDefaultTemplate()
         return
 
     def Deactivated(self):

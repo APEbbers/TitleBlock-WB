@@ -172,7 +172,7 @@
     <rect>
      <x>20</x>
      <y>10</y>
-     <width>521</width>
+     <width>546</width>
      <height>516</height>
     </rect>
    </property>
@@ -180,7 +180,7 @@
     <bool>true</bool>
    </property>
    <property name="currentIndex">
-    <number>5</number>
+    <number>4</number>
    </property>
    <widget class="QWidget" name="TitleBlock">
     <attribute name="title">
@@ -191,7 +191,7 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>511</width>
+       <width>536</width>
        <height>491</height>
       </rect>
      </property>
@@ -226,8 +226,8 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
-        <width>494</width>
+        <y>-491</y>
+        <width>519</width>
         <height>1092</height>
        </rect>
       </property>
@@ -2388,7 +2388,7 @@ p, li { white-space: pre-wrap; }
       <rect>
        <x>5</x>
        <y>0</y>
-       <width>511</width>
+       <width>531</width>
        <height>486</height>
       </rect>
      </property>

@@ -1749,7 +1749,7 @@ class Ui_Form(object):
         self.PropertyName_AdvancedList.setPlaceholderText(QCoreApplication.translate("Form", u"Enter the property name...", None))
         self.UseAdvancedList.setText(QCoreApplication.translate("Form", u"Use advanced drawing list", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("Form", u"Drawing list", None))
-        self.EnableRecompute_FillTitleBlock.setText(QCoreApplication.translate("Form", u"Populate titleblock with recompute", None))
+        self.EnableRecompute_FillTitleBlock.setText(QCoreApplication.translate("Form", u"update titleblock spreadsheet with recompute", None))
         self.EnableRecompute_FillSpreadsheet.setText(QCoreApplication.translate("Form", u"Populate titleblock with recompute", None))
         self.label_46.setText(QCoreApplication.translate("Form", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"

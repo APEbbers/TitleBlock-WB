@@ -3329,7 +3329,7 @@ p, li { white-space: pre-wrap; }
        </rect>
       </property>
       <property name="text">
-       <string>Populate titleblock with recompute</string>
+       <string>update titleblock spreadsheet with recompute</string>
       </property>
       <property name="prefEntry" stdset="0">
        <cstring>EnableRecompute_FillTitleBlock</cstring>

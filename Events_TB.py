@@ -40,7 +40,6 @@ class myObserver(object):
 
     # Observer for document recompute event ("CTRL+R")
     def slotRecomputedDocument(self, doc):
-
         ActiveWorkbench = FreeCADGui.activeWorkbench()
         AllowedWorkbenches = [
             "TitleBlockWB",
@@ -52,16 +51,16 @@ class myObserver(object):
                 if ENABLE_RECOMPUTE_FILL_SPREADSHEET is True:
                     if USE_EXTERNAL_SOURCE is True:
                         if EXTERNAL_SOURCE_PATH.lower().endswith(".xlsx") is True:
-                            result = FillSpreadsheet_TB.ImportDataExcel()
+                            FillSpreadsheet_TB.Start("ImportExcel")
                         if EXTERNAL_SOURCE_PATH.lower().endswith(".xlsx") is False:
-                            result = FillSpreadsheet_TB.ImportDataFreeCAD()
+                            FillSpreadsheet_TB.Start("ImportFreeCAD")
                     if USE_EXTERNAL_SOURCE is False:
-                        result = FillSpreadsheet_TB.FillSheet()
+                        FillSpreadsheet_TB.Start("FillSpreadsheet")
                     if ENABLE_DEBUG is True:
                         Standard_Functions.Print("The titleblock spreadsheet has been updated!")
 
             if ENABLE_RECOMPUTE_FILL_TITLEBLOCK is True:
-                result = FillTitleBlock_TB.FillTitleBlock()
+                FillTitleBlock_TB.FillTitleBlock()
                 if ENABLE_DEBUG is True:
                     Standard_Functions.Print("The titleblock in all the pages has been updated!")
 

@@ -492,11 +492,13 @@ def MapDocInfo(sheet, doc=None):
 
 
 # Fill the spreadsheet with all the date from the titleblock
-def FillSheet() -> bool:
+def FillSheet(doc=None) -> bool:
     result = False
     try:
         # get the fist page. If there is no page, return
-        pages = App.ActiveDocument.findObjects("TechDraw::DrawPage")
+        if doc is None:
+            doc = App.ActiveDocument
+        pages = doc.findObjects("TechDraw::DrawPage")
         if len(pages) > 0:
             page = pages[0]
         if len(pages) == 0:
@@ -505,7 +507,7 @@ def FillSheet() -> bool:
         # get the editable texts
         texts = page.Template.EditableTexts
         # get the spreadsheet "TitleBlock"
-        sheet = App.ActiveDocument.getObject("TitleBlock")
+        sheet = doc.getObject("TitleBlock")
         # Clear the sheet
         sheet.clearAll()
 
@@ -544,7 +546,7 @@ def FillSheet() -> bool:
                 sheet.set("C" + str(StartRow), "")
 
         # Finally recompute the document
-        App.ActiveDocument.recompute(None, True, True)
+        doc.recompute(None, True, True)
 
         # Run the def to map system data
         MapData(sheet=sheet)
@@ -606,7 +608,7 @@ def FillSheet() -> bool:
         # endregion
 
         # Finally recompute the document
-        App.ActiveDocument.recompute(None, True, True)
+        doc.recompute(None, True, True)
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"
         if ENABLE_DEBUG is True:
@@ -625,7 +627,7 @@ def FillSheet() -> bool:
 
 
 # Import data from a (central) excel workbook
-def ImportDataExcel() -> bool:
+def ImportDataExcel(doc=None) -> bool:
     from openpyxl import load_workbook
 
     result = False
@@ -726,8 +728,10 @@ def ImportDataExcel() -> bool:
             return
 
         try:
+            if doc is None:
+                doc = App.ActiveDocument
             # get the spreadsheet "TitleBlock"
-            sheet = App.ActiveDocument.getObject("TitleBlock")
+            sheet = doc.getObject("TitleBlock")
             # Clear the sheet
             sheet.clearAll()
 
@@ -916,7 +920,7 @@ def ImportDataExcel() -> bool:
 
             # Finally recompute the spreadsheet
             sheet.recompute()
-            App.ActiveDocument.recompute(None, True, True)
+            doc.recompute(None, True, True)
 
         except Exception as e:
             Text = translate(
@@ -941,7 +945,7 @@ def ImportDataExcel() -> bool:
 
 
 # Import data from an central FreeCAD file
-def ImportDataFreeCAD():
+def ImportDataFreeCAD(doc=None):
     result = False
     try:
         # if debug mode is enabled, show the external file including path.
@@ -952,7 +956,8 @@ def ImportDataFreeCAD():
         # Check if it is allowed to use an external source and if so, continue
         if USE_EXTERNAL_SOURCE is True:
             # Get the active document
-            doc = App.ActiveDocument
+            if doc is None:
+                doc = App.ActiveDocument
             # Get the name of the external source
             Input_SheetName = EXTERNAL_SOURCE_SHEET_NAME
             # get the spreadsheet "TitleBlock"
@@ -1174,7 +1179,7 @@ def ImportDataFreeCAD():
                     )
 
             # Finally recompute the document
-            App.ActiveDocument.recompute(None, True, True)
+            doc.recompute(None, True, True)
 
             # Run the def to add extra system data.
             MapData(sheet=sheet, doc=doc)
@@ -1268,19 +1273,21 @@ def ImportDataFreeCAD():
 
 
 # Use this function to run the function "Populate sheet"
-def Start(command) -> bool:
+def Start(command, doc=None) -> bool:
     result = False
+    if doc is None:
+        doc = App.ActiveDocument
     try:
-        sheet = App.ActiveDocument.getObject("TitleBlock")
+        sheet = doc.getObject("TitleBlock")
         # check if the result is not empty
         if sheet is not None:
             # Proceed with the macro.
             if command == "FillSpreadsheet":
-                result = FillSheet()
+                result = FillSheet(doc=doc)
             if command == "ImportExcel":
-                result = ImportDataExcel()
+                result = ImportDataExcel(doc=doc)
             if command == "ImportFreeCAD":
-                result = ImportDataFreeCAD()
+                result = ImportDataFreeCAD(doc=doc)
 
             # if the debug mode is on, report presense of titleblock spreadsheet
             if ENABLE_DEBUG is True:
@@ -1294,11 +1301,11 @@ def Start(command) -> bool:
 
             # Proceed with the macro.
             if command == "FillSpreadsheet":
-                result = FillSheet()
+                result = FillSheet(doc=doc)
             if command == "ImportExcel":
-                result = ImportDataExcel()
+                result = ImportDataExcel(doc=doc)
             if command == "ImportFreeCAD":
-                result = ImportDataFreeCAD()
+                result = ImportDataFreeCAD(doc=doc)
 
             # if the debug mode is on, report creation of titleblock spreadsheet
             if ENABLE_DEBUG is True:

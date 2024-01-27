@@ -284,9 +284,10 @@ def MapSimpleDrawingList_Excel(sheet):
                 WorksheetExits = False
                 # Go through the names of the worksheets
                 for WorksheetName in Worksheets_List:
+                    WorksheetName = WorksheetName.replace("'", "")
                     # If a name matches the sheetname in preferences, set WorksheetsExits to True
                     if WorksheetName == SHEETNAME_SIMPLE_LIST:
-                        WorksheetExits is True
+                        WorksheetExits = True
                 # If WorksheetsExits is true, define the worksheet
                 if WorksheetExits is True:
                     ws = wb[str(SHEETNAME_SIMPLE_LIST)]
@@ -310,6 +311,8 @@ def MapSimpleDrawingList_Excel(sheet):
                         return
                     # Define the worksheets
                     ws = wb[str(Input_SheetName)]
+                    # Save the sheetname to the preferences
+                    preferences.SetString("SheetName_SimpleList", Input_SheetName)
         except IOError:
             Standard_Functions.Mbox(
                 "Permission error!!\nDo you have the file open?",
@@ -565,7 +568,40 @@ def MapSimpleDrawingList_FreeCAD(sheet):
 
                 DrawingList = ff.getObject(Input_SheetName)
             if SHEETNAME_SIMPLE_LIST != "":
-                DrawingList = ff.getObject(Input_SheetName)
+                # Get the list of worksheets
+                Spreadsheet_List = ff.findObjects("Spreadsheet::Sheet")
+                # Assume that the worksheet doesn't exits
+                SpreadsheetExits = False
+                # Go through the names of the worksheets
+                for Spreadsheet in Spreadsheet_List:
+                    # If a name matches the sheetname in preferences, set WorksheetsExits to True
+                    if Spreadsheet.Label == SHEETNAME_SIMPLE_LIST:
+                        SpreadsheetExits is True
+                # If WorksheetsExits is true, define the worksheet
+                if SpreadsheetExits is True:
+                    DrawingList = ff.getObject(Input_SheetName)
+                # If WorksheetsExits is false, ask the user to enter the correct name.
+                if SpreadsheetExits is False:
+                    # Set the sheetname with a inputbox
+                    Text = translate(
+                        "TitleBlock Workbench",
+                        "The spreadsheet doesn't exits!\nPlease enter the name of the spreadsheet")
+                    Input_SheetName = str(
+                        Standard_Functions.Mbox(
+                            text=Text,
+                            title="TitleBlock Workbench",
+                            style=21,
+                            default="TitleBlockData",
+                            stringList=Spreadsheet_List,
+                        )
+                    )
+                    # if the user canceled, exit this function.
+                    if not Input_SheetName.strip():
+                        return
+                    # Define the worksheets
+                    DrawingList = ff.getObject(Input_SheetName)
+                    # Save the sheetname to the preferences
+                    preferences.SetString("SheetName_SimpleList", Input_SheetName)
         except Exception as e:
             if ENABLE_DEBUG is True:
                 raise (e)
@@ -1112,8 +1148,9 @@ def MapAdvancedDrawingList_Excel(doc, sheet):
                 # Go through the names of the worksheets
                 for WorksheetName in Worksheets_List:
                     # If a name matches the sheetname in preferences, set WorksheetsExits to True
+                    WorksheetName = WorksheetName.replace("'", "")
                     if WorksheetName == SHEETNAME_ADVANCED_LIST:
-                        WorksheetExits is True
+                        WorksheetExits = True
                 # If WorksheetsExits is true, define the worksheet
                 if WorksheetExits is True:
                     ws = wb[str(SHEETNAME_ADVANCED_LIST)]
@@ -1137,6 +1174,8 @@ def MapAdvancedDrawingList_Excel(doc, sheet):
                         return
                     # Define the worksheets
                     ws = wb[str(Input_SheetName)]
+                    # Save the sheetname to preferences
+                    preferences.SetString("SheetName_AdvancedList", Input_SheetName)
         except IOError:
             Standard_Functions.Mbox(
                 "Permission error!!\nDo you have the file open?",
@@ -1465,7 +1504,40 @@ def MapAdvancedDrawingList_FreeCAD(doc, sheet):
 
                 DrawingList = ff.getObject(Input_SheetName)
             if SHEETNAME_ADVANCED_LIST != "":
-                DrawingList = ff.getObject(Input_SheetName)
+                # Get the list of worksheets
+                Spreadsheet_List = ff.findObjects("Spreadsheet::Sheet")
+                # Assume that the worksheet doesn't exits
+                SpreadsheetExits = False
+                # Go through the names of the worksheets
+                for Spreadsheet in Spreadsheet_List:
+                    # If a name matches the sheetname in preferences, set WorksheetsExits to True
+                    if Spreadsheet.Label == SHEETNAME_ADVANCED_LIST:
+                        SpreadsheetExits is True
+                # If WorksheetsExits is true, define the worksheet
+                if SpreadsheetExits is True:
+                    DrawingList = ff.getObject(Input_SheetName)
+                # If WorksheetsExits is false, ask the user to enter the correct name.
+                if SpreadsheetExits is False:
+                    # Set the sheetname with a inputbox
+                    Text = translate(
+                        "TitleBlock Workbench",
+                        "The spreadsheet doesn't exits!\nPlease enter the name of the spreadsheet")
+                    Input_SheetName = str(
+                        Standard_Functions.Mbox(
+                            text=Text,
+                            title="TitleBlock Workbench",
+                            style=21,
+                            default="TitleBlockData",
+                            stringList=Spreadsheet_List,
+                        )
+                    )
+                    # if the user canceled, exit this function.
+                    if not Input_SheetName.strip():
+                        return
+                    # Define the worksheets
+                    DrawingList = ff.getObject(Input_SheetName)
+                    # Save the sheetname to preferences
+                    preferences.SetString("SheetName_AdvancedList", Input_SheetName)
         except Exception as e:
             if ENABLE_DEBUG is True:
                 raise (e)

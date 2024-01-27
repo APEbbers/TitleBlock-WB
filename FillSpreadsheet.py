@@ -668,7 +668,41 @@ def ImportDataExcel():
                     return
                 ws = wb[str(Input_SheetName)]
             if EXTERNAL_SOURCE_SHEET_NAME != "":
-                ws = wb[str(EXTERNAL_SOURCE_SHEET_NAME)]
+                # Get the list of worksheets
+                Worksheets_List = [i for i in wb.sheetnames if i != "Settings"]
+                # Assume that the worksheet doesn't exits
+                WorksheetExits = False
+                # Go through the names of the worksheets
+                for WorksheetName in Worksheets_List:
+                    WorksheetName = WorksheetName.replace("'", "")
+                    # If a name matches the sheetname in preferences, set WorksheetsExits to True
+                    if WorksheetName == EXTERNAL_SOURCE_SHEET_NAME:
+                        WorksheetExits = True
+                # If WorksheetsExits is true, define the worksheet
+                if WorksheetExits is True:
+                    ws = wb[str(EXTERNAL_SOURCE_SHEET_NAME)]
+                # If WorksheetsExits is false, ask the user to enter the correct name.
+                if WorksheetExits is False:
+                    # Set the sheetname with a inputbox
+                    Text = translate(
+                        "TitleBlock Workbench", "The worksheet doesn't exits!\nPlease enter the name of the worksheet"
+                    )
+                    Input_SheetName = str(
+                        Standard_Functions.Mbox(
+                            text=Text,
+                            title="TitleBlock Workbench",
+                            style=21,
+                            default="TitleBlockData",
+                            stringList=Worksheets_List,
+                        )
+                    )
+                    # if the user canceled, exit this function.
+                    if not Input_SheetName.strip():
+                        return
+                    # Define the worksheets
+                    ws = wb[str(Input_SheetName)]
+                    # Set EXTERNAL_SOURCE_SHEET_NAME to the chosen sheetname
+                    preferences.SetString("SheetName", Input_SheetName)
         except IOError:
             Standard_Functions.Mbox(
                 "Permission error!!\nDo you have the file open?",
@@ -962,7 +996,40 @@ def ImportDataFreeCAD():
 
                     ExtSheet = ff.getObject(Input_SheetName)
                 if EXTERNAL_SOURCE_SHEET_NAME != "":
-                    ExtSheet = ff.getObject(Input_SheetName)
+                    # Get the list of worksheets
+                    Spreadsheet_List = ff.findObjects("Spreadsheet::Sheet")
+                    # Assume that the worksheet doesn't exits
+                    SpreadsheetExits = False
+                    # Go through the names of the worksheets
+                    for Spreadsheet in Spreadsheet_List:
+                        # If a name matches the sheetname in preferences, set WorksheetsExits to True
+                        if Spreadsheet.Label == EXTERNAL_SOURCE_SHEET_NAME:
+                            SpreadsheetExits is True
+                    # If WorksheetsExits is true, define the worksheet
+                    if SpreadsheetExits is True:
+                        ExtSheet = ff.getObject(Input_SheetName)
+                    # If WorksheetsExits is false, ask the user to enter the correct name.
+                    if SpreadsheetExits is False:
+                        # Set the sheetname with a inputbox
+                        Text = translate(
+                            "TitleBlock Workbench",
+                            "The spreadsheet doesn't exits!\nPlease enter the name of the spreadsheet")
+                        Input_SheetName = str(
+                            Standard_Functions.Mbox(
+                                text=Text,
+                                title="TitleBlock Workbench",
+                                style=21,
+                                default="TitleBlockData",
+                                stringList=Spreadsheet_List,
+                            )
+                        )
+                        # if the user canceled, exit this function.
+                        if not Input_SheetName.strip():
+                            return
+                        # Define the worksheets
+                        ExtSheet = ff.getObject(Input_SheetName)
+                        # Set EXTERNAL_SOURCE_SHEET_NAME to the chosen sheetname
+                        preferences.SetString("SheetName", Input_SheetName)
             except Exception as e:
                 if ENABLE_DEBUG is True:
                     raise (e)

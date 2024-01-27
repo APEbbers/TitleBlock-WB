@@ -25,6 +25,7 @@ import FreeCAD as App
 import FreeCADGui as Gui
 import Settings_TB
 from Events_TB import myObserver
+import Standard_Functions_TB as Standard_Functions
 
 # Define the translation
 translate = App.Qt.translate

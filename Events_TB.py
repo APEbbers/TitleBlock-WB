@@ -24,22 +24,22 @@
 # https://github.com/FreeCAD/FreeCAD/blob/main/src/App/DocumentObserverPython.h
 
 import FreeCAD as App
+import FreeCADGui
+import Standard_Functions_TB as Standard_Functions
+import FillSpreadsheet_TB
+import FillTitleBlock_TB
+from Settings_TB import EXTERNAL_SOURCE_PATH
+from Settings_TB import USE_EXTERNAL_SOURCE
+from Settings_TB import ENABLE_DEBUG
+from Settings_TB import ENABLE_RECOMPUTE_FILL_SPREADSHEET
+from Settings_TB import ENABLE_RECOMPUTE_FILL_TITLEBLOCK
+
+
 # Class for a observer that observers recompute events
-
-
-class RecomputeObserver_TB(object):
+class myObserver(object):
 
     # Observer for document recompute event ("CTRL+R")
     def slotRecomputedDocument(self, doc):
-        import FreeCADGui
-        import Standard_Functions_TB as Standard_Functions
-        import FillSpreadsheet_TB
-        import FillTitleBlock_TB
-        from Settings_TB import EXTERNAL_SOURCE_PATH
-        from Settings_TB import USE_EXTERNAL_SOURCE
-        from Settings_TB import ENABLE_DEBUG
-        from Settings_TB import ENABLE_RECOMPUTE_FILL_SPREADSHEET
-        from Settings_TB import ENABLE_RECOMPUTE_FILL_TITLEBLOCK
 
         ActiveWorkbench = FreeCADGui.activeWorkbench()
         AllowedWorkbenches = [
@@ -68,5 +68,5 @@ class RecomputeObserver_TB(object):
 
 # Add the observers
 def AddObservers():
-    obs = RecomputeObserver_TB()
+    obs = myObserver()
     App.addDocumentObserver(obs)

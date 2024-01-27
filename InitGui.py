@@ -60,7 +60,7 @@ class TitleBlockWB(Gui.Workbench):
     )
 
     # Import the observers
-    from Events_TB import RecomputeObserver_TB
+    from Events_TB import myObserver
 
     def GetClassName(self):
         # This function is mandatory if this is a full Python workbench
@@ -154,7 +154,6 @@ class TitleBlockWB(Gui.Workbench):
     def Activated(self):
         """This function is executed whenever the workbench is activated"""
         import TechDraw_Functions_TB
-        import Events_TB
 
         # set the techdraw templates
         TechDraw_Functions_TB.ImportTemplates()

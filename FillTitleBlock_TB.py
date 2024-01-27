@@ -40,7 +40,7 @@ import DrawingList_Functions_TB
 translate = App.Qt.translate
 
 
-def FillTitleBlock():
+def FillTitleBlock() -> bool:
     from Settings_TB import ENABLE_DEBUG
     from Settings_TB import MAP_NOSHEETS
     from Settings_TB import USE_PAGENAME_DRAW_NO
@@ -56,6 +56,7 @@ def FillTitleBlock():
     # Preset the value for the multiplier. This is used if an value has to be increased for every page.
     NumCounter = -1
     Multiplier = 1
+    result = False
 
     # Get the pages and go throug them one by one.
     try:
@@ -67,7 +68,7 @@ def FillTitleBlock():
             Standard_Functions.Mbox(
                 "No titleblock spreadsheet present!", "TitleBlock Workbench", 0
             )
-            return
+            return result
 
         for page in pages:
             # Get the editable texts
@@ -263,3 +264,6 @@ def FillTitleBlock():
             )
             raise e
         Standard_Functions.Mbox(text=Text, title="TitleBlock Workbench", style=0)
+
+    result = True
+    return result

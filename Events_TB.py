@@ -57,16 +57,20 @@ class myObserver(object):
                             FillSpreadsheet_TB.ImportDataFreeCAD()
                     if USE_EXTERNAL_SOURCE is False:
                         FillSpreadsheet_TB.FillSheet()
+                    if ENABLE_DEBUG is True:
+                        Standard_Functions.Print("The titleblock spreadsheet has been updated!")
 
             if ENABLE_RECOMPUTE_FILL_TITLEBLOCK is True:
                 FillTitleBlock_TB.FillTitleBlock()
+                if ENABLE_DEBUG is True:
+                    Standard_Functions.Print("The titleblock in all the pages has been updated!")
 
         if ENABLE_DEBUG is True:
             Standard_Functions.Print("%s has been recomputed\n" % doc.Label, "Log")
-            Standard_Functions.Print("The titleblock in all the pages have been updated!")
-
 
 # Add the observers
+
+
 def AddObservers():
     obs = myObserver()
     App.addDocumentObserver(obs)

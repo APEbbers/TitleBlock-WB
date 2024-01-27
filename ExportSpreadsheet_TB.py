@@ -44,7 +44,8 @@ from Settings_TB import ENABLE_DEBUG
 translate = App.Qt.translate
 
 
-def ExportSpreadSheet_Excel():
+def ExportSpreadSheet_Excel() -> bool:
+    result = False
     try:
         # get the spreadsheet "TitleBlock"
         sheet = App.ActiveDocument.getObject("TitleBlock")
@@ -252,6 +253,8 @@ def ExportSpreadSheet_Excel():
     finally:
         # Close the excel workbook
         wb.close()
+        return result
+    return result
 
 
 def ExportSpreadSheet_FreeCAD():

@@ -11,6 +11,7 @@ The main functions of the workbench are:
 - Export the data to an seperate FreeCAD document.
 - Import data from an Excel workbook to an spreadsheet.
 - Import data from an separate FreeCAD to an spreadsheet.
+- Use a drawinglist to fill in specific data per page
 - Fill the titleblock on all pages in your document from data in the spreadsheet.
 - increase values per page. For example page numbers.
 - Export the workbench settings to a excel workbook.

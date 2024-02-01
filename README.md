@@ -1,6 +1,5 @@
-<img src="https://github.com/APEbbers/TechDrawTitleBlockUtility/assets/10145631/86aa5a93-9261-48f7-b398-0d8a837f3284)" width="150">
-
 # TitleBlock Workbench
+<img src="https://github.com/APEbbers/TechDrawTitleBlockUtility/assets/10145631/86aa5a93-9261-48f7-b398-0d8a837f3284)" width="150">
 
 a FreeCAD workbench to provide a convenient way to fill titleblocks for multiple TechDraw pages in one or more CAD files.
 This workbench makes use of the interal workbench SpreadSheet and Microsoft Excel workbooks.

@@ -105,6 +105,8 @@ class FillTitleBlock_Class:
                 result = True
 
         return result
+
+
 # endregion
 
 
@@ -433,7 +435,9 @@ class OpenFreeCAD_class:
     def GetResources(self):
         return {
             "Pixmap": "OpenFreeCAD.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("OpenFreeCAD", "Open the FreeCAD source file"),
+            "MenuText": QT_TRANSLATE_NOOP(
+                "OpenFreeCAD", "Open the FreeCAD source file"
+            ),
             "ToolTip": QT_TRANSLATE_NOOP(
                 "OpenExcel", "Open the FreeCAD file with the titleblock data"
             ),
@@ -468,8 +472,12 @@ class NewExcel_class:
     def GetResources(self):
         return {
             "Pixmap": "NewExcel.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("NewExcel", "Create an new excel titleblock source file"),
-            "ToolTip": QT_TRANSLATE_NOOP("NewExcel", "Create an new excel titleblock source file"),
+            "MenuText": QT_TRANSLATE_NOOP(
+                "NewExcel", "Create an new excel titleblock source file"
+            ),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "NewExcel", "Create an new excel titleblock source file"
+            ),
         }
 
     def Activated(self):
@@ -497,7 +505,9 @@ class NewFreeCAD_class:
     def GetResources(self):
         return {
             "Pixmap": "NewFreeCAD.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("NewFreeCAD", "Create a new FreeCAD source file"),
+            "MenuText": QT_TRANSLATE_NOOP(
+                "NewFreeCAD", "Create a new FreeCAD source file"
+            ),
             "ToolTip": QT_TRANSLATE_NOOP(
                 "NewFreeCAD",
                 "Create an new FreeCAD file with an empty spreadsheet for the titleblock data and settings",
@@ -522,6 +532,8 @@ class NewFreeCAD_class:
     #         result = True
 
     #     return result
+
+
 # endregion
 
 
@@ -531,7 +543,9 @@ class NewDrawingList_Excel_class:
         return {
             "Pixmap": "CreateDrawingList_Excel.svg",  # the name of a svg file available in the resources
             "MenuText": QT_TRANSLATE_NOOP("NewExcel", "Create a drawing list in Excel"),
-            "ToolTip": QT_TRANSLATE_NOOP("NewExcel", "Create an new drawing list in an excel workbook"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "NewExcel", "Create an new drawing list in an excel workbook"
+            ),
         }
 
     def Activated(self):
@@ -558,7 +572,9 @@ class NewDrawingList_FreeCAD_class:
     def GetResources(self):
         return {
             "Pixmap": "CreateDrawingList_FreeCAD.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("NewFreeCAD", "Create a new drawing list in FreeCAD"),
+            "MenuText": QT_TRANSLATE_NOOP(
+                "NewFreeCAD", "Create a new drawing list in FreeCAD"
+            ),
             "ToolTip": QT_TRANSLATE_NOOP(
                 "NewFreeCAD",
                 "Create an new empty drawing list in a FreeCAD file",
@@ -589,7 +605,9 @@ class NewDrawingList_Internal_class:
     def GetResources(self):
         return {
             "Pixmap": "CreateDrawingList_Internal.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("NewFreeCAD", "Create a new drawing list spreadsheet"),
+            "MenuText": QT_TRANSLATE_NOOP(
+                "NewFreeCAD", "Create a new drawing list spreadsheet"
+            ),
             "ToolTip": QT_TRANSLATE_NOOP(
                 "NewFreeCAD",
                 "Create an new empty drawing list in a FreeCAD file",
@@ -621,9 +639,12 @@ class OpenDrawingList_Excel_class:
     def GetResources(self):
         return {
             "Pixmap": "OpenDrawingList_Excel.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("OpenDrawingList_Excel", "Open the excel drawing list"),
+            "MenuText": QT_TRANSLATE_NOOP(
+                "OpenDrawingList_Excel", "Open the excel drawing list"
+            ),
             "ToolTip": QT_TRANSLATE_NOOP(
-                "OpenDrawingList_Excel", "Open the excel drawing list in it's default application"
+                "OpenDrawingList_Excel",
+                "Open the excel drawing list in it's default application",
             ),
         }
 
@@ -657,7 +678,9 @@ class OpenDrawingList_FreeCAD_class:
     def GetResources(self):
         return {
             "Pixmap": "OpenDrawingList_FreeCAD.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("OpenDrawingList_FreeCAD", "Open the FreeCAD drawing list"),
+            "MenuText": QT_TRANSLATE_NOOP(
+                "OpenDrawingList_FreeCAD", "Open the FreeCAD drawing list"
+            ),
             "ToolTip": QT_TRANSLATE_NOOP(
                 "OpenDrawingList_FreeCAD", "Open the FreeCAD drawing list."
             ),
@@ -692,7 +715,9 @@ class NewDrawingList_Advanced_Excel_class:
         return {
             "Pixmap": "CreateDrawingList_Advanced_Excel.svg",  # the name of a svg file available in the resources
             "MenuText": QT_TRANSLATE_NOOP("NewExcel", "Create a drawing list in Excel"),
-            "ToolTip": QT_TRANSLATE_NOOP("NewExcel", "Create an new drawing list in an excel workbook"),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "NewExcel", "Create an new drawing list in an excel workbook"
+            ),
         }
 
     def Activated(self):
@@ -719,7 +744,9 @@ class NewDrawingList_Advanced_FreeCAD_class:
     def GetResources(self):
         return {
             "Pixmap": "CreateDrawingList_Advanced_FreeCAD.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("NewFreeCAD", "Create a new drawing list in FreeCAD"),
+            "MenuText": QT_TRANSLATE_NOOP(
+                "NewFreeCAD", "Create a new drawing list in FreeCAD"
+            ),
             "ToolTip": QT_TRANSLATE_NOOP(
                 "NewFreeCAD",
                 "Create an new empty drawing list in a FreeCAD file",
@@ -750,7 +777,9 @@ class NewDrawingList_Advanced_Internal_class:
     def GetResources(self):
         return {
             "Pixmap": "CreateDrawingList_Advanced_Internal.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("NewFreeCAD", "Create a new drawing list spreadsheet"),
+            "MenuText": QT_TRANSLATE_NOOP(
+                "NewFreeCAD", "Create a new drawing list spreadsheet"
+            ),
             "ToolTip": QT_TRANSLATE_NOOP(
                 "NewFreeCAD",
                 "Create an new empty drawing list in a FreeCAD file",
@@ -782,9 +811,12 @@ class OpenDrawingList_Advanced_Excel_class:
     def GetResources(self):
         return {
             "Pixmap": "OpenDrawingList_Advanced_Excel.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("OpenDrawingList_Excel", "Open the excel drawing list"),
+            "MenuText": QT_TRANSLATE_NOOP(
+                "OpenDrawingList_Excel", "Open the excel drawing list"
+            ),
             "ToolTip": QT_TRANSLATE_NOOP(
-                "OpenDrawingList_Excel", "Open the excel drawing list in it's default application"
+                "OpenDrawingList_Excel",
+                "Open the excel drawing list in it's default application",
             ),
         }
 
@@ -818,7 +850,9 @@ class OpenDrawingList_Advanced_FreeCAD_class:
     def GetResources(self):
         return {
             "Pixmap": "OpenDrawingList_Advanced_FreeCAD.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("OpenDrawingList_FreeCAD", "Open the FreeCAD drawing list"),
+            "MenuText": QT_TRANSLATE_NOOP(
+                "OpenDrawingList_FreeCAD", "Open the FreeCAD drawing list"
+            ),
             "ToolTip": QT_TRANSLATE_NOOP(
                 "OpenDrawingList_FreeCAD", "Open the FreeCAD drawing list."
             ),
@@ -846,6 +880,8 @@ class OpenDrawingList_Advanced_FreeCAD_class:
     #         result = True
 
     #     return result
+
+
 # endregion
 
 
@@ -875,8 +911,12 @@ class SortFolder_AZ_class:
     def GetResources(self):
         return {
             "Pixmap": "SortGroup_AZ.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("SortFoldersAZ", "Sort the foldders ascending"),
-            "ToolTip": QT_TRANSLATE_NOOP("SortFoldersAZ", "Sort the foldders ascending"),
+            "MenuText": QT_TRANSLATE_NOOP(
+                "SortFoldersAZ", "Sort the foldders ascending"
+            ),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "SortFoldersAZ", "Sort the foldders ascending"
+            ),
         }
 
     def Activated(self):
@@ -896,8 +936,12 @@ class SortFolder_ZA_class:
     def GetResources(self):
         return {
             "Pixmap": "SortGroup_ZA.svg",  # the name of a svg file available in the resources
-            "MenuText": QT_TRANSLATE_NOOP("SortFoldersZA", "Sort the foldders descending"),
-            "ToolTip": QT_TRANSLATE_NOOP("SortFoldersZA", "Sort the foldders descending"),
+            "MenuText": QT_TRANSLATE_NOOP(
+                "SortFoldersZA", "Sort the foldders descending"
+            ),
+            "ToolTip": QT_TRANSLATE_NOOP(
+                "SortFoldersZA", "Sort the foldders descending"
+            ),
         }
 
     def Activated(self):
@@ -911,6 +955,8 @@ class SortFolder_ZA_class:
     #     are met or not. This function is optional."""
 
     #     return result
+
+
 # endregion
 
 

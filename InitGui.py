@@ -24,6 +24,7 @@ import os
 import FreeCAD as App
 import FreeCADGui as Gui
 import Settings_TB
+
 # import Standard_Functions_TB as Standard_Functions
 
 
@@ -130,10 +131,12 @@ class TitleBlockWB(Gui.Workbench):
             FreeCADList,
         )
         self.appendMenu(
-            QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "Drawing list"]), DrawingList_Simple
+            QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "Drawing list"]),
+            DrawingList_Simple,
         )
         self.appendMenu(
-            QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "Drawing list - Advanced"]), DrawingList_Advanced
+            QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "Drawing list - Advanced"]),
+            DrawingList_Advanced,
         )
         self.appendMenu(
             QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "Settings"]), SettingsList

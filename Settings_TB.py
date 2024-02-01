@@ -659,14 +659,18 @@ def ExportSettings_FreeCAD(Silent=False):
         RowNumber = RowNumber + 1
 
         # USE_SIMPLE_LIST
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UseExternalSource_SimpleList")
+        sheet.set(
+            str(StartCell[:1] + str(TopRow + RowNumber)), "UseExternalSource_SimpleList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         sheet.set(SettingValue, str(USE_EXTERNAL_SOURCE_SIMPLE_LIST).upper())
         RowNumber = RowNumber + 1
 
         # EXTERNAL_FILE_SIMPLE_LIST
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "ExternalFile_SimpleList")
+        sheet.set(
+            str(StartCell[:1] + str(TopRow + RowNumber)), "ExternalFile_SimpleList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         sheet.set(SettingValue, str(EXTERNAL_FILE_SIMPLE_LIST).upper())
@@ -687,14 +691,18 @@ def ExportSettings_FreeCAD(Silent=False):
         RowNumber = RowNumber + 1
 
         # PROPERTY_NAME_SIMPLE_LIST
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "PropertyName_SimpleList")
+        sheet.set(
+            str(StartCell[:1] + str(TopRow + RowNumber)), "PropertyName_SimpleList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         sheet.set(SettingValue, str(PROPERTY_NAME_SIMPLE_LIST).upper())
         RowNumber = RowNumber + 1
 
         # USE_PAGE_NAMES_SIMPLE_LIST
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UsePageNames_SimpleList")
+        sheet.set(
+            str(StartCell[:1] + str(TopRow + RowNumber)), "UsePageNames_SimpleList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         sheet.set(SettingValue, str(USE_PAGE_NAMES_SIMPLE_LIST).upper())
@@ -711,49 +719,64 @@ def ExportSettings_FreeCAD(Silent=False):
         RowNumber = RowNumber + 1
 
         # USE_ADVANCED_LIST
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UseExternalSource_AdvancedList")
+        sheet.set(
+            str(StartCell[:1] + str(TopRow + RowNumber)),
+            "UseExternalSource_AdvancedList",
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         sheet.set(SettingValue, str(USE_EXTERNAL_SOURCE_ADVANCED_LIST).upper())
         RowNumber = RowNumber + 1
 
         # EXTERNAL_FILE_ADVANCED_LIST
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "ExternalFile_AdvancedList")
+        sheet.set(
+            str(StartCell[:1] + str(TopRow + RowNumber)), "ExternalFile_AdvancedList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         sheet.set(SettingValue, str(EXTERNAL_FILE_ADVANCED_LIST).upper())
         RowNumber = RowNumber + 1
 
         # EXTERNAL_FILE_ADVANCED_LIST
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "SheetName_AdvancedList")
+        sheet.set(
+            str(StartCell[:1] + str(TopRow + RowNumber)), "SheetName_AdvancedList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         sheet.set(SettingValue, str(SHEETNAME_ADVANCED_LIST).upper())
         RowNumber = RowNumber + 1
 
         # STARTCELL_ADVANCED_LIST
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "StartCell_AdvancedList")
+        sheet.set(
+            str(StartCell[:1] + str(TopRow + RowNumber)), "StartCell_AdvancedList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         sheet.set(SettingValue, str(STARTCELL_ADVANCED_LIST).upper())
         RowNumber = RowNumber + 1
 
         # PROPERTY_NAME_ADVANCED_LIST
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "PropertyName_AdvancedList")
+        sheet.set(
+            str(StartCell[:1] + str(TopRow + RowNumber)), "PropertyName_AdvancedList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         sheet.set(SettingValue, str(PROPERTY_NAME_ADVANCED_LIST).upper())
         RowNumber = RowNumber + 1
 
         # SORTING_PREFIX_ADVANCED_LIST
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "SortingPrefix_AdvancedList")
+        sheet.set(
+            str(StartCell[:1] + str(TopRow + RowNumber)), "SortingPrefix_AdvancedList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         sheet.set(SettingValue, str(SORTING_PREFIX_ADVANCED_LIST).upper())
         RowNumber = RowNumber + 1
 
         # USE_PAGE_NAMES_ADVANCED_LIST
-        sheet.set(str(StartCell[:1] + str(TopRow + RowNumber)), "UsePageNames_AdvancedList")
+        sheet.set(
+            str(StartCell[:1] + str(TopRow + RowNumber)), "UsePageNames_AdvancedList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         sheet.set(SettingValue, str(USE_PAGE_NAMES_ADVANCED_LIST).upper())
@@ -1648,7 +1671,9 @@ def ExportSettings_XL(Silent=False):
         RowNumber = RowNumber + 1
 
         # USE_EXTERNAL_SOURCE_SIMPLE_LIST
-        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "UseExternalSource_SimpleList"
+        ws[
+            str(StartCell[:1] + str(TopRow + RowNumber))
+        ].value = "UseExternalSource_SimpleList"
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         # Create a dropdown for the boolan
@@ -1659,7 +1684,9 @@ def ExportSettings_XL(Silent=False):
         RowNumber = RowNumber + 1
 
         # EXTERNAL_FILE_SIMPLE_LIST
-        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "ExternalFile_SimpleList"
+        ws[
+            str(StartCell[:1] + str(TopRow + RowNumber))
+        ].value = "ExternalFile_SimpleList"
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = EXTERNAL_FILE_SIMPLE_LIST
@@ -1680,14 +1707,18 @@ def ExportSettings_XL(Silent=False):
         RowNumber = RowNumber + 1
 
         # PROPERTY_NAME_SIMPLE_LIST
-        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "PropertyName_SimpleList"
+        ws[
+            str(StartCell[:1] + str(TopRow + RowNumber))
+        ].value = "PropertyName_SimpleList"
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = PROPERTY_NAME_SIMPLE_LIST
         RowNumber = RowNumber + 1
 
         # USE_PAGE_NAMES_SIMPLE_LIST
-        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "UsePageNames_SimpleList"
+        ws[
+            str(StartCell[:1] + str(TopRow + RowNumber))
+        ].value = "UsePageNames_SimpleList"
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         # Create a dropdown for the boolan
@@ -1712,7 +1743,9 @@ def ExportSettings_XL(Silent=False):
         RowNumber = RowNumber + 1
 
         # USE_EXTERNAL_SOURCE_ADVANCED_LIST
-        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "UseExternalSource_AdvancedList"
+        ws[
+            str(StartCell[:1] + str(TopRow + RowNumber))
+        ].value = "UseExternalSource_AdvancedList"
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         # Create a dropdown for the boolan
@@ -1723,42 +1756,54 @@ def ExportSettings_XL(Silent=False):
         RowNumber = RowNumber + 1
 
         # EXTERNAL_FILE_ADVANCED_LIST
-        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "ExternalFile_AdvancedList"
+        ws[
+            str(StartCell[:1] + str(TopRow + RowNumber))
+        ].value = "ExternalFile_AdvancedList"
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = EXTERNAL_FILE_ADVANCED_LIST
         RowNumber = RowNumber + 1
 
         # SHEETNAME_ADVANCED_LIST
-        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "SheetName_AdvancedList"
+        ws[
+            str(StartCell[:1] + str(TopRow + RowNumber))
+        ].value = "SheetName_AdvancedList"
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = SHEETNAME_ADVANCED_LIST
         RowNumber = RowNumber + 1
 
         # STARTCELL_ADVANCED_LIST
-        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "StartCell_AdvancedList"
+        ws[
+            str(StartCell[:1] + str(TopRow + RowNumber))
+        ].value = "StartCell_AdvancedList"
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = STARTCELL_ADVANCED_LIST
         RowNumber = RowNumber + 1
 
         # PROPERTY_NAME_ADVANCED_LIST
-        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "PropertyName_AdvancedList"
+        ws[
+            str(StartCell[:1] + str(TopRow + RowNumber))
+        ].value = "PropertyName_AdvancedList"
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = PROPERTY_NAME_ADVANCED_LIST
         RowNumber = RowNumber + 1
 
         # SORTING_PREFIX_ADVANCED_LIST
-        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "SortingPrefix_AdvancedList"
+        ws[
+            str(StartCell[:1] + str(TopRow + RowNumber))
+        ].value = "SortingPrefix_AdvancedList"
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = SORTING_PREFIX_ADVANCED_LIST
         RowNumber = RowNumber + 1
 
         # USE_PAGE_NAMES_ADVANCED_LIST
-        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = "UsePageNames_AdvancedList"
+        ws[
+            str(StartCell[:1] + str(TopRow + RowNumber))
+        ].value = "UsePageNames_AdvancedList"
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         # Create a dropdown for the boolan
@@ -1810,7 +1855,7 @@ def ExportSettings_XL(Silent=False):
                 f"TitleBlock Workbench: Table range is: {StartCell}:{EndCell}",
             )
             Standard_Functions.Print(Text, "Log")
-        for row in ws[1: ws.max_row]:
+        for row in ws[1 : ws.max_row]:
             Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
             Column_2 = row[Standard_Functions.GetNumberFromLetter(EndCell[:1]) - 1]
             Column_1.alignment = Alignment(
@@ -1882,9 +1927,10 @@ def ImportSettings_XL():
             if os.path.exists(EXTERNAL_SOURCE_PATH) is False:
                 Text = translate(
                     "TitleBlock Workbench",
-                    "There is no excel workbook available, while import from external source is enabled!\n" +
-                    "Please create an excel workbook to export your settings to or disable import from external source.",
-                    "TitleBlock Workbench",)
+                    "There is no excel workbook available, while import from external source is enabled!\n"
+                    + "Please create an excel workbook to export your settings to or disable import from external source.",
+                    "TitleBlock Workbench",
+                )
                 Standard_Functions.Mbox(
                     text=Text, title="TitleBlock Workbench", style=0
                 )

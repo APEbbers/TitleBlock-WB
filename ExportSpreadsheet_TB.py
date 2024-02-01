@@ -176,7 +176,7 @@ def ExportSpreadSheet_Excel() -> bool:
         ws.add_table(tab)
 
         # Align the columns
-        for row in ws[1: ws.max_row]:
+        for row in ws[1 : ws.max_row]:
             Column_1 = row[Standard_Functions.GetNumberFromLetter(StartCell[:1]) - 1]
             Column_2 = row[Standard_Functions.GetNumberFromLetter(PropCell[:1]) - 1]
             Column_3 = row[Standard_Functions.GetNumberFromLetter(IncreaseCell[:1]) - 1]

@@ -105,7 +105,10 @@ def FillTitleBlock(doc=None, recompute: bool = True) -> bool:
 
                     # fill in the editable text based on the text name in column A and the value in column B.
                     # check if there is a value. If there is an value, continue.
-                    if str(sheet.getContents("B" + str(RowNum))).strip() and MustSkip is False:
+                    if (
+                        str(sheet.getContents("B" + str(RowNum))).strip()
+                        and MustSkip is False
+                    ):
                         # define the string for the text value
                         textValue = ""
 
@@ -251,12 +254,18 @@ def FillTitleBlock(doc=None, recompute: bool = True) -> bool:
         # If the use of an advanced drawing list is enabled, update the titleblock
         if USE_ADVANCED_LIST is True:
             if USE_EXTERNAL_SOURCE_ADVANCED_LIST is False:
-                DrawingList_Functions_TB.MapAdvancedDrawingList(doc=App.ActiveDocument, sheet=sheet)
+                DrawingList_Functions_TB.MapAdvancedDrawingList(
+                    doc=App.ActiveDocument, sheet=sheet
+                )
             if USE_EXTERNAL_SOURCE_ADVANCED_LIST is True:
                 if EXTERNAL_FILE_ADVANCED_LIST.lower().endswith("fcstd"):
-                    DrawingList_Functions_TB.MapAdvancedDrawingList_FreeCAD(doc=App.ActiveDocument, sheet=sheet)
+                    DrawingList_Functions_TB.MapAdvancedDrawingList_FreeCAD(
+                        doc=App.ActiveDocument, sheet=sheet
+                    )
                 if EXTERNAL_FILE_ADVANCED_LIST.lower().endswith("xlsx"):
-                    DrawingList_Functions_TB.MapAdvancedDrawingList_Excel(doc=App.ActiveDocument, sheet=sheet)
+                    DrawingList_Functions_TB.MapAdvancedDrawingList_Excel(
+                        doc=App.ActiveDocument, sheet=sheet
+                    )
 
     except Exception as e:
         Text = "TitleBlock Workbench: an error occurred!!\n"

@@ -52,9 +52,8 @@ from Settings_TB import AUTOFIT_FACTOR
 # Define the translation
 translate = App.Qt.translate
 
+
 # region - TitleBlockData
-
-
 def CreateTitleBlockData_Excel():
     # Create a workbook and activate the first sheet
     wb = Workbook()

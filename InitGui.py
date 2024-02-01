@@ -26,8 +26,15 @@ import FreeCADGui as Gui
 import Settings_TB
 # import Standard_Functions_TB as Standard_Functions
 
+
+# region - Translations
+def QT_TRANSLATE_NOOP(context, text):
+    return text
+
+
 # Define the translation
 translate = App.Qt.translate
+# endregion
 
 __title__ = "TitleBlock Workbench"
 __author__ = "A.P. Ebbers"
@@ -82,10 +89,6 @@ class TitleBlockWB(Gui.Workbench):
 
         # Add the observer(s)
         Events_TB.AddObservers()
-
-        # Define the translation
-        def QT_TRANSLATE_NOOP(context, text):
-            return text
 
         # Add the translation path
         Gui.addLanguagePath(PATH_TRANSLATION)

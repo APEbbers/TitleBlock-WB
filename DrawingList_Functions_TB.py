@@ -191,9 +191,9 @@ def MapSimpleDrawingList(sheet):
                                     == PropertyValue_DrawingList
                                 ):
                                     # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
-                                    texts[
-                                        ReturnNames_DrawingList[j]
-                                    ] = ReturnValue_DrawingList
+                                    texts[ReturnNames_DrawingList[j]] = (
+                                        ReturnValue_DrawingList
+                                    )
 
                                     # Write all the updated text to the page.
                                     page.Template.EditableTexts = texts
@@ -208,9 +208,9 @@ def MapSimpleDrawingList(sheet):
                                 if PropertyValue_DrawingList == page.Label:
                                     # Get the editable texts
                                     texts = page.Template.EditableTexts
-                                    texts[
-                                        ReturnNames_DrawingList[j]
-                                    ] = ReturnValue_DrawingList
+                                    texts[ReturnNames_DrawingList[j]] = (
+                                        ReturnValue_DrawingList
+                                    )
 
                                     # Write all the updated text to the page.
                                     page.Template.EditableTexts = texts
@@ -823,9 +823,9 @@ def MapSimpleDrawingList_FreeCAD(sheet):
                                     == PropertyValue_DrawingList
                                 ):
                                     # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
-                                    texts[
-                                        ReturnNames_DrawingList[j]
-                                    ] = ReturnValue_DrawingList
+                                    texts[ReturnNames_DrawingList[j]] = (
+                                        ReturnValue_DrawingList
+                                    )
 
                                     # Write all the updated text to the page.
                                     page.Template.EditableTexts = texts
@@ -841,9 +841,9 @@ def MapSimpleDrawingList_FreeCAD(sheet):
                                     # Get the editable texts
                                     texts = page.Template.EditableTexts
                                     # Get the property name in the titleblock spreadsheet and fill it with the property value from the drawing list
-                                    texts[
-                                        ReturnNames_DrawingList[j]
-                                    ] = ReturnValue_DrawingList
+                                    texts[ReturnNames_DrawingList[j]] = (
+                                        ReturnValue_DrawingList
+                                    )
 
                                     # Write all the updated text to the page.
                                     page.Template.EditableTexts = texts
@@ -1202,9 +1202,9 @@ def MapAdvancedDrawingList(doc, sheet):
                                             ):
                                                 # Get the property name in the titleblock spreadsheet
                                                 # and fill it with the property value from the drawing list
-                                                texts[
-                                                    ReturnNamesExt[j]
-                                                ] = ReturnValueExcel
+                                                texts[ReturnNamesExt[j]] = (
+                                                    ReturnValueExcel
+                                                )
 
                                                 # Write all the updated text to the page.
                                                 page.Template.EditableTexts = texts
@@ -1219,9 +1219,9 @@ def MapAdvancedDrawingList(doc, sheet):
                                             if PropertyValueExt == page.Label:
                                                 # Get the editable texts
                                                 texts = page.Template.EditableTexts
-                                                texts[
-                                                    ReturnNamesExt[j]
-                                                ] = ReturnValueExcel
+                                                texts[ReturnNamesExt[j]] = (
+                                                    ReturnValueExcel
+                                                )
 
                                                 # Write all the updated text to the page.
                                                 page.Template.EditableTexts = texts
@@ -1642,9 +1642,9 @@ def MapAdvancedDrawingList_Excel(doc, sheet):
                                             ):
                                                 # Get the property name in the titleblock spreadsheet
                                                 # and fill it with the property value from the drawing list
-                                                texts[
-                                                    ReturnNamesExcel[j]
-                                                ] = ReturnValueExcel
+                                                texts[ReturnNamesExcel[j]] = (
+                                                    ReturnValueExcel
+                                                )
 
                                                 # Write all the updated text to the page.
                                                 page.Template.EditableTexts = texts
@@ -1659,9 +1659,9 @@ def MapAdvancedDrawingList_Excel(doc, sheet):
                                             if PropertyValueExcel == page.Label:
                                                 # Get the editable texts
                                                 texts = page.Template.EditableTexts
-                                                texts[
-                                                    ReturnNamesExcel[j]
-                                                ] = ReturnValueExcel
+                                                texts[ReturnNamesExcel[j]] = (
+                                                    ReturnValueExcel
+                                                )
 
                                                 # Write all the updated text to the page.
                                                 page.Template.EditableTexts = texts
@@ -2095,9 +2095,9 @@ def MapAdvancedDrawingList_FreeCAD(doc, sheet):
                                             ):
                                                 # Get the property name in the titleblock spreadsheet
                                                 # and fill it with the property value from the drawing list
-                                                texts[
-                                                    ReturnNamesExt[j]
-                                                ] = ReturnValueExt
+                                                texts[ReturnNamesExt[j]] = (
+                                                    ReturnValueExt
+                                                )
 
                                                 # Write all the updated text to the page.
                                                 page.Template.EditableTexts = texts
@@ -2112,9 +2112,9 @@ def MapAdvancedDrawingList_FreeCAD(doc, sheet):
                                             if PropertyValueExt == page.Label:
                                                 # Get the editable texts
                                                 texts = page.Template.EditableTexts
-                                                texts[
-                                                    ReturnNamesExt[j]
-                                                ] = ReturnValueExt
+                                                texts[ReturnNamesExt[j]] = (
+                                                    ReturnValueExt
+                                                )
 
                                                 # Write all the updated text to the page.
                                                 page.Template.EditableTexts = texts

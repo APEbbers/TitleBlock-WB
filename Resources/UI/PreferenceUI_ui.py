@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'PreferenceUI.ui'
+# Form generated from reading UI file 'PreferenceUI.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.1
+# Created by: Qt User Interface Compiler version 6.6.1
 ##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
+# WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (
+from PySide2.QtCore import (
     QCoreApplication,
     QDate,
     QDateTime,
@@ -22,7 +22,7 @@ from PySide6.QtCore import (
     QUrl,
     Qt,
 )
-from PySide6.QtGui import (
+from PySide2.QtGui import (
     QBrush,
     QColor,
     QConicalGradient,
@@ -40,7 +40,7 @@ from PySide6.QtGui import (
     QRadialGradient,
     QTransform,
 )
-from PySide6.QtWidgets import (
+from PySide2.QtWidgets import (
     QAbstractScrollArea,
     QApplication,
     QFormLayout,
@@ -1650,7 +1650,7 @@ class Ui_Form(object):
         self.toolButton_3.clicked["bool"].connect(self.frame_Map_Items.setHidden)
         self.toolButton_2.clicked["bool"].connect(self.frame_DrawingNumber.setHidden)
         self.toolButton.clicked["bool"].connect(self.frame_DrawingNumber_2.setHidden)
-        self.toolButton_6.clicked["bool"].connect(self.frame_31.setHidden)
+        self.toolButton_6.clicked["bool"].connect(self.frame_3.setHidden)
         self.UseAdvancedList.toggled.connect(self.frame_2.setEnabled)
         self.UseSimpleList.toggled.connect(self.frame_5.setEnabled)
         self.UsePageName.toggled.connect(self.DrawingNumber_Page.setEnabled)

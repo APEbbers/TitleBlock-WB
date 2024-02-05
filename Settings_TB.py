@@ -1564,18 +1564,18 @@ def ExportSettings_XL(Silent=False):
         RowNumber = RowNumber + 1
 
         # DOCINFO_LASTMODIFIEDBY
-        ws[
-            str(StartCell[:1] + str(TopRow + RowNumber))
-        ].value = "DocInfo_LastModifiedBy"
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = (
+            "DocInfo_LastModifiedBy"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = DOCINFO_LASTMODIFIEDBY
         RowNumber = RowNumber + 1
 
         # DOCINFO_NAME
-        ws[
-            str(StartCell[:1] + str(TopRow + RowNumber))
-        ].value = "DocInfo_LastModifiedDate"
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = (
+            "DocInfo_LastModifiedDate"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = DOCINFO_LASTMODIFIEDDATE
@@ -1671,9 +1671,9 @@ def ExportSettings_XL(Silent=False):
         RowNumber = RowNumber + 1
 
         # USE_EXTERNAL_SOURCE_SIMPLE_LIST
-        ws[
-            str(StartCell[:1] + str(TopRow + RowNumber))
-        ].value = "UseExternalSource_SimpleList"
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = (
+            "UseExternalSource_SimpleList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         # Create a dropdown for the boolan
@@ -1684,9 +1684,9 @@ def ExportSettings_XL(Silent=False):
         RowNumber = RowNumber + 1
 
         # EXTERNAL_FILE_SIMPLE_LIST
-        ws[
-            str(StartCell[:1] + str(TopRow + RowNumber))
-        ].value = "ExternalFile_SimpleList"
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = (
+            "ExternalFile_SimpleList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = EXTERNAL_FILE_SIMPLE_LIST
@@ -1707,18 +1707,18 @@ def ExportSettings_XL(Silent=False):
         RowNumber = RowNumber + 1
 
         # PROPERTY_NAME_SIMPLE_LIST
-        ws[
-            str(StartCell[:1] + str(TopRow + RowNumber))
-        ].value = "PropertyName_SimpleList"
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = (
+            "PropertyName_SimpleList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = PROPERTY_NAME_SIMPLE_LIST
         RowNumber = RowNumber + 1
 
         # USE_PAGE_NAMES_SIMPLE_LIST
-        ws[
-            str(StartCell[:1] + str(TopRow + RowNumber))
-        ].value = "UsePageNames_SimpleList"
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = (
+            "UsePageNames_SimpleList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         # Create a dropdown for the boolan
@@ -1743,9 +1743,9 @@ def ExportSettings_XL(Silent=False):
         RowNumber = RowNumber + 1
 
         # USE_EXTERNAL_SOURCE_ADVANCED_LIST
-        ws[
-            str(StartCell[:1] + str(TopRow + RowNumber))
-        ].value = "UseExternalSource_AdvancedList"
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = (
+            "UseExternalSource_AdvancedList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         # Create a dropdown for the boolan
@@ -1756,54 +1756,54 @@ def ExportSettings_XL(Silent=False):
         RowNumber = RowNumber + 1
 
         # EXTERNAL_FILE_ADVANCED_LIST
-        ws[
-            str(StartCell[:1] + str(TopRow + RowNumber))
-        ].value = "ExternalFile_AdvancedList"
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = (
+            "ExternalFile_AdvancedList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = EXTERNAL_FILE_ADVANCED_LIST
         RowNumber = RowNumber + 1
 
         # SHEETNAME_ADVANCED_LIST
-        ws[
-            str(StartCell[:1] + str(TopRow + RowNumber))
-        ].value = "SheetName_AdvancedList"
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = (
+            "SheetName_AdvancedList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = SHEETNAME_ADVANCED_LIST
         RowNumber = RowNumber + 1
 
         # STARTCELL_ADVANCED_LIST
-        ws[
-            str(StartCell[:1] + str(TopRow + RowNumber))
-        ].value = "StartCell_AdvancedList"
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = (
+            "StartCell_AdvancedList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = STARTCELL_ADVANCED_LIST
         RowNumber = RowNumber + 1
 
         # PROPERTY_NAME_ADVANCED_LIST
-        ws[
-            str(StartCell[:1] + str(TopRow + RowNumber))
-        ].value = "PropertyName_AdvancedList"
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = (
+            "PropertyName_AdvancedList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = PROPERTY_NAME_ADVANCED_LIST
         RowNumber = RowNumber + 1
 
         # SORTING_PREFIX_ADVANCED_LIST
-        ws[
-            str(StartCell[:1] + str(TopRow + RowNumber))
-        ].value = "SortingPrefix_AdvancedList"
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = (
+            "SortingPrefix_AdvancedList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         ws[SettingValue].value = SORTING_PREFIX_ADVANCED_LIST
         RowNumber = RowNumber + 1
 
         # USE_PAGE_NAMES_ADVANCED_LIST
-        ws[
-            str(StartCell[:1] + str(TopRow + RowNumber))
-        ].value = "UsePageNames_AdvancedList"
+        ws[str(StartCell[:1] + str(TopRow + RowNumber))].value = (
+            "UsePageNames_AdvancedList"
+        )
         # Write the value
         SettingValue = str(ValueCell[:1] + str(TopRow + RowNumber))
         # Create a dropdown for the boolan

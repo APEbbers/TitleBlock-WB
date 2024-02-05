@@ -38,4 +38,3 @@ LGPL2.+
 
 ## Screenshots
 <img src="https://github.com/APEbbers/TitleBlock-WB/assets/10145631/7f71b9fb-4c78-498a-8500-11415f1495aa" width="800">
-

@@ -101,10 +101,10 @@ class TitleBlockWB(Gui.Workbench):
         ToolbarListMain = CreateUI_TB.DefineToolbars()["ToolbarListMain"]
         ToolbarListExtra = CreateUI_TB.DefineToolbars()["ToolbarListExtra"]
         self.appendToolbar(
-            QT_TRANSLATE_NOOP("Workbench", "TitleBlock"), ToolbarListMain
+            QT_TRANSLATE_NOOP("TitleBlock WorkBench", "TitleBlock"), ToolbarListMain
         )  # creates a new toolbar with your commands
         self.appendToolbar(
-            QT_TRANSLATE_NOOP("Workbench", "TitleBlock extra"), ToolbarListExtra
+            QT_TRANSLATE_NOOP("TitleBlock WorkBench", "TitleBlock extra"), ToolbarListExtra
         )  # creates a new toolbar with your commands
 
         # endregion
@@ -117,26 +117,26 @@ class TitleBlockWB(Gui.Workbench):
         DrawingList_Simple = CreateUI_TB.DefineMenus()["DrawingList_Simple"]
         DrawingList_Advanced = CreateUI_TB.DefineMenus()["DrawingList_Advanced"]
         self.appendMenu(
-            QT_TRANSLATE_NOOP("Workbench", "TitleBlock"),
+            QT_TRANSLATE_NOOP("TitleBlock WorkBench", "TitleBlock"),
             StandardList,
         )  # creates a new menu
         self.appendMenu(
-            QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "External source"]), ExcelList
+            QT_TRANSLATE_NOOP("TitleBlock WorkBench", ["TitleBlock", "External source"]), ExcelList
         )
         self.appendMenu(
-            QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "External source"]),
+            QT_TRANSLATE_NOOP("TitleBlock WorkBench", ["TitleBlock", "External source"]),
             FreeCADList,
         )
         self.appendMenu(
-            QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "Drawing list"]),
+            QT_TRANSLATE_NOOP("TitleBlock WorkBench", ["TitleBlock", "Drawing list"]),
             DrawingList_Simple,
         )
         self.appendMenu(
-            QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "Drawing list - Advanced"]),
+            QT_TRANSLATE_NOOP("TitleBlock WorkBench", ["TitleBlock", "Drawing list - Advanced"]),
             DrawingList_Advanced,
         )
         self.appendMenu(
-            QT_TRANSLATE_NOOP("Workbench", ["TitleBlock", "Settings"]), SettingsList
+            QT_TRANSLATE_NOOP("TitleBlock WorkBench", ["TitleBlock", "Settings"]), SettingsList
         )
         # endregion
 

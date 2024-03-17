@@ -27,12 +27,6 @@ import Settings_TB
 
 # import Standard_Functions_TB as Standard_Functions
 
-
-# region - Translations
-def QT_TRANSLATE_NOOP(context, text):
-    return text
-
-
 # Define the translation
 translate = App.Qt.translate
 # endregion
@@ -87,6 +81,10 @@ class TitleBlockWB(Gui.Workbench):
         import CreateUI_TB
         import TechDraw_Functions_TB
         import Events_TB
+
+        # region - Translations
+        def QT_TRANSLATE_NOOP(context, text):
+            return text
 
         # Add the observer(s)
         Events_TB.AddObservers()

@@ -347,7 +347,7 @@ def get_toolbar_with_name(name: str, UserParam: str) -> bool:
 
 def toggleToolbars(ToolbarName: str, WorkBench: str = ""):
     import FreeCADGui as Gui
-    from PySide2.QtWidgets import QToolBar
+    from PySide.QtWidgets import QToolBar
 
     # Get the active workbench
     if WorkBench == "":
